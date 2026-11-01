@@ -511,6 +511,23 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .grade-list span{font-weight:800;flex:none}
 .g-ok{background:var(--ok-soft)}.g-ok span{color:var(--ok)}
 .g-no{background:var(--vital-soft)}.g-no span{color:var(--vital)}
+
+/* ---- casi clinici: dettaglio ---- */
+.case-head{display:flex;flex-direction:column;gap:14px}
+.case-story{max-width:72ch;font-size:1.04rem}
+.labs{display:flex;flex-direction:column;gap:8px}
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.lab{display:flex;justify-content:space-between;gap:8px;align-items:baseline;padding:8px 12px;border-radius:10px;background:var(--bg);border:1px solid var(--line);font-size:.9rem}
+.lab-alt{background:var(--vital-soft);border-color:color-mix(in srgb,var(--vital) 40%,var(--line))}
+.lab-alt b{color:var(--vital)}
+.csteps{display:flex;flex-direction:column;gap:14px}
+.cstep .cres{display:flex;flex-direction:column;gap:10px}
+.cstep .cres:empty{display:none}
+.evo{border-left:4px solid var(--amber);background:var(--amber-soft);padding:10px 14px;border-radius:0 12px 12px 0}
+.evo p{margin-top:4px;font-weight:700}
+.case-end{display:flex;flex-direction:column;gap:12px}
+.cc-new{background:var(--vital);color:#fff;padding:1px 6px;border-radius:4px;font-weight:700}
+@media (prefers-reduced-motion: no-preference){.cstep{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}}
 </style>
 </head>
 <body>
@@ -536,6 +553,7 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 
 <script src="pdfdata.js"></script>
 <script src="quizbank.js"></script>
+<script src="casebank.js"></script>
 <script>
 if(typeof PDFQ==="undefined"){window.PDFQ=[];window.PDF_TITLES=[]}
 /* ============ DATI ============ */
@@ -819,8 +837,8 @@ const QUIZ = [
 ].map((q,i)=>({id:"q"+i,m:q[0],q:q[1],o:q[2],r:q[3],e:q[4]}));
 
 /* ---- Casi clinici ---- */
-const CASES = [
-{id:"k1",lv:"facile",title:"Frattura di femore in 2ª giornata post-operatoria",tags:["dx","eo"],
+const CASES0 = [
+{id:"k1",area:"Chirurgia",lv:"facile",title:"Frattura di femore in 2ª giornata post-operatoria",tags:["dx","eo"],
  story:"Maria, 81 anni, vive sola. Operata ieri di endoprotesi d'anca destra dopo una caduta in casa. Riferisce dolore 7/10 alla mobilizzazione, ha paura di alzarsi. Porta un catetere vescicale e un accesso venoso periferico. È lucida e orientata.",
  vit:[["PA","135/80"],["FC","92"],["FR","18"],["SpO2","96%"],["TC","37,4"],["NRS","7/10",1],["Braden","14",1],["Conley","3",1]],
  steps:[
@@ -831,7 +849,7 @@ const CASES = [
   ["Cosa pianifichi per la dimissione?","Educazione su posizioni da evitare (lussazione), uso del deambulatore, prevenzione cadute a casa, profilassi antitrombotica, segni di infezione. Vive sola: valutare con il servizio sociale e l'infermiere di famiglia e comunità (DM 77/2022) il percorso di riabilitazione o assistenza domiciliare."]
  ],
  oral:"Collega sempre il dolore alla L. 38/2010 e all'art. 25 del Codice; la prevenzione delle cadute alla gestione del rischio clinico (art. 34)."},
-{id:"k2",lv:"facile",title:"Diabete tipo 2: avvio della terapia insulinica",tags:["dx","leg"],
+{id:"k2",area:"Medicina",lv:"facile",title:"Diabete tipo 2: avvio della terapia insulinica",tags:["dx","leg"],
  story:"Giuseppe, 58 anni, camionista, ricoverato per iperglicemia (glicemia 380 mg/dl all'ingresso). Il medico ha prescritto insulina basale e rapida ai pasti. Giuseppe dice: «Non so nemmeno come si fa una puntura, e col mio lavoro come faccio?».",
  vit:[["Glicemia","210 mg/dl",1],["PA","145/90",1],["FC","80"],["BMI","32",1],["HbA1c","9,8%",1]],
  steps:[
@@ -841,7 +859,7 @@ const CASES = [
   ["Quale aspetto normativo e deontologico emerge?","Il consenso informato e la partecipazione alle scelte (L. 219/2017, art. 13 e art. 19 del Codice: favorire scelte consapevoli). Il lavoro di autista professionista con terapia insulinica richiede valutazioni specifiche per l'idoneità alla guida: va informato di parlarne con il medico."]
  ],
  oral:"Mostra la differenza tra «informare» ed «educare»: l'educazione si verifica con il teach-back."},
-{id:"k3",lv:"facile",title:"Bambino di 3 anni con gastroenterite",tags:["dx","eo","cod"],
+{id:"k3",area:"Pediatria",lv:"facile",title:"Bambino di 3 anni con gastroenterite",tags:["dx","eo","cod"],
  story:"Luca, 3 anni, 14 kg, arriva con la madre: vomito e diarrea da 24 ore, beve poco, ha bagnato un solo pannolino nelle ultime 8 ore. È irritabile ma consolabile. Piange quando vede l'ago.",
  vit:[["FC","140",1],["FR","28"],["TC","38,2",1],["Refill","3 s",1],["Peso","14 kg"],["Diuresi","ridotta",1]],
  steps:[
@@ -851,7 +869,7 @@ const CASES = [
   ["Quale articolo del Codice richiami?","Art. 24: volontà del minore, considerata secondo la sua maturità. Art. 25 dolore. Art. 19: coinvolgimento delle persone di riferimento. Per la L. 219/2017 il consenso è espresso dai genitori, tenendo conto della volontà del minore."]
  ],
  oral:"In pediatria usa le scale giuste (FLACC sotto i 3 anni o nei non verbali, Wong-Baker dai 3 anni)."},
-{id:"k4",lv:"medio",title:"Riacutizzazione di BPCO",tags:["dx","eo"],
+{id:"k4",area:"Medicina",lv:"medio",title:"Riacutizzazione di BPCO",tags:["dx","eo"],
  story:"Antonio, 72 anni, ex fumatore (50 pacchetti/anno), BPCO nota. Da 3 giorni dispnea ingravescente, tosse con escreato giallo-verde. È seduto sul bordo del letto, usa i muscoli accessori, parla con frasi brevi. In pronto soccorso gli hanno messo ossigeno a 6 l/min in maschera.",
  vit:[["FR","28",1],["SpO2","97% con O2",1],["FC","110",1],["PA","150/85"],["TC","38,0",1],["GCS","14 (sonnolento)",1]],
  steps:[
@@ -862,7 +880,7 @@ const CASES = [
   ["Cosa insegni prima della dimissione?","Tecnica degli inalatori, riconoscimento precoce delle riacutizzazioni, vaccinazioni, cessazione del fumo, riabilitazione respiratoria, eventuale ossigenoterapia domiciliare con flussi prescritti e sicurezza (niente fiamme libere)."]
  ],
  oral:"È il classico caso in cui la commissione verifica se conosci il target 88–92% e il rischio di ipercapnia."},
-{id:"k5",lv:"medio",title:"Scompenso cardiaco con edemi",tags:["dx","eo"],
+{id:"k5",area:"Medicina",lv:"medio",title:"Scompenso cardiaco con edemi",tags:["dx","eo"],
  story:"Rosa, 77 anni, scompenso cardiaco cronico. Da una settimana dorme con tre cuscini, ha le caviglie gonfie, ha preso 3 kg in 5 giorni. Ammette di aver smesso il diuretico perché «la faceva urinare troppo» quando usciva.",
  vit:[["PA","160/95",1],["FC","104",1],["FR","24",1],["SpO2","91%",1],["Peso","+3 kg",1],["Edemi","fovea 3+",1]],
  steps:[
@@ -872,7 +890,7 @@ const CASES = [
   ["Come affronti la non aderenza al diuretico?","Senza giudicarla: si esplora il motivo (imbarazzo, uscite di casa), si concorda con il medico l'orario di assunzione compatibile con la sua vita (es. al mattino in giornate in cui resta a casa più a lungo), si insegna l'automonitoraggio del peso (avvisare se +2 kg in 2–3 giorni). È educazione centrata sulla persona (art. 19 del Codice)."]
  ],
  oral:"Il peso giornaliero è l'indicatore più semplice e affidabile della ritenzione idrica: dillo esplicitamente."},
-{id:"k6",lv:"medio",title:"Anziana con delirium e richiesta di contenzione",tags:["dx","cod","leg"],
+{id:"k6",area:"Geriatria",lv:"medio",title:"Anziana con delirium e richiesta di contenzione",tags:["dx","cod","leg"],
  story:"Ada, 86 anni, demenza lieve, ricoverata per infezione urinaria. Dalla seconda notte è agitata, cerca di scavalcare le sponde, si strappa l'ago cannula. La figlia chiede di «legarla» per evitare che cada. Un OSS ha già preso le fasce.",
  vit:[["TC","38,1",1],["FC","98"],["PA","110/60"],["Glicemia","95"],["Diuresi","globo?",1],["PAINAD","5",1]],
  steps:[
@@ -883,7 +901,7 @@ const CASES = [
   ["Cosa dici all'OSS?","Che la decisione non spetta a lui: l'infermiere pianifica e supervisiona le attività degli operatori di supporto (art. 39). Lo coinvolgi nelle strategie alternative e nella sorveglianza."]
  ],
  oral:"Questo caso unisce diagnosi, codice e legge: chiudi sempre con documentazione e rivalutazione."},
-{id:"k7",lv:"difficile",title:"Paziente post-operatorio che peggiora di notte",tags:["eo","dx","leg"],
+{id:"k7",area:"Chirurgia",lv:"difficile",title:"Paziente post-operatorio che peggiora di notte",tags:["eo","dx","leg"],
  story:"Franco, 64 anni, 3ª giornata dopo resezione intestinale. Alle 2 di notte è sudato, dice di «sentirsi strano». La diuresi delle ultime 4 ore è 60 ml. La ferita è arrossata e l'addome è teso. Nel turno precedente i parametri non erano stati rilevati.",
  vit:[["FR","26",1],["SpO2","93%",1],["PA","88/50",1],["FC","124",1],["TC","38,9",1],["Coscienza","confuso",1],["Diuresi","15 ml/h",1]],
  steps:[
@@ -894,7 +912,7 @@ const CASES = [
   ["Il turno precedente non ha rilevato i parametri: quali profili?","Possibile negligenza (omissione di monitoraggio). Si documenta in modo oggettivo e contemporaneo, senza modificare le registrazioni altrui. Si segnala con l'incident reporting per l'analisi del sistema (art. 34 del Codice, L. 24/2017 sulla gestione del rischio): l'obiettivo è capire cosa non ha funzionato, non colpevolizzare."]
  ],
  oral:"La commissione vuole sentire: priorità, ABCDE, NEWS2, SBAR, documentazione, gestione del rischio."},
-{id:"k8",lv:"difficile",title:"Errore di somministrazione della terapia",tags:["leg","cod"],
+{id:"k8",area:"Rischio clinico",lv:"difficile",title:"Errore di somministrazione della terapia",tags:["leg","cod"],
  story:"Durante il giro terapia ti accorgi che alla signora del letto 12 la collega del turno precedente ha somministrato 10 mg di morfina sottocute destinati al letto 21 (omonimia del cognome). La signora è sonnolenta.",
  vit:[["FR","9",1],["SpO2","90%",1],["Pupille","miosi",1],["PA","105/65"],["FC","62"],["Sedazione","risvegliabile a stimolo verbale",1]],
  steps:[
@@ -905,7 +923,7 @@ const CASES = [
   ["Quali profili di responsabilità esistono e cosa previene l'errore?","Penale (lesioni colpose, art. 590 c.p., se c'è danno), civile (L. 24/2017: struttura contrattuale, operatore extracontrattuale), disciplinare, deontologica. Prevenzione: regola delle «giuste» (paziente, farmaco, dose, via, tempo, registrazione…), doppia identificazione con braccialetto, allerta per pazienti omonimi, raccomandazioni ministeriali sulla sicurezza della terapia."]
  ],
  oral:"Nella risposta parti dalla persona (ABC), poi documentazione, segnalazione, comunicazione, prevenzione."},
-{id:"k9",lv:"difficile",title:"Fine vita con DAT e familiare in disaccordo",tags:["leg","cod","dx"],
+{id:"k9",area:"Cure palliative",lv:"difficile",title:"Fine vita con DAT e familiare in disaccordo",tags:["leg","cod","dx"],
  story:"Paolo, 70 anni, carcinoma polmonare in fase avanzata, ricoverato in hospice. Due anni fa ha depositato le DAT: rifiuta intubazione, ventilazione e nutrizione artificiale; ha nominato fiduciaria la moglie. Ora è soporoso e dispnoico. Il figlio, arrivato dall'estero, chiede di «fare tutto il possibile» e minaccia denunce.",
  vit:[["FR","30",1],["SpO2","84%",1],["PA","95/55"],["Coscienza","soporoso",1],["Dolore","PAINAD 6",1]],
  steps:[
@@ -916,7 +934,7 @@ const CASES = [
   ["Cosa documenti?","Volontà espresse e DAT, sintomi e loro valutazione (L. 38/2010), terapie e risposta, colloqui con i familiari e decisioni condivise (art. 36)."]
  ],
  oral:"Distingui chiaramente: DAT (L. 219 art. 4) e pianificazione condivisa delle cure (art. 5)."},
-{id:"k10",lv:"difficile",title:"Rifiuto di emotrasfusione",tags:["leg","cod"],
+{id:"k10",area:"Ostetricia",lv:"difficile",title:"Rifiuto di emotrasfusione",tags:["leg","cod"],
  story:"Elena, 34 anni, Testimone di Geova, emorragia post-partum. Emoglobina 6,8 g/dl. È cosciente e capace; rifiuta per motivi religiosi qualsiasi trasfusione di sangue, anche se le spiegano il rischio di morte. Porta con sé un documento firmato che lo conferma. Il marito è d'accordo con lei.",
  vit:[["Hb","6,8 g/dl",1],["PA","90/55",1],["FC","120",1],["SpO2","96%"],["Coscienza","vigile"]],
  steps:[
@@ -929,6 +947,8 @@ const CASES = [
 ];
 
 /* ============ STATO ============ */
+let CASES=CASES0.concat(typeof CASES2!=="undefined"?CASES2:[]);
+const BASE_CASE_COUNT=CASES.length;
 const LS = {
   get(k,d){try{const v=localStorage.getItem("orinf_"+k);return v?JSON.parse(v):d}catch(e){return d}},
   set(k,v){try{localStorage.setItem("orinf_"+k,JSON.stringify(v))}catch(e){}}
@@ -1622,6 +1642,17 @@ function applyDaily(docs){
     fc.push({id:"f"+id,m,q:String(it.q),a:"Risposta: "+String(it.o[it.r])+(it.e?"\n\n"+String(it.e):""),src:"giorno",sec:it.sec||0,ref:fonte?"Fonte: "+fonte:""});
   });
   CARDS=BASE_CARDS.concat(fc);
+  const dc=[];
+  for(const day of DAILY)(day.casi||[]).forEach((k,i)=>{
+    if(!k||!k.title||!k.story||!Array.isArray(k.steps)||!k.steps.length)return;
+    const steps=k.steps.filter(x=>x&&(Array.isArray(x)?x[0]&&x[1]:x.q&&x.a)).map(x=>Array.isArray(x)?[String(x[0]),String(x[1]),x[2]?String(x[2]):""]:[String(x.q),String(x.a),x.evo?String(x.evo):""]);
+    if(!steps.length)return;
+    const tags=(Array.isArray(k.tags)?k.tags:["cli"]).filter(t=>SUBJ[t]);
+    dc.push({id:"g"+day.date+"-"+i,lv:["facile","medio","difficile"].includes(k.lv)?k.lv:"medio",area:String(k.area||""),title:String(k.title),tags:tags.length?tags:["cli"],story:String(k.story),
+      vit:(k.vit||[]).filter(Array.isArray).map(v=>[String(v[0]),String(v[1]),!!v[2]]),esami:(k.esami||[]).filter(Array.isArray).map(v=>[String(v[0]),String(v[1]),!!v[2]]),
+      steps,dx:(k.dx||[]).map(String),oral:String(k.oral||""),date:day.date,fonte:(typeof k.fonte==="string"&&/^https:\/\//.test(k.fonte))?k.fonte:""});
+  });
+  CASES=CASES0.concat(typeof CASES2!=="undefined"?CASES2:[],dc);
   rebuildQ();
 }
 async function initDb(){
@@ -1640,7 +1671,7 @@ async function initDb(){
 }
 function rerenderIdle(){/* rerender keeps head */
   const v=(location.hash||"#oggi").slice(1);
-  if((v==="oggi"||v==="home"||v==="avanzamento")&&!(qz&&qz.f==="oggi"&&qz.i>0&&qz.i<qz.list.length))route();
+  if((v==="oggi"||v==="home"||v==="avanzamento"||v==="casi")&&!(qz&&qz.f==="oggi"&&qz.i>0&&qz.i<qz.list.length))route();
 }
 
 function domande(){
@@ -1674,40 +1705,98 @@ function domande(){
 
 function casi(v){
   if(v&&v.startsWith("caso-")){const c=CASES.find(x=>x.id===v.slice(5));if(c)return caseView(c)}
-  const f=state.caseFilter;
-  const list=CASES.filter(c=>f==="tutti"||c.lv===f);
+  const f=state.caseFilter, ar=state.caseArea||"tutte";
+  const areas=[...new Set(CASES.map(c=>c.area).filter(Boolean))].sort();
+  const list=CASES.filter(c=>(f==="tutti"||c.lv===f)&&(ar==="tutte"||c.area===ar)).sort((a,b)=>(b.date||"").localeCompare(a.date||""));
   app.innerHTML=`
   <div><span class="eyebrow">Ragionamento clinico</span><h2>Casi clinici</h2></div>
   <p class="lead">Leggi il caso, scrivi o di' ad alta voce la tua risposta a ogni domanda, poi confrontala con la risposta guida. I casi difficili uniscono clinica, legge e Codice, come spesso avviene all'orale.</p>
   <div class="row">${["tutti","facile","medio","difficile"].map(k=>`<button class="chip" data-f="${k}" aria-pressed="${f===k}">${k[0].toUpperCase()+k.slice(1)}</button>`).join("")}</div>
+  ${areas.length?`<div class="row"><label class="small" for="c-area">Area</label><select id="c-area" class="btn"><option value="tutte">Tutte le aree</option>${areas.map(x=>`<option ${x===ar?"selected":""}>${esc(x)}</option>`).join("")}</select><span class="small">${list.length} casi</span></div>`:""}
   <div class="grid cases">${list.map(c=>{const alert=c.vit.filter(v=>v[2]).slice(0,3);return `<button class="case-card lv-${c.lv}-card" data-id="${c.id}">
-    <div class="cc-top"><span class="tag lv-${c.lv}">${c.lv}</span><span class="cc-num mono">CASO ${String(CASES.indexOf(c)+1).padStart(2,"0")}</span></div>
+    <div class="cc-top"><span class="tag lv-${c.lv}">${c.lv}</span><span class="cc-num mono">${c.date?`<b class="cc-new">NUOVO</b> `:""}${c.area?esc(c.area).toUpperCase()+" · ":""}CASO ${String(CASES.indexOf(c)+1).padStart(2,"0")}</span></div>
     <h3>${c.title}</h3>
     <div class="cc-vit">${alert.map(v=>`<span class="mono"><i>${v[0]}</i> ${v[1]}</span>`).join("")}</div>
-    <div class="cc-foot"><span class="row" style="gap:6px">${c.tags.map(tag).join("")}</span><span class="small">${state.caseDone[c.id]?"✓ svolto":c.steps.length+" domande"} →</span></div></button>`}).join("")}</div>`;
+    <div class="cc-foot"><span class="row" style="gap:6px">${c.tags.map(tag).join("")}</span><span class="small">${(c.id in state.caseDone)?(typeof state.caseDone[c.id]==="number"&&state.caseDone[c.id]!==1?"✓ "+state.caseDone[c.id]+"/30":"✓ svolto"):c.steps.length+" domande"} →</span></div></button>`}).join("")}</div>`;
   app.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{state.caseFilter=b.dataset.f;casi()});
+  if($("#c-area"))$("#c-area").onchange=e=>{state.caseArea=e.target.value;casi()};
   app.querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>location.hash="caso-"+b.dataset.id);
 }
+/* ---- valutazione di una risposta scritta: Claude se disponibile, altrimenti voto automatico ---- */
+function rubricOf(text){return String(text).split(/\n+|(?<=[.;])\s+(?=[A-ZÀ-Ü])/).map(x=>x.trim()).filter(x=>x.length>12).slice(0,8)}
+async function gradeAnswer(context,question,answer,rub){
+  if(!answer.trim())return {voto:0,miss:[],err:[],comm:"Nessuna risposta.",by:"auto",hit:[]};
+  const sm=await getSampleSafe();
+  if(sm){try{
+    const g=await sm.json(`Sei un commissario d'esame per il concorso pubblico per infermieri (Regione Puglia). Valuta in modo obiettivo, coerente e severo ma equo la risposta del candidato confrontandola con la griglia. Non premiare la lunghezza: conta la presenza dei concetti corretti e l'assenza di errori; le affermazioni errate abbassano il voto.
+Contesto: ${context}
+Domanda: ${question}
+Griglia dei punti attesi (indice: punto):
+${rub.map((p,i)=>i+": "+p).join("\n")}
+Risposta del candidato:
+${answer}
+
+Rispondi solo con JSON: {"voto": intero 0-30, "coperti": [indici dei punti trattati correttamente], "mancanti": [max 3 concetti mancanti, brevi], "errori": [affermazioni errate, brevi], "commento": "max 2 frasi"}`,{modelTier:"default",cache:false});
+    return {voto:Math.max(0,Math.min(30,Math.round(+g.voto||0))),miss:(g.mancanti||[]).slice(0,3).map(String),err:(g.errori||[]).map(String),comm:String(g.commento||""),by:"claude",hit:(g.coperti||[]).map(Number)};
+  }catch(e){}}
+  const ev=autoGrade(answer,rub);
+  return {voto:Math.round(ev.score*30),miss:rub.filter((_,i)=>!ev.hit.includes(i)).slice(0,3).map(p=>p.slice(0,90)),err:[],comm:ev.short?"Risposta molto breve: aggiungi definizioni, priorità e riferimenti.":"",by:"auto",hit:ev.hit};
+}
 function caseView(c){
+  const idx=CASES.indexOf(c);
   app.innerHTML=`
-  <div class="row"><a href="#casi" class="btn" style="text-decoration:none">← Tutti i casi</a><span class="tag lv-${c.lv}">${c.lv}</span>${c.tags.map(tag).join("")}</div>
-  <div class="sheet" style="display:flex;flex-direction:column;gap:14px">
-    <h2>${c.title}</h2>
-    <p style="max-width:70ch">${esc(c.story)}</p>
+  <div class="row"><a href="#casi" class="btn" style="text-decoration:none">← Tutti i casi</a><span class="tag lv-${c.lv}">${c.lv}</span>${c.tags.map(tag).join("")}${c.area?`<span class="tag t-src">${esc(c.area)}</span>`:""}${c.date?`<span class="tag t-src">Nuovo · ${c.date}</span>`:""}</div>
+  <div class="sheet case-head">
+    <span class="eyebrow mono">Caso ${String(idx+1).padStart(2,"0")}</span>
+    <h2>${esc(c.title)}</h2>
+    <p class="case-story">${esc(c.story)}</p>
     ${vitalsMonitor(c.vit)}
+    ${c.esami&&c.esami.length?`<div class="labs"><span class="eyebrow">Esami e rilievi</span><div class="lab-grid">${c.esami.map(e=>`<div class="lab ${e[2]?"lab-alt":""}"><span>${esc(e[0])}</span><b class="mono">${esc(e[1])}</b></div>`).join("")}</div></div>`:""}
+    ${c.fonte?`<p class="small">Fonte di riferimento: <a href="${esc(c.fonte)}" target="_blank" rel="noopener">${esc(c.fonte.replace(/^https:\/\//,"").split("/")[0])}</a></p>`:""}
   </div>
-  <div style="display:flex;flex-direction:column;gap:12px">${c.steps.map((s,i)=>`
-    <div class="step"><span class="num">DOMANDA ${i+1} DI ${c.steps.length}</span><h3>${esc(s[0])}</h3>
-      <label class="small" for="ans-${c.id}-${i}">La tua risposta</label>
-      <textarea id="ans-${c.id}-${i}" placeholder="Scrivi qui i punti principali…"></textarea>
-      <div class="row"><button class="btn" data-show="${i}">Mostra risposta guida</button></div>
-      <div class="answer" id="sol-${i}" hidden>${esc(s[1])}</div></div>`).join("")}
-  </div>
-  <div class="note"><b>Per l'orale:</b> ${esc(c.oral)}</div>
-  <div class="row"><button class="btn primary" id="done">${state.caseDone[c.id]?"Svolto ✓":"Segna come svolto"}</button><button class="btn" id="discuss">Discuti questo caso con la commissione</button></div>`;
-  app.querySelectorAll("[data-show]").forEach(b=>b.onclick=()=>{const el=$("#sol-"+b.dataset.show);el.hidden=!el.hidden;b.textContent=el.hidden?"Mostra risposta guida":"Nascondi risposta guida"});
-  $("#done").onclick=()=>{state.caseDone[c.id]=1;LS.set("caseDone",state.caseDone);$("#done").textContent="Svolto ✓"};
-  $("#discuss").onclick=()=>{oralPreset={mode:"caso",caso:c};location.hash="orale"};
+  <div id="csteps" class="csteps"></div>
+  <div id="cend"></div>`;
+  const box=$("#csteps"); const votes=[];
+  let i=0;
+  const drawStep=()=>{
+    const s=c.steps[i];
+    const el=document.createElement("div");el.className="step cstep";
+    el.innerHTML=`<span class="num">DOMANDA ${i+1} DI ${c.steps.length}</span><h3>${esc(s[0])}</h3>
+      <label class="small" for="cans-${i}">Scrivi la risposta come all'orale</label>
+      <textarea id="cans-${i}" placeholder="Priorità, ragionamento, interventi, norme…"></textarea>
+      <div class="row"><button class="btn primary" data-k="go">Consegna e valuta</button><button class="btn" data-k="skip">Non lo so</button><span class="status"></span></div>
+      <div class="cres"></div>`;
+    box.appendChild(el);
+    if(i>0)el.scrollIntoView({behavior:RM?"auto":"smooth",block:"start"});
+    const ta=el.querySelector("textarea"),go=el.querySelector('[data-k=go]'),sk=el.querySelector('[data-k=skip]'),stt=el.querySelector(".status"),res=el.querySelector(".cres");
+    const submit=async(text)=>{
+      go.disabled=sk.disabled=true;ta.readOnly=true;stt.textContent="Valutazione in corso…";
+      const rub=rubricOf(s[1]);
+      const g=await gradeAnswer(`Caso clinico: ${c.title}. ${c.story} Parametri: ${c.vit.map(v=>v[0]+" "+v[1]).join(", ")}.`,s[0],text,rub);
+      stt.textContent="";votes.push(g.voto);
+      res.innerHTML=`<div class="expl"><b>Voto: ${g.voto}/30</b>${g.by==="auto"?" (automatico)":""}. ${esc(g.comm)}${g.miss.length?`<br><b>Mancava:</b> ${esc(g.miss.join("; "))}`:""}${g.err.length?`<br><b>Errori:</b> ${esc(g.err.join("; "))}`:""}</div>
+        <div class="answer"><b>Risposta guida</b>\n${esc(s[1])}</div>
+        ${s[2]?`<div class="evo"><span class="eyebrow">Evoluzione del quadro</span><p>${esc(s[2])}</p></div>`:""}
+        <div class="row">${i+1<c.steps.length?`<button class="btn primary" data-k="next">Domanda successiva</button>`:`<button class="btn primary" data-k="end">Concludi il caso</button>`}</div>`;
+      const nx=res.querySelector("[data-k=next]"),en=res.querySelector("[data-k=end]");
+      if(nx)nx.onclick=()=>{nx.disabled=true;i++;drawStep()};
+      if(en)en.onclick=()=>{en.disabled=true;finish()};
+    };
+    go.onclick=()=>submit(ta.value);
+    sk.onclick=()=>submit("");
+  };
+  const finish=()=>{
+    const avg=Math.round(votes.reduce((a,b)=>a+b,0)/votes.length);
+    state.caseDone[c.id]=avg;LS.set("caseDone",state.caseDone);
+    logEv("case",c.tags[0],32,avg/30,"k"+c.id,{voto:avg,by:"case"});
+    $("#cend").innerHTML=`<div class="sheet case-end"><span class="eyebrow">Caso concluso</span><div class="row" style="align-items:baseline"><span class="mono" style="font-size:2.2rem;font-weight:600">${avg}/30</span><span class="small">media delle ${votes.length} risposte</span></div>
+      ${c.dx&&c.dx.length?`<div><span class="eyebrow">Diagnosi e problemi attesi</span><div class="row" style="margin-top:6px">${c.dx.map(d=>`<span class="chip">${esc(d)}</span>`).join("")}</div></div>`:""}
+      <div class="note"><b>Per l'orale:</b> ${esc(c.oral||"")}</div>
+      <div class="row"><button class="btn primary" id="discuss">Discuti il caso con la commissione</button><a class="btn" href="#casi" style="text-decoration:none">Altri casi</a></div></div>`;
+    $("#discuss").onclick=()=>{oralPreset={mode:"caso",caso:c};location.hash="orale"};
+    $("#cend").scrollIntoView({behavior:RM?"auto":"smooth",block:"start"});
+  };
+  drawStep();
 }
 
 /* ---- Simulatore orale ---- */
