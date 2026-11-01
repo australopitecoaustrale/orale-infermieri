@@ -505,6 +505,12 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .topic details[open] summary::after{content:"";transform:rotate(-135deg)}
 .bank-item details[open] summary::after{transform:rotate(-135deg)}
 .bank-item summary{align-items:flex-start}
+
+.grade-list{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.grade-list div{display:flex;gap:8px;align-items:flex-start;padding:6px 10px;border-radius:8px;font-size:.92rem}
+.grade-list span{font-weight:800;flex:none}
+.g-ok{background:var(--ok-soft)}.g-ok span{color:var(--ok)}
+.g-no{background:var(--vital-soft)}.g-no span{color:var(--vital)}
 </style>
 </head>
 <body>
@@ -1299,6 +1305,36 @@ function logEv(type,m,sec,score,id,extra){
 let sampleReady=null;
 async function getSampleSafe(){if(sampleReady!==null)return sampleReady;try{sampleReady=window.claude?.use?await window.claude.use("sample"):null}catch(e){sampleReady=null}return sampleReady}
 
+
+/* ---- valutazione automatica delle risposte scritte (quando Claude non è disponibile) ---- */
+const STOP=new Set("della delle degli dello dalla dalle dagli nella nelle negli nello sulla sulle sugli sullo come anche sono essere viene vengono deve devono può possono quando quale quali questo questa questi queste quello quella perché senza oppure ovvero tutti tutte ogni altro altri altre molto sempre prima dopo entro mentre però infatti inoltre quindi ancora presso verso circa secondo tramite attraverso rispetto paziente persona infermiere".split(" "));
+function normTxt(t){return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[’']/g," ")}
+function stem(w){return w.length>7?w.slice(0,7):w}
+function keyOf(p){
+  const t=normTxt(p);
+  const refs=(t.match(/\b\d+(?:[.,]\d+)?(?:\s*[\/\-–]\s*\d+)?\s*%?|\bart\.?\s*\d+[\w-]*|\b[a-z]{2,}\d+\b/g)||[]).map(x=>x.replace(/\s+/g,"").replace(/^art\.?/,"art"));
+  const words=(t.match(/[a-z]{5,}/g)||[]).filter(w=>!STOP.has(w)).map(stem);
+  const acr=(p.match(/\b[A-Z]{2,}[A-Z0-9]*\b/g)||[]).map(x=>x.toLowerCase());
+  return {refs:[...new Set(refs)],words:[...new Set(words)],acr:[...new Set(acr)]};
+}
+function autoGrade(answer,rub){
+  const t=normTxt(answer), tc=t.replace(/\s+/g,"");
+  const aw=new Set((t.match(/[a-z]{5,}/g)||[]).map(stem));
+  const aa=new Set((t.match(/[a-z0-9]{2,}/g)||[]));
+  const hit=[];
+  rub.forEach((p,i)=>{
+    const k=keyOf(p);
+    const refHit=k.refs.filter(r=>tc.includes(r)).length, acrHit=k.acr.filter(a=>aa.has(a)).length;
+    const wHit=k.words.filter(w=>aw.has(w)).length;
+    const need=Math.max(1,Math.ceil(k.words.length*.4));
+    if(refHit&&wHit>=1||acrHit&&wHit>=1||wHit>=need)hit.push(i);
+  });
+  const words=(answer.match(/\S+/g)||[]).length;
+  let score=rub.length?hit.length/rub.length:0;
+  const short=words<25; if(short)score*=.7;
+  return {hit,score:Math.min(1,score),short};
+}
+
 /* ---- motore unico: quiz, domande aperte e casi clinici nella stessa sessione ---- */
 function startQuiz(list,key,onDone){qz={list,i:0,ok:0,sc:0,answered:false,f:key,onDone};drawQ()}
 function kindOf(it){return it.kind||"mcq"}
@@ -1366,14 +1402,12 @@ Rispondi solo con JSON: {"voto": intero 0-30, "coperti": [indici dei punti della
         return;
       }catch(e){$("#gstat").textContent=e?.code==="rate_limited"?"Troppe richieste: valuta tu con la griglia.":"Valutazione automatica non riuscita: usa la griglia."}
     }
-    // checklist: si spuntano solo i punti effettivamente presenti nella risposta scritta
-    $("#qexp").innerHTML=`<div class="expl"><b>Autovalutazione con griglia.</b> Spunta solo i punti presenti nella risposta che hai scritto.</div>
-      <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px">${rub.map((p,i)=>`<label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" id="ck${i}"><span>${esc(p)}</span></label>`).join("")}</div>
-      <div class="row" style="margin-top:8px"><button class="btn primary" id="ckok">Conferma</button></div>`;
-    $("#ckok").onclick=()=>{const n=rub.filter((_,i)=>$("#ck"+i).checked).length;const sc=rub.length?n/rub.length:0;
-      const miss=rub.filter((_,i)=>!$("#ck"+i).checked).slice(0,3).map(p=>p.slice(0,90));
-      $("#qexp").innerHTML=`<div class="expl"><b>Punteggio: ${Math.round(sc*30)}/30</b> (${n} punti su ${rub.length}, autovalutazione).</div>`+ref;
-      finish(sc,{voto:Math.round(sc*30),miss,by:"griglia"})};
+    // valutazione automatica senza Claude: confronta la risposta con i punti della griglia (parole chiave, norme, numeri)
+    const ev=autoGrade(answer,rub);
+    const sc=ev.score;
+    $("#qexp").innerHTML=`<div class="expl"><b>Voto automatico: ${Math.round(sc*30)}/30</b> · ${ev.hit.length} punti su ${rub.length} trovati nella tua risposta.${ev.short?" La risposta è molto breve: all'orale servono definizione, norma ed esempio.":""}</div>
+      <div class="grade-list">${rub.map((p,i)=>`<div class="${ev.hit.includes(i)?"g-ok":"g-no"}"><span aria-hidden="true">${ev.hit.includes(i)?"✓":"✕"}</span>${esc(p)}</div>`).join("")}</div>`+ref;
+    finish(sc,{voto:Math.round(sc*30),miss:rub.filter((_,i)=>!ev.hit.includes(i)).slice(0,3).map(p=>p.slice(0,90)),by:"auto"});
   };
 }
 /* costruisce gli elementi misti */
