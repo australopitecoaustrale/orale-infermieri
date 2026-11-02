@@ -1846,8 +1846,10 @@ function vitalsMonitor(vit,c){
   const INIT={
     ecg:()=>({beats:[],lvl:0}),
     drops:()=>{const n=cnt(130,3,9),g=W/n;return {d:[...Array(n)].map((_,i)=>({x:g*(i+.5)+rnd(-g*.15,g*.15),ph:rnd(0,1),sp:rnd(.5,.85),rip:[],spl:[],c:pick(["#bde0fe","#a2d2ff","#caf0f8","#fefae0"])}))}},
-    tubes:()=>{const caps=["#74c0fc","#e63946","#ffd60a","#2b9348","#9d4edd","#adb5bd"],liq={"#74c0fc":"#d00032","#e63946":"#b5172f","#ffd60a":"#c1121f","#2b9348":"#d62839","#9d4edd":"#c9184a","#adb5bd":"#a4161a"};
-      const n=cnt(110,3,11),g=W/n;return {t:[...Array(n)].map((_,i)=>{const c=caps[i%caps.length];return {x:g*(i+.5),h:rnd(.44,.52)*H,lv:rnd(.3,.6),ph:rnd(0,TAU),b:[],cap:c,liq:liq[c]}})}},
+    tubes:()=>{const K=[["#74c0fc","Citrato · coagulazione"],["#e63946","Siero · biochimica"],["#ffd60a","Gel separatore · siero"],["#2b9348","Eparina · chimica clinica"],["#9d4edd","EDTA · emocromo"],["#adb5bd","Fluoruro · glicemia"]];
+      const n=cnt(100,4,12),g=W/n;
+      return {t:[...Array(n)].map((_,i)=>{const k=K[i%K.length];return {x:g*(i+.5),h:Math.min(48,rnd(.38,.44)*H),lv:rnd(.38,.62),ph:rnd(0,TAU),b:[],cap:k[0],name:k[1],gel:k[0]==="#ffd60a",tilt:0,kv:0,lift:0,inv:null}}),
+        mol:[...Array(cnt(170,3,8))].map(()=>({x:rnd(0,W),y:rnd(0,H*.7),r:rnd(6,10),rot:rnd(0,TAU),vr:rnd(-.2,.2),vx:rnd(-6,6),a:rnd(.08,.16)})),next:2}},
     cells:()=>({c:[...Array(cnt(36,8,30))].map(()=>{const d=depth(),t=Math.random();return {...d,x:rnd(0,W),y:rnd(0,H),r:(t<.1?11:t<.22?2.6:rnd(9,15))*d.k,t:t<.1?"wbc":t<.22?"plt":"rbc",v:rnd(20,38)*d.k,ph:rnd(0,TAU),rot:rnd(0,3.14),vr:rnd(-.5,.5)}}).sort((a,b)=>a.z-b.z)}),
     dna:()=>({}),
     letters:()=>{const L="ABCDEFGHILMNOPQRSTUVZΔΩμαβγ+";return {l:[...Array(cnt(40,7,30))].map(()=>{const d=depth();return {...d,ch:pick(L),x:rnd(0,W),y:rnd(0,H),s:rnd(16,30)*d.k,v:rnd(6,13)*d.k,c:pick(PAST),ph:rnd(0,TAU),it:Math.random()<.4}}).sort((a,b)=>a.z-b.z)}},
@@ -1872,6 +1874,7 @@ function vitalsMonitor(vit,c){
         ctx.strokeStyle=W_(.35*b.l);ctx.lineWidth=1;ctx.beginPath();ctx.arc(b.x,b.y,4+k*22,0,TAU);ctx.stroke();
         const hy=b.y-8-k*34,hx=b.x+Math.sin(k*6+b.x)*5,sz=5+3*Math.sin(Math.min(1,k*3)*Math.PI/2);
         glow(hx,hy,sz*2.4,"#ff4d6d",.35*b.l);const hg=ctx.createLinearGradient(hx,hy-sz,hx,hy+sz);hg.addColorStop(0,rgba("#ff8fa3",b.l));hg.addColorStop(1,rgba("#e5383b",b.l));ctx.fillStyle=hg;heart(hx,hy,sz);ctx.fill()}
+      if(st.trail){st.trail=st.trail.filter(q=>q.l>0);for(const q of st.trail){q.l-=dt*.8;const k=1-q.l,hx=q.x+q.dx*k,hy=q.y-k*26;glow(hx,hy,q.s*2.4,"#ff4d6d",.3*q.l);ctx.fillStyle=rgba("#ff8fa3",q.l);heart(hx,hy,q.s*(.6+.4*q.l));ctx.fill()}}
       // lettura del monitor: frequenza e «che ritmo è?»
       const I=window.__ecgInfo;if(!I)return;const now=performance.now()/1000,age=now-I.t,beat=st.lvl,big=W>=820;
       ctx.save();ctx.textBaseline="middle";
@@ -1911,28 +1914,61 @@ function vitalsMonitor(vit,c){
         d.rip=d.rip.filter(k=>k<1);for(let i=0;i<d.rip.length;i++){d.rip[i]+=dt*1.3;const k=d.rip[i];ctx.strokeStyle=rgba(d.c,.55*(1-k));ctx.lineWidth=1.3;ctx.beginPath();ctx.ellipse(d.x,floor,4+k*26,1.5+k*4.5,0,0,TAU);ctx.stroke()}
         d.spl=d.spl.filter(q=>q.l>0);ctx.fillStyle=rgba(d.c,.8);for(const q of d.spl){q.vy+=140*dt;q.x+=q.vx*dt;q.y+=q.vy*dt;q.l-=dt*1.8;if(q.y<=floor){ctx.globalAlpha*=Math.max(0,q.l);ctx.beginPath();ctx.arc(q.x,q.y,1.3,0,TAU);ctx.fill();ctx.globalAlpha=.85}else q.l=0}
       }},
-    tubes(t,dt){const base=H-4;
-      ctx.fillStyle=W_(.12);rr(-4,base-6,W+8,7,3);ctx.fill();
+    tubes(t,dt){const base=H-3,TW=14;
+      // molecole che fluttuano nello sfondo del laboratorio
+      for(const m of st.mol){m.x=wrap(m.x+m.vx*dt,-20,W+20);m.rot+=m.vr*dt;ctx.save();ctx.translate(m.x,m.y+Math.sin(t*.6+m.rot)*3);ctx.rotate(m.rot);ctx.strokeStyle=W_(m.a);ctx.lineWidth=1.2;ctx.beginPath();for(let i=0;i<=6;i++){const a=i/6*TAU;ctx.lineTo(Math.cos(a)*m.r,Math.sin(a)*m.r)}ctx.stroke();
+        ctx.beginPath();ctx.moveTo(m.r,0);ctx.lineTo(m.r*1.9,0);ctx.stroke();ctx.fillStyle=W_(m.a*1.6);ctx.beginPath();ctx.arc(m.r*1.9,0,1.8,0,TAU);ctx.fill();ctx.restore()}
+      // fondo del portaprovette
+      const rb=ctx.createLinearGradient(0,base-34,0,base);rb.addColorStop(0,W_(.02));rb.addColorStop(1,W_(.12));ctx.fillStyle=rb;rr(6,base-34,W-12,32,8);ctx.fill();
+      // evento: una provetta viene capovolta per miscelarla
+      if(t>st.next){const c=st.t.filter(u=>!u.gel&&!u.inv&&u.lift<1);if(c.length){pick(c).inv={p:0}}st.next=t+rnd(4,7)}
+      let hov=null;
       for(const u of st.t){
-        const w=13,h=u.h,y0=base-h-2,near=ptr.on?Math.max(0,1-Math.abs(ptr.x-u.x)/90):0;u.tilt=(u.tilt||0)+((ptr.on?(u.x-ptr.x)/90*.35*near:0)-(u.tilt||0))*.08;if(u.kv){u.tilt+=u.kv*dt;u.kv=u.kv*Math.pow(.08,dt)-u.tilt*28*dt;if(Math.abs(u.kv)<.01)u.kv=0}const sw=Math.sin(t*.9+u.ph)*.07+u.tilt;
-        ctx.save();ctx.translate(u.x,y0+h);ctx.rotate(sw);ctx.translate(0,-h);
-        const lvY=h-(h-w)*u.lv;
-        ctx.save();ctx.beginPath();ctx.moveTo(-w/2,0);ctx.lineTo(-w/2,h-w/2);ctx.arc(0,h-w/2,w/2,Math.PI,0,true);ctx.lineTo(w/2,0);ctx.closePath();ctx.clip();
-        ctx.fillStyle=W_(.08);ctx.fillRect(-w,0,w*2,h);
-        const lg=ctx.createLinearGradient(0,lvY,0,h);lg.addColorStop(0,rgba(u.liq,.75));lg.addColorStop(1,rgba(u.liq,.95));ctx.fillStyle=lg;
-        ctx.beginPath();ctx.moveTo(-w,h+2);for(let x=-w;x<=w;x+=2)ctx.lineTo(x,lvY+Math.sin(x*.55+t*3+u.ph)*1.4-sw*x*1.2);ctx.lineTo(w,h+2);ctx.fill();
-        if(u.cap==="#ffd60a"){ctx.fillStyle="rgba(255,224,102,.85)";ctx.beginPath();ctx.moveTo(-w,lvY+(h-lvY)*.45);for(let x=-w;x<=w;x+=2)ctx.lineTo(x,lvY+Math.sin(x*.55+t*3+u.ph)*1.4-sw*x*1.2);ctx.lineTo(w,lvY+(h-lvY)*.45);ctx.fill();ctx.fillStyle="rgba(255,255,255,.75)";ctx.fillRect(-w,lvY+(h-lvY)*.45,w*2,3)}
-        if(ptr.on&&Math.abs(ptr.x-u.x)<40&&Math.random()<.5)u.b.push({x:rnd(-w/2+2.5,w/2-2.5),y:h-4,r:rnd(.8,1.9)});
-        if(Math.random()<dt*2.5)u.b.push({x:rnd(-w/2+2.5,w/2-2.5),y:h-4,r:rnd(.8,1.9)});
-        u.b=u.b.filter(b=>b.y>lvY+1);ctx.fillStyle=W_(.85);for(const b of u.b){b.y-=dt*rnd(14,22);b.x+=Math.sin(t*6+b.y)*.08;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,TAU);ctx.fill()}
+        const near=ptr.on&&Math.abs(ptr.x-u.x)<TW*1.4&&ptr.y>base-u.h-40?1:0;if(near)hov=u;
+        u.lift+=((near?12:0)-u.lift)*Math.min(1,dt*8);
+        if(u.kv||u.tilt){u.tilt+=u.kv*dt;u.kv=u.kv*Math.pow(.08,dt)-u.tilt*28*dt;if(Math.abs(u.kv)<.005&&Math.abs(u.tilt)<.002){u.kv=0;u.tilt=0}}
+        let ang=Math.sin(t*.9+u.ph)*.05+u.tilt,lift=u.lift;
+        if(u.inv){u.inv.p+=dt/1.6;const p=Math.min(1,u.inv.p);ang+=Math.PI*(1-Math.cos(TAU*p))/2;lift+=26*Math.sin(Math.PI*p);if(u.inv.p>=1)u.inv=null}
+        const h=u.h,w=TW,cy=base-4-h/2-lift,lvY=h*(1-u.lv);
+        const tube=()=>{ctx.beginPath();ctx.moveTo(-w/2,-h/2);ctx.lineTo(-w/2,h/2-w/2);ctx.arc(0,h/2-w/2,w/2,Math.PI,0,true);ctx.lineTo(w/2,-h/2);ctx.closePath()};
+        if(near)glow(u.x,cy,44,u.cap,.35);
+        ctx.save();ctx.translate(u.x,cy);ctx.rotate(ang);
+        // vetro
+        tube();ctx.fillStyle=W_(.1);ctx.fill();
+        ctx.save();tube();ctx.clip();
+        if(u.gel&&!u.inv){const y1=-h/2+lvY,y2=y1+(h/2-y1)*.42;
+          ctx.fillStyle="rgba(255,224,102,.88)";ctx.fillRect(-w,y1,w*2,y2-y1);ctx.fillStyle="rgba(255,255,255,.9)";ctx.fillRect(-w,y2,w*2,4);
+          const cg=ctx.createLinearGradient(0,y2,0,h/2);cg.addColorStop(0,"#b5172f");cg.addColorStop(1,"#6a040f");ctx.fillStyle=cg;ctx.fillRect(-w,y2+4,w*2,h)}
+        else{ // il sangue resta in bolla anche quando la provetta si inclina
+          ctx.setTransform(dpr,0,0,dpr,0,0);const d=lvY-h/2,ca=Math.abs(Math.cos(ang)),sa=Math.abs(Math.sin(ang)),ys=cy+(h/2*ca+w/2*sa)*(2*d/h);
+          const lg=ctx.createLinearGradient(0,ys,0,ys+h);lg.addColorStop(0,"#d00032");lg.addColorStop(1,"#6a040f");ctx.fillStyle=lg;
+          ctx.beginPath();ctx.moveTo(u.x-h,cy+h);for(let x=-h;x<=h;x+=3)ctx.lineTo(u.x+x,ys+Math.sin(x*.5+t*3+u.ph)*1.1);ctx.lineTo(u.x+h,cy+h);ctx.fill();
+          ctx.fillStyle="rgba(255,255,255,.25)";ctx.fillRect(u.x-h,ys-.5,h*2,1.2);
+          ctx.setTransform(dpr,0,0,dpr,0,0);ctx.translate(u.x,cy);ctx.rotate(ang);
+          if(!u.inv){if(Math.random()<dt*(near?9:1.6))u.b.push({x:rnd(-w/2+3,w/2-3),y:h/2-5,r:rnd(.8,1.8)});
+            u.b=u.b.filter(b=>b.y>-h/2+lvY+1);ctx.fillStyle=W_(.8);for(const b of u.b){b.y-=dt*rnd(14,22);ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,TAU);ctx.fill()}}else u.b=[]}
         ctx.restore();
-        ctx.strokeStyle=W_(.55);ctx.lineWidth=1.3;ctx.beginPath();ctx.moveTo(-w/2,0);ctx.lineTo(-w/2,h-w/2);ctx.arc(0,h-w/2,w/2,Math.PI,0,true);ctx.lineTo(w/2,0);ctx.stroke();
-        ctx.strokeStyle=W_(.7);ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(-w/2+3,6);ctx.lineTo(-w/2+3,h*.55);ctx.stroke();
-        const cg=ctx.createLinearGradient(0,-8,0,2);cg.addColorStop(0,rgba(u.cap,1));cg.addColorStop(1,rgba(u.cap,.75));ctx.fillStyle=cg;rr(-w/2-2,-8,w+4,10,3);ctx.fill();
-        ctx.fillStyle=W_(.45);rr(-w/2,-7,w*.45,3,1.5);ctx.fill();
-        ctx.fillStyle=W_(.85);rr(-w/2+1.5,h*.22,w-3,h*.18,1.5);ctx.fill();ctx.fillStyle="rgba(0,0,0,.25)";for(let k=0;k<3;k++)ctx.fillRect(-w/2+3,h*.25+k*3,w-6-k*2,1);
+        // riflessi sul vetro
+        ctx.strokeStyle=W_(.6);ctx.lineWidth=1.3;tube();ctx.stroke();
+        const hl=ctx.createLinearGradient(-w/2,0,w/2,0);hl.addColorStop(0,W_(0));hl.addColorStop(.2,W_(.55));hl.addColorStop(.35,W_(0));hl.addColorStop(.8,W_(0));hl.addColorStop(.9,W_(.25));hl.addColorStop(1,W_(0));ctx.fillStyle=hl;ctx.fillRect(-w/2,-h/2+4,w,h-w);
+        // etichetta con codice a barre
+        const ly=-h/2+h*.2,lh=h*.3;ctx.fillStyle="rgba(255,255,255,.93)";rr(-w/2+1.5,ly,w-3,lh,2);ctx.fill();ctx.fillStyle=u.cap;ctx.fillRect(-w/2+1.5,ly,w-3,2.5);
+        ctx.fillStyle="rgba(30,30,40,.7)";for(let i=0,xx=-w/2+3;xx<w/2-3;i++){const bw=(i*7+3)%3===0?1.4:.7;ctx.fillRect(xx,ly+4,bw,lh-7);xx+=bw+.9}
+        // tappo in gomma
+        const cg=ctx.createLinearGradient(-w/2,0,w/2,0);cg.addColorStop(0,u.cap);cg.addColorStop(.35,"#ffffff");cg.addColorStop(.45,u.cap);cg.addColorStop(1,rgba(u.cap,.8));
+        ctx.fillStyle=cg;rr(-w/2-2.5,-h/2-11,w+5,13,3.5);ctx.fill();ctx.fillStyle="rgba(0,0,0,.18)";for(let i=-2;i<=2;i++)ctx.fillRect(i*3-.4,-h/2-9,.8,9);
+        ctx.fillStyle=W_(.5);rr(-w/2-1.5,-h/2-10.5,w+3,2.5,1.2);ctx.fill();
         ctx.restore();
-      }},
+      }
+      // barra frontale del portaprovette
+      const fr=ctx.createLinearGradient(0,base-18,0,base-4);fr.addColorStop(0,W_(.42));fr.addColorStop(1,W_(.16));ctx.fillStyle=fr;rr(4,base-18,W-8,14,5);ctx.fill();
+      ctx.fillStyle=W_(.55);ctx.fillRect(10,base-17,W-20,1.5);
+      ctx.fillStyle="rgba(0,0,0,.12)";for(const u of st.t){rr(u.x-TW/2-2,base-15,TW+4,8,4);ctx.fill()}
+      // nome della provetta sotto il puntatore
+      if(hov){const u=hov,txt=u.name;ctx.save();ctx.font="700 11px system-ui,sans-serif";const tw=ctx.measureText(txt).width,bw=tw+26,bx=Math.max(4,Math.min(W-bw-4,u.x-bw/2)),by=Math.max(2,base-4-u.h-u.lift-38);
+        ctx.fillStyle="rgba(20,10,30,.55)";rr(bx,by,bw,20,10);ctx.fill();ctx.fillStyle=u.cap;ctx.beginPath();ctx.arc(bx+11,by+10,4.5,0,TAU);ctx.fill();
+        ctx.fillStyle="#fff";ctx.textBaseline="middle";ctx.fillText(txt,bx+20,by+10.5);ctx.restore()}
+    },
     cells(t,dt){
       for(const c of st.c){c.x+=c.v*dt;c.rot+=c.vr*dt;if(c.x>W+20){c.x=-20;c.y=rnd(0,H)}
         const y=c.y+Math.sin(t*.8+c.ph)*6,a=.45+.55*c.z;
@@ -2037,7 +2073,7 @@ function vitalsMonitor(vit,c){
     dna:["Le basi si appaiano così: A con T, C con G","Il genoma umano conta circa 3 miliardi di coppie di basi","Ogni voce dell'enciclopedia ha il suo quiz"],
     letters:["«-algia» significa dolore: mialgia, cefalalgia","«-ectomia» è asportazione, «-stomia» un'apertura","«bradi-» lento, «tachi-» veloce","«-emia» nel sangue, «-uria» nelle urine"],
     pills:["Le compresse a rilascio modificato non si frantumano","Ripassare quando stai per dimenticare fissa il ricordo","Le flashcard che sai tornano sempre più di rado"],
-    tubes:["Tappo azzurro: citrato, per la coagulazione","Tappo viola: EDTA, per l'emocromo","Tappo rosso o giallo: siero, per la biochimica","Ordine di prelievo: emocolture, azzurro, rosso/giallo, verde, viola, grigio"],
+    tubes:["Tappo azzurro: citrato, per la coagulazione","Tappo viola: EDTA, per l'emocromo","Tappo rosso o giallo: siero, per la biochimica","Ordine di prelievo: emocolture, azzurro, rosso/giallo, verde, viola, grigio","Le provette con additivo si capovolgono delicatamente, senza agitarle","Passa sopra una provetta per leggerne il nome"],
     drops:["Deflussore standard: 20 gocce = 1 ml","Con 20 gtt/ml: gocce al minuto = ml/h ÷ 3","Microgocciolatore: 60 microgocce = 1 ml","1 mg = 1000 mcg"],
     bubbles:["All'orale: definizione, norma, esempio pratico","Cita sempre la fonte: legge o linea guida","Se non sai, ragiona ad alta voce"],
     voice:["Tre minuti: apri con la definizione","Chiudi con un esempio dal letto del paziente","Parla alla commissione, non al foglio"],
@@ -2048,21 +2084,32 @@ function vitalsMonitor(vit,c){
     ctx.font="italic 600 13px system-ui,sans-serif";const tw=ctx.measureText(L[i]).width;
     const g=ctx.createLinearGradient(x-tw-14,0,x+8,0);g.addColorStop(0,"rgba(0,0,0,0)");g.addColorStop(.25,"rgba(0,0,0,.16)");g.addColorStop(1,"rgba(0,0,0,.16)");ctx.fillStyle=g;rr(x-tw-14,y-1,tw+22,20,10);ctx.fill();
     ctx.fillStyle=W_(.95);ctx.fillText(L[i],x,y+9);ctx.restore()}
-  hd.addEventListener("pointermove",e=>{const r=hd.getBoundingClientRect();ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.on=e.pointerType==="mouse"||e.buttons>0||e.pointerType==="touch"},{passive:true});
-  hd.addEventListener("pointerleave",()=>{ptr.on=false},{passive:true});
-  hd.addEventListener("pointerup",e=>{if(e.pointerType!=="mouse")ptr.on=false},{passive:true});
-  hd.addEventListener("pointerdown",e=>{if(RMq||!st||e.target.closest("a,button,nav"))return;const r=hd.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,tn=performance.now()/1000;
-    if(mode==="ecg"&&window.__ecgNext)window.__ecgNext();
-    if(mode==="cells"&&st.c)for(let i=0;i<3;i++)st.c.push({z:1,k:1,x:x+rnd(-10,10),y:y+rnd(-10,10),r:rnd(9,14),t:"rbc",v:rnd(26,40),ph:rnd(0,TAU),rot:rnd(0,3),vr:rnd(-.5,.5)});
-    if(mode==="bubbles"&&st.b)st.b.push({z:1,k:1,x,y,s:20,v:18,ph:0,g:"!",c:pick(PAST)});
-    if(mode==="drops"&&st.d){const d=st.d.reduce((a,b)=>Math.abs(b.x-x)<Math.abs(a.x-x)?b:a);d.ph=Math.max(d.ph,.44)}
-    if(mode==="tubes"&&st.t){const u=st.t.reduce((a,b)=>Math.abs(b.x-x)<Math.abs(a.x-x)?b:a);u.kv=(x<u.x?3.5:-3.5);for(let i=0;i<10;i++)u.b.push({x:rnd(-4,4),y:u.h-4-rnd(0,8),r:rnd(.8,2)})}
-    if(mode==="dna"){st.so=(((x+200)/(W+400))*7-tn%7+7)%7}
-    if(mode==="voice")st.boost={x,t0:tn};
-    if(mode==="letters"&&st.l)"ABC".split("").forEach((c,i)=>st.l.push({z:1,k:1,ch:pick("ABCDEFGHILMNOPQRSTUVZΔΩμαβγ"),x:x+(i-1)*16,y,s:24,v:16,c:pick(PAST),ph:rnd(0,TAU),it:Math.random()<.4}));
-    if(mode==="pills"&&st.p)st.p.push({z:1,k:1,x,y,l:34,v:18,rot:rnd(0,TAU),vr:rnd(-1,1),two:true,col:pick([["#ef476f","#fdf0d5"],["#118ab2","#ffd166"],["#06d6a0","#ffffff"]]),tab:"#fff"});
-    if(mode==="plus"&&st.p)st.p.push({z:1,k:1,x,y,s:11,rot:0,vr:rnd(-.6,.6),ph:0,vx:rnd(-10,10),vy:rnd(-10,-4),c:pick(["#ff5d73","#3ddc97","#ffd166"])});
-    for(const key of ["c","l","p"])if(st[key]&&st[key].length>70)st[key].splice(0,st[key].length-70);if(st.b&&st.b.length>24)st.b.shift();kick()},{passive:true});
+  let acc=0,lp=null;
+  function act(x,y,tap){if(!st||RMq)return;const tn=performance.now()/1000;
+    const mv=lp?Math.hypot(x-lp.x,y-lp.y):0,vx=lp?x-lp.x:0;lp={x,y};acc+=mv;
+    const every=d=>{if(tap)return true;if(acc>=d){acc=0;return true}return false};
+    switch(mode){
+      case "ecg":if(!tap&&every(46))st.trail=(st.trail||[]).concat([{x,y,l:1,s:rnd(4,6.5),dx:rnd(-8,8)}]).slice(-14);break;
+      case "cells":if(every(60)&&st.c)st.c.push({z:1,k:1,x:x+rnd(-8,8),y:y+rnd(-8,8),r:rnd(9,14),t:Math.random()<.12?"wbc":"rbc",v:rnd(26,40),ph:rnd(0,TAU),rot:rnd(0,3),vr:rnd(-.5,.5)});break;
+      case "bubbles":if(every(110)&&st.b)st.b.push({z:1,k:1,x,y,s:rnd(16,21),v:18,ph:0,g:pick(["!","?","…"]),c:pick(PAST)});break;
+      case "drops":if(st.d)for(const d of st.d)if(Math.abs(d.x-x)<14&&d.ph<.44)d.ph=.44;break;
+      case "tubes":if(st.t){for(const u of st.t){const n=Math.max(0,1-Math.abs(u.x-x)/70);if(n>0)u.kv+=vx*.012*n}
+        if(tap){const u=st.t.reduce((a,b)=>Math.abs(b.x-x)<Math.abs(a.x-x)?b:a);if(!u.gel&&!u.inv)u.inv={p:0};else u.kv+=3}}break;
+      case "dna":st.so=(((x+200)/(W+400))*7-tn%7+7)%7;break;
+      case "voice":st.boost={x,t0:tn};break;
+      case "letters":if(every(48)&&st.l)st.l.push({z:1,k:1,ch:pick("ABCDEFGHILMNOPQRSTUVZΔΩμαβγ"),x,y,s:rnd(18,26),v:16,c:pick(PAST),ph:rnd(0,TAU),it:Math.random()<.4});break;
+      case "pills":if(every(70)&&st.p)st.p.push({z:1,k:1,x,y,l:rnd(28,36),v:18,rot:rnd(0,TAU),vr:rnd(-1,1),two:Math.random()<.7,col:pick([["#ef476f","#fdf0d5"],["#118ab2","#ffd166"],["#06d6a0","#ffffff"],["#8338ec","#ffbe0b"]]),tab:pick(["#fff","#ffe5ec","#e0fbfc"])});break;
+      case "plus":if(every(55)&&st.p)st.p.push({z:1,k:1,x,y,s:rnd(8,11),rot:0,vr:rnd(-.6,.6),ph:0,vx:rnd(-10,10),vy:rnd(-10,-4),c:pick(["#ff5d73","#3ddc97","#ffd166","#ffffff"])});break;
+    }
+    for(const key of ["c","l","p"])if(st[key]&&st[key].length>70)st[key].splice(0,st[key].length-70);if(st.b&&st.b.length>24)st.b.shift();kick()}
+  const rel=(cx,cy)=>{const r=hd.getBoundingClientRect();return [cx-r.left,cy-r.top]};
+  hd.addEventListener("pointermove",e=>{const [x,y]=rel(e.clientX,e.clientY);ptr.x=x;ptr.y=y;ptr.on=true;act(x,y,false)},{passive:true});
+  hd.addEventListener("touchmove",e=>{const t0=e.touches[0];if(!t0)return;const [x,y]=rel(t0.clientX,t0.clientY);ptr.x=x;ptr.y=y;ptr.on=true;act(x,y,false)},{passive:true});
+  hd.addEventListener("touchstart",e=>{const t0=e.touches[0];if(!t0)return;const [x,y]=rel(t0.clientX,t0.clientY);ptr.x=x;ptr.y=y;ptr.on=true;lp={x,y};kick()},{passive:true});
+  const off=()=>{ptr.on=false;lp=null};
+  hd.addEventListener("pointerleave",off,{passive:true});hd.addEventListener("touchend",off,{passive:true});hd.addEventListener("touchcancel",off,{passive:true});
+  hd.addEventListener("pointerdown",e=>{if(RMq||!st||e.target.closest("a,button,nav"))return;const [x,y]=rel(e.clientX,e.clientY);lp={x,y};
+    if(mode==="ecg"&&window.__ecgNext)window.__ecgNext();else act(x,y,true)},{passive:true});
   window.__ecgBeat=(x,y)=>{if(mode==="ecg"&&st&&st.beats){st.beats.push({x,y,l:1});st.lvl=1;if(st.beats.length>8)st.beats.shift()}};
   function bokeh(t,dt){for(const b of bok){b.x=wrap(b.x+b.vx*dt,-80,W+80);b.y=wrap(b.y+b.vy*dt,-80,H+80);glow(b.x,b.y,b.r,"#ffffff",b.a*(.7+.3*Math.sin(t*.5+b.ph)))}}
   function titleFade(){ // il lato del titolo resta più pulito
