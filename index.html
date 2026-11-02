@@ -567,6 +567,29 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .pm-meas td{border-top:1px solid rgba(255,255,255,.08);padding:5px 6px;vertical-align:top}
 .pm-meas td:first-child{color:#9fb8b4;width:48%;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.02em}
 .pm-meas td:last-child{font-family:var(--f-mono);color:#e8f4f2}
+.scena{display:flex;flex-direction:column;gap:12px;padding:14px;border-radius:14px;background:color-mix(in srgb,var(--scrub) 6%,var(--paper));border:1px solid var(--line)}
+.sc-head{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.sc-head>div:last-child{display:flex;flex-direction:column;gap:2px;flex:1;min-width:200px}
+.sc-pic{flex:0 0 220px;max-width:100%;border-radius:10px;background:linear-gradient(#cfe3f2,#f2efe6);overflow:hidden}.sc-pic svg{display:block;width:100%;height:auto}
+:root[data-theme="dark"] .sc-pic{background:linear-gradient(#1d2d3b,#2a2a24)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .sc-pic{background:linear-gradient(#1d2d3b,#2a2a24)}}
+.sc-road{stroke:#6b6b6b;stroke-width:10;fill:none}.sc-line{stroke:#f2f2f2;stroke-width:2;stroke-dasharray:14 12;fill:none}
+.sc-car{fill:#3b6fb6}.sc-van{fill:#f0f0f0;stroke:#888;stroke-width:2}.sc-bus{fill:#f2b705;stroke:#a67c00;stroke-width:2}
+.sc-win,.sc-win rect{fill:#9cc3e0}.sc-w{fill:#2b2b2b}.sc-crash{fill:none;stroke:#e8590c;stroke-width:3;stroke-linejoin:round}
+.sc-warn{fill:#e8590c;stroke:#fff;stroke-width:1.5}.sc-bld{fill:#c9b8a0;stroke:#8a7a62;stroke-width:2}.sc-rubble{fill:#a89580}
+.sc-smoke{fill:none;stroke:#9a9a9a;stroke-width:8;stroke-linecap:round;opacity:.7}.sc-stove{fill:#7a7a7a;stroke:#555;stroke-width:2}
+.sc-co{font:700 20px var(--f-mono);fill:#d93a32}.sc-pp circle{fill:#555}.sc-pp path{stroke:#555;stroke-width:3;fill:none}
+.tags{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr));gap:10px}
+.ttag{position:relative;display:flex;flex-direction:column;gap:3px;padding:16px 12px 0;border-radius:6px 6px 10px 10px;background:#fffdf6;color:#222;border:1px solid #d8d2bf;box-shadow:0 2px 6px -3px rgba(0,0,0,.3);overflow:hidden}
+.tt-hole{position:absolute;top:6px;left:50%;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--bg);border:2px solid #b9b19a}
+.tt-k{font:700 .62rem var(--f-mono);letter-spacing:.14em;color:#8a8170;text-align:center}
+.tt-n{font-family:var(--f-display);font-size:1.02rem}.tt-d{font-size:.83rem;color:#555;line-height:1.35}
+.ttag dl{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;margin:6px 0 8px;font-size:.8rem}.ttag dt{font-weight:700;color:#666}.ttag dd{margin:0;font-family:var(--f-mono)}
+.tt-code{margin:auto -12px 0;padding:7px 0;text-align:center;font:800 .78rem var(--f-mono);letter-spacing:.12em;border-top:2px dashed #cfc7b0;color:#9a917d;background:repeating-linear-gradient(45deg,#f4efe0 0 8px,#fffdf6 8px 16px)}
+.ttag.done .tt-code{background:var(--tc);color:#fff;border-top:0}
+.ttag.done[style*="#e6b800"] .tt-code{color:#222}
+.tt-note{font-size:.78rem;color:#444;padding:6px 0 8px;line-height:1.35}
+.ttag.done .tt-note{order:9}
+.sc-mon{margin:0}
 .trace-sol{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:12px;background:var(--scrub-soft);border-left:4px solid var(--scrub)}
 .trace-sol p{margin:0}.pm-read .pm-note{font-size:.78rem;opacity:.7}
 .strips{display:grid;gap:14px}
@@ -1777,6 +1800,21 @@ function vitalsMonitor(vit,c){
   requestAnimationFrame(step);
 })();
 
+
+/* ---- scena della maxiemergenza: pittogramma dell'evento e cartellini di triage per ogni vittima ---- */
+const SCENE_SVG={
+ stradale:`<svg viewBox="0 0 320 120" aria-hidden="true"><path d="M0 98H320" class="sc-road"/><path d="M0 104H320" class="sc-line"/><g transform="rotate(-8 90 70)"><rect x="40" y="52" width="92" height="34" rx="9" class="sc-car"/><rect x="58" y="40" width="50" height="18" rx="6" class="sc-car"/><circle cx="62" cy="88" r="9" class="sc-w"/><circle cx="112" cy="88" r="9" class="sc-w"/></g><rect x="140" y="34" width="120" height="56" rx="8" class="sc-van"/><rect x="150" y="42" width="24" height="16" rx="3" class="sc-win"/><rect x="180" y="42" width="24" height="16" rx="3" class="sc-win"/><rect x="210" y="42" width="24" height="16" rx="3" class="sc-win"/><circle cx="166" cy="92" r="10" class="sc-w"/><circle cx="236" cy="92" r="10" class="sc-w"/><path d="M134 46L140 30L146 46L156 36" class="sc-crash"/><path d="M276 70L298 66L292 82Z" class="sc-warn"/></svg>`,
+ crollo:`<svg viewBox="0 0 320 120" aria-hidden="true"><path d="M0 108H320" class="sc-road"/><path d="M60 108V30H130V60L150 72L132 84L160 108Z" class="sc-bld"/><g class="sc-win"><rect x="72" y="40" width="14" height="14"/><rect x="100" y="40" width="14" height="14"/><rect x="72" y="66" width="14" height="14"/></g><path d="M150 108L170 82L196 96L214 74L244 108Z" class="sc-rubble"/><path d="M172 54Q190 30 214 44Q236 24 258 46" class="sc-smoke"/><path d="M180 40L188 22L194 40M206 34L216 18" class="sc-crash"/></svg>`,
+ co:`<svg viewBox="0 0 320 120" aria-hidden="true"><path d="M20 108V30L160 10L300 30V108Z" class="sc-bld"/><rect x="120" y="66" width="36" height="42" rx="4" class="sc-stove"/><path d="M130 64V40H146V64" class="sc-stove"/><path d="M148 40Q170 24 160 8M200 70Q230 50 210 30Q240 26 250 50" class="sc-smoke"/><text x="214" y="88" class="sc-co">CO</text><g class="sc-pp"><circle cx="60" cy="74" r="7"/><path d="M60 82V100M52 90H68"/><circle cx="86" cy="76" r="7"/><path d="M86 84V102"/></g><path d="M270 44L292 40L286 56Z" class="sc-warn"/></svg>`,
+ scuolabus:`<svg viewBox="0 0 320 120" aria-hidden="true"><path d="M0 104Q160 92 320 104" class="sc-road"/><g transform="rotate(-24 170 64)"><rect x="96" y="40" width="160" height="50" rx="10" class="sc-bus"/><g class="sc-win"><rect x="108" y="48" width="22" height="16" rx="3"/><rect x="136" y="48" width="22" height="16" rx="3"/><rect x="164" y="48" width="22" height="16" rx="3"/><rect x="192" y="48" width="22" height="16" rx="3"/></g><circle cx="122" cy="92" r="10" class="sc-w"/><circle cx="226" cy="92" r="10" class="sc-w"/></g><path d="M40 70L62 66L56 82Z" class="sc-warn"/></svg>`
+};
+const TAGCOL={verde:"#2f9e44",giallo:"#e6b800",rosso:"#d93a32",nero:"#222"};
+function scenaHtml(c){const sc=c.scena;if(!sc)return "";
+  return `<div class="scena"><div class="sc-head"><div class="sc-pic">${SCENE_SVG[sc.tipo]||""}</div><div><span class="eyebrow">Scena dell'evento</span><b>${esc(sc.luogo||"")}</b><span class="small">${sc.v.length} cartellini da compilare. Assegna tu il codice: i colori compaiono a fine caso.</span></div></div>
+  <div class="tags">${sc.v.map(v=>`<div class="ttag"><span class="tt-hole"></span><span class="tt-k">TRIAGE</span><b class="tt-n">${esc(v.n)}</b><span class="tt-d">${esc(v.d)}</span><dl>${v.dati.map(d=>`<dt>${esc(d[0])}</dt><dd>${esc(d[1])}</dd>`).join("")}</dl><span class="tt-code">codice ?</span></div>`).join("")}</div>
+  ${sc.monitor?`<p class="small sc-mon">Monitor collegato a: <b>${esc(sc.mon||"")}</b></p>`:""}</div>`}
+function scenaSol(c){const sc=c.scena;if(!sc)return "";
+  return `<div class="trace-sol"><span class="eyebrow">Cartellini di triage compilati</span><div class="tags">${sc.v.map(v=>`<div class="ttag done" style="--tc:${TAGCOL[v.c]||"#999"}"><span class="tt-hole"></span><span class="tt-k">TRIAGE</span><b class="tt-n">${esc(v.n)}</b><span class="tt-d">${esc(v.d)}</span><span class="tt-code">${v.c.toUpperCase()}</span>${v.nota?`<span class="tt-note">${esc(v.nota)}</span>`:""}</div>`).join("")}</div></div>`}
 /* ============ ENCICLOPEDIA E GLOSSARIO ============ */
 const FIGS=typeof FIGURE!=="undefined"?FIGURE:[];
 function figHtml(f){return `<figure class="fig"><div class="fig-svg">${f.svg}</div><figcaption><b>${esc(f.t)}.</b> ${esc(f.c)}</figcaption></figure>`}
@@ -2341,7 +2379,7 @@ function drawQ(){
   const finish=(score,extra)=>{it._s=score;qz.sc+=score;if(score>=.6)qz.ok++;
     if(qz.f==="oggi"){const kk="daily2-"+todayStr(),v=LS.get(kk,null);if(v&&!v.done&&v.ids.join()===qz.list.map(idOf).join()){v.started=true;v.pos=qz.i+1;v.sc=qz.sc;v.ok=qz.ok;v.s=Object.assign({},v.s||{},{[idOf(it)]:score});LS.set(kk,v)}}
     logEv(k,it.m||"tr",it.sec||(it.o&&it.o.s)||0,score,it.id,extra);
-    if(k==="case"){const d=document.createElement("div");d.innerHTML=WAVE.solution(it.c);const q=$("#qexp");if(q)q.appendChild(d.firstElementChild)}
+    if(k==="case"){const d=document.createElement("div");d.innerHTML=(!it.c.scena||it.c.scena.monitor?WAVE.solution(it.c):"")+scenaSol(it.c);const q=$("#qexp");if(q)while(d.firstElementChild)q.appendChild(d.firstElementChild)}
     if(k==="open"){const st=findStudy({q:it.o.q,o:[it.o.p.join(" ")],r:0,e:"",m:it.m,sec:it.o.s});const d=document.createElement("div");d.className="studylink";d.innerHTML=`<span class="small">Approfondisci l'argomento: <b>${esc(st.t)}</b>${st.enc?" · Enciclopedia":""}</span><button class="btn ${score<.6?"primary":""}">${st.enc?"Apri la voce dell'enciclopedia →":"Vai alla scheda di studio →"}</button>`;d.querySelector("button").onclick=()=>goStudy(st);$("#qexp").appendChild(d)}
     next()};
   if(k==="mcq"){
@@ -2365,7 +2403,7 @@ function drawQ(){
   // domande aperte e casi: risposta scritta, valutazione di Claude con griglia, oppure checklist
   const rub=k==="open"?it.o.p:it.c.steps.filter((_,j)=>it.steps.includes(j)).map(st=>st[1]);
   const prompt=k==="open"?`<h3>${esc(it.o.q)}</h3><label class="small" for="ans">Rispondi come all'orale: definizione, norma, contenuto, applicazione pratica.</label><textarea id="ans" class="search" style="min-height:150px"></textarea>`
-    :`<h3>${esc(it.c.title)}</h3><p>${esc(it.c.story)}</p>${vitalsMonitor(it.c.vit,it.c)}`+it.steps.map((j,x)=>`<div class="step"><span class="num">DOMANDA ${x+1}</span><b>${esc(it.c.steps[j][0])}</b><textarea id="ans${x}" aria-label="Risposta ${x+1}"></textarea></div>`).join("");
+    :`<h3>${esc(it.c.title)}</h3><p>${esc(it.c.story)}</p>${scenaHtml(it.c)}${!it.c.scena||it.c.scena.monitor?vitalsMonitor(it.c.vit,it.c):""}`+it.steps.map((j,x)=>`<div class="step"><span class="num">DOMANDA ${x+1}</span><b>${esc(it.c.steps[j][0])}</b><textarea id="ans${x}" aria-label="Risposta ${x+1}"></textarea></div>`).join("");
   box.innerHTML=head+prompt+`<div class="row"><button class="btn primary" id="consegna">Consegna e valuta</button><span class="status" id="gstat"></span></div><div id="qexp"></div>`;
   $("#consegna").onclick=async()=>{
     if(qz.answered)return;
@@ -2760,7 +2798,7 @@ function caseView(c){
     <span class="eyebrow mono">Caso ${String(idx+1).padStart(2,"0")}</span>
     <h2>${esc(c.title)}</h2>
     <p class="case-story">${esc(c.story)}</p>
-    ${vitalsMonitor(c.vit,c)}
+    ${scenaHtml(c)}${!c.scena||c.scena.monitor?vitalsMonitor(c.vit,c):""}
     ${c.esami&&c.esami.length?`<div class="labs"><span class="eyebrow">Esami e rilievi</span><div class="lab-grid">${c.esami.map(e=>`<div class="lab ${e[2]?"lab-alt":""}"><span>${esc(e[0])}</span><b class="mono">${esc(e[1])}</b></div>`).join("")}</div></div>`:""}
     ${c.fonte?`<p class="small">Fonte di riferimento: <a href="${esc(c.fonte)}" target="_blank" rel="noopener">${esc(c.fonte.replace(/^https:\/\//,"").split("/")[0])}</a></p>`:""}
   </div>
@@ -2801,7 +2839,7 @@ function caseView(c){
     logEv("case",c.tags[0],32,avg/30,"k"+c.id,{voto:avg,by:"case"});
     $("#cend").innerHTML=`<div class="sheet case-end"><span class="eyebrow">Caso concluso</span><div class="row" style="align-items:baseline"><span class="mono" style="font-size:2.2rem;font-weight:600">${avg}/30</span><span class="small">media delle ${votes.length} risposte</span></div>
       ${c.dx&&c.dx.length?`<div><span class="eyebrow">Diagnosi e problemi attesi</span><div class="row" style="margin-top:6px">${c.dx.map(d=>`<span class="chip">${esc(d)}</span>`).join("")}</div></div>`:""}
-      ${WAVE.solution(c)}
+      ${!c.scena||c.scena.monitor?WAVE.solution(c):""}${scenaSol(c)}
       <div class="note"><b>Per l'orale:</b> ${esc(c.oral||"")}</div>
       <div class="row"><button class="btn primary" id="discuss">Discuti il caso con la commissione</button><a class="btn" href="#casi" style="text-decoration:none">Altri casi</a></div></div>`;
     $("#discuss").onclick=()=>{oralPreset={mode:"caso",caso:c};location.hash="orale"};
