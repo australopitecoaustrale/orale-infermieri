@@ -675,6 +675,28 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .gl-i .gl-h b{font-family:var(--f-display);font-size:16px}
 .gl-i .gl-en{font-style:italic;color:var(--muted);font-size:13.5px}
 .gl-i a{font-size:13.5px;align-self:flex-start}
+.figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px;margin:4px 0}
+.fig{margin:0;display:flex;flex-direction:column;gap:8px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--paper);cursor:zoom-in;transition:box-shadow .2s}
+.fig:hover{box-shadow:var(--shadow)}
+.fig.big{grid-column:1/-1;cursor:zoom-out}.fig.big .fig-svg{max-width:760px;margin:0 auto;width:100%}
+.fig-svg svg{width:100%;height:auto;display:block}
+.fig figcaption{font-size:.88rem;line-height:1.45;color:var(--ink)}
+.fig .ft{fill:var(--ink);font-family:var(--f-body);font-size:12px}
+.fig .fsm{font-size:10.5px;fill:var(--muted)}
+.fig .fl{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round}
+.fig .ff{fill:var(--paper)}
+.fig .fa{fill:color-mix(in srgb,var(--scrub) 20%,var(--paper))}
+.fig .dash{stroke-dasharray:5 5;stroke:var(--muted);stroke-width:1.2}
+.fig .fs{fill:none;stroke:var(--scrub);stroke-width:2.2;stroke-linecap:round}
+.fig .thick{stroke-width:3.6}
+.fig .fv{fill:var(--vital)}
+.fig .lead{fill:none;stroke:var(--muted);stroke-width:1}
+.fig .fv-dot circle{fill:var(--scrub)}
+.fig .mz{fill:var(--scrub);fill-opacity:var(--o)}
+.fig .chain circle{fill:color-mix(in srgb,var(--scrub) 14%,var(--paper));stroke:var(--scrub);stroke-width:2.5}
+.fig .box rect{fill:var(--paper);stroke:var(--scrub);stroke-width:1.8}
+.gl-fig summary{cursor:pointer;font-size:.88rem;color:var(--scrub);font-weight:700}
+.gl-fig .fig{margin-top:8px}
 .gl-letter{font-family:var(--f-display);font-size:22px;color:var(--scrub);margin:8px 0 0}
 @media (prefers-reduced-motion: no-preference){.topic details.focus{animation:focuspulse 1.6s ease 2}@keyframes focuspulse{50%{outline-color:transparent}}}
 </style>
@@ -710,6 +732,7 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 <script src="glossario.js"></script>
 <script src="encquiz.js"></script>
 <script src="enccases.js"></script>
+<script src="figure.js"></script>
 <script>
 if(typeof PDFQ==="undefined"){window.PDFQ=[];window.PDF_TITLES=[]}
 /* ============ DATI ============ */
@@ -1745,12 +1768,18 @@ function vitalsMonitor(vit,c){
 })();
 
 /* ============ ENCICLOPEDIA E GLOSSARIO ============ */
+const FIGS=typeof FIGURE!=="undefined"?FIGURE:[];
+function figHtml(f){return `<figure class="fig"><div class="fig-svg">${f.svg}</div><figcaption><b>${esc(f.t)}.</b> ${esc(f.c)}</figcaption></figure>`}
+function figsEnc(id){const L=FIGS.filter(f=>f.enc.includes(id));return L.length?`<div class="figs">${L.map(figHtml).join("")}</div>`:""}
+function figsStudy(t){if(!t||/^Guida/.test(t.t))return "";const L=FIGS.filter(f=>f.st&&f.st.test(t.t));return L.length?`<div class="figs">${L.map(figHtml).join("")}</div>`:""}
+function figsGloss(term){const L=FIGS.filter(f=>f.gl.includes(term));return L.map(f=>`<details class="gl-fig"><summary>Figura: ${esc(f.t)}</summary>${figHtml(f)}</details>`).join("")}
+document.addEventListener("click",e=>{const f=e.target.closest&&e.target.closest(".fig");if(f&&!e.target.closest("a,button"))f.classList.toggle("big")});
 function encEntry(e,open){
   const c=(EAREE[e.a]||{}).c||"var(--scrub)";
   const gl=GLOS.filter(g=>g[4]===e.id);
   const qn=Q3.filter(q=>q.enc===e.id).length;
   return `<details class="enc-e" id="voce-${e.id}" style="--c:${c}" ${open?"open":""}><summary><span class="eyebrow" style="color:${c}">${esc((EAREE[e.a]||{}).n||"")}</span><b>${esc(e.t)}</b><span class="small">${esc(e.d)}</span></summary>
-  <div class="enc-b"><p class="def" style="margin:0">${esc(e.d)}</p>
+  <div class="enc-b"><p class="def" style="margin:0">${esc(e.d)}</p>${figsEnc(e.id)}
   ${e.p&&e.p.length?`<div><h4>Punti chiave</h4><ul>${e.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
   ${e.v&&e.v.length?`<div><h4>${e.a==="codice"?"Articoli":"Valori, scale e riferimenti"}</h4><table class="enc-v"><tbody>${e.v.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td></tr>`).join("")}</tbody></table></div>`:""}
   ${e.i&&e.i.length?`<div><h4>Cosa fa l'infermiere</h4><ul>${e.i.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
@@ -1795,7 +1824,7 @@ function enciclopedia(v){
   };
   if(fe)setTimeout(()=>{const el=$("#voce-"+focus);if(el){el.classList.add("focus");el.scrollIntoView({block:"start",behavior:RM?"auto":"smooth"})}},90);
 }
-function glItem(g){return `<div class="gl-i"><div class="gl-h"><b>${esc(g[0])}</b><span class="tag t-src">${esc(GCAT[g[1]]||"")}</span>${g[3]?`<span class="gl-en">ingl. ${esc(g[3])}</span>`:""}</div><span>${esc(g[2])}</span>${g[4]&&ENC_BY[g[4]]?`<a href="#voce-${g[4]}">Voce: ${esc(ENC_BY[g[4]].t)} →</a>`:""}</div>`}
+function glItem(g){return `<div class="gl-i"><div class="gl-h"><b>${esc(g[0])}</b><span class="tag t-src">${esc(GCAT[g[1]]||"")}</span>${g[3]?`<span class="gl-en">ingl. ${esc(g[3])}</span>`:""}</div><span>${esc(g[2])}</span>${figsGloss(g[0])}${g[4]&&ENC_BY[g[4]]?`<a href="#voce-${g[4]}">Voce: ${esc(ENC_BY[g[4]].t)} →</a>`:""}</div>`}
 function glossario(){
   const cat=state.glCat||"tutte";const pre=state.glQuery||"";state.glQuery="";
   const first=g=>{const c=normTxt(g[0]).charAt(0).toUpperCase();return /[A-Z]/.test(c)?c:"#"};
@@ -2042,7 +2071,7 @@ function studio(){
   <div id="search-res" hidden></div>
   <div class="studio" id="studio-main">
     <div class="toc" role="tablist"><button style="--c:var(--scrub)" data-m="tipi" aria-current="${m==="tipi"}">Per tipologia di domanda</button>${Object.entries(SUBJ).map(([k,s])=>`<button style="--c:${s.c}" data-m="${k}" aria-current="${k===m}">${s.name}</button>`).join("")}</div>
-    <div class="topic" style="--c:${color}"><p class="small">${m==="tipi"?"Uno schema di risposta per ogni tipo di domanda che la commissione può fare.":`${(TOPICS[m]||[]).length} schede di sintesi e ${topics.length-(TOPICS[m]||[]).length} schede dalla guida Puglia 2026 (punti chiave e norme di ogni domanda).`}</p>${topics.map((t,i)=>`<details ${(openT!=null?i===openT:open?t.sec===open:i===0)?"open":""} id="tp-${i}" ${(openT!=null?i===openT:open&&t.sec===open)?'class="focus"':""} ${t.sec?`data-sec="${t.sec}"`:""}><summary>${esc(t.t)}</summary><div class="body">${t.h}</div></details>`).join("")}
+    <div class="topic" style="--c:${color}"><p class="small">${m==="tipi"?"Uno schema di risposta per ogni tipo di domanda che la commissione può fare.":`${(TOPICS[m]||[]).length} schede di sintesi e ${topics.length-(TOPICS[m]||[]).length} schede dalla guida Puglia 2026 (punti chiave e norme di ogni domanda).`}</p>${topics.map((t,i)=>`<details ${(openT!=null?i===openT:open?t.sec===open:i===0)?"open":""} id="tp-${i}" ${(openT!=null?i===openT:open&&t.sec===open)?'class="focus"':""} ${t.sec?`data-sec="${t.sec}"`:""}><summary>${esc(t.t)}</summary><div class="body">${t.h}${figsStudy(t)}</div></details>`).join("")}
       ${m==="tipi"?"":`<div class="row"><button class="btn primary" id="go-q">Allenati su questa materia</button><button class="btn" id="go-fc">Flashcard</button></div>`}
     </div>
   </div>`;
