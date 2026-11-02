@@ -546,7 +546,7 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .pm-c-sp path{stroke:#38d9ff;filter:drop-shadow(0 0 2px rgba(56,217,255,.45))}
 .pm-c-rr path{stroke:#ffd84a;filter:drop-shadow(0 0 2px rgba(255,216,74,.4))}
 .pm-gap{fill:#040c0b;display:none}
-@media (prefers-reduced-motion: no-preference){.pm-gap{display:block;animation:pmgap linear infinite}@keyframes pmgap{from{transform:translateX(0)}to{transform:translateX(1000px)}}}
+@media (prefers-reduced-motion: no-preference){.pm-gap{display:block;animation:pmgap linear infinite}@keyframes pmgap{from{transform:translateX(0)}to{transform:translateX(var(--gx,1000px))}}}
 .pm-lab{position:absolute;left:8px;top:3px;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.05em;font-weight:600;z-index:1}
 .pm-lab i{font-style:normal;opacity:.65;font-weight:400;margin-left:4px}
 .pm-c-art path{stroke:#ff5d5d;filter:drop-shadow(0 0 2px rgba(255,93,93,.45))}.pm-c-art svg{height:72px}
@@ -1587,7 +1587,7 @@ function monitor(c,seed){
   const r=resp(s.resp,s.fr,RESP_S,20,seed);
   const [en,ed]=ecgName(s),[rn,rd]=RESP[s.resp]||RESP.normal;
   const pd=!s.pulse?"Curva del polso piatta: nessuna perfusione periferica rilevabile.":s.pulse<.7?"Curva del polso di bassa ampiezza: perfusione periferica ridotta (ipotensione, vasocostrizione).":s.type==="fa"?"Curva del polso irregolare per ampiezza e ritmo.":"Curva del polso regolare, con incisura dicrota visibile.";
-  const ch=(lab,cls,d,H,dur,extra)=>`<div class="pm-ch ${cls}"><span class="pm-lab">${lab}</span><svg viewBox="0 0 1000 ${H}" preserveAspectRatio="none" aria-hidden="true">${extra||""}<path d="${d}"/><rect class="pm-gap" x="-6" y="0" width="34" height="${H}" style="animation-duration:${dur}s"/></svg></div>`;
+  const ch=(lab,cls,d,H,dur,extra)=>`<div class="pm-ch ${cls}"><span class="pm-lab">${lab}</span><svg viewBox="0 0 1000 ${H}" preserveAspectRatio="none" aria-hidden="true" data-dur="${dur}" data-h="${H}">${extra||""}<path d="${d}"/><rect class="pm-gap" x="-6" y="0" width="34" height="${H}" style="animation-duration:${dur}s"/></svg></div>`;
   const hline=(y,cls)=>`<path d="M0 ${y.toFixed(1)}H1000" class="${cls||"pm-ref"}"/>`;
   let chans="",reads="",cells=[];
   /* pressione arteriosa invasiva: scala 0-160 mmHg */
@@ -1609,7 +1609,7 @@ function monitor(c,seed){
     cells.push(["PEEP",v.peep+" cmH₂O",0]);if(v.mode==="VC"){cells.push(["Ppicco / Pplat",v.pip+" / "+v.plat,v.plat>30||v.plat-v.peep>15||v.pip-v.plat>10||v.pip>35])}else if(v.mode==="NIV")cells.push(["IPAP / EPAP",v.ipap+" / "+v.peep,0]);
     reads+=`<p><b>Pressione nelle vie aeree e PEEP.</b> ${pawText(v)}</p>`}
   chans+=ch("Resp <i>"+(s.resp==="apnea"?"apnea":"")+"</i>","pm-c-rr",path(r,1000,44,40,17),44,RESP_S);
-  const note=`<p class="pm-note">ECG, ART e pletismografia: ${ECG_S} secondi per schermata (25 mm/s)${s.capno||s.vent?"; CO₂ e pressione delle vie aeree: "+CAP_S+" secondi":""}; respiro: ${RESP_S} secondi.</p>`;
+  const note=`<p class="pm-note">ECG, ART e pletismografia: <span class="pm-s" data-base="${ECG_S}">${ECG_S}</span> secondi per schermata${s.capno||s.vent?`; CO₂ e pressione delle vie aeree: <span class="pm-s" data-base="${CAP_S}">${CAP_S}</span> secondi`:""}; respiro: <span class="pm-s" data-base="${RESP_S}">${RESP_S}</span> secondi. La finestra si adatta alla larghezza dello schermo, il ritmo resta quello reale.</p>`;
   const sol=`<div class="trace-sol"><span class="eyebrow">Lettura dei tracciati</span><p><b>ECG: ${en}.</b> ${ed}</p><p><b>Respiro: ${rn}.</b> ${rd}</p><p><b>Polso.</b> ${pd}</p>${reads}</div>`;
   return {s,cells,sol,html:`<div class="pm-waves" role="img" aria-label="Tracciati del monitor">${chans}</div>
   <details class="pm-read"><summary>Misure del tracciato</summary><div>${measures(s,e.B,seed)}${note}<p class="pm-note">Qui trovi solo misure e dati. L'interpretazione dei tracciati compare alla fine del caso, dopo le tue risposte.</p></div></details>`};
@@ -2007,6 +2007,12 @@ function calcoli(){
   $("#e-new").onclick=draw;$("#e-t").onchange=draw;draw();
 }
 
+/* adatta la finestra temporale dei tracciati alla larghezza: su schermi stretti si mostrano meno secondi, così la frequenza appare reale */
+function fitMonitors(){document.querySelectorAll(".pm-waves").forEach(w=>{const wpx=w.clientWidth;if(!wpx)return;const f=Math.max(.4,Math.min(1,wpx/860)),key=f.toFixed(3);if(w.dataset.f===key)return;w.dataset.f=key;
+  w.querySelectorAll("svg[data-dur]").forEach(sv=>{const H=sv.dataset.h,dur=+sv.dataset.dur,vw=+(1000*f).toFixed(1);sv.setAttribute("viewBox",`0 0 ${vw} ${H}`);const g=sv.querySelector(".pm-gap");if(g){g.setAttribute("width",(34*f).toFixed(1));g.style.setProperty("--gx",vw+"px");g.style.animationDuration=(dur*f).toFixed(2)+"s"}});
+  const box=w.parentNode;if(box)box.querySelectorAll(".pm-s").forEach(x=>{x.textContent=String(Math.round(+x.dataset.base*f*10)/10).replace(".",",")})})}
+let fitRaf=0;const fitSoon=()=>{cancelAnimationFrame(fitRaf);fitRaf=requestAnimationFrame(fitMonitors)};
+new MutationObserver(fitSoon).observe(app,{childList:true,subtree:true});window.addEventListener("resize",()=>{document.querySelectorAll(".pm-waves").forEach(w=>delete w.dataset.f);fitSoon()});
 const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,calcoli,domande,casi,orale,metodo};
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
 function route(){
