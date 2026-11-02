@@ -398,13 +398,32 @@ nav.tabs{padding-left:30px;padding-right:30px}
 .ts-body{fill:url(#tsg)}
 .tsg-a{stop-color:#ffffff}
 .tsg-b{stop-color:color-mix(in srgb,var(--va) 12%,#ffffff)}
-.ts-rim{fill:none;stroke:color-mix(in srgb,var(--va) 35%,#ffffff);stroke-width:1.2}
+.ts-rim{fill:none;stroke:color-mix(in srgb,var(--va) 42%,#ffffff);stroke-width:1.1}
 .ts-det .f-tint{fill:color-mix(in srgb,var(--va) 16%,#ffffff)}
 .ts-det .f-tint2{fill:color-mix(in srgb,var(--va) 34%,#ffffff)}
 .ts-det .f-dark{fill:color-mix(in srgb,var(--va) 70%,#1a1a1a)}
 .ts-det .f-steel{fill:#b9c3c7}
 .ts-det .f-red{fill:#d9453f}
 .ts-det .f-hl{fill:#ffffff;opacity:.75}
+.ts-out{transition:opacity .3s}.ts-out.fade{opacity:0}
+.ts-out .o-handle{fill:none;stroke:#fff;stroke-width:4.2;stroke-linecap:round}
+.ts-out .o-loop{fill:none;stroke:color-mix(in srgb,var(--va) 22%,#ffffff);stroke-width:1.6;stroke-linecap:round}
+.ts-out .o-tube{fill:none;stroke:color-mix(in srgb,var(--va) 18%,#f4f8f9);stroke-width:2.6;stroke-linecap:round}
+.ts-out .o-chamber{fill:color-mix(in srgb,var(--va) 14%,#ffffff);stroke:color-mix(in srgb,var(--va) 40%,#ffffff);stroke-width:.9}
+.ts-det .f-steel2{fill:#d4dbde}
+.ts-det .f-membrane{fill:color-mix(in srgb,var(--va) 10%,#eef3f5);stroke:#9aa7ad;stroke-width:.8}
+.ts-det .f-page{fill:#000;opacity:.035}
+.ts-det .s-spine{fill:none;stroke:color-mix(in srgb,var(--va) 40%,#ffffff);stroke-width:1.2}
+.ts-det .f-fold{fill:none;stroke:color-mix(in srgb,var(--va) 40%,#ffffff);stroke-width:1}
+.ts-det .f-cap{fill:#7b5fca}
+.ts-det .s-cap{fill:none;stroke:rgba(255,255,255,.45);stroke-width:1}
+.ts-det .f-hole{fill:color-mix(in srgb,var(--va) 30%,#ffffff);stroke:color-mix(in srgb,var(--va) 55%,#ffffff);stroke-width:1}
+.ts-det .s-tick{fill:none;stroke:color-mix(in srgb,var(--va) 55%,#ffffff);stroke-width:1;stroke-linecap:round}
+.ts-det .s-pleat{fill:none;stroke:color-mix(in srgb,var(--va) 30%,#ffffff);stroke-width:1.2}
+.ts-det .s-wire{fill:none;stroke:#aab4b8;stroke-width:2;stroke-linecap:round}
+.ts-det .f-skin{fill:#f3dcc4}
+.ts-det .f-dot{fill:#c9a582}
+.ts-det .gloss{pointer-events:none}
 .ts-det .f-pad{fill:#ffffff;stroke:color-mix(in srgb,var(--va) 25%,#ffffff);stroke-width:1}
 .ts-det .s-line{fill:none;stroke:color-mix(in srgb,var(--va) 50%,#ffffff);stroke-width:1.4;stroke-linecap:round}
 .ts-det .s-dark{fill:none;stroke:color-mix(in srgb,var(--va) 70%,#1a1a1a);stroke-width:1.8;stroke-linecap:round}
@@ -1140,42 +1159,59 @@ const TABICONS={
 let indName=null;
 /* Il tasto della scheda attiva prende la forma di un oggetto sanitario e si trasforma da uno all'altro */
 const SHAPES={
- oggi:{label:"Siringa",l:24,r:26,d:(W,H,L,R)=>{const m=H/2,x1=W-R;return `M0 ${H*.16}H4V${m-3}H${L}V2Q${L} 1 ${L+2} 1H${x1-2}Q${x1} 1 ${x1} 3V${H*.22}L${x1+9} ${m-3}H${W-3}L${W} ${m}L${W-3} ${m+3}H${x1+9}L${x1} ${H*.78}V${H-3}Q${x1} ${H-1} ${x1-2} ${H-1}H${L+2}Q${L} ${H-1} ${L} ${H-3}V${m+3}H4V${H*.84}H0Z`},
-   det:(W,H,L,R)=>{const m=H/2,x1=W-R;let t="";for(let x=L+12;x<x1-6;x+=11)t+=`M${x} 2.5V${x%22<11?7:5}`;return `<rect x="${L+1}" y="${H*.56}" width="${x1-L-2}" height="${H*.44-1}" class="f-tint liq"/><rect x="${L+1.5}" y="2" width="4" height="${H-4}" rx="1.5" class="f-dark"/><path d="M${x1} ${H*.22}L${x1+9} ${m-3}V${m+3}L${x1} ${H*.78}Z" class="f-tint2"/><path d="M${x1+9} ${m-1.2}H${W-2}L${W} ${m}L${W-2} ${m+1.2}H${x1+9}Z" class="f-steel"/><path d="${t}" class="s-line"/>`}},
- avanzamento:{label:"Termometro",l:38,r:8,d:(W,H)=>{const m=H/2,r=m-.5,cx=r+.5,th=H*.3,dx=Math.sqrt(r*r-th*th);return `M${cx+dx} ${m-th}H${W-th}A${th} ${th} 0 0 1 ${W-th} ${m+th}H${cx+dx}A${r} ${r} 0 1 1 ${cx+dx} ${m-th}Z`},
-   det:(W,H)=>{const m=H/2,r=m-.5,th=H*.3;let t="";for(let x=H+4;x<W-12;x+=9)t+=`M${x} ${m-th}V${m-th+(x%18<9?4:2.5)}`;return `<circle cx="${r+.5}" cy="${m}" r="${r*.62}" class="f-red"/><rect x="${r}" y="${m+th-4.5}" width="${W*.42}" height="2.6" rx="1.3" class="f-red merc"/><circle cx="${r*.75}" cy="${m-r*.3}" r="${r*.16}" class="f-hl"/><path d="${t}" class="s-line"/>`}},
- home:{label:"Fonendoscopio",l:20,r:30,d:(W,H)=>{const m=H/2,r=m-.5,cx=W-r-.5,th=H*.28,dx=Math.sqrt(r*r-th*th);return `M${cx-dx} ${m-th}A${r} ${r} 0 1 1 ${cx-dx} ${m+th}H18L4 ${H-2}H0V${H-6}L12 ${m}L0 6V2H4L18 ${m-th}Z`},
-   det:(W,H)=>{const m=H/2,r=m-.5,cx=W-r-.5;return `<circle cx="${cx}" cy="${m}" r="${r*.78}" class="f-steel"/><circle cx="${cx}" cy="${m}" r="${r*.5}" class="f-tint"/><circle cx="${cx-r*.25}" cy="${m-r*.3}" r="${r*.14}" class="f-hl"/><circle cx="2" cy="4" r="2.6" class="f-dark"/><circle cx="2" cy="${H-4}" r="2.6" class="f-dark"/>`}},
- studio:{label:"Libro",l:12,r:12,d:(W,H)=>`M0 4Q${W*.25} -1 ${W*.5} 6Q${W*.75} -1 ${W} 4V${H-1}Q${W*.75} ${H-7} ${W*.5} ${H}Q${W*.25} ${H-7} 0 ${H-1}Z`,
-   det:(W,H)=>`<path d="M3 ${H-3.5}Q${W*.25} ${H-9} ${W*.5-2} ${H-2.5}M${W-3} ${H-3.5}Q${W*.75} ${H-9} ${W*.5+2} ${H-2.5}" class="s-line"/><path d="M${W*.5} 6V9.5" class="s-line"/><path d="M${W*.8} 1.5V12L${W*.8+3.5} 9.5L${W*.8+7} 12V1" class="f-red ribbon"/>`},
- flashcard:{label:"Compressa",l:14,r:14,d:(W,H)=>{const m=H/2;return `M${m} 0H${W-m}A${m} ${m} 0 0 1 ${W-m} ${H}H${m}A${m} ${m} 0 0 1 ${m} 0Z`},
-   det:(W,H)=>{const m=H/2;return `<path d="M${W/2} 0H${W-m}A${m} ${m} 0 0 1 ${W-m} ${H}H${W/2}Z" class="f-tint"/><rect x="${m*.5}" y="${H*.14}" width="${W-m}" height="${H*.2}" rx="${H*.1}" class="f-hl"/><path d="M${W/2} 1V${H-1}" class="s-line"/>`}},
- quiz:{label:"Provetta",l:12,r:18,d:(W,H)=>{const r=(H-8)/2;return `M0 1H7V4H${W-r}A${r} ${r} 0 0 1 ${W-r} ${H-4}H7V${H-1}H0Z`},
-   det:(W,H)=>{const x=W*.62;return `<path d="M${x} 4Q${x+4} ${H/2} ${x} ${H-4}H${W}V4Z" class="f-tint2"/><rect x="0" y="0" width="7" height="${H}" class="f-dark"/><rect x="9" y="${H*.18}" width="${W*.5}" height="${H*.16}" rx="${H*.08}" class="f-hl"/>`}},
- domande:{label:"Pappagallo",l:10,r:22,d:(W,H)=>{const t=H*.24;return `M8 ${t}H${W*.16}Q${W*.18} 0 ${W*.28} 0Q${W*.38} 0 ${W*.4} ${t}H${W-20}L${W-7} 0L${W} 4L${W-10} ${H*.48}V${H-8}Q${W-10} ${H} ${W-18} ${H}H8Q0 ${H} 0 ${H-8}V${t+8}Q0 ${t} 8 ${t}Z`},
-   det:(W,H)=>`<rect x="0" y="${H*.72}" width="${W-10}" height="${H}" class="f-tint"/><path d="M5 ${H*.5}H10M5 ${H*.62}H10" class="s-line"/><path d="M${W-7.5} 0.8L${W-.8} 3.8" class="s-dark"/><path d="M${W*.2} ${H*.24}Q${W*.28} ${H*.06} ${W*.36} ${H*.24}" class="f-tint2"/>`},
- casi:{label:"Flebo",l:10,r:22,d:(W,H)=>{const m=H/2,x=W-18;return `M8 1H${x-8}Q${x} 1 ${x} 9V${m-4}H${x+8}V${m-1.5}H${W}V${m+1.5}H${x+8}V${m+4}H${x}V${H-9}Q${x} ${H-1} ${x-8} ${H-1}H8Q0 ${H-1} 0 ${H-9}V9Q0 1 8 1Z`},
-   det:(W,H)=>{const m=H/2,x=W-18;return `<rect x="0" y="${H*.6}" width="${x}" height="${H}" class="f-tint fluid"/><path d="M8 5H${Math.min(30,x-8)}" class="s-line"/><rect x="${x}" y="${m-4}" width="8" height="8" class="f-steel"/><path d="M${x+8} ${m-1.5}H${W}V${m+1.5}H${x+8}Z" class="f-tint2"/>`}},
- orale:{label:"Mascherina",l:16,r:16,d:(W,H)=>`M14 ${H*.2}Q${W/2} -2 ${W-14} ${H*.2}Q${W-2} ${H*.06} ${W} ${H*.5}Q${W-2} ${H*.94} ${W-14} ${H*.8}Q${W/2} ${H+2} 14 ${H*.8}Q2 ${H*.94} 0 ${H*.5}Q2 ${H*.06} 14 ${H*.2}Z`,
-   det:(W,H)=>`<rect x="0" y="0" width="${W}" height="${H}" class="f-tint"/><path d="M22 ${H*.3}Q${W/2} ${H*.18} ${W-22} ${H*.3}M22 ${H*.74}Q${W/2} ${H*.88} ${W-22} ${H*.74}" class="s-line"/><path d="M${W/2-12} ${H*.1}Q${W/2} ${H*.04} ${W/2+12} ${H*.1}" class="s-dark"/><path d="M3 ${H*.5}H12M${W-3} ${H*.5}H${W-12}" class="s-line"/>`},
- enciclopedia:{label:"Cartella clinica",l:12,r:12,d:(W,H)=>{const c=W/2;return `M5 5H${c-13}V2.5Q${c-13} 1 ${c-11} 1H${c+11}Q${c+13} 1 ${c+13} 2.5V5H${W-5}Q${W} 5 ${W} 10V${H-5}Q${W} ${H} ${W-5} ${H}H5Q0 ${H} 0 ${H-5}V10Q0 5 5 5Z`},
-   det:(W,H)=>{const c=W/2;let t="";for(let y=H*.62;y<H-3;y+=5)t+=`M8 ${y.toFixed(1)}H${W-8}`;return `<rect x="${c-11}" y="0.5" width="22" height="6" rx="2" class="f-steel"/><rect x="${c-5}" y="2" width="10" height="2.2" rx="1.1" class="f-dark"/><rect x="0" y="${H*.56}" width="${W}" height="${H}" class="f-tint"/><path d="${t}" class="s-line"/>`}},
- glossario:{label:"Fiala",l:10,r:26,d:(W,H)=>{const a=W-24,n=W-15;return `M8 1H${a-4}Q${a} 1 ${a} 5V${H*.36}H${n}V${H*.2}H${W-6}Q${W} ${H*.2} ${W} ${H*.5}Q${W} ${H*.8} ${W-6} ${H*.8}H${n}V${H*.64}H${a}V${H-5}Q${a} ${H-1} ${a-4} ${H-1}H8Q0 ${H-1} 0 ${H-9}V9Q0 1 8 1Z`},
-   det:(W,H)=>{const a=W-24,n=W-15;return `<rect x="0" y="${H*.58}" width="${a}" height="${H}" class="f-tint fluid"/><rect x="${a}" y="${H*.3}" width="${n-a}" height="${H*.4}" class="f-steel"/><rect x="${n}" y="0" width="${W-n}" height="${H}" class="f-tint2"/><rect x="7" y="${H*.16}" width="${a*.45}" height="${H*.14}" rx="${H*.07}" class="f-hl"/>`}},
- metodo:{label:"Cerotto",l:24,r:24,d:(W,H)=>{const m=H/2,y=3,h=H-6,r=h/2;return `M${r} ${y}H${W-r}A${r} ${r} 0 0 1 ${W-r} ${y+h}H${r}A${r} ${r} 0 0 1 ${r} ${y}Z`},
-   det:(W,H)=>{const m=H/2;let d="";for(const x of [7,12,W-12,W-7])for(const y of [m-5,m,m+5])d+=`<circle cx="${x}" cy="${y}" r=".9" class="f-dark"/>`;return `<rect x="0" y="0" width="${W}" height="${H}" class="f-tint"/><rect x="${W*.2}" y="5" width="${W*.6}" height="${H-10}" rx="4" class="f-pad"/>`+d}}
+ /* Siringa: impugnatura a T, stantuffo, cilindro graduato, cono e ago */
+ oggi:{label:"Siringa",l:30,r:34,
+   d:(W,H,L,R)=>{const m=H/2,x1=W-R+4,c=H*.2;return `M0 ${c}H5V${m-2.2}H${L-6}V${m-4.5}H${L}V4Q${L} 1 ${L+3} 1H${x1-3}Q${x1} 1 ${x1} 4V${H*.24}L${x1+9} ${m-3.2}H${x1+13}V${m-1}H${W-1}L${W} ${m}L${W-1} ${m+1}H${x1+13}V${m+3.2}H${x1+9}L${x1} ${H*.76}V${H-4}Q${x1} ${H-1} ${x1-3} ${H-1}H${L+3}Q${L} ${H-1} ${L} ${H-4}V${m+4.5}H${L-6}V${m+2.2}H5V${H-c}H0Z`},
+   det:(W,H,L,R)=>{const m=H/2,x1=W-R+4;let t="";for(let x=L+10,i=0;x<x1-6;x+=8,i++)t+=`M${x} 1.6V${i%5===0?6.5:4.2}`;return `<rect x="0" y="0" width="${L}" height="${H}" class="f-steel2"/><rect x="${L+1}" y="${H*.62}" width="${x1-L-2}" height="${H*.38}" class="f-tint liq"/><rect x="${L+1.2}" y="2" width="5" height="${H-4}" rx="2" class="f-dark"/><path d="${t}" class="s-tick"/><path d="M${x1} ${H*.24}L${x1+9} ${m-3.2}V${m+3.2}L${x1} ${H*.76}Z" class="f-tint2"/><rect x="${x1+9}" y="${m-3.2}" width="4" height="6.4" class="f-steel"/><path d="M${x1+13} ${m-1}H${W-1}L${W} ${m}" class="f-steel"/>`}},
+ /* Termometro: bulbo con mercurio e scala */
+ avanzamento:{label:"Termometro",l:40,r:10,d:(W,H)=>{const m=H/2,r=m-.5,cx=r+.5,th=H*.3,dx=Math.sqrt(r*r-th*th);return `M${cx+dx} ${m-th}H${W-th}A${th} ${th} 0 0 1 ${W-th} ${m+th}H${cx+dx}A${r} ${r} 0 1 1 ${cx+dx} ${m-th}Z`},
+   det:(W,H)=>{const m=H/2,r=m-.5,th=H*.3;let t="";for(let x=H+6,i=0;x<W-14;x+=7,i++)t+=`M${x} ${m-th}V${m-th+(i%5===0?5:3)}`;return `<circle cx="${r+.5}" cy="${m}" r="${r*.66}" class="f-red"/><rect x="${r}" y="${m+th-4.6}" width="${W*.42}" height="3" rx="1.5" class="f-red merc"/><circle cx="${r*.72}" cy="${m-r*.32}" r="${r*.18}" class="f-hl"/><path d="${t}" class="s-tick"/>`}},
+ /* Fonendoscopio: olive auricolari, tubo, campana con membrana */
+ home:{label:"Fonendoscopio",l:22,r:32,d:(W,H)=>{const m=H/2,r=m-.5,cx=W-r-.5,th=H*.26,dx=Math.sqrt(r*r-th*th);return `M${cx-dx} ${m-th}A${r} ${r} 0 1 1 ${cx-dx} ${m+th}H20Q14 ${m+th} 10 ${H-3}L6 ${H-1}H1V${H-6}L4 ${H-8}Q9 ${m} 4 8L1 6V1H6L10 3Q14 ${m-th} 20 ${m-th}Z`},
+   det:(W,H)=>{const m=H/2,r=m-.5,cx=W-r-.5;return `<circle cx="${cx}" cy="${m}" r="${r*.8}" class="f-steel"/><circle cx="${cx}" cy="${m}" r="${r*.56}" class="f-membrane"/><circle cx="${cx-r*.22}" cy="${m-r*.28}" r="${r*.16}" class="f-hl"/><circle cx="3" cy="3.5" r="3" class="f-dark"/><circle cx="3" cy="${H-3.5}" r="3" class="f-dark"/>`}},
+ /* Libro aperto con segnalibro */
+ studio:{label:"Libro",l:14,r:14,d:(W,H)=>`M0 4Q${W*.25} -1 ${W*.5} 5Q${W*.75} -1 ${W} 4V${H-1}Q${W*.75} ${H-7} ${W*.5} ${H}Q${W*.25} ${H-7} 0 ${H-1}Z`,
+   det:(W,H)=>`<path d="M0 4Q${W*.25} -1 ${W*.5} 5V${H}Q${W*.25} ${H-7} 0 ${H-1}Z" class="f-page"/><path d="M3 ${H-3.6}Q${W*.25} ${H-9} ${W*.5-2} ${H-2.6}M${W-3} ${H-3.6}Q${W*.75} ${H-9} ${W*.5+2} ${H-2.6}" class="s-line"/><path d="M${W*.5} 5V${H}" class="s-spine"/><path d="M${W*.82} 0V13L${W*.82+3.5} 10.4L${W*.82+7} 13V0" class="f-red ribbon"/>`},
+ /* Cartella clinica su clipboard */
+ enciclopedia:{label:"Cartella clinica",l:14,r:14,d:(W,H)=>{const c=W/2;return `M6 5H${c-14}V2.6Q${c-14} 1 ${c-12} 1H${c+12}Q${c+14} 1 ${c+14} 2.6V5H${W-6}Q${W} 5 ${W} 11V${H-6}Q${W} ${H} ${W-6} ${H}H6Q0 ${H} 0 ${H-6}V11Q0 5 6 5Z`},
+   det:(W,H)=>{const c=W/2;return `<rect x="0" y="0" width="5" height="${H}" class="f-tint2"/><rect x="${c-12}" y=".5" width="24" height="7" rx="2.2" class="f-steel"/><rect x="${c-5}" y="2.2" width="10" height="2.4" rx="1.2" class="f-dark"/><path d="M${W-11} ${H}L${W} ${H-11}V${H}Z" class="f-tint2"/><path d="M${W-11} ${H}L${W-11} ${H-7}Q${W-11} ${H-11} ${W-7} ${H-11}L${W} ${H-11}" class="f-fold"/>`}},
+ /* Fiala: corpo, collo con anello, testa */
+ glossario:{label:"Fiala",l:12,r:28,d:(W,H)=>{const a=W-26,n=W-16;return `M8 1H${a-5}Q${a} 1 ${a} 6V${H*.34}Q${a+3} ${H*.36} ${n} ${H*.38}V${H*.24}H${W-6}Q${W} ${H*.24} ${W} ${H*.5}Q${W} ${H*.76} ${W-6} ${H*.76}H${n}V${H*.62}Q${a+3} ${H*.64} ${a} ${H*.66}V${H-6}Q${a} ${H-1} ${a-5} ${H-1}H8Q0 ${H-1} 0 ${H-9}V9Q0 1 8 1Z`},
+   det:(W,H)=>{const a=W-26,n=W-16;return `<rect x="0" y="${H*.6}" width="${a}" height="${H}" class="f-tint fluid"/><rect x="${n-3}" y="${H*.22}" width="3" height="${H*.56}" class="f-red"/><rect x="${n}" y="0" width="${W-n}" height="${H}" class="f-tint2"/>`}},
+ /* Compressa bicolore */
+ flashcard:{label:"Compressa",l:16,r:16,d:(W,H)=>{const m=H/2;return `M${m} 0H${W-m}A${m} ${m} 0 0 1 ${W-m} ${H}H${m}A${m} ${m} 0 0 1 ${m} 0Z`},
+   det:(W,H)=>{const m=H/2;return `<path d="M${W/2} 0H${W-m}A${m} ${m} 0 0 1 ${W-m} ${H}H${W/2}Z" class="f-tint2"/><path d="M${W/2} 1V${H-1}" class="s-line"/>`}},
+ /* Provetta con tappo e liquido */
+ quiz:{label:"Provetta",l:14,r:20,d:(W,H)=>{const r=(H-8)/2;return `M0 1H9V4H${W-r}A${r} ${r} 0 0 1 ${W-r} ${H-4}H9V${H-1}H0Z`},
+   det:(W,H)=>{const x=W*.6;return `<path d="M${x} 4Q${x+4} ${H/2} ${x} ${H-4}H${W}V4Z" class="f-tint2 fluid"/><rect x="0" y="0" width="9" height="${H}" class="f-cap"/><path d="M2 3V${H-3}M5 3V${H-3}" class="s-cap"/>`}},
+ /* Pappagallo (orinale maschile): corpo, collo inclinato, maniglia ad anello */
+ domande:{label:"Pappagallo",l:12,r:28,d:(W,H)=>{const t=H*.24;return `M10 ${t}H${W-34}L${W-9} 2Q${W-4} 0 ${W-2} 4Q${W} 7 ${W-4} 9L${W-16} ${H*.5}V${H-9}Q${W-16} ${H} ${W-25} ${H}H10Q0 ${H} 0 ${H-10}V${t+10}Q0 ${t} 10 ${t}Z`},
+   out:(W,H)=>{const t=H*.24;return `<path d="M12 ${t+1}V${t-3}Q12 1 22 1H${W*.3}Q${W*.36} 1 ${W*.36} ${t-3}V${t+1}" class="o-handle"/>`},
+   det:(W,H)=>`<rect x="0" y="${H*.7}" width="${W}" height="${H}" class="f-tint"/><path d="M5 ${H*.5}H11M5 ${H*.62}H11M5 ${H*.74}H11" class="s-tick"/><path d="M${W-9} 2.4L${W-3} 6.6" class="s-dark"/>`},
+ /* Sacca per flebo: foro di sospensione, scala, raccordo e deflussore */
+ casi:{label:"Flebo",l:14,r:30,d:(W,H)=>{const m=H/2,x=W-26;return `M7 1H${x-7}Q${x} 1 ${x} 8V${m-4}H${x+7}V${m+4}H${x}V${H-8}Q${x} ${H-1} ${x-7} ${H-1}H7Q0 ${H-1} 0 ${H-8}V8Q0 1 7 1Z`},
+   out:(W,H)=>{const m=H/2,x=W-26;return `<path d="M${x+7} ${m}H${x+11}" class="o-tube"/><rect x="${x+11}" y="${m-4.5}" width="6" height="9" rx="1.6" class="o-chamber"/><path d="M${x+17} ${m}H${W}" class="o-tube"/>`},
+   det:(W,H)=>{const x=W-26;let t="";for(let y=H*.3;y<H-4;y+=H*.17)t+=`M${x-6} ${y.toFixed(1)}H${x-2}`;return `<rect x="0" y="${H*.55}" width="${x}" height="${H}" class="f-tint fluid"/><circle cx="6.5" cy="${H/2}" r="2.4" class="f-hole"/><path d="${t}" class="s-tick"/><rect x="${x}" y="${H/2-4}" width="7" height="8" class="f-steel"/>`}},
+ /* Mascherina chirurgica con pieghe, ferretto nasale ed elastici */
+ orale:{label:"Mascherina",l:26,r:26,d:(W,H)=>`M16 4Q${W/2} 0 ${W-16} 4V${H-4}Q${W/2} ${H} 16 ${H-4}Z`,
+   out:(W,H)=>`<path d="M17 6.5C3 6.5 3 ${H-6.5} 17 ${H-6.5}M${W-17} 6.5C${W-3} 6.5 ${W-3} ${H-6.5} ${W-17} ${H-6.5}" class="o-loop"/>`,
+   det:(W,H)=>`<rect x="16" y="0" width="5" height="${H}" class="f-tint2"/><rect x="${W-21}" y="0" width="5" height="${H}" class="f-tint2"/><path d="M22 ${H*.3}Q${W/2} ${H*.24} ${W-22} ${H*.3}M22 ${H*.78}Q${W/2} ${H*.86} ${W-22} ${H*.78}" class="s-pleat"/><path d="M${W/2-14} 3.4Q${W/2} 1.8 ${W/2+14} 3.4" class="s-wire"/>`},
+ /* Cerotto con garza centrale */
+ metodo:{label:"Cerotto",l:26,r:26,d:(W,H)=>{const y=3,h=H-6,r=h/2;return `M${r} ${y}H${W-r}A${r} ${r} 0 0 1 ${W-r} ${y+h}H${r}A${r} ${r} 0 0 1 ${r} ${y}Z`},
+   det:(W,H)=>{const m=H/2;let d="";for(const x of [8,13,W-13,W-8])for(const y of [m-5,m,m+5])d+=`<circle cx="${x}" cy="${y}" r=".95" class="f-dot"/>`;return `<rect x="0" y="0" width="${W}" height="${H}" class="f-skin"/><rect x="${W*.2}" y="5" width="${W*.6}" height="${H-10}" rx="5" class="f-pad"/>`+d}}
 };
-let shapeSvg=null,shapePath=null,shapeDet=null,shapeAnim=null,curPts=null,curX=0;
+let shapeOut=null,shapeSvg=null,shapePath=null,shapeDet=null,shapeAnim=null,curPts=null,curX=0;
 const NPTS=150;
 function ensureShape(nav){
   if(shapeSvg&&shapeSvg.isConnected)return;
   const NS="http://www.w3.org/2000/svg";
   shapeSvg=document.createElementNS(NS,"svg");shapeSvg.setAttribute("class","tab-shape");shapeSvg.setAttribute("aria-hidden","true");
-  shapeSvg.innerHTML=`<defs><linearGradient id="tsg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="tsg-a"/><stop offset="1" class="tsg-b"/></linearGradient><linearGradient id="tsshade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".09"/></linearGradient><clipPath id="tsclip"><path id="tsclipp"/></clipPath></defs>`;
+  shapeSvg.innerHTML=`<defs><linearGradient id="tsg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="tsg-a"/><stop offset="1" class="tsg-b"/></linearGradient><linearGradient id="tsshade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".09"/></linearGradient><linearGradient id="tsgloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".5" stop-color="#fff" stop-opacity=".18"/><stop offset=".52" stop-color="#fff" stop-opacity="0"/></linearGradient><clipPath id="tsclip"><path id="tsclipp"/></clipPath></defs>`;
   shapePath=document.createElementNS(NS,"path");shapePath.setAttribute("class","ts-body");
   shapeDet=document.createElementNS(NS,"g");shapeDet.setAttribute("class","ts-det");shapeDet.setAttribute("clip-path","url(#tsclip)");
   const rim=document.createElementNS(NS,"path");rim.setAttribute("class","ts-rim");
-  shapeSvg.append(shapePath,shapeDet,rim);nav.prepend(shapeSvg);
+  shapeOut=document.createElementNS(NS,"g");shapeOut.setAttribute("class","ts-out");
+  shapeSvg.append(shapeOut,shapePath,shapeDet,rim);nav.prepend(shapeSvg);
   const old=nav.querySelector(".tab-ind");if(old)old.remove();
 }
 const _mp=document.createElementNS("http://www.w3.org/2000/svg","path");
@@ -1205,7 +1241,7 @@ function moveInd(name){
   nav.querySelectorAll("a").forEach(x=>{const S=SHAPES[x.getAttribute("href").slice(1)];const on=x.getAttribute("href")==="#"+name;x.style.marginLeft=on?S.l+"px":"";x.style.marginRight=on?S.r+"px":""});
   const size=()=>{shapeSvg.setAttribute("width",nav.scrollWidth);shapeSvg.setAttribute("height",nav.clientHeight);shapeSvg.style.width=nav.scrollWidth+"px";shapeSvg.style.height=nav.clientHeight+"px"};
   const RMq=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const finalNow=()=>{const g=geom(nav,name);if(!g)return;size();const d=g.S.d(g.W,g.H,g.S.l,g.S.r);shapePath.setAttribute("d",d);shapePath.setAttribute("transform",`translate(${g.x} ${g.y})`);shapeDet.innerHTML=g.S.det(g.W,g.H,g.S.l,g.S.r)+`<rect x="0" y="${g.H*.5}" width="${g.W}" height="${g.H*.5}" fill="url(#tsshade)"/><rect class="shine" x="-30" y="-2" width="14" height="${g.H+4}" style="--w:${g.W+46}px"/>`;shapeDet.setAttribute("transform",`translate(${g.x} ${g.y})`);shapeSvg.querySelector("#tsclipp").setAttribute("d",d);const rim=shapeSvg.querySelector(".ts-rim");rim.setAttribute("d",d);rim.setAttribute("transform",`translate(${g.x} ${g.y})`);curPts=sample(d);curX=g.x;shapeSvg.dataset.y=g.y;shapeSvg.setAttribute("aria-label",g.S.label)};
+  const finalNow=()=>{const g=geom(nav,name);if(!g)return;size();const d=g.S.d(g.W,g.H,g.S.l,g.S.r);shapePath.setAttribute("d",d);shapePath.setAttribute("transform",`translate(${g.x} ${g.y})`);shapeOut.innerHTML=g.S.out?g.S.out(g.W,g.H,g.S.l,g.S.r):"";shapeOut.setAttribute("transform",`translate(${g.x} ${g.y})`);shapeDet.innerHTML=g.S.det(g.W,g.H,g.S.l,g.S.r)+`<rect x="0" y="0" width="${g.W}" height="${g.H*.55}" fill="url(#tsgloss)" class="gloss"/><rect x="0" y="${g.H*.5}" width="${g.W}" height="${g.H*.5}" fill="url(#tsshade)"/><rect class="shine" x="-30" y="-2" width="14" height="${g.H+4}" style="--w:${g.W+46}px"/>`;shapeDet.setAttribute("transform",`translate(${g.x} ${g.y})`);shapeSvg.querySelector("#tsclipp").setAttribute("d",d);const rim=shapeSvg.querySelector(".ts-rim");rim.setAttribute("d",d);rim.setAttribute("transform",`translate(${g.x} ${g.y})`);curPts=sample(d);curX=g.x;shapeSvg.dataset.y=g.y;shapeSvg.setAttribute("aria-label",g.S.label)};
   if(shapeAnim){cancelAnimationFrame(shapeAnim);shapeAnim=null}
   if(indName===null||indName===name||RMq||!curPts){indName=name;
     // senza animazione: aspetta che i margini si assestino
@@ -1215,7 +1251,7 @@ function moveInd(name){
   // geometria finale stimata (larghezza del testo e forma), poi la posizione si aggiorna a ogni fotogramma
   const g0=geom(nav,name);const target=sample(g0.S.d(g0.W,g0.H,g0.S.l,g0.S.r));if(!target){finalNow();return}
   const to=align(from.map(p=>[p[0]+fromX,p[1]]).map(p=>[p[0]-fromX,p[1]]),target);
-  shapeDet.classList.add("fade");
+  shapeDet.classList.add("fade");if(shapeOut)shapeOut.classList.add("fade");
   const t0=performance.now(),D=620;
   const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
   const step=now=>{
@@ -1224,7 +1260,7 @@ function moveInd(name){
     const x=fromX+(tx-fromX)*e, y=fromY+(g.y-fromY)*e;
     const pts=from.map((p,i)=>[p[0]+(to[i][0]-p[0])*e,p[1]+(to[i][1]-p[1])*e]);
     const pd=ptsPath(pts),tr=`translate(${x.toFixed(1)} ${y.toFixed(1)})`;shapePath.setAttribute("d",pd);shapePath.setAttribute("transform",tr);const rim=shapeSvg.querySelector(".ts-rim");rim.setAttribute("d",pd);rim.setAttribute("transform",tr);
-    if(t<1){shapeAnim=requestAnimationFrame(step)}else{shapeAnim=null;finalNow();shapeDet.classList.remove("fade")}
+    if(t<1){shapeAnim=requestAnimationFrame(step)}else{shapeAnim=null;finalNow();shapeDet.classList.remove("fade");if(shapeOut)shapeOut.classList.remove("fade")}
   };
   shapeAnim=requestAnimationFrame(step);
 }
