@@ -478,6 +478,32 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .pm-ecg{width:100%;height:46px;display:block}
 .pm-ecg path{fill:none;stroke:#3dff8f;stroke-width:2.4;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 3px rgba(61,255,143,.6));stroke-dasharray:2600;stroke-dashoffset:0}
 @media (prefers-reduced-motion: no-preference){.pm-ecg path{animation:pmtrace 5s linear infinite}@keyframes pmtrace{from{stroke-dashoffset:2600}to{stroke-dashoffset:0}}}
+.pm-waves{display:flex;flex-direction:column;margin-bottom:8px;border-radius:10px;overflow:hidden;background:#040c0b}
+.pm-ch{position:relative;border-bottom:1px solid rgba(255,255,255,.06)}
+.pm-ch:last-child{border-bottom:0}
+.pm-ch svg{display:block;width:100%;height:44px}
+.pm-c-ecg svg{height:96px}
+.pm-ch path{fill:none;stroke-width:1.9;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.pm-c-ecg path{stroke:#3dff8f;filter:drop-shadow(0 0 2px rgba(61,255,143,.55))}
+.pm-c-sp path{stroke:#38d9ff;filter:drop-shadow(0 0 2px rgba(56,217,255,.45))}
+.pm-c-rr path{stroke:#ffd84a;filter:drop-shadow(0 0 2px rgba(255,216,74,.4))}
+.pm-gap{fill:#040c0b;display:none}
+@media (prefers-reduced-motion: no-preference){.pm-gap{display:block;animation:pmgap linear infinite}@keyframes pmgap{from{transform:translateX(0)}to{transform:translateX(1000px)}}}
+.pm-lab{position:absolute;left:8px;top:3px;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.05em;font-weight:600;z-index:1}
+.pm-lab i{font-style:normal;opacity:.65;font-weight:400;margin-left:4px}
+.pm-c-ecg .pm-lab{color:#3dff8f}.pm-c-sp .pm-lab{color:#38d9ff}.pm-c-rr .pm-lab{color:#ffd84a}
+.pm-read{margin:2px 0 8px;color:#d8e6e4;font-size:.9rem}
+.pm-read summary{cursor:pointer;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:#9fe7c4;padding:4px 0}
+.pm-read p{margin:6px 0}.pm-read .pm-note{font-size:.78rem;opacity:.7}
+.strips{display:grid;gap:14px}
+.ecg-strip{margin:0;display:flex;flex-direction:column;gap:6px}
+.ecg-strip svg{width:100%;height:auto;display:block;border-radius:6px;background:#fff7f6;border:1px solid #efc9c6}
+.eg1{fill:none;stroke:#f6c9c6;stroke-width:.08}
+.eg5{fill:none;stroke:#e79b96;stroke-width:.22}
+.eg-tr{fill:none;stroke:#1a1a1a;stroke-width:.38;stroke-linejoin:round;stroke-linecap:round}
+.eg-t{font-family:var(--f-mono);font-size:3px;fill:#b0413b;font-weight:700}
+.rs-bg{fill:#f5f8fc}.rs-grid{stroke:#d3dce8;stroke-width:.25}.rs-tr{stroke:#1d4f8a}
+.ecg-strip figcaption{font-size:14.5px;line-height:1.45}
 .pm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px;margin-top:6px}
 .pm-cell{border:1px solid #1e2c2b;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:2px;background:rgba(255,255,255,.02)}
 .pm-k{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
@@ -485,6 +511,7 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .pm-hr{color:#3dff8f}.pm-sp{color:#38d9ff}.pm-bp{color:#ff5d5d}.pm-rr{color:#ffd84a}.pm-tc{color:#ffa94d}.pm-ot{color:#e8f1f0}
 .pm-bell{font-size:.6rem;background:#ff3b3b;color:#fff;padding:1px 5px;border-radius:4px;margin-left:4px;letter-spacing:.04em}
 .pm-alarm{border-color:#ff3b3b}
+.pm-v.pm-long{font-size:.98rem;line-height:1.25;overflow-wrap:anywhere}
 @media (prefers-reduced-motion: no-preference){.pm-alarm{animation:alarm 1.4s steps(2,end) infinite}@keyframes alarm{50%{background:rgba(255,59,59,.16)}}}
 /* ---- progressi: indicatore e barre ---- */
 .gauge{position:relative;width:150px;max-width:100%}
@@ -1184,11 +1211,241 @@ window.addEventListener("resize",()=>{if(indName){const n=indName;indName=null;m
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(indName){const n=indName;indName=null;moveInd(n)}});
 
 /* ---- monitor multiparametrico per i parametri dei casi ---- */
-function vitalsMonitor(vit){
-  const col=k=>/^(FC|HR)/i.test(k)?"hr":/SpO2|Sat/i.test(k)?"sp":/^PA/i.test(k)?"bp":/^FR/i.test(k)?"rr":/^TC|Temp/i.test(k)?"tc":"ot";
-  return `<div class="pmon"><svg class="pm-ecg" viewBox="0 0 2400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40"/></svg>
-  <div class="pm-grid">${vit.map(v=>`<div class="pm-cell pm-${col(v[0])} ${v[2]?"pm-alarm":""}"><span class="pm-k">${esc(v[0])}${v[2]?' <b class="pm-bell">ALLARME</b>':""}</span><span class="pm-v">${esc(v[1])}</span></div>`).join("")}</div></div>`;
+/* ---- motore dei tracciati: ECG, curva del polso (pletismografica) e respiro, generati in base al caso ---- */
+const WAVE=(()=>{
+const G=(t,m,s,a)=>a*Math.exp(-((t-m)*(t-m))/(2*s*s));
+const sig=x=>1/(1+Math.exp(-x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+function rng(seed){let s=2166136261;for(const ch of String(seed))s=Math.imul(s^ch.charCodeAt(0),16777619)>>>0;s=s||1;return()=>{s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;return s/4294967296}}
+const BASE={pA:.18,qA:-.1,rA:1.05,sA:-.25,w:1,st:0,tA:.3,tS1:.05,tS2:.034,tPlus:0,u:.03};
+const MORPH={
+ stemiV2:{rA:.42,qA:0,sA:-.75,st:.34,tA:.5,tS1:.075,tS2:.045},
+ stemiIII:{rA:.85,qA:-.28,st:.3,tA:.48,tS1:.07,tS2:.045},
+ ischemia:{st:-.15,tA:-.24,tS1:.045,tS2:.045},
+ iperk:{pA:.04,w:1.35,tA:.85,tS1:.03,tS2:.028},
+ ipok:{tA:.07,st:-.05,u:.17},
+ qtlungo:{tPlus:.17}
+};
+/* elenco dei battiti: {t: tempo del picco R, pr: intervallo PR (null = senza P), k: "n" normale | "w" ventricolare, w: larghezza} */
+function beats(type,hr,dur,R){
+  const B=[],P=[];let t=-1.2+R()*.4;
+  const mean=60/hr;
+  const push=(o)=>B.push(o);
+  if(type==="fa"){while(t<dur+1.2){push({t,pr:null,k:"n"});t+=mean*(.6+.8*R())}}
+  else if(type==="flutter"){const cond=hr>120?2:4;t=-1.2;while(t<dur+1.2){push({t:t+.11,pr:null,k:"n"});t+=.2*cond}}
+  else if(type==="tsv"){const rr=60/Math.max(hr,170);while(t<dur+1.2){push({t,pr:null,k:"n"});t+=rr}}
+  else if(type==="tv"){const rr=60/Math.max(hr,160);while(t<dur+1.2){push({t,pr:null,k:"w"});t+=rr*(1+.01*(R()-.5))}}
+  else if(type==="fv"||type==="asistolia"){}
+  else if(type==="mobitz1"||type==="mobitz2"){const pp=type==="mobitz1"?.72:.66;const seq=type==="mobitz1"?[.16,.26,.32,null]:[.18,.18,null];let i=0;while(t<dur+1.2){const pr=seq[i%seq.length];if(pr==null)P.push(t);else push({t:t+pr,pr,k:"n"});t+=pp;i++}}
+  else if(type==="bav3"){let a=-1.2;while(a<dur+1.2){P.push(a);a+=.75}let v=-1+R()*.5;while(v<dur+1.2){push({t:v,pr:null,k:"n",w:1.9});v+=60/36}}
+  else if(type==="ev"){let i=0;while(t<dur+1.2){if(i%4===3){push({t:t-mean*.42,pr:null,k:"w"});t+=mean}else{push({t,pr:hr>130?.12:.16,k:"n"});t+=mean*(1+.03*(R()-.5))}i++}}
+  else {const pr=type==="bav1"?.32:hr>130?.12:.16;while(t<dur+1.2){push({t,pr,k:"n"});t+=mean*(1+.035*(R()-.5))}}
+  // tempo del picco T in base all'intervallo R-R precedente
+  B.forEach((b,i)=>{const rr=i?b.t-B[i-1].t:mean;b.rr=rr;b.tp=clamp(.4*Math.sqrt(Math.max(rr,.3))-.1,.17,.4)});
+  return {B,P,mean};
 }
+function beatV(d,b,M){
+  if(d<-.5||d>.95)return 0;
+  if(b.k==="w")return G(d,0,.028,1.25)+G(d,.065,.032,-.6)+(d<.3?G(d,.3,.08,-.42):G(d,.3,.06,-.42));
+  const w=b.w||M.w;let y=0;
+  if(b.pr!=null)y+=G(d,-b.pr+.01,.022,M.pA);
+  y+=G(d,-.025*w,.008*w,M.qA)+G(d,0,.011*w,M.rA)+G(d,.028*w,.01*w,M.sA);
+  const tp=b.tp+M.tPlus+(w>1.5?.06:0), tA=w>1.5?-.3:M.tA;
+  if(M.st)y+=M.st*sig((d-.035*w)/.006)*(1-sig((d-(tp+.05))/.025));
+  y+=d<tp?G(d,tp,M.tS1,tA):G(d,tp,M.tS2,tA);
+  if(M.u)y+=G(d,tp+.14,.032,M.u);
+  return y;
+}
+/* specifica del ritmo -> campioni */
+function ecg(spec,dur,fs,seed){
+  const R=rng(seed+spec.type),M=Object.assign({},BASE,MORPH[spec.morph]||{});
+  const {B,P}=beats(spec.type,spec.hr||75,dur,R);
+  const ph=[R()*6,R()*6,R()*6,R()*6],n=Math.round(dur*fs),out=new Array(n);
+  let j0=0;
+  for(let i=0;i<n;i++){
+    const t=i/fs;let y=.035*Math.sin(2*Math.PI*.21*t+ph[0])+.006*(R()-.5);
+    while(j0<B.length&&B[j0].t<t-1)j0++;
+    for(let j=j0;j<B.length&&B[j].t<t+.6;j++)y+=beatV(t-B[j].t,B[j],M);
+    for(const p of P)if(Math.abs(t-p)<.1)y+=G(t,p,.022,M.pA);
+    if(spec.type==="fa"){const m=.7+.3*Math.sin(2*Math.PI*.4*t+ph[1]);y+=m*(.065*Math.sin(2*Math.PI*5.3*t+ph[1])+.04*Math.sin(2*Math.PI*7.1*t+ph[2])+.02*Math.sin(2*Math.PI*9.4*t+ph[3]))}
+    if(spec.type==="flutter"){const p=((t/.2)%1+1)%1;y+=p<.78?.09-.3*(p/.78):-.21+.3*((p-.78)/.22)}
+    if(spec.type==="fv"){const a=.32+.18*Math.sin(2*Math.PI*.35*t+ph[1]);y+=a*(Math.sin(2*Math.PI*4.6*t+ph[2]+.6*Math.sin(2*Math.PI*.7*t))+.55*Math.sin(2*Math.PI*6.1*t+ph[3])+.3*Math.sin(2*Math.PI*3.1*t+ph[0]))}
+    if(spec.type==="asistolia")y*=.6;
+    out[i]=y;
+  }
+  return {y:out,B};
+}
+function pleth(spec,B,dur,fs){
+  const n=Math.round(dur*fs),out=new Array(n).fill(0);
+  if(!spec.pulse)return out;
+  const mean=B.length>1?(B[B.length-1].t-B[0].t)/(B.length-1):1;
+  for(const b of B){
+    let a=spec.pulse*clamp(Math.pow((b.rr||mean)/mean,1.3),.2,1.35);if(b.k==="w"&&spec.type!=="tv")a*=.3;if(spec.type==="tv")a=spec.pulse*.35;
+    const i0=Math.max(0,Math.floor((b.t+.05)*fs)),i1=Math.min(n,Math.ceil((b.t+1.1)*fs));
+    for(let i=i0;i<i1;i++){const d=i/fs-b.t;out[i]+=a*((d<.26?G(d,.26,.06,1):G(d,.26,.12,1))+G(d,.52,.07,.32))}
+  }
+  return out;
+}
+function resp(type,fr,dur,fs,seed){
+  const R=rng(seed+"r"+type),n=Math.round(dur*fs),out=new Array(n).fill(0),br=[];
+  const per=60/clamp(fr||16,4,60);let t=-R()*per;
+  const add=(t,ti,te,a,tau)=>br.push({t,ti,te,a,tau});
+  if(type==="apnea"){}
+  else if(type==="cheyne"){t=-6;while(t<dur){for(let k=0;k<9;k++){const e=Math.pow(Math.sin(Math.PI*(k+.5)/9),1.3);add(t,.8,1.4,.15+1.6*e,.45);t+=2.3}t+=11+R()*3}}
+  else if(type==="biot"){t=-2;while(t<dur){const m=3+Math.floor(R()*2);for(let k=0;k<m;k++){add(t,.8,1.5,1.1,.45);t+=2.4}t+=5+R()*6}}
+  else if(type==="gasp"){t=.8+R()*2;while(t<dur){add(t,.32,1.5,1.25,.35);t+=6+R()*3}}
+  else if(type==="bradipnea"){while(t<dur){add(t,1.3,2.6,1.05,.7);t+=per*(1+.06*(R()-.5))}}
+  else{const cfg={normal:[.38,1,.55],tachipnea:[.42,.55,.45],kussmaul:[.45,1.9,.5],ostruttivo:[.26,.85,1.3]}[type]||[.38,1,.55];
+    while(t<dur){const ti=per*cfg[0],te=per-ti;add(t,ti,te,cfg[1]*(1+.08*(R()-.5)),te*cfg[2]/2.2);t+=per*(1+.05*(R()-.5))}}
+  for(const b of br){const i0=Math.max(0,Math.floor(b.t*fs)),i1=Math.min(n,Math.ceil((b.t+b.ti+b.te)*fs));
+    for(let i=i0;i<i1;i++){const x=i/fs-b.t;out[i]+=x<b.ti?b.a*.5*(1-Math.cos(Math.PI*x/b.ti)):b.a*Math.exp(-(x-b.ti)/b.tau)*(1-Math.pow((x-b.ti)/b.te,6))}}
+  return out;
+}
+function path(y,W,H,base,scale,step){
+  let d="";const n=y.length,dx=W/(n-1);step=step||1;
+  for(let i=0;i<n;i+=step){const yy=clamp(base-y[i]*scale,1,H-1);d+=(i?"L":"M")+(i*dx).toFixed(1)+" "+yy.toFixed(1)}
+  return d;
+}
+/* ---- lettura del caso ---- */
+const num=(v)=>{const m=String(v).replace(",",".").match(/-?\d+(\.\d+)?/);return m?parseFloat(m[0]):null};
+function find(list,re){const r=(list||[]).find(v=>re.test(v[0]));return r?r[1]:null}
+function detect(c){
+  const txt=[c.title,c.story,...(c.vit||[]).map(v=>v[0]+" "+v[1]),...(c.esami||[]).map(v=>v[0]+" "+v[1])].join(" · ");
+  const fcS=find(c.vit,/^(FC|HR|Frequenza cardiaca)/i), frS=find(c.vit,/^(FR|Frequenza resp)/i), spS=find(c.vit,/SpO2|Sat/i), paS=find(c.vit,/^PA\b|^Pressione/i);
+  const fc=fcS!=null?num(fcS):null, fr=frS!=null?num(frS):null, sp=spS!=null?num(spS):null, pas=paS!=null?num(paS):null;
+  const K=num(find(c.esami,/^(K|K\+|Potassi)/i)||""), Ca=num(find(c.esami,/^Calcio( totale)?$/i)||"");
+  let type=c.ecg||null,morph=null,lead="II";
+  if(!type){
+    if(/fibrillazione ventricolare/i.test(txt))type="fv";
+    else if(/tachicardia ventricolare/i.test(txt))type="tv";
+    else if(/asistolia/i.test(txt))type="asistolia";
+    else if(/attività elettrica senza polso|\bPEA\b/.test(txt))type="pea";
+    else if(/flutter/i.test(txt))type="flutter";
+    else if(/fibrillazione atriale|\birregolare\b/i.test(txt))type="fa";
+    else if(/tachicardia sopraventricolare|\bTPSV\b/i.test(txt))type="tsv";
+    else if(/sopraslivellamento|\bSTEMI\b/i.test(txt))type="stemi";
+    else if(/sottoslivellamento|\bNSTEMI\b|T invertit/i.test(txt))type="ischemia";
+    else if(/blocco (atrio-?ventricolare )?(completo|di (III|terzo))|BAV (di )?(III|3)/i.test(txt))type="bav3";
+    else if(/Mobitz (2|II)\b/i.test(txt))type="mobitz2";
+    else if(/Wenckebach|Mobitz (1|I)\b/i.test(txt))type="mobitz1";
+    else if(/BAV (di )?(I|1)\b|blocco.*primo grado/i.test(txt))type="bav1";
+    else if(/extrasistol/i.test(txt))type="ev";
+    else if(K!=null&&K>=6.5)type="iperk";
+    else if(K!=null&&K<=2.9)type="ipok";
+    else if((Ca!=null&&Ca<7.5)||/QT lungo/i.test(txt))type="qtlungo";
+    else type="sinus";
+  }
+  if(type==="stemi"){lead=/D?III\b|aVF|inferiore|D2, D3/i.test(txt)&&!/V[1-4]/.test(txt)?"III":"V2";morph=lead==="III"?"stemiIII":"stemiV2"}
+  if(c.ecgLead)lead=c.ecgLead;
+  if(["ischemia","iperk","ipok","qtlungo"].includes(type))morph=type;
+  const arrest=["fv","asistolia","pea"].includes(type)||/polso[^.;]{0,12}assente|senza polso/i.test(txt);
+  let hr=fc||(type==="pea"?42:type==="tv"?175:80+(sp!=null&&sp<90?20:0)+(pas!=null&&pas<90?20:0));
+  let r=c.resp||null;
+  if(!r){
+    if(/gasping|agonic/i.test(txt))r="gasp";
+    else if(arrest)r="apnea";
+    else if(/cheyne|con pause|apnee? /i.test(txt))r="cheyne";
+    else if(/\bbiot\b/i.test(txt))r="biot";
+    else if(/kussmaul|respiro profondo/i.test(txt))r="kussmaul";
+    else if(/BPCO|asma|sibili|broncospasmo|espirazione prolungata/i.test(txt))r="ostruttivo";
+    else if(fr!=null&&fr<=10)r="bradipnea";
+    else if(fr!=null&&fr>=24)r="tachipnea";
+    else r="normal";
+  }
+  let pulse=arrest?0:1;if(type==="tv"&&/senza polso|polso assente/i.test(txt))pulse=0;
+  if(pulse){if(pas!=null&&pas<90)pulse=.45;else if(pas!=null&&pas<100)pulse=.65;if(sp!=null&&sp<88)pulse*=.8}
+  return {type,morph,lead,hr,fr:fr||(r==="kussmaul"?28:r==="tachipnea"?28:r==="bradipnea"?8:16),resp:r,pulse,arrest};
+}
+/* ---- descrizioni per «Leggi il tracciato» ---- */
+function ecgName(s){const h=Math.round(s.hr);return ({
+  sinus:h<60?["Bradicardia sinusale","Onda P positiva prima di ogni QRS, PR costante, QRS stretto, R-R regolari, ma frequenza sotto 60/min."]:h>100?["Tachicardia sinusale","Onda P positiva prima di ogni QRS, PR costante, QRS stretto, R-R regolari, frequenza oltre 100/min. Va cercata la causa (dolore, febbre, ipovolemia, ipossia, ansia)."]:["Ritmo sinusale","Onda P positiva prima di ogni QRS, PR costante (0,12-0,20 s), QRS stretto, R-R regolari, frequenza 60-100/min."],
+  fa:["Fibrillazione atriale","Mancano le onde P: la linea di base è ondulata e irregolare (onde f) e gli intervalli R-R sono irregolarmente irregolari. Anche la curva del polso cambia ampiezza da un battito all'altro (possibile deficit di polso)."],
+  flutter:["Flutter atriale","Onde F «a dente di sega» a circa 300/min, ben visibili in II, aVF e V1; QRS stretti e regolari (qui conduzione "+(s.hr>120?"2:1":"4:1")+")."],
+  tsv:["Tachicardia sopraventricolare","QRS stretti, regolari e molto frequenti (oltre 150/min), onde P non distinguibili."],
+  tv:["Tachicardia ventricolare","QRS larghi (≥ 0,12 s), regolari e frequenti, senza onde P riconoscibili. "+(s.pulse?"Il polso è presente ma debole: paziente instabile, cardioversione su indicazione.":"Senza polso è un ritmo defibrillabile.")],
+  fv:["Fibrillazione ventricolare","Attività elettrica caotica senza QRS riconoscibili e nessuna curva di polso. Ritmo defibrillabile: RCP e shock il prima possibile."],
+  asistolia:["Asistolia","Linea quasi piatta, nessuna attività elettrica. Verifica elettrodi, guadagno e un'altra derivazione. Non defibrillabile: RCP e adrenalina."],
+  pea:["Attività elettrica senza polso (PEA)","Il monitor mostra complessi organizzati, ma la curva del polso è piatta: il paziente non ha polso. Non defibrillabile: RCP, adrenalina e ricerca delle cause reversibili (4 I e 4 T)."],
+  bav1:["BAV di I grado","PR lungo (oltre 0,20 s, qui circa 0,32 s) e costante; ogni P è seguita da un QRS."],
+  mobitz1:["BAV di II grado tipo Mobitz 1 (Wenckebach)","Il PR si allunga battito dopo battito finché un'onda P non viene condotta (manca il QRS), poi il ciclo ricomincia."],
+  mobitz2:["BAV di II grado tipo Mobitz 2","PR costante, poi all'improvviso un'onda P non è seguita dal QRS (qui conduzione 3:2). Può evolvere in blocco completo."],
+  bav3:["BAV di III grado (blocco completo)","Le onde P (circa 80/min) e i QRS (lenti e larghi, circa 36/min) vanno ciascuno per conto proprio: dissociazione atrio-ventricolare."],
+  ev:["Ritmo sinusale con extrasistoli ventricolari","Ogni tanto un battito anticipato con QRS largo, T opposta e senza P, seguito da una pausa compensatoria; la curva del polso di quel battito è piccola."],
+  stemi:s.lead==="III"?["Sopraslivellamento del tratto ST (derivazione III)","Il tratto ST è sollevato e si fonde con l'onda T, con onda Q: in D2, D3 e aVF indica infarto inferiore (di solito coronaria destra). Registra anche V4R."]:["Sopraslivellamento del tratto ST (derivazione V2)","Il tratto ST è sollevato «a cupola» e si fonde con l'onda T: lesione acuta. In V1-V4 indica infarto anteriore (discendente anteriore). Serve la riperfusione urgente."],
+  ischemia:["Sottoslivellamento ST e onde T invertite","Segni di ischemia (angina instabile o NSTEMI): servono troponina, ECG seriati e confronto con i tracciati precedenti."],
+  iperk:["Iperpotassiemia","Onde T alte, strette e appuntite, onde P appiattite, QRS che inizia ad allargarsi: rischio di aritmie gravi."],
+  ipok:["Ipopotassiemia","Onde T piatte, lieve sottoslivellamento ST e onda U evidente dopo la T."],
+  qtlungo:["QT lungo","Tratto ST allungato con onda T ritardata (come nell'ipocalcemia o con farmaci che allungano il QT): rischio di torsione di punta."]
+ })[s.type]||["Ritmo sinusale",""]}
+const RESP={
+ normal:["Eupnea","Atti regolari, inspirazione più breve dell'espirazione, frequenza 12-20/min."],
+ tachipnea:["Tachipnea","Atti frequenti e superficiali (oltre 20/min): spesso il primo segno di peggioramento clinico."],
+ bradipnea:["Bradipnea","Atti lenti e radi (meno di 12/min), come nella depressione respiratoria da oppioidi o nell'ipertensione endocranica."],
+ kussmaul:["Respiro di Kussmaul","Atti profondi, ampi e frequenti, regolari: compenso respiratorio dell'acidosi metabolica (per esempio chetoacidosi diabetica)."],
+ cheyne:["Respiro di Cheyne-Stokes","Atti che crescono e poi decrescono di ampiezza, seguiti da una pausa di apnea: scompenso grave, danno neurologico, fase terminale."],
+ biot:["Respiro di Biot","Gruppi di atti della stessa ampiezza separati da apnee irregolari: lesioni del tronco encefalico."],
+ gasp:["Gasping (respiro agonico)","Atti isolati, brevi e bruschi: non è un respiro efficace. In una persona che non risponde va trattato come arresto cardiaco: RCP."],
+ ostruttivo:["Pattern ostruttivo","Inspirazione breve ed espirazione lunga e trascinata: BPCO, asma, broncospasmo."],
+ apnea:["Apnea","Nessun atto respiratorio."]
+};
+/* ---- monitor del caso ---- */
+const ECG_S=8,RESP_S=30;
+function monitor(c,seed){
+  const s=detect(c),fs=200;
+  const e=ecg(s,ECG_S,fs,seed);
+  const p=pleth(s,e.B,ECG_S,fs);
+  const r=resp(s.resp,s.fr,RESP_S,20,seed);
+  const [en,ed]=ecgName(s),[rn,rd]=RESP[s.resp]||RESP.normal;
+  const pd=!s.pulse?"Curva del polso piatta: nessuna perfusione periferica rilevabile.":s.pulse<.7?"Curva del polso di bassa ampiezza: perfusione periferica ridotta (ipotensione, vasocostrizione).":s.type==="fa"?"Curva del polso irregolare per ampiezza e ritmo.":"Curva del polso regolare, con incisura dicrota visibile.";
+  const ch=(lab,cls,d,H,dur)=>`<div class="pm-ch ${cls}"><span class="pm-lab">${lab}</span><svg viewBox="0 0 1000 ${H}" preserveAspectRatio="none" aria-hidden="true"><path d="${d}"/><rect class="pm-gap" x="-6" y="0" width="34" height="${H}" style="animation-duration:${dur}s"/></svg></div>`;
+  return {s,html:`<div class="pm-waves" role="img" aria-label="Tracciati del monitor: ECG, curva del polso e respiro">
+    ${ch(s.lead+" <i>ECG</i>","pm-c-ecg",path(e.y,1000,96,62,40),96,ECG_S)}
+    ${ch("Pleth <i>SpO₂</i>","pm-c-sp",path(p,1000,44,40,30),44,ECG_S)}
+    ${ch("Resp <i>"+(s.resp==="apnea"?"apnea":"")+"</i>","pm-c-rr",path(r,1000,44,40,17),44,RESP_S)}
+  </div>
+  <details class="pm-read"><summary>Leggi il tracciato</summary><div><p><b>ECG: ${en}.</b> ${ed}</p><p><b>Respiro: ${rn}.</b> ${rd}</p><p><b>Polso.</b> ${pd}</p><p class="pm-note">Scala ECG: ${ECG_S} secondi per schermata (25 mm/s); respiro: ${RESP_S} secondi per schermata.</p></div></details>`};
+}
+/* ---- striscia su carta millimetrata per l'enciclopedia ---- */
+let STRIP_N=0;
+function strip(type,opt){
+  opt=opt||{};const gid="eg"+(++STRIP_N);const dur=opt.dur||6,W=dur*25,H=30,fs=250;
+  const s={type:type==="stemiIII"?"stemi":type,morph:type==="stemiIII"?"stemiIII":type==="stemi"?"stemiV2":MORPH[type]?type:null,lead:type==="stemiIII"?"III":type==="stemi"?"V2":"II",hr:opt.hr||(type==="pea"?42:type==="tv"?175:type==="tsv"?180:type==="fa"?110:type==="flutter"?150:75),pulse:1};
+  const e=ecg(s,dur,fs,"strip"+type);
+  const [n,d]=ecgName(s);
+  return `<figure class="ecg-strip"><svg viewBox="0 0 ${W} ${H}" aria-label="${esc(n)}" role="img"><defs><pattern id="${gid}a" width="1" height="1" patternUnits="userSpaceOnUse"><path d="M1 0V1H0" fill="none" stroke="#f2bdb9" stroke-width=".1"/></pattern><pattern id="${gid}b" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="url(#${gid}a)"/><path d="M5 0V5H0" fill="none" stroke="#e08a84" stroke-width=".28"/></pattern></defs><rect width="${W}" height="${H}" fill="url(#${gid}b)"/><text x="1.5" y="4.2" class="eg-t">${s.lead}</text><path d="${path(e.y,W,H,19,10,1)}" class="eg-tr"/></svg><figcaption><b>${esc(n)}.</b> ${esc(d)}</figcaption></figure>`;
+}
+function respStrip(type,fr){
+  const W=150,H=22,r=resp(type,fr||(type==="kussmaul"?28:type==="tachipnea"?30:type==="bradipnea"?7:16),30,20,"strip"+type);const [n,d]=RESP[type];
+  return `<figure class="ecg-strip"><svg viewBox="0 0 ${W} ${H}" aria-label="${esc(n)}" role="img"><rect width="${W}" height="${H}" class="rs-bg"/><path d="${Array.from({length:7},(_,i)=>`M${i*25} 0V${H}`).join("")}" class="rs-grid"/><text x="1.5" y="4.2" class="eg-t">30 s</text><path d="${path(r,W,H,19,8)}" class="eg-tr rs-tr"/></svg><figcaption><b>${esc(n)}.</b> ${esc(d)}</figcaption></figure>`;
+}
+return {monitor,strip,respStrip,detect};
+})();
+const ENC_STRIPS={
+ "ritmi":[["e","sinus"],["e","sinus",{hr:48}],["e","sinus",{hr:125}],["e","fa"],["e","flutter"],["e","tsv"],["e","ev"],["e","tv"],["e","fv"],["e","asistolia"]],
+ "blocchi-av":[["e","bav1"],["e","mobitz1"],["e","mobitz2"],["e","bav3",{dur:8}]],
+ "stemi":[["e","ischemia"],["e","stemi"],["e","stemiIII"]],
+ "elettroliti-ecg":[["e","iperk"],["e","ipok"],["e","qtlungo"]],
+ "ecg-lettura":[["e","sinus"]],
+ "fibrillazione-atriale":[["e","fa"]],
+ "bls-acls":[["e","fv"],["e","tv"],["e","asistolia"],["r","gasp"]],
+ "sca":[["e","stemi"]],
+ "chetoacidosi":[["r","kussmaul"]],
+ "sedazione-palliativa":[["r","cheyne"]],
+ "oppioidi":[["r","bradipnea"]],
+ "bpco":[["r","ostruttivo",22]],
+ "asma":[["r","ostruttivo",26]],
+ "parametri-vitali":[["r","normal"],["r","tachipnea"]],
+ "trauma-cranico":[["r","biot"]]
+};
+function encStrips(id){const L=ENC_STRIPS[id];if(!L)return "";return `<div><h4>Tracciati di esempio</h4><div class="strips">${L.map(x=>x[0]==="e"?WAVE.strip(x[1],x[2]):WAVE.respStrip(x[1],x[2])).join("")}</div></div>`}
+function vitalsMonitor(vit,c){
+  const cc=c||{vit,title:"",story:"",esami:[]};
+  const col=k=>/^(FC|HR)/i.test(k)?"hr":/SpO2|Sat/i.test(k)?"sp":/^PA/i.test(k)?"bp":/^FR/i.test(k)?"rr":/^TC|Temp/i.test(k)?"tc":"ot";
+  const m=WAVE.monitor(cc,(cc.id||"")+cc.title);
+  return `<div class="pmon">${m.html}
+  <div class="pm-grid">${vit.map(v=>`<div class="pm-cell pm-${col(v[0])} ${v[2]?"pm-alarm":""}"><span class="pm-k">${esc(v[0])}${v[2]?' <b class="pm-bell">ALLARME</b>':""}</span><span class="pm-v ${String(v[1]).length>9?"pm-long":""}">${esc(v[1])}</span></div>`).join("")}</div></div>`;
+}
+
 /* ============ ENCICLOPEDIA E GLOSSARIO ============ */
 function encEntry(e,open){
   const c=(EAREE[e.a]||{}).c||"var(--scrub)";
@@ -1199,6 +1456,7 @@ function encEntry(e,open){
   ${e.p&&e.p.length?`<div><h4>Punti chiave</h4><ul>${e.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
   ${e.v&&e.v.length?`<div><h4>Valori, scale e riferimenti</h4><table class="enc-v"><tbody>${e.v.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td></tr>`).join("")}</tbody></table></div>`:""}
   ${e.i&&e.i.length?`<div><h4>Cosa fa l'infermiere</h4><ul>${e.i.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
+  ${encStrips(e.id)}
   ${e.e&&e.e.length?`<div><h4>Errori da evitare</h4><ul class="enc-warn">${e.e.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
   ${e.n?`<p class="enc-norm" style="margin:0"><b>Norme e riferimenti.</b> ${esc(e.n)}</p>`:""}
   ${gl.length?`<div><h4>Nel glossario</h4><div class="enc-links">${gl.map(g=>`<a href="#glossario" data-gl="${esc(g[0])}">${esc(g[0])}</a>`).join("")}</div></div>`:""}
@@ -1607,7 +1865,7 @@ function drawQ(){
   // domande aperte e casi: risposta scritta, valutazione di Claude con griglia, oppure checklist
   const rub=k==="open"?it.o.p:it.c.steps.filter((_,j)=>it.steps.includes(j)).map(st=>st[1]);
   const prompt=k==="open"?`<h3>${esc(it.o.q)}</h3><label class="small" for="ans">Rispondi come all'orale: definizione, norma, contenuto, applicazione pratica.</label><textarea id="ans" class="search" style="min-height:150px"></textarea>`
-    :`<h3>${esc(it.c.title)}</h3><p>${esc(it.c.story)}</p>${vitalsMonitor(it.c.vit)}`+it.steps.map((j,x)=>`<div class="step"><span class="num">DOMANDA ${x+1}</span><b>${esc(it.c.steps[j][0])}</b><textarea id="ans${x}" aria-label="Risposta ${x+1}"></textarea></div>`).join("");
+    :`<h3>${esc(it.c.title)}</h3><p>${esc(it.c.story)}</p>${vitalsMonitor(it.c.vit,it.c)}`+it.steps.map((j,x)=>`<div class="step"><span class="num">DOMANDA ${x+1}</span><b>${esc(it.c.steps[j][0])}</b><textarea id="ans${x}" aria-label="Risposta ${x+1}"></textarea></div>`).join("");
   box.innerHTML=head+prompt+`<div class="row"><button class="btn primary" id="consegna">Consegna e valuta</button><span class="status" id="gstat"></span></div><div id="qexp"></div>`;
   $("#consegna").onclick=async()=>{
     if(qz.answered)return;
@@ -1996,7 +2254,7 @@ function caseView(c){
     <span class="eyebrow mono">Caso ${String(idx+1).padStart(2,"0")}</span>
     <h2>${esc(c.title)}</h2>
     <p class="case-story">${esc(c.story)}</p>
-    ${vitalsMonitor(c.vit)}
+    ${vitalsMonitor(c.vit,c)}
     ${c.esami&&c.esami.length?`<div class="labs"><span class="eyebrow">Esami e rilievi</span><div class="lab-grid">${c.esami.map(e=>`<div class="lab ${e[2]?"lab-alt":""}"><span>${esc(e[0])}</span><b class="mono">${esc(e[1])}</b></div>`).join("")}</div></div>`:""}
     ${c.fonte?`<p class="small">Fonte di riferimento: <a href="${esc(c.fonte)}" target="_blank" rel="noopener">${esc(c.fonte.replace(/^https:\/\//,"").split("/")[0])}</a></p>`:""}
   </div>
