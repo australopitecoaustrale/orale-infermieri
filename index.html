@@ -9,6 +9,12 @@
 <meta property="og:title" content="Atlante di Infermieristica">
 <meta property="og:description" content="Impara l'infermieristica in ogni sua parte: enciclopedia, quiz, casi clinici e domande nuove ogni giorno.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f6e66'/%3E%3Cpath d='M6 36h12l3-5 3 5h4l3 4 4-26 4 32 3-10h16' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Atlante Inf.">
+<script>window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();window.__pwaPrompt=e;var b=document.getElementById("pwa-inst");if(b)b.hidden=false});if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html,body{height:auto}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -214,6 +220,11 @@ td.mono{white-space:nowrap}
 .msg.me{background:var(--scrub);color:var(--paper);align-self:flex-end}
 .msg .who{display:block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;opacity:.7;margin-bottom:4px}
 .composer{display:flex;gap:8px;align-items:flex-end}
+.btn.rec{background:var(--vital);color:#fff;border-color:var(--vital)}
+@media (prefers-reduced-motion: no-preference){.btn.rec{animation:recp 1.2s ease-in-out infinite}@keyframes recp{50%{box-shadow:0 0 0 6px color-mix(in srgb,var(--vital) 25%,transparent)}}}
+.o-auto{display:flex;gap:6px;align-items:center}
+.selfev{display:flex;flex-direction:column;gap:8px;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--paper);margin-top:10px}
+.se-row{display:flex;gap:8px;align-items:flex-start;line-height:1.35}.se-row input{margin-top:3px;flex:none}
 .composer textarea{flex:1;min-width:0;min-height:80px;resize:vertical;border:1px solid var(--line);border-radius:8px;padding:10px;font:inherit;background:var(--paper);color:var(--ink)}
 .timer{font-family:var(--f-mono);font-size:1.1rem;font-weight:600}
 .status{font-size:.88rem;color:var(--muted)}
@@ -2300,7 +2311,19 @@ const Q4=CODA.map((a,i)=>{const n=a[0],pool=[n+3,n-2,n+7,n-5,n+11,n-9].map(x=>((
 function rebuildQ(){QALL=QUIZ.concat(Q2,Q3,Q4,DBQ)}
 rebuildQ();
 const STATS=LS.get("qstats",{});
-function record(q,ok){const s=STATS[q.id]||{s:0,k:0};s.s++;if(ok)s.k++;s.w=!ok;s.t=Date.now();STATS[q.id]=s;LS.set("qstats",STATS)}
+function record(q,ok){const s=STATS[q.id]||{s:0,k:0};s.s++;if(ok)s.k++;s.w=!ok;s.t=Date.now();STATS[q.id]=s;LS.set("qstats",STATS);ripUpd(q.id,ok)}
+/* Ripasso errori: una domanda sbagliata torna dopo 1, 3, 7 e 15 giorni finché non viene indovinata a ogni scadenza */
+const RIP_D=[1,3,7,15];
+let RIP=LS.get("ripasso",null);
+if(!RIP){RIP={};const t=Date.now();for(const [id,st] of Object.entries(STATS))if(st&&st.w)RIP[id]={b:0,due:t};LS.set("ripasso",RIP)}
+function endToday(){const t=new Date();t.setHours(23,59,59,999);return +t}
+function ripUpd(id,ok){const now=Date.now(),r=RIP[id];
+  if(!ok)RIP[id]={b:0,due:now+RIP_D[0]*DAY};
+  else if(r&&r.due<=endToday()){const b=r.b+1;if(b>=RIP_D.length)delete RIP[id];else RIP[id]={b,due:now+RIP_D[b]*DAY}}
+  else return;
+  LS.set("ripasso",RIP)}
+function ripDue(){const e=endToday();return QALL.filter(q=>RIP[q.id]&&RIP[q.id].due<=e)}
+function ripTot(){const ids=new Set(QALL.map(q=>q.id));return Object.keys(RIP).filter(id=>ids.has(id)).length}
 function todayStr(d=new Date()){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
 function seeded(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=h<<13|h>>>19}return function(){h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);h^=h>>>16;return (h>>>0)/4294967296}}
 /* ---- registro dei risultati (per l'avanzamento) ---- */
@@ -2602,16 +2625,18 @@ function oggi(){
     <section class="og-main">
       <div class="og-title"><h3>Sessione mista del giorno</h3><span class="small">${list.filter(x=>kindOf(x)==="mcq").length} quiz · ${list.filter(x=>x.kind==="open").length} aperte · ${list.filter(x=>x.kind==="case").length} caso</span></div>
       <div class="sheet" id="qbox" style="display:flex;flex-direction:column;gap:14px"></div>
-      <p class="small">Prima le domande nuove, poi quelle sbagliate, mai viste o non riviste da una settimana. La serie cambia ogni giorno.</p>
+      <p class="small">Prima le domande arrivate stamattina, poi domande mai viste da materie diverse, due domande aperte e un caso. La serie cambia ogni giorno; quelle che sbagli tornano nel «Ripasso errori».</p>
     </section>
     <aside class="og-side">
       ${isToday?`<div class="sheet side-card"><span class="eyebrow">Domande nuove di stamattina</span><p><b>${latest.items.length}</b> domande${DBQ.filter(q=>q.date===d&&q.novita).length?`, di cui <b>${DBQ.filter(q=>q.date===d&&q.novita).length}</b> dalla letteratura recente`:""}.</p><button class="btn primary" id="allnew">Falle tutte</button></div>`:""}
       ${oq?`<div class="sheet side-card"><span class="eyebrow">Domanda d'orale del giorno · D${oq.n}</span><h3>${esc(oq.q)}</h3><p class="small">Rispondi ad alta voce in 3 minuti, poi fatti interrogare.</p><button class="btn primary" id="oq-train">Fatti interrogare</button></div>`:""}
+      <div class="sheet side-card"><span class="eyebrow">Ripasso errori</span><p><b>${ripDue().length}</b> domande sbagliate da rivedere oggi${ripTot()>ripDue().length?` · <b>${ripTot()-ripDue().length}</b> in programma nei prossimi giorni`:""}.</p><p class="small">Ogni errore torna dopo 1, 3, 7 e 15 giorni: se sbagli di nuovo, si riparte da 1.</p><button class="btn primary" id="rip-go" ${ripDue().length?"":"disabled"}>Ripassa ora</button></div>
       <div class="sheet side-card"><span class="eyebrow">Flashcard</span><p><b>${due}</b> carte da ripassare oggi.</p><a class="btn" href="#flashcard" style="text-decoration:none;text-align:center">Vai alle flashcard</a></div>
       <a class="sheet side-card side-link" href="#avanzamento"><span class="eyebrow">Progressi</span><span>Vedi come stai andando e cosa rivedere →</span></a>
     </aside>
   </div>`;
   if(oq)$("#oq-train").onclick=()=>{oralPreset={q:oq};location.hash="orale"};
+  if($("#rip-go"))$("#rip-go").onclick=()=>{const l=shuffle(ripDue());if(!l.length)return;startQuiz(l,"mix-ripasso");$("#qbox").scrollIntoView({block:"start"})};
   if($("#allnew"))$("#allnew").onclick=()=>{startQuiz(DBQ.filter(q=>q.date===d),"mix-nuove");$("#qbox").scrollIntoView({block:"start"})};
   const fin=(pct)=>LS.set("daily2-"+d,{ids:set.ids,done:pct+"%",fresh:set.fresh,started:true});
   if(set.done){$("#qbox").innerHTML=`<p>Hai già completato la sessione di oggi (${set.done}). Domani trovi una nuova serie.</p><div class="row"><button class="btn" id="redo">Rifalla</button><a class="btn primary" href="#avanzamento" style="text-decoration:none">Vedi l'avanzamento</a></div>`;$("#redo").onclick=()=>startQuiz(list,"oggi",fin);return}
@@ -2699,7 +2724,7 @@ function avanzamento(){
     ${weak.length?`<p class="small">Sezioni con il punteggio più basso nelle ultime risposte:</p><div style="display:flex;flex-direction:column;gap:8px">${weak.map(w=>`<div class="row" style="justify-content:space-between;border:1px solid var(--line);border-radius:8px;padding:10px 12px"><span><b>${w.sec}. ${esc(PDF_TITLES[w.sec-1]||"")}</b> <span class="small mono">${pct(w.avg)} su ${w.n}</span></span><span class="row"><button class="btn" data-sch="${w.sec}">Scheda</button><button class="btn primary" data-rip="${w.sec}">Ripassa</button></span></div>`).join("")}</div>`:`<p class="small">Nessuna sezione sotto il 75% con dati sufficienti.</p>`}
     ${miss.length?`<p class="small"><b>Concetti che ti mancano più spesso nelle risposte scritte:</b></p><ul class="small" style="margin:0;padding-left:20px">${miss.map(([m,c])=>`<li>${esc(m)} <span class="mono">(${c}×)</span></li>`).join("")}</ul>`:""}
     ${stale.length?`<p class="small"><b>Materie non allenate negli ultimi 7 giorni:</b> ${stale.map(k=>SUBJ[k].short).join(", ")}.</p>`:""}
-    ${wrongNow?`<p class="small"><b>${wrongNow} quiz</b> sbagliati da ripetere. <a href="#quiz">Vai all'allenamento</a> e usa «Solo quiz sbagliati».</p>`:""}
+    ${wrongNow?`<p class="small"><b>${wrongNow} quiz</b> sbagliati da ripetere: ${ripDue().length} sono in scadenza oggi nel <a href="#oggi">Ripasso errori</a>, gli altri tornano nei prossimi giorni.</p>`:""}
     <div class="row"><button class="btn" id="aiplan">Chiedi a Claude un piano per i prossimi giorni</button><span class="status" id="aistat"></span></div><div id="aiout"></div>
   </section>
   <section class="sheet" style="display:flex;flex-direction:column;gap:8px"><h3>Diario</h3><div class="tbl-wrap"><table><tr><th>Giorno</th><th>Risposte</th><th>Media</th><th>Variazione</th></tr>
@@ -2937,14 +2962,16 @@ function orale(){
     <button class="btn primary" id="o-start">${oral.msgs.length?"Ricomincia":"Inizia l'interrogazione"}</button>
     <div class="ring-wrap"><svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" class="ring-bg"/><circle cx="60" cy="60" r="52" class="ring-fg" id="o-ring"/></svg><span class="timer" id="o-timer" aria-live="off">03:00</span></div>
     <button class="btn" id="o-tbtn">Avvia timer</button>
-    <p class="small">Rispondi prima a voce in 3 minuti, poi scrivi una sintesi.</p>
+    <label class="small o-auto"><input type="checkbox" id="o-auto"> Parte da solo a ogni domanda</label>
+    <p class="small">Rispondi a voce in 3 minuti come all'esame: con «Detta» il microfono trascrive quello che dici.</p>
   </aside>
   <div class="sheet sim-main">
     <div class="chat" id="o-chat" aria-live="polite"></div>
     <div class="composer">
       <textarea id="o-in" placeholder="Scrivi la tua risposta…" aria-label="La tua risposta"></textarea>
-      <div style="display:flex;flex-direction:column;gap:6px"><button class="btn primary" id="o-send">Rispondi</button><button class="btn" id="o-idk">Non lo so</button></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><button class="btn primary" id="o-send">Rispondi</button><button class="btn" id="o-mic" aria-pressed="false">Detta</button><button class="btn" id="o-idk">Non lo so</button></div>
     </div>
+    <div id="o-self"></div>
     <span class="status" id="o-status"></span>
   </div></div>`;
   $("#o-subj").onchange=e=>{oral.subject=e.target.value;if(e.target.value!=="casi")oral.caso=null;if(e.target.value!=="bank"){oral.fixed=false;oral.bank=null}};
@@ -2953,31 +2980,51 @@ function orale(){
   $("#o-send").onclick=()=>sendOral($("#o-in").value);
   $("#o-idk").onclick=()=>sendOral("Non lo so.");
   $("#o-in").onkeydown=e=>{if(e.key==="Enter"&&(e.ctrlKey||e.metaKey))sendOral($("#o-in").value)};
-  setupTimer();
-  drawChat();
-  getSample().then(s=>{if(!s)$("#o-status").textContent="In questa visualizzazione Claude non è disponibile: il simulatore userà domande dalla banca dati con risposta modello."});
+  setupTimer();setupMic();
+  {const a=$("#o-auto");a.checked=LS.get("oralAuto",true);a.onchange=()=>LS.set("oralAuto",a.checked)}
+  drawChat();drawSelf();
+  getSample().then(s=>{if(!s)$("#o-status").textContent="In questa visualizzazione Claude non è disponibile: il simulatore userà le domande della banca dati: dopo la risposta vedi i punti chiave e ti dai il voto spuntando quelli che hai detto."});
 }
-let tInt=null,tLeft=180;
-function setupTimer(){const el=$("#o-timer"),b=$("#o-tbtn");const draw=()=>{el.textContent=String(Math.floor(tLeft/60)).padStart(2,"0")+":"+String(tLeft%60).padStart(2,"0");el.style.color=tLeft<=30?"var(--vital)":"";const r=$("#o-ring");if(r){r.style.strokeDashoffset=String(326.7*(1-tLeft/180));r.style.stroke=tLeft<=30?"var(--vital)":""}};draw();
-  b.onclick=()=>{if(tInt){clearInterval(tInt);tInt=null;tLeft=180;draw();b.textContent="Avvia timer";return}tLeft=180;b.textContent="Ferma";tInt=setInterval(()=>{tLeft--;draw();if(tLeft<=0){clearInterval(tInt);tInt=null;b.textContent="Avvia timer"}},1000)}}
+let tInt=null,tLeft=180,tStart=null,tStop=null;
+function setupTimer(){const el=$("#o-timer"),b=$("#o-tbtn");const draw=()=>{if(!$("#o-timer"))return;el.textContent=String(Math.floor(tLeft/60)).padStart(2,"0")+":"+String(tLeft%60).padStart(2,"0");el.style.color=tLeft<=30?"var(--vital)":"";const r=$("#o-ring");if(r){r.style.strokeDashoffset=String(326.7*(1-tLeft/180));r.style.stroke=tLeft<=30?"var(--vital)":""}};draw();
+  tStop=()=>{const used=tInt?180-tLeft:null;if(tInt){clearInterval(tInt);tInt=null}tLeft=180;draw();if($("#o-tbtn"))$("#o-tbtn").textContent="Avvia timer";return used};
+  tStart=()=>{if(tInt)clearInterval(tInt);tLeft=180;draw();if($("#o-tbtn"))$("#o-tbtn").textContent="Ferma";tInt=setInterval(()=>{if(!$("#o-timer")){clearInterval(tInt);tInt=null;return}tLeft--;draw();if(tLeft<=0){clearInterval(tInt);tInt=null;if($("#o-tbtn"))$("#o-tbtn").textContent="Avvia timer";const st=$("#o-status");if(st)st.textContent="Tempo scaduto: all'esame la commissione ti fermerebbe qui. Invia la risposta."}},1000)};
+  b.onclick=()=>{if(tInt)tStop();else tStart()}}
+function autoTimer(){if(LS.get("oralAuto",true)&&tStart&&$("#o-timer"))tStart()}
+/* Dettatura: riconoscimento vocale del browser, in italiano */
+let rec=null,recOn=false;
+function setupMic(){const b=$("#o-mic");if(!b)return;const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){b.hidden=true;return}
+  const st=()=>{b.textContent=recOn?"Stop":"Detta";b.setAttribute("aria-pressed",recOn?"true":"false");b.classList.toggle("rec",recOn)};st();
+  b.onclick=()=>{
+    if(recOn){try{rec.stop()}catch(e){}recOn=false;st();return}
+    rec=new SR();rec.lang="it-IT";rec.continuous=true;rec.interimResults=true;
+    const ta=$("#o-in"),base=ta.value?ta.value.replace(/\s*$/," "):"";let fin="";
+    rec.onresult=ev=>{let inter="";for(let i=ev.resultIndex;i<ev.results.length;i++){const r=ev.results[i];if(r.isFinal)fin+=r[0].transcript+" ";else inter+=r[0].transcript}ta.value=base+fin+inter};
+    rec.onerror=ev=>{recOn=false;st();$("#o-status").textContent=ev.error==="not-allowed"||ev.error==="service-not-allowed"?"Il microfono non è disponibile in questa visualizzazione: usa la dettatura della tastiera del telefono, oppure apri il sito su GitHub.":ev.error==="no-speech"?"Non ho sentito nulla: riprova avvicinandoti al microfono.":"La dettatura si è interrotta: riprova."};
+    rec.onend=()=>{recOn=false;st()};
+    try{rec.start();recOn=true;st();$("#o-status").textContent="Ti ascolto: parla come davanti alla commissione, poi premi «Stop» e «Rispondi»."}catch(e){recOn=false;st()}
+  }}
 function drawChat(stream){
   const ch=$("#o-chat");if(!ch)return;
   const ms=oral.msgs.map(m=>`<div class="msg ${m.role==="user"?"me":"comm"}"><span class="who">${m.role==="user"?"Tu":"Commissione"}</span>${esc(m.content)}</div>`);
   if(stream!=null)ms.push(`<div class="msg comm"><span class="who">Commissione</span>${esc(stream||"…")}</div>`);
   ch.innerHTML=ms.join("")||`<p class="small">Scegli materia e livello, poi premi «Inizia l'interrogazione».</p>`;
   ch.scrollTop=ch.scrollHeight;
-  $("#o-send").disabled=oral.busy||!oral.msgs.length;$("#o-idk").disabled=oral.busy||!oral.msgs.length;
+  $("#o-send").disabled=oral.busy||!oral.msgs.length||!!oral.self;$("#o-idk").disabled=oral.busy||!oral.msgs.length||!!oral.self;
 }
 async function startOral(){
   if(oral.ctrl)oral.ctrl.abort();
-  oral.msgs=[];oral.fallbackQ=null;
+  oral.msgs=[];oral.fallbackQ=null;oral.self=null;drawSelf();
   if(!oral.fixed)pickBank();
   drawChat();
   await askClaude([{role:"user",content:sysPrompt()+"\n\nInizia l'interrogazione."}],true);
 }
 async function sendOral(t){
   t=(t||"").trim();if(!t||oral.busy)return;
+  if(recOn){try{rec.stop()}catch(e){}}
   $("#o-in").value="";
+  {const u=tStop?tStop():null;if(u!=null)oral.lastTime=u}
   oral.msgs.push({role:"user",content:t});drawChat();
   const conv=[{role:"user",content:sysPrompt()+"\n\nInizia l'interrogazione."},...oral.msgs.slice(0)];
   await askClaude(conv,false);
@@ -2989,7 +3036,7 @@ async function askClaude(conv,first){
   oral.ctrl=new AbortController();
   try{
     const r=await s(conv,{signal:oral.ctrl.signal,cache:false,modelTier:"default",onText:({text})=>drawChat(text)});
-    oral.msgs.push({role:"assistant",content:r.text});$("#o-status").textContent="";
+    oral.msgs.push({role:"assistant",content:r.text});$("#o-status").textContent=oral.lastTime!=null&&!first?`Hai risposto in ${Math.floor(oral.lastTime/60)}:${String(oral.lastTime%60).padStart(2,"0")}.`:"";oral.lastTime=null;setTimeout(autoTimer,50);
     const mv=/VALUTAZIONE:\s*(\d{1,2})\s*\/\s*30/i.exec(r.text||"");if(mv&&!first)logEv("orale",oral.bank?oral.bank.m:(SUBJ[oral.subject]?oral.subject:"tr"),oral.bank?oral.bank.s:0,Math.min(30,+mv[1])/30,oral.bank?"o"+oral.bank.n:"",{voto:+mv[1],by:"claude"});
   }catch(e){
     if(e?.code==="not_granted"){sampleFn=null;$("#o-status").textContent="Accesso a Claude non concesso: uso la banca domande.";oral.busy=false;return fallbackOral(first)}
@@ -2999,13 +3046,36 @@ async function askClaude(conv,first){
   oral.busy=false;drawChat();
 }
 function fallbackOral(first){
-  // banca domande locale: domande della guida e flashcard
+  // banca domande locale con autovalutazione sui punti chiave
   let pool=CARDS.filter(c=>oral.subject==="misto"||oral.subject==="casi"||oral.subject==="bank"||c.m===oral.subject);
   if(!pool.length)pool=CARDS;
-  if(!first&&oral.fallbackQ){const f=oral.fallbackQ;oral.msgs.push({role:"assistant",content:"PUNTI CHIAVE ATTESI:\n"+f.a+(f.ref?"\n\nNORME: "+f.ref:"")+(f.fix?"\n\nNOTA: "+f.fix.join(" "):"")+"\n\nConfronta con la tua risposta: hai dato la definizione, citato la norma e fatto un esempio pratico?"})}
+  if(!first&&oral.fallbackQ){const f=oral.fallbackQ;
+    const bq=/^p\d+$/.test(f.id||"")?PDFQ.find(o=>"p"+o.n===f.id):null;
+    let pts=bq&&bq.p&&bq.p.length?bq.p.slice(0,8):String(f.a||"").split(/;|\n|\.\s+(?=[A-ZÀ-Ú])/).map(x=>x.trim().replace(/\.$/,"")).filter(x=>x.length>3).slice(0,8);
+    if(!pts.length)pts=[String(f.a||"Risposta di riferimento")];
+    oral.msgs.push({role:"assistant",content:"RISPOSTA DI RIFERIMENTO:\n"+f.a+(f.ref?"\n\nNORME: "+f.ref:"")+(f.fix?"\n\nNOTA: "+f.fix.join(" "):"")});
+    oral.self={pts,q:f,m:bq?bq.m:(f.m||"tr"),sec:bq?bq.s:0,id:bq?"o"+bq.n:(f.id||"")};
+    const tt=oral.lastTime;oral.lastTime=null;
+    drawChat();drawSelf(tt);return}
+  oral.self=null;
   oral.fallbackQ=first&&oral.bank?CARDS.find(c=>c.id==="p"+oral.bank.n):shuffle(pool)[0];
   oral.msgs.push({role:"assistant",content:(first?"Buongiorno, iniziamo.\n\n":"PROSSIMA DOMANDA: ")+oral.fallbackQ.q});
-  drawChat();
+  drawChat();drawSelf();autoTimer();
+}
+function drawSelf(tt){
+  const box=$("#o-self");if(!box)return;
+  if(!oral.self){box.innerHTML="";return}
+  const S=oral.self;
+  box.innerHTML=`<div class="selfev"><span class="eyebrow">Autovalutazione${tt!=null?` · risposta in ${Math.floor(tt/60)}:${String(tt%60).padStart(2,"0")}`:""}</span>
+   <p class="small">Spunta i punti che hai detto in modo corretto. Sii severo come la commissione: conta solo ciò che hai detto davvero.</p>
+   ${S.pts.map((x,i)=>`<label class="se-row"><input type="checkbox" data-se="${i}"> <span>${esc(x)}</span></label>`).join("")}
+   <label class="se-row"><input type="checkbox" id="se-norm"> <span>Ho citato la norma o la fonte giusta</span></label>
+   <label class="se-row"><input type="checkbox" id="se-ex"> <span>Ho fatto un esempio pratico, dal letto del paziente</span></label>
+   <div class="row"><button class="btn primary" id="se-go">Calcola il voto e continua</button><span class="small mono" id="se-v"></span></div></div>`;
+  const calc=()=>{const n=S.pts.length,k=box.querySelectorAll("[data-se]:checked").length;let v=Math.round(12+14*k/n+($("#se-norm").checked?2:0)+($("#se-ex").checked?2:0));if(!k)v=Math.min(v,14);return Math.max(0,Math.min(30,v))};
+  box.querySelectorAll("input").forEach(i=>i.onchange=()=>$("#se-v").textContent="Voto indicativo: "+calc()+"/30");
+  $("#se-go").onclick=()=>{const v=calc();logEv("orale",SUBJ[S.m]?S.m:"tr",S.sec,v/30,S.id,{voto:v,by:"griglia"});
+    oral.msgs.push({role:"assistant",content:"VALUTAZIONE: "+v+"/30 (autovalutazione sui punti chiave)."});oral.self=null;oral.fallbackQ=null;fallbackOral(false)};
 }
 
 function metodo(){
@@ -3026,15 +3096,16 @@ function metodo(){
     <tr><td><b>Calcoli</b></td><td>Calcolatore di dosaggio passo per passo: dose → ml, velocità di infusione e gocce, dose per peso, infusioni continue (mcg/kg/min ↔ ml/h), ricostituzione con volume di scostamento, percentuali, insulina, parametri del paziente; esercizi con correzione</td><td>Fai qualche esercizio ogni giorno e controlla i passaggi: i calcoli sono una domanda frequente all'orale</td></tr>
     <tr><td><b>Domande</b></td><td>Le ${PDFQ.length} domande d'orale della guida al concorso con risposta estesa e norme</td><td>Rispondi ad alta voce, poi confronta i punti chiave</td></tr>
     <tr><td><b>Casi</b></td><td>${CASES.length} casi clinici dal facile al difficile, compresi area critica e maxiemergenza territoriale, con monitor realistico</td><td>Scrivi la risposta come all'orale; Claude la valuta e il caso evolve passo dopo passo</td></tr>
-    <tr><td><b>Orale</b></td><td>Il simulatore della commissione: domande, valutazione e consigli</td><td>Almeno una simulazione al giorno nelle ultime due settimane</td></tr>
+    <tr><td><b>Orale</b></td><td>Il simulatore della commissione: domanda, timer di 3 minuti che parte da solo, dettatura a voce, voto con cosa mancava e risposta modello (senza Claude: autovalutazione sui punti chiave)</td><td>Almeno una simulazione al giorno nelle ultime due settimane</td></tr>
     <tr><td><b>Progressi</b></td><td>Indice di preparazione, andamento giorno per giorno, materie e sezioni deboli</td><td>Guardalo a fine sessione e allenati su ciò che indica</td></tr></table></div>
   </section>
   <div class="grid">
     ${card("Leggere il monitor dei casi","Durante il caso vedi solo quello che vedresti in reparto: ECG, curva del polso, respiro e, quando servono, pressione arteriosa invasiva, capnografia e pressioni del ventilatore con la PEEP. «Misure del tracciato» dà solo numeri (frequenza, intervalli, ST, EtCO₂, PEEP…): il ritmo o il quadro devi riconoscerli tu. L'interpretazione completa compare alla fine del caso.")}
     ${card("Leggere un ECG con metodo","Sempre nello stesso ordine: frequenza, ritmo (P prima di ogni QRS? R-R regolari? PR?), asse, ipertrofie, ischemia e infarto (ST, T, onde Q). Allenati sulle strisce di esempio nelle voci dell'enciclopedia e osserva il ritmo che scorre nella fascia in alto: ogni tanto è patologico.")}
     ${card("Richiamo attivo","Rileggere dà l'illusione di sapere. Chiudi la voce e prova a ripeterla: flashcard, quiz e casi ti obbligano a recuperare l'informazione, ed è questo che la fissa.")}
-    ${card("Ripetizione dilazionata","Le carte che sai tornano dopo 1, 3, 7 e 14 giorni; quelle che sbagli tornano subito. Pochi minuti ogni giorno valgono più di una maratona prima dell'esame.")}
+    ${card("Ripetizione dilazionata","Le carte che sai tornano dopo 1, 3, 7 e 14 giorni; quelle che sbagli tornano subito. Anche i quiz sbagliati tornano nel «Ripasso errori» di Oggi dopo 1, 3, 7 e 15 giorni, finché non li indovini a ogni scadenza. Pochi minuti ogni giorno valgono più di una maratona prima dell'esame.")}
     ${card("Parla, non solo scrivere","L'orale è una prestazione verbale. Rispondi ad alta voce con un timer di 3 minuti, registrati e riascoltati: noterai pause, ripetizioni e concetti mancanti.")}
+    <div class="sheet" style="display:flex;flex-direction:column;gap:8px"><h3>Usalo come app, anche senza rete</h3><p class="small">Dal sito su GitHub puoi aggiungere l'Atlante alla schermata Home: si apre a tutto schermo come un'app e, dopo la prima apertura, funziona anche offline (enciclopedia, glossario, quiz, flashcard, casi e calcoli). Su Android con Chrome: menu ⋮ → «Installa app». Su iPhone con Safari: Condividi → «Aggiungi alla schermata Home». Le domande del giorno e la valutazione di Claude richiedono la connessione.</p><button class="btn primary" id="pwa-inst" hidden>Installa l'app</button></div>
     ${card("Collega le materie","Le commissioni premiano i collegamenti: una contenzione è insieme diagnosi infermieristica (rischio di cadute, confusione acuta), esame obiettivo (delirium), legge (art. 13 Cost., art. 54 c.p.) e Codice (art. 38). I casi clinici allenano proprio questo.")}
   </div>
   <section class="sheet" style="display:flex;flex-direction:column;gap:12px">
@@ -3056,6 +3127,7 @@ function metodo(){
     <p class="small">La sezione «Domande» contiene le ${PDFQ.length} domande della guida al concorso unico regionale, divise per sezioni, con risposta estesa, punti chiave e norme. Ogni domanda è anche una flashcard (filtro «Guida concorso Puglia 2026») e può essere usata nel simulatore. Le carte segnate in rosso contengono correzioni rispetto al PDF originale (articoli del Codice 2025, CCNL vigente, dati verificati). Nel simulatore trovi anche inglese e informatica, valutati come idoneità.</p>
   </section>
   <p class="small">I contenuti sono rielaborati e verificati su fonti ufficiali: Codice deontologico FNOPI 2025, NANDA International 2024-2026, linee guida ERC 2025, testi di legge e documenti del Ministero della Salute citati nelle voci. Le domande giornaliere dalla letteratura riportano la propria fonte. I progressi sono salvati solo in questo browser.</p>`;
+  {const b=document.getElementById("pwa-inst");if(b&&window.__pwaPrompt){b.hidden=false;b.onclick=async()=>{const e=window.__pwaPrompt;window.__pwaPrompt=null;b.hidden=true;try{e.prompt();await e.userChoice}catch(x){}}}}
 }
 
 new MutationObserver(()=>decorateHead(document.documentElement.dataset.view)).observe(app,{childList:true});
