@@ -37,6 +37,8 @@
 :root[data-view="avanzamento"]{--va:#2c5fa8}
 :root[data-view="home"]{--va:#1d5f74}
 :root[data-view="studio"]{--va:#6d4596}
+:root[data-view="enciclopedia"]{--va:#7c3d5e}
+:root[data-view="glossario"]{--va:#3d5a8c}
 :root[data-view="flashcard"]{--va:#9a5b07}
 :root[data-view="quiz"]{--va:#a8323f}
 :root[data-view="domande"]{--va:#56651a}
@@ -541,6 +543,44 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .deep ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:3px}
 .studylink{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 12px;border-radius:12px;background:var(--scrub-soft)}
 .topic details.focus{outline:3px solid var(--scrub);outline-offset:2px}
+.enc-areas{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.enc-area{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:12px;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--c);box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.enc-area:hover,.enc-area:focus-visible{transform:translateY(-2px);border-color:var(--c)}
+.enc-area[aria-pressed="true"]{background:color-mix(in srgb,var(--c) 10%,var(--paper))}
+.enc-area b{font-family:var(--f-display);font-size:15px;line-height:1.25}
+.enc-area span{font-size:12.5px;color:var(--muted)}
+.enc-list{display:flex;flex-direction:column;gap:10px}
+.enc-e{background:var(--paper);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);border-left:5px solid var(--c);overflow:hidden}
+.enc-e>summary{cursor:pointer;list-style:none;padding:12px 16px;display:flex;flex-direction:column;gap:3px}
+.enc-e>summary::-webkit-details-marker{display:none}
+.enc-e>summary b{font-family:var(--f-display);font-size:17px;line-height:1.25}
+.enc-e>summary .small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.enc-e[open]>summary .small{display:none}
+.enc-e.focus{outline:3px solid var(--scrub);outline-offset:2px}
+.enc-e{scroll-margin-top:150px}
+.enc-b{padding:0 16px 16px;display:flex;flex-direction:column;gap:12px}
+.enc-b .def{font-size:16.5px;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--c) 9%,var(--paper))}
+.enc-b h4{margin:0;font-family:var(--f-display);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+.enc-b ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.enc-v{width:100%;border-collapse:collapse;font-size:14.5px}
+.enc-v td{border-top:1px solid var(--line);padding:6px 8px;vertical-align:top}
+.enc-v td:first-child{font-weight:700;width:38%;color:var(--ink)}
+.enc-warn li::marker{color:var(--vital)}
+.enc-norm{font-size:14px;color:var(--muted);border-left:3px solid var(--line);padding-left:10px}
+.enc-links{display:flex;flex-wrap:wrap;gap:6px}
+.enc-links a{font-size:13.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--ink);background:var(--bg)}
+.enc-links a:hover{border-color:var(--scrub)}
+.az{display:flex;flex-wrap:wrap;gap:4px}
+.az button{all:unset;cursor:pointer;min-width:26px;text-align:center;padding:3px 4px;border-radius:6px;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.az button[aria-pressed="true"]{background:var(--scrub);color:var(--on-accent)}
+.az button:disabled{opacity:.3;cursor:default}
+.gl-list{display:flex;flex-direction:column;gap:8px}
+.gl-i{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:4px}
+.gl-i .gl-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}
+.gl-i .gl-h b{font-family:var(--f-display);font-size:16px}
+.gl-i .gl-en{font-style:italic;color:var(--muted);font-size:13.5px}
+.gl-i a{font-size:13.5px;align-self:flex-start}
+.gl-letter{font-family:var(--f-display);font-size:22px;color:var(--scrub);margin:8px 0 0}
 @media (prefers-reduced-motion: no-preference){.topic details.focus{animation:focuspulse 1.6s ease 2}@keyframes focuspulse{50%{outline-color:transparent}}}
 </style>
 </head>
@@ -553,6 +593,8 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
       <a href="#avanzamento">Progressi</a>
       <a href="#home">Panoramica</a>
       <a href="#studio">Studio</a>
+      <a href="#enciclopedia">Enciclopedia</a>
+      <a href="#glossario">Glossario</a>
       <a href="#flashcard">Flashcard</a>
       <a href="#quiz">Allenamento</a>
       <a href="#domande">Domande</a>
@@ -568,6 +610,10 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 <script src="pdfdata.js"></script>
 <script src="quizbank.js"></script>
 <script src="casebank.js"></script>
+<script src="enciclopedia.js"></script>
+<script src="glossario.js"></script>
+<script src="encquiz.js"></script>
+<script src="enccases.js"></script>
 <script>
 if(typeof PDFQ==="undefined"){window.PDFQ=[];window.PDF_TITLES=[]}
 /* ============ DATI ============ */
@@ -774,6 +820,13 @@ const BASE_CARDS = [
  ["cod","Novità del Codice 2025 da citare all'orale","One Health ed ecosostenibilità (art. 7), cura dei curanti (art. 15), prevenzione della violenza anche verso i sanitari (art. 23), comunicazione digitale (art. 30) e nuove tecnologie (art. 31), emergenze di salute pubblica (art. 35), valorizzazione delle competenze avanzate."]
 ].map((c,i)=>({id:"c"+i,m:c[0],q:c[1],a:c[2],src:"base"}))
  .concat(PDFQ.map(o=>({id:"p"+o.n,m:o.m,q:o.q,a:o.p.map(x=>"• "+x).join("\n"),src:"puglia",ref:o.r,long:o.a,fix:o.fix,sec:o.s,n:o.n})));
+/* ---- enciclopedia: dati comuni ---- */
+const ENCY=typeof ENC!=="undefined"?ENC:[], EAREE=typeof ENC_AREE!=="undefined"?ENC_AREE:{}, GLOS=typeof GLOSS!=="undefined"?GLOSS:[], GCAT=typeof GLOSS_CAT!=="undefined"?GLOSS_CAT:{};
+const ENC_BY={};ENCY.forEach(e=>ENC_BY[e.id]=e);
+const AREA_SUBJ={fond:"dx",rel:"tr",etica:"cod",legale:"leg",org:"pa",igiene:"cli",ricerca:"tr",anat:"eo",farm:"cli",ecg:"eo",emerg:"eo",med:"cli",chir:"cli",infett:"cli",onco:"cli",mat:"cli",psi:"cli",riab:"cli",nutr:"cli",diagn:"eo"};
+const encSubj=id=>AREA_SUBJ[(ENC_BY[id]||{}).a]||"cli";
+ENCY.forEach(e=>BASE_CARDS.push({id:"ce-"+e.id,m:encSubj(e.id),q:e.t+": di che cosa si tratta e quali sono i punti chiave?",a:e.d+"\n\n"+(e.p||[]).slice(0,4).map(x=>"• "+x).join("\n"),src:"enc",enc:e.id}));
+GLOS.forEach((g,i)=>{if(g[1]==="p"||g[1]==="s"||g[1]==="d")BASE_CARDS.push({id:"cg-"+g[1]+"-"+g[0].toLowerCase().replace(/[^a-z0-9]+/g,"-"),m:g[4]?encSubj(g[4]):(g[1]==="p"?"dx":"eo"),q:(g[1]==="p"?"Chi è «"+g[0]+"» e che cosa ha fatto?":g[1]==="s"?"«"+g[0]+"»: che cosa valuta e come si legge?":"«"+g[0]+"»: che cos'è e a che cosa serve?"),a:g[2],src:"enc",enc:g[4]||""})});
 let CARDS=BASE_CARDS;
 
 /* ---- Quiz ---- */
@@ -961,13 +1014,14 @@ const CASES0 = [
 ];
 
 /* ============ STATO ============ */
-let CASES=CASES0.concat(typeof CASES2!=="undefined"?CASES2:[]);
+let CASES=CASES0.concat(typeof CASES2!=="undefined"?CASES2:[],typeof CASES3!=="undefined"?CASES3:[]);
 const BASE_CASE_COUNT=CASES.length;
 const LS = {
   get(k,d){try{const v=localStorage.getItem("orinf_"+k);return v?JSON.parse(v):d}catch(e){return d}},
   set(k,v){try{localStorage.setItem("orinf_"+k,JSON.stringify(v))}catch(e){}}
 };
 const state = {
+  encArea: LS.get("encArea","tutte"), glCat: LS.get("glCat","tutte"),
   leit: LS.get("leit",{}),   // id -> {b:1..5, due:timestamp}
   quizBest: LS.get("quizBest",{}),
   caseDone: LS.get("caseDone",{}),
@@ -1001,7 +1055,9 @@ const ICONS={
  domande:'<path d="M21 12a8 8 0 0 1-11.5 7.2L4 21l1.8-5.2A8 8 0 1 1 21 12z"/><path d="M10 9.5a2.2 2.2 0 1 1 3 2c-.7.3-1 .8-1 1.5"/><path d="M12 16h.01"/>',
  casi:'<rect x="5" y="4" width="14" height="18" rx="2"/><path d="M9 4V2.5h6V4"/><path d="M12 9v6M9 12h6"/>',
  orale:'<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/>',
- metodo:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>'
+ metodo:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+ enciclopedia:'<rect x="5" y="3.5" width="14" height="18" rx="2"/><rect x="9" y="2" width="6" height="3.5" rx="1"/><path d="M8.5 10h7M8.5 13.5h7M8.5 17h4.5"/>',
+ glossario:'<path d="M4 4h9a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M16 8h4v12h-4"/><path d="M8 9h4M8 12.5h4"/>'
 };
 function decorateHead(name){
   const first=app.firstElementChild;if(!first||first.tagName!=="DIV"||first.classList.contains("pagehead")||!first.querySelector("h2"))return;
@@ -1054,6 +1110,10 @@ const SHAPES={
    det:(W,H)=>{const m=H/2,x=W-18;return `<rect x="0" y="${H*.6}" width="${x}" height="${H}" class="f-tint fluid"/><path d="M8 5H${Math.min(30,x-8)}" class="s-line"/><rect x="${x}" y="${m-4}" width="8" height="8" class="f-steel"/><path d="M${x+8} ${m-1.5}H${W}V${m+1.5}H${x+8}Z" class="f-tint2"/>`}},
  orale:{label:"Mascherina",l:16,r:16,d:(W,H)=>`M14 ${H*.2}Q${W/2} -2 ${W-14} ${H*.2}Q${W-2} ${H*.06} ${W} ${H*.5}Q${W-2} ${H*.94} ${W-14} ${H*.8}Q${W/2} ${H+2} 14 ${H*.8}Q2 ${H*.94} 0 ${H*.5}Q2 ${H*.06} 14 ${H*.2}Z`,
    det:(W,H)=>`<rect x="0" y="0" width="${W}" height="${H}" class="f-tint"/><path d="M22 ${H*.3}Q${W/2} ${H*.18} ${W-22} ${H*.3}M22 ${H*.74}Q${W/2} ${H*.88} ${W-22} ${H*.74}" class="s-line"/><path d="M${W/2-12} ${H*.1}Q${W/2} ${H*.04} ${W/2+12} ${H*.1}" class="s-dark"/><path d="M3 ${H*.5}H12M${W-3} ${H*.5}H${W-12}" class="s-line"/>`},
+ enciclopedia:{label:"Cartella clinica",l:12,r:12,d:(W,H)=>{const c=W/2;return `M5 5H${c-13}V2.5Q${c-13} 1 ${c-11} 1H${c+11}Q${c+13} 1 ${c+13} 2.5V5H${W-5}Q${W} 5 ${W} 10V${H-5}Q${W} ${H} ${W-5} ${H}H5Q0 ${H} 0 ${H-5}V10Q0 5 5 5Z`},
+   det:(W,H)=>{const c=W/2;let t="";for(let y=H*.62;y<H-3;y+=5)t+=`M8 ${y.toFixed(1)}H${W-8}`;return `<rect x="${c-11}" y="0.5" width="22" height="6" rx="2" class="f-steel"/><rect x="${c-5}" y="2" width="10" height="2.2" rx="1.1" class="f-dark"/><rect x="0" y="${H*.56}" width="${W}" height="${H}" class="f-tint"/><path d="${t}" class="s-line"/>`}},
+ glossario:{label:"Fiala",l:10,r:26,d:(W,H)=>{const a=W-24,n=W-15;return `M8 1H${a-4}Q${a} 1 ${a} 5V${H*.36}H${n}V${H*.2}H${W-6}Q${W} ${H*.2} ${W} ${H*.5}Q${W} ${H*.8} ${W-6} ${H*.8}H${n}V${H*.64}H${a}V${H-5}Q${a} ${H-1} ${a-4} ${H-1}H8Q0 ${H-1} 0 ${H-9}V9Q0 1 8 1Z`},
+   det:(W,H)=>{const a=W-24,n=W-15;return `<rect x="0" y="${H*.58}" width="${a}" height="${H}" class="f-tint fluid"/><rect x="${a}" y="${H*.3}" width="${n-a}" height="${H*.4}" class="f-steel"/><rect x="${n}" y="0" width="${W-n}" height="${H}" class="f-tint2"/><rect x="7" y="${H*.16}" width="${a*.45}" height="${H*.14}" rx="${H*.07}" class="f-hl"/>`}},
  metodo:{label:"Cerotto",l:24,r:24,d:(W,H)=>{const m=H/2,y=3,h=H-6,r=h/2;return `M${r} ${y}H${W-r}A${r} ${r} 0 0 1 ${W-r} ${y+h}H${r}A${r} ${r} 0 0 1 ${r} ${y}Z`},
    det:(W,H)=>{const m=H/2;let d="";for(const x of [7,12,W-12,W-7])for(const y of [m-5,m,m+5])d+=`<circle cx="${x}" cy="${y}" r=".9" class="f-dark"/>`;return `<rect x="0" y="0" width="${W}" height="${H}" class="f-tint"/><rect x="${W*.2}" y="5" width="${W*.6}" height="${H-10}" rx="4" class="f-pad"/>`+d}}
 };
@@ -1129,11 +1189,90 @@ function vitalsMonitor(vit){
   return `<div class="pmon"><svg class="pm-ecg" viewBox="0 0 2400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40"/></svg>
   <div class="pm-grid">${vit.map(v=>`<div class="pm-cell pm-${col(v[0])} ${v[2]?"pm-alarm":""}"><span class="pm-k">${esc(v[0])}${v[2]?' <b class="pm-bell">ALLARME</b>':""}</span><span class="pm-v">${esc(v[1])}</span></div>`).join("")}</div></div>`;
 }
-const VIEWS={oggi,avanzamento,home,studio,flashcard,quiz,domande,casi,orale,metodo};
+/* ============ ENCICLOPEDIA E GLOSSARIO ============ */
+function encEntry(e,open){
+  const c=(EAREE[e.a]||{}).c||"var(--scrub)";
+  const gl=GLOS.filter(g=>g[4]===e.id);
+  const qn=Q3.filter(q=>q.enc===e.id).length;
+  return `<details class="enc-e" id="voce-${e.id}" style="--c:${c}" ${open?"open":""}><summary><span class="eyebrow" style="color:${c}">${esc((EAREE[e.a]||{}).n||"")}</span><b>${esc(e.t)}</b><span class="small">${esc(e.d)}</span></summary>
+  <div class="enc-b"><p class="def" style="margin:0">${esc(e.d)}</p>
+  ${e.p&&e.p.length?`<div><h4>Punti chiave</h4><ul>${e.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
+  ${e.v&&e.v.length?`<div><h4>Valori, scale e riferimenti</h4><table class="enc-v"><tbody>${e.v.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td></tr>`).join("")}</tbody></table></div>`:""}
+  ${e.i&&e.i.length?`<div><h4>Cosa fa l'infermiere</h4><ul>${e.i.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
+  ${e.e&&e.e.length?`<div><h4>Errori da evitare</h4><ul class="enc-warn">${e.e.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
+  ${e.n?`<p class="enc-norm" style="margin:0"><b>Norme e riferimenti.</b> ${esc(e.n)}</p>`:""}
+  ${gl.length?`<div><h4>Nel glossario</h4><div class="enc-links">${gl.map(g=>`<a href="#glossario" data-gl="${esc(g[0])}">${esc(g[0])}</a>`).join("")}</div></div>`:""}
+  ${e.r&&e.r.length?`<div><h4>Voci collegate</h4><div class="enc-links">${e.r.filter(id=>ENC_BY[id]).map(id=>`<a href="#voce-${id}">${esc(ENC_BY[id].t)}</a>`).join("")}</div></div>`:""}
+  ${qn?`<div class="row"><button class="btn primary" data-encq="${e.id}">Quiz su questa voce (${qn})</button></div>`:""}
+  </div></details>`;
+}
+function enciclopedia(v){
+  const focus=(v&&v.startsWith("voce-"))?v.slice(5):state.encOpen;state.encOpen=null;
+  const fe=focus&&ENC_BY[focus];
+  let area=fe?fe.a:(state.encArea||"tutte");if(fe)state.encArea=area;
+  const counts={};ENCY.forEach(e=>counts[e.a]=(counts[e.a]||0)+1);
+  const list=ENCY.filter(e=>area==="tutte"||e.a===area);
+  app.innerHTML=`
+  <div><span class="eyebrow">Materiale rielaborato e verificato</span><h2>Enciclopedia infermieristica</h2></div>
+  <p class="lead">${ENCY.length} voci in ${Object.keys(EAREE).length} aree: definizioni, punti chiave, valori di riferimento, scale, interventi, errori da evitare e norme. Ogni voce ha le sue domande d'allenamento.</p>
+  <input class="search" id="enc-search" type="search" placeholder="Cerca una voce (es. sepsi, Braden, emogasanalisi, 219/2017, ECG)">
+  <div id="enc-res" hidden></div>
+  <div id="enc-main" style="display:flex;flex-direction:column;gap:16px">
+    <div class="enc-areas"><button class="enc-area" style="--c:var(--scrub)" data-area="tutte" aria-pressed="${area==="tutte"}"><b>Tutte le aree</b><span>${ENCY.length} voci</span></button>${Object.entries(EAREE).map(([k,a])=>`<button class="enc-area" style="--c:${a.c}" data-area="${k}" aria-pressed="${area===k}"><b>${esc(a.n)}</b><span>${counts[k]||0} voci</span></button>`).join("")}</div>
+    <div class="enc-list">${list.map(e=>encEntry(e,e.id===focus)).join("")}</div>
+  </div>`;
+  const bind=root=>{
+    root.querySelectorAll("[data-encq]").forEach(b=>b.onclick=()=>{const id=b.dataset.encq;const pool=shuffle(Q3.filter(q=>q.enc===id));const rel=(ENC_BY[id].r||[]).flatMap(r=>Q3.filter(q=>q.enc===r));location.hash="quiz";setTimeout(()=>startQuiz(pool.concat(shuffle(rel).slice(0,Math.max(0,6-pool.length))),"enc-"+id),50)});
+    root.querySelectorAll("[data-gl]").forEach(a=>a.onclick=()=>{state.glQuery=a.dataset.gl});
+    root.querySelectorAll('a[href^="#voce-"]').forEach(a=>a.onclick=ev=>{const id=a.getAttribute("href").slice(6);if((location.hash||"")==="#voce-"+id){ev.preventDefault();route()}});
+  };
+  bind(app);
+  app.querySelectorAll("[data-area]").forEach(b=>b.onclick=()=>{state.encArea=b.dataset.area;LS.set("encArea",state.encArea);if((location.hash||"")!=="#enciclopedia")location.hash="enciclopedia";else{enciclopedia("enciclopedia");decorateHead("enciclopedia")}});
+  $("#enc-search").oninput=ev=>{
+    const q=normTxt(ev.target.value.trim());const res=$("#enc-res"),main=$("#enc-main");
+    if(q.length<2){res.hidden=true;main.hidden=false;return}
+    const hits=ENCY.map(e=>{const t=normTxt(e.t),body=normTxt(e.d+" "+(e.p||[]).join(" ")+" "+(e.v||[]).map(v=>v.join(" ")).join(" ")+" "+(e.i||[]).join(" ")+" "+(e.n||""));return {e,s:t.includes(q)?3:body.includes(q)?1:0}}).filter(x=>x.s).sort((a,b)=>b.s-a.s);
+    const gh=GLOS.filter(g=>normTxt(g[0]+" "+g[3]).includes(q)).slice(0,6);
+    res.hidden=false;main.hidden=true;
+    res.innerHTML=(gh.length?`<div class="gl-list" style="margin-bottom:12px">${gh.map(glItem).join("")}</div>`:"")+(hits.length?`<div class="enc-list">${hits.slice(0,30).map(x=>encEntry(x.e,hits.length<=3)).join("")}</div>`:`<p class="small">Nessuna voce contiene «${esc(ev.target.value)}».</p>`);
+    bind(res);
+  };
+  if(fe)setTimeout(()=>{const el=$("#voce-"+focus);if(el){el.classList.add("focus");el.scrollIntoView({block:"start",behavior:RM?"auto":"smooth"})}},90);
+}
+function glItem(g){return `<div class="gl-i"><div class="gl-h"><b>${esc(g[0])}</b><span class="tag t-src">${esc(GCAT[g[1]]||"")}</span>${g[3]?`<span class="gl-en">ingl. ${esc(g[3])}</span>`:""}</div><span>${esc(g[2])}</span>${g[4]&&ENC_BY[g[4]]?`<a href="#voce-${g[4]}">Voce: ${esc(ENC_BY[g[4]].t)} →</a>`:""}</div>`}
+function glossario(){
+  const cat=state.glCat||"tutte";const pre=state.glQuery||"";state.glQuery="";
+  const first=g=>{const c=normTxt(g[0]).charAt(0).toUpperCase();return /[A-Z]/.test(c)?c:"#"};
+  app.innerHTML=`
+  <div><span class="eyebrow">Termini, persone, scale, strumenti, sigle e norme</span><h2>Glossario</h2></div>
+  <p class="lead">${GLOS.length} voci con una definizione breve, il termine inglese quando utile e il collegamento alla voce dell'enciclopedia.</p>
+  <div class="row"><button class="chip" data-gc="tutte" aria-pressed="${cat==="tutte"}">Tutte</button>${Object.entries(GCAT).map(([k,n])=>`<button class="chip" data-gc="${k}" aria-pressed="${cat===k}">${n} (${GLOS.filter(g=>g[1]===k).length})</button>`).join("")}</div>
+  <input class="search" id="gl-search" type="search" placeholder="Cerca un termine (anche in inglese)" value="${esc(pre)}">
+  <div class="az" id="gl-az"></div>
+  <div id="gl-out"></div>`;
+  let letter="";
+  const draw=()=>{
+    const q=normTxt($("#gl-search").value.trim());
+    let L=GLOS.filter(g=>cat==="tutte"||g[1]===cat);
+    if(q.length>=2)L=L.filter(g=>normTxt(g[0]+" "+g[2]+" "+g[3]).includes(q));
+    L=L.slice().sort((a,b)=>a[0].localeCompare(b[0],"it",{sensitivity:"base"}));
+    const letters=[...new Set(L.map(first))];
+    if(letter&&!letters.includes(letter))letter="";
+    $("#gl-az").innerHTML=`<button data-l="" aria-pressed="${!letter}">Tutte</button>`+"#ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map(c=>`<button data-l="${c}" aria-pressed="${letter===c}" ${letters.includes(c)?"":"disabled"}>${c}</button>`).join("");
+    $("#gl-az").querySelectorAll("button").forEach(b=>b.onclick=()=>{letter=b.dataset.l;draw()});
+    const shown=letter?L.filter(g=>first(g)===letter):L;
+    let html="",cur="";
+    for(const g of shown){const f=first(g);if(f!==cur&&!q){cur=f;html+=`<h3 class="gl-letter">${f}</h3>`}html+=glItem(g)}
+    $("#gl-out").innerHTML=shown.length?`<div class="gl-list">${html}</div>`:`<p class="small">Nessun termine trovato.</p>`;
+  };
+  app.querySelectorAll("[data-gc]").forEach(b=>b.onclick=()=>{state.glCat=b.dataset.gc;LS.set("glCat",state.glCat);state.glQuery=$("#gl-search").value;glossario();decorateHead("glossario")});
+  $("#gl-search").oninput=draw;draw();
+}
+const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,domande,casi,orale,metodo};
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
 function route(){
   const v=(location.hash||"#oggi").slice(1);
-  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":"oggi");
+  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")?"enciclopedia":"oggi");
   const changed=document.documentElement.dataset.view!==name;
   document.documentElement.dataset.view=name;
   document.querySelectorAll("nav.tabs a").forEach(a=>{const on=a.getAttribute("href")==="#"+name;a.setAttribute("aria-current",on?"page":"false");if(on&&changed)a.scrollIntoView({block:"nearest",inline:"center"})});
@@ -1154,7 +1293,7 @@ function home(){
     <div class="sheet" style="display:flex;flex-direction:column;gap:14px">
       <span class="eyebrow">Preparazione all'esame orale</span>
       <h1>Studia, ripeti ad alta voce, simula la commissione.</h1>
-      <p class="lead">Schede di studio, ${CARDS.length} flashcard con ripasso dilazionato (di cui ${PDFQ.length} dalla guida al concorso Regione Puglia 2026), ${PDFQ.length} domande d'orale con risposta estesa, ${QALL.length} domande a risposta multipla (con nuove domande aggiunte ogni mattina), ${CASES.length} casi clinici e un simulatore d'esame in cui Claude ti interroga e ti valuta.</p>
+      <p class="lead">Schede di studio, ${CARDS.length} flashcard con ripasso dilazionato (di cui ${PDFQ.length} dalla guida al concorso Regione Puglia 2026), ${PDFQ.length} domande d'orale con risposta estesa, ${QALL.length} domande a risposta multipla (con nuove domande aggiunte ogni mattina), ${CASES.length} casi clinici, un'enciclopedia di ${ENCY.length} voci con glossario di ${GLOS.length} termini e un simulatore d'esame in cui Claude ti interroga e ti valuta.</p>
       <div class="row"><a class="btn primary" href="#oggi" style="text-decoration:none">Allenamento di oggi</a><a class="btn" href="#flashcard" style="text-decoration:none">Flashcard</a><a class="btn" href="#orale" style="text-decoration:none">Fai una simulazione</a></div>
     </div>
     <div class="monitor" aria-label="I tuoi progressi">
@@ -1250,7 +1389,7 @@ function flashcard(){
   <div class="row">${chips(f,["all",...SKEYS],"f")}</div>
   <div class="row">
     <label class="small" for="fc-src">Fonte</label>
-    <select id="fc-src" class="btn"><option value="tutte" ${src==="tutte"?"selected":""}>Tutte (${CARDS.length})</option><option value="puglia" ${src==="puglia"?"selected":""}>Guida concorso Puglia 2026</option><option value="base" ${src==="base"?"selected":""}>Schede di base</option><option value="giorno" ${src==="giorno"?"selected":""}>Nuove giornaliere</option></select>
+    <select id="fc-src" class="btn"><option value="tutte" ${src==="tutte"?"selected":""}>Tutte (${CARDS.length})</option><option value="puglia" ${src==="puglia"?"selected":""}>Guida concorso Puglia 2026</option><option value="base" ${src==="base"?"selected":""}>Schede di base</option><option value="enc" ${src==="enc"?"selected":""}>Enciclopedia e glossario</option><option value="giorno" ${src==="giorno"?"selected":""}>Nuove giornaliere</option></select>
     ${src!=="base"&&secs.length?`<label class="small" for="fc-sec">Sezione della guida</label><select id="fc-sec" class="btn"><option value="0">Tutte le sezioni</option>${secs.map(s=>`<option value="${s}" ${+sec===s?"selected":""}>${s}. ${PDF_TITLES[s-1]}</option>`).join("")}</select>`:""}
   </div>
   <div class="leitner" aria-label="Carte per livello di memorizzazione">${counts.map((n,i)=>{const mx=Math.max(1,...counts);return `<div class="lt"><div class="lt-bar"><i style="height:${Math.max(4,Math.round(n/mx*100))}%"></i></div><span class="mono">${n}</span><span class="lt-l">${["Nuove","1 giorno","3 giorni","7 giorni","14 giorni"][i]}</span></div>`}).join("")}</div>
@@ -1267,7 +1406,7 @@ function drawCard(){
   const st=$("#stage");if(!st)return;
   if(fcIdx>=fcQueue.length){st.innerHTML=`<div class="sheet" style="text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center"><h3>Sessione completata</h3><p class="small">Hai ripassato ${fcQueue.length} carte. Torna domani per quelle in scadenza.</p><button class="btn primary" id="again">Nuova sessione</button></div>`;$("#again").onclick=flashcard;return}
   const c=fcQueue[fcIdx];const lv=state.leit[c.id]?.b||1;const left=fcQueue.length-fcIdx;
-  const top=`<div class="row" style="justify-content:space-between"><span class="row">${tag(c.m)}${c.src==="puglia"?`<span class="tag t-src">Guida Puglia · D${c.n}</span>`:c.src==="giorno"?`<span class="tag t-src">Nuova</span>`:""}</span><span class="small mono">${fcIdx+1}/${fcQueue.length} · L${lv}</span></div>`;
+  const top=`<div class="row" style="justify-content:space-between"><span class="row">${tag(c.m)}${c.src==="puglia"?`<span class="tag t-src">Guida Puglia · D${c.n}</span>`:c.src==="enc"?`<span class="tag t-src">Enciclopedia</span>`:c.src==="giorno"?`<span class="tag t-src">Nuova</span>`:""}</span><span class="small mono">${fcIdx+1}/${fcQueue.length} · L${lv}</span></div>`;
   st.innerHTML=`<div class="deck ${left>2?"d3":left>1?"d2":""}">
     <div class="card3d ${fcEnter&&!RM?"enter":""}" id="flash" tabindex="0" role="button" aria-label="Gira la carta" aria-pressed="false">
       <div class="flip-inner">
@@ -1323,7 +1462,8 @@ let qz=null;
 const Q2=(typeof QUIZ2!=="undefined"?QUIZ2:[]).map((q,i)=>({id:"s"+q[1]+"-"+i,m:q[0],sec:q[1],q:q[2],o:q[3],r:q[4],e:q[5],src:"puglia"}));
 let DBQ=[], DAILY=[], dbState="attesa";
 let QALL=[];
-function rebuildQ(){QALL=QUIZ.concat(Q2,DBQ)}
+const Q3=(()=>{const cnt={};return (typeof QUIZ3!=="undefined"?QUIZ3:[]).map(q=>{cnt[q[0]]=(cnt[q[0]]||0)+1;return {id:"e-"+q[0]+"-"+cnt[q[0]],m:encSubj(q[0]),sec:0,enc:q[0],q:q[1],o:q[2],r:q[3],e:q[4],src:"enc"}})})();
+function rebuildQ(){QALL=QUIZ.concat(Q2,Q3,DBQ)}
 rebuildQ();
 const STATS=LS.get("qstats",{});
 function record(q,ok){const s=STATS[q.id]||{s:0,k:0};s.s++;if(ok)s.k++;s.w=!ok;s.t=Date.now();STATS[q.id]=s;LS.set("qstats",STATS)}
@@ -1386,6 +1526,12 @@ function findStudy(it){
       cand.push({m,i,t:t.t,sc});
     });
   }
+  for(const e of ENCY){
+    if(!e._tk)e._tk=tokens(e.t+" "+e.t+" "+e.d+" "+(e.p||[]).join(" ")+" "+(e.v||[]).map(v=>v.join(" ")).join(" "));
+    let sc=0;for(const w of tk)if(e._tk.has(w))sc++;
+    if(it.enc===e.id)sc+=100;
+    cand.push({enc:e.id,m:encSubj(e.id),t:e.t,sc:sc+.5});
+  }
   cand.sort((a,b)=>b.sc-a.sc);
   return cand[0]&&cand[0].sc>=3?cand[0]:{m:SUBJ[it.m]?it.m:"leg",i:0,t:allTopics(SUBJ[it.m]?it.m:"leg")[0]?.t||"",sc:0};
 }
@@ -1395,7 +1541,7 @@ function relatedGuide(it){
   for(const o of PDFQ){const tt=tokens(o.q+" "+o.p.join(" "));let sc=0;for(const w of tk)if(tt.has(w))sc++;if(it.sec&&o.s===it.sec)sc+=2;if(sc>bs){bs=sc;best=o}}
   return bs>=3?best:null;
 }
-function goStudy(st){state.studyTab=st.m;LS.set("studyTab",st.m);state.openTopic=st.i;if((location.hash||"")==="#studio"){studio();decorateHead("studio")}else location.hash="studio"}
+function goStudy(st){if(st.enc){state.encOpen=st.enc;if((location.hash||"")==="#voce-"+st.enc)route();else location.hash="voce-"+st.enc;return}state.studyTab=st.m;LS.set("studyTab",st.m);state.openTopic=st.i;if((location.hash||"")==="#studio"){studio();decorateHead("studio")}else location.hash="studio"}
 async function deepen(it,chosen,box){
   const sm=await getSampleSafe();
   if(!sm){box.innerHTML="";return false}
@@ -1433,12 +1579,12 @@ function drawQ(){
     $("#qagain").onclick=()=>{if(qz.f==="oggi")location.hash="quiz";else quiz()};return;
   }
   const it=qz.list[qz.i], k=kindOf(it);
-  const head=`<div class="row" style="justify-content:space-between"><span class="row">${tag(it.m||"tr")}<span class="tag t-src">${{mcq:"Quiz",open:"Domanda aperta",case:"Caso clinico"}[k]}</span>${it.src==="giorno"?`<span class="tag t-src">${it.novita?"Novità dalla letteratura":"Nuova"} · ${it.date}</span>`:it.sec?`<span class="tag t-src">Sez. ${it.sec}</span>`:""}</span><span class="small mono">${qz.i+1}/${qz.list.length} · ${Math.round(qz.i?qz.sc/qz.i*100:0)}%</span></div>`;
+  const head=`<div class="row" style="justify-content:space-between"><span class="row">${tag(it.m||"tr")}<span class="tag t-src">${{mcq:"Quiz",open:"Domanda aperta",case:"Caso clinico"}[k]}</span>${it.src==="giorno"?`<span class="tag t-src">${it.novita?"Novità dalla letteratura":"Nuova"} · ${it.date}</span>`:it.enc&&ENC_BY[it.enc]?`<span class="tag t-src">Enciclopedia · ${esc(ENC_BY[it.enc].t)}</span>`:it.sec?`<span class="tag t-src">Sez. ${it.sec}</span>`:""}</span><span class="small mono">${qz.i+1}/${qz.list.length} · ${Math.round(qz.i?qz.sc/qz.i*100:0)}%</span></div>`;
   const next=()=>{const b=document.createElement("div");b.className="row";b.style.marginTop="12px";b.innerHTML=`<button class="btn primary" id="qnext">${qz.i+1<qz.list.length?"Avanti":"Vedi il risultato"}</button>`;box.appendChild(b);$("#qnext").onclick=()=>{qz.i++;qz.answered=false;drawQ();box.scrollIntoView({block:"start"})};$("#qnext").focus()};
   const finish=(score,extra)=>{it._s=score;qz.sc+=score;if(score>=.6)qz.ok++;
     if(qz.f==="oggi"){const k="daily2-"+todayStr(),v=LS.get(k,null);if(v&&!v.started){v.started=true;LS.set(k,v)}}
     logEv(k,it.m||"tr",it.sec||(it.o&&it.o.s)||0,score,it.id,extra);
-    if(k==="open"){const st=findStudy({q:it.o.q,o:[it.o.p.join(" ")],r:0,e:"",m:it.m,sec:it.o.s});const d=document.createElement("div");d.className="studylink";d.innerHTML=`<span class="small">Approfondisci l'argomento: <b>${esc(st.t)}</b></span><button class="btn ${score<.6?"primary":""}">Vai alla scheda di studio →</button>`;d.querySelector("button").onclick=()=>goStudy(st);$("#qexp").appendChild(d)}
+    if(k==="open"){const st=findStudy({q:it.o.q,o:[it.o.p.join(" ")],r:0,e:"",m:it.m,sec:it.o.s});const d=document.createElement("div");d.className="studylink";d.innerHTML=`<span class="small">Approfondisci l'argomento: <b>${esc(st.t)}</b>${st.enc?" · Enciclopedia":""}</span><button class="btn ${score<.6?"primary":""}">${st.enc?"Apri la voce dell'enciclopedia →":"Vai alla scheda di studio →"}</button>`;d.querySelector("button").onclick=()=>goStudy(st);$("#qexp").appendChild(d)}
     next()};
   if(k==="mcq"){
     const ord=shuffle(it.o.map((_,i)=>i));
@@ -1451,7 +1597,7 @@ function drawQ(){
       const ok=i===it.r, st=findStudy(it);
       $("#qexp").innerHTML=`<div class="expl"><b>${ok?"Corretto.":"Non corretto."}</b> ${esc(it.e)}${it.fonte?` <a href="${esc(it.fonte)}" target="_blank" rel="noopener">Fonte</a>`:""}</div>
         ${ok?"":`<div class="wrongbox"><div class="wb-row"><span class="wb-l">La tua risposta</span><span class="wb-bad">${esc(it.o[i])}</span></div><div class="wb-row"><span class="wb-l">Risposta corretta</span><span class="wb-good">${esc(it.o[it.r])}</span></div></div><div id="deepbox"></div>`}
-        <div class="studylink"><span class="small">${ok?"Vuoi ripassare l'argomento?":"Rivedi l'argomento prima di andare avanti:"} <b>${esc(st.t)}</b> · ${SUBJ[st.m].short}</span><button class="btn ${ok?"":"primary"}" id="gostudy">Vai alla scheda di studio →</button></div>`;
+        <div class="studylink"><span class="small">${ok?"Vuoi ripassare l'argomento?":"Rivedi l'argomento prima di andare avanti:"} <b>${esc(st.t)}</b> · ${st.enc?"Enciclopedia":SUBJ[st.m].short}</span><button class="btn ${ok?"":"primary"}" id="gostudy">${st.enc?"Apri la voce dell'enciclopedia →":"Vai alla scheda di studio →"}</button></div>`;
       $("#gostudy").onclick=()=>{qz.resumeAt=qz.i+1;goStudy(st)};
       if(!ok){const db=$("#deepbox");deepen(it,i,db).then(done=>{if(done)return;const g=relatedGuide(it);if(g)db.innerHTML=`<div class="deep"><span class="eyebrow">Approfondimento dalla guida · D${g.n}</span><p><b>${esc(g.q)}</b></p><ul>${g.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><p class="refs">Norme: ${esc(g.r)}</p></div>`})}
       finish(i===it.r?1:0);
@@ -1752,7 +1898,7 @@ function applyDaily(docs){
       vit:(k.vit||[]).filter(Array.isArray).map(v=>[String(v[0]),String(v[1]),!!v[2]]),esami:(k.esami||[]).filter(Array.isArray).map(v=>[String(v[0]),String(v[1]),!!v[2]]),
       steps,dx:(k.dx||[]).map(String),oral:String(k.oral||""),date:day.date,fonte:(typeof k.fonte==="string"&&/^https:\/\//.test(k.fonte))?k.fonte:""});
   });
-  CASES=CASES0.concat(typeof CASES2!=="undefined"?CASES2:[],dc);
+  CASES=CASES0.concat(typeof CASES2!=="undefined"?CASES2:[],typeof CASES3!=="undefined"?CASES3:[],dc);
   rebuildQ();
 }
 async function initDb(){
