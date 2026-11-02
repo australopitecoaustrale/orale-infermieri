@@ -95,5 +95,44 @@ const CASES3 = [
   ["Che cosa fai dopo il decesso?","Supporto alla famiglia, rispetto dei riti e delle volontà, cura della salma, comunicazione al medico per la constatazione e le certificazioni, attenzione al lutto (indicazioni sui servizi di sostegno)."]
  ],
  dx:["Modello di respirazione inefficace (fine vita)","Processi familiari interrotti","Disponibilità a migliorare la morte dignitosa"],
- oral:"Unisce assistenza negli ultimi giorni, legge 219/2017, Codice deontologico e comunicazione con la famiglia."}
+ oral:"Unisce assistenza negli ultimi giorni, legge 219/2017, Codice deontologico e comunicazione con la famiglia."},
+{id:"k29",lv:"difficile",area:"Terapia intensiva",title:"Shock settico in paziente intubato",tags:["eo","dx"],
+ vent:{mode:"VC",peep:10,pip:31,plat:27,fr:20},abp:{s:82,d:44},etco2:27,
+ story:"Giovanni, 68 anni, ricoverato in terapia intensiva per polmonite grave, è intubato e ventilato a volume controllato (volume corrente 480 ml, FR 20, PEEP 10, FiO2 60%). Ha un catetere arterioso radiale e un CVC; è in infusione di noradrenalina. Alle 4 il monitor suona.",
+ vit:[["FC","122",1],["ART","82/44 (57)",1],["SpO2","91%",1],["FR","20 (ventilatore)"],["TC","38,8 °C",1],["Diuresi","15 ml/h",1]],
+ esami:[["Lattati","4,6 mmol/L",1],["PaCO2","42 mmHg"],["Peso ideale","70 kg"]],
+ steps:[
+  ["Leggi la curva arteriosa: che cosa noti e che cosa significa?","PAM 57 mmHg, sotto l'obiettivo di 65: perfusione d'organo a rischio (lo confermano diuresi bassa e lattati alti). L'ampiezza dei battiti oscilla con gli atti del ventilatore: forte variazione respiratoria, che nel paziente ventilato suggerisce ipovolemia e possibile risposta ai liquidi. Prima di tutto verifico che il trasduttore sia all'asse flebostatico e azzerato e che la curva non sia smorzata (test dell'onda quadra)."],
+  ["Che cosa fai insieme al medico?","Segnalo con SBAR; prova di riempimento con cristalloidi su prescrizione rivalutando PAM, variazione respiratoria, diuresi e lattati; titolazione della noradrenalina secondo prescrizione per PAM ≥ 65; controllo di emocolture e antibiotico; monitoraggio continuo.","Dopo 500 ml di cristalloidi la PAM sale a 66 mmHg e la variazione respiratoria si riduce."],
+  ["Calcola la driving pressure e commenta le impostazioni del ventilatore.","Plateau 27 − PEEP 10 = 17 cmH₂O: sopra 15, troppo alta per una ventilazione protettiva. Il volume corrente (480 ml su 70 kg di peso ideale, circa 6,9 ml/kg) è leggermente sopra i 6 ml/kg. Il plateau è sotto 30. Lo segnalo al medico, che può ridurre il volume corrente. La PEEP 10 aiuta l'ossigenazione, ma con l'ipotensione va considerato il suo effetto sul ritorno venoso."],
+  ["EtCO₂ 27 mmHg con PaCO₂ 42: come lo spieghi e quali altre cure garantisci?","Il gradiente PaCO₂ − EtCO₂ è aumentato (15 mmHg invece di 2-5): parte del polmone è ventilata ma poco perfusa, come accade con la gittata ridotta dello shock. Altre cure: bundle per la VAP (testata a 30-45°, igiene orale, pressione della cuffia 20-30 cmH₂O, valutazione quotidiana della sedazione), gestione della linea arteriosa (lavaggio pressurizzato a 300 mmHg, niente farmaci, controllo della mano), bundle del CVC, prevenzione delle lesioni da pressione."]
+ ],
+ dx:["CP: shock settico, ipoperfusione d'organo","CP: lesioni da ventilazione","Rischio di infezione (VAP, CLABSI)"],
+ oral:"Unisce la lettura della pressione invasiva, la driving pressure, la capnografia e il bundle della sepsi."},
+{id:"k30",lv:"medio",area:"Terapia intensiva",title:"Allarme di alta pressione al ventilatore",tags:["eo","dx"],
+ vent:{mode:"VC",peep:8,pip:44,plat:22,fr:16},resp:"ostruttivo",etco2:46,
+ story:"Laura, 59 anni, intubata da due giorni dopo un intervento addominale, è ventilata a volume controllato con PEEP 8. Si sente l'allarme di alta pressione delle vie aeree; la saturazione scende e la paziente tossisce.",
+ vit:[["FC","112",1],["PA","138/80"],["SpO2","88%",1],["FR","16 (ventilatore)"]],
+ esami:[["Torace","ronchi bilaterali"],["Tubo","fisso a 22 cm all'arcata dentaria, come da consegna"]],
+ steps:[
+  ["Leggi la curva di pressione: picco 44, plateau 22, PEEP 8. Che cosa ti dice?","Picco − plateau = 22 cmH₂O: le resistenze delle vie aeree sono molto aumentate, mentre la compliance è conservata (driving pressure 22 − 8 = 14). La causa è nel tubo o nelle vie aeree: secrezioni, tubo piegato o morso, broncospasmo. Se fossero alti sia picco sia plateau penserei a pneumotorace, atelettasia o edema."],
+  ["Che cosa vedi nel capnogramma e che cosa fai subito?","Capnogramma a pinna di squalo (ostruzione all'espirazione) con EtCO₂ in salita. Agisco con lo schema DOPE: il tubo è alla stessa profondità (non dislocato), controllo che non sia piegato o morso, ascolto il torace (ronchi bilaterali, nessuna asimmetria), aspirazione tracheale sterile con preossigenazione, avviso il medico.","Dopo l'aspirazione di abbondanti secrezioni il picco scende a 27 cmH₂O e la SpO₂ risale al 95%."],
+  ["Se la paziente fosse peggiorata con SpO₂ in calo, ipotensione e murmure assente a destra?","Penserei a un pneumotorace (la P di DOPE): picco e plateau aumentano entrambi. Chiamo subito il medico, ventilo a mano con il pallone e ossigeno al 100% se serve, preparo il materiale per la decompressione e il drenaggio toracico."],
+  ["Formula la diagnosi infermieristica e gli interventi di prevenzione.","Liberazione inefficace delle vie aeree correlata a secrezioni abbondanti e presenza del tubo endotracheale, evidenziata da ronchi, desaturazione e aumento della pressione di picco. Prevenzione: umidificazione, aspirazione al bisogno (non a orari fissi), mobilizzazione e fisioterapia respiratoria, testata a 30-45°, controllo della cuffia."]
+ ],
+ dx:["Liberazione inefficace delle vie aeree","CP: pneumotorace, ipossiemia"],
+ oral:"Mostra come leggere picco e plateau e come usare lo schema DOPE."},
+{id:"k31",lv:"medio",area:"Pneumologia",title:"BPCO riacutizzata in ventilazione non invasiva",tags:["eo","dx"],
+ vent:{mode:"NIV",peep:5,ipap:16,fr:24},resp:"ostruttivo",etco2:62,
+ story:"Salvatore, 75 anni, BPCO grave, arriva sonnolento con dispnea. L'emogasanalisi mostra acidosi respiratoria e il medico avvia la ventilazione non invasiva con maschera oro-nasale (IPAP 16, EPAP 5, FiO2 per SpO₂ 88-92%).",
+ vit:[["FR","24",1],["SpO2","89%"],["FC","104",1],["PA","150/88"],["GCS","13 (E3 V4 M6)",1]],
+ esami:[["pH","7,28",1],["PaCO2","78 mmHg",1],["HCO3-","34 mEq/L",1]],
+ steps:[
+  ["Interpreta emogasanalisi e capnogramma.","Acidosi respiratoria (pH 7,28, PaCO₂ 78) con bicarbonati alti per un compenso renale già in atto: riacutizzazione di una ipercapnia cronica. Il capnogramma ha la forma a pinna di squalo (ostruzione all'espirazione) e l'EtCO₂ è alta (62 mmHg)."],
+  ["Spiega la curva di pressione della NIV.","A ogni atto del paziente la pressione sale all'IPAP (16) e in espirazione torna all'EPAP (5), che funziona come PEEP esterna: contrasta la PEEP intrinseca (auto-PEEP) tipica della BPCO e riduce il lavoro respiratorio. La differenza tra IPAP ed EPAP (supporto di pressione) aumenta la ventilazione ed elimina CO₂."],
+  ["Quali interventi infermieristici durante la NIV?","Maschera della misura giusta, perdite limitate, protezione della cute del naso (medicazioni preventive), posizione seduta, ossigeno titolato per SpO₂ 88-92%, monitoraggio di FR, SpO₂, coscienza, sincronia con il ventilatore; emogasanalisi di controllo dopo 1-2 ore; igiene orale, idratazione, comunicazione.","Dopo 2 ore pH 7,34, PaCO₂ 64: Salvatore è più sveglio."],
+  ["Quando consideri la NIV fallita?","Peggioramento del pH o della PaCO₂ dopo 1-2 ore, coscienza che peggiora, incapacità di proteggere le vie aeree, instabilità emodinamica, intolleranza alla maschera: va informato subito il medico per valutare l'intubazione."]
+ ],
+ dx:["Compromissione degli scambi gassosi","Rischio di lesione da pressione da dispositivo","Ansia"],
+ oral:"Collega emogasanalisi, capnografia e ventilazione non invasiva nella BPCO."}
 ];

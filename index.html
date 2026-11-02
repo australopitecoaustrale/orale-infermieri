@@ -491,6 +491,16 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 @media (prefers-reduced-motion: no-preference){.pm-gap{display:block;animation:pmgap linear infinite}@keyframes pmgap{from{transform:translateX(0)}to{transform:translateX(1000px)}}}
 .pm-lab{position:absolute;left:8px;top:3px;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.05em;font-weight:600;z-index:1}
 .pm-lab i{font-style:normal;opacity:.65;font-weight:400;margin-left:4px}
+.pm-c-art path{stroke:#ff5d5d;filter:drop-shadow(0 0 2px rgba(255,93,93,.45))}.pm-c-art svg{height:72px}
+.pm-c-co2 path{stroke:#f2f2f2;filter:drop-shadow(0 0 2px rgba(255,255,255,.35))}.pm-c-co2 svg{height:48px}
+.pm-c-paw path{stroke:#c79bff;filter:drop-shadow(0 0 2px rgba(199,155,255,.45))}.pm-c-paw svg{height:56px}
+.pm-ch path.pm-ref{stroke:rgba(255,255,255,.13);stroke-width:1;stroke-dasharray:4 6;filter:none}
+.pm-ch path.pm-ref-map{stroke:rgba(255,93,93,.45)}.pm-ch path.pm-ref-peep{stroke:rgba(199,155,255,.6)}
+.pm-c-art .pm-lab{color:#ff5d5d}.pm-c-co2 .pm-lab{color:#f2f2f2}.pm-c-paw .pm-lab{color:#c79bff}
+.pm-art{color:#ff5d5d}.pm-co2{color:#f2f2f2}.pm-paw{color:#c79bff}
+.ms-ref{stroke:#b8c4d3;stroke-width:.25;stroke-dasharray:1 1.2;fill:none}.ms-peep{stroke:#8a5cd6;stroke-width:.35}
+.ms-t{font-family:var(--f-mono);font-size:2.6px;fill:#6d3fbf}
+.ms-co2{stroke:#333}.ms-art{stroke:#c0392b}.ms-paw{stroke:#6d3fbf}
 .pm-c-ecg .pm-lab{color:#3dff8f}.pm-c-sp .pm-lab{color:#38d9ff}.pm-c-rr .pm-lab{color:#ffd84a}
 .pm-read{margin:2px 0 8px;color:#d8e6e4;font-size:.9rem}
 .pm-read summary{cursor:pointer;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:#9fe7c4;padding:4px 0}
@@ -1287,7 +1297,57 @@ function pleth(spec,B,dur,fs){
   return out;
 }
 function resp(type,fr,dur,fs,seed){
-  const R=rng(seed+"r"+type),n=Math.round(dur*fs),out=new Array(n).fill(0),br=[];
+  const n=Math.round(dur*fs),out=new Array(n).fill(0),br=breaths(type,fr,dur,seed);
+  for(const b of br){const i0=Math.max(0,Math.floor(b.t*fs)),i1=Math.min(n,Math.ceil((b.t+b.ti+b.te)*fs));
+    for(let i=i0;i<i1;i++){const x=i/fs-b.t;out[i]+=x<b.ti?b.a*.5*(1-Math.cos(Math.PI*x/b.ti)):b.a*Math.exp(-(x-b.ti)/b.tau)*(1-Math.pow((x-b.ti)/b.te,6))}}
+  return out;
+}
+/* pressione arteriosa invasiva: un'onda per ogni battito che genera gittata */
+function abp(s,B,dur,fs,seed){
+  const n=Math.round(dur*fs),out=new Array(n).fill(s.dia);
+  if(!s.pulse){const R=rng(seed+"abp");for(let i=0;i<n;i++)out[i]=s.arrestP+1.2*Math.sin(i/fs*1.3)+.8*(R()-.5);return out}
+  const mean=B.length>1?(B[B.length-1].t-B[0].t)/(B.length-1):1,pp=s.sys-s.dia;
+  for(const b of B){
+    let a=pp*clamp(Math.pow((b.rr||mean)/mean,1.2),.25,1.25);if(b.k==="w"&&s.type!=="tv")a*=.35;if(s.type==="tv")a*=.45;
+    if(s.ppv)a*=1+s.ppv*Math.sin(2*Math.PI*b.t/(60/s.fr));
+    const i0=Math.max(0,Math.floor((b.t+.08)*fs)),i1=Math.min(n,Math.ceil((b.t+1.6)*fs));
+    for(let i=i0;i<i1;i++){const d=i/fs-b.t;let v;
+      if(d<.12)v=0;else if(d<.21)v=Math.sin((d-.12)/.09*Math.PI/2);
+      else v=.06+.94*Math.exp(-(d-.21)/.16)*(1-.1*Math.min(1,(d-.21)/.1))+G(d,.36,.022,-.13)+G(d,.41,.03,.1);
+      v*=Math.exp(-Math.max(0,d-.45)/.55);
+      out[i]+=a*Math.max(0,v)}
+  }
+  return out;
+}
+/* capnogramma: CO2 espirato atto per atto */
+function capno(s,dur,fs,seed){
+  const n=Math.round(dur*fs),out=new Array(n).fill(0);
+  const br=breaths(s.vent?"normal":s.resp,s.fr,dur,seed);
+  const k=s.resp==="ostruttivo"?.38:.07;
+  for(let j=0;j<br.length;j++){const b=br[j],nx=br[j+1]?br[j+1].t:b.t+b.ti+b.te+3;
+    const et=s.etco2*(s.resp==="cheyne"?clamp(b.a/1.5,.35,1.15):s.resp==="gasp"?.6:1);
+    const t0=b.t+b.ti,t1=Math.min(nx,b.t+b.ti+b.te+(s.resp==="bradipnea"?3:0));
+    const i0=Math.max(0,Math.floor(t0*fs)),i1=Math.min(n,Math.ceil(t1*fs));
+    for(let i=i0;i<i1;i++){const x=Math.max(0,i/fs-t0),L=t1-t0;const rise=1-Math.exp(-x/k);const slope=s.resp==="ostruttivo"?1:.94+.06*(x/L);
+      const fall=x>L-.12?Math.max(0,(L-x)/.12):1;out[i]=et*rise*slope*fall}}
+  return out;
+}
+/* pressione nelle vie aeree (ventilatore): mostra la PEEP come linea di base */
+function paw(s,dur,fs,seed){
+  const v=s.vent,n=Math.round(dur*fs),out=new Array(n).fill(v.peep),br=breaths("normal",s.fr,dur,seed);
+  for(const b of br){const per=b.ti+b.te,i0=Math.max(0,Math.floor(b.t*fs)),i1=Math.min(n,Math.ceil((b.t+per)*fs));
+    for(let i=i0;i<i1;i++){const x=Math.max(0,i/fs-b.t);let p;
+      if(v.mode==="CPAP")p=v.peep+(x<b.ti?-1.8*Math.sin(Math.PI*x/b.ti):.9*Math.sin(Math.PI*(x-b.ti)/b.te));
+      else if(v.mode==="NIV"){const ti=Math.min(b.ti*1.1,1.1);p=x<.06?v.peep-1.2*Math.sin(Math.PI*x/.06):x<ti?v.ipap-(v.ipap-v.peep)*Math.exp(-(x-.06)/.05):v.peep+(v.ipap-v.peep)*Math.exp(-(x-ti)/.07)}
+      else{const tf=.85,tp=.3,res=v.pip-v.plat;
+        if(x<tf)p=v.peep+res*(1-Math.exp(-x/.04))+(v.plat-v.peep)*(x/tf);
+        else if(x<tf+tp)p=v.plat+res*Math.exp(-(x-tf)/.035);
+        else p=v.peep+(v.plat-v.peep)*Math.exp(-(x-tf-tp)/.12)}
+      out[i]=p}}
+  return out;
+}
+function breaths(type,fr,dur,seed){
+  const R=rng(seed+"r"+type),br=[];
   const per=60/clamp(fr||16,4,60);let t=-R()*per;
   const add=(t,ti,te,a,tau)=>br.push({t,ti,te,a,tau});
   if(type==="apnea"){}
@@ -1297,9 +1357,7 @@ function resp(type,fr,dur,fs,seed){
   else if(type==="bradipnea"){while(t<dur){add(t,1.3,2.6,1.05,.7);t+=per*(1+.06*(R()-.5))}}
   else{const cfg={normal:[.38,1,.55],tachipnea:[.42,.55,.45],kussmaul:[.45,1.9,.5],ostruttivo:[.26,.85,1.3]}[type]||[.38,1,.55];
     while(t<dur){const ti=per*cfg[0],te=per-ti;add(t,ti,te,cfg[1]*(1+.08*(R()-.5)),te*cfg[2]/2.2);t+=per*(1+.05*(R()-.5))}}
-  for(const b of br){const i0=Math.max(0,Math.floor(b.t*fs)),i1=Math.min(n,Math.ceil((b.t+b.ti+b.te)*fs));
-    for(let i=i0;i<i1;i++){const x=i/fs-b.t;out[i]+=x<b.ti?b.a*.5*(1-Math.cos(Math.PI*x/b.ti)):b.a*Math.exp(-(x-b.ti)/b.tau)*(1-Math.pow((x-b.ti)/b.te,6))}}
-  return out;
+  return br;
 }
 function path(y,W,H,base,scale,step){
   let d="";const n=y.length,dx=W/(n-1);step=step||1;
@@ -1311,7 +1369,7 @@ const num=(v)=>{const m=String(v).replace(",",".").match(/-?\d+(\.\d+)?/);return
 function find(list,re){const r=(list||[]).find(v=>re.test(v[0]));return r?r[1]:null}
 function detect(c){
   const txt=[c.title,c.story,...(c.vit||[]).map(v=>v[0]+" "+v[1]),...(c.esami||[]).map(v=>v[0]+" "+v[1])].join(" · ");
-  const fcS=find(c.vit,/^(FC|HR|Frequenza cardiaca)/i), frS=find(c.vit,/^(FR|Frequenza resp)/i), spS=find(c.vit,/SpO2|Sat/i), paS=find(c.vit,/^PA\b|^Pressione/i);
+  const fcS=find(c.vit,/^(FC|HR|Frequenza cardiaca)/i), frS=find(c.vit,/^(FR|Frequenza resp)/i), spS=find(c.vit,/SpO2|Sat/i), paS=find(c.vit,/^PA\b|^Pressione|^ART|^ABP|^PAI\b/i);
   const fc=fcS!=null?num(fcS):null, fr=frS!=null?num(frS):null, sp=spS!=null?num(spS):null, pas=paS!=null?num(paS):null;
   const K=num(find(c.esami,/^(K|K\+|Potassi)/i)||""), Ca=num(find(c.esami,/^Calcio( totale)?$/i)||"");
   let type=c.ecg||null,morph=null,lead="II";
@@ -1354,7 +1412,27 @@ function detect(c){
   }
   let pulse=arrest?0:1;if(type==="tv"&&/senza polso|polso assente/i.test(txt))pulse=0;
   if(pulse){if(pas!=null&&pas<90)pulse=.45;else if(pas!=null&&pas<100)pulse=.65;if(sp!=null&&sp<88)pulse*=.8}
-  return {type,morph,lead,hr,fr:fr||(r==="kussmaul"?28:r==="tachipnea"?28:r==="bradipnea"?8:16),resp:r,pulse,arrest};
+  /* ventilazione, pressione invasiva e capnografia */
+  let vent=c.vent||null;
+  const peepS=find(c.vit,/^PEEP/i);
+  if(!vent){
+    if(/intubat|ventilazione meccanica|ventilatore|tubo endotracheale/i.test(txt))vent={mode:"VC",peep:8,pip:26,plat:20};
+    else if(/\bNIV\b|BiPAP|ventilazione non invasiva/i.test(txt))vent={mode:"NIV",peep:6,ipap:16};
+    else if(/\bCPAP\b|casco/i.test(txt))vent={mode:"CPAP",peep:10};
+  }
+  if(vent&&peepS!=null)vent=Object.assign({},vent,{peep:num(peepS)});
+  if(vent&&vent.mode==="VC"&&!c.resp)r="normal";
+  const abpS=find(c.vit,/^(ABP|PAI|ART)/i);
+  let abpOn=c.abp!=null?!!c.abp:(abpS!=null||(vent&&vent.mode==="VC")||/arteriosa invasiva|cruenta|catetere arterioso|terapia intensiva|noradrenalina/i.test(txt)||(pas!=null&&pas<90)||arrest);
+  let sys=pas||120,dia=num(String(paS||"").split("/")[1]||"")||(pas?Math.round(pas*.6):70);
+  if(c.abp&&c.abp.s){sys=c.abp.s;dia=c.abp.d}else if(abpS){const q=String(abpS).split("/");sys=num(q[0])||sys;dia=num(q[1]||"")||dia}
+  const ppv=pulse&&pas!=null&&pas<100?(vent&&vent.mode==="VC"?.13:.05):0;
+  const etS=find(c.vit,/EtCO|ETCO|CO2/i);
+  const capOn=c.capno!=null?!!c.capno:(etS!=null||c.etco2!=null||!!vent||arrest||["bradipnea","kussmaul","ostruttivo","gasp","cheyne","apnea","biot"].includes(r)||/capnograf|sedazion|oppioid|morfina/i.test(txt));
+  let et=c.etco2!=null?c.etco2:etS!=null?num(etS):({normal:37,tachipnea:31,bradipnea:58,kussmaul:21,ostruttivo:52,cheyne:36,gasp:10,apnea:0,biot:40})[r]??37;
+  if(c.etco2==null&&etS==null){if(arrest&&r!=="gasp")et=0;else if(pulse&&pulse<.7)et=Math.min(et,27)}
+  const frE=vent&&vent.fr?vent.fr:fr||(r==="kussmaul"?28:r==="tachipnea"?28:r==="bradipnea"?8:16);
+  return {type,morph,lead,hr,fr:frE,resp:r,pulse,arrest,vent,abp:abpOn,sys,dia,ppv,arrestP:12,capno:capOn,etco2:et};
 }
 /* ---- descrizioni per «Leggi il tracciato» ---- */
 function ecgName(s){const h=Math.round(s.hr);return ({
@@ -1397,13 +1475,70 @@ function monitor(c,seed){
   const r=resp(s.resp,s.fr,RESP_S,20,seed);
   const [en,ed]=ecgName(s),[rn,rd]=RESP[s.resp]||RESP.normal;
   const pd=!s.pulse?"Curva del polso piatta: nessuna perfusione periferica rilevabile.":s.pulse<.7?"Curva del polso di bassa ampiezza: perfusione periferica ridotta (ipotensione, vasocostrizione).":s.type==="fa"?"Curva del polso irregolare per ampiezza e ritmo.":"Curva del polso regolare, con incisura dicrota visibile.";
-  const ch=(lab,cls,d,H,dur)=>`<div class="pm-ch ${cls}"><span class="pm-lab">${lab}</span><svg viewBox="0 0 1000 ${H}" preserveAspectRatio="none" aria-hidden="true"><path d="${d}"/><rect class="pm-gap" x="-6" y="0" width="34" height="${H}" style="animation-duration:${dur}s"/></svg></div>`;
-  return {s,html:`<div class="pm-waves" role="img" aria-label="Tracciati del monitor: ECG, curva del polso e respiro">
-    ${ch(s.lead+" <i>ECG</i>","pm-c-ecg",path(e.y,1000,96,62,40),96,ECG_S)}
-    ${ch("Pleth <i>SpO₂</i>","pm-c-sp",path(p,1000,44,40,30),44,ECG_S)}
-    ${ch("Resp <i>"+(s.resp==="apnea"?"apnea":"")+"</i>","pm-c-rr",path(r,1000,44,40,17),44,RESP_S)}
-  </div>
-  <details class="pm-read"><summary>Leggi il tracciato</summary><div><p><b>ECG: ${en}.</b> ${ed}</p><p><b>Respiro: ${rn}.</b> ${rd}</p><p><b>Polso.</b> ${pd}</p><p class="pm-note">Scala ECG: ${ECG_S} secondi per schermata (25 mm/s); respiro: ${RESP_S} secondi per schermata.</p></div></details>`};
+  const ch=(lab,cls,d,H,dur,extra)=>`<div class="pm-ch ${cls}"><span class="pm-lab">${lab}</span><svg viewBox="0 0 1000 ${H}" preserveAspectRatio="none" aria-hidden="true">${extra||""}<path d="${d}"/><rect class="pm-gap" x="-6" y="0" width="34" height="${H}" style="animation-duration:${dur}s"/></svg></div>`;
+  const hline=(y,cls)=>`<path d="M0 ${y.toFixed(1)}H1000" class="${cls||"pm-ref"}"/>`;
+  let chans="",reads="",cells=[];
+  /* pressione arteriosa invasiva: scala 0-160 mmHg */
+  if(s.abp){const a=abp(s,e.B,ECG_S,fs,seed),H=64,sc=v=>H-2-v*(H-4)/160;
+    chans+=ch("ART <i>0-160</i>","pm-c-art",a.map((v,i)=>(i?"L":"M")+(i*1000/(a.length-1)).toFixed(1)+" "+clamp(sc(v),1,H-1).toFixed(1)).join(""),H,ECG_S,hline(sc(120))+hline(sc(60))+hline(sc(65),"pm-ref pm-ref-map"));
+    const map=Math.round(s.dia+(s.sys-s.dia)/3);
+    if(!s.pulse){cells.push(["ART","assente",1]);reads+=`<p><b>Pressione arteriosa invasiva.</b> Curva piatta, senza onde: nessuna gittata cardiaca efficace (arresto). Durante la RCP la curva mostra le compressioni: una diastolica sopra 25-30 mmHg indica compressioni efficaci.</p>`}
+    else{cells.push(["ART",`${s.sys}/${s.dia} (${map})`,map<65]);reads+=`<p><b>Pressione arteriosa invasiva.</b> Ogni battito dà una salita rapida, il picco sistolico, l'incisura dicrota (chiusura della valvola aortica) e la discesa diastolica. Qui ${s.sys}/${s.dia} mmHg, PAM ${map} mmHg${map<65?": sotto 65, perfusione d'organo a rischio":": nell'obiettivo (≥ 65)"}.${s.ppv>.1?" L'ampiezza dei battiti cresce e cala con gli atti del ventilatore: forte variazione respiratoria, tipica dell'ipovolemia (paziente che può rispondere ai liquidi).":s.ppv?" Lieve variazione dell'ampiezza con il respiro.":""}${s.type==="fa"?" L'ampiezza cambia da battito a battito per la fibrillazione atriale.":""} La linea tratteggiata segna 65 mmHg.</p>`}}
+  chans=ch(s.lead+" <i>ECG</i>","pm-c-ecg",path(e.y,1000,96,62,40),96,ECG_S)+chans;
+  chans+=ch("Pleth <i>SpO₂</i>","pm-c-sp",path(p,1000,44,40,30),44,ECG_S);
+  /* capnografia: scala 0-60 mmHg, 15 secondi */
+  if(s.capno){const co=capno(s,CAP_S,40,seed),H=48,sc=v=>H-3-v*(H-6)/60;
+    chans+=ch("CO₂ <i>0-60</i>","pm-c-co2",co.map((v,i)=>(i?"L":"M")+(i*1000/(co.length-1)).toFixed(1)+" "+clamp(sc(v),1,H-1).toFixed(1)).join(""),H,CAP_S,hline(sc(45))+hline(sc(35)));
+    cells.push(["EtCO₂",s.etco2+" mmHg",s.etco2<30||s.etco2>45]);
+    reads+=`<p><b>Capnografia.</b> ${capnoText(s)}</p>`}
+  /* pressione nelle vie aeree e PEEP */
+  if(s.vent){const v=s.vent,pw=paw(s,CAP_S,40,seed),H=56,sc=x=>H-3-x*(H-6)/40;
+    chans+=ch("Paw <i>0-40 cmH₂O</i>","pm-c-paw",pw.map((x,i)=>(i?"L":"M")+(i*1000/(pw.length-1)).toFixed(1)+" "+clamp(sc(x),1,H-1).toFixed(1)).join(""),H,CAP_S,hline(sc(v.peep),"pm-ref pm-ref-peep")+hline(sc(0)));
+    cells.push(["PEEP",v.peep+" cmH₂O",0]);if(v.mode==="VC"){cells.push(["Ppicco / Pplat",v.pip+" / "+v.plat,v.plat>30||v.plat-v.peep>15||v.pip-v.plat>10||v.pip>35])}else if(v.mode==="NIV")cells.push(["IPAP / EPAP",v.ipap+" / "+v.peep,0]);
+    reads+=`<p><b>Pressione nelle vie aeree e PEEP.</b> ${pawText(v)}</p>`}
+  chans+=ch("Resp <i>"+(s.resp==="apnea"?"apnea":"")+"</i>","pm-c-rr",path(r,1000,44,40,17),44,RESP_S);
+  return {s,cells,html:`<div class="pm-waves" role="img" aria-label="Tracciati del monitor">${chans}</div>
+  <details class="pm-read"><summary>Leggi il tracciato</summary><div><p><b>ECG: ${en}.</b> ${ed}</p><p><b>Respiro: ${rn}.</b> ${rd}</p><p><b>Polso.</b> ${pd}</p>${reads}<p class="pm-note">ECG, ART e pletismografia: ${ECG_S} secondi per schermata (25 mm/s)${s.capno||s.vent?"; CO₂ e pressione delle vie aeree: "+CAP_S+" secondi":""}; respiro: ${RESP_S} secondi.</p></div></details>`};
+}
+function capnoText(s){
+  const e=s.etco2;
+  if(e<=1)return s.vent?"Curva piatta a zero: nessuna CO₂ espirata. In un paziente intubato pensa subito a dislocazione o intubazione esofagea, ostruzione o deconnessione del circuito, oppure arresto cardiaco.":"Curva piatta a zero: nessuno scambio d'aria (apnea) o assenza di circolo. Nell'arresto, durante la RCP, una EtCO₂ sotto 10 mmHg indica compressioni poco efficaci; un aumento brusco suggerisce il ritorno del circolo (ROSC).";
+  let t=s.resp==="ostruttivo"?"Il plateau non è piatto ma sale lentamente, a «pinna di squalo»: ostacolo all'espirazione (broncospasmo, BPCO).":"Ogni espirazione disegna un rettangolo: salita rapida, plateau quasi orizzontale, discesa rapida all'inspirazione; tra un atto e l'altro la linea torna a zero.";
+  if(s.resp==="cheyne")t+=" L'altezza delle onde segue l'andamento crescente e decrescente del respiro, con tratti piatti durante le apnee.";
+  if(s.resp==="gasp")t="Piccole onde isolate in corrispondenza dei gasping, su una linea per lo più piatta: scambio di gas minimo.";
+  t+=` EtCO₂ ${e} mmHg (normale 35-45).`;
+  if(e>45)t+=" Valore alto: ipoventilazione con accumulo di CO₂ (oppioidi, sedazione, BPCO riacutizzata).";
+  else if(e<30&&s.resp==="kussmaul")t+=" Valore basso perché il respiro profondo e frequente elimina CO₂ per compensare l'acidosi metabolica.";
+  else if(e<30&&s.pulse<.7)t+=" Valore basso con respiro regolare: poca CO₂ arriva ai polmoni perché la gittata è ridotta (shock, embolia polmonare).";
+  else if(e<35)t+=" Valore basso: iperventilazione o ridotta perfusione polmonare.";
+  return t;
+}
+function pawText(v){
+  if(v.mode==="CPAP")return `CPAP: la pressione resta sempre sopra lo zero, intorno a ${v.peep} cmH₂O (linea tratteggiata), con piccole oscillazioni dovute al respiro spontaneo. La pressione positiva continua mantiene aperti gli alveoli e riduce il lavoro respiratorio (edema polmonare acuto, insufficienza ipossiemica).`;
+  if(v.mode==="NIV")return `Ventilazione non invasiva a due livelli: a ogni atto del paziente la pressione sale all'IPAP (${v.ipap} cmH₂O) e in espirazione torna all'EPAP/PEEP (${v.peep} cmH₂O). La differenza (pressione di supporto) aiuta a eliminare CO₂, come nella BPCO riacutizzata con acidosi respiratoria.`;
+  const dp=v.plat-v.peep;
+  return `Ventilazione a volume controllato: la curva parte dalla PEEP (${v.peep} cmH₂O, linea tratteggiata) e non torna mai a zero; durante l'insufflazione sale fino al picco (${v.pip} cmH₂O), con la pausa inspiratoria scende al plateau (${v.plat} cmH₂O), poi in espirazione torna alla PEEP. La PEEP mantiene aperti gli alveoli e migliora l'ossigenazione, ma può ridurre il ritorno venoso e la pressione. Picco meno plateau = resistenze delle vie aeree (${v.pip-v.plat} cmH₂O${v.pip-v.plat>10?": alto, pensa a secrezioni, tubo piegato o morso, broncospasmo":""}); plateau meno PEEP = driving pressure (${dp} cmH₂O${dp>15?": sopra 15, troppo alta":": entro 15"}). Il plateau va tenuto sotto 30 cmH₂O.`;
+}
+const CAP_S=15;
+/* ---- strisce di esempio per capnografia, pressione invasiva e ventilazione ---- */
+function miscStrip(kind){
+  const W=150,H=28;let s,y,lab,n,d,sc,rng0,ref="";
+  if(kind.startsWith("co2")){
+    s={resp:kind==="co2-ostr"?"ostruttivo":kind==="co2-ipo"?"bradipnea":"normal",fr:kind==="co2-ostr"?18:kind==="co2-ipo"?8:14,etco2:kind==="co2-ostr"?52:kind==="co2-ipo"?60:kind==="co2-zero"?0:38,pulse:1};
+    y=kind==="co2-zero"?(()=>{const a=capno(Object.assign({},s,{etco2:38}),15,40,"st");let cut=a.length;for(let i=Math.floor(a.length*.55);i<a.length;i++)if(a[i]===0){cut=i;break}return a.map((v,i)=>i<cut?v:0)})():capno(s,15,40,"st");
+    sc=v=>H-2-v*(H-5)/60;lab="CO₂ 15 s";ref=[35,45].map(v=>`<path d="M0 ${sc(v).toFixed(1)}H${W}" class="ms-ref"/>`).join("");
+    [n,d]={"co2-norm":["Capnogramma normale","Rettangoli regolari: salita rapida, plateau quasi orizzontale, ritorno a zero all'inspirazione. EtCO₂ 35-45 mmHg."],"co2-ostr":["Capnogramma «a pinna di squalo»","La salita è lenta e il plateau inclinato: l'aria esce con difficoltà (broncospasmo, BPCO)."],"co2-ipo":["Ipoventilazione","Atti radi con EtCO₂ alta (oltre 50 mmHg): la CO₂ si accumula, per esempio con oppioidi o sedativi."],"co2-zero":["Perdita improvvisa del capnogramma","Le onde spariscono di colpo: nel paziente intubato pensa a deconnessione, dislocazione del tubo, ostruzione o arresto cardiaco."]}[kind];
+  }else if(kind.startsWith("art")){
+    const shock=kind==="art-shock";s={type:"sinus",hr:shock?118:75,pulse:1,sys:shock?84:124,dia:shock?46:72,ppv:shock?.14:0,fr:14,arrestP:12};
+    const e=ecg(Object.assign({},s,{morph:null}),6,200,"st"+kind);y=abp(s,e.B,6,200,"st");sc=v=>H-2-v*(H-5)/160;lab="ART 6 s";ref=[60,120].map(v=>`<path d="M0 ${sc(v).toFixed(1)}H${W}" class="ms-ref"/>`).join("");
+    [n,d]=shock?["Pressione invasiva nello shock","Battiti piccoli e frequenti (84/46 mmHg, PAM circa 59) la cui ampiezza oscilla con gli atti respiratori: ipovolemia."]:["Pressione arteriosa invasiva normale","Salita rapida, picco sistolico, incisura dicrota e discesa diastolica (124/72 mmHg, PAM circa 89)."];
+  }else{
+    const v=kind==="paw-res"?{mode:"VC",peep:8,pip:42,plat:22}:kind==="paw-cpap"?{mode:"CPAP",peep:10}:kind==="paw-niv"?{mode:"NIV",peep:6,ipap:16}:{mode:"VC",peep:8,pip:26,plat:20};
+    s={vent:v,fr:kind==="paw-cpap"?20:14};y=paw(s,15,40,"st");sc=x=>H-2-x*(H-5)/45;lab="Paw 15 s";ref=`<path d="M0 ${sc(v.peep).toFixed(1)}H${W}" class="ms-ref ms-peep"/><text x="${W-2}" y="${(sc(v.peep)-1).toFixed(1)}" text-anchor="end" class="ms-t">PEEP ${v.peep}</text>`;
+    [n,d]={"paw-vc":["Ventilazione a volume controllato con PEEP 8","La pressione parte dalla PEEP, sale al picco (26), scende al plateau (20) durante la pausa e torna alla PEEP: mai a zero. Driving pressure 20 − 8 = 12 cmH₂O."],"paw-res":["Picco alto con plateau normale","Picco 42 e plateau 22 cmH₂O: la differenza (20) indica resistenze aumentate. Cause: secrezioni, tubo piegato o morso, broncospasmo. Se salissero sia picco sia plateau il problema sarebbe la compliance (pneumotorace, atelettasia, edema)."],"paw-cpap":["CPAP 10 cmH₂O","Pressione continua sopra lo zero con piccole oscillazioni del respiro spontaneo."],"paw-niv":["NIV: IPAP 16, EPAP 6","A ogni atto la pressione sale all'IPAP e in espirazione torna all'EPAP (la PEEP)."]}[kind];
+  }
+  const pd=y.map((v,i)=>(i?"L":"M")+(i*W/(y.length-1)).toFixed(2)+" "+clamp(sc(v),.5,H-.5).toFixed(2)).join("");
+  return `<figure class="ecg-strip"><svg viewBox="0 0 ${W} ${H}" aria-label="${esc(n)}" role="img"><rect width="${W}" height="${H}" class="rs-bg"/>${ref}<text x="1.5" y="4.2" class="eg-t">${lab}</text><path d="${pd}" class="eg-tr ms-tr ms-${kind.split("-")[0]}"/></svg><figcaption><b>${esc(n)}.</b> ${esc(d)}</figcaption></figure>`;
 }
 /* ---- striscia su carta millimetrata per l'enciclopedia ---- */
 let STRIP_N=0;
@@ -1418,7 +1553,7 @@ function respStrip(type,fr){
   const W=150,H=22,r=resp(type,fr||(type==="kussmaul"?28:type==="tachipnea"?30:type==="bradipnea"?7:16),30,20,"strip"+type);const [n,d]=RESP[type];
   return `<figure class="ecg-strip"><svg viewBox="0 0 ${W} ${H}" aria-label="${esc(n)}" role="img"><rect width="${W}" height="${H}" class="rs-bg"/><path d="${Array.from({length:7},(_,i)=>`M${i*25} 0V${H}`).join("")}" class="rs-grid"/><text x="1.5" y="4.2" class="eg-t">30 s</text><path d="${path(r,W,H,19,8)}" class="eg-tr rs-tr"/></svg><figcaption><b>${esc(n)}.</b> ${esc(d)}</figcaption></figure>`;
 }
-return {monitor,strip,respStrip,detect};
+return {monitor,strip,respStrip,miscStrip,detect};
 })();
 const ENC_STRIPS={
  "ritmi":[["e","sinus"],["e","sinus",{hr:48}],["e","sinus",{hr:125}],["e","fa"],["e","flutter"],["e","tsv"],["e","ev"],["e","tv"],["e","fv"],["e","asistolia"]],
@@ -1435,15 +1570,24 @@ const ENC_STRIPS={
  "bpco":[["r","ostruttivo",22]],
  "asma":[["r","ostruttivo",26]],
  "parametri-vitali":[["r","normal"],["r","tachipnea"]],
- "trauma-cranico":[["r","biot"]]
+ "trauma-cranico":[["r","biot"]],
+ "monitoraggio-avanzato":[["m","art-norm"],["m","art-shock"],["m","co2-norm"],["m","co2-ostr"],["m","co2-ipo"],["m","co2-zero"],["m","paw-vc"],["m","paw-res"]],
+ "ventilazione":[["m","paw-cpap"],["m","paw-niv"],["m","paw-vc"],["m","co2-norm"]],
+ "shock":[["m","art-shock"]],
+ "emogasanalisi":[["m","co2-norm"]]
 };
-function encStrips(id){const L=ENC_STRIPS[id];if(!L)return "";return `<div><h4>Tracciati di esempio</h4><div class="strips">${L.map(x=>x[0]==="e"?WAVE.strip(x[1],x[2]):WAVE.respStrip(x[1],x[2])).join("")}</div></div>`}
+ENC_STRIPS["bpco"].push(["m","co2-ostr"]);ENC_STRIPS["oppioidi"].push(["m","co2-ipo"]);
+function encStrips(id){const L=ENC_STRIPS[id];if(!L)return "";return `<div><h4>Tracciati di esempio</h4><div class="strips">${L.map(x=>x[0]==="e"?WAVE.strip(x[1],x[2]):x[0]==="m"?WAVE.miscStrip(x[1]):WAVE.respStrip(x[1],x[2])).join("")}</div></div>`}
 function vitalsMonitor(vit,c){
   const cc=c||{vit,title:"",story:"",esami:[]};
   const col=k=>/^(FC|HR)/i.test(k)?"hr":/SpO2|Sat/i.test(k)?"sp":/^PA/i.test(k)?"bp":/^FR/i.test(k)?"rr":/^TC|Temp/i.test(k)?"tc":"ot";
   const m=WAVE.monitor(cc,(cc.id||"")+cc.title);
+  const have=new Set(vit.map(v=>String(v[0]).toLowerCase().replace(/[^a-z]/g,"")));
+  const extra=m.cells.filter(x=>!have.has(x[0].toLowerCase().replace(/[^a-z]/g,""))&&!(x[0]==="ART"&&have.has("pa"))).map(x=>[x[0],x[1],x[2]?1:0,1]);
+  vit=vit.concat(extra);
+  const col2=k=>/^ART/.test(k)?"art":/EtCO/.test(k)?"co2":/PEEP|Ppicco|IPAP/.test(k)?"paw":col(k);
   return `<div class="pmon">${m.html}
-  <div class="pm-grid">${vit.map(v=>`<div class="pm-cell pm-${col(v[0])} ${v[2]?"pm-alarm":""}"><span class="pm-k">${esc(v[0])}${v[2]?' <b class="pm-bell">ALLARME</b>':""}</span><span class="pm-v ${String(v[1]).length>9?"pm-long":""}">${esc(v[1])}</span></div>`).join("")}</div></div>`;
+  <div class="pm-grid">${vit.map(v=>`<div class="pm-cell pm-${col2(v[0])} ${v[2]?"pm-alarm":""}"><span class="pm-k">${esc(v[0])}${v[2]?' <b class="pm-bell">ALLARME</b>':""}</span><span class="pm-v ${String(v[1]).length>9?"pm-long":""}">${esc(v[1])}</span></div>`).join("")}</div></div>`;
 }
 
 /* ============ ENCICLOPEDIA E GLOSSARIO ============ */
