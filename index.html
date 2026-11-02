@@ -511,6 +511,8 @@ header.top{overflow:hidden;background:linear-gradient(180deg,color-mix(in srgb,v
 .hdr-ecg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hdr-ecg path{fill:none;stroke-linecap:round;stroke-linejoin:round}
 .hdr-ecg{transition:opacity .25s ease}.hdr-ecg.hdr-swap{opacity:0}
+.hdr-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;transition:opacity .45s ease}
+.hdr-fx.fx-out,.hdr-ecg.ecg-off{opacity:0!important}
 .hdr-dot{fill:#fff;filter:drop-shadow(0 0 4px rgba(255,255,255,.95))}
 .hdr-halo{fill:rgba(255,255,255,.18);filter:blur(2px)}
 .hdr-base{stroke:rgba(255,255,255,.08);stroke-width:1.5}
@@ -747,7 +749,7 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 </style>
 </head>
 <body>
-<header class="top"><svg class="hdr-ecg" viewBox="0 0 2400 60" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><defs><linearGradient id="trail" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".8" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient><mask id="sweepmask" maskUnits="userSpaceOnUse" x="0" y="0" width="2400" height="60"><rect class="sweeprect" x="-700" y="0" width="700" height="60" fill="url(#trail)"/></mask></defs><path class="hdr-base" d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40"/><path class="hdr-sweep" d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40" mask="url(#sweepmask)"/></svg>
+<header class="top"><canvas class="hdr-fx" aria-hidden="true"></canvas><svg class="hdr-ecg" viewBox="0 0 2400 60" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><defs><linearGradient id="trail" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".8" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient><mask id="sweepmask" maskUnits="userSpaceOnUse" x="0" y="0" width="2400" height="60"><rect class="sweeprect" x="-700" y="0" width="700" height="60" fill="url(#trail)"/></mask></defs><path class="hdr-base" d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40"/><path class="hdr-sweep" d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40" mask="url(#sweepmask)"/></svg>
   <div class="top-in">
     <div class="brand"><svg width="44" height="28" viewBox="0 0 44 28" aria-hidden="true"><path class="ecg" d="M1 17 L7.6 17 C8.32 17 9.04 15.05 9.76 15.05 C10.48 15.05 11.2 17 11.92 17 L13.72 17 L14.44 18.04 L15.52 4.0 L16.6 20.25 L17.5 17 C19.12 16.74 20.56 16.61 21.64 16.35 C23.08 14.66 24.16 13.1 25.24 13.1 C26.68 13.1 27.4 16.74 28.84 17 L40.0 17 L43 17"/></svg><div class="txt"><b>Atlante di Infermieristica</b><span>Studiare l'infermieristica in ogni sua parte: teoria, clinica, emergenza, norme, deontologia e casi</span></div></div>
     <nav class="tabs" aria-label="Sezioni">
@@ -1810,6 +1812,129 @@ function vitalsMonitor(vit,c){
     requestAnimationFrame(step);
   };
   requestAnimationFrame(step);
+})();
+
+
+/* ---- sfondo animato del banner, diverso per ogni scheda ---- */
+(function hdrFx(){
+  const cv=document.querySelector(".hdr-fx"),hd=document.querySelector("header.top"),ecg=document.querySelector(".hdr-ecg");if(!cv||!hd)return;
+  const ctx=cv.getContext("2d");if(!ctx)return;
+  const RMq=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const MODE={oggi:"ecg",home:"ecg",casi:"ecg",avanzamento:"chart",studio:"cells",enciclopedia:"dna",glossario:"letters",flashcard:"pills",quiz:"tubes",calcoli:"drops",domande:"bubbles",orale:"voice",metodo:"plus"};
+  let W=0,H=0,dpr=1,mode=null,st=null,last=0,raf=0;
+  const rnd=(a,b)=>a+Math.random()*(b-a);
+  const A=a=>`rgba(255,255,255,${a})`;
+  function size(){const r=hd.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=Math.max(1,r.width);H=Math.max(1,r.height);cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);if(mode)st=INIT[mode]()}
+  const cnt=(per,min,max)=>Math.max(min,Math.min(max,Math.round(W/per)));
+  const INIT={
+    ecg:()=>({}),
+    drops:()=>{const n=cnt(120,3,10),g=W/n;return {d:[...Array(n)].map((_,i)=>({x:g*(i+.5)+rnd(-g*.2,g*.2),ph:rnd(0,1),sp:rnd(.55,.9),rip:[]}))}},
+    tubes:()=>{const n=cnt(120,3,10),g=W/n;return {t:[...Array(n)].map((_,i)=>({x:g*(i+.5),h:rnd(.42,.58)*H,lv:rnd(.35,.65),ph:rnd(0,6.28),b:[]}))}},
+    cells:()=>({c:[...Array(cnt(40,8,28))].map(()=>({x:rnd(0,W),y:rnd(0,H),r:rnd(6,13),v:rnd(18,40),ph:rnd(0,6.28),rot:rnd(0,3.14),vr:rnd(-.4,.4)}))}),
+    dna:()=>({o:0}),
+    letters:()=>{const L="ABCDEFGHILMNOPQRSTUVZΔΩμαβ";return {l:[...Array(cnt(34,8,36))].map(()=>({ch:L[Math.floor(Math.random()*L.length)],x:rnd(0,W),y:rnd(0,H),s:rnd(11,22),v:rnd(6,14),a:rnd(.1,.3),ph:rnd(0,6.28)}))}},
+    pills:()=>({p:[...Array(cnt(55,6,22))].map(()=>({x:rnd(0,W),y:rnd(0,H),l:rnd(18,28),v:rnd(10,22),rot:rnd(0,6.28),vr:rnd(-.6,.6),two:Math.random()<.6}))}),
+    bubbles:()=>({b:[...Array(cnt(95,4,12))].map(()=>({x:rnd(0,W),y:rnd(0,H+40),s:rnd(14,24),v:rnd(8,16),ph:rnd(0,6.28),q:Math.random()<.65}))}),
+    voice:()=>({n:Math.ceil(W/7)}),
+    chart:()=>({t0:0}),
+    plus:()=>({p:[...Array(cnt(40,8,30))].map(()=>({x:rnd(0,W),y:rnd(0,H),s:rnd(5,11),rot:rnd(0,1.57),vr:rnd(-.3,.3),ph:rnd(0,6.28),vx:rnd(-6,6),vy:rnd(-4,4)}))})
+  };
+  const pillShape=(l,w)=>{ctx.beginPath();ctx.moveTo(-l/2+w/2,-w/2);ctx.lineTo(l/2-w/2,-w/2);ctx.arc(l/2-w/2,0,w/2,-Math.PI/2,Math.PI/2);ctx.lineTo(-l/2+w/2,w/2);ctx.arc(-l/2+w/2,0,w/2,Math.PI/2,Math.PI*1.5);ctx.closePath()};
+  const wrap=(v,a,b)=>v<a?v+(b-a):v>b?v-(b-a):v;
+  const DRAW={
+    ecg(){},
+    drops(t,dt){const top=Math.min(24,H*.2),floor=H-6;
+      for(const d of st.d){
+        // camera di gocciolamento
+        ctx.strokeStyle=A(.22);ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(d.x-7,top-12);ctx.lineTo(d.x-7,top);ctx.quadraticCurveTo(d.x-7,top+6,d.x-3,top+6);ctx.lineTo(d.x+3,top+6);ctx.quadraticCurveTo(d.x+7,top+6,d.x+7,top);ctx.lineTo(d.x+7,top-12);ctx.stroke();
+        d.ph+=dt*d.sp;if(d.ph>=1){d.ph-=1;d.rip.push(0)}
+        const ph=d.ph;let y,r;
+        if(ph<.45){y=top+6;r=1+ph/.45*3.2}else{const f=(ph-.45)/.55;y=top+6+(floor-top-6)*f*f;r=4.2}
+        ctx.fillStyle=A(.42);ctx.beginPath();ctx.moveTo(d.x,y-r*2.1);ctx.bezierCurveTo(d.x+r*.2,y-r*1.2,d.x+r,y-r*.4,d.x+r,y+r*.2);ctx.arc(d.x,y+r*.2,r,0,Math.PI);ctx.bezierCurveTo(d.x-r,y-r*.4,d.x-r*.2,y-r*1.2,d.x,y-r*2.1);ctx.fill();
+        ctx.fillStyle=A(.7);ctx.beginPath();ctx.arc(d.x-r*.35,y,r*.25,0,6.28);ctx.fill();
+        d.rip=d.rip.filter(k=>k<1);for(let i=0;i<d.rip.length;i++){d.rip[i]+=dt*1.4;const k=d.rip[i];ctx.strokeStyle=A(.35*(1-k));ctx.beginPath();ctx.ellipse(d.x,floor,4+k*22,1.5+k*4,0,0,6.28);ctx.stroke()}
+      }},
+    tubes(t,dt){
+      for(const u of st.t){
+        const w=12,h=u.h,y0=(H-h)/2+4,sw=Math.sin(t*.9+u.ph)*.12;
+        ctx.save();ctx.translate(u.x,y0);ctx.rotate(sw);
+        const lvY=h-(h-w)*u.lv;
+        // liquido
+        ctx.save();ctx.beginPath();ctx.moveTo(-w/2,0);ctx.lineTo(-w/2,h-w/2);ctx.arc(0,h-w/2,w/2,Math.PI,0,true);ctx.lineTo(w/2,0);ctx.closePath();ctx.clip();
+        ctx.fillStyle=A(.26);ctx.beginPath();ctx.moveTo(-w,h+2);for(let x=-w;x<=w;x+=2)ctx.lineTo(x,lvY+Math.sin(x*.5+t*3+u.ph)*1.6-sw*x*.9);ctx.lineTo(w,h+2);ctx.fill();
+        if(Math.random()<dt*2.2)u.b.push({x:rnd(-w/2+2,w/2-2),y:h-4,r:rnd(.8,1.8)});
+        u.b=u.b.filter(b=>b.y>lvY);ctx.fillStyle=A(.6);for(const b of u.b){b.y-=dt*rnd(14,22);b.x+=Math.sin(t*6+b.y)*.08;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,6.28);ctx.fill()}
+        ctx.restore();
+        ctx.strokeStyle=A(.38);ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(-w/2,0);ctx.lineTo(-w/2,h-w/2);ctx.arc(0,h-w/2,w/2,Math.PI,0,true);ctx.lineTo(w/2,0);ctx.stroke();
+        ctx.beginPath();ctx.moveTo(-w/2-3,0);ctx.lineTo(w/2+3,0);ctx.stroke();
+        ctx.strokeStyle=A(.5);ctx.beginPath();ctx.moveTo(-w/2+3,4);ctx.lineTo(-w/2+3,h*.45);ctx.stroke();
+        ctx.restore();
+      }},
+    cells(t,dt){
+      for(const c of st.c){c.x+=c.v*dt;c.rot+=c.vr*dt;if(c.x>W+20){c.x=-20;c.y=rnd(0,H)}
+        const y=c.y+Math.sin(t*.8+c.ph)*6,sq=.55+.45*Math.abs(Math.cos(c.rot));
+        ctx.save();ctx.translate(c.x,y);ctx.scale(1,sq);
+        ctx.fillStyle=A(.2);ctx.beginPath();ctx.arc(0,0,c.r,0,6.28);ctx.fill();
+        ctx.strokeStyle=A(.38);ctx.lineWidth=1.2;ctx.stroke();
+        ctx.fillStyle=A(.08);ctx.beginPath();ctx.arc(0,0,c.r*.45,0,6.28);ctx.fill();ctx.restore()}},
+    dna(t){
+      const mid=H/2,amp=Math.min(H*.32,20),k=2*Math.PI/150,o=t*1.2;
+      const ys=x=>[mid+Math.sin(x*k+o)*amp,mid+Math.sin(x*k+o+Math.PI)*amp];
+      for(let x=0;x<W;x+=13){const [a,b]=ys(x),z=Math.cos(x*k+o);ctx.strokeStyle=A(.12+.14*Math.abs(z));ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x,a);ctx.lineTo(x,b);ctx.stroke()}
+      for(const ph of [0,Math.PI]){ctx.lineWidth=2.4;for(let x=0;x<W;x+=4){const z=Math.cos(x*k+o+ph);ctx.strokeStyle=A(.15+.3*(z+1)/2);ctx.beginPath();ctx.moveTo(x,mid+Math.sin(x*k+o+ph)*amp);ctx.lineTo(x+4,mid+Math.sin((x+4)*k+o+ph)*amp);ctx.stroke()}}
+      for(let x=0;x<W;x+=13){const [a,b]=ys(x),z=Math.cos(x*k+o);if(z>.3){ctx.fillStyle=A(.5);ctx.beginPath();ctx.arc(x,a,2,0,6.28);ctx.arc(x,b,2,0,6.28);ctx.fill()}}},
+    letters(t,dt){ctx.textAlign="center";ctx.textBaseline="middle";
+      for(const l of st.l){l.y-=l.v*dt;if(l.y<-20){l.y=H+20;l.x=rnd(0,W)}
+        ctx.font=`700 ${l.s}px Georgia,serif`;ctx.fillStyle=A(l.a*(.7+.3*Math.sin(t+l.ph)));ctx.fillText(l.ch,l.x+Math.sin(t*.6+l.ph)*5,l.y)}},
+    pills(t,dt){
+      for(const p of st.p){p.y+=p.v*dt;p.x+=Math.sin(t*.5+p.rot)*4*dt;p.rot+=p.vr*dt;if(p.y>H+20){p.y=-20;p.x=rnd(0,W)}
+        ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);const w=p.l*.42;
+        if(p.two){ctx.save();pillShape(p.l,w);ctx.clip();ctx.fillStyle=A(.38);ctx.fillRect(-p.l/2,-w,p.l/2,w*2);ctx.fillStyle=A(.14);ctx.fillRect(0,-w,p.l/2,w*2);ctx.restore()}
+        else{ctx.fillStyle=A(.18);ctx.beginPath();ctx.arc(0,0,w*.85,0,6.28);ctx.fill();ctx.strokeStyle=A(.35);ctx.beginPath();ctx.moveTo(-w*.6,0);ctx.lineTo(w*.6,0);ctx.stroke()}
+        ctx.strokeStyle=A(.4);ctx.lineWidth=1.1;if(p.two){pillShape(p.l,w);ctx.stroke()}else{ctx.beginPath();ctx.arc(0,0,w*.85,0,6.28);ctx.stroke()}
+        ctx.restore()}},
+    bubbles(t,dt){ctx.textAlign="center";ctx.textBaseline="middle";
+      for(const b of st.b){b.y-=b.v*dt;if(b.y<-30){b.y=H+30;b.x=rnd(0,W)}
+        const x=b.x+Math.sin(t*.7+b.ph)*6,s=b.s;ctx.fillStyle=A(.16);ctx.strokeStyle=A(.35);ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.roundRect?ctx.roundRect(x-s,b.y-s*.7,s*2,s*1.4,s*.45):ctx.rect(x-s,b.y-s*.7,s*2,s*1.4);ctx.moveTo(x-s*.3,b.y+s*.7);ctx.lineTo(x-s*.55,b.y+s*1.1);ctx.lineTo(x,b.y+s*.7);ctx.fill();ctx.stroke();
+        ctx.font=`800 ${s*.95}px system-ui,sans-serif`;ctx.fillStyle=A(.55);if(b.q)ctx.fillText("?",x,b.y+1);else{for(const dx of [-.45,0,.45]){ctx.beginPath();ctx.arc(x+dx*s,b.y,s*.1,0,6.28);ctx.fill()}}}},
+    voice(t){const mid=H/2,n=st.n;
+      for(let i=0;i<n;i++){const x=i*7+3,e=.35+.65*Math.max(0,Math.sin(t*.9-i*.05))*Math.max(.2,Math.sin(t*.37+i*.013)),
+        h=Math.max(1.5,(Math.abs(Math.sin(i*.9+t*5.2))*.6+Math.abs(Math.sin(i*.31-t*3.1))*.4)*e*H*.26);
+        ctx.fillStyle=A(.12+.22*e);ctx.beginPath();ctx.roundRect?ctx.roundRect(x-1.5,mid-h,3,h*2,1.5):ctx.rect(x-1.5,mid-h,3,h*2);ctx.fill()}},
+    chart(t){const cyc=7,f=(t%cyc)/cyc,base=H-8,n=Math.max(8,Math.round(W/60)),gx=W/n;
+      const val=i=>.25+.6*(i/n)+.12*Math.sin(i*1.7);
+      const prog=Math.min(1,f/.75),fade=f>.85?1-(f-.85)/.15:1;
+      ctx.strokeStyle=A(.08);ctx.lineWidth=1;for(let y=base;y>4;y-=12){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+      for(let i=0;i<n;i++){const g=Math.max(0,Math.min(1,prog*n-i));const h=(base-6)*val(i)*.85*g;ctx.fillStyle=A(.13*fade);ctx.fillRect(i*gx+gx*.25,base-h,gx*.5,h)}
+      ctx.strokeStyle=A(.5*fade);ctx.lineWidth=2;ctx.beginPath();const upto=prog*(n-1);
+      for(let i=0;i<=Math.floor(upto);i++){const y=base-(base-6)*val(i);i?ctx.lineTo(i*gx+gx/2,y):ctx.moveTo(gx/2,y)}
+      const fi=Math.floor(upto),fr=upto-fi;if(fi<n-1){const y1=base-(base-6)*val(fi),y2=base-(base-6)*val(fi+1);ctx.lineTo(fi*gx+gx/2+gx*fr,y1+(y2-y1)*fr)}ctx.stroke();
+      ctx.fillStyle=A(.75*fade);for(let i=0;i<=fi;i++){ctx.beginPath();ctx.arc(i*gx+gx/2,base-(base-6)*val(i),2.4,0,6.28);ctx.fill()}},
+    plus(t,dt){
+      for(const p of st.p){p.x=wrap(p.x+p.vx*dt,-15,W+15);p.y=wrap(p.y+p.vy*dt,-15,H+15);p.rot+=p.vr*dt;
+        const a=.15+.25*(.5+.5*Math.sin(t*1.3+p.ph)),s=p.s,w=s*.38;
+        ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=A(a);ctx.fillRect(-w,-s,w*2,s*2);ctx.fillRect(-s,-w,s*2,w*2);ctx.restore()}}
+  };
+  function frame(now){
+    raf=0;if(document.hidden)return;
+    const dt=Math.min(.05,(now-last)/1000||0);last=now;
+    ctx.clearRect(0,0,W,H);ctx.globalAlpha=.78;if(mode&&mode!=="ecg")DRAW[mode](now/1000,dt);ctx.globalAlpha=1;
+    if(!RMq&&mode!=="ecg")raf=requestAnimationFrame(frame);
+  }
+  function kick(){if(!raf){last=performance.now();raf=requestAnimationFrame(frame)}}
+  function setView(v){
+    const m=MODE[v]||"ecg";if(m===mode)return;
+    const apply=()=>{mode=m;st=INIT[m]();if(ecg)ecg.classList.toggle("ecg-off",m!=="ecg");ctx.clearRect(0,0,W,H);cv.classList.remove("fx-out");
+      if(RMq){for(let i=0;i<40;i++)DRAW[m]&&m!=="ecg"&&(ctx.clearRect(0,0,W,H),DRAW[m](i*.1,.1))}else kick()};
+    if(mode===null){apply();return}
+    cv.classList.add("fx-out");if(m!=="ecg"&&ecg)ecg.classList.add("ecg-off");setTimeout(apply,RMq?0:300);
+  }
+  size();
+  new ResizeObserver(()=>{size();if(RMq&&mode&&mode!=="ecg")DRAW[mode](4,.1)}).observe(hd);
+  new MutationObserver(()=>setView(document.documentElement.dataset.view)).observe(document.documentElement,{attributes:true,attributeFilter:["data-view"]});
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden)kick()});
+  setView(document.documentElement.dataset.view||"oggi");
 })();
 
 
