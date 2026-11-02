@@ -504,7 +504,13 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .pm-c-ecg .pm-lab{color:#3dff8f}.pm-c-sp .pm-lab{color:#38d9ff}.pm-c-rr .pm-lab{color:#ffd84a}
 .pm-read{margin:2px 0 8px;color:#d8e6e4;font-size:.9rem}
 .pm-read summary{cursor:pointer;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:#9fe7c4;padding:4px 0}
-.pm-read p{margin:6px 0}.pm-read .pm-note{font-size:.78rem;opacity:.7}
+.pm-read p{margin:6px 0}
+.pm-meas{width:100%;border-collapse:collapse;font-size:.86rem;margin:4px 0}
+.pm-meas td{border-top:1px solid rgba(255,255,255,.08);padding:5px 6px;vertical-align:top}
+.pm-meas td:first-child{color:#9fb8b4;width:48%;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.02em}
+.pm-meas td:last-child{font-family:var(--f-mono);color:#e8f4f2}
+.trace-sol{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:12px;background:var(--scrub-soft);border-left:4px solid var(--scrub)}
+.trace-sol p{margin:0}.pm-read .pm-note{font-size:.78rem;opacity:.7}
 .strips{display:grid;gap:14px}
 .ecg-strip{margin:0;display:flex;flex-direction:column;gap:6px}
 .ecg-strip svg{width:100%;height:auto;display:block;border-radius:6px;background:#fff7f6;border:1px solid #efc9c6}
@@ -1497,8 +1503,38 @@ function monitor(c,seed){
     cells.push(["PEEP",v.peep+" cmH₂O",0]);if(v.mode==="VC"){cells.push(["Ppicco / Pplat",v.pip+" / "+v.plat,v.plat>30||v.plat-v.peep>15||v.pip-v.plat>10||v.pip>35])}else if(v.mode==="NIV")cells.push(["IPAP / EPAP",v.ipap+" / "+v.peep,0]);
     reads+=`<p><b>Pressione nelle vie aeree e PEEP.</b> ${pawText(v)}</p>`}
   chans+=ch("Resp <i>"+(s.resp==="apnea"?"apnea":"")+"</i>","pm-c-rr",path(r,1000,44,40,17),44,RESP_S);
-  return {s,cells,html:`<div class="pm-waves" role="img" aria-label="Tracciati del monitor">${chans}</div>
-  <details class="pm-read"><summary>Leggi il tracciato</summary><div><p><b>ECG: ${en}.</b> ${ed}</p><p><b>Respiro: ${rn}.</b> ${rd}</p><p><b>Polso.</b> ${pd}</p>${reads}<p class="pm-note">ECG, ART e pletismografia: ${ECG_S} secondi per schermata (25 mm/s)${s.capno||s.vent?"; CO₂ e pressione delle vie aeree: "+CAP_S+" secondi":""}; respiro: ${RESP_S} secondi.</p></div></details>`};
+  const note=`<p class="pm-note">ECG, ART e pletismografia: ${ECG_S} secondi per schermata (25 mm/s)${s.capno||s.vent?"; CO₂ e pressione delle vie aeree: "+CAP_S+" secondi":""}; respiro: ${RESP_S} secondi.</p>`;
+  const sol=`<div class="trace-sol"><span class="eyebrow">Lettura dei tracciati</span><p><b>ECG: ${en}.</b> ${ed}</p><p><b>Respiro: ${rn}.</b> ${rd}</p><p><b>Polso.</b> ${pd}</p>${reads}</div>`;
+  return {s,cells,sol,html:`<div class="pm-waves" role="img" aria-label="Tracciati del monitor">${chans}</div>
+  <details class="pm-read"><summary>Misure del tracciato</summary><div>${measures(s,e.B,seed)}${note}<p class="pm-note">Qui trovi solo misure e dati. L'interpretazione dei tracciati compare alla fine del caso, dopo le tue risposte.</p></div></details>`};
+}
+function measures(s,B,seed){
+  const f=(x)=>String(x).replace(".",",");
+  const inW=B.filter(b=>b.t>=0&&b.t<=ECG_S);const rr=[];for(let i=1;i<inW.length;i++)rr.push(inW[i].t-inW[i-1].t);
+  const T=s.type,none=T==="fv"||T==="asistolia",M=Object.assign({},BASE,MORPH[s.morph]||{});
+  const rows=[];
+  if(none){rows.push(["Complessi QRS","non identificabili"],["Frequenza","non misurabile"])}
+  else{const mean=rr.length?rr.reduce((a,b)=>a+b,0)/rr.length:60/s.hr;
+    rows.push(["Frequenza ventricolare",Math.round(60/mean)+"/min"]);
+    if(rr.length)rows.push(["Intervallo R-R",Math.round(Math.min(...rr)*1000)===Math.round(Math.max(...rr)*1000)?Math.round(mean*1000)+" ms":"da "+Math.round(Math.min(...rr)*1000)+" a "+Math.round(Math.max(...rr)*1000)+" ms"]);
+    const P={fa:"non identificabili",flutter:"onde atriali a 300/min",tsv:"non identificabili",tv:"non identificabili",mobitz1:"4 onde P ogni 3 QRS",mobitz2:"3 onde P ogni 2 QRS",bav3:"80/min (QRS "+Math.round(60/mean)+"/min)",ev:"1 per QRS, assenti nei battiti anticipati"}[T]||"1 per ogni QRS";
+    rows.push(["Onde P",P]);
+    rows.push(["PR",{bav1:"320 ms",mobitz1:"da 160 a 320 ms",mobitz2:"180 ms",bav3:"non costante"}[T]||(["fa","flutter","tsv","tv"].includes(T)?"non misurabile":s.hr>130?"120 ms":"160 ms")]);
+    rows.push(["QRS",T==="tv"?"160 ms":T==="bav3"?"140 ms":T==="iperk"?"120 ms":T==="ev"?"90 ms (alcuni battiti 160 ms)":"90 ms"]);
+    if(T!=="tv"&&T!=="flutter"&&T!=="fa"){const qt=.4*Math.sqrt(mean)+M.tPlus;rows.push(["QT / QTc",Math.round(qt*1000)+" / "+Math.round(qt/Math.sqrt(mean)*1000)+" ms"])}
+    rows.push(["Tratto ST ("+s.lead+")",M.st?(M.st>0?"+":"")+f((M.st*10).toFixed(1))+" mm rispetto alla linea isoelettrica":"isoelettrico"]);
+    if(T!=="tv")rows.push(["Onda T ("+s.lead+")",(M.tA>0?"+":"")+f((M.tA*10).toFixed(1))+" mm"+(M.u>.1?"; onda U "+f((M.u*10).toFixed(1))+" mm":"")]);
+  }
+  rows.push(["Curva del polso",s.pulse?"presente, ampiezza "+Math.round(s.pulse*100)+"% del riferimento":"assente"]);
+  const br=breaths(s.resp,s.fr,RESP_S,seed).filter(b=>b.t>=0&&b.t<RESP_S);
+  if(!br.length)rows.push(["Respiro","nessun atto in 30 s"]);
+  else{let gap=0;for(let i=1;i<br.length;i++)gap=Math.max(gap,br[i].t-(br[i-1].t+br[i-1].ti+br[i-1].te));
+    const am=br.map(b=>b.a),ti=br.reduce((a,b)=>a+b.ti,0)/br.length,te=br.reduce((a,b)=>a+b.te,0)/br.length;
+    rows.push(["Atti respiratori in 30 s",br.length+" (circa "+Math.round(br.length*2)+"/min)"],["Rapporto inspirazione : espirazione","1 : "+f((te/ti).toFixed(1))],["Ampiezza degli atti",Math.max(...am)/Math.min(...am)>1.4?"variabile, da "+f(Math.min(...am).toFixed(1))+" a "+f(Math.max(...am).toFixed(1))+" (unità relative)":"costante, "+f((am.reduce((a,b)=>a+b,0)/am.length).toFixed(1))+" (unità relative; riferimento 1,0)"],["Pausa più lunga tra due atti",gap>1.5?f(gap.toFixed(0))+" s":"nessuna pausa"])}
+  if(s.abp){if(!s.pulse)rows.push(["Pressione invasiva","nessuna onda pulsatile"]);else rows.push(["Pressione invasiva",s.sys+"/"+s.dia+" mmHg, PAM "+Math.round(s.dia+(s.sys-s.dia)/3)+" mmHg"],["Variazione della pressione differenziale con il respiro",s.ppv?Math.round(s.ppv*200)+"%":"meno del 5%"])}
+  if(s.capno)rows.push(["EtCO₂",s.etco2+" mmHg"]);
+  if(s.vent){const v=s.vent;rows.push(["Modalità",{VC:"volume controllato",NIV:"ventilazione non invasiva a due livelli",CPAP:"CPAP"}[v.mode]],["PEEP / EPAP",v.peep+" cmH₂O"]);if(v.mode==="VC")rows.push(["Pressione di picco",v.pip+" cmH₂O"],["Pressione di plateau",v.plat+" cmH₂O"]);if(v.mode==="NIV")rows.push(["IPAP",v.ipap+" cmH₂O"])}
+  return `<table class="pm-meas"><tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join("")}</tbody></table>`;
 }
 function capnoText(s){
   const e=s.etco2;
@@ -1553,7 +1589,8 @@ function respStrip(type,fr){
   const W=150,H=22,r=resp(type,fr||(type==="kussmaul"?28:type==="tachipnea"?30:type==="bradipnea"?7:16),30,20,"strip"+type);const [n,d]=RESP[type];
   return `<figure class="ecg-strip"><svg viewBox="0 0 ${W} ${H}" aria-label="${esc(n)}" role="img"><rect width="${W}" height="${H}" class="rs-bg"/><path d="${Array.from({length:7},(_,i)=>`M${i*25} 0V${H}`).join("")}" class="rs-grid"/><text x="1.5" y="4.2" class="eg-t">30 s</text><path d="${path(r,W,H,19,8)}" class="eg-tr rs-tr"/></svg><figcaption><b>${esc(n)}.</b> ${esc(d)}</figcaption></figure>`;
 }
-return {monitor,strip,respStrip,miscStrip,detect};
+function solution(c){return monitor(c,(c.id||"")+c.title).sol}
+return {monitor,strip,respStrip,miscStrip,detect,solution};
 })();
 const ENC_STRIPS={
  "ritmi":[["e","sinus"],["e","sinus",{hr:48}],["e","sinus",{hr:125}],["e","fa"],["e","flutter"],["e","tsv"],["e","ev"],["e","tv"],["e","fv"],["e","asistolia"]],
@@ -1986,6 +2023,7 @@ function drawQ(){
   const finish=(score,extra)=>{it._s=score;qz.sc+=score;if(score>=.6)qz.ok++;
     if(qz.f==="oggi"){const k="daily2-"+todayStr(),v=LS.get(k,null);if(v&&!v.started){v.started=true;LS.set(k,v)}}
     logEv(k,it.m||"tr",it.sec||(it.o&&it.o.s)||0,score,it.id,extra);
+    if(k==="case"){const d=document.createElement("div");d.innerHTML=WAVE.solution(it.c);const q=$("#qexp");if(q)q.appendChild(d.firstElementChild)}
     if(k==="open"){const st=findStudy({q:it.o.q,o:[it.o.p.join(" ")],r:0,e:"",m:it.m,sec:it.o.s});const d=document.createElement("div");d.className="studylink";d.innerHTML=`<span class="small">Approfondisci l'argomento: <b>${esc(st.t)}</b>${st.enc?" · Enciclopedia":""}</span><button class="btn ${score<.6?"primary":""}">${st.enc?"Apri la voce dell'enciclopedia →":"Vai alla scheda di studio →"}</button>`;d.querySelector("button").onclick=()=>goStudy(st);$("#qexp").appendChild(d)}
     next()};
   if(k==="mcq"){
@@ -2439,6 +2477,7 @@ function caseView(c){
     logEv("case",c.tags[0],32,avg/30,"k"+c.id,{voto:avg,by:"case"});
     $("#cend").innerHTML=`<div class="sheet case-end"><span class="eyebrow">Caso concluso</span><div class="row" style="align-items:baseline"><span class="mono" style="font-size:2.2rem;font-weight:600">${avg}/30</span><span class="small">media delle ${votes.length} risposte</span></div>
       ${c.dx&&c.dx.length?`<div><span class="eyebrow">Diagnosi e problemi attesi</span><div class="row" style="margin-top:6px">${c.dx.map(d=>`<span class="chip">${esc(d)}</span>`).join("")}</div></div>`:""}
+      ${WAVE.solution(c)}
       <div class="note"><b>Per l'orale:</b> ${esc(c.oral||"")}</div>
       <div class="row"><button class="btn primary" id="discuss">Discuti il caso con la commissione</button><a class="btn" href="#casi" style="text-decoration:none">Altri casi</a></div></div>`;
     $("#discuss").onclick=()=>{oralPreset={mode:"caso",caso:c};location.hash="orale"};
