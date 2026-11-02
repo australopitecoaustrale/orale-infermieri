@@ -39,6 +39,7 @@
 :root[data-view="studio"]{--va:#6d4596}
 :root[data-view="enciclopedia"]{--va:#7c3d5e}
 :root[data-view="glossario"]{--va:#3d5a8c}
+:root[data-view="calcoli"]{--va:#a03a6c}
 :root[data-view="flashcard"]{--va:#9a5b07}
 :root[data-view="quiz"]{--va:#a8323f}
 :root[data-view="domande"]{--va:#56651a}
@@ -424,6 +425,28 @@ nav.tabs{padding-left:30px;padding-right:30px}
 .ts-det .f-skin{fill:#f3dcc4}
 .ts-det .f-dot{fill:#c9a582}
 .ts-det .gloss{pointer-events:none}
+.ts-det .f-lcd{fill:#16302a}.ts-det .s-lcd{fill:none;stroke:#4dffa0;stroke-width:1.2;stroke-linejoin:round}
+.ts-det .f-key{fill:color-mix(in srgb,var(--va) 55%,#ffffff)}
+.calc-warn{padding:12px 14px;border-radius:12px;background:var(--amber-soft);border-left:4px solid var(--amber);font-size:.95rem}
+.calc-nav{gap:6px}.calc-nav .chip{text-decoration:none}
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr));gap:16px;align-items:start}
+.calc{display:flex;flex-direction:column;gap:12px;scroll-margin-top:150px}
+.calc-h h3{margin:0}.calc-h p{margin:4px 0 0}
+.cf{display:flex;flex-direction:column;gap:6px}
+.cf label{font-size:.8rem;font-weight:700;color:var(--muted);margin-top:4px}
+.cg{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.ci{width:7.5em;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);font:inherit;font-family:var(--f-mono)}
+.ci:focus,.cu:focus{outline:none;border-color:var(--scrub);box-shadow:0 0 0 3px var(--scrub-soft)}
+.cu{padding:9px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.cx{font-size:.9rem;color:var(--muted)}
+.calc-out{border-top:1px dashed var(--line);padding-top:10px}
+.calc-res{font-family:var(--f-mono);font-size:1.35rem;font-weight:700;color:var(--scrub);margin:2px 0 6px}
+.calc-res.sm{font-size:1rem;margin-top:8px}
+.calc-steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:.92rem}
+.calc-alert{padding:8px 12px;border-radius:10px;background:var(--vital-soft);color:var(--ink);border-left:4px solid var(--vital);margin-bottom:8px;font-size:.92rem}
+.calc-ok{padding:8px 12px;border-radius:10px;background:var(--ok-soft);border-left:4px solid var(--ok);margin-bottom:8px}
+.ex-box{display:flex;flex-direction:column;gap:10px}
+.ex-box p{margin:0}
 .ts-det .f-pad{fill:#ffffff;stroke:color-mix(in srgb,var(--va) 25%,#ffffff);stroke-width:1}
 .ts-det .s-line{fill:none;stroke:color-mix(in srgb,var(--va) 50%,#ffffff);stroke-width:1.4;stroke-linecap:round}
 .ts-det .s-dark{fill:none;stroke:color-mix(in srgb,var(--va) 70%,#1a1a1a);stroke-width:1.8;stroke-linecap:round}
@@ -662,6 +685,7 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
       <a href="#glossario">Glossario</a>
       <a href="#flashcard">Flashcard</a>
       <a href="#quiz">Allenamento</a>
+      <a href="#calcoli">Calcoli</a>
       <a href="#domande">Domande</a>
       <a href="#casi">Casi</a>
       <a href="#orale">Orale</a>
@@ -1124,6 +1148,7 @@ const ICONS={
  orale:'<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/>',
  metodo:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
  enciclopedia:'<rect x="5" y="3.5" width="14" height="18" rx="2"/><rect x="9" y="2" width="6" height="3.5" rx="1"/><path d="M8.5 10h7M8.5 13.5h7M8.5 17h4.5"/>',
+ calcoli:'<rect x="5" y="2.5" width="14" height="19" rx="2.5"/><rect x="8" y="5.5" width="8" height="4" rx="1"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01"/>',
  glossario:'<path d="M4 4h9a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M16 8h4v12h-4"/><path d="M8 9h4M8 12.5h4"/>'
 };
 function decorateHead(name){
@@ -1197,6 +1222,9 @@ const SHAPES={
    out:(W,H)=>`<path d="M17 6.5C3 6.5 3 ${H-6.5} 17 ${H-6.5}M${W-17} 6.5C${W-3} 6.5 ${W-3} ${H-6.5} ${W-17} ${H-6.5}" class="o-loop"/>`,
    det:(W,H)=>`<rect x="16" y="0" width="5" height="${H}" class="f-tint2"/><rect x="${W-21}" y="0" width="5" height="${H}" class="f-tint2"/><path d="M22 ${H*.3}Q${W/2} ${H*.24} ${W-22} ${H*.3}M22 ${H*.78}Q${W/2} ${H*.86} ${W-22} ${H*.78}" class="s-pleat"/><path d="M${W/2-14} 3.4Q${W/2} 1.8 ${W/2+14} 3.4" class="s-wire"/>`},
  /* Cerotto con garza centrale */
+ calcoli:{label:"Pompa infusionale",l:28,r:30,d:(W,H)=>`M7 4H${W-7}Q${W} 4 ${W} 10V${H-6}Q${W} ${H} ${W-7} ${H}H7Q0 ${H} 0 ${H-6}V10Q0 4 7 4Z`,
+   out:(W,H)=>`<path d="M${W*.3} 5V3Q${W*.3} 1 ${W*.3+3} 1H${W*.7-3}Q${W*.7} 1 ${W*.7} 3V5" class="o-handle"/>`,
+   det:(W,H)=>{let k="";for(const x of [W-21,W-14])for(const y of [H*.38,H*.58,H*.78])k+=`<circle cx="${x}" cy="${y.toFixed(1)}" r="2.1" class="f-key"/>`;return `<rect x="4" y="8" width="19" height="${H-13}" rx="2.5" class="f-lcd"/><path d="M6.5 ${H*.62}H9L10.5 ${H*.46}L12.2 ${H*.74}L13.6 ${H*.62}H20.5" class="s-lcd"/><rect x="${W-25}" y="8" width="21" height="${H-13}" rx="3" class="f-tint"/>`+k}},
  metodo:{label:"Cerotto",l:26,r:26,d:(W,H)=>{const y=3,h=H-6,r=h/2;return `M${r} ${y}H${W-r}A${r} ${r} 0 0 1 ${W-r} ${y+h}H${r}A${r} ${r} 0 0 1 ${r} ${y}Z`},
    det:(W,H)=>{const m=H/2;let d="";for(const x of [8,13,W-13,W-8])for(const y of [m-5,m,m+5])d+=`<circle cx="${x}" cy="${y}" r=".95" class="f-dot"/>`;return `<rect x="0" y="0" width="${W}" height="${H}" class="f-skin"/><rect x="${W*.2}" y="5" width="${W*.6}" height="${H-10}" rx="5" class="f-pad"/>`+d}}
 };
@@ -1790,7 +1818,147 @@ function glossario(){
   $("#gl-search").oninput=draw;draw();
 }
 if(CODA.length&&TOPICS.cod&&typeof CODICE_CAPI!=="undefined")CODICE_CAPI.forEach(([cp,nome])=>{const arts=CODA.filter(a=>a[1]===cp);TOPICS.cod.push({t:"Codice 2025 articolo per articolo · Capo "+cp+" "+nome+" (artt. "+arts[0][0]+"–"+arts[arts.length-1][0]+")",h:`<div style="display:flex;flex-direction:column;gap:10px">${arts.map(a=>`<div><b>Art. ${a[0]} · ${esc(a[2])}</b><br>${esc(a[3])}</div>`).join("")}<p class="refs">Sintesi per lo studio; testo ufficiale FNOPI, in vigore dal 22 marzo 2025.</p></div>`})});
-const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,domande,casi,orale,metodo};
+/* ============ CALCOLATORE DI DOSAGGIO ============ */
+const CALC_U={g:1e6,mg:1e3,mcg:1,ng:1e-3};
+function nf(x,d){if(x==null||!isFinite(x))return "—";return Number(x).toLocaleString("it-IT",{maximumFractionDigits:d==null?2:d})}
+function pnum(v){if(v==null)return NaN;const s=String(v).trim().replace(/\s/g,"").replace(",",".");return s===""?NaN:Number(s)}
+function calcoli(){
+  const uSel=(id,def,opts)=>`<select id="${id}" class="cu">${(opts||["g","mg","mcg"]).map(u=>`<option ${u===def?"selected":""}>${u}</option>`).join("")}</select>`;
+  const inp=(id,ph,val)=>`<input id="${id}" class="ci" inputmode="decimal" placeholder="${ph}" value="${val||""}">`;
+  const box=(id,title,sub,body)=>`<section class="sheet calc" id="${id}"><div class="calc-h"><h3>${title}</h3><p class="small">${sub}</p></div>${body}<div class="calc-out" id="${id}-out"></div></section>`;
+  app.innerHTML=`
+  <div><span class="eyebrow">Strumenti</span><h2>Calcolatore di dosaggio</h2></div>
+  <p class="lead">Calcoli di terapia passo per passo, con la formula e i passaggi: per capire, non solo per avere il numero. In fondo trovi gli esercizi con correzione.</p>
+  <div class="calc-warn"><b>Strumento didattico.</b> In reparto ogni calcolo va verificato con la prescrizione, la scheda tecnica e i protocolli aziendali, con doppio controllo indipendente per i farmaci ad alto livello di attenzione (insulina, eparina, oppioidi, KCl, chemioterapici, farmaci pediatrici).</div>
+  <div class="calc-nav row">${[["c-vol","Dose → ml"],["c-inf","Velocità di infusione"],["c-peso","Dose per peso"],["c-cont","Infusione continua"],["c-ric","Ricostituzione"],["c-perc","Percentuali e rapporti"],["c-ins","Insulina"],["c-par","Parametri del paziente"],["c-es","Esercizi"]].map(([k,t])=>`<a class="chip" href="#${k}" data-jump="${k}">${t}</a>`).join("")}</div>
+  <div class="calc-grid">
+  ${box("c-vol","Quanto prelevo? (dose → volume o compresse)","Formula: volume = dose prescritta ÷ dose disponibile × volume che la contiene.",
+   `<div class="cf"><label>Dose prescritta</label><div class="cg">${inp("v-pres","es. 400")}${uSel("v-presu","mg",["g","mg","mcg","U","mEq"])}</div>
+    <label>Confezione: contiene</label><div class="cg">${inp("v-disp","es. 250")}${uSel("v-dispu","mg",["g","mg","mcg","U","mEq"])}<span class="cx">in</span>${inp("v-vol","es. 5")}<select id="v-form" class="cu"><option value="ml">ml</option><option value="cpr">compressa/e</option></select></div></div>`)}
+  ${box("c-inf","Velocità di infusione","ml/h = volume ÷ ore. Gocce/min = volume (ml) × fattore del deflussore ÷ minuti.",
+   `<div class="cf"><label>Volume da infondere</label><div class="cg">${inp("i-vol","es. 500")}<span class="cx">ml</span></div>
+    <label>Tempo</label><div class="cg">${inp("i-h","ore")}<span class="cx">h</span>${inp("i-m","minuti")}<span class="cx">min</span></div>
+    <label>Deflussore</label><div class="cg"><select id="i-gtt" class="cu"><option value="20">standard 20 gocce/ml</option><option value="60">microgocciolatore 60 gocce/ml</option><option value="15">sangue 15 gocce/ml</option><option value="10">10 gocce/ml</option></select></div>
+    <label>Se conosci già la velocità (per sapere quando finisce)</label><div class="cg">${inp("i-rate","ml/h")}<span class="cx">ml/h</span></div></div>`)}
+  ${box("c-peso","Dose in base al peso","Dose singola = dose per kg × peso; dose giornaliera = dose singola × numero di somministrazioni.",
+   `<div class="cf"><label>Peso</label><div class="cg">${inp("p-kg","kg")}<span class="cx">kg</span></div>
+    <label>Dose prescritta per kg</label><div class="cg">${inp("p-dose","es. 15")}${uSel("p-u","mg")}<span class="cx">/kg per dose</span></div>
+    <label>Somministrazioni al giorno</label><div class="cg">${inp("p-n","es. 4")}</div>
+    <label>Dose massima indicata dalla prescrizione o dalla scheda tecnica (facoltativo)</label><div class="cg">${inp("p-maxd","per dose")}<span class="cx">per dose</span>${inp("p-maxg","al giorno")}<span class="cx">al giorno, stessa unità</span></div>
+    <label>Concentrazione disponibile (facoltativo, per avere i ml)</label><div class="cg">${inp("p-c","es. 120")}<span class="cx">${"<span id='p-cu'>mg</span>"} in</span>${inp("p-cv","es. 5")}<span class="cx">ml</span></div></div>`)}
+  ${box("c-cont","Infusione continua (pompa siringa o volumetrica)","Concentrazione = quantità di farmaco ÷ volume totale. ml/h = dose oraria ÷ concentrazione.",
+   `<div class="cf"><label>Diluizione: farmaco</label><div class="cg">${inp("k-q","es. 4")}${uSel("k-qu","mg",["g","mg","mcg","U"])}<span class="cx">in</span>${inp("k-v","es. 50")}<span class="cx">ml totali</span></div>
+    <label>Dose prescritta</label><div class="cg">${inp("k-d","es. 0,1")}<select id="k-du" class="cu"><option value="mcg/kg/min">mcg/kg/min</option><option value="mcg/min">mcg/min</option><option value="mg/h">mg/h</option><option value="mg/kg/h">mg/kg/h</option><option value="mcg/kg/h">mcg/kg/h</option><option value="U/h">U/h</option><option value="U/kg/h">U/kg/h</option></select></div>
+    <label>Peso (per le dosi /kg)</label><div class="cg">${inp("k-kg","kg")}<span class="cx">kg</span></div>
+    <label>Oppure: velocità impostata, per sapere quale dose sta ricevendo</label><div class="cg">${inp("k-r","ml/h")}<span class="cx">ml/h</span></div></div>`)}
+  ${box("c-ric","Ricostituzione di un farmaco in polvere","Se la polvere aumenta il volume finale (volume di scostamento), la concentrazione si calcola sul volume finale, non sul solo solvente.",
+   `<div class="cf"><label>Flacone</label><div class="cg">${inp("r-q","es. 500")}${uSel("r-qu","mg")}</div>
+    <label>Solvente aggiunto</label><div class="cg">${inp("r-s","es. 2")}<span class="cx">ml</span></div>
+    <label>Volume di scostamento (dalla scheda tecnica; 0 se non indicato)</label><div class="cg">${inp("r-x","es. 0,2")}<span class="cx">ml</span></div>
+    <label>Dose prescritta</label><div class="cg">${inp("r-d","es. 300")}<span class="cx" id="r-du">mg</span></div></div>`)}
+  ${box("c-perc","Percentuali e rapporti","Una soluzione al X% contiene X grammi in 100 ml (= X × 10 mg/ml). Un rapporto 1:1000 contiene 1 g in 1000 ml (= 1 mg/ml).",
+   `<div class="cf"><label>Soluzione percentuale</label><div class="cg">${inp("q-p","es. 10")}<span class="cx">%</span><span class="cx">volume</span>${inp("q-v","ml")}<span class="cx">ml</span></div>
+    <label>Rapporto</label><div class="cg"><span class="cx">1 :</span>${inp("q-r","es. 1000")}</div>
+    <label>Elettroliti: grammi di sale in mEq (cloruro di potassio, 1 g ≈ 13,4 mEq)</label><div class="cg">${inp("q-kg","g di KCl")}<span class="cx">g di KCl</span></div></div>`)}
+  ${box("c-ins","Insulina","Le insuline comuni sono U-100: 100 unità in 1 ml, quindi 1 unità = 0,01 ml. Con la siringa da insulina U-100 si leggono direttamente le unità.",
+   `<div class="cf"><label>Unità prescritte</label><div class="cg">${inp("n-u","es. 12")}<span class="cx">U</span></div>
+    <label>Concentrazione</label><div class="cg"><select id="n-c" class="cu"><option value="100">U-100 (100 U/ml)</option><option value="200">U-200 (200 U/ml)</option><option value="300">U-300 (300 U/ml)</option><option value="500">U-500 (500 U/ml)</option></select></div>
+    <label>Infusione endovenosa: unità in volume (es. 50 U in 50 ml)</label><div class="cg">${inp("n-q","U")}<span class="cx">U in</span>${inp("n-v","ml")}<span class="cx">ml</span><span class="cx">a</span>${inp("n-uh","U/h")}<span class="cx">U/h</span></div></div>`)}
+  ${box("c-par","Parametri del paziente","Indice di massa corporea, superficie corporea (Mosteller), peso ideale (Devine), clearance della creatinina stimata (Cockcroft-Gault), liquidi nelle ustioni (Parkland).",
+   `<div class="cf"><label>Sesso</label><div class="cg"><select id="x-s" class="cu"><option value="M">maschio</option><option value="F">femmina</option></select></div>
+    <label>Età, peso, altezza</label><div class="cg">${inp("x-a","anni")}<span class="cx">anni</span>${inp("x-kg","kg")}<span class="cx">kg</span>${inp("x-cm","cm")}<span class="cx">cm</span></div>
+    <label>Creatinina sierica</label><div class="cg">${inp("x-cr","mg/dl")}<span class="cx">mg/dl</span></div>
+    <label>Superficie ustionata (per Parkland)</label><div class="cg">${inp("x-tb","%")}<span class="cx">%</span></div></div>`)}
+  <section class="sheet calc" id="c-es"><div class="calc-h"><h3>Esercizi con correzione</h3><p class="small">Un problema alla volta, come nelle prove di calcolo: scrivi il risultato e controlla. I nomi dei farmaci non sono indicati di proposito: conta il ragionamento.</p></div>
+    <div class="row"><select id="e-t" class="cu"><option value="mix">Tutti i tipi</option><option value="vol">Dose → ml</option><option value="gtt">Gocce al minuto</option><option value="mlh">ml/h</option><option value="peso">Dose per peso</option><option value="cont">mcg/kg/min → ml/h</option><option value="ric">Ricostituzione</option><option value="perc">Percentuali</option></select><button class="btn primary" id="e-new">Nuovo esercizio</button><span class="small mono" id="e-score"></span></div>
+    <div id="e-box" class="ex-box"></div></section>
+  </div>`;
+  const $v=id=>pnum((document.getElementById(id)||{}).value), $s=id=>(document.getElementById(id)||{}).value;
+  const out=(id,html)=>{document.getElementById(id+"-out").innerHTML=html};
+  const res=(big,steps,warn)=>`${warn?`<div class="calc-alert">${warn}</div>`:""}<div class="calc-res">${big}</div><ol class="calc-steps">${steps.map(s=>`<li>${s}</li>`).join("")}</ol>`;
+  const wait=t=>`<p class="small">${t||"Inserisci i dati per vedere il risultato e i passaggi."}</p>`;
+  function f1(){const p=$v("v-pres"),pu=$s("v-presu"),d=$v("v-disp"),du=$s("v-dispu"),vol=$v("v-vol"),form=$s("v-form");
+    if(!(p>0&&d>0&&vol>0))return out("c-vol",wait());
+    const mass=u=>u in CALC_U;let P=p,D=d,conv="";
+    if(pu!==du){if(mass(pu)&&mass(du)){P=p*CALC_U[pu]/CALC_U[du];conv=`Converti nella stessa unità: ${nf(p,4)} ${pu} = ${nf(P,4)} ${du}`}else return out("c-vol",res("—",[],"Le unità non sono confrontabili (per esempio mg e unità): servono le stesse unità."))}
+    const x=P/D*vol;const steps=[conv,`Imposta la proporzione: ${nf(D,4)} ${du} : ${nf(vol,3)} ${form==="ml"?"ml":"cpr"} = ${nf(P,4)} ${du} : x`,`x = ${nf(P,4)} ÷ ${nf(D,4)} × ${nf(vol,3)} = <b>${nf(x,3)}</b>`].filter(Boolean);
+    const warn=form==="cpr"&&Math.abs(x*2-Math.round(x*2))>1e-6?"Il risultato non corrisponde a compresse intere o a metà: ricontrolla la prescrizione o chiedi una formulazione diversa.":x>10&&form==="ml"&&du!=="mEq"?"Volume elevato: ricontrolla la concentrazione e le unità.":(form==="cpr"&&x>4?"Più di 4 compresse per una dose: ricontrolla.":"");
+    out("c-vol",res(`${nf(x,3)} ${form==="ml"?"ml":"compresse"}`,steps,warn))}
+  function f2(){const v=$v("i-vol"),h=$v("i-h")||0,m=$v("i-m")||0,g=+$s("i-gtt"),rate=$v("i-rate");const min=h*60+m;let html="";
+    if(v>0&&min>0){const mlh=v/(min/60),gtt=v*g/min;html+=res(`${nf(mlh,1)} ml/h · ${nf(Math.round(gtt),0)} gocce/min`,[`Tempo totale: ${nf(min,0)} minuti (${nf(min/60,2)} ore)`,`ml/h = ${nf(v)} ml ÷ ${nf(min/60,2)} h = <b>${nf(mlh,1)} ml/h</b>`,`gocce/min = ${nf(v)} ml × ${g} gocce/ml ÷ ${nf(min,0)} min = ${nf(gtt,1)} → <b>${Math.round(gtt)} gocce/min</b> (circa una goccia ogni ${nf(60/gtt,1)} secondi)`,g===20?`Regola pratica con il deflussore da 20: gocce/min ≈ ml/h ÷ 3 (${nf(mlh/3,1)})`:g===60?"Con il microgocciolatore gocce/min = ml/h":""].filter(Boolean),gtt>80&&g!==60?"Oltre 80 gocce al minuto il conteggio a occhio è impreciso: usa una pompa.":"")}
+    if(v>0&&rate>0){const t=v/rate*60,end=new Date(Date.now()+t*60000);html+=`<div class="calc-res sm">Durata a ${nf(rate)} ml/h: ${Math.floor(t/60)} h ${Math.round(t%60)} min · se parte ora finisce alle ${end.toLocaleTimeString("it-IT",{hour:"2-digit",minute:"2-digit"})}</div>`}
+    out("c-inf",html||wait())}
+  function f3(){const kg=$v("p-kg"),d=$v("p-dose"),u=$s("p-u"),n=$v("p-n"),mx=$v("p-maxd"),mg=$v("p-maxg"),c=$v("p-c"),cv=$v("p-cv");document.getElementById("p-cu").textContent=u;
+    if(!(kg>0&&d>0))return out("c-peso",wait());
+    const one=kg*d,day=n>0?one*n:null;const steps=[`Dose singola = ${nf(d,3)} ${u}/kg × ${nf(kg,2)} kg = <b>${nf(one,3)} ${u}</b>`];
+    if(day!=null)steps.push(`Dose giornaliera = ${nf(one,3)} × ${nf(n,0)} = <b>${nf(day,3)} ${u}</b>`);
+    let ml="";if(c>0&&cv>0){const x=one/c*cv;ml=` · ${nf(x,2)} ml`;steps.push(`Volume per dose = ${nf(one,3)} ÷ ${nf(c,3)} × ${nf(cv,2)} ml = <b>${nf(x,2)} ml</b>`)}
+    let warn="";if(mx>0&&one>mx)warn=`La dose singola (${nf(one,2)} ${u}) supera la dose massima per dose indicata (${nf(mx,2)} ${u}): non somministrare e confrontati con il medico.`;if(mg>0&&day!=null&&day>mg)warn+=(warn?" ":"")+`La dose giornaliera (${nf(day,2)} ${u}) supera il massimo giornaliero indicato (${nf(mg,2)} ${u}).`;
+    if(kg>150)warn+=(warn?" ":"")+"Peso molto alto: verifica se il farmaco va dosato sul peso ideale o sul peso corretto.";
+    out("c-peso",res(`${nf(one,3)} ${u} per dose${day!=null?` · ${nf(day,3)} ${u} al giorno`:""}${ml}`,steps,warn))}
+  function f4(){const q=$v("k-q"),qu=$s("k-qu"),v=$v("k-v"),d=$v("k-d"),du=$s("k-du"),kg=$v("k-kg"),r=$v("k-r");
+    if(!(q>0&&v>0))return out("c-cont",wait());
+    const isU=qu==="U";if(isU!==du.startsWith("U"))return out("c-cont",res("—",[],"Il farmaco è espresso in "+(isU?"unità":"massa")+": scegli una dose nella stessa famiglia di unità."));
+    const per=du.includes("/kg");if(per&&!(kg>0))return out("c-cont",wait("Per una dose per kg serve il peso."));
+    const conc=isU?q/v:q*CALC_U[qu]/v; // mcg/ml oppure U/ml
+    const cu=isU?"U/ml":"mcg/ml";const steps=[`Concentrazione = ${nf(q,3)} ${qu} ÷ ${nf(v,2)} ml = <b>${nf(conc,3)} ${cu}</b>${isU?"":` (${nf(conc/1000,4)} mg/ml)`}`];
+    let html="";
+    if(d>0){let perH;
+      if(du==="mcg/kg/min"){perH=d*kg*60;steps.push(`Dose oraria = ${nf(d,4)} mcg/kg/min × ${nf(kg,1)} kg × 60 min = ${nf(perH,2)} mcg/h`)}
+      else if(du==="mcg/min"){perH=d*60;steps.push(`Dose oraria = ${nf(d,3)} mcg/min × 60 = ${nf(perH,2)} mcg/h`)}
+      else if(du==="mg/h"){perH=d*1000;steps.push(`Dose oraria = ${nf(d,3)} mg/h = ${nf(perH,2)} mcg/h`)}
+      else if(du==="mg/kg/h"){perH=d*kg*1000;steps.push(`Dose oraria = ${nf(d,4)} mg/kg/h × ${nf(kg,1)} kg = ${nf(d*kg,3)} mg/h = ${nf(perH,2)} mcg/h`)}
+      else if(du==="mcg/kg/h"){perH=d*kg;steps.push(`Dose oraria = ${nf(d,3)} mcg/kg/h × ${nf(kg,1)} kg = ${nf(perH,2)} mcg/h`)}
+      else if(du==="U/h"){perH=d;steps.push(`Dose oraria = ${nf(d,3)} U/h`)}
+      else {perH=d*kg;steps.push(`Dose oraria = ${nf(d,3)} U/kg/h × ${nf(kg,1)} kg = ${nf(perH,2)} U/h`)}
+      const mlh=perH/conc;steps.push(`Velocità = ${nf(perH,2)} ${isU?"U":"mcg"}/h ÷ ${nf(conc,3)} ${cu} = <b>${nf(mlh,2)} ml/h</b>`);steps.push(`La siringa da ${nf(v,0)} ml dura circa ${nf(v/mlh,1)} ore`);
+      html+=res(`${nf(mlh,2)} ml/h`,steps,mlh<.5?"Velocità molto bassa: valuta una diluizione maggiore secondo protocollo.":mlh>100?"Velocità molto alta: ricontrolla dose, unità e diluizione.":"")}
+    if(r>0){const dh=r*conc;let back=isU?`${nf(dh,2)} U/h`:`${nf(dh,1)} mcg/h = ${nf(dh/1000,3)} mg/h${kg>0?` = ${nf(dh/kg/60,4)} mcg/kg/min`:""}`;html+=`<div class="calc-res sm">A ${nf(r,2)} ml/h riceve ${back}</div>`}
+    out("c-cont",html||res(`${nf(conc,3)} ${cu}`,steps))}
+  function f5(){const q=$v("r-q"),qu=$s("r-qu"),s=$v("r-s"),x=$v("r-x")||0,d=$v("r-d");document.getElementById("r-du").textContent=qu;
+    if(!(q>0&&s>0))return out("c-ric",wait());const vf=s+x,c=q/vf;const steps=[`Volume finale = ${nf(s,2)} ml di solvente + ${nf(x,2)} ml di scostamento = ${nf(vf,2)} ml`,`Concentrazione = ${nf(q,2)} ${qu} ÷ ${nf(vf,2)} ml = <b>${nf(c,3)} ${qu}/ml</b>`];
+    let big=`${nf(c,3)} ${qu}/ml`,warn="";if(d>0){const ml=d/c;steps.push(`Volume da prelevare = ${nf(d,2)} ÷ ${nf(c,3)} = <b>${nf(ml,2)} ml</b>`);big+=` · prelevare ${nf(ml,2)} ml`;
+      if(x>0){const wrong=d/(q/s);steps.push(`Senza considerare lo scostamento preleveresti ${nf(wrong,2)} ml, cioè ${nf(wrong*c,1)} ${qu} invece di ${nf(d,1)} (errore del ${nf((wrong*c/d-1)*100,1)}%)`)}
+      if(d>q)warn="La dose prescritta supera il contenuto del flacone: servono più flaconi."}
+    out("c-ric",res(big,steps,warn))}
+  function f6(){const p=$v("q-p"),v=$v("q-v"),r=$v("q-r"),k=$v("q-kg");let html="";
+    if(p>0){const mgml=p*10;html+=res(`${nf(mgml,2)} mg/ml${v>0?` · ${nf(mgml*v/1000,3)} g in ${nf(v)} ml`:""}`,[`${nf(p,3)}% = ${nf(p,3)} g in 100 ml = ${nf(p*1000,0)} mg in 100 ml`,`= <b>${nf(mgml,2)} mg/ml</b>`,v>0?`In ${nf(v)} ml: ${nf(mgml,2)} × ${nf(v)} = ${nf(mgml*v,1)} mg (${nf(mgml*v/1000,3)} g)`:"" ].filter(Boolean))}
+    if(r>0){const mgml=1000/r;html+=`<div class="calc-res sm">1:${nf(r,0)} = 1 g in ${nf(r,0)} ml = <b>${nf(mgml,4)} mg/ml</b></div>`}
+    if(k>0){html+=`<div class="calc-res sm">${nf(k,3)} g di KCl ≈ <b>${nf(k*1000/74.55,1)} mEq</b> di potassio (peso molecolare 74,55)</div>`}
+    out("c-perc",html||wait())}
+  function f7(){const u=$v("n-u"),c=+$s("n-c"),q=$v("n-q"),v=$v("n-v"),uh=$v("n-uh");let html="";
+    if(u>0){const ml=u/c;html+=res(`${nf(ml,3)} ml`,[`Volume = ${nf(u,1)} U ÷ ${c} U/ml = <b>${nf(ml,3)} ml</b>`,c===100?`Con la siringa da insulina U-100 aspira fino alla tacca ${nf(u,1)}`:`Le insuline concentrate si somministrano con la loro penna: non aspirarle con una siringa U-100 (rischio di sovradosaggio)`],c!==100?"Insulina concentrata: usa solo la penna dedicata.":"")}
+    if(q>0&&v>0&&uh>0){const cc=q/v;html+=`<div class="calc-res sm">Concentrazione ${nf(cc,2)} U/ml → ${nf(uh,2)} U/h = <b>${nf(uh/cc,2)} ml/h</b></div>`}
+    out("c-ins",html||wait())}
+  function f8(){const s=$s("x-s"),a=$v("x-a"),kg=$v("x-kg"),cm=$v("x-cm"),cr=$v("x-cr"),tb=$v("x-tb");const st=[];let big=[];
+    if(kg>0&&cm>0){const bmi=kg/Math.pow(cm/100,2),bsa=Math.sqrt(cm*kg/3600),ibw=(s==="M"?50:45.5)+0.91*(cm-152.4);big.push(`BMI ${nf(bmi,1)} · Superficie corporea ${nf(bsa,2)} m²`);
+      st.push(`BMI = ${nf(kg,1)} ÷ (${nf(cm/100,2)})² = <b>${nf(bmi,1)} kg/m²</b> (${bmi<18.5?"sottopeso":bmi<25?"normopeso":bmi<30?"sovrappeso":"obesità"})`,`Superficie corporea (Mosteller) = √(${nf(cm,0)} × ${nf(kg,1)} ÷ 3600) = <b>${nf(bsa,2)} m²</b>`,`Peso ideale (Devine) = ${s==="M"?"50":"45,5"} + 0,91 × (${nf(cm,0)} − 152,4) = <b>${nf(ibw,1)} kg</b>`)}
+    if(a>0&&kg>0&&cr>0){const cl=(140-a)*kg/(72*cr)*(s==="F"?0.85:1);big.push(`Clearance stimata ${nf(cl,0)} ml/min`);st.push(`Clearance creatinina (Cockcroft-Gault) = (140 − ${nf(a,0)}) × ${nf(kg,1)} ÷ (72 × ${nf(cr,2)})${s==="F"?" × 0,85":""} = <b>${nf(cl,0)} ml/min</b>${cl<30?" (riduzione marcata: molti farmaci vanno aggiustati)":cl<60?" (riduzione moderata)":""}`)}
+    if(kg>0&&tb>0){const tot=4*kg*tb;big.push(`Parkland ${nf(tot,0)} ml in 24 h`);st.push(`Parkland = 4 ml × ${nf(kg,1)} kg × ${nf(tb,0)}% = <b>${nf(tot,0)} ml</b> di cristalloidi nelle 24 ore dall'ustione: metà (${nf(tot/2,0)} ml) nelle prime 8 ore, cioè ${nf(tot/16,0)} ml/h, poi ${nf(tot/32,0)} ml/h nelle 16 ore successive`)}
+    out("c-par",st.length?res(big.join(" · "),st):wait())}
+  const all=()=>{f1();f2();f3();f4();f5();f6();f7();f8()};
+  app.querySelectorAll(".ci,.cu").forEach(el=>{el.addEventListener("input",all);el.addEventListener("change",all)});
+  app.querySelectorAll("[data-jump]").forEach(a=>a.onclick=e=>{e.preventDefault();const t=document.getElementById(a.dataset.jump);if(t)t.scrollIntoView({behavior:RM?"auto":"smooth",block:"start"})});
+  all();
+  /* ---- esercizi ---- */
+  let sc=LS.get("calcScore",{ok:0,n:0});const scoreTxt=()=>{$("#e-score").textContent=sc.n?`${sc.ok}/${sc.n} corretti`:""};scoreTxt();
+  const pick=a=>a[Math.floor(Math.random()*a.length)];
+  const gen=t=>{if(t==="mix")t=pick(["vol","gtt","mlh","peso","cont","ric","perc"]);
+    if(t==="vol"){const [q,v]=pick([[250,5],[40,2],[1000,10],[500,2],[80,2],[10,1],[4,1],[100,5],[20,2],[120,5],[50,1]]);const k=pick([.25,.4,.5,.6,.75,1.2,1.5,2]);const p=+(q*k).toFixed(2);const ans=p/q*v;return {q:`Prescrizione: ${nf(p)} mg. La fiala contiene ${q} mg in ${v} ml. Quanti ml prelevi?`,a:ans,u:"ml",s:[`${nf(p)} ÷ ${q} × ${v} = ${nf(ans,3)} ml`]}}
+    if(t==="gtt"){const v=pick([250,500,1000,100,1500]),h=pick([1,2,3,4,6,8,12]);const g=pick([20,20,20,60]);const ans=Math.round(v*g/(h*60));return {q:`Devi infondere ${v} ml in ${h} ${h>1?"ore":"ora"} con un deflussore da ${g} gocce/ml. Quante gocce al minuto? (arrotonda all'intero)`,a:ans,u:"gocce/min",tol:1,s:[`${v} × ${g} ÷ ${h*60} min = ${nf(v*g/(h*60),1)} → ${ans} gocce/min`]}}
+    if(t==="mlh"){const v=pick([500,1000,250,100,50,2000,1500]),h=pick([.5,1,2,4,6,8,12,24]);const ans=v/h;return {q:`Imposta la pompa per infondere ${v} ml in ${nf(h)} ${h===1?"ora":"ore"}. Quanti ml/h?`,a:ans,u:"ml/h",s:[`${v} ml ÷ ${nf(h)} h = ${nf(ans,1)} ml/h`]}}
+    if(t==="peso"){const kg=pick([8,12,14,18,22,25,30,62,70,80]);const d=pick([5,7.5,10,15,20,25,1,2]);const ans=kg*d;return {q:`Prescrizione: ${nf(d)} mg/kg per dose. Il paziente pesa ${kg} kg. Quanti mg per dose?`,a:ans,u:"mg",s:[`${nf(d)} × ${kg} = ${nf(ans,2)} mg`]}}
+    if(t==="cont"){const [q,v]=pick([[4,50],[8,50],[200,50],[50,50],[5,50]]);const kg=pick([60,70,80,90]);const d=q===200?pick([3,5,8]):q===50?pick([.5,1,2]):pick([.05,.1,.15,.2]);const c=q*1000/v,ans=d*kg*60/c;return {q:`Diluizione: ${q} mg in ${v} ml. Prescrizione: ${nf(d)} mcg/kg/min, peso ${kg} kg. Quanti ml/h? (2 decimali)`,a:ans,u:"ml/h",s:[`Concentrazione = ${q*1000} mcg ÷ ${v} ml = ${nf(c,2)} mcg/ml`,`Dose oraria = ${nf(d)} × ${kg} × 60 = ${nf(d*kg*60,2)} mcg/h`,`${nf(d*kg*60,2)} ÷ ${nf(c,2)} = ${nf(ans,2)} ml/h`]}}
+    if(t==="ric"){const q=pick([500,1000,250,2000]),s=pick([2,4,5,10]),x=pick([0,.2,.4,.5]);const d=+(q*pick([.3,.5,.6,.75])).toFixed(0);const ans=d/(q/(s+x));return {q:`Flacone da ${q} mg in polvere, ricostituito con ${s} ml di solvente; volume di scostamento ${nf(x)} ml. Prescrizione ${d} mg. Quanti ml prelevi? (2 decimali)`,a:ans,u:"ml",s:[`Volume finale = ${s} + ${nf(x)} = ${nf(s+x)} ml`,`Concentrazione = ${q} ÷ ${nf(s+x)} = ${nf(q/(s+x),3)} mg/ml`,`${d} ÷ ${nf(q/(s+x),3)} = ${nf(ans,2)} ml`]}}
+    const p=pick([.9,5,10,20,33,50,7.5,8.4]);const ans=p*10;return {q:`Quanti mg/ml contiene una soluzione al ${nf(p)}%?`,a:ans,u:"mg/ml",s:[`${nf(p)}% = ${nf(p)} g in 100 ml = ${nf(p*1000)} mg in 100 ml = ${nf(ans)} mg/ml`]}};
+  const draw=()=>{const ex=gen($s("e-t"));$("#e-box").innerHTML=`<p><b>${ex.q}</b></p><div class="cg">${inp("e-a","risposta")}<span class="cx">${ex.u}</span><button class="btn" id="e-chk">Controlla</button></div><div id="e-res"></div>`;
+    const chk=()=>{const v=pnum($("#e-a").value);if(isNaN(v))return;const ok=ex.tol!=null?Math.abs(v-ex.a)<=ex.tol:Math.abs(v-ex.a)<=Math.max(.02*Math.abs(ex.a),.011);sc.n++;if(ok)sc.ok++;LS.set("calcScore",sc);scoreTxt();
+      $("#e-res").innerHTML=`<div class="calc-${ok?"ok":"alert"}"><b>${ok?"Corretto.":"Non corretto."}</b> Risultato: ${nf(ex.a,2)} ${ex.u}</div><ol class="calc-steps">${ex.s.map(x=>`<li>${x}</li>`).join("")}</ol>`;$("#e-chk").disabled=true};
+    $("#e-chk").onclick=chk;$("#e-a").onkeydown=e=>{if(e.key==="Enter")chk()}};
+  $("#e-new").onclick=draw;$("#e-t").onchange=draw;draw();
+}
+
+const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,calcoli,domande,casi,orale,metodo};
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
 function route(){
   const v=(location.hash||"#oggi").slice(1);
@@ -2713,6 +2881,7 @@ function metodo(){
     <tr><td><b>Studio</b></td><td>Schede di sintesi per materia, gli schemi di risposta per tipo di domanda e il Codice capo per capo</td><td>Ripasso rapido prima dell'orale; parti da «Per tipologia di domanda» per imparare a strutturare le risposte</td></tr>
     <tr><td><b>Flashcard</b></td><td>${CARDS.length} carte con ripetizione dilazionata (guida, enciclopedia, glossario, ${nCod} articoli del Codice, nuove del giorno)</td><td>15-20 minuti al giorno; rispondi ad alta voce prima di girare la carta</td></tr>
     <tr><td><b>Allenamento</b></td><td>${QALL.length} domande a scelta multipla, filtrabili per materia; correzione approfondita degli errori</td><td>Usalo per colmare le lacune indicate da Progressi</td></tr>
+    <tr><td><b>Calcoli</b></td><td>Calcolatore di dosaggio passo per passo: dose → ml, velocità di infusione e gocce, dose per peso, infusioni continue (mcg/kg/min ↔ ml/h), ricostituzione con volume di scostamento, percentuali, insulina, parametri del paziente; esercizi con correzione</td><td>Fai qualche esercizio ogni giorno e controlla i passaggi: i calcoli sono una domanda frequente all'orale</td></tr>
     <tr><td><b>Domande</b></td><td>Le ${PDFQ.length} domande d'orale della guida al concorso con risposta estesa e norme</td><td>Rispondi ad alta voce, poi confronta i punti chiave</td></tr>
     <tr><td><b>Casi</b></td><td>${CASES.length} casi clinici dal facile al difficile, compresi area critica e maxiemergenza territoriale, con monitor realistico</td><td>Scrivi la risposta come all'orale; Claude la valuta e il caso evolve passo dopo passo</td></tr>
     <tr><td><b>Orale</b></td><td>Il simulatore della commissione: domande, valutazione e consigli</td><td>Almeno una simulazione al giorno nelle ultime due settimane</td></tr>
