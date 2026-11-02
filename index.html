@@ -434,6 +434,12 @@ nav.tabs{padding-left:30px;padding-right:30px}
 .ts-det .gloss{pointer-events:none}
 .ts-det .f-lcd{fill:#16302a}.ts-det .s-lcd{fill:none;stroke:#4dffa0;stroke-width:1.2;stroke-linejoin:round}
 .ts-det .f-key{fill:color-mix(in srgb,var(--va) 55%,#ffffff)}
+.calc-disclaimer{display:flex;gap:14px;padding:14px 16px;border-radius:14px;background:var(--vital-soft);border:1px solid color-mix(in srgb,var(--vital) 45%,transparent);border-left:6px solid var(--vital);color:var(--ink)}
+.calc-disclaimer p{margin:6px 0}.calc-disclaimer ul{margin:4px 0 8px;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:.93rem}
+.cd-ic{flex:0 0 34px;height:34px;border-radius:50%;background:var(--vital);color:#fff;display:grid;place-items:center;font-weight:800;font-size:1.2rem;font-family:var(--f-display)}
+.cd-ok{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.93rem;cursor:pointer}
+.calc-grid.locked{opacity:.45;pointer-events:none;filter:grayscale(.4);transition:opacity .3s}
+.calc-foot{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
 .calc-warn{padding:12px 14px;border-radius:12px;background:var(--amber-soft);border-left:4px solid var(--amber);font-size:.95rem}
 .calc-nav{gap:6px}.calc-nav .chip{text-decoration:none}
 .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr));gap:16px;align-items:start}
@@ -1865,9 +1871,14 @@ function calcoli(){
   app.innerHTML=`
   <div><span class="eyebrow">Strumenti</span><h2>Calcolatore di dosaggio</h2></div>
   <p class="lead">Calcoli di terapia passo per passo, con la formula e i passaggi: per capire, non solo per avere il numero. In fondo trovi gli esercizi con correzione.</p>
-  <div class="calc-warn"><b>Strumento didattico.</b> In reparto ogni calcolo va verificato con la prescrizione, la scheda tecnica e i protocolli aziendali, con doppio controllo indipendente per i farmaci ad alto livello di attenzione (insulina, eparina, oppioidi, KCl, chemioterapici, farmaci pediatrici).</div>
+  <div class="calc-disclaimer" role="note"><div class="cd-ic" aria-hidden="true">!</div><div><b>Avvertenza: solo per lo studio, non per la pratica clinica.</b>
+   <p>Questo calcolatore serve esclusivamente a imparare ed esercitarsi con i calcoli di terapia. <b>Non è uno strumento di lavoro</b> e non deve essere usato per preparare o somministrare farmaci a persone reali, né per decidere dosi, diluizioni o velocità di infusione.</p>
+   <ul><li>I risultati possono contenere errori dovuti ai dati inseriti, agli arrotondamenti o al funzionamento della pagina, e non tengono conto della situazione clinica della persona.</li>
+   <li>Nella realtà si seguono solo la prescrizione medica, la scheda tecnica del farmaco, i protocolli e i dispositivi validati della struttura, con il doppio controllo indipendente per i farmaci ad alto livello di attenzione (insulina, eparina, oppioidi, potassio concentrato, chemioterapici, farmaci pediatrici).</li>
+   <li>Usalo con attenzione, per capire i passaggi e verificare i tuoi calcoli d'esercizio: la responsabilità della terapia resta sempre del professionista.</li></ul>
+   <label class="cd-ok"><input type="checkbox" id="cd-ok"> Ho capito: lo uso solo per studiare</label></div></div>
   <div class="calc-nav row">${[["c-vol","Dose → ml"],["c-inf","Velocità di infusione"],["c-peso","Dose per peso"],["c-cont","Infusione continua"],["c-ric","Ricostituzione"],["c-perc","Percentuali e rapporti"],["c-ins","Insulina"],["c-par","Parametri del paziente"],["c-es","Esercizi"]].map(([k,t])=>`<a class="chip" href="#${k}" data-jump="${k}">${t}</a>`).join("")}</div>
-  <div class="calc-grid">
+  <div class="calc-grid${LS.get("calcOk",false)?"":" locked"}" id="calc-grid">
   ${box("c-vol","Quanto prelevo? (dose → volume o compresse)","Formula: volume = dose prescritta ÷ dose disponibile × volume che la contiene.",
    `<div class="cf"><label>Dose prescritta</label><div class="cg">${inp("v-pres","es. 400")}${uSel("v-presu","mg",["g","mg","mcg","U","mEq"])}</div>
     <label>Confezione: contiene</label><div class="cg">${inp("v-disp","es. 250")}${uSel("v-dispu","mg",["g","mg","mcg","U","mEq"])}<span class="cx">in</span>${inp("v-vol","es. 5")}<select id="v-form" class="cu"><option value="ml">ml</option><option value="cpr">compressa/e</option></select></div></div>`)}
@@ -1908,10 +1919,12 @@ function calcoli(){
   <section class="sheet calc" id="c-es"><div class="calc-h"><h3>Esercizi con correzione</h3><p class="small">Un problema alla volta, come nelle prove di calcolo: scrivi il risultato e controlla. I nomi dei farmaci non sono indicati di proposito: conta il ragionamento.</p></div>
     <div class="row"><select id="e-t" class="cu"><option value="mix">Tutti i tipi</option><option value="vol">Dose → ml</option><option value="gtt">Gocce al minuto</option><option value="mlh">ml/h</option><option value="peso">Dose per peso</option><option value="cont">mcg/kg/min → ml/h</option><option value="ric">Ricostituzione</option><option value="perc">Percentuali</option></select><button class="btn primary" id="e-new">Nuovo esercizio</button><span class="small mono" id="e-score"></span></div>
     <div id="e-box" class="ex-box"></div></section>
-  </div>`;
+  </div>
+  <p class="calc-foot">Atlante di Infermieristica · calcolatore a uso esclusivamente didattico. Non sostituisce la prescrizione, la scheda tecnica, i protocolli aziendali, le pompe e i software validati, né il giudizio professionale. Non usarlo per somministrare farmaci a persone reali.</p>`;
+  {const ck=document.getElementById("cd-ok"),gr=document.getElementById("calc-grid");ck.checked=!!LS.get("calcOk",false);ck.onchange=()=>{LS.set("calcOk",ck.checked);gr.classList.toggle("locked",!ck.checked)}}
   const $v=id=>pnum((document.getElementById(id)||{}).value), $s=id=>(document.getElementById(id)||{}).value;
   const out=(id,html)=>{document.getElementById(id+"-out").innerHTML=html};
-  const res=(big,steps,warn)=>`${warn?`<div class="calc-alert">${warn}</div>`:""}<div class="calc-res">${big}</div><ol class="calc-steps">${steps.map(s=>`<li>${s}</li>`).join("")}</ol>`;
+  const res=(big,steps,warn)=>`${warn?`<div class="calc-alert">${warn}</div>`:""}<div class="calc-res">${big}</div><ol class="calc-steps">${steps.map(s=>`<li>${s}</li>`).join("")}</ol><p class="small" style="margin:6px 0 0">Risultato d'esercizio: non usarlo per somministrare farmaci.</p>`;
   const wait=t=>`<p class="small">${t||"Inserisci i dati per vedere il risultato e i passaggi."}</p>`;
   function f1(){const p=$v("v-pres"),pu=$s("v-presu"),d=$v("v-disp"),du=$s("v-dispu"),vol=$v("v-vol"),form=$s("v-form");
     if(!(p>0&&d>0&&vol>0))return out("c-vol",wait());
