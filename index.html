@@ -14,9 +14,9 @@
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html,body{height:auto}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
 /* Layout: cartella infermieristica — fascia di reparto in alto con traccia ECG, contenuto su carta millimetrata tinta dal colore della sezione; ogni sezione ha il suo colore, che sfuma nel passaggio da una all'altra */
-@property --va{syntax:"<color>";inherits:true;initial-value:#0f6e66}
+@property --va{syntax:"<color>";inherits:true;initial-value:#0d7a6f}
 :root{
-  --va:#0f6e66;
+  --va:#0d7a6f;
   --paper:#ffffff; --ink:#14232b; --muted:#56686d; --line:#d6e0df;
   --scrub:var(--va);
   --scrub-soft:color-mix(in srgb,var(--va) 12%,#ffffff);
@@ -31,21 +31,21 @@
   --f-body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
   --f-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
   --r:14px;
-  transition:--va .7s ease;
+  transition:--va 1.1s cubic-bezier(.45,0,.2,1);
 }
-:root[data-view="oggi"]{--va:#0f6e66}
-:root[data-view="avanzamento"]{--va:#2c5fa8}
-:root[data-view="home"]{--va:#1d5f74}
-:root[data-view="studio"]{--va:#6d4596}
-:root[data-view="enciclopedia"]{--va:#7c3d5e}
-:root[data-view="glossario"]{--va:#3d5a8c}
-:root[data-view="calcoli"]{--va:#a03a6c}
-:root[data-view="flashcard"]{--va:#9a5b07}
-:root[data-view="quiz"]{--va:#a8323f}
-:root[data-view="domande"]{--va:#56651a}
-:root[data-view="casi"]{--va:#9c4a26}
-:root[data-view="orale"]{--va:#2d6f4a}
-:root[data-view="metodo"]{--va:#3f5d68}
+:root[data-view="oggi"]{--va:#0d7a6f}
+:root[data-view="avanzamento"]{--va:#3b4ba8}
+:root[data-view="home"]{--va:#0f6f8c}
+:root[data-view="studio"]{--va:#5b3a99}
+:root[data-view="enciclopedia"]{--va:#7a4a26}
+:root[data-view="glossario"]{--va:#4a5d73}
+:root[data-view="calcoli"]{--va:#4f7a12}
+:root[data-view="flashcard"]{--va:#c0600e}
+:root[data-view="quiz"]{--va:#9b2a7a}
+:root[data-view="domande"]{--va:#8a7410}
+:root[data-view="casi"]{--va:#b8262b}
+:root[data-view="orale"]{--va:#18804a}
+:root[data-view="metodo"]{--va:#5f5850}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#142024; --ink:#e4eeec; --muted:#97abae; --line:#27393d;
   --scrub:color-mix(in oklab,var(--va) 55%,#ffffff);
@@ -262,6 +262,13 @@ select.btn{appearance:none;-webkit-appearance:none;padding-right:34px;background
   main.enter > *{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
   main.enter > *:nth-child(2){animation-delay:.04s} main.enter > *:nth-child(3){animation-delay:.08s} main.enter > *:nth-child(4){animation-delay:.12s} main.enter > *:nth-child(n+5){animation-delay:.16s}
   @keyframes rise{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
+  :root{view-transition-name:none}
+  #app{view-transition-name:pagina}
+  ::view-transition-group(pagina){animation-duration:.55s;animation-timing-function:cubic-bezier(.45,0,.2,1)}
+  ::view-transition-old(pagina){animation:vt-out .32s cubic-bezier(.4,0,1,1) both}
+  ::view-transition-new(pagina){animation:vt-in .55s cubic-bezier(.2,.7,.2,1) both .08s}
+  @keyframes vt-out{to{opacity:0;transform:translateY(-6px) scale(.995);filter:blur(2px)}}
+  @keyframes vt-in{from{opacity:0;transform:translateY(10px) scale(.995);filter:blur(2px)}to{opacity:1;transform:none;filter:none}}
 }
 @media (prefers-reduced-motion: reduce){:root{transition:none}}
 
@@ -362,7 +369,7 @@ nav.tabs a[aria-current="page"],nav.tabs a[aria-current="page"]:hover{background
 .ts-body{fill:#fff}
 .ts-det{fill:none;stroke:color-mix(in srgb,var(--va) 45%,#ffffff);stroke-width:2.2;stroke-linecap:round;transition:opacity .25s}
 .ts-det.fade{opacity:0}
-nav.tabs a{transition:margin .62s cubic-bezier(.65,0,.35,1),background .2s,color .2s,opacity .2s}
+nav.tabs a{transition:margin .78s cubic-bezier(.65,0,.35,1),background .3s,color .45s ease,opacity .3s,text-shadow .45s}
 nav.tabs{padding-left:30px;padding-right:30px}
 
 /* ---- barra dei filtri, giornata, mazzo Leitner ---- */
@@ -458,7 +465,7 @@ nav.tabs a:not([aria-current="page"]):hover{background:rgba(255,255,255,.12)}
 /* ---- tasto attivo: riflesso e piccole animazioni degli oggetti ---- */
 .tab-shape .ts-det{fill:none;stroke:none}
 .ts-det .shine{fill:#fff;opacity:0}
-nav.tabs a:not([aria-current="page"]){transition:margin .62s cubic-bezier(.65,0,.35,1),background .2s,transform .2s,opacity .2s}
+nav.tabs a:not([aria-current="page"]){transition:margin .78s cubic-bezier(.65,0,.35,1),background .3s,transform .25s,opacity .3s,color .45s ease}
 nav.tabs a:not([aria-current="page"]):hover{transform:translateY(-1px)}
 @media (prefers-reduced-motion: no-preference){
   .ts-det .shine{opacity:.6;animation:shine 5s ease-in-out infinite .9s}
@@ -1280,7 +1287,7 @@ function moveInd(name){
   const g0=geom(nav,name);const target=sample(g0.S.d(g0.W,g0.H,g0.S.l,g0.S.r));if(!target){finalNow();return}
   const to=align(from.map(p=>[p[0]+fromX,p[1]]).map(p=>[p[0]-fromX,p[1]]),target);
   shapeDet.classList.add("fade");if(shapeOut)shapeOut.classList.add("fade");
-  const t0=performance.now(),D=620;
+  const t0=performance.now(),D=780;
   const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
   const step=now=>{
     const t=Math.min(1,(now-t0)/D),e=ease(t);
@@ -1967,10 +1974,16 @@ function route(){
   document.documentElement.dataset.view=name;
   document.querySelectorAll("nav.tabs a").forEach(a=>{const on=a.getAttribute("href")==="#"+name;a.setAttribute("aria-current",on?"page":"false");if(on&&changed)a.scrollIntoView({block:"nearest",inline:"center"})});
   moveInd(name);
-  if(changed){app.classList.remove("enter");void app.offsetWidth;app.classList.add("enter")}
-  VIEWS[name](v);
-  decorateHead(name);
-  window.scrollTo(0,0);
+  const render=()=>{VIEWS[name](v);decorateHead(name)};
+  const RMq=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(changed&&document.startViewTransition&&!RMq&&app.childElementCount){
+    app.classList.remove("enter");
+    const t=document.startViewTransition(()=>{render();window.scrollTo(0,0)});
+    t.finished.catch(()=>{});
+  }else{
+    if(changed){app.classList.remove("enter");void app.offsetWidth;app.classList.add("enter")}
+    render();window.scrollTo(0,0);
+  }
 }
 window.addEventListener("hashchange",route);
 
