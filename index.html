@@ -528,6 +528,20 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .case-end{display:flex;flex-direction:column;gap:12px}
 .cc-new{background:var(--vital);color:#fff;padding:1px 6px;border-radius:4px;font-weight:700}
 @media (prefers-reduced-motion: no-preference){.cstep{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}}
+
+/* ---- correzione approfondita ---- */
+.wrongbox{display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--paper)}
+.wb-row{display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:baseline}
+@media (max-width:560px){.wb-row{grid-template-columns:1fr;gap:2px}}
+.wb-l{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.wb-bad{color:var(--vital);text-decoration:line-through;text-decoration-thickness:1.5px}
+.wb-good{color:var(--ok);font-weight:700}
+.deep{border-left:4px solid var(--scrub);background:var(--paper);border-radius:0 12px 12px 0;padding:12px 14px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow)}
+.deep p{white-space:pre-line}
+.deep ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:3px}
+.studylink{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 12px;border-radius:12px;background:var(--scrub-soft)}
+.topic details.focus{outline:3px solid var(--scrub);outline-offset:2px}
+@media (prefers-reduced-motion: no-preference){.topic details.focus{animation:focuspulse 1.6s ease 2}@keyframes focuspulse{50%{outline-color:transparent}}}
 </style>
 </head>
 <body>
@@ -1179,18 +1193,18 @@ function home(){
 
 function studio(){
   const m=state.studyTab==="tipi"?"tipi":state.studyTab;
-  const topics=m==="tipi"?TIPI:allTopics(m), color=m==="tipi"?"var(--scrub)":SUBJ[m].c, open=state.openSec;state.openSec=null;
+  const topics=m==="tipi"?TIPI:allTopics(m), color=m==="tipi"?"var(--scrub)":SUBJ[m].c, open=state.openSec, openT=state.openTopic;state.openSec=null;state.openTopic=null;
   app.innerHTML=`
   <div><span class="eyebrow">Schede di studio</span><h2>${m==="tipi"?"Come rispondere per tipologia di domanda":SUBJ[m].name}</h2></div>
   <input class="search" id="study-search" type="search" placeholder="Cerca in tutte le schede (es. Braden, contenzione, PES, 219, GDPR)">
   <div id="search-res" hidden></div>
   <div class="studio" id="studio-main">
     <div class="toc" role="tablist"><button style="--c:var(--scrub)" data-m="tipi" aria-current="${m==="tipi"}">Per tipologia di domanda</button>${Object.entries(SUBJ).map(([k,s])=>`<button style="--c:${s.c}" data-m="${k}" aria-current="${k===m}">${s.name}</button>`).join("")}</div>
-    <div class="topic" style="--c:${color}"><p class="small">${m==="tipi"?"Uno schema di risposta per ogni tipo di domanda che la commissione può fare.":`${(TOPICS[m]||[]).length} schede di sintesi e ${topics.length-(TOPICS[m]||[]).length} schede dalla guida Puglia 2026 (punti chiave e norme di ogni domanda).`}</p>${topics.map((t,i)=>`<details ${(open?t.sec===open:i===0)?"open":""} ${t.sec?`id="sec-${t.sec}"`:""}><summary>${esc(t.t)}</summary><div class="body">${t.h}</div></details>`).join("")}
+    <div class="topic" style="--c:${color}"><p class="small">${m==="tipi"?"Uno schema di risposta per ogni tipo di domanda che la commissione può fare.":`${(TOPICS[m]||[]).length} schede di sintesi e ${topics.length-(TOPICS[m]||[]).length} schede dalla guida Puglia 2026 (punti chiave e norme di ogni domanda).`}</p>${topics.map((t,i)=>`<details ${(openT!=null?i===openT:open?t.sec===open:i===0)?"open":""} id="tp-${i}" ${(openT!=null?i===openT:open&&t.sec===open)?'class="focus"':""} ${t.sec?`data-sec="${t.sec}"`:""}><summary>${esc(t.t)}</summary><div class="body">${t.h}</div></details>`).join("")}
       ${m==="tipi"?"":`<div class="row"><button class="btn primary" id="go-q">Allenati su questa materia</button><button class="btn" id="go-fc">Flashcard</button></div>`}
     </div>
   </div>`;
-  if(open){const el=$("#sec-"+open);if(el)setTimeout(()=>el.scrollIntoView({block:"start"}),50)}
+  if(open||openT!=null){const el=openT!=null?$("#tp-"+openT):app.querySelector(`[data-sec="${open}"]`);if(el)setTimeout(()=>el.scrollIntoView({block:"start",behavior:RM?"auto":"smooth"}),80)}
   app.querySelectorAll(".toc button").forEach(b=>b.onclick=()=>{state.studyTab=b.dataset.m;LS.set("studyTab",b.dataset.m);studio()});
   if($("#go-fc"))$("#go-fc").onclick=()=>{state.fcFilter=m;LS.set("fcFilter",m);location.hash="flashcard"};
   if($("#go-q"))$("#go-q").onclick=()=>{state.quizFilter=m;location.hash="quiz"};
@@ -1355,6 +1369,52 @@ function autoGrade(answer,rub){
   return {hit,score:Math.min(1,score),short};
 }
 
+
+/* ---- correzione approfondita: trova la scheda di studio più vicina alla domanda ---- */
+function tokens(t){return new Set((normTxt(t).match(/[a-z0-9]{4,}/g)||[]).filter(w=>!STOP.has(w)).map(stem))}
+function findStudy(it){
+  const text=(it.q||"")+" "+(it.o?it.o[it.r]:"")+" "+(it.e||"");
+  const tk=tokens(text);
+  const cand=[];
+  const subj=SUBJ[it.m]?[it.m]:SKEYS;
+  for(const m of new Set([...subj,...SKEYS])){
+    allTopics(m).forEach((t,i)=>{
+      const tt=tokens(t.t+" "+t.h.replace(/<[^>]+>/g," "));
+      let sc=0;for(const w of tk)if(tt.has(w))sc++;
+      if(it.sec&&t.sec===it.sec)sc+=6;
+      if(m===it.m)sc+=1.5;
+      cand.push({m,i,t:t.t,sc});
+    });
+  }
+  cand.sort((a,b)=>b.sc-a.sc);
+  return cand[0]&&cand[0].sc>=3?cand[0]:{m:SUBJ[it.m]?it.m:"leg",i:0,t:allTopics(SUBJ[it.m]?it.m:"leg")[0]?.t||"",sc:0};
+}
+function relatedGuide(it){
+  const tk=tokens((it.q||"")+" "+(it.o?it.o[it.r]:"")+" "+(it.e||""));
+  let best=null,bs=0;
+  for(const o of PDFQ){const tt=tokens(o.q+" "+o.p.join(" "));let sc=0;for(const w of tk)if(tt.has(w))sc++;if(it.sec&&o.s===it.sec)sc+=2;if(sc>bs){bs=sc;best=o}}
+  return bs>=3?best:null;
+}
+function goStudy(st){state.studyTab=st.m;LS.set("studyTab",st.m);state.openTopic=st.i;if((location.hash||"")==="#studio"){studio();decorateHead("studio")}else location.hash="studio"}
+async function deepen(it,chosen,box){
+  const sm=await getSampleSafe();
+  if(!sm){box.innerHTML="";return false}
+  box.innerHTML=`<div class="deep"><span class="eyebrow">Approfondimento</span><p class="status">Sto preparando la spiegazione…</p></div>`;
+  try{
+    const r=await sm(`Sei un docente che prepara infermieri alla prova orale del concorso pubblico. Uno studente ha sbagliato questa domanda.
+Domanda: ${it.q}
+Opzioni: ${it.o.map((o,i)=>String.fromCharCode(65+i)+") "+o).join(" | ")}
+Risposta corretta: ${it.o[it.r]}
+Risposta scelta dallo studente: ${it.o[chosen]}
+Spiegazione di riferimento: ${it.e}${it.fonte?"\nFonte: "+it.fonte:""}
+Scrivi in italiano, testo semplice senza markdown, massimo 110 parole, in tre parti con queste etichette su righe separate:
+Perché è corretta: …
+Perché la tua risposta è sbagliata: …
+Come ricordarlo: un collegamento con la pratica o con la norma, oppure un trucco mnemonico.
+Non inventare numeri o articoli che non siano nella domanda o nella spiegazione.`,{modelTier:"default",onText:({text})=>{box.innerHTML=`<div class="deep"><span class="eyebrow">Approfondimento</span><p>${esc(text)}</p></div>`}});
+    box.innerHTML=`<div class="deep"><span class="eyebrow">Approfondimento</span><p>${esc(r.text)}</p></div>`;return true;
+  }catch(e){box.innerHTML="";return false}
+}
 /* ---- motore unico: quiz, domande aperte e casi clinici nella stessa sessione ---- */
 function startQuiz(list,key,onDone){qz={list,i:0,ok:0,sc:0,answered:false,f:key,onDone};drawQ()}
 function kindOf(it){return it.kind||"mcq"}
@@ -1377,7 +1437,9 @@ function drawQ(){
   const next=()=>{const b=document.createElement("div");b.className="row";b.style.marginTop="12px";b.innerHTML=`<button class="btn primary" id="qnext">${qz.i+1<qz.list.length?"Avanti":"Vedi il risultato"}</button>`;box.appendChild(b);$("#qnext").onclick=()=>{qz.i++;qz.answered=false;drawQ();box.scrollIntoView({block:"start"})};$("#qnext").focus()};
   const finish=(score,extra)=>{it._s=score;qz.sc+=score;if(score>=.6)qz.ok++;
     if(qz.f==="oggi"){const k="daily2-"+todayStr(),v=LS.get(k,null);if(v&&!v.started){v.started=true;LS.set(k,v)}}
-    logEv(k,it.m||"tr",it.sec||(it.o&&it.o.s)||0,score,it.id,extra);next()};
+    logEv(k,it.m||"tr",it.sec||(it.o&&it.o.s)||0,score,it.id,extra);
+    if(k==="open"){const st=findStudy({q:it.o.q,o:[it.o.p.join(" ")],r:0,e:"",m:it.m,sec:it.o.s});const d=document.createElement("div");d.className="studylink";d.innerHTML=`<span class="small">Approfondisci l'argomento: <b>${esc(st.t)}</b></span><button class="btn ${score<.6?"primary":""}">Vai alla scheda di studio →</button>`;d.querySelector("button").onclick=()=>goStudy(st);$("#qexp").appendChild(d)}
+    next()};
   if(k==="mcq"){
     const ord=shuffle(it.o.map((_,i)=>i));
     box.innerHTML=head+`<h3>${esc(it.q)}</h3><div class="opts">${ord.map(i=>`<button class="opt" data-i="${i}">${esc(it.o[i])}</button>`).join("")}</div><div id="qexp"></div>`;
@@ -1386,7 +1448,12 @@ function drawQ(){
       box.querySelectorAll(".opt").forEach(x=>{x.disabled=true;if(+x.dataset.i===it.r)x.classList.add("right")});
       if(i!==it.r)b.classList.add("wrong");
       record(it,i===it.r);
-      $("#qexp").innerHTML=`<div class="expl"><b>${i===it.r?"Corretto.":"Non corretto."}</b> ${esc(it.e)}${it.fonte?` <a href="${esc(it.fonte)}" target="_blank" rel="noopener">Fonte</a>`:""}</div>`;
+      const ok=i===it.r, st=findStudy(it);
+      $("#qexp").innerHTML=`<div class="expl"><b>${ok?"Corretto.":"Non corretto."}</b> ${esc(it.e)}${it.fonte?` <a href="${esc(it.fonte)}" target="_blank" rel="noopener">Fonte</a>`:""}</div>
+        ${ok?"":`<div class="wrongbox"><div class="wb-row"><span class="wb-l">La tua risposta</span><span class="wb-bad">${esc(it.o[i])}</span></div><div class="wb-row"><span class="wb-l">Risposta corretta</span><span class="wb-good">${esc(it.o[it.r])}</span></div></div><div id="deepbox"></div>`}
+        <div class="studylink"><span class="small">${ok?"Vuoi ripassare l'argomento?":"Rivedi l'argomento prima di andare avanti:"} <b>${esc(st.t)}</b> · ${SUBJ[st.m].short}</span><button class="btn ${ok?"":"primary"}" id="gostudy">Vai alla scheda di studio →</button></div>`;
+      $("#gostudy").onclick=()=>{qz.resumeAt=qz.i+1;goStudy(st)};
+      if(!ok){const db=$("#deepbox");deepen(it,i,db).then(done=>{if(done)return;const g=relatedGuide(it);if(g)db.innerHTML=`<div class="deep"><span class="eyebrow">Approfondimento dalla guida · D${g.n}</span><p><b>${esc(g.q)}</b></p><ul>${g.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><p class="refs">Norme: ${esc(g.r)}</p></div>`})}
       finish(i===it.r?1:0);
     });
     return;
