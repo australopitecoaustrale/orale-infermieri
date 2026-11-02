@@ -1376,6 +1376,7 @@ function drawQ(){
   const head=`<div class="row" style="justify-content:space-between"><span class="row">${tag(it.m||"tr")}<span class="tag t-src">${{mcq:"Quiz",open:"Domanda aperta",case:"Caso clinico"}[k]}</span>${it.src==="giorno"?`<span class="tag t-src">${it.novita?"Novità dalla letteratura":"Nuova"} · ${it.date}</span>`:it.sec?`<span class="tag t-src">Sez. ${it.sec}</span>`:""}</span><span class="small mono">${qz.i+1}/${qz.list.length} · ${Math.round(qz.i?qz.sc/qz.i*100:0)}%</span></div>`;
   const next=()=>{const b=document.createElement("div");b.className="row";b.style.marginTop="12px";b.innerHTML=`<button class="btn primary" id="qnext">${qz.i+1<qz.list.length?"Avanti":"Vedi il risultato"}</button>`;box.appendChild(b);$("#qnext").onclick=()=>{qz.i++;qz.answered=false;drawQ();box.scrollIntoView({block:"start"})};$("#qnext").focus()};
   const finish=(score,extra)=>{it._s=score;qz.sc+=score;if(score>=.6)qz.ok++;
+    if(qz.f==="oggi"){const k="daily2-"+todayStr(),v=LS.get(k,null);if(v&&!v.started){v.started=true;LS.set(k,v)}}
     logEv(k,it.m||"tr",it.sec||(it.o&&it.o.s)||0,score,it.id,extra);next()};
   if(k==="mcq"){
     const ord=shuffle(it.o.map((_,i)=>i));
@@ -1488,18 +1489,50 @@ function itemFromId(id,byId){
   return byId[id]||null;
 }
 function idOf(it){return it.kind==="case"?"k:"+it.c.id+":"+it.steps.join("-"):it.kind==="open"?it.id:it.id}
+/* Sessione del giorno: mai le stesse domande dei giorni precedenti */
+function recentDailyIds(days){
+  const used=new Set(), t=new Date();
+  for(let i=1;i<=days;i++){t.setDate(t.getDate()-1);const v=LS.get("daily2-"+todayStr(t),null);if(v&&Array.isArray(v.ids))v.ids.forEach(id=>used.add(id.startsWith("k:")?id.split(":").slice(0,2).join(":"):id))}
+  return used;
+}
+function seenIds(days){
+  const lim=Date.now()-days*86400000,ids=new Set();
+  for(const e of LOG)if(e.t>=lim&&e.id)ids.add(e.id);
+  for(const [id,st] of Object.entries(STATS))if(st&&st.t>=lim)ids.add(id);
+  return ids;
+}
 function dailySet(){
   const d=todayStr(), key="daily2-"+d, cached=LS.get(key,null);
   const byId=Object.fromEntries(QALL.map(q=>[q.id,q]));
-  if(cached&&cached.ids.every(id=>itemFromId(id,byId)))return {ids:cached.ids,done:cached.done};
-  const rnd=seeded(d);
-  const latest=DAILY[0];
-  const fresh=latest?DBQ.filter(q=>q.date===latest.date).slice(0,8):[];
-  const mix=mixSession(QALL.filter(q=>!fresh.includes(q)),13-fresh.length,2,1,rnd);
-  // le nuove del giorno vanno all'inizio, il resto resta alternato
-  const list=fresh.concat(mix);
-  return {ids:list.map(idOf),done:cached?.done||null};
+  const latest=DAILY[0], todayNew=latest&&latest.date===d;
+  // tiene la serie già preparata, salvo che sia stata fatta prima che arrivassero le domande di stamattina e non sia ancora iniziata
+  const stale=cached&&!cached.done&&!cached.started&&todayNew&&!cached.fresh;
+  if(cached&&!stale&&cached.ids.every(id=>itemFromId(id,byId)))return {ids:cached.ids,done:cached.done,started:cached.started,fresh:cached.fresh};
+  const rnd=seeded(d+"·"+(todayNew?"n":"o"));
+  const usedDaily=recentDailyIds(30), seen=seenIds(30);
+  const isNew=id=>!usedDaily.has(id)&&!seen.has(id);
+  // 1) domande arrivate stamattina (solo se sono davvero di oggi)
+  const fresh=todayNew?shuffleSeeded(DBQ.filter(q=>q.date===d&&isNew(q.id)),rnd).slice(0,8):[];
+  // 2) quiz mai visti, da materie diverse
+  const pool=QALL.filter(q=>!fresh.includes(q)&&isNew(q.id));
+  const bySubj={};for(const q of shuffleSeeded(pool,rnd))(bySubj[q.m]=bySubj[q.m]||[]).push(q);
+  const mcq=[];const keys=Object.keys(bySubj);let k=0;
+  while(mcq.length<13-fresh.length&&keys.some(x=>bySubj[x].length)){const x=keys[k++%keys.length];if(bySubj[x].length)mcq.push(bySubj[x].shift())}
+  if(mcq.length<13-fresh.length){const extra=shuffleSeeded(QALL.filter(q=>!fresh.includes(q)&&!mcq.includes(q)&&!usedDaily.has(q.id)),rnd);mcq.push(...extra.slice(0,13-fresh.length-mcq.length))}
+  // 3) due domande aperte e un caso mai proposti; il caso preferisce quelli nuovi di oggi
+  const openPool=PDFQ.filter(o=>o.n<140&&isNew("o"+o.n));
+  const op=shuffleSeeded(openPool.length>=2?openPool:PDFQ.filter(o=>o.n<140&&!usedDaily.has("o"+o.n)),rnd).slice(0,2).map(openItem);
+  const casePool=CASES.filter(c=>isNew("k"+c.id)&&!usedDaily.has("k:"+c.id));
+  const todayCases=casePool.filter(c=>c.date===d);
+  const cs=(todayCases.length?shuffleSeeded(todayCases,rnd):shuffleSeeded(casePool.length?casePool:CASES,rnd)).slice(0,1).map(c=>caseItem(c,rnd));
+  // alterna: quiz, aperta, quiz…, caso a metà
+  const rest=[...mcq];const out=[...fresh];
+  const slotO=[Math.floor(rest.length*.35),Math.floor(rest.length*.8)],slotC=Math.floor(rest.length*.55);
+  rest.forEach((q,i)=>{out.push(q);if(i===slotO[0]&&op[0])out.push(op[0]);if(i===slotC&&cs[0])out.push(cs[0]);if(i===slotO[1]&&op[1])out.push(op[1])});
+  if(op[0]&&!out.includes(op[0]))out.push(op[0]);if(op[1]&&!out.includes(op[1]))out.push(op[1]);if(cs[0]&&!out.includes(cs[0]))out.push(cs[0]);
+  return {ids:out.map(idOf),done:null,fresh:fresh.length>0,started:false};
 }
+function shuffleSeeded(a,rnd){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function oggi(){
   const d=todayStr(), set=dailySet(), byId=Object.fromEntries(QALL.map(q=>[q.id,q]));
   const list=set.ids.map(id=>itemFromId(id,byId)).filter(Boolean);
@@ -1532,10 +1565,10 @@ function oggi(){
   </div>`;
   if(oq)$("#oq-train").onclick=()=>{oralPreset={q:oq};location.hash="orale"};
   if($("#allnew"))$("#allnew").onclick=()=>{startQuiz(DBQ.filter(q=>q.date===d),"mix-nuove");$("#qbox").scrollIntoView({block:"start"})};
-  const fin=(pct)=>LS.set("daily2-"+d,{ids:set.ids,done:pct+"%"});
+  const fin=(pct)=>LS.set("daily2-"+d,{ids:set.ids,done:pct+"%",fresh:set.fresh,started:true});
   if(set.done){$("#qbox").innerHTML=`<p>Hai già completato la sessione di oggi (${set.done}). Domani trovi una nuova serie.</p><div class="row"><button class="btn" id="redo">Rifalla</button><a class="btn primary" href="#avanzamento" style="text-decoration:none">Vedi l'avanzamento</a></div>`;$("#redo").onclick=()=>startQuiz(list,"oggi",fin);return}
   startQuiz(list,"oggi",fin);
-  if(dbState!=="attesa"&&!LS.get("daily2-"+d,null))LS.set("daily2-"+d,{ids:set.ids,done:null});
+  if(dbState!=="attesa"){const cur=LS.get("daily2-"+d,null);if(!cur||(!cur.started&&!cur.done&&cur.ids.join()!==set.ids.join()))LS.set("daily2-"+d,{ids:set.ids,done:null,fresh:!!set.fresh,started:false})}
 }
 
 /* ---- Avanzamento ---- */
