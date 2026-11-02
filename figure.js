@@ -116,5 +116,65 @@ const FIGURE=[
  <rect x="4" y="196" width="106" height="26" rx="6" fill="#d93a32"/><text x="57" y="208" fill="#fff" font-size="9.5">assente o &gt; 2 s</text><text x="57" y="219" fill="#fff" font-size="9.5">→ ROSSO</text>
  <rect x="330" y="262" width="94" height="26" rx="6" fill="#d93a32"/><text x="377" y="279" fill="#fff">no → ROSSO</text>
  <rect x="170" y="306" width="100" height="22" rx="6" fill="#e6b800"/><text x="220" y="321" fill="#222">sì → GIALLO</text></g>
- <g class="ft fsm"><text x="232" y="112">sì</text><text x="232" y="178">no</text><text x="232" y="244">presente, ≤ 2 s</text></g></svg>`}
+ <g class="ft fsm"><text x="232" y="112">sì</text><text x="232" y="178">no</text><text x="232" y="244">presente, ≤ 2 s</text></g></svg>`},
+{id:"posizioni",t:"Posizioni del paziente a letto",c:"Fowler (testata a 45-60°): dispnea, pasti, nutrizione enterale. Semi-Fowler (30°): prevenzione dell'aspirazione e della polmonite da ventilazione, minore scivolamento. Supina: esami e riposo. Laterale e Sims (laterale sinistra semiprona): alternanza dei punti d'appoggio, clisteri. Prona: alcune insufficienze respiratorie gravi. Trendelenburg: oggi poco usata nello shock, dove si preferisce il sollevamento passivo delle gambe.",
+ enc:["mobilizzazione","lesioni-pressione"],gl:["Decubito"],st:/cute|lesion/i,
+ svg:`<svg viewBox="0 0 480 250" role="img" aria-label="Sei posizioni del paziente a letto">
+ <g transform="translate(0 0)"><path class="bed" d="M10 66H70L44 26M70 66H150M14 66V78M146 66V78"/><circle class="pz" cx="40" cy="18" r="8"/><path class="pzb" d="M44 28L72 58H148"/><text class="ft" x="80" y="100" text-anchor="middle" font-weight="700">Fowler 45-60°</text></g>
+ <g transform="translate(160 0)"><path class="bed" d="M10 66H70L24 44M70 66H150M14 66V78M146 66V78"/><circle class="pz" cx="20" cy="36" r="8"/><path class="pzb" d="M28 42L72 58H148"/><text class="ft" x="80" y="100" text-anchor="middle" font-weight="700">Semi-Fowler 30°</text></g>
+ <g transform="translate(320 0)"><path class="bed" d="M10 66H150M14 66V78M146 66V78"/><circle class="pz" cx="22" cy="50" r="8"/><path class="pzb" d="M32 56H146"/><text class="ft" x="80" y="100" text-anchor="middle" font-weight="700">Supina</text></g>
+ <g transform="translate(0 125)"><path class="bed" d="M10 66H150M14 66V78M146 66V78"/><circle class="pz" cx="22" cy="50" r="8"/><path class="pzb" d="M32 56H96L118 40L140 48M96 56H146"/><text class="ft" x="80" y="100" text-anchor="middle" font-weight="700">Laterale / Sims</text></g>
+ <g transform="translate(160 125)"><path class="bed" d="M10 66H150M14 66V78M146 66V78"/><circle class="pz" cx="22" cy="52" r="8"/><path class="pzb" d="M32 57H146"/><path class="fl" d="M20 60Q24 64 30 60"/><text class="ft" x="80" y="100" text-anchor="middle" font-weight="700">Prona</text></g>
+ <g transform="translate(320 125)"><path class="bed" d="M10 76L150 40M18 74V86M144 42V86"/><circle class="pz" cx="24" cy="62" r="8"/><path class="pzb" d="M34 64L148 34"/><text class="ft" x="80" y="100" text-anchor="middle" font-weight="700">Trendelenburg</text></g></svg>`},
+{id:"sedi-im",t:"Sedi delle iniezioni intramuscolari",c:"Ventrogluteo (sede preferita nell'adulto): palmo sul grande trocantere, indice sulla spina iliaca antero-superiore, medio verso la cresta iliaca; si inietta al centro della «V», lontano da nervo sciatico e grandi vasi. Deltoide: 2-3 dita sotto l'acromion, piccoli volumi. Vasto laterale: terzo medio della faccia esterna della coscia, sede di scelta nel lattante.",
+ enc:["vie-somministrazione"],gl:[],st:/terapia|farmac/i,
+ svg:`<svg viewBox="0 0 480 240" role="img" aria-label="Sedi ventroglutea, deltoidea e vasto laterale">
+ <g><path class="ff fl" d="M30 40Q80 20 130 44Q150 90 136 150Q120 200 70 214Q36 190 30 140Z"/><path class="fl dash" d="M40 58Q84 34 126 56"/><circle class="fv" cx="114" cy="62" r="5"/><circle class="fl ff" cx="72" cy="150" r="13"/>
+  <path class="fs thick" d="M72 150L112 66M72 150L58 58"/><path class="fl" d="M60 168Q72 186 88 168" /><circle cx="84" cy="88" r="7" class="fx"/>
+  <g class="ft fsm"><text x="70" y="12">spina iliaca antero-superiore</text><path class="lead" d="M116 16L114 56"/><text x="2" y="30">cresta iliaca</text><text x="40" y="186">grande trocantere</text></g>
+  <text class="ft" x="80" y="232" text-anchor="middle" font-weight="700">Ventrogluteo</text></g>
+ <g transform="translate(170 0)"><path class="ff fl" d="M40 40Q70 20 104 34Q122 44 120 70L112 200H58L46 80Q36 60 40 40Z"/><circle class="fv" cx="96" cy="38" r="5"/><path class="fl dash" d="M60 62H118M62 92H116"/><path d="M66 70L112 70L90 120Z" class="fa fl"/><circle cx="88" cy="84" r="7" class="fx"/>
+  <g class="ft fsm"><text x="100" y="28">acromion</text><text x="122" y="80">2-3 dita sotto</text></g>
+  <text class="ft" x="85" y="232" text-anchor="middle" font-weight="700">Deltoide</text></g>
+ <g transform="translate(330 0)"><path class="ff fl" d="M40 24H110Q118 120 104 210H52Q34 120 40 24Z"/><path class="fl dash" d="M38 86H114M40 148H112"/><rect x="82" y="92" width="24" height="50" rx="8" class="fa fl"/><circle cx="94" cy="117" r="7" class="fx"/>
+  <g class="ft fsm"><text x="4" y="58">terzo superiore</text><text x="4" y="120">terzo medio</text><text x="4" y="182">terzo inferiore</text></g>
+  <text class="ft" x="76" y="232" text-anchor="middle" font-weight="700">Vasto laterale</text></g></svg>`},
+{id:"strati-cute",t:"Gli strati della cute",c:"Epidermide (cheratinociti, melanociti; senza vasi), derma (collagene, vasi, nervi, follicoli, ghiandole sebacee e sudoripare) e ipoderma (tessuto adiposo). La profondità di ustioni e lesioni si descrive in base agli strati coinvolti.",
+ enc:["cute","ustioni","lesioni-pressione"],gl:[],st:/cute/i,
+ svg:`<svg viewBox="0 0 480 250" role="img" aria-label="Sezione della cute con epidermide, derma e ipoderma">
+ <path d="M20 40Q60 34 100 40T180 40T260 40T340 40V58Q300 52 260 58T180 58T100 58T20 58Z" fill="#e3a98c"/>
+ <path d="M20 58Q60 52 100 58T180 58T260 58T340 58V140H20Z" fill="#f3cdb7"/>
+ <rect x="20" y="140" width="320" height="90" fill="#f6e1a0"/>
+ <g fill="#fbefc6" stroke="#e0c46e" stroke-width="1"><circle cx="50" cy="168" r="16"/><circle cx="86" cy="196" r="18"/><circle cx="130" cy="166" r="15"/><circle cx="176" cy="200" r="17"/><circle cx="222" cy="170" r="16"/><circle cx="268" cy="198" r="18"/><circle cx="310" cy="168" r="15"/></g>
+ <path d="M96 20L100 40L106 126Q108 140 98 140Q88 140 92 126L96 40" fill="none" stroke="#5a3a28" stroke-width="2.5"/><ellipse cx="99" cy="132" rx="10" ry="8" fill="#e8b49a" stroke="#b5655a"/>
+ <ellipse cx="116" cy="84" rx="9" ry="6" fill="#f7e3a1" stroke="#c9a24a"/>
+ <path d="M220 40V100Q220 114 228 120Q240 128 232 136Q220 144 230 150Q242 156 230 160" fill="none" stroke="#5f8fb4" stroke-width="2"/>
+ <path d="M20 120Q120 104 200 122T340 116" fill="none" stroke="#c0392b" stroke-width="3"/><path d="M20 128Q120 114 200 130T340 124" fill="none" stroke="#3b5bdb" stroke-width="3"/>
+ <g class="ft"><text x="350" y="52" font-weight="700">Epidermide</text><text x="350" y="100" font-weight="700">Derma</text><text x="350" y="190" font-weight="700">Ipoderma</text></g>
+ <g class="ft fsm"><text x="62" y="16">pelo</text><text x="128" y="80">gh. sebacea</text><text x="244" y="160">gh. sudoripara</text><text x="246" y="112">vasi</text><text x="20" y="246">tessuto adiposo</text></g></svg>`},
+{id:"auscultazione",t:"Focolai di auscultazione cardiaca",c:"Aortico: II spazio intercostale a destra dello sterno. Polmonare: II spazio a sinistra dello sterno. Tricuspidale: IV-V spazio a sinistra dello sterno. Mitralico (itta della punta): V spazio sulla linea emiclaveare sinistra. Nei polmoni si ausculta confrontando punti simmetrici, dagli apici alle basi, davanti e dietro.",
+ enc:["esame-obiettivo","cuore-fisiologia"],gl:[],st:/torace|cuore/i,
+ svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Torace con i focolai di auscultazione aortico, polmonare, tricuspidale e mitralico">
+ <path class="ff fl" d="M110 34Q210 16 310 34L350 66Q366 150 350 240Q320 280 210 284Q100 280 70 240Q54 150 70 66Z"/>
+ <rect class="fa fl" x="198" y="54" width="24" height="132" rx="7"/>
+ <path class="fl dash" d="M88 92Q210 78 332 92M84 124Q210 110 336 124M82 154Q210 140 338 154M82 184Q210 170 338 184"/><path class="fl dash" d="M272 60V250"/>
+ <g class="ft fsm"><text x="6" y="96">II spazio</text><text x="6" y="128">III spazio</text><text x="6" y="158">IV spazio</text><text x="6" y="188">V spazio</text><text x="278" y="262">emiclaveare sx</text></g>
+ <g><circle cx="186" cy="86" r="11" fill="#d93a32"/><circle cx="234" cy="86" r="11" fill="#3b5bdb"/><circle cx="232" cy="162" r="11" fill="#e6b800"/><circle cx="272" cy="178" r="11" fill="#2f9e44"/></g>
+ <g font-family="var(--f-mono)" font-size="11" font-weight="800" fill="#fff" text-anchor="middle"><text x="186" y="90">A</text><text x="234" y="90">P</text><text x="232" y="166">T</text><text x="272" y="182">M</text></g>
+ <g class="ft" font-size="11.5"><text x="104" y="74">Aortico</text><path class="lead" d="M150 78L176 84"/><text x="268" y="74">Polmonare</text><path class="lead" d="M266 78L244 84"/><text x="132" y="214">Tricuspidale</text><path class="lead" d="M204 210L226 170"/><text x="300" y="214">Mitralico</text><path class="lead" d="M310 202L280 186"/></g>
+ <text class="ft fsm" x="6" y="20">Destra del paziente a sinistra dell'immagine</text></svg>`},
+{id:"compartimentale",t:"Sindrome compartimentale della gamba",c:"Dopo una frattura, un trauma da schiacciamento o un gesso stretto, la pressione cresce dentro un compartimento chiuso dalla fascia e comprime vasi e nervi. Il segno precoce è un dolore sproporzionato che aumenta con lo stiramento passivo; polso assente e paralisi sono tardivi. Si allenta subito ogni bendaggio e si avvisa il medico: può servire la fasciotomia.",
+ enc:["ortopedia","maxiemergenza"],gl:["Sindrome da schiacciamento"],st:/^$/,
+ svg:`<svg viewBox="0 0 480 260" role="img" aria-label="Sezione della gamba con i quattro compartimenti">
+ <ellipse class="ff fl" cx="150" cy="128" rx="112" ry="102"/>
+ <path d="M126 50Q160 20 206 34Q236 54 246 92L214 112L120 70Z" fill="color-mix(in srgb,var(--vital) 24%,var(--paper))"/>
+ <path class="fl" d="M120 70L212 116" stroke-width="2.4"/><path class="fl" d="M126 50Q164 22 206 34M220 106L254 88M222 134L256 156" stroke-width="2"/>
+ <path class="fl" d="M98 80Q118 168 214 136" stroke-width="2"/>
+ <ellipse cx="106" cy="66" rx="22" ry="17" fill="#ece5d3" stroke="#a89c80"/><ellipse cx="218" cy="120" rx="11" ry="10" fill="#ece5d3" stroke="#a89c80"/>
+ <g class="ft fsm" text-anchor="middle"><text x="106" y="70">tibia</text><text x="218" y="138" font-size="9">perone</text></g>
+ <g class="ft" font-size="11" font-weight="700" text-anchor="middle"><text x="176" y="64">Anteriore</text><text x="236" y="124" font-size="10">Lat.</text><text x="150" y="122">Posteriore</text><text x="150" y="135">profondo</text><text x="150" y="196">Posteriore</text><text x="150" y="209">superficiale</text></g>
+ <g class="fs"><path d="M200 26L214 10M262 96L282 90M250 196L266 212M44 150L24 158"/></g>
+ <g class="ft" font-size="12"><text x="310" y="60" font-weight="700">Le «5 P»</text><text x="310" y="84">Pain · dolore</text><text x="310" y="104">Pallore</text><text x="310" y="124">Parestesie</text><text x="310" y="144">Pulseless · polso assente</text><text x="310" y="164">Paralisi</text></g>
+ <text class="ft fsm" x="310" y="190">Primo segno: dolore</text><text class="ft fsm" x="310" y="203">sproporzionato</text><text class="ft fsm" x="310" y="220">Polso e paralisi:</text><text class="ft fsm" x="310" y="233">segni tardivi</text>
+ <text class="ft fsm" x="20" y="252">La fascia rigida non si espande: la pressione sale (frecce)</text></svg>`}
 ];
