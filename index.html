@@ -869,10 +869,12 @@ const BASE_CARDS = [
 /* ---- enciclopedia: dati comuni ---- */
 const ENCY=typeof ENC!=="undefined"?ENC:[], EAREE=typeof ENC_AREE!=="undefined"?ENC_AREE:{}, GLOS=typeof GLOSS!=="undefined"?GLOSS:[], GCAT=typeof GLOSS_CAT!=="undefined"?GLOSS_CAT:{};
 const ENC_BY={};ENCY.forEach(e=>ENC_BY[e.id]=e);
-const AREA_SUBJ={fond:"dx",rel:"tr",etica:"cod",legale:"leg",org:"pa",igiene:"cli",ricerca:"tr",anat:"eo",farm:"cli",ecg:"eo",emerg:"eo",med:"cli",chir:"cli",infett:"cli",onco:"cli",mat:"cli",psi:"cli",riab:"cli",nutr:"cli",diagn:"eo"};
+const AREA_SUBJ={fond:"dx",rel:"tr",etica:"cod",legale:"leg",org:"pa",igiene:"cli",ricerca:"tr",anat:"eo",farm:"cli",ecg:"eo",emerg:"eo",med:"cli",chir:"cli",infett:"cli",onco:"cli",mat:"cli",psi:"cli",riab:"cli",nutr:"cli",diagn:"eo",codice:"cod"};
 const encSubj=id=>AREA_SUBJ[(ENC_BY[id]||{}).a]||"cli";
 ENCY.forEach(e=>BASE_CARDS.push({id:"ce-"+e.id,m:encSubj(e.id),q:e.t+": di che cosa si tratta e quali sono i punti chiave?",a:e.d+"\n\n"+(e.p||[]).slice(0,4).map(x=>"• "+x).join("\n"),src:"enc",enc:e.id}));
 GLOS.forEach((g,i)=>{if(g[1]==="p"||g[1]==="s"||g[1]==="d")BASE_CARDS.push({id:"cg-"+g[1]+"-"+g[0].toLowerCase().replace(/[^a-z0-9]+/g,"-"),m:g[4]?encSubj(g[4]):(g[1]==="p"?"dx":"eo"),q:(g[1]==="p"?"Chi è «"+g[0]+"» e che cosa ha fatto?":g[1]==="s"?"«"+g[0]+"»: che cosa valuta e come si legge?":"«"+g[0]+"»: che cos'è e a che cosa serve?"),a:g[2],src:"enc",enc:g[4]||""})});
+const CODA=typeof CODICE_ART!=="undefined"?CODICE_ART:[];
+CODA.forEach(a=>BASE_CARDS.push({id:"cd-"+a[0],m:"cod",q:"Codice deontologico 2025, art. "+a[0]+" «"+a[2]+"»: che cosa prevede?",a:a[3],src:"enc",enc:"codice-capo-"+a[1].toLowerCase()}));
 let CARDS=BASE_CARDS;
 
 /* ---- Quiz ---- */
@@ -1679,7 +1681,7 @@ function encEntry(e,open){
   return `<details class="enc-e" id="voce-${e.id}" style="--c:${c}" ${open?"open":""}><summary><span class="eyebrow" style="color:${c}">${esc((EAREE[e.a]||{}).n||"")}</span><b>${esc(e.t)}</b><span class="small">${esc(e.d)}</span></summary>
   <div class="enc-b"><p class="def" style="margin:0">${esc(e.d)}</p>
   ${e.p&&e.p.length?`<div><h4>Punti chiave</h4><ul>${e.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
-  ${e.v&&e.v.length?`<div><h4>Valori, scale e riferimenti</h4><table class="enc-v"><tbody>${e.v.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td></tr>`).join("")}</tbody></table></div>`:""}
+  ${e.v&&e.v.length?`<div><h4>${e.a==="codice"?"Articoli":"Valori, scale e riferimenti"}</h4><table class="enc-v"><tbody>${e.v.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td></tr>`).join("")}</tbody></table></div>`:""}
   ${e.i&&e.i.length?`<div><h4>Cosa fa l'infermiere</h4><ul>${e.i.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
   ${encStrips(e.id)}
   ${e.e&&e.e.length?`<div><h4>Errori da evitare</h4><ul class="enc-warn">${e.e.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
@@ -1751,6 +1753,7 @@ function glossario(){
   app.querySelectorAll("[data-gc]").forEach(b=>b.onclick=()=>{state.glCat=b.dataset.gc;LS.set("glCat",state.glCat);state.glQuery=$("#gl-search").value;glossario();decorateHead("glossario")});
   $("#gl-search").oninput=draw;draw();
 }
+if(CODA.length&&TOPICS.cod&&typeof CODICE_CAPI!=="undefined")CODICE_CAPI.forEach(([cp,nome])=>{const arts=CODA.filter(a=>a[1]===cp);TOPICS.cod.push({t:"Codice 2025 articolo per articolo · Capo "+cp+" "+nome+" (artt. "+arts[0][0]+"–"+arts[arts.length-1][0]+")",h:`<div style="display:flex;flex-direction:column;gap:10px">${arts.map(a=>`<div><b>Art. ${a[0]} · ${esc(a[2])}</b><br>${esc(a[3])}</div>`).join("")}<p class="refs">Sintesi per lo studio; testo ufficiale FNOPI, in vigore dal 22 marzo 2025.</p></div>`})});
 const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,domande,casi,orale,metodo};
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
 function route(){
@@ -1946,7 +1949,9 @@ const Q2=(typeof QUIZ2!=="undefined"?QUIZ2:[]).map((q,i)=>({id:"s"+q[1]+"-"+i,m:
 let DBQ=[], DAILY=[], dbState="attesa";
 let QALL=[];
 const Q3=(()=>{const cnt={};return (typeof QUIZ3!=="undefined"?QUIZ3:[]).map(q=>{cnt[q[0]]=(cnt[q[0]]||0)+1;return {id:"e-"+q[0]+"-"+cnt[q[0]],m:encSubj(q[0]),sec:0,enc:q[0],q:q[1],o:q[2],r:q[3],e:q[4],src:"enc"}})})();
-function rebuildQ(){QALL=QUIZ.concat(Q2,Q3,DBQ)}
+const Q4=CODA.map((a,i)=>{const n=a[0],pool=[n+3,n-2,n+7,n-5,n+11,n-9].map(x=>((x-1+55)%55)+1).filter((x,j,arr)=>x!==n&&arr.indexOf(x)===j).slice(0,3);const r=(n*7)%4;const o=pool.map(x=>"Art. "+x);o.splice(r,0,"Art. "+n);
+  return {id:"cdq-"+n,m:"cod",sec:0,enc:"codice-capo-"+a[1].toLowerCase(),q:"Nel Codice deontologico 2025, quale articolo tratta «"+a[2]+"»?",o,r,e:"Art. "+n+" «"+a[2]+"» (capo "+a[1]+"): "+a[3],src:"enc"}});
+function rebuildQ(){QALL=QUIZ.concat(Q2,Q3,Q4,DBQ)}
 rebuildQ();
 const STATS=LS.get("qstats",{});
 function record(q,ok){const s=STATS[q.id]||{s:0,k:0};s.s++;if(ok)s.k++;s.w=!ok;s.t=Date.now();STATS[q.id]=s;LS.set("qstats",STATS)}
