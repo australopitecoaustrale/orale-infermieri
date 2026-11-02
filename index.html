@@ -1884,7 +1884,7 @@ function applyDaily(docs){
     if(!it||!it.q||!Array.isArray(it.o)||it.o.length<2||typeof it.r!=="number")return;
     const m=SUBJ[it.m]?it.m:"cli", id="g"+day.date+"-"+i;
     const fonte=(typeof it.fonte==="string"&&/^https:\/\//.test(it.fonte))?it.fonte:"";
-    DBQ.push({id,m,sec:it.sec||0,q:String(it.q),o:it.o.map(String),r:it.r,e:String(it.e||""),src:"giorno",date:day.date,fonte,novita:!!it.novita});
+    DBQ.push({id,m,sec:it.sec||0,q:String(it.q),o:it.o.map(String),r:it.r,e:String(it.e||""),src:"giorno",date:day.date,fonte,novita:!!it.novita,enc:(it.enc&&ENC_BY[it.enc])?it.enc:undefined});
     fc.push({id:"f"+id,m,q:String(it.q),a:"Risposta: "+String(it.o[it.r])+(it.e?"\n\n"+String(it.e):""),src:"giorno",sec:it.sec||0,ref:fonte?"Fonte: "+fonte:""});
   });
   CARDS=BASE_CARDS.concat(fc);
