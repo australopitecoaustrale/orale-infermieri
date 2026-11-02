@@ -444,6 +444,9 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
 header.top{overflow:hidden;background:linear-gradient(180deg,color-mix(in srgb,var(--head) 92%,#fff),var(--head))}
 .hdr-ecg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hdr-ecg path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.hdr-ecg{transition:opacity .25s ease}.hdr-ecg.hdr-swap{opacity:0}
+.hdr-dot{fill:#fff;filter:drop-shadow(0 0 4px rgba(255,255,255,.95))}
+.hdr-halo{fill:rgba(255,255,255,.18);filter:blur(2px)}
 .hdr-base{stroke:rgba(255,255,255,.08);stroke-width:1.5}
 .hdr-sweep{stroke:rgba(255,255,255,.4);stroke-width:2;stroke-dasharray:220 2600;stroke-dashoffset:2820;opacity:0}
 .top-in{position:relative}
@@ -468,7 +471,7 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 /* ---- traccia ECG realistica: scia luminosa come su un monitor ---- */
 .hdr-base{stroke:rgba(255,255,255,.1);stroke-width:1.4}
 .hdr-ecg{inset:auto 0 auto 0;top:4px;height:52px}
-.hdr-sweep{stroke:rgba(255,255,255,.5);stroke-width:1.8;stroke-dasharray:none;stroke-dashoffset:0;opacity:1;animation:none;filter:drop-shadow(0 0 2.5px rgba(255,255,255,.7))}
+.hdr-sweep{stroke:rgba(255,255,255,.7);stroke-width:2;stroke-dasharray:none;stroke-dashoffset:0;opacity:1;animation:none;filter:drop-shadow(0 0 2.5px rgba(255,255,255,.7))}
 .brand .ecg{stroke-dasharray:140;stroke-width:2}
 @media (prefers-reduced-motion: no-preference){.sweeprect{animation:trace 8s linear infinite}@keyframes trace{from{transform:translateX(0)}to{transform:translateX(3100px)}}}
 
@@ -1590,7 +1593,8 @@ function respStrip(type,fr){
   return `<figure class="ecg-strip"><svg viewBox="0 0 ${W} ${H}" aria-label="${esc(n)}" role="img"><rect width="${W}" height="${H}" class="rs-bg"/><path d="${Array.from({length:7},(_,i)=>`M${i*25} 0V${H}`).join("")}" class="rs-grid"/><text x="1.5" y="4.2" class="eg-t">30 s</text><path d="${path(r,W,H,19,8)}" class="eg-tr rs-tr"/></svg><figcaption><b>${esc(n)}.</b> ${esc(d)}</figcaption></figure>`;
 }
 function solution(c){return monitor(c,(c.id||"")+c.title).sol}
-return {monitor,strip,respStrip,miscStrip,detect,solution};
+function ecgRaw(spec,dur,fs,seed){return ecg(spec,dur,fs,seed).y}
+return {monitor,strip,respStrip,miscStrip,detect,solution,ecgRaw};
 })();
 const ENC_STRIPS={
  "ritmi":[["e","sinus"],["e","sinus",{hr:48}],["e","sinus",{hr:125}],["e","fa"],["e","flutter"],["e","tsv"],["e","ev"],["e","tv"],["e","fv"],["e","asistolia"]],
@@ -1626,6 +1630,45 @@ function vitalsMonitor(vit,c){
   return `<div class="pmon">${m.html}
   <div class="pm-grid">${vit.map(v=>`<div class="pm-cell pm-${col2(v[0])} ${v[2]?"pm-alarm":""}"><span class="pm-k">${esc(v[0])}${v[2]?' <b class="pm-bell">ALLARME</b>':""}</span><span class="pm-v ${String(v[1]).length>9?"pm-long":""}">${esc(v[1])}</span></div>`).join("")}</div></div>`;
 }
+
+
+/* ---- traccia ECG della fascia in alto: ritmo che cambia ogni tanto, a volte patologico ---- */
+(function hdrEcg(){
+  const svg=document.querySelector(".hdr-ecg");if(!svg||typeof WAVE==="undefined")return;
+  const base=svg.querySelector(".hdr-base"),sw=svg.querySelector(".hdr-sweep"),rect=svg.querySelector(".sweeprect");
+  const NS="http://www.w3.org/2000/svg";
+  const halo=document.createElementNS(NS,"circle");halo.setAttribute("r","7");halo.setAttribute("class","hdr-halo");
+  const dot=document.createElementNS(NS,"circle");dot.setAttribute("r","2.4");dot.setAttribute("class","hdr-dot");
+  svg.append(halo,dot);
+  const NORMAL=[{type:"sinus",hr:64},{type:"sinus",hr:72},{type:"sinus",hr:80},{type:"sinus",hr:92}];
+  const PATH=[{type:"fa",hr:108},{type:"tsv",hr:180},{type:"ev",hr:76},{type:"flutter",hr:150},{type:"bav1",hr:68},{type:"mobitz1",hr:70},{type:"mobitz2",hr:66},{type:"stemi",morph:"stemiV2",hr:86},{type:"sinus",hr:46},{type:"sinus",hr:122},{type:"iperk",morph:"iperk",hr:78},{type:"bav3",hr:36}];
+  let ys=[],last=-1,k=0;
+  const W=2400,DUR=24,FS=125;
+  function pick(){
+    let s;do{s=Math.random()<.35?PATH[Math.floor(Math.random()*PATH.length)]:NORMAL[Math.floor(Math.random()*NORMAL.length)]}while(PATH.indexOf(s)===last&&last>=0);
+    last=PATH.indexOf(s);return s;
+  }
+  function build(){
+    const s=pick();ys=WAVE.ecgRaw(s,DUR,FS,"hdr"+(k++)+Math.random());
+    let d="";for(let i=0;i<ys.length;i++){const y=Math.max(2,Math.min(58,40-ys[i]*28));d+=(i?"L":"M")+(i*W/(ys.length-1)).toFixed(1)+" "+y.toFixed(1)}
+    base.setAttribute("d",d);sw.setAttribute("d",d);
+  }
+  const yAt=x=>{const i=Math.round(x/W*(ys.length-1));return Math.max(2,Math.min(58,40-(ys[Math.max(0,Math.min(ys.length-1,i))]||0)*28))};
+  build();
+  const RMq=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(RMq){rect.setAttribute("x","0");rect.setAttribute("width",W);halo.remove();dot.remove();return}
+  rect.style.animation="none";
+  const SPEED=300;let t0=performance.now(),lap=0;
+  const step=now=>{
+    const bb=svg.getBoundingClientRect(),vis=Math.min(W,bb.width/Math.max(bb.width/W,bb.height/60||1)),tot=(now-t0)/1000*SPEED,x=tot%(vis+700),l=Math.floor(tot/(vis+700));
+    if(l!==lap){lap=l;if(lap%2===0){svg.classList.add("hdr-swap");setTimeout(()=>{build();svg.classList.remove("hdr-swap")},260)}}
+    rect.setAttribute("x",(x-700).toFixed(1));
+    const on=x<=vis;dot.style.opacity=halo.style.opacity=on?"":"0";
+    if(on){const y=yAt(x);dot.setAttribute("cx",x.toFixed(1));dot.setAttribute("cy",y.toFixed(1));halo.setAttribute("cx",x.toFixed(1));halo.setAttribute("cy",y.toFixed(1))}
+    requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+})();
 
 /* ============ ENCICLOPEDIA E GLOSSARIO ============ */
 function encEntry(e,open){
