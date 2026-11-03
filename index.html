@@ -880,8 +880,6 @@ header.top .top-in{gap:58px}
 .qm-leg .sw{display:inline-block;width:18px;height:6px;border-radius:3px;margin-right:6px;vertical-align:middle}
 .qm-leg .sw.d1{background:#69db7c}.qm-leg .sw.d2{background:#ffa94d}.qm-leg .sw.d3{background:#ff6b6b}.qm-leg .sw.ob{background:#868e96}
 .qm.won{border-color:#e0a100;box-shadow:0 0 0 3px rgba(224,161,0,.18),var(--shadow)}
-.dom-train{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-left:4px solid var(--scrub)}
-.dom-train>div:first-child{display:flex;flex-direction:column;gap:3px;flex:1 1 320px}
 @media (prefers-reduced-motion: reduce){.qm-pin.next .halo{animation:none}}
 </style>
 </head>
@@ -3888,7 +3886,7 @@ function qmInfo(html){const b=$("#qm-info");if(b)b.innerHTML=html}
 function qmSync(){const Q=QM;if(!Q)return;const ok=Math.min(Q.N,qz.ok||0),bad=Math.max(0,Math.min(qz.i,qz.list.length)-(qz.ok||0));
   if(!Q.anim&&(ok!==Q.pos||bad!==Q.bad)){Q.bad=bad;qmPlace(ok,1);qmObstacles()}
   const nb=$("#qm-next");if(!nb)return;if(qz.i>=qz.list.length){nb.innerHTML="";return}
-  const nx=Q.lab.slice(Q.pos).find(Boolean),dd=QM_DIFF[qmDiff(qz.list[qz.i])];
+  const nx=Q.lab.slice(ok).find(Boolean),dd=QM_DIFF[qmDiff(qz.list[qz.i])];
   nb.innerHTML=`<span class="qm-tag" style="--b:${dd.c}">Domanda ${qz.i+1}: ${esc(dd.n)} · ${esc(dd.t)}</span> Prossima tappa: <b>${esc(nx?nx[0]:Q.T.fin)}</b>`}
 function qmStep(ok,it){const Q=QM;if(!Q)return;
   if(!ok){Q.bad++;qmObstacles();let st="";try{st=findStudy(it).t}catch(e){}qmInfo(`<b>Ostacolo sul percorso.</b> La siringa resta ferma${st?`: ripassa «${esc(st)}»`:""}. La domanda tornerà nel Ripasso errori.`);return}
@@ -3924,7 +3922,7 @@ function drawQ(){
     <div class="tbl-wrap"><table><tr><th>Tipo</th><th>Svolte</th><th>Punteggio</th></tr>${Object.entries(kinds).filter(([k,v])=>v[1]).map(([k,v])=>`<tr><td>${{mcq:"Quiz",open:"Domande aperte",case:"Casi clinici"}[k]}</td><td class="mono">${v[1]}</td><td class="mono">${Math.round(v[0]/v[1]*100)}%</td></tr>`).join("")}</table></div>
     <p>${pct>=80?"Ottimo livello.":pct>=60?"Buono: guarda in Avanzamento cosa rivedere.":"Da rinforzare: in Avanzamento trovi le sezioni su cui lavorare."}</p>
     <div class="row"><a class="btn primary" href="#avanzamento" style="text-decoration:none">Vedi l'avanzamento</a><button class="btn" id="qagain">${qz.f==="oggi"?"Sessione libera":"Nuova sessione"}</button></div>`;
-    $("#qagain").onclick=()=>{if(qz.f==="oggi")location.hash="quiz";else if(String(qz.f).startsWith("dom"))domande();else quiz()};return;
+    $("#qagain").onclick=()=>{if(qz.f==="oggi")location.hash="quiz";else quiz()};return;
   }
   const it=qz.list[qz.i], k=kindOf(it);
   const head=`<div class="row" style="justify-content:space-between"><span class="row">${tag(it.m||"tr")}<span class="tag t-src">${{mcq:"Quiz",open:"Domanda aperta",case:"Caso clinico"}[k]}</span>${it.src==="giorno"?`<span class="tag t-src">${it.novita?"Novità dalla letteratura":"Nuova"} · ${it.date}</span>`:it.enc&&ENC_BY[it.enc]?`<span class="tag t-src">Enciclopedia · ${esc(ENC_BY[it.enc].t)}</span>`:it.sec?`<span class="tag t-src">Sez. ${it.sec}</span>`:""}</span><span class="small mono">${qz.i+1}/${qz.list.length} · ${Math.round(qz.i?qz.sc/qz.i*100:0)}%</span></div>`;
@@ -4030,6 +4028,7 @@ function quiz(){
       <option value="casi" ${mode==="casi"?"selected":""}>Solo casi clinici</option></select>
     ${mode==="quiz"||mode==="misto"?`<label class="small" for="qn">Elementi</label><select id="qn" class="btn">${[10,20,30,50].map(x=>`<option ${x===n?"selected":""}>${x}</option>`).join("")}</select>`:""}
     <button class="btn" id="qweak" ${weak?"":"disabled"}>Solo quiz sbagliati (${weak})</button></div>
+  <div id="qmap" style="max-width:820px;width:100%"></div>
   <div class="sheet" id="qbox" style="display:flex;flex-direction:column;gap:14px;max-width:820px;width:100%"></div>`;
   app.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{state.quizFilter=b.dataset.f;quiz()});
   $("#qmode").onchange=e=>{state.quizMode=e.target.value;quiz()};
@@ -4288,17 +4287,11 @@ function domande(){
   <div class="row">${chips(sub,["all",...SKEYS.filter(k=>PDFQ.some(o=>o.m===k))],"b")}</div>
   <div class="row"><label class="small" for="bk-sec">Sezione</label><select id="bk-sec" class="btn"><option value="0">Tutte le sezioni</option>${secs.map(s=>`<option value="${s}" ${+sec===s?"selected":""}>${s}. ${PDF_TITLES[s-1]}</option>`).join("")}</select></div>
   <input class="search" id="bk-q" type="search" placeholder="Cerca nelle domande e nelle risposte (es. GDPR, TSO, sepsi, 165)">
-  <section class="sheet dom-train"><div><span class="eyebrow">Allenati con la mappa</span><b>Rispondi alle domande filtrate: per ogni risposta buona la siringa avanza di una tappa</b><span class="small">Scrivi la risposta (o dettala) e ricevi il voto con la griglia dei punti chiave. Il percorso cambia con la materia e con la difficoltà.</span></div>
-    <div class="row"><label class="small" for="dom-n">Domande</label><select id="dom-n" class="btn"><option>3</option><option selected>5</option><option>8</option></select><button class="btn primary" id="dom-go">Parti</button></div></section>
-  <div id="qmap"></div>
-  <div class="sheet" id="qbox" style="display:none;flex-direction:column;gap:14px"></div>
   <p class="small" id="bk-count"></p>
   <div id="bk-list" style="display:flex;flex-direction:column;gap:8px"></div>`;
   app.querySelectorAll("[data-b]").forEach(b=>b.onclick=()=>{state.bankSub=b.dataset.b;state.bankSec="0";domande()});
   $("#bk-sec").onchange=e=>{state.bankSec=e.target.value;draw()};
   $("#bk-q").oninput=draw;
-  const filtered=()=>{const q=$("#bk-q").value.trim().toLowerCase(), sc=+state.bankSec;return PDFQ.filter(o=>(sub==="all"||o.m===sub)&&(!sc||o.s===sc)&&(!q||(o.q+" "+o.a+" "+o.p.join(" ")+" "+o.r).toLowerCase().includes(q)))};
-  $("#dom-go").onclick=()=>{const L=shuffle(filtered()).slice(0,+$("#dom-n").value).map(openItem);if(!L.length)return;const qb=$("#qbox");qb.style.display="flex";startQuiz(L,"dom-"+sub+"-"+(state.bankSec||0));$("#qmap").scrollIntoView({block:"start",behavior:RM?"auto":"smooth"})};
   function draw(){
     const q=$("#bk-q").value.trim().toLowerCase(), sc=+state.bankSec;
     const list=PDFQ.filter(o=>(sub==="all"||o.m===sub)&&(!sc||o.s===sc)&&(!q||(o.q+" "+o.a+" "+o.p.join(" ")+" "+o.r).toLowerCase().includes(q)));

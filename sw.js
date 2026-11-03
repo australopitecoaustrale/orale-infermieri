@@ -1,5 +1,5 @@
-// Service worker dell'Atlante di Infermieristica — versione e3709e6221
-const C="atlante-e3709e6221",RT="atlante-rt";
+// Service worker dell'Atlante di Infermieristica — versione ce45df894e
+const C="atlante-ce45df894e",RT="atlante-rt";
 const CORE=["./", "index.html", "pdfdata.js", "quizbank.js", "casebank.js", "enciclopedia.js", "glossario.js", "encquiz.js", "enccases.js", "figure.js", "giorni.json", "manifest.webmanifest", "icon-192.png", "icon-512.png", "icon-180.png"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>Promise.all(CORE.map(u=>fetch(new Request(u,{cache:"reload"})).then(r=>{if(r.ok)return c.put(u,r)}).catch(()=>{})))).then(()=>self.skipWaiting()))});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C&&k!==RT).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
