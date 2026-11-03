@@ -793,6 +793,22 @@ nav.tabs a:not([aria-current="page"]):hover{background:rgba(255,255,255,.1)}
   .toc button{white-space:nowrap;flex:none;grid-template-columns:8px auto auto;gap:7px;padding:7px 11px;font-size:.86rem}
   .toc button i{width:8px;height:8px}
 }
+
+/* ---- banner a due piani: palcoscenico delle scene + mensola delle schede ---- */
+header.top{transition:transform .38s cubic-bezier(.4,0,.2,1),box-shadow .3s}
+header.top.compact{transform:translateY(calc(-1 * var(--stage-h,0px)))}
+header.top.compact .hdr-fx,header.top.compact .hdr-ecg{opacity:.0}
+header.top .top-in{padding-bottom:10px}
+nav.tabs{background:linear-gradient(180deg,color-mix(in srgb,var(--head) 70%,#000) ,color-mix(in srgb,var(--head) 82%,#000));
+  border:1px solid rgba(255,255,255,.14);border-top-color:rgba(255,255,255,.32);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 -6px 14px -10px rgba(0,0,0,.55),0 10px 22px -14px rgba(0,0,0,.6)}
+/* bordo della mensola: una linea luminosa su cui poggiano le scene */
+header.top::after{content:"";position:absolute;left:0;right:0;top:calc(var(--stage-h,80px) + 6px);height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28) 12%,rgba(255,255,255,.28) 88%,transparent);z-index:1;pointer-events:none}
+header.top .top-in{gap:58px}
+@media (min-width:700px){header.top .top-in{padding-block:22px 12px;gap:76px}}
+@media (min-width:1200px){header.top .top-in{gap:80px}}
+@media (prefers-reduced-motion: reduce){header.top{transition:none}}
+.toc{top:calc(var(--hdr-h,130px) - var(--hdr-shift,0px) + 14px)}
 </style>
 </head>
 <body>
@@ -2013,7 +2029,7 @@ function vitalsMonitor(vit,c){
   const rnd=(a,b)=>a+Math.random()*(b-a),pick=a=>a[Math.floor(Math.random()*a.length)],TAU=Math.PI*2;
   const rgba=(hex,a)=>{const n=parseInt(hex.slice(1),16);return `rgba(${n>>16},${n>>8&255},${n&255},${a})`};
   const W_=a=>`rgba(255,255,255,${a})`;
-  function size(){const r=hd.getBoundingClientRect();document.documentElement.style.setProperty("--hdr-h",Math.round(r.height)+"px");dpr=Math.min(2,window.devicePixelRatio||1);W=Math.max(1,r.width);H=Math.max(1,r.height);{const nv=hd.querySelector("nav.tabs");if(nv&&W>=700){const nt=nv.getBoundingClientRect().top-r.top;H=Math.max(60,Math.round(nt+nv.offsetHeight*.42))}cv.style.height=H+"px";cv.style.bottom="auto"}cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);{const tx=document.querySelector("header.top .brand .txt");titleR=tx?tx.getBoundingClientRect().right-r.left:W*.5}calcBox();
+  function size(){const r=hd.getBoundingClientRect();document.documentElement.style.setProperty("--hdr-h",Math.round(r.height)+"px");dpr=Math.min(2,window.devicePixelRatio||1);W=Math.max(1,r.width);H=Math.max(1,r.height);{const nv=hd.querySelector("nav.tabs");if(nv){const nt=nv.getBoundingClientRect().top-r.top;H=Math.max(50,Math.round(nt+3));document.documentElement.style.setProperty("--stage-h",Math.round(nt-6)+"px")}cv.style.height=H+"px";cv.style.bottom="auto"}cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);{const tx=document.querySelector("header.top .brand .txt");titleR=tx?tx.getBoundingClientRect().right-r.left:W*.5}calcBox();
     bok=[...Array(Math.max(4,Math.min(10,Math.round(W/160))))].map(()=>({x:rnd(0,W),y:rnd(0,H),r:rnd(30,80),vx:rnd(-5,5),vy:rnd(-2,2),a:rnd(.05,.11),ph:rnd(0,TAU)}));
     if(mode&&st&&Math.abs((st._W||0)-W)>1){st=Object.assign(INIT[mode](),{_W:W});STATES[mode]=st}}
   const cnt=(per,min,max)=>Math.max(min,Math.min(max,Math.round(W/per)));
@@ -4391,6 +4407,13 @@ function metodo(){
 new MutationObserver(()=>decorateHead(document.documentElement.dataset.view)).observe(app,{childList:true});
 route();
 initDb();
+
+/* banner compatto quando si scorre verso il basso */
+(()=>{const hd=document.querySelector("header.top");if(!hd)return;let ly=scrollY,tk=false;
+  const set=c=>{if(hd.classList.contains("compact")===c)return;hd.classList.toggle("compact",c);document.documentElement.style.setProperty("--hdr-shift",c?getComputedStyle(document.documentElement).getPropertyValue("--stage-h"):"0px")};
+  addEventListener("scroll",()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{tk=false;const y=scrollY,d=y-ly;if(y<90)set(false);else if(d>6)set(true);else if(d<-10)set(false);if(Math.abs(d)>6)ly=y})},{passive:true});
+  addEventListener("hashchange",()=>set(false));
+})();
 </script>
 </body>
 </html>
