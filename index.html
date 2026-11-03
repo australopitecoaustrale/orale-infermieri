@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-title" content="Atlante Inf.">
 <script>window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();window.__pwaPrompt=e;var b=document.getElementById("pwa-inst");if(b)b.hidden=false});if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html,body{height:auto}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
 /* Layout: cartella infermieristica — fascia di reparto in alto con traccia ECG, contenuto su carta millimetrata tinta dal colore della sezione; ogni sezione ha il suo colore, che sfuma nel passaggio da una all'altra */
@@ -908,6 +908,53 @@ header.top .top-in{gap:58px}
 .sc-list{display:flex;flex-direction:column;gap:6px;margin:8px 0}
 .sc-i{display:flex;gap:8px;align-items:flex-start;font-size:.88rem;cursor:pointer}
 .sc-i input{margin-top:3px;accent-color:var(--scrub);width:16px;height:16px;flex:none}
+
+/* ---- mappa in stile carta fantasy su pergamena ---- */
+.qm.tolk{--fell:"IM Fell English",Georgia,"Times New Roman",serif;--fellsc:"IM Fell English SC",Georgia,serif;background:linear-gradient(180deg,#fbf6e8,#f2e6c8);border-color:#cdb27a}
+.tolk .qm-head b{font-family:var(--fell);font-size:1.45rem;font-weight:400;color:#3b2208}
+.tolk .qm-head .eyebrow{color:#8a5a2b}.tolk .qm-head .small{font-family:var(--fell);font-style:italic;font-size:.95rem;color:#6b4a2a}
+.tolk .qm-b{font-family:var(--fell);font-weight:400;font-size:.85rem;background:#f6ebcd;border-color:#b8955a;color:#3b2208}
+.tolk .qm-svg{border-radius:10px;box-shadow:0 8px 22px -10px rgba(59,34,8,.6)}
+.qm-fr1{fill:none;stroke:#4a2e16;stroke-width:1.8}.qm-fr2{fill:none;stroke:#4a2e16;stroke-width:.7;stroke-dasharray:7 2 1.5 2}
+.qm-corner path{fill:none;stroke:#4a2e16;stroke-width:1}.qm-corner circle{fill:#9b1c1c}
+.qm-riverk{fill:none;stroke:#4a2e16;stroke-width:7.5;stroke-linecap:round;opacity:.7}.qm-riverk2{fill:none;stroke:#bcd0c6;stroke-width:5;stroke-linecap:round}
+.qm-lakek path:first-child{fill:#bcd0c6;stroke:#4a2e16;stroke-width:1.1}.qm-lakek .w{fill:none;stroke:#4a2e16;stroke-width:.7;opacity:.65}
+.qm-tree path{fill:#e2cf98;stroke:#4a2e16;stroke-width:.95;stroke-linejoin:round}.qm-tree path:first-child{fill:none}
+.qm-hillk path{fill:none;stroke:#4a2e16;stroke-width:1.1;stroke-linecap:round}
+.qm-mtk path{fill:none;stroke:#4a2e16;stroke-width:1.2;stroke-linejoin:round}.qm-mtk .fill{fill:#ecdcb0;stroke:none}.qm-mtk .hatch{stroke-width:.7;opacity:.85}
+.tolk .qm-road{fill:none;stroke:#4a2e16;stroke-width:1.7;stroke-dasharray:.5 5.5;stroke-linecap:round;opacity:.9}
+.tolk .qm-road.d3{stroke-dasharray:.5 4}
+.tolk .qm-trail{stroke:transparent;stroke-width:2.6;filter:none;stroke-dasharray:none}
+.tolk .qm-trail.done{stroke:#9b1c1c;stroke-width:2.6;filter:none;opacity:.95}
+.tolk .qm-pin .seal{fill:#f3e3bb;stroke:#4a2e16;stroke-width:1.4;transition:fill .5s}
+.tolk .qm-pin .ring{fill:none;stroke:#4a2e16;stroke-width:.6;stroke-dasharray:1.5 1.5}
+.tolk .qm-pin .mk,.tolk .qm-pin .face{display:none}
+.tolk .qm-emo{font-size:11px;filter:sepia(1) saturate(1.4) brightness(.8)}
+.tolk .qm-let{fill:#4a2e16;font-family:var(--fellsc);font-size:13px;font-weight:400}
+.tolk .qm-pin.reached .seal{fill:#9b1c1c;stroke:#5e0e0e}.tolk .qm-pin.reached .ring{stroke:#f3e3bb}.tolk .qm-pin.reached .qm-let{fill:#f8ead0}.tolk .qm-pin.reached .qm-emo{filter:sepia(.3)}
+.tolk .qm-pin .ok circle{fill:#3b5d2a;stroke:#f3e3bb}
+.tolk .qm-pin.next .halo{stroke:#4a2e16;stroke-width:1.2;stroke-dasharray:2 3}
+.tolk .qm-pin.next .seal,.tolk .qm-pin.next .ring,.tolk .qm-pin.next text{animation:none}
+.qm-lab text{font-family:var(--fell);font-style:italic;font-size:11.5px;fill:#3b2208;text-anchor:middle;paint-order:stroke;stroke:rgba(246,235,205,.9);stroke-width:3px;stroke-linejoin:round}
+.qm-lab.fin text{font-family:var(--fellsc);font-style:normal;font-size:13px;fill:#7a1010}
+.qm-startk path{fill:#ecdcb0;stroke:#4a2e16;stroke-width:1.1;stroke-linejoin:round}.qm-startk .flag{fill:#9b1c1c;stroke:none}
+.castle path{fill:none;stroke:#4a2e16;stroke-width:1.2;stroke-linejoin:round}.castle .fill{fill:#ecdcb0;stroke:none}.castle .flag{fill:#9b1c1c;stroke:none;transform-box:fill-box;transform-origin:left center;animation:qmflag 1.6s ease-in-out infinite}
+.tolk .qm-pin.fin.reached .halo{stroke:#9b1c1c;stroke-width:1.6;stroke-dasharray:3 3}
+.tolk .qm-dot circle{fill:#f3e3bb;stroke:#4a2e16;stroke-width:1}.tolk .qm-dot.reached circle{fill:#9b1c1c}
+.qm-rosek .r0{fill:rgba(243,227,187,.7);stroke:#4a2e16;stroke-width:1}.qm-rosek .r1{fill:none;stroke:#4a2e16;stroke-width:.6;stroke-dasharray:2 2}.qm-rosek .a{fill:#4a2e16}.qm-rosek .b{fill:#f3e3bb;stroke:#4a2e16;stroke-width:.5}.qm-rosek .c{fill:#9b1c1c}
+.qm-rosek text{font-family:var(--fellsc);font-size:13px;fill:#4a2e16;text-anchor:middle}
+.qm-cart path{fill:#f3e3bb;stroke:#4a2e16;stroke-width:1.2}.qm-cart .in{fill:none;stroke:#4a2e16;stroke-width:.5}.qm-cart text{font-family:var(--fellsc);font-size:14px;fill:#3b2208;text-anchor:middle;letter-spacing:.05em}
+.tolk .qm-scale path{stroke:#4a2e16;opacity:1}.tolk .qm-scale text{font-family:var(--fell);font-style:italic;font-size:10px;fill:#3b2208;opacity:1}
+.tolk #qm-syr .barrel{stroke:#4a2e16}.tolk #qm-syr .liq{fill:#9b1c1c}.tolk #qm-syr .rod{fill:#4a2e16}.tolk #qm-syr .hub{fill:#8a5a2b}
+.tolk .qm-sh{fill:rgba(59,34,8,.2)}
+.tolk .qm-ob .r1{fill:#d8c595;stroke:#4a2e16}.tolk .qm-ob .r2{fill:#c4ad78}
+.tolk .qm-info{background:#f6ebcd;border-left-color:#9b1c1c;font-family:var(--fell);font-size:1.02rem;color:#3b2208}
+.tolk .qm-next{font-family:var(--fell);font-size:1rem;color:#3b2208}
+.tolk .qm-tag{font-family:var(--fell);font-weight:400;font-size:.82rem}
+.tolk .qm-leg{font-family:var(--fell);font-style:italic;font-size:.88rem;color:#5b3a1e}
+.tolk .qm-leg .lg{display:inline-block;width:24px;font-style:normal;color:#4a2e16;text-align:center}
+.tolk .lg1::before{content:"♣"}.tolk .lg2::before{content:"⌒"}.tolk .lg3::before{content:"▲"}.tolk .lg4::before{content:"●";color:#a08a5a}.tolk .lg5::before{content:"━";color:#9b1c1c}
+.qm.tolk.won{border-color:#9b1c1c;box-shadow:0 0 0 3px rgba(155,28,28,.15),var(--shadow)}
 </style>
 </head>
 <body>
@@ -3857,7 +3904,7 @@ const QM_THEMES={
 };
 function qmCodSteps(){const C=typeof CODICE_CAPI!=="undefined"?CODICE_CAPI:[];const A=typeof CODICE_ART!=="undefined"?CODICE_ART:[];
   return C.map(([n,t])=>{const ar=A.filter(a=>a[1]===n).map(a=>a[0]);return [t,n,`Capo ${n}${ar.length?` (artt. ${Math.min(...ar)}-${Math.max(...ar)})`:""}: ${t.toLowerCase()}.`]})}
-const QM_DIFF=[null,{n:"facile",t:"bosco",c:"#69db7c"},{n:"media",t:"colline",c:"#ffa94d"},{n:"difficile",t:"montagna",c:"#ff6b6b"}];
+const QM_DIFF=[null,{n:"facile",t:"boschi",c:"#69db7c"},{n:"media",t:"colline",c:"#ffa94d"},{n:"difficile",t:"montagne",c:"#ff6b6b"}];
 let QM=null;
 function qmRng(seed){let h=2166136261;for(const ch of String(seed))h=Math.imul(h^ch.charCodeAt(0),16777619)>>>0;return()=>{h^=h<<13;h>>>=0;h^=h>>>17;h^=h<<5;h>>>=0;return h/4294967296}}
 function qmDiff(it){const k=kindOf(it);let d=k==="mcq"?1:k==="open"?2:3;const ev=LOG.filter(e=>e.id===it.id);if(ev.length&&ev.slice(-3).some(e=>e.s<.6))d++;else if(ev.length>=2&&ev.slice(-2).every(e=>e.s>=.9))d--;if(it.novita)d++;return Math.max(1,Math.min(3,d))}
@@ -3891,68 +3938,64 @@ function qmGeom(){
   return {W,H,P,seg};
 }
 function qmBuild(){
-  const Q=QM,wrap=$("#qmap");if(!wrap)return;const G=qmGeom();Q.G=G;const {W,H,P,seg}=G,T=Q.T,R=qmRng(Q.key+"deco"),night=Q.mood===3,f1=v=>v.toFixed(1);
-  const PAL=[null,{sky:["#dff1ff","#f2f9e9"],land:"#e4f0d2",land2:"#d3e7bd",ink:"#2f4030",road:"#c9a874",roadIn:"#f4e6c6",tree:["#4f9a58","#6fbf73"],hill:["#d9b77a","#c79a55"],mt:["#a9b3c4","#7d879c"],water:"#9fd3f0"},
-    {sky:["#ffd2a8","#fff0dd"],land:"#f3e2bf",land2:"#ead2a1",ink:"#4a3420",road:"#c08a52",roadIn:"#f7e3c4",tree:["#6f9f4f","#93bf62"],hill:["#e3a764","#c98545"],mt:["#b5a2b6","#8c7792"],water:"#8fc6e0"},
-    {sky:["#0f1631","#22305e"],land:"#26335f",land2:"#2d3c70",ink:"#eef2ff",road:"#5a6aa0",roadIn:"#3a4a85",tree:["#2f6b5a","#3f8b70"],hill:["#4a5a99","#3a4886"],mt:["#7d89bf","#5b679e"],water:"#2f4f8f"}][Q.mood];
-  // terreno: radure morbide, fiume e lago, curve di livello
-  const blobs=[...Array(7)].map(()=>{const x=R()*W,y=R()*H,rx=60+R()*120,ry=36+R()*70;return `<ellipse cx="${f1(x)}" cy="${f1(y)}" rx="${f1(rx)}" ry="${f1(ry)}" fill="${R()<.5?PAL.land2:PAL.land}"/>`}).join("");
-  const rv=Q.port?[[W*R(),-10],[W*(.2+R()*.6),H*.35],[W*(.2+R()*.6),H*.7],[W*R(),H+10]]:[[-10,H*R()],[W*.35,H*(.2+R()*.6)],[W*.65,H*(.2+R()*.6)],[W+10,H*R()]];
-  const river=`M${f1(rv[0][0])} ${f1(rv[0][1])}C${f1(rv[1][0])} ${f1(rv[1][1])} ${f1(rv[2][0])} ${f1(rv[2][1])} ${f1(rv[3][0])} ${f1(rv[3][1])}`;
-  const lake=(()=>{const x=W*(.15+R()*.7),y=H*(.2+R()*.6);return `<ellipse cx="${f1(x)}" cy="${f1(y)}" rx="${f1(22+R()*14)}" ry="${f1(12+R()*8)}" class="qm-lake"/><ellipse cx="${f1(x-4)}" cy="${f1(y-3)}" rx="8" ry="2.4" class="qm-lake-hl"/>`})();
-  const contours=[...Array(4)].map(()=>{const x=R()*W,y=R()*H;return [0,1,2].map(i=>`<ellipse cx="${f1(x)}" cy="${f1(y)}" rx="${f1(24+i*16+R()*6)}" ry="${f1(14+i*10+R()*5)}" class="qm-cont"/>`).join("")}).join("");
-  const clouds=night?"":[0,1,2].map(i=>{const y=18+R()*(H*.3),s=.7+R()*.6,d=40+R()*40;return `<g class="qm-cloud" style="animation-duration:${f1(d)}s;animation-delay:-${f1(R()*d)}s"><g transform="translate(0 ${f1(y)}) scale(${f1(s)})"><ellipse cx="0" cy="0" rx="18" ry="7"/><ellipse cx="-9" cy="-4" rx="9" ry="7"/><ellipse cx="6" cy="-6" rx="10" ry="8"/></g></g>`}).join("");
-  const stars=night?[...Array(34)].map(()=>`<circle cx="${f1(R()*W)}" cy="${f1(R()*H*.95)}" r="${f1(.5+R()*1.1)}" class="qm-star" style="animation-delay:-${f1(R()*4)}s"/>`).join("")+`<g transform="translate(${f1(W*.82)} 34)"><circle r="12" fill="#fff6d5"/><circle cx="5" cy="-3" r="11" fill="${PAL.sky[0]}"/></g>`:"";
-  // paesaggio legato alla difficoltà di ogni tratto
-  const tree=(x,y,s)=>`<g transform="translate(${f1(x)} ${f1(y)}) scale(${f1(s)})"><ellipse cy="5" rx="6" ry="1.8" class="qm-sh"/><rect x="-1" y="-1" width="2" height="6" fill="#8a5a2b"/><circle cy="-4" r="5.5" fill="${PAL.tree[0]}"/><circle cx="-1.6" cy="-5.6" r="2.8" fill="${PAL.tree[1]}"/></g>`;
-  const hill=(x,y,s)=>`<g transform="translate(${f1(x)} ${f1(y)}) scale(${f1(s)})"><path d="M-24 6Q-6 -22 22 6Z" fill="${PAL.hill[1]}"/><path d="M-24 6Q-8 -20 2 -6Q-6 -2 -10 6Z" fill="${PAL.hill[0]}"/><path d="M-4 6Q12 -12 28 6Z" fill="${PAL.hill[0]}" opacity=".85"/></g>`;
-  const mount=(x,y,s)=>`<g transform="translate(${f1(x)} ${f1(y)}) scale(${f1(s)})"><ellipse cy="9" rx="26" ry="3" class="qm-sh"/><path d="M-22 9L-4 -20L14 9Z" fill="${PAL.mt[1]}"/><path d="M-22 9L-4 -20L-6 9Z" fill="${PAL.mt[0]}"/><path d="M-9 -12L-4 -20L1 -12L-2 -14L-4 -11L-6 -14Z" fill="#fff"/><path d="M4 9L17 -10L30 9Z" fill="${PAL.mt[1]}" opacity=".9"/><path d="M4 9L17 -10L15 9Z" fill="${PAL.mt[0]}" opacity=".9"/><path d="M13 -5L17 -10L21 -5L19 -6L17 -4L15 -6Z" fill="#fff"/></g>`;
+  const Q=QM,wrap=$("#qmap");if(!wrap)return;const G=qmGeom();Q.G=G;const {W,H,P,seg}=G,T=Q.T,R=qmRng(Q.key+"deco"),f1=v=>v.toFixed(1);
+  // pergamena: più chiara per i percorsi facili, più vissuta per i difficili
+  const PAR=[null,["#f6ebcd","#e9d6a6"],["#efdcb0","#dcc08a"],["#e2c993","#c9a96a"]][Q.mood],INK="#4a2e16";
+  const tree=(x,y,s)=>`<g class="qm-tree" transform="translate(${f1(x)} ${f1(y)}) scale(${f1(s)})"><path d="M0 4V-1"/><path d="M0 -1C-4 -1 -5 -5 -3 -7C-3 -10 2 -11 3 -8C6 -7 5 -1 0 -1Z"/></g>`;
+  const forest=(x,y,n,s)=>{let o="";for(let i=0;i<n;i++)o+=tree(x+(R()-.5)*26*s,y+(R()-.5)*14*s,s*(.8+R()*.4));return o};
+  const hill=(x,y,s)=>`<g class="qm-hillk" transform="translate(${f1(x)} ${f1(y)}) scale(${f1(s)})"><path d="M-14 4Q-6 -9 4 4"/><path d="M-2 4Q6 -6 14 4"/><path d="M-6 0L-8 3M-3 -2L-5 2M7 -1L5 3"/></g>`;
+  const mount=(x,y,s)=>`<g class="qm-mtk" transform="translate(${f1(x)} ${f1(y)}) scale(${f1(s)})"><path class="fill" d="M-18 8L-5 -16L3 -6L9 -13L22 8Z"/><path d="M-18 8L-5 -16L3 -6L9 -13L22 8"/><path class="hatch" d="M-5 -16L-3 -9L-6 -4L-4 2M-2 -11L0 -6L-1 -1M9 -13L11 -6L9 -1L11 4M12 -8L14 -2L13 3"/><path class="hatch" d="M-12 6L-9 2M-8 7L-5 3M14 7L16 4M18 7L19 5"/></g>`;
   const deco=seg.map(s=>{const out=[];for(let j=0;j<2;j++){const side=j?1:-1,dist=(s.d===3?34:26)+R()*10,x=s.mx-s.nx*dist*side*s.sg,y=s.my-s.ny*dist*side*s.sg;
-      if(x<18||x>W-18||y<22||y>H-14)continue;
-      if(s.d===1){out.push(tree(x,y,.9+R()*.3));out.push(tree(x+9,y+4,.7+R()*.2));if(R()<.6)out.push(tree(x-8,y+5,.65))}
-      else if(s.d===2)out.push(hill(x,y,.8+R()*.35));else out.push(mount(x,y,.85+R()*.35))}return out.join("")}).join("");
-  // segnaposto delle tappe
-  const pill=(txt,y,cls)=>{const L=[];for(const w of txt.split(" ")){if(L.length&&(L[L.length-1]+" "+w).length<=14)L[L.length-1]+=" "+w;else L.push(w)}if(L.length>2)L.splice(1,L.length-1,L.slice(1).join(" "));const w=Math.max(...L.map(x=>x.length))*5.3+12,h=L.length*11.5+4,yy=y<0?y-(L.length-1)*11.5:y;
-    return `<g class="qm-pl ${cls||""}" transform="translate(0 ${f1(yy)})"><rect x="${f1(-w/2)}" y="-8" width="${f1(w)}" height="${f1(h)}" rx="7.5"/>${L.map((t,i)=>`<text y="${f1(3+i*11.5)}">${esc(t)}</text>`).join("")}</g>`};
+      if(x<26||x>W-26||y<30||y>H-22)continue;
+      if(s.d===1)out.push(forest(x,y,4+Math.floor(R()*3),1));else if(s.d===2)out.push(hill(x,y,.9+R()*.3)+hill(x+14,y+8,.7));else out.push(mount(x,y,.9+R()*.35)+(R()<.6?mount(x+18,y+6,.65):""))}return out.join("")}).join("");
+  // fiume a doppio tratto e un lago con le onde
+  const rv=Q.port?[[W*(.1+R()*.8),-10],[W*(.2+R()*.6),H*.35],[W*(.2+R()*.6),H*.7],[W*(.1+R()*.8),H+10]]:[[-10,H*(.2+R()*.6)],[W*.35,H*(.2+R()*.6)],[W*.65,H*(.2+R()*.6)],[W+10,H*(.2+R()*.6)]];
+  const river=`M${f1(rv[0][0])} ${f1(rv[0][1])}C${f1(rv[1][0])} ${f1(rv[1][1])} ${f1(rv[2][0])} ${f1(rv[2][1])} ${f1(rv[3][0])} ${f1(rv[3][1])}`;
+  const lk=[W*(.15+R()*.7),H*(.25+R()*.55)];const lake=`<g class="qm-lakek" transform="translate(${f1(lk[0])} ${f1(lk[1])})"><path d="M-24 0C-24 -11 -8 -14 4 -12C18 -10 26 -4 24 4C22 12 4 13 -8 11C-18 10 -24 6 -24 0Z"/><path class="w" d="M-12 -3q3 -2 6 0t6 0M2 4q3 -2 6 0t6 0M-8 6q3 -2 6 0"/></g>`;
+  // segnaposto in stile inchiostro e ceralacca
+  const lab=(txt,y,cls,mx)=>{const L=[];for(const w of txt.split(" ")){if(L.length&&(L[L.length-1]+" "+w).length<=(mx||15))L[L.length-1]+=" "+w;else L.push(w)}if(L.length>2)L.splice(1,L.length-1,L.slice(1).join(" "));const yy=y<0?y-(L.length-1)*11:y;return `<g class="qm-lab ${cls||""}" transform="translate(0 ${f1(yy)})">${L.map((t,i)=>`<text y="${f1(i*11)}">${esc(t)}</text>`).join("")}</g>`};
   const pins=P.map((p,k)=>{const [x,y]=p;
-    if(!k)return `<g class="qm-start" transform="translate(${f1(x)} ${f1(y)})"><ellipse cy="2" rx="14" ry="3.5" class="qm-sh"/><path d="M-11 1L0 -17L11 1Z" class="tent"/><path d="M-3 1L0 -9L3 1Z" class="door"/><path d="M0 -17V-27" class="pole"/><path d="M0 -27L9 -24L0 -21Z" class="pen"/>${pill("Partenza",16)}</g>`;
-    const l=Q.lab[k-1],fin=k===Q.N;if(!l)return `<circle class="qm-dot" id="qm-p${k}" cx="${f1(x)}" cy="${f1(y)}" r="3.6"/>`;
-    const below=y<H-58,lt=l[0];const isL=/^[A-Z]$|^[IVX]+$/.test(l[1]);
-    if(fin)return `<g class="qm-pin fin" id="qm-p${k}" transform="translate(${f1(x)} ${f1(y)})"><ellipse cy="2" rx="15" ry="4" class="qm-sh"/><rect x="-10" y="-3" width="20" height="5" rx="1.5" class="base"/><path d="M-1 -2V-40" class="pole"/><g class="flag"><path d="M0 -40C8 -43 14 -36 24 -39V-25C14 -22 8 -29 0 -26Z"/><path d="M4 -38.6V-26.6M8 -38.2V-26.4M12 -37.4V-25.9M16 -37.6V-25.8M20 -38.6V-24.9" class="chk"/></g><circle class="halo" cy="-20" r="22"/>${pill(lt,below?16:-50,"fin")}</g>`;
-    return `<g class="qm-pin" id="qm-p${k}" transform="translate(${f1(x)} ${f1(y)})"><ellipse cy="1.5" rx="8" ry="2.6" class="qm-sh"/><circle class="halo" cy="-18" r="17"/><path class="mk" d="M0 1C-4 -6 -13 -11 -13 -19A13 13 0 1 1 13 -19C13 -11 4 -6 0 1Z"/><circle class="face" cy="-19" r="9.5"/><text class="${isL?"qm-let":"qm-emo"}" y="${isL?-15:-15.2}">${esc(l[1])}</text><g class="ok" transform="translate(9 -29)"><circle r="5"/><path d="M-2.4 0L-.6 1.8L2.6 -1.6"/></g>${pill(lt,below?15:-44)}</g>`}).join("");
-  const rose=`<g class="qm-compass" transform="translate(${W-34} ${H-38})"><circle r="17" class="ring"/><circle r="13" class="ring2"/><path d="M0 -15L3 -3L0 0L-3 -3Z" class="n"/><path d="M0 15L3 3L0 0L-3 3Z"/><path d="M15 0L3 3L0 0L3 -3Z"/><path d="M-15 0L-3 3L0 0L-3 -3Z"/><path d="M8 -8L2 -1L0 0L1 -2Z M-8 8L-2 1L0 0L-1 2Z M8 8L1 2L0 0L2 1Z M-8 -8L-1 -2L0 0L-2 -1Z" class="mini"/><text y="-20">N</text></g>`;
-  const scale=`<g class="qm-scale" transform="translate(${Q.port?16:22} ${H-16})"><path d="M0 0H40M0 -3V3M20 -2V2M40 -3V3"/><text x="46" y="3">1 tappa = 1 domanda</text></g>`;
-  wrap.innerHTML=`<div class="qm ${night?"night":""} mood${Q.mood}" style="--qm-ink:${T.ink};--qm-txt:${PAL.ink}">
+    if(!k)return `<g class="qm-startk" transform="translate(${f1(x)} ${f1(y)})"><path d="M-7 4V-10H7V4Z"/><path d="M-9 -10H9L7 -14H-7Z"/><path d="M-7 -14V-17H-4V-14M-1.5 -14V-17H1.5V-14M4 -14V-17H7V-14"/><path d="M-2 4V-2A2 2 0 0 1 2 -2V4"/><path d="M0 -17V-26" /><path class="flag" d="M0 -26L8 -23.5L0 -21Z"/>${lab("Partenza",17)}</g>`;
+    const l=Q.lab[k-1],fin=k===Q.N;if(!l)return `<g class="qm-dot" id="qm-p${k}" transform="translate(${f1(x)} ${f1(y)})"><circle r="3.4"/></g>`;
+    const below=y<H-58,isL=/^[A-Z]$|^[IVX]+$/.test(l[1]);
+    if(fin)return `<g class="qm-pin fin" id="qm-p${k}" transform="translate(${f1(x)} ${f1(y)})"><circle class="halo" cy="-14" r="24"/><g class="castle"><path class="fill" d="M-16 6V-10H-10V-14H-6V-10H-2V-22H2V-26H6V-22H10V-10H16V6Z"/><path d="M-16 6V-10H-10V-14H-6V-10H-2V-22H2V-26H6V-22H10V-10H16V6Z"/><path d="M-3 6V0A3 3 0 0 1 3 0V6M-12 -4V-1M12 -4V-1M4 -16V-13"/><path d="M4 -26V-36"/><path class="flag" d="M4 -36C9 -38 12 -33 17 -35V-29C12 -27 9 -32 4 -30Z"/></g>${lab(l[0],below?20:-44,"fin",10)}</g>`;
+    return `<g class="qm-pin" id="qm-p${k}" transform="translate(${f1(x)} ${f1(y)})"><circle class="halo" r="17"/><circle class="seal" r="12"/><circle class="ring" r="9.5"/><text class="${isL?"qm-let":"qm-emo"}" y="${isL?4.5:4}">${esc(l[1])}</text><g class="ok" transform="translate(9 -9)"><circle r="4.6"/><path d="M-2.2 0L-.5 1.7L2.4 -1.5"/></g>${lab(l[0],below?24:-18)}</g>`}).join("");
+  const pts=16,rose=`<g class="qm-rosek" transform="translate(${W-40} ${H-44}) scale(${Q.port?.85:1})"><circle r="22" class="r0"/><circle r="17" class="r1"/>${[...Array(pts)].map((_,i)=>{const a=i*Math.PI*2/pts,L=i%4===0?24:i%2===0?16:11,w=i%4===0?4:2.6,ca=Math.cos(a),sa=Math.sin(a),px=-sa*w,py=ca*w;return `<path class="${i%2?"b":"a"}" d="M0 0L${f1(px)} ${f1(py)}L${f1(sa*L)} ${f1(-ca*L)}Z"/><path class="${i%2?"a":"b"}" d="M0 0L${f1(-px)} ${f1(-py)}L${f1(sa*L)} ${f1(-ca*L)}Z"/>`}).join("")}<circle r="2.4" class="c"/><text y="-28">N</text></g>`;
+  const title=`<g class="qm-cart" transform="translate(${Q.port?W/2:Math.min(W/2,250)} 22)"><path d="M-${Q.port?120:150} -11H${Q.port?120:150}L${Q.port?128:158} 0L${Q.port?120:150} 11H-${Q.port?120:150}L-${Q.port?128:158} 0Z"/><path class="in" d="M-${Q.port?114:144} -7H${Q.port?114:144}M-${Q.port?114:144} 7H${Q.port?114:144}"/><text y="4">${esc(T.t)}</text></g>`;
+  const corner=(x,y,r)=>`<g class="qm-corner" transform="translate(${x} ${y}) rotate(${r})"><path d="M0 22V6Q0 0 6 0H22M4 18V9Q4 4 9 4H18"/><circle cx="7" cy="7" r="1.8"/></g>`;
+  wrap.innerHTML=`<div class="qm tolk mood${Q.mood}" style="--qm-ink:${T.ink}">
     <div class="qm-head"><div><span class="eyebrow">Mappa del percorso · ${esc(SUBJ[Q.theme]?SUBJ[Q.theme].short:"Collegamenti")}</span><b>${esc(T.t)}</b><span class="small">${esc(T.s)}</span></div>
-      <div class="qm-badges"><span class="qm-b" style="--b:${QM_DIFF[Q.mood].c}">${["","☀️","🌅","🌙"][Q.mood]} Percorso ${QM_DIFF[Q.mood].n}</span><span class="qm-b mono" id="qm-count">0/${Q.N}</span><span class="qm-b" id="qm-bad" style="--b:#868e96" hidden></span></div></div>
+      <div class="qm-badges"><span class="qm-b" style="--b:${QM_DIFF[Q.mood].c}">${["","Sentiero dei boschi","Via delle colline","Passo delle montagne"][Q.mood]}</span><span class="qm-b mono" id="qm-count">0/${Q.N}</span><span class="qm-b" id="qm-bad" style="--b:#868e96" hidden></span></div></div>
     <svg viewBox="0 0 ${W} ${H}" class="qm-svg" role="img" aria-label="Mappa: la siringa avanza di una tappa per ogni risposta corretta">
-      <defs><linearGradient id="qm-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${PAL.sky[0]}"/><stop offset="1" stop-color="${PAL.sky[1]}"/></linearGradient>
-        <radialGradient id="qm-vig" cx=".5" cy=".5" r=".75"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="${night?.35:.12}"/></radialGradient>
-        <filter id="qm-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter>
-        <linearGradient id="qm-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#eef6fb"/><stop offset="1" stop-color="#cfdde6"/></linearGradient>
-        <clipPath id="qm-clip"><rect width="${W}" height="${H}" rx="18"/></clipPath></defs>
+      <defs><radialGradient id="qm-par" cx=".5" cy=".45" r=".75"><stop offset="0" stop-color="${PAR[0]}"/><stop offset=".75" stop-color="${PAR[1]}"/><stop offset="1" stop-color="#b08a4e"/></radialGradient>
+        <filter id="qm-paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="${Math.floor(R()*99)}" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 .35  0 0 0 0 .22  0 0 0 0 .08  0 0 0 .16 0"/></filter>
+        <filter id="qm-blot" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".015" numOctaves="2" seed="${Math.floor(R()*99)}" result="t"/><feColorMatrix in="t" type="matrix" values="0 0 0 0 .45  0 0 0 0 .3  0 0 0 0 .12  0 0 0 -1.6 .9"/></filter>
+        <filter id="qm-rough"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="1" seed="3" result="r"/><feDisplacementMap in="SourceGraphic" in2="r" scale="1.6"/></filter>
+        <radialGradient id="qm-burn" cx=".5" cy=".5" r=".72"><stop offset=".72" stop-color="#3b2208" stop-opacity="0"/><stop offset="1" stop-color="#3b2208" stop-opacity=".55"/></radialGradient>
+        <linearGradient id="qm-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#e6d8bc"/></linearGradient>
+        <clipPath id="qm-clip"><rect width="${W}" height="${H}" rx="10"/></clipPath></defs>
       <g clip-path="url(#qm-clip)">
-      <rect width="${W}" height="${H}" fill="url(#qm-sky)"/>${stars}
-      <g filter="url(#qm-soft)" opacity="${night?.9:.95}"><rect x="-20" y="${f1(H*.12)}" width="${W+40}" height="${H}" rx="60" fill="${PAL.land}"/>${blobs}</g>
-      ${contours}
-      <path d="${river}" class="qm-river"/><path d="${river}" class="qm-river-in"/>${lake}
-      ${clouds}
-      ${deco}
-      ${seg.map(s=>`<path class="qm-road-e d${s.d}" d="${s.path}" style="stroke:${PAL.road}"/>`).join("")}
-      ${seg.map(s=>`<path class="qm-road d${s.d}" d="${s.path}" style="stroke:${PAL.roadIn}"/>`).join("")}
+      <rect width="${W}" height="${H}" fill="url(#qm-par)"/><rect width="${W}" height="${H}" filter="url(#qm-blot)" opacity=".5"/><rect width="${W}" height="${H}" filter="url(#qm-paper)"/>
+      <g filter="url(#qm-rough)">
+        <path d="${river}" class="qm-riverk"/><path d="${river}" class="qm-riverk2"/>${lake}
+        ${deco}
+        ${seg.map(s=>`<path class="qm-road d${s.d}" d="${s.path}"/>`).join("")}
+      </g>
       ${seg.map((s,i)=>`<path class="qm-trail" id="qm-s${i}" d="${s.path}"/>`).join("")}
       <g id="qm-obs"></g>
       ${pins}
-      ${rose}${scale}
+      ${rose}${title}
+      <g class="qm-scale" transform="translate(${Q.port?18:26} ${H-18})"><path d="M0 0H44M0 -3V3M11 -2V2M22 -3V3M33 -2V2M44 -3V3"/><text x="50" y="3">Una lega = una domanda</text></g>
       <ellipse id="qm-shadow" rx="15" ry="3.4" class="qm-sh"/>
       <g id="qm-syr"><g transform="scale(1.3)"><rect x="-25" y="-5.4" width="2.8" height="10.8" rx="1.2" class="rod"/><rect x="-23" y="-1.3" width="7" height="2.6" class="rod"/><rect x="-17" y="-5.2" width="25" height="10.4" rx="3" class="barrel"/><rect id="qm-liq" x="-15" y="-3.3" width="20" height="6.6" rx="2" class="liq"/><path d="M-15 -3.1H5" class="shine"/><path d="M-12 -5.2V-3M-8 -5.2V-3M-4 -5.2V-3M0 -5.2V-3M4 -5.2V-3" class="tick"/><rect x="8" y="-2.6" width="4.4" height="5.2" rx="1.2" class="hub"/><path d="M12.4 -.65H24L25.6 0L24 .65H12.4Z" class="needle"/></g></g>
       <g id="qm-fx"></g>
-      <rect width="${W}" height="${H}" fill="url(#qm-vig)" pointer-events="none"/>
+      <rect width="${W}" height="${H}" fill="url(#qm-burn)" pointer-events="none"/>
       </g>
-      <rect x="5" y="5" width="${W-10}" height="${H-10}" rx="14" class="qm-frame"/>
+      <rect x="6" y="6" width="${W-12}" height="${H-12}" rx="6" class="qm-fr1"/><rect x="11" y="11" width="${W-22}" height="${H-22}" rx="4" class="qm-fr2"/>
+      ${corner(11,11,0)}${corner(W-11,11,90)}${corner(W-11,H-11,180)}${corner(11,H-11,270)}
     </svg>
-    <div class="qm-foot"><div class="qm-txt"><div id="qm-next" class="qm-next"></div><div id="qm-info" class="qm-info"><b>Partenza.</b> Rispondi correttamente per far avanzare la siringa di una tappa. Ogni tappa è un passaggio di «${esc(T.t.toLowerCase())}».</div></div>
-      <div class="qm-leg">${[1,2,3].filter(d=>Q.diffs.includes(d)).map(d=>`<span><i class="lg">${["","🌳","⛰️","🏔️"][d]}</i>${QM_DIFF[d].t}: domanda ${QM_DIFF[d].n}</span>`).join("")}<span><i class="lg">🪨</i>errore: ostacolo da ripassare</span></div></div>
+    <div class="qm-foot"><div class="qm-txt"><div id="qm-next" class="qm-next"></div><div id="qm-info" class="qm-info"><b>Partenza.</b> Rispondi correttamente per far avanzare la siringa di una tappa lungo «${esc(T.t.toLowerCase())}». Il percorso compiuto si traccia in inchiostro rosso.</div></div>
+      <div class="qm-leg">${[1,2,3].filter(d=>Q.diffs.includes(d)).map(d=>`<span><i class="lg lg${d}"></i>${QM_DIFF[d].t}: domanda ${QM_DIFF[d].n}</span>`).join("")}<span><i class="lg lg4"></i>errore: ostacolo da ripassare</span><span><i class="lg lg5"></i>cammino percorso</span></div></div>
   </div>`;
   qmPlace(0,1);
 }
