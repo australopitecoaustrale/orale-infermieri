@@ -901,6 +901,13 @@ header.top .top-in{gap:58px}
 .qm.won{border-color:#e0a100;box-shadow:0 0 0 3px rgba(224,161,0,.18),var(--shadow)}
 @media (prefers-reduced-motion: reduce){.qm-cloud,.qm-star,.qm-river-in,.qm-pin .flag,.qm-pin.next .mk,.qm-pin.next .face,.qm-pin.next text,.qm-pin.next .halo{animation:none}}
 @media (prefers-reduced-motion: reduce){.qm-pin.next .halo{animation:none}}
+
+/* ---- autocorrezione del voto ---- */
+.selfcheck{margin-top:10px;border:1px dashed var(--line);border-radius:12px;padding:8px 12px;background:var(--bg)}
+.selfcheck summary{cursor:pointer;font-weight:700;font-size:.9rem;color:var(--scrub)}
+.sc-list{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.sc-i{display:flex;gap:8px;align-items:flex-start;font-size:.88rem;cursor:pointer}
+.sc-i input{margin-top:3px;accent-color:var(--scrub);width:16px;height:16px;flex:none}
 </style>
 </head>
 <body>
@@ -3736,23 +3743,47 @@ function keyOf(p){
   const acr=(p.match(/\b[A-Z]{2,}[A-Z0-9]*\b/g)||[]).map(x=>x.toLowerCase());
   return {refs:[...new Set(refs)],words:[...new Set(words)],acr:[...new Set(acr)]};
 }
-function autoGrade(answer,rub){
-  const t=normTxt(answer), tc=t.replace(/\s+/g,"");
-  const aw=new Set((t.match(/[a-z]{5,}/g)||[]).map(stem));
-  const aa=new Set((t.match(/[a-z0-9]{2,}/g)||[]));
-  const hit=[];
+/* sigle e sinonimi frequenti: la risposta e la griglia vengono «espanse» prima del confronto */
+const GR_ABBR={pa:"pressione arteriosa",fc:"frequenza cardiaca",fr:"frequenza respiratoria",spo2:"saturazione ossigeno",sato2:"saturazione ossigeno",tc:"temperatura corporea",ev:"endovena",iv:"endovena",im:"intramuscolo",gcs:"glasgow coscienza",ecg:"elettrocardiogramma",rcp:"rianimazione cardiopolmonare",bls:"rianimazione supporto vitale",blsd:"rianimazione defibrillazione",dae:"defibrillatore",ima:"infarto miocardico",stemi:"infarto sopraslivellamento",ica:"infezioni correlate assistenza",dpi:"dispositivi protezione individuale",oss:"operatore sociosanitario",ssn:"servizio sanitario nazionale",asl:"azienda sanitaria",pai:"piano assistenza individualizzato",ega:"emogasanalisi",cvc:"catetere venoso centrale",sng:"sondino nasogastrico",peg:"gastrostomia",lpp:"lesioni pressione",tso:"trattamento sanitario obbligatorio",dat:"disposizioni anticipate trattamento",gdpr:"protezione dati personali",dvr:"documento valutazione rischi",rspp:"responsabile servizio prevenzione protezione",rls:"rappresentante lavoratori sicurezza",bpco:"broncopneumopatia cronica ostruttiva",lea:"livelli essenziali assistenza",ecm:"educazione continua medicina",opi:"ordine professioni infermieristiche",ccnl:"contratto collettivo nazionale",sbar:"situazione background valutazione raccomandazione",nanda:"diagnosi infermieristica",pes:"problema eziologia segni",avpu:"coscienza",o2:"ossigeno",kcl:"potassio cloruro",fa:"fibrillazione atriale",tv:"tachicardia ventricolare",fv:"fibrillazione ventricolare",ivg:"interruzione gravidanza",adi:"assistenza domiciliare",cot:"centrale operativa territoriale",ifec:"infermiere famiglia comunita",upd:"procedimenti disciplinari",rpct:"prevenzione corruzione trasparenza"};
+const GR_LAW=[[/\bgelli(?:[\s-]*bianco)?\b/g," 24/2017 "],[/\blorenzin\b/g," 3/2018 "],[/\bbasaglia\b/g," 180/1978 "],[/\bbindi\b/g," 229/1999 "],[/\btesto unico (?:sulla )?sicurezza\b/g," 81/2008 "],[/\bcodice (?:della )?privacy\b/g," 196/2003 "],[/\bbrunetta\b/g," 150/2009 "],[/\bmansionario\b/g," 225/1974 mansionario "]];
+const GR_CLUST=[["monitor","controll","rilev","misur","valut","osserv","verific","accert"],["somminis","erog","infond"],["avvis","inform","comunic","segnal","allert","chiam","contatt"],["document","registr","annot","trascri","scriv","cartell"],["educa","insegn","istru","spieg","addestr"],["preven","evit","ridur","limit"],["rischi","pericol"],["dolor","algic"],["ossigen","ventil"],["posizion","postur","decubit"],["mobiliz","movim","deambul"],["idrat","liquid"],["sicurez","proteg","tutel"],["respons","colpa","colpev"],["prioric","priorit","urgen"],["igien","lavagg","pulizi","disinfe","antisett"]];
+const GR_GEN=new Set("infermi assiste sanitar pazient person import necessa corrett adegua eventua sempre fonda corret partic genera specif divers proprio propri attivi utiliz signif rappre consen".split(" "));
+function grNorm(t){let x=normTxt(String(t));
+  x=x.replace(/\b(?:l|legge|d\.?\s*lgs|dlgs|dpr|dm|d\.?\s*m|decreto)\.?\s*(?:n\.?\s*)?(\d{1,4})\s*(?:\/|del|,|-)\s*(?:\d{1,2}\s+\w+\s+)?(\d{4})\b/g," $1/$2 ");
+  x=x.replace(/\b(\d{1,4})\s+del\s+(\d{4})\b/g," $1/$2 ");
+  x=x.replace(/\barticolo\b/g,"art").replace(/\bart\.?\s*(\d+)/g," art$1 ");
+  for(const [re,r] of GR_LAW)x=x.replace(re,r);
+  x=x.replace(/\b[a-z0-9]{2,6}\b/g,w=>GR_ABBR[w]?w+" "+GR_ABBR[w]:w);
+  return x}
+function grStem(w){for(const suf of ["azioni","azione","amente","mente","zioni","zione","sioni","sione","anza","enza","ita","ivi","ive","iva","ivo","iche","ici","ica","ico","ali","ale","ari","are","ere","ire","ato","ata","ati","ate","uto","uta","uti","ute","osi","ose","osa","oso","ando","endo","i","e","a","o"])if(w.length-suf.length>=4&&w.endsWith(suf)){w=w.slice(0,-suf.length);break}
+  w=w.slice(0,7);for(const c of GR_CLUST)if(c.some(p=>w.startsWith(p)||(w.length>=5&&p.startsWith(w))))return "§"+c[0];return w}
+function grWords(t){return (t.match(/[a-z]{4,}/g)||[]).filter(w=>!STOP.has(w)).map(grStem).filter(w=>!GR_GEN.has(w.slice(0,7))&&!GR_GEN.has(w.slice(0,6)))}
+function grMatch(w,set){if(set.has(w))return true;if(w[0]==="§"||w.length<5)return false;for(const a of set)if(a[0]!=="§"&&a.length>=5&&(a.startsWith(w.slice(0,5))&&w.startsWith(a.slice(0,5))))return true;return false}
+function autoGrade(answer,rub,question){
+  const t=grNorm(answer),tc=t.replace(/\s+/g,"");
+  const qn=question?grNorm(question):"",qw=new Set(grWords(qn)),qa=new Set(qn.match(/[a-z0-9]{2,}/g)||[]),qc=qn.replace(/\s+/g,"");
+  const aw=new Set(grWords(t)),aa=new Set(t.match(/[a-z0-9]{2,}/g)||[]);
+  const hit=[],part=[];
   rub.forEach((p,i)=>{
-    const k=keyOf(p);
-    const refHit=k.refs.filter(r=>tc.includes(r)).length, acrHit=k.acr.filter(a=>aa.has(a)).length;
-    const wHit=k.words.filter(w=>aw.has(w)).length;
-    const need=Math.max(1,Math.ceil(k.words.length*.4));
-    if(refHit&&wHit>=1||acrHit&&wHit>=1||wHit>=need)hit.push(i);
+    const pn=grNorm(p),k=keyOf(pn);let words=[...new Set(grWords(pn))];const wq=words.filter(w=>!qw.has(w));if(wq.length)words=wq;
+    const refs=k.refs.filter(r=>r.length>=2&&!/^\d$/.test(r)&&!qc.includes(r)),refHit=refs.filter(r=>tc.includes(r)).length,acr=(p.match(/\b[A-Z]{2,}[A-Z0-9]*\b/g)||[]).map(x=>x.toLowerCase()).filter(a=>!qa.has(a)),acrHit=acr.filter(a=>aa.has(a)).length;
+    const m=words.filter(w=>grMatch(w,aw)).length,cov=words.length?m/words.length:0;
+    const ok=cov>=.34||((refHit||acrHit)&&m>=1)||m>=3||(refHit&&!words.length);
+    if(ok)hit.push(i);part.push(ok?1:Math.min(.6,cov/.5*.6));
   });
-  const words=(answer.match(/\S+/g)||[]).length;
-  let score=rub.length?hit.length/rub.length:0;
-  const short=words<25; if(short)score*=.7;
+  const nw=(answer.match(/\S+/g)||[]).length;
+  let score=rub.length?part.reduce((a,b)=>a+b,0)/(rub.length*.55):0;
+  const short=nw<12;if(short)score*=.85;
   return {hit,score:Math.min(1,score),short};
 }
+/* autocorrezione: lo studente spunta i punti trattati e il voto si ricalcola */
+function selfScore(n,tot){return tot?Math.min(1,n/(tot*.55)):0}
+function regradeItem(it,ns){const old=it._s||0;if(Math.abs(ns-old)<1e-6)return;const wasOk=old>=.6,isOk=ns>=.6;it._s=ns;qz.sc+=ns-old;if(wasOk!==isOk)qz.ok+=isOk?1:-1;
+  for(let i=LOG.length-1;i>=0;i--)if(LOG[i].id===it.id){LOG[i].s=Math.max(0,Math.min(1,ns));LOG[i].x=Object.assign({},LOG[i].x||{},{voto:Math.round(ns*30),by:"griglia"});break}LS.set("log",LOG);
+  if(qz.f==="oggi"){const kk="daily2-"+todayStr(),v=LS.get(kk,null);if(v&&v.s){v.sc=qz.sc;v.ok=qz.ok;v.s[idOf(it)]=ns;LS.set(kk,v)}}
+  if(QM){if(isOk&&!wasOk){QM.bad=Math.max(0,QM.bad-1);qmStep(true,it)}else if(!isOk&&wasOk){QM.pos=Math.max(0,QM.pos-1);QM.bad++;qmPlace(QM.pos,1);qmObstacles()}}}
+function selfCheckHtml(rub,hit,id){return `<details class="selfcheck" id="${id}"><summary>Il voto non ti convince? Correggi tu</summary><p class="small">Spunta i punti che hai trattato, anche con parole tue o con sinonimi. Il voto si ricalcola: con poco più della metà dei punti hai il massimo, con circa un terzo la sufficienza.</p><div class="sc-list">${rub.map((p,i)=>`<label class="sc-i"><input type="checkbox" value="${i}" ${hit.includes(i)?"checked":""}><span>${esc(p)}</span></label>`).join("")}</div><div class="row"><button class="btn primary" data-sc="go">Aggiorna il voto</button><span class="small" data-sc="out"></span></div></details>`}
+function bindSelfCheck(id,rub,onScore){const el=document.getElementById(id);if(!el)return;el.querySelector('[data-sc="go"]').onclick=()=>{const n=el.querySelectorAll("input:checked").length,sc=selfScore(n,rub.length);el.querySelector('[data-sc="out"]').textContent=`Nuovo voto: ${Math.round(sc*30)}/30 (${n} punti su ${rub.length})`;onScore(sc,n)}}
 
 
 /* ---- correzione approfondita: trova la scheda di studio più vicina alla domanda ---- */
@@ -4020,27 +4051,35 @@ function drawQ(){
     if(sm){
       $("#gstat").textContent="La commissione sta valutando…";
       try{
-        const g=await sm.json(`Sei un commissario d'esame per il concorso pubblico per infermieri (Regione Puglia). Valuta in modo obiettivo, coerente e severo ma equo la risposta del candidato confrontandola con la griglia. Non premiare la lunghezza: conta la presenza dei concetti corretti e l'assenza di errori. Le affermazioni errate abbassano il voto.
+        const g=await sm.json(`Sei un commissario d'esame per il concorso pubblico per infermieri (Regione Puglia). Valuta la risposta del candidato in modo equo e coerente, come farebbe un commissario competente.
+Regole di valutazione:
+- Conta il contenuto, non le parole: accetta sinonimi, sigle, parafrasi, ordine diverso, linguaggio semplice o abbreviato.
+- La griglia è un elenco dei contenuti possibili, non un obbligo: non serve citarli tutti. Un punto è «coperto» se il concetto è presente anche solo in sostanza.
+- Una risposta corretta e pertinente che coglie il concetto centrale vale almeno 18/30 anche se sintetica; 22-26 se è completa e motivata; 27-30 se è completa, precisa e con norme o riferimenti corretti.
+- Sotto 18 solo se manca il concetto centrale oppure ci sono errori rilevanti (indicazioni pericolose, norme sbagliate). Le imprecisioni di forma non sono errori.
+- Nel dubbio, decidi a favore del candidato.
 ${k==="case"?"Caso clinico: "+it.c.title+". "+it.c.story+"\n":"Domanda: "+it.o.q+"\n"}Griglia dei punti attesi (indice: punto):
 ${rub.map((p,i)=>i+": "+p).join("\n")}
 ${k==="open"&&it.o.fix?"Correzioni verificate che prevalgono sulla griglia: "+it.o.fix.join(" ")+"\n":""}
-Risposta del candidato:
+${k==="open"&&it.o.a?"Risposta di riferimento (per capire i concetti, non da pretendere parola per parola): "+String(it.o.a).slice(0,900)+"\n":""}Risposta del candidato:
 ${answer}
 
-Rispondi solo con JSON: {"voto": intero 0-30, "coperti": [indici dei punti della griglia trattati correttamente], "mancanti": [max 3 concetti mancanti, brevi], "errori": [affermazioni errate, brevi, eventualmente vuoto], "commento": "max 2 frasi su cosa migliorare"}`,{modelTier:"default",cache:false});
+Rispondi solo con JSON: {"voto": intero 0-30, "coperti": [indici dei punti della griglia trattati correttamente, anche con parole diverse], "mancanti": [max 3 concetti mancanti, brevi], "errori": [affermazioni errate, brevi, eventualmente vuoto], "commento": "max 2 frasi su cosa migliorare"}`,{modelTier:"default",cache:false});
         const voto=Math.max(0,Math.min(30,Math.round(+g.voto||0)));
         $("#gstat").textContent="";
         $("#qexp").innerHTML=`<div class="expl"><b>Voto: ${voto}/30.</b> ${esc(g.commento||"")}${(g.mancanti||[]).length?`<br><b>Mancava:</b> ${esc(g.mancanti.join("; "))}`:""}${(g.errori||[]).length?`<br><b>Errori:</b> ${esc(g.errori.join("; "))}`:""}</div>`+ref;
         finish(voto/30,{voto,miss:(g.mancanti||[]).slice(0,3).map(String),err:(g.errori||[]).length,by:"claude"});
+        {const d=document.createElement("div");d.innerHTML=selfCheckHtml(rub,(g.coperti||[]).map(Number),"sc-"+qz.i);$("#qexp").insertBefore(d.firstElementChild,$("#qexp").children[1]||null);bindSelfCheck("sc-"+qz.i,rub,sc=>{regradeItem(it,sc);const e=$("#qexp .expl b");if(e)e.textContent="Voto: "+Math.round(sc*30)+"/30 (corretto da te)."})}
         return;
       }catch(e){$("#gstat").textContent=e?.code==="rate_limited"?"Troppe richieste: valuta tu con la griglia.":"Valutazione automatica non riuscita: usa la griglia."}
     }
     // valutazione automatica senza Claude: confronta la risposta con i punti della griglia (parole chiave, norme, numeri)
-    const ev=autoGrade(answer,rub);
+    const ev=autoGrade(answer,rub,k==="open"?it.o.q:it.steps.map(j=>it.c.steps[j][0]).join(" "));
     const sc=ev.score;
-    $("#qexp").innerHTML=`<div class="expl"><b>Voto automatico: ${Math.round(sc*30)}/30</b> · ${ev.hit.length} punti su ${rub.length} trovati nella tua risposta.${ev.short?" La risposta è molto breve: all'orale servono definizione, norma ed esempio.":""}</div>
+    $("#qexp").innerHTML=`<div class="expl"><b>Voto automatico: ${Math.round(sc*30)}/30</b> · ${ev.hit.length} punti su ${rub.length} riconosciuti nella tua risposta (ne basta poco più della metà per il massimo). Il confronto automatico può non riconoscere parole molto diverse: se hai trattato un punto, spuntalo qui sotto.${ev.short?" La risposta è molto breve: all'orale servono definizione, norma ed esempio.":""}</div>
       <div class="grade-list">${rub.map((p,i)=>`<div class="${ev.hit.includes(i)?"g-ok":"g-no"}"><span aria-hidden="true">${ev.hit.includes(i)?"✓":"✕"}</span>${esc(p)}</div>`).join("")}</div>`+ref;
     finish(sc,{voto:Math.round(sc*30),miss:rub.filter((_,i)=>!ev.hit.includes(i)).slice(0,3).map(p=>p.slice(0,90)),by:"auto"});
+    {const d=document.createElement("div");d.innerHTML=selfCheckHtml(rub,ev.hit,"sc-"+qz.i);$("#qexp").insertBefore(d.firstElementChild,$("#qexp").children[2]||null);bindSelfCheck("sc-"+qz.i,rub,(sc2,n)=>{regradeItem(it,sc2);const e=$("#qexp .expl b");if(e)e.textContent="Voto: "+Math.round(sc2*30)+"/30 (corretto da te)";$("#qexp").querySelectorAll(".grade-list > div").forEach((r,ix)=>{const on=[...document.querySelectorAll("#sc-"+(qz.i)+" input:checked")].some(c=>+c.value===ix);r.className=on?"g-ok":"g-no";r.firstElementChild.textContent=on?"✓":"✕"})})}
   };
 }
 /* costruisce gli elementi misti */
@@ -4384,7 +4423,13 @@ async function gradeAnswer(context,question,answer,rub){
   if(!answer.trim())return {voto:0,miss:[],err:[],comm:"Nessuna risposta.",by:"auto",hit:[]};
   const sm=await getSampleSafe();
   if(sm){try{
-    const g=await sm.json(`Sei un commissario d'esame per il concorso pubblico per infermieri (Regione Puglia). Valuta in modo obiettivo, coerente e severo ma equo la risposta del candidato confrontandola con la griglia. Non premiare la lunghezza: conta la presenza dei concetti corretti e l'assenza di errori; le affermazioni errate abbassano il voto.
+    const g=await sm.json(`Sei un commissario d'esame per il concorso pubblico per infermieri (Regione Puglia). Valuta la risposta del candidato in modo equo e coerente, come farebbe un commissario competente.
+Regole di valutazione:
+- Conta il contenuto, non le parole: accetta sinonimi, sigle, parafrasi, ordine diverso, linguaggio semplice o abbreviato.
+- La griglia è un elenco dei contenuti possibili, non un obbligo: non serve citarli tutti. Un punto è «coperto» se il concetto è presente anche solo in sostanza.
+- Una risposta corretta e pertinente che coglie il concetto centrale vale almeno 18/30 anche se sintetica; 22-26 se è completa e motivata; 27-30 se è completa, precisa e con norme o riferimenti corretti.
+- Sotto 18 solo se manca il concetto centrale oppure ci sono errori rilevanti (indicazioni pericolose, norme sbagliate). Le imprecisioni di forma non sono errori.
+- Nel dubbio, decidi a favore del candidato.
 Contesto: ${context}
 Domanda: ${question}
 Griglia dei punti attesi (indice: punto):
@@ -4395,7 +4440,7 @@ ${answer}
 Rispondi solo con JSON: {"voto": intero 0-30, "coperti": [indici dei punti trattati correttamente], "mancanti": [max 3 concetti mancanti, brevi], "errori": [affermazioni errate, brevi], "commento": "max 2 frasi"}`,{modelTier:"default",cache:false});
     return {voto:Math.max(0,Math.min(30,Math.round(+g.voto||0))),miss:(g.mancanti||[]).slice(0,3).map(String),err:(g.errori||[]).map(String),comm:String(g.commento||""),by:"claude",hit:(g.coperti||[]).map(Number)};
   }catch(e){}}
-  const ev=autoGrade(answer,rub);
+  const ev=autoGrade(answer,rub,question);
   return {voto:Math.round(ev.score*30),miss:rub.filter((_,i)=>!ev.hit.includes(i)).slice(0,3).map(p=>p.slice(0,90)),err:[],comm:ev.short?"Risposta molto breve: aggiungi definizioni, priorità e riferimenti.":"",by:"auto",hit:ev.hit};
 }
 function caseView(c){
@@ -4431,9 +4476,11 @@ function caseView(c){
       const g=await gradeAnswer(`Caso clinico: ${c.title}. ${c.story} Parametri: ${c.vit.map(v=>v[0]+" "+v[1]).join(", ")}.`,s[0],text,rub);
       stt.textContent="";votes.push(g.voto);
       res.innerHTML=`<div class="expl"><b>Voto: ${g.voto}/30</b>${g.by==="auto"?" (automatico)":""}. ${esc(g.comm)}${g.miss.length?`<br><b>Mancava:</b> ${esc(g.miss.join("; "))}`:""}${g.err.length?`<br><b>Errori:</b> ${esc(g.err.join("; "))}`:""}</div>
+        ${text.trim()?selfCheckHtml(rub,g.hit||[],"csc-"+i):""}
         <div class="answer"><b>Risposta guida</b>\n${esc(s[1])}</div>
         ${s[2]?`<div class="evo"><span class="eyebrow">Evoluzione del quadro</span><p>${esc(s[2])}</p></div>`:""}
         <div class="row">${i+1<c.steps.length?`<button class="btn primary" data-k="next">Domanda successiva</button>`:`<button class="btn primary" data-k="end">Concludi il caso</button>`}</div>`;
+      {const vi=votes.length-1;bindSelfCheck("csc-"+i,rub,sc=>{votes[vi]=Math.round(sc*30);const e=res.querySelector(".expl b");if(e)e.textContent="Voto: "+votes[vi]+"/30 (corretto da te)"})}
       const nx=res.querySelector("[data-k=next]"),en=res.querySelector("[data-k=end]");
       if(nx)nx.onclick=()=>{nx.disabled=true;i++;drawStep()};
       if(en)en.onclick=()=>{en.disabled=true;finish()};
