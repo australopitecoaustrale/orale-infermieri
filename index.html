@@ -771,6 +771,28 @@ nav.tabs a:not([aria-current="page"]):hover{background:rgba(255,255,255,.1)}
   .brand b{font-size:1.55rem}
   .brand span{font-size:.86rem;margin-top:5px}
 }
+
+/* ---- Studio: pannello laterale delle materie ---- */
+.studio{grid-template-columns:268px minmax(0,1fr);gap:22px}
+.studio>.topic{min-width:0}
+.toc{top:calc(var(--hdr-h,130px) + 14px);max-height:calc(100vh - var(--hdr-h,130px) - 28px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;
+  padding:10px;gap:2px;background:color-mix(in srgb,var(--paper) 88%,transparent);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);backdrop-filter:blur(6px)}
+.toc-h{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:6px 10px 8px}
+.toc button{display:grid;grid-template-columns:10px minmax(0,1fr) auto;align-items:center;gap:10px;white-space:normal;line-height:1.25;padding:9px 10px;border-radius:11px;font-size:.92rem;transition:background .2s,transform .2s}
+.toc button i{width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 18%,transparent)}
+.toc button span{min-width:0;overflow-wrap:anywhere}
+.toc button em{font-style:normal;font-family:var(--f-mono);font-size:.72rem;font-weight:600;color:var(--muted);background:var(--bg);border-radius:20px;padding:2px 7px}
+.toc button:hover{background:color-mix(in srgb,var(--c) 8%,transparent)}
+.toc button[aria-current="true"]{background:color-mix(in srgb,var(--c) 12%,var(--paper));box-shadow:inset 3px 0 0 var(--c);color:color-mix(in srgb,var(--c) 70%,var(--ink))}
+.toc button[aria-current="true"] em{background:var(--c);color:#fff}
+@media (max-width:1000px) and (min-width:821px){.studio{grid-template-columns:230px minmax(0,1fr)}.toc button{font-size:.86rem}}
+@media (max-width:820px){
+  .studio{grid-template-columns:minmax(0,1fr);gap:14px}
+  .toc{position:static;flex-direction:row;overflow-x:auto;overflow-y:hidden;max-height:none;padding:6px;border-radius:14px;gap:6px;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}
+  .toc-h{display:none}
+  .toc button{white-space:nowrap;flex:none;grid-template-columns:8px auto auto;gap:7px;padding:7px 11px;font-size:.86rem}
+  .toc button i{width:8px;height:8px}
+}
 </style>
 </head>
 <body>
@@ -1991,7 +2013,7 @@ function vitalsMonitor(vit,c){
   const rnd=(a,b)=>a+Math.random()*(b-a),pick=a=>a[Math.floor(Math.random()*a.length)],TAU=Math.PI*2;
   const rgba=(hex,a)=>{const n=parseInt(hex.slice(1),16);return `rgba(${n>>16},${n>>8&255},${n&255},${a})`};
   const W_=a=>`rgba(255,255,255,${a})`;
-  function size(){const r=hd.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=Math.max(1,r.width);H=Math.max(1,r.height);{const nv=hd.querySelector("nav.tabs");if(nv&&W>=700){const nt=nv.getBoundingClientRect().top-r.top;H=Math.max(60,Math.round(nt+nv.offsetHeight*.42))}cv.style.height=H+"px";cv.style.bottom="auto"}cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);{const tx=document.querySelector("header.top .brand .txt");titleR=tx?tx.getBoundingClientRect().right-r.left:W*.5}calcBox();
+  function size(){const r=hd.getBoundingClientRect();document.documentElement.style.setProperty("--hdr-h",Math.round(r.height)+"px");dpr=Math.min(2,window.devicePixelRatio||1);W=Math.max(1,r.width);H=Math.max(1,r.height);{const nv=hd.querySelector("nav.tabs");if(nv&&W>=700){const nt=nv.getBoundingClientRect().top-r.top;H=Math.max(60,Math.round(nt+nv.offsetHeight*.42))}cv.style.height=H+"px";cv.style.bottom="auto"}cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);{const tx=document.querySelector("header.top .brand .txt");titleR=tx?tx.getBoundingClientRect().right-r.left:W*.5}calcBox();
     bok=[...Array(Math.max(4,Math.min(10,Math.round(W/160))))].map(()=>({x:rnd(0,W),y:rnd(0,H),r:rnd(30,80),vx:rnd(-5,5),vy:rnd(-2,2),a:rnd(.05,.11),ph:rnd(0,TAU)}));
     if(mode&&st&&Math.abs((st._W||0)-W)>1){st=Object.assign(INIT[mode](),{_W:W});STATES[mode]=st}}
   const cnt=(per,min,max)=>Math.max(min,Math.min(max,Math.round(W/per)));
@@ -3415,13 +3437,14 @@ function studio(){
   <input class="search" id="study-search" type="search" placeholder="Cerca in tutte le schede (es. Braden, contenzione, PES, 219, GDPR)">
   <div id="search-res" hidden></div>
   <div class="studio" id="studio-main">
-    <div class="toc" role="tablist"><button style="--c:var(--scrub)" data-m="tipi" aria-current="${m==="tipi"}">Per tipologia di domanda</button>${Object.entries(SUBJ).map(([k,s])=>`<button style="--c:${s.c}" data-m="${k}" aria-current="${k===m}">${s.name}</button>`).join("")}</div>
+    <nav class="toc" aria-label="Materie"><span class="toc-h">Materie</span><button style="--c:var(--scrub)" data-m="tipi" aria-current="${m==="tipi"}"><i></i><span>Per tipologia di domanda</span><em>${TIPI.length}</em></button>${Object.entries(SUBJ).map(([k,s])=>`<button style="--c:${s.c}" data-m="${k}" aria-current="${k===m}"><i></i><span>${s.name}</span><em>${allTopics(k).length}</em></button>`).join("")}</nav>
     <div class="topic" style="--c:${color}"><p class="small">${m==="tipi"?"Uno schema di risposta per ogni tipo di domanda che la commissione può fare.":`${(TOPICS[m]||[]).length} schede di sintesi e ${topics.length-(TOPICS[m]||[]).length} schede dalla guida Puglia 2026 (punti chiave e norme di ogni domanda).`}</p>${topics.map((t,i)=>`<details ${(openT!=null?i===openT:open?t.sec===open:i===0)?"open":""} id="tp-${i}" ${(openT!=null?i===openT:open&&t.sec===open)?'class="focus"':""} ${t.sec?`data-sec="${t.sec}"`:""}><summary>${esc(t.t)}</summary><div class="body">${t.h}${figsStudy(t)}</div></details>`).join("")}
       ${m==="tipi"?"":`<div class="row"><button class="btn primary" id="go-q">Allenati su questa materia</button><button class="btn" id="go-fc">Flashcard</button></div>`}
     </div>
   </div>`;
   if(open||openT!=null){const el=openT!=null?$("#tp-"+openT):app.querySelector(`[data-sec="${open}"]`);if(el)setTimeout(()=>el.scrollIntoView({block:"start",behavior:RM?"auto":"smooth"}),80)}
   app.querySelectorAll(".toc button").forEach(b=>b.onclick=()=>{state.studyTab=b.dataset.m;LS.set("studyTab",b.dataset.m);studio()});
+  {const tc=app.querySelector(".toc"),cur=tc&&tc.querySelector('[aria-current="true"]');if(cur&&innerWidth<=820)tc.scrollLeft=cur.offsetLeft-tc.clientWidth/2+cur.offsetWidth/2}
   if($("#go-fc"))$("#go-fc").onclick=()=>{state.fcFilter=m;LS.set("fcFilter",m);location.hash="flashcard"};
   if($("#go-q"))$("#go-q").onclick=()=>{state.quizFilter=m;location.hash="quiz"};
   $("#study-search").oninput=e=>{
