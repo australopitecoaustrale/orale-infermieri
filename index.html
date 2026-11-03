@@ -826,60 +826,80 @@ header.top .top-in{gap:58px}
 @media (max-width:600px){.dir-cards{grid-template-columns:1fr 1fr;gap:6px}.dir-card{padding:8px 9px}.dir-card b{font-size:.86rem}.dir-card span{font-size:.74rem}.dir-card i{display:none}}
 
 /* ---- mappa d'avventura della siringa ---- */
-.qm{--qm-ink:#d6336c;display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:20px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);margin-bottom:14px}
+.qm{--qm-ink:#d6336c;--qm-txt:#2f4030;display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:22px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);margin-bottom:14px}
 .qm-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
 .qm-head>div:first-child{display:flex;flex-direction:column;gap:2px;min-width:0}
-.qm-head b{font-family:var(--f-display);font-size:1.15rem}
-.qm-badges{display:flex;gap:6px;align-items:center}
+.qm-head b{font-family:var(--f-display);font-size:1.2rem;letter-spacing:-.01em}
+.qm-badges{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 .qm-b{font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:20px;background:color-mix(in srgb,var(--b,var(--scrub)) 20%,var(--paper));border:1px solid color-mix(in srgb,var(--b,var(--scrub)) 55%,transparent)}
-.qm-svg{width:100%;height:auto;display:block;border-radius:16px}
-.qm-road{fill:none;stroke:rgba(120,96,70,.28);stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
-.qm-road.d2{stroke-dasharray:1 0}
-.qm-road.d3{stroke:rgba(120,96,70,.36)}
-.night .qm-road{stroke:rgba(255,255,255,.16)}
-.qm-trail{fill:none;stroke:rgba(255,255,255,.75);stroke-width:2;stroke-dasharray:3 6;stroke-linecap:round;stroke-linejoin:round}
-.night .qm-trail{stroke:rgba(255,255,255,.35)}
-.qm-trail.done{stroke:var(--qm-ink);stroke-width:4.2;stroke-dasharray:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.2))}
-.qm-grass path{fill:none;stroke:#51a35a;stroke-width:1.3;stroke-linecap:round}.qm-grass .fl{fill:#ffd43b}
-.qm-hill{fill:#e9b872;opacity:.55}
-.night .qm-hill{fill:#5c6aa8}
-.qm-mt path{fill:#9aa3b5}.qm-mt .snow{fill:#fff}
-.night .qm-mt path{fill:#6c77a8}.night .qm-mt .snow{fill:#e9ecff}
-.qm-star{fill:#fff;opacity:.7}
-.qm-pin circle{fill:#fff;stroke:color-mix(in srgb,var(--qm-ink) 55%,#999);stroke-width:1.6;transition:fill .3s,stroke .3s}
-.qm-pin .halo{fill:transparent;stroke:none}
+.qm-svg{width:100%;height:auto;display:block;border-radius:18px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+.qm-frame{fill:none;stroke:rgba(255,255,255,.55);stroke-width:1.2;stroke-dasharray:2 5}
+.night .qm-frame{stroke:rgba(255,255,255,.18)}
+.qm-sh{fill:rgba(0,0,0,.16)}
+.night .qm-sh{fill:rgba(0,0,0,.3)}
+.qm-cont{fill:none;stroke:rgba(90,70,40,.12);stroke-width:.8}
+.night .qm-cont{stroke:rgba(255,255,255,.07)}
+.qm-river{fill:none;stroke:#7cbbe0;stroke-width:11;stroke-linecap:round;opacity:.75}
+.qm-river-in{fill:none;stroke:#c6e8fa;stroke-width:3.5;stroke-linecap:round;stroke-dasharray:10 14;opacity:.85;animation:qmflow 3s linear infinite}
+.night .qm-river{stroke:#3d5ea3}.night .qm-river-in{stroke:#6f8fd0;opacity:.5}
+.qm-lake{fill:#8ccbee;stroke:#6fb3dc;stroke-width:1.5}.qm-lake-hl{fill:rgba(255,255,255,.7)}
+.night .qm-lake{fill:#33539a;stroke:#2a4585}
+@keyframes qmflow{to{stroke-dashoffset:-48}}
+.qm-cloud{animation:qmcloud linear infinite}.qm-cloud ellipse{fill:rgba(255,255,255,.85)}
+.mood2 .qm-cloud ellipse{fill:rgba(255,236,214,.9)}
+@keyframes qmcloud{from{transform:translateX(-60px)}to{transform:translateX(780px)}}
+.qm-star{fill:#fff;animation:qmtw 3.5s ease-in-out infinite}
+@keyframes qmtw{50%{opacity:.25}}
+.qm-road-e{fill:none;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+.qm-road{fill:none;stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+.qm-road-e.d3{stroke-width:11;stroke-dasharray:1.5 2.5}
+.qm-trail{fill:none;stroke:rgba(150,120,80,.55);stroke-width:1.4;stroke-dasharray:5 6;stroke-linecap:round;stroke-linejoin:round}
+.night .qm-trail{stroke:rgba(255,255,255,.4)}
+.qm-trail.done{stroke:var(--qm-ink);stroke-width:5;stroke-dasharray:none;filter:drop-shadow(0 0 3px color-mix(in srgb,var(--qm-ink) 60%,transparent))}
+.qm-pl rect{fill:rgba(255,255,255,.92);stroke:rgba(0,0,0,.08)}
+.qm-pl text{font-size:9.5px;font-weight:700;text-anchor:middle;fill:#2b3640;font-family:var(--f-body)}
+.night .qm-pl rect{fill:rgba(20,28,60,.85);stroke:rgba(255,255,255,.15)}.night .qm-pl text{fill:#eef2ff}
+.qm-pl.fin rect{fill:#fff4d6;stroke:#e0a100}.qm-pl.fin text{fill:#5c3d00}
+.qm-start .tent{fill:#ff922b;stroke:#d9480f;stroke-width:1}.qm-start .door{fill:#7a2e0b}.qm-start .pole,.qm-pin.fin .pole{stroke:#5c4630;stroke-width:1.6}.qm-start .pen{fill:#e03131}
+.qm-pin .mk{fill:#fff;stroke:color-mix(in srgb,var(--qm-ink) 65%,#555);stroke-width:1.6;filter:drop-shadow(0 2px 2px rgba(0,0,0,.2));transition:fill .4s}
+.qm-pin .face{fill:color-mix(in srgb,var(--qm-ink) 10%,#fff);transition:fill .4s}
 .qm-pin text{text-anchor:middle;font-family:var(--f-body)}
-.qm-emo{font-size:12px}.qm-let{font-size:11px;font-weight:800;fill:var(--qm-ink);font-family:var(--f-display)}
-.qm-lbl{font-size:9.5px;font-weight:700;fill:#33414a;paint-order:stroke;stroke:rgba(255,255,255,.85);stroke-width:3px;stroke-linejoin:round}
-.night .qm-lbl{fill:#eef2ff;stroke:rgba(20,26,50,.85)}
-.qm-pin.start circle{fill:#fff8e1;stroke:#c9a227}
-.qm-pin.reached circle:not(.halo){fill:color-mix(in srgb,var(--qm-ink) 16%,#fff);stroke:var(--qm-ink);stroke-width:2.4}
+.qm-emo{font-size:11px}.qm-let{font-size:12px;font-weight:800;fill:var(--qm-ink);font-family:var(--f-display)}
+.qm-pin .halo{fill:none;stroke:none}
+.qm-pin .ok{opacity:0;transition:opacity .3s}.qm-pin .ok circle{fill:#2f9e44;stroke:#fff;stroke-width:1.2}.qm-pin .ok path{fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.qm-pin.reached .mk{fill:var(--qm-ink);stroke:color-mix(in srgb,var(--qm-ink) 70%,#000)}
+.qm-pin.reached .face{fill:#fff}
+.qm-pin.reached .ok{opacity:1}
 .qm-pin.next .halo{stroke:var(--qm-ink);stroke-width:2;stroke-dasharray:3 4;transform-box:fill-box;transform-origin:center;animation:qmspin 6s linear infinite}
-.qm-pin.fin circle:not(.halo){fill:#fff4d6;stroke:#e0a100;stroke-width:2.2}
-.qm-pin.pop{animation:qmpop .6s cubic-bezier(.3,1.6,.5,1)}
-.qm-dot{fill:#fff;stroke:rgba(120,96,70,.5);stroke-width:1.4}.qm-dot.reached{fill:var(--qm-ink);stroke:var(--qm-ink)}
+.qm-pin.next .mk,.qm-pin.next .face,.qm-pin.next text{animation:qmbob 1.6s ease-in-out infinite}
+@keyframes qmbob{50%{transform:translateY(-3px)}}
+.qm-pin.fin .base{fill:#5c4630}.qm-pin.fin .flag path:first-child{fill:#fff;stroke:#333;stroke-width:.8}.qm-pin.fin .chk{stroke:#222;stroke-width:2;stroke-dasharray:3.4 3.4}
+.qm-pin.fin .flag{transform-box:fill-box;transform-origin:left center;animation:qmflag 1.4s ease-in-out infinite}
+@keyframes qmflag{50%{transform:skewY(-4deg) scaleX(.94)}}
+.qm-pin.fin.reached .halo{stroke:#e0a100;stroke-width:2.5;animation:qmspin 4s linear infinite;transform-box:fill-box;transform-origin:center;stroke-dasharray:4 4}
+.qm-dot{fill:#fff;stroke:rgba(120,96,70,.6);stroke-width:1.4}.qm-dot.reached{fill:var(--qm-ink);stroke:#fff}
 @keyframes qmspin{to{transform:rotate(360deg)}}
-@keyframes qmpop{0%{transform-box:fill-box}40%{opacity:.6}100%{opacity:1}}
-.qm-pin.pop circle:not(.halo){animation:qmscale .6s cubic-bezier(.3,1.6,.5,1)}
+.qm-pin.pop .mk,.qm-pin.pop .face,.qm-pin.pop text{animation:qmscale .6s cubic-bezier(.3,1.6,.5,1);transform-box:fill-box;transform-origin:center bottom}
 @keyframes qmscale{0%{transform:scale(.4)}100%{transform:scale(1)}}
-.qm-pin.pop circle{transform-box:fill-box;transform-origin:center}
-.qm-compass circle{fill:rgba(255,255,255,.75);stroke:rgba(0,0,0,.15)}.qm-compass path{fill:#868e96}.qm-compass .n{fill:#e03131}.qm-compass text{font-size:9px;font-weight:800;text-anchor:middle;fill:#495057}
-.night .qm-compass circle{fill:rgba(255,255,255,.12);stroke:rgba(255,255,255,.3)}.night .qm-compass text{fill:#eef2ff}
-#qm-syr{filter:drop-shadow(0 2px 2px rgba(0,0,0,.3))}
-#qm-syr .barrel{fill:rgba(255,255,255,.92);stroke:#5c6b73;stroke-width:1}
-#qm-syr .liq{fill:var(--qm-ink);opacity:.8}
-#qm-syr .rod{fill:#5c6b73}#qm-syr .hub{fill:#4dabf7}#qm-syr .needle{fill:#adb5bd;stroke:#868e96;stroke-width:.4}#qm-syr .tick{stroke:#5c6b73;stroke-width:.7}
-.qm-ob path{fill:#868e96;stroke:#495057;stroke-width:.8}
-.qm-obt{font-size:9px;font-weight:800;fill:#c92a2a;text-anchor:middle;paint-order:stroke;stroke:#fff;stroke-width:3px}
+.qm-compass .ring{fill:rgba(255,255,255,.8);stroke:rgba(0,0,0,.15)}.qm-compass .ring2{fill:none;stroke:rgba(0,0,0,.12);stroke-dasharray:1 2}
+.qm-compass path{fill:#868e96}.qm-compass .n{fill:#e03131}.qm-compass .mini{fill:#ced4da}.qm-compass text{font-size:9px;font-weight:800;text-anchor:middle;fill:#495057}
+.night .qm-compass .ring{fill:rgba(255,255,255,.1);stroke:rgba(255,255,255,.3)}.night .qm-compass text{fill:#eef2ff}
+.qm-scale path{stroke:var(--qm-txt);stroke-width:1.2;fill:none;opacity:.6}.qm-scale text{font-size:8.5px;fill:var(--qm-txt);opacity:.75;font-family:var(--f-body)}
+#qm-syr .barrel{fill:url(#qm-glass);stroke:#5c6b73;stroke-width:.9}
+#qm-syr .liq{fill:var(--qm-ink);opacity:.85}
+#qm-syr .shine{stroke:rgba(255,255,255,.85);stroke-width:1.1;stroke-linecap:round}
+#qm-syr .rod{fill:#5c6b73}#qm-syr .hub{fill:#4dabf7}#qm-syr .needle{fill:#dee2e6;stroke:#868e96;stroke-width:.4}#qm-syr .tick{stroke:#5c6b73;stroke-width:.7}
+#qm-syr{filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.25))}
+.qm-ob .r1{fill:#9aa1a9;stroke:#5f666d;stroke-width:.8}.qm-ob .r2{fill:#b7bdc3}
 .qm-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
 .qm-txt{flex:1 1 320px;display:flex;flex-direction:column;gap:6px;min-width:0}
 .qm-next{font-size:.88rem}
 .qm-tag{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:12px;margin-right:6px;background:color-mix(in srgb,var(--b) 22%,var(--paper));border:1px solid color-mix(in srgb,var(--b) 60%,transparent)}
-.qm-info{font-size:.9rem;padding:9px 12px;border-radius:12px;background:color-mix(in srgb,var(--qm-ink) 8%,var(--paper));border-left:3px solid var(--qm-ink)}
-.qm-leg{display:flex;flex-direction:column;gap:3px;font-size:.74rem;color:var(--muted)}
-.qm-leg .sw{display:inline-block;width:18px;height:6px;border-radius:3px;margin-right:6px;vertical-align:middle}
-.qm-leg .sw.d1{background:#69db7c}.qm-leg .sw.d2{background:#ffa94d}.qm-leg .sw.d3{background:#ff6b6b}.qm-leg .sw.ob{background:#868e96}
+.qm-info{font-size:.9rem;padding:10px 13px;border-radius:14px;background:color-mix(in srgb,var(--qm-ink) 8%,var(--paper));border-left:3px solid var(--qm-ink)}
+.qm-leg{display:flex;flex-direction:column;gap:3px;font-size:.76rem;color:var(--muted)}
+.qm-leg .lg{font-style:normal;display:inline-block;width:20px}
 .qm.won{border-color:#e0a100;box-shadow:0 0 0 3px rgba(224,161,0,.18),var(--shadow)}
+@media (prefers-reduced-motion: reduce){.qm-cloud,.qm-star,.qm-river-in,.qm-pin .flag,.qm-pin.next .mk,.qm-pin.next .face,.qm-pin.next text,.qm-pin.next .halo{animation:none}}
 @media (prefers-reduced-motion: reduce){.qm-pin.next .halo{animation:none}}
 </style>
 </head>
@@ -3806,7 +3826,7 @@ const QM_THEMES={
 };
 function qmCodSteps(){const C=typeof CODICE_CAPI!=="undefined"?CODICE_CAPI:[];const A=typeof CODICE_ART!=="undefined"?CODICE_ART:[];
   return C.map(([n,t])=>{const ar=A.filter(a=>a[1]===n).map(a=>a[0]);return [t,n,`Capo ${n}${ar.length?` (artt. ${Math.min(...ar)}-${Math.max(...ar)})`:""}: ${t.toLowerCase()}.`]})}
-const QM_DIFF=[null,{n:"facile",t:"prato",c:"#69db7c"},{n:"media",t:"colline",c:"#ffa94d"},{n:"difficile",t:"montagna",c:"#ff6b6b"}];
+const QM_DIFF=[null,{n:"facile",t:"bosco",c:"#69db7c"},{n:"media",t:"colline",c:"#ffa94d"},{n:"difficile",t:"montagna",c:"#ff6b6b"}];
 let QM=null;
 function qmRng(seed){let h=2166136261;for(const ch of String(seed))h=Math.imul(h^ch.charCodeAt(0),16777619)>>>0;return()=>{h^=h<<13;h>>>=0;h^=h>>>17;h^=h<<5;h>>>=0;return h/4294967296}}
 function qmDiff(it){const k=kindOf(it);let d=k==="mcq"?1:k==="open"?2:3;const ev=LOG.filter(e=>e.id===it.id);if(ev.length&&ev.slice(-3).some(e=>e.s<.6))d++;else if(ev.length>=2&&ev.slice(-2).every(e=>e.s>=.9))d--;if(it.novita)d++;return Math.max(1,Math.min(3,d))}
@@ -3840,48 +3860,80 @@ function qmGeom(){
   return {W,H,P,seg};
 }
 function qmBuild(){
-  const Q=QM,wrap=$("#qmap");if(!wrap)return;const G=qmGeom();Q.G=G;const {W,H,P,seg}=G,T=Q.T,R=qmRng(Q.key+"deco");
-  const sky=[null,["#f3f9ec","#e6f4ea","#2b3a2f"],["#fff1e0","#ffe0c2","#4a2f1c"],["#1b2440","#26315a","#eef2ff"]][Q.mood],ink=sky[2],night=Q.mood===3;
-  const deco=seg.map((s,i)=>{const out=[];for(let j=0;j<2;j++){const side=j?1:-1,dist=(s.d===3?30:24)+R()*10,x=s.mx+s.nx*dist*side*s.sg*-1,y=s.my+s.ny*dist*side*s.sg*-1;
-      if(x<14||x>W-14||y<14||y>H-14)continue;
-      if(s.d===1)out.push(`<g class="qm-grass" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><path d="M-5 3Q-4 -3 -2 3M0 3Q1 -5 2 3M3 3Q5 -2 6 3"/><circle cx="-6" cy="-1" r="1.6" class="fl"/></g>`);
-      else if(s.d===2)out.push(`<path class="qm-hill" d="M${(x-18).toFixed(1)} ${(y+6).toFixed(1)}Q${x.toFixed(1)} ${(y-16).toFixed(1)} ${(x+18).toFixed(1)} ${(y+6).toFixed(1)}Z"/>`);
-      else out.push(`<g class="qm-mt" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><path d="M-16 8L-3 -14L10 8Z"/><path class="snow" d="M-7 -7L-3 -14L1 -7L-1 -8L-3 -6L-5 -8Z"/><path d="M2 8L11 -6L20 8Z" opacity=".75"/></g>`)}return out.join("")}).join("");
-  const stars=night?[...Array(26)].map(()=>`<circle cx="${(R()*W).toFixed(0)}" cy="${(R()*H*.9).toFixed(0)}" r="${(.5+R()*1.1).toFixed(1)}" class="qm-star"/>`).join(""):"";
-  const pins=P.map((p,k)=>{if(!k)return `<g class="qm-pin start" transform="translate(${p[0]} ${p[1]})"><circle r="11"/><text y="4">🚩</text><text class="qm-lbl" y="26">Partenza</text></g>`;
-    const l=Q.lab[k-1],fin=k===Q.N;if(!l)return `<circle class="qm-dot" id="qm-p${k}" cx="${p[0]}" cy="${p[1]}" r="4"/>`;
-    const words=l[0].split(" ");let l1="",l2="";for(const w of words){if(!l2&&(l1+" "+w).trim().length<=13)l1=(l1+" "+w).trim();else l2=(l2+" "+w).trim()}
-    const below=p[1]<H-40;return `<g class="qm-pin${fin?" fin":""}" id="qm-p${k}" transform="translate(${p[0]} ${p[1]})"><circle class="halo" r="17"/><circle r="${fin?14:12}"/><text class="${/^[A-Z]$/.test(l[1])||/^[IVX]+$/.test(l[1])?"qm-let":"qm-emo"}" y="${/^[A-Z]$/.test(l[1])||/^[IVX]+$/.test(l[1])?4.5:5}">${esc(l[1])}</text><text class="qm-lbl" y="${below?27:-21}">${esc(l1)}</text>${l2?`<text class="qm-lbl" y="${below?38:-10}">${esc(l2)}</text>`:""}</g>`}).join("");
-  wrap.innerHTML=`<div class="qm ${night?"night":""}" style="--qm-ink:${T.ink}">
+  const Q=QM,wrap=$("#qmap");if(!wrap)return;const G=qmGeom();Q.G=G;const {W,H,P,seg}=G,T=Q.T,R=qmRng(Q.key+"deco"),night=Q.mood===3,f1=v=>v.toFixed(1);
+  const PAL=[null,{sky:["#dff1ff","#f2f9e9"],land:"#e4f0d2",land2:"#d3e7bd",ink:"#2f4030",road:"#c9a874",roadIn:"#f4e6c6",tree:["#4f9a58","#6fbf73"],hill:["#d9b77a","#c79a55"],mt:["#a9b3c4","#7d879c"],water:"#9fd3f0"},
+    {sky:["#ffd2a8","#fff0dd"],land:"#f3e2bf",land2:"#ead2a1",ink:"#4a3420",road:"#c08a52",roadIn:"#f7e3c4",tree:["#6f9f4f","#93bf62"],hill:["#e3a764","#c98545"],mt:["#b5a2b6","#8c7792"],water:"#8fc6e0"},
+    {sky:["#0f1631","#22305e"],land:"#26335f",land2:"#2d3c70",ink:"#eef2ff",road:"#5a6aa0",roadIn:"#3a4a85",tree:["#2f6b5a","#3f8b70"],hill:["#4a5a99","#3a4886"],mt:["#7d89bf","#5b679e"],water:"#2f4f8f"}][Q.mood];
+  // terreno: radure morbide, fiume e lago, curve di livello
+  const blobs=[...Array(7)].map(()=>{const x=R()*W,y=R()*H,rx=60+R()*120,ry=36+R()*70;return `<ellipse cx="${f1(x)}" cy="${f1(y)}" rx="${f1(rx)}" ry="${f1(ry)}" fill="${R()<.5?PAL.land2:PAL.land}"/>`}).join("");
+  const rv=Q.port?[[W*R(),-10],[W*(.2+R()*.6),H*.35],[W*(.2+R()*.6),H*.7],[W*R(),H+10]]:[[-10,H*R()],[W*.35,H*(.2+R()*.6)],[W*.65,H*(.2+R()*.6)],[W+10,H*R()]];
+  const river=`M${f1(rv[0][0])} ${f1(rv[0][1])}C${f1(rv[1][0])} ${f1(rv[1][1])} ${f1(rv[2][0])} ${f1(rv[2][1])} ${f1(rv[3][0])} ${f1(rv[3][1])}`;
+  const lake=(()=>{const x=W*(.15+R()*.7),y=H*(.2+R()*.6);return `<ellipse cx="${f1(x)}" cy="${f1(y)}" rx="${f1(22+R()*14)}" ry="${f1(12+R()*8)}" class="qm-lake"/><ellipse cx="${f1(x-4)}" cy="${f1(y-3)}" rx="8" ry="2.4" class="qm-lake-hl"/>`})();
+  const contours=[...Array(4)].map(()=>{const x=R()*W,y=R()*H;return [0,1,2].map(i=>`<ellipse cx="${f1(x)}" cy="${f1(y)}" rx="${f1(24+i*16+R()*6)}" ry="${f1(14+i*10+R()*5)}" class="qm-cont"/>`).join("")}).join("");
+  const clouds=night?"":[0,1,2].map(i=>{const y=18+R()*(H*.3),s=.7+R()*.6,d=40+R()*40;return `<g class="qm-cloud" style="animation-duration:${f1(d)}s;animation-delay:-${f1(R()*d)}s"><g transform="translate(0 ${f1(y)}) scale(${f1(s)})"><ellipse cx="0" cy="0" rx="18" ry="7"/><ellipse cx="-9" cy="-4" rx="9" ry="7"/><ellipse cx="6" cy="-6" rx="10" ry="8"/></g></g>`}).join("");
+  const stars=night?[...Array(34)].map(()=>`<circle cx="${f1(R()*W)}" cy="${f1(R()*H*.95)}" r="${f1(.5+R()*1.1)}" class="qm-star" style="animation-delay:-${f1(R()*4)}s"/>`).join("")+`<g transform="translate(${f1(W*.82)} 34)"><circle r="12" fill="#fff6d5"/><circle cx="5" cy="-3" r="11" fill="${PAL.sky[0]}"/></g>`:"";
+  // paesaggio legato alla difficoltà di ogni tratto
+  const tree=(x,y,s)=>`<g transform="translate(${f1(x)} ${f1(y)}) scale(${f1(s)})"><ellipse cy="5" rx="6" ry="1.8" class="qm-sh"/><rect x="-1" y="-1" width="2" height="6" fill="#8a5a2b"/><circle cy="-4" r="5.5" fill="${PAL.tree[0]}"/><circle cx="-1.6" cy="-5.6" r="2.8" fill="${PAL.tree[1]}"/></g>`;
+  const hill=(x,y,s)=>`<g transform="translate(${f1(x)} ${f1(y)}) scale(${f1(s)})"><path d="M-24 6Q-6 -22 22 6Z" fill="${PAL.hill[1]}"/><path d="M-24 6Q-8 -20 2 -6Q-6 -2 -10 6Z" fill="${PAL.hill[0]}"/><path d="M-4 6Q12 -12 28 6Z" fill="${PAL.hill[0]}" opacity=".85"/></g>`;
+  const mount=(x,y,s)=>`<g transform="translate(${f1(x)} ${f1(y)}) scale(${f1(s)})"><ellipse cy="9" rx="26" ry="3" class="qm-sh"/><path d="M-22 9L-4 -20L14 9Z" fill="${PAL.mt[1]}"/><path d="M-22 9L-4 -20L-6 9Z" fill="${PAL.mt[0]}"/><path d="M-9 -12L-4 -20L1 -12L-2 -14L-4 -11L-6 -14Z" fill="#fff"/><path d="M4 9L17 -10L30 9Z" fill="${PAL.mt[1]}" opacity=".9"/><path d="M4 9L17 -10L15 9Z" fill="${PAL.mt[0]}" opacity=".9"/><path d="M13 -5L17 -10L21 -5L19 -6L17 -4L15 -6Z" fill="#fff"/></g>`;
+  const deco=seg.map(s=>{const out=[];for(let j=0;j<2;j++){const side=j?1:-1,dist=(s.d===3?34:26)+R()*10,x=s.mx-s.nx*dist*side*s.sg,y=s.my-s.ny*dist*side*s.sg;
+      if(x<18||x>W-18||y<22||y>H-14)continue;
+      if(s.d===1){out.push(tree(x,y,.9+R()*.3));out.push(tree(x+9,y+4,.7+R()*.2));if(R()<.6)out.push(tree(x-8,y+5,.65))}
+      else if(s.d===2)out.push(hill(x,y,.8+R()*.35));else out.push(mount(x,y,.85+R()*.35))}return out.join("")}).join("");
+  // segnaposto delle tappe
+  const pill=(txt,y,cls)=>{const L=[];for(const w of txt.split(" ")){if(L.length&&(L[L.length-1]+" "+w).length<=14)L[L.length-1]+=" "+w;else L.push(w)}if(L.length>2)L.splice(1,L.length-1,L.slice(1).join(" "));const w=Math.max(...L.map(x=>x.length))*5.3+12,h=L.length*11.5+4,yy=y<0?y-(L.length-1)*11.5:y;
+    return `<g class="qm-pl ${cls||""}" transform="translate(0 ${f1(yy)})"><rect x="${f1(-w/2)}" y="-8" width="${f1(w)}" height="${f1(h)}" rx="7.5"/>${L.map((t,i)=>`<text y="${f1(3+i*11.5)}">${esc(t)}</text>`).join("")}</g>`};
+  const pins=P.map((p,k)=>{const [x,y]=p;
+    if(!k)return `<g class="qm-start" transform="translate(${f1(x)} ${f1(y)})"><ellipse cy="2" rx="14" ry="3.5" class="qm-sh"/><path d="M-11 1L0 -17L11 1Z" class="tent"/><path d="M-3 1L0 -9L3 1Z" class="door"/><path d="M0 -17V-27" class="pole"/><path d="M0 -27L9 -24L0 -21Z" class="pen"/>${pill("Partenza",16)}</g>`;
+    const l=Q.lab[k-1],fin=k===Q.N;if(!l)return `<circle class="qm-dot" id="qm-p${k}" cx="${f1(x)}" cy="${f1(y)}" r="3.6"/>`;
+    const below=y<H-58,lt=l[0];const isL=/^[A-Z]$|^[IVX]+$/.test(l[1]);
+    if(fin)return `<g class="qm-pin fin" id="qm-p${k}" transform="translate(${f1(x)} ${f1(y)})"><ellipse cy="2" rx="15" ry="4" class="qm-sh"/><rect x="-10" y="-3" width="20" height="5" rx="1.5" class="base"/><path d="M-1 -2V-40" class="pole"/><g class="flag"><path d="M0 -40C8 -43 14 -36 24 -39V-25C14 -22 8 -29 0 -26Z"/><path d="M4 -38.6V-26.6M8 -38.2V-26.4M12 -37.4V-25.9M16 -37.6V-25.8M20 -38.6V-24.9" class="chk"/></g><circle class="halo" cy="-20" r="22"/>${pill(lt,below?16:-50,"fin")}</g>`;
+    return `<g class="qm-pin" id="qm-p${k}" transform="translate(${f1(x)} ${f1(y)})"><ellipse cy="1.5" rx="8" ry="2.6" class="qm-sh"/><circle class="halo" cy="-18" r="17"/><path class="mk" d="M0 1C-4 -6 -13 -11 -13 -19A13 13 0 1 1 13 -19C13 -11 4 -6 0 1Z"/><circle class="face" cy="-19" r="9.5"/><text class="${isL?"qm-let":"qm-emo"}" y="${isL?-15:-15.2}">${esc(l[1])}</text><g class="ok" transform="translate(9 -29)"><circle r="5"/><path d="M-2.4 0L-.6 1.8L2.6 -1.6"/></g>${pill(lt,below?15:-44)}</g>`}).join("");
+  const rose=`<g class="qm-compass" transform="translate(${W-34} ${H-38})"><circle r="17" class="ring"/><circle r="13" class="ring2"/><path d="M0 -15L3 -3L0 0L-3 -3Z" class="n"/><path d="M0 15L3 3L0 0L-3 3Z"/><path d="M15 0L3 3L0 0L3 -3Z"/><path d="M-15 0L-3 3L0 0L-3 -3Z"/><path d="M8 -8L2 -1L0 0L1 -2Z M-8 8L-2 1L0 0L-1 2Z M8 8L1 2L0 0L2 1Z M-8 -8L-1 -2L0 0L-2 -1Z" class="mini"/><text y="-20">N</text></g>`;
+  const scale=`<g class="qm-scale" transform="translate(${Q.port?16:22} ${H-16})"><path d="M0 0H40M0 -3V3M20 -2V2M40 -3V3"/><text x="46" y="3">1 tappa = 1 domanda</text></g>`;
+  wrap.innerHTML=`<div class="qm ${night?"night":""} mood${Q.mood}" style="--qm-ink:${T.ink};--qm-txt:${PAL.ink}">
     <div class="qm-head"><div><span class="eyebrow">Mappa del percorso · ${esc(SUBJ[Q.theme]?SUBJ[Q.theme].short:"Collegamenti")}</span><b>${esc(T.t)}</b><span class="small">${esc(T.s)}</span></div>
-      <div class="qm-badges"><span class="qm-b" style="--b:${QM_DIFF[Q.mood].c}">Percorso ${QM_DIFF[Q.mood].n}</span><span class="qm-b mono" id="qm-count">0/${Q.N}</span><span class="qm-b" id="qm-bad" style="--b:#868e96" hidden></span></div></div>
+      <div class="qm-badges"><span class="qm-b" style="--b:${QM_DIFF[Q.mood].c}">${["","☀️","🌅","🌙"][Q.mood]} Percorso ${QM_DIFF[Q.mood].n}</span><span class="qm-b mono" id="qm-count">0/${Q.N}</span><span class="qm-b" id="qm-bad" style="--b:#868e96" hidden></span></div></div>
     <svg viewBox="0 0 ${W} ${H}" class="qm-svg" role="img" aria-label="Mappa: la siringa avanza di una tappa per ogni risposta corretta">
-      <defs><linearGradient id="qm-sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${sky[0]}"/><stop offset="1" stop-color="${sky[1]}"/></linearGradient>
-      <pattern id="qm-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="${night?"rgba(255,255,255,.05)":"rgba(0,0,0,.045)"}" stroke-width="1"/></pattern></defs>
-      <rect width="${W}" height="${H}" rx="16" fill="url(#qm-sky)"/><rect width="${W}" height="${H}" rx="16" fill="url(#qm-grid)"/>${stars}
+      <defs><linearGradient id="qm-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${PAL.sky[0]}"/><stop offset="1" stop-color="${PAL.sky[1]}"/></linearGradient>
+        <radialGradient id="qm-vig" cx=".5" cy=".5" r=".75"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="${night?.35:.12}"/></radialGradient>
+        <filter id="qm-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter>
+        <linearGradient id="qm-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#eef6fb"/><stop offset="1" stop-color="#cfdde6"/></linearGradient>
+        <clipPath id="qm-clip"><rect width="${W}" height="${H}" rx="18"/></clipPath></defs>
+      <g clip-path="url(#qm-clip)">
+      <rect width="${W}" height="${H}" fill="url(#qm-sky)"/>${stars}
+      <g filter="url(#qm-soft)" opacity="${night?.9:.95}"><rect x="-20" y="${f1(H*.12)}" width="${W+40}" height="${H}" rx="60" fill="${PAL.land}"/>${blobs}</g>
+      ${contours}
+      <path d="${river}" class="qm-river"/><path d="${river}" class="qm-river-in"/>${lake}
+      ${clouds}
       ${deco}
-      ${seg.map((s,i)=>`<path class="qm-road d${s.d}" d="${s.path}"/>`).join("")}
+      ${seg.map(s=>`<path class="qm-road-e d${s.d}" d="${s.path}" style="stroke:${PAL.road}"/>`).join("")}
+      ${seg.map(s=>`<path class="qm-road d${s.d}" d="${s.path}" style="stroke:${PAL.roadIn}"/>`).join("")}
       ${seg.map((s,i)=>`<path class="qm-trail" id="qm-s${i}" d="${s.path}"/>`).join("")}
       <g id="qm-obs"></g>
       ${pins}
-      <g class="qm-compass" transform="translate(${W-30} ${H-34})"><circle r="15"/><path d="M0 -12L4 0L0 -3L-4 0Z" class="n"/><path d="M0 12L4 0L0 3L-4 0Z"/><text y="-17">N</text></g>
-      <g id="qm-syr"><g id="qm-syr-in"><rect x="-17" y="-4.6" width="24" height="9.2" rx="2.6" class="barrel"/><rect id="qm-liq" x="-15" y="-3" width="20" height="6" rx="1.6" class="liq"/><rect x="-23" y="-1.2" width="7" height="2.4" class="rod"/><rect x="-25" y="-5" width="2.6" height="10" rx="1" class="rod"/><rect x="7" y="-2.4" width="4" height="4.8" rx="1" class="hub"/><path d="M11 -.6H22L23.5 0L22 .6H11Z" class="needle"/><path d="M-14 -4.6V-2.8M-10 -4.6V-2.8M-6 -4.6V-2.8M-2 -4.6V-2.8M2 -4.6V-2.8" class="tick"/></g></g>
+      ${rose}${scale}
+      <ellipse id="qm-shadow" rx="15" ry="3.4" class="qm-sh"/>
+      <g id="qm-syr"><g transform="scale(1.3)"><rect x="-25" y="-5.4" width="2.8" height="10.8" rx="1.2" class="rod"/><rect x="-23" y="-1.3" width="7" height="2.6" class="rod"/><rect x="-17" y="-5.2" width="25" height="10.4" rx="3" class="barrel"/><rect id="qm-liq" x="-15" y="-3.3" width="20" height="6.6" rx="2" class="liq"/><path d="M-15 -3.1H5" class="shine"/><path d="M-12 -5.2V-3M-8 -5.2V-3M-4 -5.2V-3M0 -5.2V-3M4 -5.2V-3" class="tick"/><rect x="8" y="-2.6" width="4.4" height="5.2" rx="1.2" class="hub"/><path d="M12.4 -.65H24L25.6 0L24 .65H12.4Z" class="needle"/></g></g>
       <g id="qm-fx"></g>
+      <rect width="${W}" height="${H}" fill="url(#qm-vig)" pointer-events="none"/>
+      </g>
+      <rect x="5" y="5" width="${W-10}" height="${H-10}" rx="14" class="qm-frame"/>
     </svg>
     <div class="qm-foot"><div class="qm-txt"><div id="qm-next" class="qm-next"></div><div id="qm-info" class="qm-info"><b>Partenza.</b> Rispondi correttamente per far avanzare la siringa di una tappa. Ogni tappa è un passaggio di «${esc(T.t.toLowerCase())}».</div></div>
-      <div class="qm-leg">${[1,2,3].filter(d=>Q.diffs.includes(d)).map(d=>`<span><i class="sw d${d}"></i>${QM_DIFF[d].t}: domanda ${QM_DIFF[d].n}</span>`).join("")}<span><i class="sw ob"></i>errore: ostacolo da ripassare</span></div></div>
+      <div class="qm-leg">${[1,2,3].filter(d=>Q.diffs.includes(d)).map(d=>`<span><i class="lg">${["","🌳","⛰️","🏔️"][d]}</i>${QM_DIFF[d].t}: domanda ${QM_DIFF[d].n}</span>`).join("")}<span><i class="lg">🪨</i>errore: ostacolo da ripassare</span></div></div>
   </div>`;
   qmPlace(0,1);
 }
 function qmPointOn(i,f){const el=document.getElementById("qm-s"+i);if(!el)return null;const L=el.getTotalLength(),d=Math.max(0,Math.min(L,L*f)),p=el.getPointAtLength(d),fw=d+2<=L,q=el.getPointAtLength(fw?d+2:Math.max(0,d-2));const dx=fw?q.x-p.x:p.x-q.x,dy=fw?q.y-p.y:p.y-q.y;return {x:p.x,y:p.y,a:Math.atan2(dy,dx)*180/Math.PI}}
-function qmSyr(x,y,a,fill){const g=document.getElementById("qm-syr"),l=document.getElementById("qm-liq");if(!g)return;const flip=Math.abs(((a%360)+360)%360-180)<90;g.setAttribute("transform",`translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${a.toFixed(1)})${flip?" scale(1 -1)":""}`);if(l)l.setAttribute("width",(20*Math.max(.04,fill)).toFixed(1))}
+function qmSyr(x,y,a,fill){const g=document.getElementById("qm-syr"),l=document.getElementById("qm-liq");if(!g)return;const flip=Math.abs(((a%360)+360)%360-180)<90;g.setAttribute("transform",`translate(${x.toFixed(1)} ${(y-3).toFixed(1)}) rotate(${a.toFixed(1)})${flip?" scale(1 -1)":""}`);const sh=document.getElementById("qm-shadow");if(sh){sh.setAttribute("cx",x.toFixed(1));sh.setAttribute("cy",(y+7).toFixed(1))}if(l)l.setAttribute("width",(20*Math.max(.04,fill)).toFixed(1))}
 function qmPlace(pos,instant){const Q=QM;if(!Q||!Q.G)return;Q.pos=pos;
   for(let i=0;i<Q.N;i++){const tr=document.getElementById("qm-s"+i);if(tr){tr.classList.toggle("done",i<pos);if(i<pos){tr.style.strokeDasharray="";tr.style.strokeDashoffset=""}}}
   for(let k=1;k<=Q.N;k++){const p=document.getElementById("qm-p"+k);if(p){p.classList.toggle("reached",k<=pos);p.classList.toggle("next",k===pos+1)}}
   let pt;if(pos===0){const a=qmPointOn(0,0);pt=a?{x:a.x,y:a.y,a:a.a}:{x:Q.G.P[0][0],y:Q.G.P[0][1],a:0}}else{const a=qmPointOn(pos-1,1);pt=a?{x:a.x,y:a.y,a:a.a}:{x:Q.G.P[pos][0],y:Q.G.P[pos][1],a:0}}
   qmSyr(pt.x,pt.y,pt.a,1-pos/Q.N);const c=$("#qm-count");if(c)c.textContent=pos+"/"+Q.N}
 function qmObstacles(){const Q=QM,g=document.getElementById("qm-obs"),bb=$("#qm-bad");if(bb){bb.hidden=!(Q&&Q.bad);if(Q&&Q.bad)bb.textContent="🪨 "+Q.bad+" da ripassare"}if(!Q||!g)return;if(Q.pos>=Q.N||!Q.bad){g.innerHTML="";return}
-  const a=qmPointOn(Q.pos,.32);if(!a){g.innerHTML="";return}g.innerHTML=[...Array(Math.min(3,Q.bad))].map((_,i)=>`<g class="qm-ob" transform="translate(${(a.x+i*7-((Math.min(3,Q.bad)-1)*3.5)).toFixed(1)} ${(a.y-2-i*2).toFixed(1)})"><path d="M-7 4Q-8 -3 -2 -5Q4 -7 7 -1Q8 4 2 5Z"/></g>`).join("")}
+  const a=qmPointOn(Q.pos,.32);if(!a){g.innerHTML="";return}g.innerHTML=[...Array(Math.min(3,Q.bad))].map((_,i)=>`<g class="qm-ob" transform="translate(${(a.x+i*9-((Math.min(3,Q.bad)-1)*4.5)).toFixed(1)} ${(a.y-1-i*2).toFixed(1)})"><ellipse cy="5" rx="9" ry="2.4" class="qm-sh"/><path d="M-8 5Q-9 -3 -3 -6Q4 -8 8 -1Q9 5 2 5Z" class="r1"/><path d="M-8 5Q-9 -3 -3 -6Q-1 -1 -2 5Z" class="r2"/></g>`).join("")}
 function qmInfo(html){const b=$("#qm-info");if(b)b.innerHTML=html}
 function qmSync(){const Q=QM;if(!Q)return;const ok=Math.min(Q.N,qz.ok||0),bad=Math.max(0,Math.min(qz.i,qz.list.length)-(qz.ok||0));
   if(!Q.anim&&(ok!==Q.pos||bad!==Q.bad)){Q.bad=bad;qmPlace(ok,1);qmObstacles()}
