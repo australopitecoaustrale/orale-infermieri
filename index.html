@@ -612,6 +612,7 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .gym-strip svg{width:100%;height:auto;display:block;border-radius:8px;background:#fff7f6;border:1px solid #efc9c6;cursor:crosshair}
 .gym-cal{stroke:#1971c2;stroke-width:.35;stroke-dasharray:1 .6}
 .gym-step{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:10px}
+.gym-case{border-left:3px solid var(--scrub);background:var(--scrub-soft);padding:10px 14px;border-radius:10px}.gym-case p{margin:4px 0 0}
 .gym-cta{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:inherit;border-left:4px solid var(--vital)}
 .gym-cta:hover{transform:translateY(-1px)}
 .ecg-strip svg{width:100%;height:auto;display:block;border-radius:6px;background:#fff7f6;border:1px solid #efc9c6}
@@ -1441,7 +1442,14 @@ const MORPH={
  pericardite:{st:.16,prd:-.07,tA:.36},
  osborn:{jw:.34,tPlus:.05},
  brugada:{brug:1,qA:0,sA:-.1,tA:-.26},
- digitale:{st:-.17,tA:.05,tPlus:-.05}
+ digitale:{st:-.17,tA:.05,tPlus:-.05},
+ iperkgrave:{pA:0,w:2.3,wt:1,tA:.95,tS1:.05,tS2:.04,u:0},
+ ivs:{rA:2,sA:-.08,qA:-.05,st:-.12,tA:-.32,tS1:.075,tS2:.032},
+ necrosi:{qA:-.5,qw:.017,rA:.42,sA:-.08,st:.03,tA:-.3,tS1:.05,tS2:.05},
+ wellens:{rA:.5,qA:0,sA:-.62,st:.03,tA:-.62,tS1:.05,tS2:.05},
+ posteriore:{rA:1.1,qA:0,sA:-.28,st:-.27,tA:.34},
+ tiperacute:{rA:.75,sA:-.45,st:.1,tA:.9,tS1:.08,tS2:.06},
+ qtcorto:{tPlus:-.075,tS1:.035,tS2:.03}
 };
 /* elenco dei battiti: {t: tempo del picco R, pr: intervallo PR (null = senza P), k: "n" normale | "w" ventricolare, w: larghezza} */
 function beats(type,hr,dur,R){
@@ -1452,7 +1460,13 @@ function beats(type,hr,dur,R){
   else if(type==="flutter"){const cond=hr>120?2:4;t=-1.2;while(t<dur+1.2){push({t:t+.11,pr:null,k:"n"});t+=.2*cond}}
   else if(type==="tsv"){const rr=60/Math.max(hr,170);while(t<dur+1.2){push({t,pr:null,k:"n"});t+=rr}}
   else if(type==="tv"){const rr=60/Math.max(hr,160);while(t<dur+1.2){push({t,pr:null,k:"w"});t+=rr*(1+.01*(R()-.5))}}
-  else if(type==="fv"||type==="asistolia"){}
+  else if(type==="fv"||type==="fvfine"||type==="asistolia"){}
+  else if(type==="flutterv"){const C=[2,3,4,2,3];t=-1.2;while(t<dur+1.2){push({t:t+.11,pr:null,k:"n"});t+=.2*C[Math.floor(R()*C.length)]}}
+  else if(type==="pausa"){let i=0;while(t<dur+1.2){push({t,pr:.16,k:"n"});t+=i===3?mean*2.7:mean*(1+.03*(R()-.5));i++}}
+  else if(type==="trigeminismo"){let i=0;while(t<dur+1.2){if(i%3===2){push({t:t-mean*.4,pr:null,k:"w"});t+=mean}else{push({t,pr:.16,k:"n"});t+=mean}i++}}
+  else if(type==="evmulti"){let i=0,f=0;while(t<dur+1.2){if(i%5===2||i%5===4){push({t:t-mean*.4,pr:null,k:(f++%2)?"w2":"w"});t+=mean}else{push({t,pr:.16,k:"n"});t+=mean*(1+.03*(R()-.5))}i++}}
+  else if(type==="tvns"){let i=0;while(t<dur+1.2){if(i===3){let u=t-mean*.45;for(let j=0;j<5;j++){push({t:u,pr:null,k:"w"});u+=.33}t=u+mean*.55}else{push({t,pr:.16,k:"n"});t+=mean*(1+.03*(R()-.5))}i++}}
+  else if(type==="pmloss"){let i=0;while(t<dur+1.2){push({t,pr:null,k:i%3===2?"s":"p"});t+=mean;i++}}
   else if(type==="mobitz1"||type==="mobitz2"){const pp=type==="mobitz1"?.72:.66;const seq=type==="mobitz1"?[.16,.26,.32,null]:[.18,.18,null];let i=0;while(t<dur+1.2){const pr=seq[i%seq.length];if(pr==null)P.push(t);else push({t:t+pr,pr,k:"n"});t+=pp;i++}}
   else if(type==="bav3"){let a=-1.2;while(a<dur+1.2){P.push(a);a+=.75}let v=-1+R()*.5;while(v<dur+1.2){push({t:v,pr:null,k:"n",w:1.9});v+=60/36}}
   else if(type==="ev"){let i=0;while(t<dur+1.2){if(i%4===3){push({t:t-mean*.42,pr:null,k:"w"});t+=mean}else{push({t,pr:hr>130?.12:.16,k:"n"});t+=mean*(1+.03*(R()-.5))}i++}}
@@ -1460,19 +1474,23 @@ function beats(type,hr,dur,R){
   else if(type==="bigeminismo"){let i=0;while(t<dur+1.2){if(i%2){push({t:t-mean*.38,pr:null,k:"w"});t+=mean*1.25}else{push({t,pr:.16,k:"n"});t+=mean*.75}i++}}
   else if(type==="eas"){let i=0;while(t<dur+1.2){if(i%4===3){const tt=t-mean*.35;push({t:tt,pr:.14,k:"n",pa:-.09});t=tt+mean*1.05}else{push({t,pr:.16,k:"n"});t+=mean*(1+.03*(R()-.5))}i++}}
   else if(type==="aritmia"){while(t<dur+1.2){push({t,pr:.16,k:"n"});t+=mean*(1+.22*Math.sin(2*Math.PI*t/4.2))}}
+  else if(type==="pmigrante"){const PA=[.18,-.07,.09,.04];while(t<dur+1.2){push({t,pr:.11+R()*.09,k:"n",pa:PA[Math.floor(R()*PA.length)]});t+=mean*(.82+.36*R())}}
   else if(type==="tam"){const PA=[.2,-.09,.11,.3,.06];while(t<dur+1.2){push({t,pr:.1+R()*.1,k:"n",pa:PA[Math.floor(R()*PA.length)]});t+=mean*(.65+.7*R())}}
-  else if(type==="giunzionale"){while(t<dur+1.2){push({t,pr:null,k:"n",rp:1});t+=mean*(1+.02*(R()-.5))}}
-  else if(type==="riva"){while(t<dur+1.2){push({t,pr:null,k:"w"});t+=mean*(1+.02*(R()-.5))}}
+  else if(type==="giunzionale"||type==="tgiunz"){while(t<dur+1.2){push({t,pr:null,k:"n",rp:1});t+=mean*(1+.02*(R()-.5))}}
+  else if(type==="riva"||type==="idiov"){while(t<dur+1.2){push({t,pr:null,k:"w"});t+=mean*(1+.02*(R()-.5))}}
   else if(type==="pm"){while(t<dur+1.2){push({t,pr:null,k:"p"});t+=mean}}
   else if(type==="torsione"){}
   else {const pr=type==="bav1"?.32:type==="wpw"?.1:hr>130?.12:.16;while(t<dur+1.2){push({t,pr,k:"n"});t+=mean*(1+.035*(R()-.5))}}
   // tempo del picco T in base all'intervallo R-R precedente
+  if(type==="bassovolt")B.forEach((b,i)=>b.amp=i%2?.19:.42);
   B.forEach((b,i)=>{const rr=i?b.t-B[i-1].t:mean;b.rr=rr;b.tp=clamp(.4*Math.sqrt(Math.max(rr,.3))-.1,.17,.4)});
   return {B,P,mean};
 }
 function beatV(d,b,M){
   if(d<-.5||d>.95)return 0;
   if(b.k==="p")return G(d,-.045,.0022,1.7)+G(d,0,.03,-1.05)+G(d,.07,.035,.45)+(d<.32?G(d,.32,.08,.38):G(d,.32,.06,.38));
+  if(b.k==="s")return G(d,-.045,.0022,1.7);
+  if(b.k==="w2")return G(d,.01,.03,-1.15)+G(d,.07,.03,.35)+(d<.3?G(d,.3,.08,.4):G(d,.3,.06,.4));
   if(b.k==="w")return G(d,0,.028,1.25)+G(d,.065,.032,-.6)+(d<.3?G(d,.3,.08,-.42):G(d,.3,.06,-.42));
   const w=b.w||M.w;let y=0;
   if(b.pr!=null)y+=G(d,-b.pr+.01,.022,b.pa!=null?b.pa:M.pA);
@@ -1480,10 +1498,10 @@ function beatV(d,b,M){
   if(b.rp)y+=G(d,.11,.02,-.13);
   if(M.rbbb)y+=G(d,-.03,.009,.28)+G(d,.005,.012,-.5)+G(d,.05,.017,1.0);
   else if(M.lbbb)y+=G(d,-.015,.02,.72)+G(d,.045,.022,.86);
-  else{if(M.delta)y+=G(d,-.04,.022,.34);y+=G(d,-.025*w,.008*w,M.qA)+G(d,0,.011*w,M.rA)+G(d,.028*w,.01*w,M.sA)}
+  else{if(M.delta)y+=G(d,-.04,.022,.34);y+=G(d,-.025*w-(M.qw?.012:0),(M.qw||.008)*w,M.qA)+G(d,0,.011*w,M.rA)+G(d,.028*w,.01*w,M.sA)}
   if(M.jw)y+=G(d,.05,.015,M.jw);
   if(M.brug){y+=G(d,.035,.012,.3);if(d>.03)y+=.46*sig((d-.035)/.004)*Math.exp(-Math.max(0,d-.04)/.12)*(1-sig((d-(b.tp+.03))/.03))}
-  const tp=b.tp+M.tPlus+(w>1.5?.06:0), tA=w>1.5?-.3:M.tA;
+  const tp=b.tp+M.tPlus+(w>1.5?.06:0), tA=w>1.5&&!M.wt?-.3:M.tA;
   if(M.st)y+=M.st*sig((d-.035*w)/.006)*(1-sig((d-(tp+.05))/.025));
   y+=d<tp?G(d,tp,M.tS1,tA):G(d,tp,M.tS2,tA);
   if(M.u)y+=G(d,tp+.14,.032,M.u);
@@ -1498,12 +1516,13 @@ function ecg(spec,dur,fs,seed){
   for(let i=0;i<n;i++){
     const t=i/fs;let y=.035*Math.sin(2*Math.PI*.21*t+ph[0])+.006*(R()-.5);
     while(j0<B.length&&B[j0].t<t-1)j0++;
-    for(let j=j0;j<B.length&&B[j].t<t+.6;j++)y+=beatV(t-B[j].t,B[j],M);
+    for(let j=j0;j<B.length&&B[j].t<t+.6;j++)y+=beatV(t-B[j].t,B[j],M)*(B[j].amp||1);
     for(const p of P)if(Math.abs(t-p)<.1)y+=G(t,p,.022,M.pA);
     if(spec.type==="fa"){const m=.7+.3*Math.sin(2*Math.PI*.4*t+ph[1]);y+=m*(.065*Math.sin(2*Math.PI*5.3*t+ph[1])+.04*Math.sin(2*Math.PI*7.1*t+ph[2])+.02*Math.sin(2*Math.PI*9.4*t+ph[3]))}
-    if(spec.type==="flutter"){const p=((t/.2)%1+1)%1;y+=p<.78?.09-.3*(p/.78):-.21+.3*((p-.78)/.22)}
-    if(spec.type==="fv"){const a=.32+.18*Math.sin(2*Math.PI*.35*t+ph[1]);y+=a*(Math.sin(2*Math.PI*4.6*t+ph[2]+.6*Math.sin(2*Math.PI*.7*t))+.55*Math.sin(2*Math.PI*6.1*t+ph[3])+.3*Math.sin(2*Math.PI*3.1*t+ph[0]))}
+    if(spec.type==="flutter"||spec.type==="flutterv"){const p=((t/.2)%1+1)%1;y+=p<.78?.09-.3*(p/.78):-.21+.3*((p-.78)/.22)}
+    if(spec.type==="fv"||spec.type==="fvfine"){const a=(spec.type==="fvfine"?.24:1)*(.32+.18*Math.sin(2*Math.PI*.35*t+ph[1]));y+=a*(Math.sin(2*Math.PI*4.6*t+ph[2]+.6*Math.sin(2*Math.PI*.7*t))+.55*Math.sin(2*Math.PI*6.1*t+ph[3])+.3*Math.sin(2*Math.PI*3.1*t+ph[0]))}
     if(spec.type==="asistolia")y*=.6;
+    if(spec.type==="artefatto"){const e=sig((t-1.7)/.12)*(1-sig((t-4.1)/.12));y+=e*(.5*Math.sin(2*Math.PI*5.4*t+ph[1]+1.6*Math.sin(2*Math.PI*.8*t))+.32*Math.sin(2*Math.PI*8.7*t+ph[2])+.28*Math.sin(2*Math.PI*2.3*t+ph[3]))}
     if(spec.type==="torsione"){const env=1.15*Math.sin(2*Math.PI*.32*t+ph[1]),q=Math.sin(2*Math.PI*3.7*t+ph[2]);y+=env*(q>0?Math.pow(q,3):-.55*q*q)+.12*Math.sin(2*Math.PI*1.8*t+ph[3])}
     out[i]=y;
   }
@@ -1513,7 +1532,7 @@ function pleth(spec,B,dur,fs){
   const n=Math.round(dur*fs),out=new Array(n).fill(0);
   if(!spec.pulse)return out;
   const mean=B.length>1?(B[B.length-1].t-B[0].t)/(B.length-1):1;
-  for(const b of B){
+  for(const b of B){if(b.k==="s")continue;
     let a=spec.pulse*clamp(Math.pow((b.rr||mean)/mean,1.3),.2,1.35);if(b.k==="w"&&spec.type!=="tv")a*=.3;if(spec.type==="tv")a=spec.pulse*.35;
     const i0=Math.max(0,Math.floor((b.t+.05)*fs)),i1=Math.min(n,Math.ceil((b.t+1.1)*fs));
     for(let i=i0;i<i1;i++){const d=i/fs-b.t;out[i]+=a*((d<.26?G(d,.26,.06,1):G(d,.26,.12,1))+G(d,.52,.07,.32))}
@@ -1531,7 +1550,7 @@ function abp(s,B,dur,fs,seed){
   const n=Math.round(dur*fs),out=new Array(n).fill(s.dia);
   if(!s.pulse){const R=rng(seed+"abp");for(let i=0;i<n;i++)out[i]=s.arrestP+1.2*Math.sin(i/fs*1.3)+.8*(R()-.5);return out}
   const mean=B.length>1?(B[B.length-1].t-B[0].t)/(B.length-1):1,pp=s.sys-s.dia;
-  for(const b of B){
+  for(const b of B){if(b.k==="s")continue;
     let a=pp*clamp(Math.pow((b.rr||mean)/mean,1.2),.25,1.25);if(b.k==="w"&&s.type!=="tv")a*=.35;if(s.type==="tv")a*=.45;
     if(s.ppv)a*=1+s.ppv*Math.sin(2*Math.PI*b.t/(60/s.fr));
     const i0=Math.max(0,Math.floor((b.t+.08)*fs)),i1=Math.min(n,Math.ceil((b.t+1.6)*fs));
@@ -1662,7 +1681,7 @@ function detect(c){
 /* ---- descrizioni per «Leggi il tracciato» ---- */
 function ecgName(s){const h=Math.round(s.hr);return ({
   sinus:h<60?["Bradicardia sinusale","Onda P positiva prima di ogni QRS, PR costante, QRS stretto, R-R regolari, ma frequenza sotto 60/min."]:h>100?["Tachicardia sinusale","Onda P positiva prima di ogni QRS, PR costante, QRS stretto, R-R regolari, frequenza oltre 100/min. Va cercata la causa (dolore, febbre, ipovolemia, ipossia, ansia)."]:["Ritmo sinusale","Onda P positiva prima di ogni QRS, PR costante (0,12-0,20 s), QRS stretto, R-R regolari, frequenza 60-100/min."],
-  fa:["Fibrillazione atriale","Mancano le onde P: la linea di base è ondulata e irregolare (onde f) e gli intervalli R-R sono irregolarmente irregolari. Anche la curva del polso cambia ampiezza da un battito all'altro (possibile deficit di polso)."],
+  fa:[h<60?"Fibrillazione atriale a bassa risposta ventricolare":h>110?"Fibrillazione atriale ad alta risposta ventricolare":"Fibrillazione atriale",(h<60?"Frequenza ventricolare sotto 60/min (farmaci, sovradosaggio, malattia del nodo). ":h>110?"Frequenza ventricolare oltre 110/min: valuta segni di instabilità e scompenso. ":"")+"Mancano le onde P: la linea di base è ondulata e irregolare (onde f) e gli intervalli R-R sono irregolarmente irregolari. Anche la curva del polso cambia ampiezza da un battito all'altro (possibile deficit di polso)."],
   flutter:["Flutter atriale","Onde F «a dente di sega» a circa 300/min, ben visibili in II, aVF e V1; QRS stretti e regolari (qui conduzione "+(s.hr>120?"2:1":"4:1")+")."],
   tsv:["Tachicardia sopraventricolare","QRS stretti, regolari e molto frequenti (oltre 150/min), onde P non distinguibili."],
   tv:["Tachicardia ventricolare","QRS larghi (≥ 0,12 s), regolari e frequenti, senza onde P riconoscibili. "+(s.pulse?"Il polso è presente ma debole: paziente instabile, cardioversione su indicazione.":"Senza polso è un ritmo defibrillabile.")],
@@ -1694,6 +1713,25 @@ function ecgName(s){const h=Math.round(s.hr);return ({
   osborn:["Ipotermia con onda J di Osborn","Bradicardia con una gobba positiva alla fine del QRS (onda J o di Osborn), più evidente quanto più bassa è la temperatura; spesso artefatti da brivido e QT lungo."],
   brugada:["Pattern di Brugada tipo 1 (V1)","In V1-V2 sopraslivellamento ST ≥ 2 mm «a tenda» (coved) che scende fino a un'onda T negativa: è l'unico pattern diagnostico. Rischio di aritmie ventricolari e morte improvvisa; la febbre lo può slatentizzare."],
   digitale:["Effetto digitalico","Sottoslivellamento ST «a cucchiaio» (a scodella), onde T piatte e QT accorciato. È un effetto dei digitalici, non necessariamente tossicità: la tossicità dà aritmie e bradicardia."],
+  flutterv:["Flutter atriale a conduzione variabile","Onde F «a dente di sega» regolari, ma il nodo AV lascia passare una volta ogni 2, ogni 3 o ogni 4 onde: i QRS stretti diventano irregolari. Si distingue dalla FA perché la linea di base è a dente di sega e non caotica."],
+  pausa:["Pausa (arresto) sinusale","Ritmo sinusale interrotto da una pausa senza onde P né QRS che non è un multiplo dell'intervallo P-P di base. Tipico della malattia del nodo del seno; se le pause sono lunghe o danno sintomi (vertigini, sincope) va valutato il pacemaker."],
+  trigeminismo:["Trigeminismo ventricolare","Ogni due battiti sinusali arriva un'extrasistole ventricolare (QRS largo, anticipato, senza P, con pausa compensatoria): il ritmo si ripete a gruppi di tre."],
+  evmulti:["Extrasistoli ventricolari multifocali","Extrasistoli ventricolari con forme diverse fra loro (una positiva, una negativa): nascono da più punti dei ventricoli. Indicano un miocardio irritabile (ischemia, ipopotassiemia, ipomagnesiemia, farmaci)."],
+  tvns:["Tachicardia ventricolare non sostenuta","Una salva di tre o più battiti ventricolari consecutivi (QRS larghi oltre 100/min) che si interrompe da sola entro 30 secondi, poi riprende il ritmo sinusale."],
+  pmigrante:["Segnapassi atriale migrante (wandering pacemaker)","Onde P di almeno tre forme diverse con PR variabili e ritmo lievemente irregolare, ma frequenza sotto 100/min. È la «versione lenta» della tachicardia atriale multifocale; di solito benigno."],
+  tgiunz:["Tachicardia giunzionale","QRS stretti e regolari oltre 100/min senza onde P prima del QRS, con piccola P negativa subito dopo. Si vede nella tossicità da digitale, dopo cardiochirurgia e nelle catecolamine ad alte dosi."],
+  idiov:["Ritmo idioventricolare","QRS larghi, regolari e lenti (20-40/min) senza onde P: è il ritmo di scappamento dei ventricoli quando seno e giunzione tacciono. Spesso dà ipotensione: va trattato come una bradicardia grave."],
+  pmloss:["Pacemaker con perdita di cattura","Alcuni spike del pacemaker non sono seguiti dal QRS: lo stimolo arriva ma non attiva il ventricolo (elettrocatetere spostato, soglia aumentata, batteria, ipopotassiemia o acidosi). Il paziente rischia bradicardia grave."],
+  fvfine:["Fibrillazione ventricolare fine","Attività caotica di bassa ampiezza, senza QRS: può somigliare a un'asistolia. Controlla guadagno e derivazioni; se c'è il dubbio fra FV fine e asistolia si continua l'RCP senza shock e si rivaluta al controllo del ritmo successivo."],
+  artefatto:["Artefatto da movimento (non è una FV)","Per qualche secondo la linea si riempie di oscillazioni rapide che sembrano una fibrillazione, ma i QRS regolari continuano a vedersi «attraverso» il disturbo. Prima di tutto si guarda il paziente: se parla e ha polso è un artefatto (movimento, brivido, elettrodo staccato)."],
+  bassovolt:["Bassi voltaggi con alternanza elettrica","Tachicardia sinusale con complessi piccoli che cambiano ampiezza a battiti alterni: il cuore «oscilla» dentro un versamento pericardico abbondante. Con ipotensione, turgore delle giugulari e toni attutiti fa pensare al tamponamento cardiaco."],
+  iperkgrave:["Iperpotassiemia grave","Onde P scomparse, QRS molto largo che si fonde con onde T alte e appuntite: è la fase che precede il tracciato «sinusoidale» e l'arresto. Emergenza: calcio endovena su prescrizione per proteggere il miocardio."],
+  ivs:["Ipertrofia ventricolare sinistra (V5)","Onde R molto alte nelle precordiali sinistre (la somma S in V1 + R in V5 o V6 supera i 35 mm) con ST sottoslivellato e T negativa asimmetrica («strain»). Tipica dell'ipertensione di lunga durata e della stenosi aortica."],
+  necrosi:["Onda Q patologica (infarto pregresso, derivazione III)","Onda Q larga (≥ 0,04 s) e profonda con R ridotta e T negativa: è la «cicatrice» elettrica di un infarto già avvenuto nella parete inferiore. Va confrontata con gli ECG precedenti."],
+  wellens:["Onde T di Wellens (V2)","Onde T profondamente e simmetricamente negative in V2-V3 (o bifasiche) in un paziente che ha avuto dolore toracico ma ora sta bene, con ST quasi normale. Indicano una stenosi critica della discendente anteriore: rischio alto di infarto anteriore esteso; la prova da sforzo è controindicata."],
+  posteriore:["Infarto posteriore (immagine speculare in V2)","Sottoslivellamento ST orizzontale in V1-V3 con onde R alte e T positive: è il riflesso di un sopraslivellamento sulla parete posteriore. Si conferma registrando V7-V9 (sopraslivellamento ≥ 0,5 mm) e va trattato come uno STEMI."],
+  tiperacute:["Onde T iperacute (fase iniziale dell'infarto, V3)","Onde T larghe alla base, alte e simmetriche, sproporzionate rispetto al QRS, con lieve sopraslivellamento ST: possono precedere di minuti lo STEMI. Si ripete l'ECG a breve distanza. A differenza dell'iperpotassiemia la T non è stretta e appuntita."],
+  qtcorto:["QT corto (ipercalcemia)","Il tratto ST quasi scompare e l'onda T segue subito il QRS: QT accorciato. Tipico dell'ipercalcemia (tumori, iperparatiroidismo) e dell'effetto digitalico."],
   qtlungo:["QT lungo","Tratto ST allungato con onda T ritardata (come nell'ipocalcemia o con farmaci che allungano il QT): rischio di torsione di punta."]
  })[s.type]||["Ritmo sinusale",""]}
 const RESP={
@@ -1815,7 +1853,7 @@ function miscStrip(kind){
 let STRIP_N=0;
 function strip(type,opt){
   opt=opt||{};const gid="eg"+(++STRIP_N);const dur=opt.dur||6,W=dur*25,H=30,fs=250;
-  const s={type:type==="stemiIII"?"stemi":type,morph:type==="stemiIII"?"stemiIII":type==="stemi"?"stemiV2":MORPH[type]?type:null,lead:type==="stemiIII"?"III":type==="stemi"?"V2":({bbdx:"V1",brugada:"V1",bbsx:"V6"})[type]||"II",hr:opt.hr||DEFHR(type),pulse:1};
+  const s={type:type==="stemiIII"?"stemi":type,morph:type==="stemiIII"?"stemiIII":type==="stemi"?"stemiV2":MORPH[type]?type:null,lead:type==="stemiIII"?"III":type==="stemi"?"V2":({bbdx:"V1",brugada:"V1",bbsx:"V6",ivs:"V5",wellens:"V2",posteriore:"V2",tiperacute:"V3",necrosi:"III"})[type]||"II",hr:opt.hr||DEFHR(type),pulse:1};
   const e=ecg(s,dur,fs,"strip"+type+(opt.seed||""));
   const [n,d]=ecgName(s);
   return `<figure class="ecg-strip"><svg viewBox="0 0 ${W} ${H}" aria-label="${esc(n)}" role="img"><defs><pattern id="${gid}a" width="1" height="1" patternUnits="userSpaceOnUse"><path d="M1 0V1H0" fill="none" stroke="#f2bdb9" stroke-width=".1"/></pattern><pattern id="${gid}b" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="url(#${gid}a)"/><path d="M5 0V5H0" fill="none" stroke="#e08a84" stroke-width=".28"/></pattern></defs><rect width="${W}" height="${H}" fill="url(#${gid}b)"/><text x="1.5" y="4.2" class="eg-t">${s.lead}</text><path d="${path(e.y,W,H,19,10,1)}" class="eg-tr"/></svg><figcaption><b>${esc(n)}.</b> ${esc(d)}</figcaption></figure>`;
@@ -1826,26 +1864,26 @@ function respStrip(type,fr){
 }
 function solution(c){return monitor(c,(c.id||"")+c.title).sol}
 function ecgRaw(spec,dur,fs,seed){return ecg(spec,dur,fs,seed).y}
-function DEFHR(type){return ({pea:42,tv:175,tsv:180,fa:110,flutter:150,osborn:44,giunzionale:50,riva:72,pm:70,tam:128,bav3:36,torsione:200})[type]||75}
-function specOf(type,hr){return {type:type==="stemiIII"?"stemi":type,morph:type==="stemiIII"?"stemiIII":type==="stemi"?"stemiV2":MORPH[type]?type:null,lead:type==="stemiIII"?"III":type==="stemi"?"V2":({bbdx:"V1",brugada:"V1",bbsx:"V6"})[type]||"II",hr:hr||DEFHR(type),pulse:1}}
+function DEFHR(type){return ({pea:42,tv:175,tsv:180,fa:110,flutter:150,osborn:44,giunzionale:50,riva:72,pm:70,tam:128,bav3:36,torsione:200,idiov:32,tgiunz:120,pmloss:66,iperkgrave:58,bassovolt:115,flutterv:95,pmigrante:75})[type]||75}
+function specOf(type,hr){return {type:type==="stemiIII"?"stemi":type,morph:type==="stemiIII"?"stemiIII":type==="stemi"?"stemiV2":MORPH[type]?type:null,lead:type==="stemiIII"?"III":type==="stemi"?"V2":({bbdx:"V1",brugada:"V1",bbsx:"V6",ivs:"V5",wellens:"V2",posteriore:"V2",tiperacute:"V3",necrosi:"III"})[type]||"II",hr:hr||DEFHR(type),pulse:1}}
 function ecgFull(type,hr,dur,fs,seed){const s=specOf(type,hr);const e=ecg(s,dur,fs,seed);return {y:e.y,B:e.B,s,name:ecgName(s)}}
 return {monitor,strip,respStrip,miscStrip,detect,solution,ecgRaw,ecgFull,ecgName};
 })();
 const ENC_STRIPS={
- "ritmi":[["e","sinus"],["e","sinus",{hr:48}],["e","sinus",{hr:125}],["e","fa"],["e","flutter"],["e","tsv"],["e","ev"],["e","tv"],["e","fv"],["e","asistolia"]],
+ "ritmi":[["e","sinus"],["e","sinus",{hr:48}],["e","sinus",{hr:125}],["e","fa"],["e","flutter"],["e","flutterv"],["e","fa",{hr:48}],["e","fa",{hr:150}],["e","tsv"],["e","ev"],["e","tv"],["e","fv"],["e","fvfine"],["e","asistolia"],["e","artefatto"],["e","pausa"]],
  "blocchi-av":[["e","bav1"],["e","mobitz1"],["e","mobitz2"],["e","bav21"],["e","bav3",{dur:8}]],
- "stemi":[["e","ischemia"],["e","stemi"],["e","stemiIII"]],
- "elettroliti-ecg":[["e","iperk"],["e","ipok"],["e","qtlungo"]],
+ "stemi":[["e","ischemia"],["e","tiperacute"],["e","stemi"],["e","stemiIII"],["e","posteriore"],["e","wellens"],["e","necrosi"],["e","ivs"]],
+ "elettroliti-ecg":[["e","iperk"],["e","iperkgrave"],["e","ipok"],["e","qtlungo"],["e","qtcorto"]],
  "ecg-blocchi-branca":[["e","bbdx"],["e","bbsx"]],
  "ecg-preeccitazione":[["e","wpw"]],
- "ecg-pericardite":[["e","pericardite",{hr:100}]],
+ "ecg-pericardite":[["e","pericardite",{hr:100}],["e","bassovolt"]],
  "ecg-brugada":[["e","brugada"]],
  "ecg-ipotermia":[["e","osborn"]],
  "ecg-torsione":[["e","qtlungo",{hr:62}],["e","torsione"]],
- "ecg-extrasistoli":[["e","eas"],["e","ev"],["e","bigeminismo"]],
- "ecg-giunzionali":[["e","giunzionale"],["e","riva"]],
- "ecg-pacemaker":[["e","pm"]],
- "ecg-tachicardie-atriali":[["e","aritmia"],["e","tam"]],
+ "ecg-extrasistoli":[["e","eas"],["e","ev"],["e","bigeminismo"],["e","trigeminismo"],["e","evmulti"],["e","tvns"]],
+ "ecg-giunzionali":[["e","giunzionale"],["e","tgiunz"],["e","riva"],["e","idiov"]],
+ "ecg-pacemaker":[["e","pm"],["e","pmloss"]],
+ "ecg-tachicardie-atriali":[["e","aritmia"],["e","pmigrante"],["e","tam"]],
  "ecg-farmaci":[["e","digitale"]],
  "ecg-lettura":[["e","sinus"]],
  "fibrillazione-atriale":[["e","fa"]],
@@ -2967,55 +3005,98 @@ function encEntry(e,open){
 /* ---- Palestra ECG: esercizi di lettura sistematica ---- */
 const GYM_POOL=[
  {k:"sinus",hr:[62,95],reg:"r",p:"n",q:"s"},{k:"sinus",hr:[40,54],reg:"r",p:"n",q:"s",id:"bradi"},{k:"sinus",hr:[108,140],reg:"r",p:"n",q:"s",id:"tachi"},{k:"aritmia",hr:[66,80],reg:"i",p:"n",q:"s"},
- {k:"fa",hr:[80,140],reg:"i",p:"a",q:"s"},{k:"flutter",hr:[150,150],reg:"r",p:"a",q:"s"},{k:"flutter",hr:[75,75],reg:"r",p:"a",q:"s",id:"flutter4"},{k:"tsv",hr:[175,210],reg:"r",p:"a",q:"s"},{k:"tam",hr:[115,140],reg:"i",p:"v",q:"s"},
+ {k:"fa",hr:[72,108],reg:"i",p:"a",q:"s"},{k:"fa",hr:[125,165],reg:"i",p:"a",q:"s",id:"farapida"},{k:"fa",hr:[42,56],reg:"i",p:"a",q:"s",id:"falenta"},{k:"flutterv",hr:[95,95],reg:"i",p:"a",q:"s"},{k:"flutter",hr:[150,150],reg:"r",p:"a",q:"s"},{k:"flutter",hr:[75,75],reg:"r",p:"a",q:"s",id:"flutter4"},{k:"tsv",hr:[175,210],reg:"r",p:"a",q:"s"},{k:"tam",hr:[115,140],reg:"i",p:"v",q:"s"},
  {k:"tv",hr:[160,200],reg:"r",p:"a",q:"l"},{k:"torsione",hr:[200,200],reg:"n",p:"a",q:"l"},{k:"fv",hr:[0,0],reg:"n",p:"a",q:"x"},{k:"asistolia",hr:[0,0],reg:"n",p:"a",q:"x"},
  {k:"bav1",hr:[60,80],reg:"r",p:"n",q:"s"},{k:"mobitz1",hr:[60,70],reg:"i",p:"m",q:"s"},{k:"mobitz2",hr:[60,70],reg:"i",p:"m",q:"s"},{k:"bav21",hr:[75,75],reg:"r",p:"m",q:"s"},{k:"bav3",hr:[36,36],reg:"r",p:"m",q:"l"},
- {k:"ev",hr:[70,90],reg:"i",p:"n",q:"s"},{k:"bigeminismo",hr:[70,85],reg:"i",p:"n",q:"s"},{k:"eas",hr:[70,90],reg:"i",p:"n",q:"s"},
- {k:"giunzionale",hr:[45,58],reg:"r",p:"r",q:"s"},{k:"riva",hr:[60,90],reg:"r",p:"a",q:"l"},{k:"pm",hr:[60,72],reg:"r",p:"a",q:"l"},
+ {k:"ev",hr:[70,90],reg:"i",p:"n",q:"m"},{k:"bigeminismo",hr:[70,85],reg:"i",p:"n",q:"m"},{k:"trigeminismo",hr:[70,85],reg:"i",p:"n",q:"m"},{k:"evmulti",hr:[70,85],reg:"i",p:"n",q:"m"},{k:"tvns",hr:[68,80],reg:"i",p:"n",q:"m"},{k:"pausa",hr:[66,80],reg:"i",p:"n",q:"s"},{k:"pmigrante",hr:[66,88],reg:"i",p:"v",q:"s"},{k:"eas",hr:[70,90],reg:"i",p:"n",q:"s"},
+ {k:"giunzionale",hr:[45,58],reg:"r",p:"r",q:"s"},{k:"tgiunz",hr:[110,135],reg:"r",p:"r",q:"s"},{k:"riva",hr:[60,90],reg:"r",p:"a",q:"l"},{k:"idiov",hr:[26,38],reg:"r",p:"a",q:"l"},{k:"pm",hr:[60,72],reg:"r",p:"a",q:"l"},{k:"pmloss",hr:[62,72],reg:"i",p:"a",q:"l"},
+ {k:"fvfine",hr:[0,0],reg:"n",p:"a",q:"x"},{k:"artefatto",hr:[66,84],reg:"r",p:"n",q:"s"},{k:"bassovolt",hr:[108,125],reg:"r",p:"n",q:"s"},{k:"iperkgrave",hr:[50,66],reg:"r",p:"a",q:"l"},
  {k:"bbdx",hr:[65,90],reg:"r",p:"n",q:"l"},{k:"bbsx",hr:[65,90],reg:"r",p:"n",q:"l"},{k:"wpw",hr:[65,90],reg:"r",p:"n",q:"l"},
  {k:"stemi",hr:[75,100],reg:"r",p:"n",q:"s"},{k:"stemiIII",hr:[60,90],reg:"r",p:"n",q:"s"},{k:"ischemia",hr:[70,100],reg:"r",p:"n",q:"s"},{k:"pericardite",hr:[90,115],reg:"r",p:"n",q:"s"},
- {k:"iperk",hr:[60,85],reg:"r",p:"n",q:"s"},{k:"ipok",hr:[65,90],reg:"r",p:"n",q:"s"},{k:"qtlungo",hr:[55,75],reg:"r",p:"n",q:"s"},{k:"osborn",hr:[38,50],reg:"r",p:"n",q:"s"},{k:"brugada",hr:[65,90],reg:"r",p:"n",q:"s"},{k:"digitale",hr:[60,80],reg:"r",p:"n",q:"s"}];
+ {k:"iperk",hr:[60,85],reg:"r",p:"n",q:"s"},{k:"ipok",hr:[65,90],reg:"r",p:"n",q:"s"},{k:"qtlungo",hr:[55,75],reg:"r",p:"n",q:"s"},{k:"osborn",hr:[38,50],reg:"r",p:"n",q:"s"},{k:"brugada",hr:[65,90],reg:"r",p:"n",q:"s"},{k:"digitale",hr:[60,80],reg:"r",p:"n",q:"s"},
+ {k:"ivs",hr:[60,85],reg:"r",p:"n",q:"s"},{k:"necrosi",hr:[60,85],reg:"r",p:"n",q:"s"},{k:"wellens",hr:[60,84],reg:"r",p:"n",q:"s"},{k:"posteriore",hr:[70,95],reg:"r",p:"n",q:"s"},{k:"tiperacute",hr:[70,95],reg:"r",p:"n",q:"s"},{k:"qtcorto",hr:[60,85],reg:"r",p:"n",q:"s"}];
 const GYM_NURSE={fv:"Arresto cardiaco: chiama aiuto, RCP e defibrillazione il prima possibile.",asistolia:"Controlla elettrodi e derivazione, poi RCP e adrenalina: ritmo non defibrillabile.",tv:"Valuta subito il polso: senza polso RCP e defibrillazione; con polso ABCDE, ossigeno se serve, accesso venoso e medico subito.",torsione:"Emergenza: se senza polso RCP e defibrillazione; prepara magnesio solfato su prescrizione e cerca farmaci che allungano il QT.",
  stemi:"ECG a 12 derivazioni entro 10 minuti, allerta del percorso per l'infarto, monitoraggio, accesso venoso, terapia su prescrizione.",stemiIII:"ECG anche in V4R, attenzione all'ipotensione con i nitrati (infarto del ventricolo destro), allerta del percorso per l'infarto.",
  bav3:"Valuta la stabilità (PA, coscienza, perfusione), prepara atropina e pacing transcutaneo su prescrizione.",mobitz2:"Rischio di blocco completo: monitoraggio continuo, piastre per pacing a portata di mano.",bav21:"Monitoraggio continuo e valutazione della stabilità; informa il medico.",
  fa:"Valuta frequenza e stabilità, data di insorgenza (rischio tromboembolico), terapia per il controllo della frequenza su prescrizione.",tsv:"Se stabile manovre vagali su indicazione e adenosina su prescrizione; se instabile prepara la cardioversione.",
  iperk:"Prelievo per potassio, monitoraggio continuo, preparazione di calcio, insulina con glucosio e altri farmaci su prescrizione.",pericardite:"Valuta il dolore (migliora seduto in avanti?), confronta con gli ECG precedenti ed escludi lo STEMI con il medico.",
  brugada:"Monitoraggio, tratta la febbre, evita i farmaci controindicati; il medico valuta il rischio di aritmie.",osborn:"Riscaldamento graduale, mobilizzazione delicata (rischio di FV), monitoraggio continuo.",pm:"Controlla che ogni spike sia seguito dal QRS (cattura) e annota il tipo di dispositivo.",
- wpw:"Segnala al medico: con FA pre-eccitata vanno evitati i farmaci che bloccano il nodo AV.",qtlungo:"Rivedi la terapia con il medico (farmaci che allungano il QT), controlla potassio e magnesio.",tam:"Tratta la causa respiratoria: ossigenoterapia controllata e terapia della BPCO o dello scompenso."};
+ wpw:"Segnala al medico: con FA pre-eccitata vanno evitati i farmaci che bloccano il nodo AV.",qtlungo:"Rivedi la terapia con il medico (farmaci che allungano il QT), controlla potassio e magnesio.",tam:"Tratta la causa respiratoria: ossigenoterapia controllata e terapia della BPCO o dello scompenso.",
+ fvfine:"RCP di qualità; controlla guadagno e derivazioni. Se resta il dubbio con l'asistolia non si defibrilla: si continua l'RCP e si rivaluta al controllo successivo.",artefatto:"Guarda il paziente prima del monitor: se è cosciente e ha polso, sistema elettrodi e cavi e invitalo a stare fermo.",
+ bassovolt:"Avvisa subito il medico: ecocardiogramma urgente, accesso venoso, monitoraggio; prepara il materiale per la pericardiocentesi.",iperkgrave:"Emergenza: monitoraggio continuo, calcio endovena su prescrizione, poi insulina con glucosio e gli altri trattamenti; potassiemia urgente.",
+ idiov:"Valuta la perfusione (PA, coscienza): se instabile chiama aiuto, applica le piastre e prepara pacing e farmaci su prescrizione.",pmloss:"Avvisa subito il medico, applica le piastre e tieni pronto il pacing transcutaneo; serve il controllo del dispositivo.",
+ tvns:"Valuta il paziente, controlla potassio e magnesio, segnala al medico: salve ripetute possono precedere una TV sostenuta.",evmulti:"Controlla elettroliti (K, Mg), ischemia e farmaci; segnala al medico e mantieni il monitoraggio.",
+ wellens:"Segnala subito al medico anche se il paziente non ha dolore: serve la valutazione cardiologica urgente per la coronarografia; niente prova da sforzo.",posteriore:"Registra V7-V9, allerta il percorso per l'infarto come per uno STEMI, monitoraggio continuo.",
+ tiperacute:"Ripeti l'ECG a 12 derivazioni entro pochi minuti e avvisa il medico: può evolvere in STEMI.",pausa:"Valuta i sintomi (vertigini, sincope), monitoraggio continuo, segnala al medico la durata delle pause.",
+ flutterv:"Valuta stabilità e frequenza, ECG a 12 derivazioni, informa il medico; il rischio tromboembolico è come nella FA.",ivs:"Controlla la pressione arteriosa e segnala; il quadro va confrontato con gli ECG precedenti.",
+ necrosi:"Confronta con gli ECG precedenti e chiedi dell'infarto pregresso; se c'è dolore attuale tratta come sindrome coronarica.",tgiunz:"Valuta la stabilità e la terapia in corso (digitale?), informa il medico.",qtcorto:"Segnala al medico e controlla calcemia e terapia."};
+const GYM_CASES=[
+ {k:"fv",hr:[0,0],t:"Reparto di medicina, ore 3. Trovi la signora del letto 4 (72 anni) che non risponde e non respira normalmente. Il monitor mostra questo tracciato.",q:"Qual è la prima cosa da fare?",o:["Chiamare aiuto e il team, iniziare l'RCP e defibrillare appena arriva il defibrillatore","Preparare amiodarone endovena su prescrizione","Registrare un ECG a 12 derivazioni per confermare il ritmo","Misurare la glicemia capillare"],c:0,e:"Arresto con ritmo defibrillabile: ogni minuto senza RCP e shock riduce la sopravvivenza. I farmaci arrivano dopo, l'ECG a 12 derivazioni non serve in arresto."},
+ {k:"artefatto",hr:[66,84],t:"Il monitor del sig. Bruno (60 anni, ricoverato per polmonite) suona l'allarme di FV. Entrando lo trovi seduto che si pettina e ti saluta.",q:"Come interpreti e cosa fai?",o:["È un artefatto da movimento: verifichi coscienza e polso, sistemi gli elettrodi e chiedi di stare fermo","Lo fai sdraiare e inizi le compressioni toraciche","Eroghi subito uno shock","Prepari adrenalina 1 mg endovena"],c:0,e:"Si tratta il paziente, non il monitor: chi parla e ha polso non è in FV. I QRS regolari si vedono attraverso il disturbo."},
+ {k:"stemi",hr:[78,98],t:"Uomo di 58 anni in Pronto Soccorso: dolore oppressivo al centro del petto da 40 minuti, sudato, PA 140/85. Questa è V2 dell'ECG appena registrato.",q:"Qual è la priorità?",o:["Avvisare subito il medico e attivare il percorso per l'infarto (riperfusione), monitoraggio e accesso venoso","Aspettare il risultato della troponina prima di avvisare","Farlo camminare fino alla radiologia per la lastra del torace","Rimandare a dopo il triage dei pazienti in attesa"],c:0,e:"Il sopraslivellamento ST con dolore tipico è uno STEMI: la diagnosi è elettrocardiografica e non si aspetta la troponina. Il tempo alla riperfusione è decisivo."},
+ {k:"stemiIII",hr:[58,72],t:"Donna di 66 anni con dolore epigastrico e nausea, PA 92/58. In III vedi questo tracciato. Il medico chiede di preparare la terapia per il dolore.",q:"A cosa fai attenzione?",o:["Registrare anche V4R e segnalare che i nitrati possono far crollare la pressione (possibile infarto del ventricolo destro)","Somministrare subito nitroglicerina sublinguale ripetuta","Mettere la paziente seduta con le gambe giù dal letto","Limitare i liquidi endovena"],c:0,e:"Nell'infarto inferiore con ipotensione si sospetta il coinvolgimento del ventricolo destro: il cuore dipende dal precarico, quindi i nitrati sono pericolosi."},
+ {k:"bav3",hr:[34,38],t:"Uomo di 81 anni portato per sincope. È confuso, pallido, PA 78/45.",q:"Cosa prepari?",o:["Chiami aiuto, applichi le piastre del defibrillatore e prepari atropina e pacing transcutaneo su prescrizione","Lo metti in posizione seduta e lo rivaluti fra un'ora","Prepari un betabloccante per rallentare il cuore","Fai eseguire una prova da sforzo"],c:0,e:"Bradicardia con segni di instabilità (ipotensione, confusione, sincope): serve aumentare subito la frequenza. Nel blocco completo l'atropina spesso non basta e si passa al pacing."},
+ {k:"tsv",hr:[180,205],t:"Ragazza di 28 anni con palpitazioni iniziate all'improvviso un'ora fa. È lucida, PA 118/76, nessun dolore toracico.",q:"Quale intervento è adatto, su indicazione medica?",o:["Manovra vagale (Valsalva modificata) con monitoraggio e adenosina pronta","Defibrillazione non sincronizzata","Compressioni toraciche","Nessun intervento: dimissione"],c:0,e:"Tachicardia a QRS stretti in paziente stabile: si iniziano le manovre vagali, poi adenosina in bolo rapido se servono. La cardioversione è per il paziente instabile."},
+ {k:"tv",hr:[165,190],t:"Uomo di 67 anni con infarto pregresso. Polso carotideo presente ma debole, PA 74/40, dolore toracico, sudato.",q:"Come si tratta?",o:["Tachicardia instabile con polso: cardioversione elettrica sincronizzata in sedazione, chiamando il team","Defibrillazione non sincronizzata come in arresto","Manovre vagali","Massaggio del seno carotideo e attesa"],c:0,e:"TV con polso e segni di instabilità (shock, dolore ischemico): lo shock va sincronizzato con il QRS, in sedazione. Senza polso invece è defibrillazione e RCP."},
+ {k:"iperkgrave",hr:[50,62],t:"Paziente in emodialisi che ha saltato due sedute. Debolezza muscolare marcata. Questo è il tracciato in II.",q:"Cosa prepari per primo su prescrizione?",o:["Calcio endovena per stabilizzare il miocardio, con monitoraggio continuo","Cloruro di potassio endovena","Furosemide per via orale","Nulla: si aspetta la seduta di dialisi programmata"],c:0,e:"QRS largo e T appuntite: iperpotassiemia grave. Il calcio protegge subito il cuore (non abbassa il potassio); poi insulina con glucosio, salbutamolo e dialisi spostano o eliminano il potassio."},
+ {k:"torsione",hr:[200,200],t:"Donna di 70 anni in terapia con un antiaritmico e un antibiotico macrolide; QT lungo agli ultimi ECG. Ha episodi di «svenimento» e ora il monitor mostra questo.",q:"Quale farmaco prepari su prescrizione?",o:["Magnesio solfato endovena (e defibrillazione se perde il polso)","Amiodarone in bolo","Adenosina in bolo rapido","Altro macrolide per completare la terapia"],c:0,e:"La torsione di punta si tratta con il magnesio e sospendendo i farmaci che allungano il QT; l'amiodarone allunga ulteriormente il QT."},
+ {k:"fa",id:"farapida",hr:[132,160],t:"Signora di 76 anni con palpitazioni da due giorni. PA 128/80, nessun dolore, lucida.",q:"Quale informazione è fondamentale raccogliere?",o:["Da quando sono iniziati i sintomi: oltre 48 ore aumenta il rischio tromboembolico prima di una cardioversione","Il gruppo sanguigno","Se ha fatto colazione","Se ha mai avuto il morbillo"],c:0,e:"FA ad alta risposta in paziente stabile: si controlla la frequenza su prescrizione e si valuta l'anticoagulazione. Con esordio da oltre 48 ore (o ignoto) la cardioversione richiede prima anticoagulazione o un'ecografia transesofagea."},
+ {k:"pmloss",hr:[62,70],t:"Uomo di 79 anni portatore di pacemaker, ricoverato per vertigini. Il monitor mostra questo tracciato.",q:"Che cosa fai?",o:["Avvisi subito il medico, applichi le piastre e tieni pronto il pacing transcutaneo; serve il controllo del dispositivo","Nulla: lo spike indica che il pacemaker funziona","Applichi un magnete sul pacemaker di tua iniziativa","Fai camminare il paziente per vedere se migliora"],c:0,e:"Spike non seguiti dal QRS = perdita di cattura: lo stimolo non attiva il ventricolo. Il controllo del dispositivo lo fanno cardiologo e tecnico."},
+ {k:"osborn",hr:[38,48],t:"Persona senza dimora trovata all'aperto in inverno, temperatura centrale 29 °C, risponde a fatica.",q:"Qual è l'attenzione principale?",o:["Mobilizzarlo con delicatezza e riscaldarlo gradualmente: il cuore freddo va facilmente in FV","Frizionare energicamente braccia e gambe","Fargli fare una doccia bollente","Farlo alzare e camminare per scaldarsi"],c:0,e:"Nell'ipotermia il miocardio è irritabile: movimenti bruschi possono scatenare la FV. Si tolgono gli abiti bagnati, si isola e si riscalda in modo controllato."},
+ {k:"brugada",hr:[72,90],t:"Ragazzo di 24 anni ricoverato per febbre a 39,5 °C; il padre è morto improvvisamente a 40 anni. Questa è V1.",q:"Qual è la priorità?",o:["Abbassare la febbre su prescrizione, monitoraggio continuo e segnalazione al medico","Nessuna: è un ECG normale per l'età","Prepararlo per una prova da sforzo massimale","Fargli fare una lunga camminata per smaltire la febbre"],c:0,e:"La febbre può slatentizzare il pattern di Brugada e scatenare aritmie ventricolari: si tratta subito la febbre, si monitora e si evitano i farmaci controindicati."},
+ {k:"wellens",hr:[64,80],t:"Uomo di 54 anni: ieri dolore toracico durato 20 minuti, oggi sta bene. Troponina appena sopra il limite. Questa è V2.",q:"Come ti comporti?",o:["Lo segnali subito al medico anche se è senza dolore: il quadro indica una stenosi critica della discendente anteriore","Lo rassicuri e prepari la dimissione","Lo prepari per una prova da sforzo","Ripeti l'ECG fra un mese"],c:0,e:"Le onde T di Wellens indicano uno stato pre-infartuale: serve la coronarografia, mentre la prova da sforzo può scatenare l'infarto."},
+ {k:"bassovolt",hr:[110,124],t:"Donna di 61 anni in trattamento oncologico: dispnea, PA 86/60, giugulari turgide, toni cardiaci attutiti.",q:"A cosa pensi e cosa fai?",o:["Possibile tamponamento cardiaco: avvisi subito il medico, ecocardiogramma urgente e materiale per la pericardiocentesi","Crisi d'ansia: prepari un ansiolitico","Scompenso: limiti subito i liquidi e dai un diuretico","Asma: prepari il salbutamolo"],c:0,e:"Tachicardia, bassi voltaggi e alternanza elettrica fanno sospettare un versamento pericardico importante; con ipotensione, giugulari turgide e toni attutiti (triade di Beck) è un tamponamento."},
+ {k:"tam",hr:[115,138],t:"Uomo di 74 anni con BPCO riacutizzata, SpO₂ 85% in aria, molto dispnoico.",q:"Su cosa agisci?",o:["Sulla causa: ossigeno controllato (obiettivo SpO₂ 88-92%) e terapia broncodilatatrice su prescrizione","Cardioversione elettrica immediata","Ossigeno ad alto flusso con obiettivo 100%","Digossina come unica terapia"],c:0,e:"La tachicardia atriale multifocale è guidata dall'ipossia e dalla malattia polmonare: migliora correggendo la causa. Nella BPCO l'ossigeno va titolato."},
+ {k:"sinus",id:"bradi",hr:[44,52],t:"Ciclista di 26 anni, visita prima di un piccolo intervento: asintomatico, PA 118/70, si allena tutti i giorni.",q:"Cosa fai?",o:["Documenti il reperto e verifichi l'assenza di sintomi: negli atleti è spesso fisiologica","Prepari atropina subito","Applichi il pacing transcutaneo","Rinvii l'intervento d'urgenza"],c:0,e:"La bradicardia sinusale asintomatica dell'atleta non richiede trattamento: si tratta la bradicardia con segni di instabilità, non il numero."},
+ {k:"sinus",id:"tachi",hr:[118,135],t:"Primo giorno dopo un intervento addominale. PA 94/60 (ieri 130/80), drenaggio con sangue in aumento, cute fredda.",q:"Qual è la priorità?",o:["Cercare la causa: valutazione ABCDE, segnalare il sospetto sanguinamento al medico, accesso venoso ed emocromo","Dare un betabloccante per rallentare il cuore","Aspettare il giro visita del mattino","Fare alzare il paziente per farlo camminare"],c:0,e:"La tachicardia sinusale è un compenso: qui segnala probabilmente un'ipovolemia da sanguinamento. Si tratta la causa, non la frequenza."},
+ {k:"asistolia",hr:[0,0],t:"Uomo trovato a terra in bagno, non cosciente, non respira. Il monitor mostra questo tracciato in due derivazioni, elettrodi controllati.",q:"Come si procede?",o:["RCP subito, adrenalina appena possibile e ricerca delle cause reversibili: non si defibrilla","Defibrillare subito alla massima energia","Atropina 3 mg come primo farmaco","Attendere il medico prima di iniziare"],c:0,e:"L'asistolia è un ritmo non defibrillabile: si fanno compressioni di qualità, adrenalina appena possibile e si cercano le 4 I e le 4 T."},
+ {k:"fvfine",hr:[0,0],t:"Durante un arresto, al controllo del ritmo, vedi un tracciato ondulato di ampiezza bassissima; non sei sicuro se sia FV o asistolia.",q:"Cosa prevede l'algoritmo?",o:["Nel dubbio non si defibrilla: si continua l'RCP e si rivaluta al controllo del ritmo successivo","Tre shock di fila alla massima energia","Interrompere l'RCP per due minuti per guardare meglio","Dichiarare il decesso"],c:0,e:"Una FV molto fine risponde raramente allo shock: nel dubbio si tratta come asistolia continuando le compressioni, che possono renderla più ampia e defibrillabile."},
+ {k:"bigeminismo",hr:[72,84],t:"Paziente al secondo giorno dopo un infarto. Il polso radiale che conti è 40/min, ma il monitor indica 80/min.",q:"Come spieghi la differenza e cosa fai?",o:["Le extrasistoli producono battiti poco efficaci (deficit di polso): controlli potassio e magnesio e informi il medico","Il saturimetro è guasto: lo cambi e basta","Il monitor sbaglia sempre: ignori l'allarme","Il paziente è in arresto: inizi l'RCP"],c:0,e:"Nel bigeminismo il battito prematuro avviene a ventricolo poco riempito e spesso non arriva al polso periferico: il polso contato è la metà della frequenza elettrica."},
+ {k:"riva",hr:[66,88],t:"Un'ora dopo un'angioplastica primaria compaiono QRS larghi e regolari a 75/min. Il paziente è asintomatico, PA 125/75.",q:"Cosa fai?",o:["Monitoraggio e segnalazione: è spesso un ritmo di riperfusione, di solito transitorio e da non sopprimere con antiaritmici","Defibrillazione immediata","Lidocaina in bolo di tua iniziativa","Compressioni toraciche"],c:0,e:"Il RIVA è frequente dopo la riperfusione e di solito è ben tollerato: sopprimerlo può lasciare il paziente senza un ritmo efficace."},
+ {k:"ipok",hr:[66,88],t:"Signora di 80 anni in terapia con diuretico dell'ansa, crampi e astenia. Il medico prescrive il reintegro di potassio.",q:"Qual è la regola di sicurezza?",o:["Il cloruro di potassio concentrato non va mai dato in bolo: va diluito e infuso lentamente, con pompa","Si somministra in bolo rapido per fare prima","Si diluisce in 5 ml e si spinge in vena","Si può aggiungere a qualsiasi infusione già in corso senza mescolare"],c:0,e:"Il KCl concentrato è un farmaco ad alto rischio (Raccomandazione ministeriale n. 1): il bolo può causare arresto cardiaco."},
+ {k:"mobitz2",hr:[60,70],t:"Uomo di 73 anni ricoverato per controllo, asintomatico. Al monitor alcune onde P non sono seguite dal QRS, con PR sempre uguale.",q:"Cosa fai?",o:["Monitoraggio continuo, piastre per il pacing a portata di mano e segnalazione al medico: può evolvere in blocco completo","Nulla, è un reperto benigno","Prepari un betabloccante","Lo mandi a casa"],c:0,e:"Il Mobitz 2 è un blocco sotto il nodo AV, instabile anche se il paziente sta bene: rischio di blocco completo e asistolia."},
+ {k:"pericardite",hr:[92,112],t:"Ragazzo di 30 anni con dolore toracico che peggiora sdraiato e migliora seduto in avanti; una settimana fa aveva l'influenza.",q:"Cosa è importante fare?",o:["Segnalare al medico e confrontare con altri ECG per escludere uno STEMI; antinfiammatori su prescrizione","Attivare la trombolisi di tua iniziativa","Dimetterlo senza altri accertamenti","Fargli fare sforzo per vedere se il dolore aumenta"],c:0,e:"ST sopraslivellato diffuso e concavo con PR sottoslivellato e dolore posizionale: pericardite. Il medico la distingue dallo STEMI, che ha un trattamento diverso."},
+ {k:"posteriore",hr:[74,92],t:"Donna di 63 anni con dolore toracico da 30 minuti. In V1-V3 ST sottoslivellato con R alte; il medico ti chiede le derivazioni posteriori.",q:"Dove posizioni V7, V8 e V9?",o:["Sul dorso sinistro, alla stessa altezza di V6: ascellare posteriore, punta della scapola, a lato della colonna","Sul lato destro del torace, a specchio di V4-V6","Sugli arti inferiori","Sopra la clavicola"],c:0,e:"Le derivazioni posteriori confermano l'infarto posteriore (sopraslivellamento ≥ 0,5 mm): in quel caso si attiva il percorso come per uno STEMI."},
+ {k:"tiperacute",hr:[74,94],t:"Uomo di 50 anni con dolore toracico iniziato 15 minuti fa. Questa è V3: lo ST è appena sollevato, ma le T sono alte e larghe.",q:"Come procedi?",o:["Avvisi il medico e ripeti l'ECG a breve distanza: può evolvere in STEMI","Lo rassicuri: l'ST non è sopraslivellato abbastanza","Prepari solo un antiacido","Ripeti l'ECG il giorno dopo"],c:0,e:"Le T iperacute sono una delle prime alterazioni dell'occlusione coronarica: ECG seriati ogni pochi minuti finché il quadro si chiarisce."},
+ {k:"idiov",hr:[28,36],t:"Paziente anziano molto sonnolento, PA 70/40, cute marezzata. Al monitor QRS larghi e lenti senza onde P.",q:"Qual è la priorità?",o:["Bradicardia instabile: chiami aiuto, applichi le piastre e prepari pacing e farmaci su prescrizione","Lidocaina per eliminare i battiti ventricolari","Attendere e rivalutare fra un'ora","Fare alzare il paziente"],c:0,e:"Il ritmo idioventricolare è un ritmo di scappamento: va sostenuto, non soppresso. Con segni di shock serve aumentare la frequenza."}
+];
 const gpick=a=>a[Math.floor(Math.random()*a.length)];
 let GYM={mode:"guidato",n:0,ok:0,cur:null,step:0,ans:[],cal:[]};
 const GYM_RATE=["Meno di 60/min","60-100/min","101-150/min","Oltre 150/min","Non misurabile"];
 const GYM_REG={r:"Regolare",i:"Irregolare",n:"Nessun complesso organizzato"};
 const GYM_P={n:"Un'onda P normale prima di ogni QRS",a:"Onde P assenti o sostituite (onde f/F, spike, attività caotica)",m:"Più onde P che QRS",r:"Nessuna P prima del QRS, P invertita subito dopo",v:"Onde P presenti ma di forme diverse"};
-const GYM_Q={s:"Stretto (< 0,12 s)",l:"Largo (≥ 0,12 s)",x:"Nessun QRS riconoscibile"};
-function gymNew(){const it=gpick(GYM_POOL),hr=Math.round(it.hr[0]+Math.random()*(it.hr[1]-it.hr[0]));const f=WAVE.ecgFull(it.k,hr||undefined,6,250,"gym"+Math.random());
-  const nb=f.B.filter(b=>b.t>=0&&b.t<6).length;let rc=4;if(it.q!=="x"&&it.k!=="torsione"){const r=nb*10;rc=r<60?0:r<=100?1:r<=150?2:3}
+const GYM_Q={s:"Stretto (< 0,12 s)",m:"Stretti, con alcuni complessi larghi",l:"Largo (≥ 0,12 s)",x:"Nessun QRS riconoscibile"};
+function gymNew(){let it,cs=null;if(GYM.mode==="casi"){cs=gpick(GYM_CASES.filter(c=>c!==GYM.lastCase));GYM.lastCase=cs;it=Object.assign({},GYM_POOL.find(g=>g.k===cs.k&&(cs.id?g.id===cs.id:!g.id))||{k:cs.k,reg:"r",p:"n",q:"s"},{hr:cs.hr})}else it=gpick(GYM_POOL);const hr=Math.round(it.hr[0]+Math.random()*(it.hr[1]-it.hr[0]));const f=WAVE.ecgFull(it.k,hr||undefined,6,250,"gym"+Math.random());
+  const nb=f.B.filter(b=>b.t>=0&&b.t<6&&b.k!=="s").length;let rc=4;if(it.q!=="x"&&it.k!=="torsione"){const r=nb*10;rc=r<60?0:r<=100?1:r<=150?2:3}
   const nm=f.name[0];const others=[...new Set(GYM_POOL.map(x=>WAVE.ecgName(Object.assign({},WAVE.ecgFull(x.k,x.hr[0]||75,.1,50,"n").s,{hr:x.hr[0]||75}))[0]))].filter(x=>x!==nm);
   const same=others.filter(x=>GYM_POOL.some(g=>g.q===it.q&&WAVE.ecgFull(g.k,g.hr[0]||75,.1,50,"n").name[0]===x));
   const dis=shuffle(same).slice(0,2);while(dis.length<3){const o=gpick(others);if(!dis.includes(o))dis.push(o)}
-  GYM.cur={it,f,rate:nb*10,rc,opts:shuffle([nm,...dis.slice(0,3)])};GYM.step=GYM.mode==="rapido"?4:0;GYM.ans=[];GYM.cal=[]}
+  GYM.cur={it,f,rate:nb*10,rc,opts:shuffle([nm,...dis.slice(0,3)]),cs,ao:cs?shuffle(cs.o.map((x,i)=>i)):null};GYM.step=GYM.mode==="rapido"?4:0;GYM.ans=[];GYM.cal=[]}
 function gymSvg(){const f=GYM.cur.f,W=150,H=36,b0=21,y=f.y,sc=10;
   const pd=y.map((v,i)=>(i?"L":"M")+(i*W/(y.length-1)).toFixed(2)+" "+Math.max(.5,Math.min(H-.5,b0-v*sc)).toFixed(2)).join("");
   const c=GYM.cal.map(x=>`<path d="M${x.toFixed(2)} 0V${H}" class="gym-cal"/>`).join("")+(GYM.cal.length===2?`<path d="M${GYM.cal[0]} 3H${GYM.cal[1]}" class="gym-cal"/>`:"");
   return `<svg viewBox="0 0 ${W} ${H}" id="gym-svg" role="img" aria-label="Tracciato ECG da interpretare"><defs><pattern id="gyma" width="1" height="1" patternUnits="userSpaceOnUse"><path d="M1 0V1H0" fill="none" stroke="#f2bdb9" stroke-width=".08"/></pattern><pattern id="gymb" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="url(#gyma)"/><path d="M5 0V5H0" fill="none" stroke="#e08a84" stroke-width=".25"/></pattern></defs><rect width="${W}" height="${H}" fill="url(#gymb)"/><text x="1.5" y="4" class="eg-t">${GYM.cur.f.s.lead} · 25 mm/s · 10 mm/mV</text><path d="${pd}" fill="none" stroke="#1d1d1f" stroke-width=".42" stroke-linejoin="round"/>${c}</svg>`}
 function ecgGym(){
   if(!GYM.cur)gymNew();const C=GYM.cur,it=C.it;
-  const steps=[["Frequenza","Conta i QRS nei 6 secondi della striscia e moltiplica per 10 (o usa il compasso: 300 ÷ quadratoni tra due R).",GYM_RATE,C.rc],["Ritmo","Gli intervalli R-R sono tutti uguali?",["r","i","n"].map(x=>GYM_REG[x]),["r","i","n"].indexOf(it.reg)],["Onde P","C'è un'onda P prima di ogni QRS? Sono tutte uguali?",["n","a","m","r","v"].map(x=>GYM_P[x]),["n","a","m","r","v"].indexOf(it.p)],["QRS","Il complesso dura meno di 3 quadratini (0,12 s)?",["s","l","x"].map(x=>GYM_Q[x]),["s","l","x"].indexOf(it.q)],["Diagnosi","Metti insieme gli elementi: che cos'è?",C.opts,C.opts.indexOf(C.f.name[0])]];
-  const done=GYM.step>=5;
+  const steps=[["Frequenza","Conta i QRS nei 6 secondi della striscia e moltiplica per 10 (o usa il compasso: 300 ÷ quadratoni tra due R).",GYM_RATE,C.rc],["Ritmo","Gli intervalli R-R sono tutti uguali?",["r","i","n"].map(x=>GYM_REG[x]),["r","i","n"].indexOf(it.reg)],["Onde P","C'è un'onda P prima di ogni QRS? Sono tutte uguali?",["n","a","m","r","v"].map(x=>GYM_P[x]),["n","a","m","r","v"].indexOf(it.p)],["QRS","Il complesso dura meno di 3 quadratini (0,12 s)?",["s","m","l","x"].map(x=>GYM_Q[x]),["s","m","l","x"].indexOf(it.q)],["Diagnosi","Metti insieme gli elementi: che cos'è?",C.opts,C.opts.indexOf(C.f.name[0])]];
+  const cs=C.cs,CASI=GYM.mode==="casi";
+  if(CASI){steps.length=0;steps.push(["Che ritmo è?","Leggi la striscia con metodo e riconosci il quadro.",C.opts,C.opts.indexOf(C.f.name[0])],["Che cosa fai?",cs.q,C.ao.map(i=>cs.o[i]),C.ao.indexOf(cs.c)])}
+  const S0=GYM.mode==="rapido"?4:0,LAST=steps.length-1,done=GYM.step>LAST;
   app.innerHTML=`
   <div><span class="eyebrow">Elettrocardiogramma</span><h2>Palestra ECG: esercizi di lettura</h2></div>
-  <p class="lead">Una striscia alla volta, letta con metodo: frequenza, ritmo, onde P, QRS e infine la diagnosi. Tocca due punti del tracciato per misurare un intervallo con il compasso. ${GYM_POOL.length} quadri diversi, tracciati sempre nuovi.</p>
-  <div class="row"><button class="chip" data-gm="guidato" aria-pressed="${GYM.mode==="guidato"}">Lettura guidata (5 passaggi)</button><button class="chip" data-gm="rapido" aria-pressed="${GYM.mode==="rapido"}">Riconoscimento rapido</button><span class="small" style="margin-left:auto">Sessione: <b>${GYM.ok}</b> corrette su <b>${GYM.n}</b></span></div>
+  <p class="lead">Una striscia alla volta, letta con metodo: frequenza, ritmo, onde P, QRS e infine la diagnosi. Tocca due punti del tracciato per misurare un intervallo con il compasso. ${GYM_POOL.length} quadri diversi con tracciati sempre nuovi, più ${GYM_CASES.length} casi clinici in cui riconoscere il ritmo e scegliere cosa fare.</p>
+  <div class="row"><button class="chip" data-gm="guidato" aria-pressed="${GYM.mode==="guidato"}">Lettura guidata (5 passaggi)</button><button class="chip" data-gm="rapido" aria-pressed="${GYM.mode==="rapido"}">Riconoscimento rapido</button><button class="chip" data-gm="casi" aria-pressed="${CASI}">Casi clinici (${GYM_CASES.length})</button><span class="small" style="margin-left:auto">Sessione: <b>${GYM.ok}</b> corrette su <b>${GYM.n}</b></span></div>
   <div class="sheet gym" style="display:flex;flex-direction:column;gap:12px">
+    ${CASI?`<div class="gym-case"><span class="eyebrow">Caso clinico</span><p>${esc(cs.t)}</p></div>`:""}
     <div class="gym-strip">${gymSvg()}</div>
     <div class="small" id="gym-cal">${GYM.cal.length===2?(()=>{const dt=Math.abs(GYM.cal[1]-GYM.cal[0])/25;return `Compasso: <b>${dt.toFixed(2).replace(".",",")} s</b> (${Math.round(dt*1000)} ms)${dt>.25?` · se è un R-R, FC ≈ <b>${Math.round(60/dt)}/min</b>`:""} · tocca di nuovo per ricominciare`})():GYM.cal.length===1?"Tocca il secondo punto…":"Compasso: tocca due punti del tracciato per misurare."}</div>
-    ${steps.map((st,i)=>{if(GYM.mode==="rapido"&&i<4)return "";if(i>GYM.step)return "";const a=GYM.ans[i];return `<div class="gym-step"><span class="eyebrow">${i+1-(GYM.mode==="rapido"?4:0)}. ${st[0]}</span><p class="small">${st[1]}</p><div class="opts">${st[2].map((o,j)=>`<button class="opt${a!=null?(j===st[3]?" right":j===a?" wrong":""):""}" data-gs="${i}" data-go="${j}" ${a!=null?"disabled":""}>${esc(o)}</button>`).join("")}</div></div>`}).join("")}
-    ${done?`<div class="expl"><b>${esc(C.f.name[0])}.</b> ${esc(C.f.name[1])}${it.q!=="x"&&it.k!=="torsione"?`<br><b>Frequenza misurata:</b> ${C.rate}/min (${C.rate/10} QRS in 6 s).`:""}<br><b>Cosa fa l'infermiere:</b> ${esc(GYM_NURSE[it.k]||"Valuta il paziente con l'ABCDE, confronta con gli ECG precedenti, monitora e informa il medico.")}</div>
+    ${steps.map((st,i)=>{if(i<S0)return "";if(i>GYM.step)return "";const a=GYM.ans[i];return `<div class="gym-step"><span class="eyebrow">${i+1-S0}. ${st[0]}</span><p class="small">${st[1]}</p><div class="opts">${st[2].map((o,j)=>`<button class="opt${a!=null?(j===st[3]?" right":j===a?" wrong":""):""}" data-gs="${i}" data-go="${j}" ${a!=null?"disabled":""}>${esc(o)}</button>`).join("")}</div></div>`}).join("")}
+    ${done?`<div class="expl">${CASI?`<b>${GYM.ans[1]===steps[1][3]?"Scelta corretta.":"Risposta corretta: "+esc(cs.o[cs.c])+"."}</b> ${esc(cs.e)}<br><br>`:""}<b>${esc(C.f.name[0])}.</b> ${esc(C.f.name[1])}${it.q!=="x"&&it.k!=="torsione"?`<br><b>Frequenza misurata:</b> ${C.rate}/min (${C.rate/10} QRS in 6 s).`:""}${CASI?"":`<br><b>Cosa fa l'infermiere:</b> ${esc(GYM_NURSE[it.id]||GYM_NURSE[it.k]||"Valuta il paziente con l'ABCDE, confronta con gli ECG precedenti, monitora e informa il medico.")}`}</div>
       <div class="row"><button class="btn primary" id="gym-next">Nuova striscia</button><a class="btn" href="#voce-ecg-lettura" style="text-decoration:none">Ripassa il metodo</a></div>`:""}
   </div>`;
   app.querySelectorAll("[data-gm]").forEach(b=>b.onclick=()=>{GYM.mode=b.dataset.gm;gymNew();ecgGym()});
   app.querySelectorAll("[data-gs]").forEach(b=>b.onclick=()=>{const i=+b.dataset.gs,j=+b.dataset.go;GYM.ans[i]=j;GYM.step=i+1;
-    if(i===4){const keys=GYM.mode==="rapido"?[4]:[0,1,2,3,4],good=keys.filter(k=>GYM.ans[k]===steps[k][3]).length;GYM.n++;if(GYM.ans[4]===steps[4][3])GYM.ok++;try{logEv("mcq","eo",0,good/keys.length,"ecg-"+(it.id||it.k),{gym:1})}catch(e){}}
+    if(i===LAST){const keys=CASI?[0,1]:GYM.mode==="rapido"?[4]:[0,1,2,3,4],good=keys.filter(k=>GYM.ans[k]===steps[k][3]).length;GYM.n++;if(GYM.ans[LAST]===steps[LAST][3])GYM.ok++;try{logEv("mcq","eo",0,good/keys.length,"ecg-"+(it.id||it.k),{gym:1})}catch(e){}}
     ecgGym();const st=app.querySelector(".gym-step:last-of-type, .expl");if(st)st.scrollIntoView({block:"nearest",behavior:RM?"auto":"smooth"})});
   const svg=document.getElementById("gym-svg");svg.onclick=e=>{const r=svg.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*150;if(GYM.cal.length>=2)GYM.cal=[];GYM.cal.push(x);const gs=app.querySelector(".gym-strip");gs.innerHTML=gymSvg();ecgGymBind()};
   if($("#gym-next"))$("#gym-next").onclick=()=>{gymNew();ecgGym();window.scrollTo({top:0,behavior:RM?"auto":"smooth"})};
