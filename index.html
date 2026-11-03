@@ -791,7 +791,8 @@ const SUBJ = {
   cod:{name:"Codice deontologico 2025",short:"Codice",c:"var(--cod)"},
   pa:{name:"Lavoro nella PA, CCNL e privacy",short:"PA e privacy",c:"var(--pa)"},
   cli:{name:"Clinica e assistenza",short:"Clinica",c:"var(--cli)"},
-  tr:{name:"Casi e collegamenti tra temi",short:"Collegamenti",c:"var(--tr)"}
+  tr:{name:"Casi e collegamenti tra temi",short:"Collegamenti",c:"var(--tr)"},
+  lav:{name:"Medicina del lavoro e sicurezza",short:"Medicina del lavoro",c:"var(--amber)"}
 };
 const SKEYS=Object.keys(SUBJ);
 
@@ -990,7 +991,7 @@ const BASE_CARDS = [
 /* ---- enciclopedia: dati comuni ---- */
 const ENCY=typeof ENC!=="undefined"?ENC:[], EAREE=typeof ENC_AREE!=="undefined"?ENC_AREE:{}, GLOS=typeof GLOSS!=="undefined"?GLOSS:[], GCAT=typeof GLOSS_CAT!=="undefined"?GLOSS_CAT:{};
 const ENC_BY={};ENCY.forEach(e=>ENC_BY[e.id]=e);
-const AREA_SUBJ={fond:"dx",rel:"tr",etica:"cod",legale:"leg",org:"pa",igiene:"cli",ricerca:"tr",anat:"eo",farm:"cli",ecg:"eo",emerg:"eo",med:"cli",chir:"cli",infett:"cli",onco:"cli",mat:"cli",psi:"cli",riab:"cli",nutr:"cli",diagn:"eo",codice:"cod"};
+const AREA_SUBJ={fond:"dx",rel:"tr",etica:"cod",legale:"leg",org:"pa",igiene:"cli",ricerca:"tr",anat:"eo",farm:"cli",ecg:"eo",emerg:"eo",med:"cli",chir:"cli",infett:"cli",onco:"cli",mat:"cli",psi:"cli",riab:"cli",nutr:"cli",diagn:"eo",codice:"cod",lavoro:"lav"};
 const encSubj=id=>AREA_SUBJ[(ENC_BY[id]||{}).a]||"cli";
 ENCY.forEach(e=>BASE_CARDS.push({id:"ce-"+e.id,m:encSubj(e.id),q:e.t+": di che cosa si tratta e quali sono i punti chiave?",a:e.d+"\n\n"+(e.p||[]).slice(0,4).map(x=>"• "+x).join("\n"),src:"enc",enc:e.id}));
 GLOS.forEach((g,i)=>{if(g[1]==="p"||g[1]==="s"||g[1]==="d")BASE_CARDS.push({id:"cg-"+g[1]+"-"+g[0].toLowerCase().replace(/[^a-z0-9]+/g,"-"),m:g[4]?encSubj(g[4]):(g[1]==="p"?"dx":"eo"),q:(g[1]==="p"?"Chi è «"+g[0]+"» e che cosa ha fatto?":g[1]==="s"?"«"+g[0]+"»: che cosa valuta e come si legge?":"«"+g[0]+"»: che cos'è e a che cosa serve?"),a:g[2],src:"enc",enc:g[4]||""})});
@@ -1180,6 +1181,47 @@ const CASES0 = [
   ["Cosa ti chiede il Codice?","Art. 3: rispetto di convinzioni e concezioni di salute senza discriminazione. Art. 4: non abbandono. Art. 6: se il tuo convincimento è diverso, mantieni comunque la relazione di cura. Art. 17 e 27: informazione completa e rispetto della volontà di limite agli interventi."]
  ],
  oral:"Ricorda la differenza tra adulto capace (vale il rifiuto) e minore (tutela del giudice)."}
+];
+
+/* ---- Schede di studio: medicina del lavoro ---- */
+TOPICS.lav=[
+ {t:"Il D.Lgs. 81/2008 e le figure della prevenzione",h:`<p>Il <b>Testo unico sulla salute e sicurezza sul lavoro</b> (D.Lgs. 81/2008) si applica a tutti i settori, pubblici e privati. Ogni figura ha compiti precisi.</p>
+ <div class="tbl-wrap"><table><tr><th>Figura</th><th>Ruolo</th><th>In ospedale</th></tr>
+ <tr><td>Datore di lavoro</td><td>Responsabile dell'organizzazione. Obblighi non delegabili: valutazione dei rischi e DVR, nomina dell'RSPP (art. 17)</td><td>Direttore generale</td></tr>
+ <tr><td>Dirigente</td><td>Attua le direttive organizzando l'attività</td><td>Direttore di struttura</td></tr>
+ <tr><td>Preposto</td><td>Sovrintende e vigila; deve essere individuato e può interrompere l'attività in caso di pericolo (L. 215/2021)</td><td>Coordinatore infermieristico</td></tr>
+ <tr><td>RSPP / ASPP</td><td>Servizio di prevenzione e protezione: consulenti del datore di lavoro</td><td>Servizio aziendale</td></tr>
+ <tr><td>Medico competente</td><td>Sorveglianza sanitaria, giudizi di idoneità, sopralluoghi almeno annuali</td><td>Medico del lavoro aziendale</td></tr>
+ <tr><td>RLS</td><td>Rappresenta i lavoratori; è consultato sulla valutazione dei rischi</td><td>Eletto o designato</td></tr>
+ <tr><td>Lavoratore</td><td>Cura la propria salute e quella degli altri, usa i DPI, segnala i pericoli, partecipa a formazione e visite (art. 20)</td><td>Infermiere, OSS…</td></tr></table></div>
+ <div class="note">All'orale: non confondere RSPP (consulente del datore di lavoro) e RLS (rappresentante dei lavoratori).</div>`},
+ {t:"Valutazione dei rischi, formazione e DPI",h:`<ul><li><b>DVR</b>: documento con la valutazione di tutti i rischi, le misure e il programma di miglioramento; va aggiornato dopo modifiche significative o infortuni gravi. Include stress lavoro-correlato, gravidanza, differenze di genere ed età.</li>
+ <li><b>DUVRI</b>: rischi da interferenze con le ditte esterne (art. 26).</li>
+ <li><b>Gerarchia delle misure</b>: eliminare, sostituire, proteggere collettivamente, organizzare e formare, infine DPI.</li>
+ <li><b>Formazione</b> (Accordo Stato-Regioni 17 aprile 2025): 4 ore generali + 12 specifiche per la sanità (rischio alto); aggiornamento 6 ore ogni 5 anni. Preposto 12 ore, aggiornamento ogni 2 anni.</li>
+ <li><b>DPI</b> (Reg. UE 2016/425): tre categorie; per la terza categoria l'addestramento è obbligatorio. FFP2 ≥ 94%, FFP3 ≥ 99%. La mascherina chirurgica è un dispositivo medico, non un DPI.</li></ul>`},
+ {t:"Sorveglianza sanitaria e idoneità alla mansione",h:`<p>Il medico competente visita il lavoratore esposto a rischi (art. 41):</p>
+ <ul><li>visita <b>preventiva</b>, anche preassuntiva;</li><li>visita <b>periodica</b>, di norma annuale;</li><li>su <b>richiesta</b> del lavoratore, se correlata ai rischi;</li><li>al <b>cambio di mansione</b>;</li><li>alla <b>cessazione</b> nei casi previsti;</li><li>prima della <b>ripresa</b> dopo un'assenza per motivi di salute superiore a <b>60 giorni continuativi</b>.</li></ul>
+ <p><b>Giudizi</b>: idoneità; idoneità parziale (temporanea o permanente) con prescrizioni o limitazioni; inidoneità temporanea; inidoneità permanente. <b>Ricorso</b> entro 30 giorni all'organo di vigilanza (ASL).</p>
+ <div class="note">Con il D.L. 159/2025 i controlli sanitari, salvo i preassuntivi, rientrano nell'orario di lavoro e il medico competente promuove gli screening oncologici.</div>`},
+ {t:"Infortuni, malattie professionali e rischio biologico",h:`<ul><li><b>Infortunio</b>: causa violenta in occasione di lavoro. Il lavoratore avvisa subito; il datore di lavoro denuncia all'INAIL entro 2 giorni dal certificato se la prognosi supera 3 giorni (24 ore se morte o pericolo di morte). Assenze di 1-3 giorni: comunicazione a fini statistici.</li>
+ <li><b>In itinere</b>: nel normale percorso casa-lavoro.</li>
+ <li><b>Malattia professionale</b>: causa lenta; se tabellata il nesso è presunto. Denuncia del datore di lavoro entro 5 giorni dal certificato.</li>
+ <li><b>Puntura accidentale</b>: lavare con acqua e sapone senza spremere, segnalare subito, prelievi e valutazione per la profilassi (HIV: iniziare il prima possibile, 28 giorni). Rischio indicativo: HBV fino al 30% nei non vaccinati, HCV 1-2%, HIV 0,3%.</li>
+ <li><b>Prevenzione</b>: dispositivi con sistemi di sicurezza, divieto di reincappucciare (Titolo X-bis), contenitori per taglienti, vaccinazione anti-HBV (anti-HBs ≥ 10 mUI/ml).</li></ul>`},
+ {t:"Rischi specifici in sanità",h:`<div class="tbl-wrap"><table><tr><th>Rischio</th><th>Punti chiave</th></tr>
+ <tr><td>Movimentazione dei pazienti</td><td>Titolo VI; indice MAPO (oltre 5 rischio elevato); ausili, letti regolabili, lavoro in coppia</td></tr>
+ <tr><td>Chimico</td><td>Antiblastici sotto cappa di classe II in unità centralizzata; schede di dati di sicurezza; formaldeide e gas anestetici</td></tr>
+ <tr><td>Radiazioni ionizzanti</td><td>D.Lgs. 101/2020: esposto oltre 1 mSv/anno, categoria A oltre 6 mSv/anno, limite 20 mSv/anno; tempo, distanza, schermature</td></tr>
+ <tr><td>Rumore</td><td>Valori di azione 80 e 85 dB(A), valore limite 87 dB(A)</td></tr>
+ <tr><td>Videoterminali</td><td>Almeno 20 ore settimanali; pausa di 15 minuti ogni 120</td></tr>
+ <tr><td>Lattice e dermatiti</td><td>Allergia di tipo I (anafilassi) e dermatite di tipo IV; guanti senza lattice, frizione alcolica, creme</td></tr>
+ <tr><td>Aggressioni</td><td>L. 113/2020, Raccomandazione n. 8; de-escalation e segnalazione</td></tr></table></div>`},
+ {t:"Stress, turni, maternità ed emergenze",h:`<ul><li><b>Stress lavoro-correlato</b>: valutazione obbligatoria nel DVR (art. 28). <b>Burnout</b> (ICD-11): esaurimento, distacco o cinismo, ridotta efficacia.</li>
+ <li><b>Lavoro notturno</b> (D.Lgs. 66/2003): periodo di almeno 7 ore tra mezzanotte e le 5; idoneità prima dell'assegnazione e almeno ogni 2 anni.</li>
+ <li><b>Lavoratrici madri</b> (D.Lgs. 151/2001): vietati i lavori pericolosi in gravidanza e fino a 7 mesi dopo il parto (carichi, antiblastici, radiazioni, agenti biologici); niente lavoro notturno fino a 1 anno di età del bambino; congedo di maternità di 5 mesi.</li>
+ <li><b>Incendio</b>: metodo RACE e esodo orizzontale progressivo verso il compartimento adiacente; niente ascensori.</li></ul>
+ <div class="note">Collegamento per l'orale: la sicurezza dell'operatore è anche sicurezza del paziente (stanchezza, errori, infezioni trasmesse).</div>`}
 ];
 
 /* ============ STATO ============ */
