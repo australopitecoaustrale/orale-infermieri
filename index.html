@@ -1828,7 +1828,7 @@ function vitalsMonitor(vit,c){
   const cv=document.querySelector(".hdr-fx"),hd=document.querySelector("header.top"),ecg=document.querySelector(".hdr-ecg");if(!cv||!hd)return;
   const ctx=cv.getContext("2d");if(!ctx)return;
   const RMq=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const MODE={oggi:"ecgp",home:"ecgp",casi:"ecgp",avanzamento:"thermo",studio:"vessel",enciclopedia:"shelf",glossario:"catalog",flashcard:"line",quiz:"tubes",calcoli:"infusion",domande:"bubbles",orale:"wave",metodo:"plus"};
+  const MODE={oggi:"ecgp",home:"ecgp",casi:"ecgp",avanzamento:"thermo",studio:"vessel",enciclopedia:"atlas",glossario:"catalog",flashcard:"line",quiz:"tubes",calcoli:"infusion",domande:"bubbles",orale:"wave",metodo:"plus"};
   const STATES={};let W=0,H=0,dpr=1,mode=null,st=null,bok=[],last=0,raf=0,curView="oggi";
   const DESK={oggi:"monitor",home:"monitor",casi:"monitor",avanzamento:"clip",studio:"micro",enciclopedia:"book",glossario:"type",flashcard:"organizer",calcoli:"pump",orale:"mic"};
   const rnd=(a,b)=>a+Math.random()*(b-a),pick=a=>a[Math.floor(Math.random()*a.length)],TAU=Math.PI*2;
@@ -1872,6 +1872,7 @@ function vitalsMonitor(vit,c){
   const TIPS=["Apri con la definizione","Cita la norma o la linea guida","Fai un esempio dal letto del paziente","Collega ad altre materie","Chiudi con una breve sintesi"];
   const INIT={
 
+    atlas:()=>({pos:rnd(0,200),cur:-1,e:null,imp:null,nextImp:4,sp:[]}),
     ecgp:()=>({segs:[],printed:0,phase:"print",tm:0,flash:0,stylus:0}),
     thermo:()=>({w:weekVals(),k:0,phase:"fill",tm:0,dr:1}),
     vessel:()=>({c:[...Array(Math.round(W/9))].map(()=>{const r=Math.random();return {x:rnd(-20,W+20),y:rnd(-.75,.75),t:r<.05?"wbc":r<.16?"plt":"rbc",rot:rnd(0,TAU),vr:rnd(-1,1)}}),hb:0}),
@@ -1999,6 +2000,48 @@ function vitalsMonitor(vit,c){
   const pickShort=()=>{const L=(typeof GLOS!=="undefined"?GLOS:[]).filter(g=>g[0].length<=10&&!/\s/.test(g[0]));return (L.length?pick(L)[0]:"Anamnesi").toUpperCase()};
   const DRAW={
 
+    atlas(t,dt){const S=st,M=W<760,base=H-3,G=M?100:136,sc=M?.8:1,cy=base-(M?22:26);
+      const ORG=[["cuore","Cuore: pompa circa 5 litri di sangue al minuto",/\b(cardi|cuore|coronar|scompenso|infarto|aritm|ecg)/i,"#ff6b6b"],["polmoni","Polmoni: scambi di ossigeno e anidride carbonica negli alveoli",/\b(respir|polmon|ossigen|bpco|asma|ventilaz|emogas)/i,"#ffa8a8"],["cervello","Encefalo: controlla movimento, coscienza e funzioni vitali",/\b(neurolog|cerebr|ictus|glasgow|coma|demenz|delirium|epiless)/i,"#d0bfff"],["reni","Reni: filtrano il sangue e producono l'urina",/\b(reni|rene|renal|urin|diures|dialis|catetere)/i,"#e599f7"],["stomaco","Stomaco: la peristalsi rimescola e fa avanzare il cibo",/\b(gastr|nutriz|digest|sondino|enteral|stomi|intestin|disfagi)/i,"#ffc078"],["fegato","Fegato: metabolismo, depurazione e produzione della bile",/\b(epat|fegato|cirros|biliar|ittero)/i,"#e8a87c"],["osso","Femore: l'osso più lungo del corpo",/\b(frattur|ossa|osso|osse|ortoped|osteopor|immobilizz|trazion|gesso)/i,"#fff3bf"],["neurone","Neurone: l'impulso corre lungo l'assone",/\b(dolore|anestes|sedaz|analges|oppioid)/i,"#ffe066"],["occhio","Occhio: la pupilla si adatta alla luce",/\b(pupill|occhi|vista|cornea|glaucom|oculist)/i,"#99e9f2"]];
+      S.pos+=dt*(M?11:14);const N=ORG.length,L=N*G,fx=M?W*.5:Math.max(titleR+80,W*.62);
+      // reticolo da atlante
+      ctx.strokeStyle=W_(.06);ctx.lineWidth=1;for(let k=0;k<6;k++){ctx.beginPath();for(let x=0;x<=W;x+=20){const y=8+k*(H/6)+Math.sin((x+S.pos*.4)/90+k)*4;x?ctx.lineTo(x,y):ctx.moveTo(x,y)}ctx.stroke()}
+      for(let x=((-S.pos*.4)%80+80)%80;x<W;x+=80){ctx.beginPath();ctx.moveTo(x,0);ctx.quadraticCurveTo(x+12,H/2,x,H);ctx.stroke()}
+      // nervo che unisce gli organi
+      const ny=base-4;ctx.strokeStyle=W_(.35);ctx.lineWidth=1.2;ctx.beginPath();for(let x=-2;x<=W+2;x+=6){const y=ny+Math.sin((x+S.pos)/40)*1.5;x>-2?ctx.lineTo(x,y):ctx.moveTo(x,y)}ctx.stroke();
+      if(!S.imp&&t>S.nextImp)S.imp={x:-10};if(S.imp){S.imp.x+=dt*(M?220:300);glow(S.imp.x,ny,14,"#ffe066",.9);ctx.fillStyle="#fff9db";ctx.beginPath();ctx.arc(S.imp.x,ny,2.4,0,TAU);ctx.fill();if(S.imp.x>W+20){S.imp=null;S.nextImp=t+rnd(9,15)}}
+      const ink=(a)=>{ctx.strokeStyle=W_(a||.8);ctx.lineWidth=1.5*sc;ctx.lineJoin="round";ctx.lineCap="round"};
+      let focus=null,hov=null;
+      for(let i=0;i<N;i++){const x=(((i*G+S.pos)%L)+L)%L-G/2;if(x<-80||x>W+80)continue;const o=ORG[i],y=cy;
+        ctx.strokeStyle=W_(.3);ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,y+14*sc);ctx.lineTo(x,ny);ctx.stroke();
+        const lit=S.imp&&Math.abs(S.imp.x-x)<30?1-Math.abs(S.imp.x-x)/30:0;if(lit)glow(x,y,34*sc,o[3],.5*lit);
+        const isH=ptr.on&&Math.abs(ptr.x-x)<G*.3&&ptr.y>y-30;if(isH){hov=[x,y,o];glow(x,y,30*sc,o[3],.35)}
+        if(Math.abs(x-fx)<G/2)focus=[i,x,y];
+        ctx.save();ctx.translate(x,y);ctx.scale(sc,sc);this.organ(o[0],t,o[3]);ctx.restore()}
+      if(hov)tip(hov[0],hov[1]-34*sc,hov[2][1],hov[2][3]);
+      if(focus&&focus[0]!==S.cur){S.cur=focus[0];const o=ORG[S.cur],L2=(typeof ENCY!=="undefined"?ENCY:[]).filter(e=>o[2].test(e.t));S.e=L2.length?pick(L2).t:null;S.ft=t}
+      if(focus&&!M){const o=ORG[focus[0]],a=Math.min(1,(t-(S.ft||t))/.5);ctx.save();ctx.globalAlpha=a*.7;ctx.setLineDash([2,3]);ctx.strokeStyle=W_(.9);ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(focus[1],focus[2]-24*sc);ctx.lineTo(focus[1],27);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(focus[1],focus[2]-24*sc,2,0,TAU);ctx.fill();ctx.restore();
+        if(S.imp&&S.imp.x>0&&S.imp.x<W)rpill("Impulso nervoso: nelle fibre mielinizzate corre fino a circa 120 m/s",focus[1],"#ffe066",1);
+        else rpill(o[0][0].toUpperCase()+o[0].slice(1)+(S.e?"  ·  "+S.e:"")," "?focus[1]:0,o[3],a)}
+    },
+    organ(k,t,c){const ink=a=>{ctx.strokeStyle=W_(a||.85);ctx.lineWidth=1.5;ctx.lineJoin="round";ctx.lineCap="round"};
+      if(k==="cuore"){const ph=(t%.9)/.9,b=ph<.2?1+.12*Math.sin(ph/.2*Math.PI):1;ctx.save();ctx.scale(b,b);ctx.fillStyle=rgba(c,.5);ctx.beginPath();ctx.moveTo(0,14);ctx.bezierCurveTo(-18,2,-16,-12,-6,-12);ctx.bezierCurveTo(-1,-12,0,-8,1,-6);ctx.bezierCurveTo(3,-11,8,-13,12,-10);ctx.bezierCurveTo(19,-4,14,6,0,14);ctx.fill();ink();ctx.stroke();
+        ctx.beginPath();ctx.moveTo(-2,-11);ctx.bezierCurveTo(-3,-20,8,-22,9,-14);ctx.moveTo(4,-12);ctx.lineTo(5,-19);ctx.moveTo(-6,-10);ctx.lineTo(-9,-17);ctx.moveTo(-2,-4);ctx.quadraticCurveTo(2,4,0,12);ctx.stroke();ctx.restore()}
+      else if(k==="polmoni"){const b=1+.07*Math.sin(t*1.6);ink();ctx.beginPath();ctx.moveTo(0,-20);ctx.lineTo(0,-6);ctx.moveTo(0,-6);ctx.lineTo(-6,0);ctx.moveTo(0,-6);ctx.lineTo(6,0);ctx.stroke();
+        for(const d of [-1,1]){ctx.save();ctx.translate(d*3,0);ctx.scale(d*b,b);ctx.fillStyle=rgba(c,.35);ctx.beginPath();ctx.moveTo(2,-12);ctx.bezierCurveTo(14,-16,19,4,16,14);ctx.bezierCurveTo(12,18,4,15,3,10);ctx.bezierCurveTo(5,4,1,-4,2,-12);ctx.fill();ink();ctx.stroke();ctx.beginPath();ctx.moveTo(4,-2);ctx.lineTo(10,2);ctx.moveTo(6,4);ctx.lineTo(11,10);ctx.stroke();ctx.restore()}}
+      else if(k==="cervello"){ctx.fillStyle=rgba(c,.35);ctx.beginPath();for(let i=0;i<=40;i++){const a=Math.PI+i/40*Math.PI,r=16+1.6*Math.sin(i*1.3);ctx.lineTo(Math.cos(a)*r*1.2,Math.sin(a)*r+6)}ctx.lineTo(19,6);ctx.quadraticCurveTo(10,14,-4,10);ctx.quadraticCurveTo(-14,12,-19,6);ctx.closePath();ctx.fill();ink();ctx.stroke();
+        ctx.beginPath();ctx.moveTo(-12,-2);ctx.bezierCurveTo(-8,-8,-4,2,0,-4);ctx.bezierCurveTo(4,-9,8,0,12,-4);ctx.moveTo(-6,4);ctx.bezierCurveTo(-2,0,2,6,6,2);ctx.moveTo(4,10);ctx.lineTo(6,16);ctx.stroke();
+        for(let i=0;i<3;i++){const p=(t*.8+i*.33)%1,a=Math.PI+.4+i*.8;glow(Math.cos(a)*10,Math.sin(a)*7+2,5,"#fff3bf",.8*Math.sin(p*Math.PI))}}
+      else if(k==="reni"){for(const d of [-1,1]){ctx.save();ctx.translate(d*9,-2);ctx.scale(d,1);ctx.fillStyle=rgba(c,.4);ctx.beginPath();ctx.moveTo(2,-12);ctx.bezierCurveTo(10,-14,12,12,2,12);ctx.bezierCurveTo(-4,12,-3,4,-1,2);ctx.bezierCurveTo(-3,0,-4,-10,2,-12);ctx.fill();ink();ctx.stroke();ctx.beginPath();ctx.moveTo(-1,2);ctx.quadraticCurveTo(-4,10,-3,18);ctx.stroke();const p=(t*.7+(d>0?.5:0))%1;ctx.fillStyle="#fff3bf";ctx.beginPath();ctx.arc(-1-2.5*p,2+16*p,1.4,0,TAU);ctx.fill();ctx.restore()}}
+      else if(k==="stomaco"){ctx.fillStyle=rgba(c,.4);ctx.beginPath();ctx.moveTo(-6,-18);ctx.quadraticCurveTo(-4,-10,-10,-6);ctx.bezierCurveTo(-18,2,-8,18,6,12);ctx.bezierCurveTo(16,8,16,-4,10,-8);ctx.quadraticCurveTo(4,-10,0,-18);ctx.closePath();ctx.fill();ink();ctx.stroke();
+        const p=(t*.6)%1,a=-2.6+p*3.2;glow(Math.cos(a)*9,Math.sin(a)*8+3,7,"#fff",.5);ctx.beginPath();ctx.moveTo(10,10);ctx.quadraticCurveTo(16,14,20,10);ctx.stroke()}
+      else if(k==="fegato"){ctx.fillStyle=rgba(c,.45);ctx.beginPath();ctx.moveTo(-20,-6);ctx.bezierCurveTo(-14,-14,10,-14,20,-8);ctx.bezierCurveTo(16,0,4,10,-8,10);ctx.bezierCurveTo(-18,8,-22,2,-20,-6);ctx.fill();ink();ctx.stroke();ctx.beginPath();ctx.moveTo(2,-12);ctx.quadraticCurveTo(0,0,4,8);ctx.stroke();ctx.fillStyle="#b2f2bb";ctx.beginPath();ctx.ellipse(6,8,3,4,.3,0,TAU);ctx.fill()}
+      else if(k==="osso"){ctx.save();ctx.rotate(-.35);ctx.fillStyle=rgba(c,.55);ctx.beginPath();ctx.moveTo(-14,-3);ctx.lineTo(14,-2.5);ctx.arc(17,-4,4,Math.PI*.8,Math.PI*2.2);ctx.arc(17,3,3.6,-Math.PI*.2,Math.PI*1.2);ctx.lineTo(-14,3);ctx.arc(-18,4,4,Math.PI*.2,Math.PI*1.4);ctx.arc(-18,-4,4,Math.PI*.6,Math.PI*1.8);ctx.closePath();ctx.fill();ink();ctx.stroke();ctx.restore();const p=(t*.5)%1;glow(-14+p*28,-p*10+5,6,"#fff",.4*Math.sin(p*Math.PI))}
+      else if(k==="neurone"){ctx.fillStyle=rgba(c,.5);ctx.beginPath();ctx.arc(-10,0,6,0,TAU);ctx.fill();ink();ctx.stroke();ctx.beginPath();for(let i=0;i<6;i++){const a=i/6*TAU+.4;ctx.moveTo(-10+Math.cos(a)*6,Math.sin(a)*6);ctx.lineTo(-10+Math.cos(a)*13,Math.sin(a)*13);ctx.lineTo(-10+Math.cos(a+.3)*16,Math.sin(a+.3)*16)}ctx.stroke();
+        ctx.beginPath();ctx.moveTo(-4,0);ctx.bezierCurveTo(6,-6,10,6,22,0);ctx.stroke();for(let k2=0;k2<3;k2++){ctx.fillStyle=W_(.5);ctx.beginPath();ctx.ellipse(2+k2*6,(k2%2?1:-1)*1,2.6,1.6,0,0,TAU);ctx.fill()}
+        const p=(t*1.2)%1,ax=-4+26*p,ay=Math.sin(p*Math.PI*2)*-2;glow(ax,ay,7,"#ffe066",.9);ctx.beginPath();ctx.moveTo(22,0);ctx.lineTo(26,-3);ctx.moveTo(22,0);ctx.lineTo(26,3);ctx.stroke()}
+      else if(k==="occhio"){ctx.fillStyle="rgba(255,255,255,.25)";ctx.beginPath();ctx.moveTo(-18,0);ctx.quadraticCurveTo(0,-14,18,0);ctx.quadraticCurveTo(0,14,-18,0);ctx.fill();ink();ctx.stroke();
+        const pr=3.2+1.6*(.5+.5*Math.sin(t*.9));ctx.fillStyle=rgba(c,.8);ctx.beginPath();ctx.arc(0,0,7,0,TAU);ctx.fill();ctx.fillStyle="#1b1b1b";ctx.beginPath();ctx.arc(0,0,pr,0,TAU);ctx.fill();ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(-2,-2.5,1.4,0,TAU);ctx.fill()}
+    },
     ecgp(t,dt){const S=st,M=W<760,base=H-3,mw=M?46:70,mx=W-mw-8,ph=M?20:26,py=base-ph-5,spd=M?40:56;
       const newSeg=()=>{const sp=pick(ERH),ys=WAVE.ecgRaw(sp,12,125,"p"+Math.random()),pk=pkOf(ys);const sg={st:S.printed,ys,pk,sp,bpm:Math.round(pk.length/12*60)};if(Math.random()<.45){const a=S.printed+rnd(1.6,3.8);sg.ev={a,b:a+rnd(1.2,1.7),ty:Math.random()<.5?"art":"off"}}S.segs.push(sg);if(S.segs.length>4)S.segs.shift();S.phase="print";S.tm=rnd(6,8)};
       if(!S.segs.length)newSeg();const cur=S.segs[S.segs.length-1];
@@ -2682,7 +2725,7 @@ function vitalsMonitor(vit,c){
     const every=d=>{if(tap)return true;if(acc>=d){acc=0;return true}return false};
     switch(mode){
       case "monitor":if(tap&&window.__ecgNext)window.__ecgNext();break;
-      case "ecgp":case "thermo":case "vessel":case "shelf":case "catalog":case "line":case "infusion":case "wave":
+      case "atlas":case "ecgp":case "thermo":case "vessel":case "shelf":case "catalog":case "line":case "infusion":case "wave":
       case "clip":case "micro":case "book":case "type":case "organizer":case "pump":case "mic":if(tap)st.req=true;break;
       case "ecg":if(!tap&&every(46))st.trail=(st.trail||[]).concat([{x,y,l:1,s:rnd(4,6.5),dx:rnd(-8,8)}]).slice(-14);break;
       case "cells":if(every(60)&&st.c)st.c.push({z:1,k:1,x:x+rnd(-8,8),y:y+rnd(-8,8),r:rnd(9,14),t:Math.random()<.12?"wbc":"rbc",v:rnd(26,40),ph:rnd(0,TAU),rot:rnd(0,3),vr:rnd(-.5,.5)});break;
