@@ -609,6 +609,11 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .trace-sol p{margin:0}.pm-read .pm-note{font-size:.78rem;opacity:.7}
 .strips{display:grid;gap:14px}
 .ecg-strip{margin:0;display:flex;flex-direction:column;gap:6px}
+.gym-strip svg{width:100%;height:auto;display:block;border-radius:8px;background:#fff7f6;border:1px solid #efc9c6;cursor:crosshair}
+.gym-cal{stroke:#1971c2;stroke-width:.35;stroke-dasharray:1 .6}
+.gym-step{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:10px}
+.gym-cta{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:inherit;border-left:4px solid var(--vital)}
+.gym-cta:hover{transform:translateY(-1px)}
 .ecg-strip svg{width:100%;height:auto;display:block;border-radius:6px;background:#fff7f6;border:1px solid #efc9c6}
 .eg1{fill:none;stroke:#f6c9c6;stroke-width:.08}
 .eg5{fill:none;stroke:#e79b96;stroke-width:.22}
@@ -1429,7 +1434,14 @@ const MORPH={
  ischemia:{st:-.15,tA:-.24,tS1:.045,tS2:.045},
  iperk:{pA:.04,w:1.35,tA:.85,tS1:.03,tS2:.028},
  ipok:{tA:.07,st:-.05,u:.17},
- qtlungo:{tPlus:.17}
+ qtlungo:{tPlus:.17},
+ bbdx:{rbbb:1,tA:-.22,sA:0},
+ bbsx:{lbbb:1,tA:-.3,st:-.06,qA:0,sA:0},
+ wpw:{delta:1,tA:.22},
+ pericardite:{st:.16,prd:-.07,tA:.36},
+ osborn:{jw:.34,tPlus:.05},
+ brugada:{brug:1,qA:0,sA:-.1,tA:-.26},
+ digitale:{st:-.17,tA:.05,tPlus:-.05}
 };
 /* elenco dei battiti: {t: tempo del picco R, pr: intervallo PR (null = senza P), k: "n" normale | "w" ventricolare, w: larghezza} */
 function beats(type,hr,dur,R){
@@ -1444,17 +1456,33 @@ function beats(type,hr,dur,R){
   else if(type==="mobitz1"||type==="mobitz2"){const pp=type==="mobitz1"?.72:.66;const seq=type==="mobitz1"?[.16,.26,.32,null]:[.18,.18,null];let i=0;while(t<dur+1.2){const pr=seq[i%seq.length];if(pr==null)P.push(t);else push({t:t+pr,pr,k:"n"});t+=pp;i++}}
   else if(type==="bav3"){let a=-1.2;while(a<dur+1.2){P.push(a);a+=.75}let v=-1+R()*.5;while(v<dur+1.2){push({t:v,pr:null,k:"n",w:1.9});v+=60/36}}
   else if(type==="ev"){let i=0;while(t<dur+1.2){if(i%4===3){push({t:t-mean*.42,pr:null,k:"w"});t+=mean}else{push({t,pr:hr>130?.12:.16,k:"n"});t+=mean*(1+.03*(R()-.5))}i++}}
-  else {const pr=type==="bav1"?.32:hr>130?.12:.16;while(t<dur+1.2){push({t,pr,k:"n"});t+=mean*(1+.035*(R()-.5))}}
+  else if(type==="bav21"){const pp=.7;let i=0;while(t<dur+1.2){if(i%2)P.push(t);else push({t:t+.18,pr:.18,k:"n"});t+=pp;i++}}
+  else if(type==="bigeminismo"){let i=0;while(t<dur+1.2){if(i%2){push({t:t-mean*.38,pr:null,k:"w"});t+=mean*1.25}else{push({t,pr:.16,k:"n"});t+=mean*.75}i++}}
+  else if(type==="eas"){let i=0;while(t<dur+1.2){if(i%4===3){const tt=t-mean*.35;push({t:tt,pr:.14,k:"n",pa:-.09});t=tt+mean*1.05}else{push({t,pr:.16,k:"n"});t+=mean*(1+.03*(R()-.5))}i++}}
+  else if(type==="aritmia"){while(t<dur+1.2){push({t,pr:.16,k:"n"});t+=mean*(1+.22*Math.sin(2*Math.PI*t/4.2))}}
+  else if(type==="tam"){const PA=[.2,-.09,.11,.3,.06];while(t<dur+1.2){push({t,pr:.1+R()*.1,k:"n",pa:PA[Math.floor(R()*PA.length)]});t+=mean*(.65+.7*R())}}
+  else if(type==="giunzionale"){while(t<dur+1.2){push({t,pr:null,k:"n",rp:1});t+=mean*(1+.02*(R()-.5))}}
+  else if(type==="riva"){while(t<dur+1.2){push({t,pr:null,k:"w"});t+=mean*(1+.02*(R()-.5))}}
+  else if(type==="pm"){while(t<dur+1.2){push({t,pr:null,k:"p"});t+=mean}}
+  else if(type==="torsione"){}
+  else {const pr=type==="bav1"?.32:type==="wpw"?.1:hr>130?.12:.16;while(t<dur+1.2){push({t,pr,k:"n"});t+=mean*(1+.035*(R()-.5))}}
   // tempo del picco T in base all'intervallo R-R precedente
   B.forEach((b,i)=>{const rr=i?b.t-B[i-1].t:mean;b.rr=rr;b.tp=clamp(.4*Math.sqrt(Math.max(rr,.3))-.1,.17,.4)});
   return {B,P,mean};
 }
 function beatV(d,b,M){
   if(d<-.5||d>.95)return 0;
+  if(b.k==="p")return G(d,-.045,.0022,1.7)+G(d,0,.03,-1.05)+G(d,.07,.035,.45)+(d<.32?G(d,.32,.08,.38):G(d,.32,.06,.38));
   if(b.k==="w")return G(d,0,.028,1.25)+G(d,.065,.032,-.6)+(d<.3?G(d,.3,.08,-.42):G(d,.3,.06,-.42));
   const w=b.w||M.w;let y=0;
-  if(b.pr!=null)y+=G(d,-b.pr+.01,.022,M.pA);
-  y+=G(d,-.025*w,.008*w,M.qA)+G(d,0,.011*w,M.rA)+G(d,.028*w,.01*w,M.sA);
+  if(b.pr!=null)y+=G(d,-b.pr+.01,.022,b.pa!=null?b.pa:M.pA);
+  if(M.prd&&b.pr!=null)y+=M.prd*sig((d+b.pr-.045)/.008)*(1-sig((d+.035)/.006));
+  if(b.rp)y+=G(d,.11,.02,-.13);
+  if(M.rbbb)y+=G(d,-.03,.009,.28)+G(d,.005,.012,-.5)+G(d,.05,.017,1.0);
+  else if(M.lbbb)y+=G(d,-.015,.02,.72)+G(d,.045,.022,.86);
+  else{if(M.delta)y+=G(d,-.04,.022,.34);y+=G(d,-.025*w,.008*w,M.qA)+G(d,0,.011*w,M.rA)+G(d,.028*w,.01*w,M.sA)}
+  if(M.jw)y+=G(d,.05,.015,M.jw);
+  if(M.brug){y+=G(d,.035,.012,.3);if(d>.03)y+=.46*sig((d-.035)/.004)*Math.exp(-Math.max(0,d-.04)/.12)*(1-sig((d-(b.tp+.03))/.03))}
   const tp=b.tp+M.tPlus+(w>1.5?.06:0), tA=w>1.5?-.3:M.tA;
   if(M.st)y+=M.st*sig((d-.035*w)/.006)*(1-sig((d-(tp+.05))/.025));
   y+=d<tp?G(d,tp,M.tS1,tA):G(d,tp,M.tS2,tA);
@@ -1476,6 +1504,7 @@ function ecg(spec,dur,fs,seed){
     if(spec.type==="flutter"){const p=((t/.2)%1+1)%1;y+=p<.78?.09-.3*(p/.78):-.21+.3*((p-.78)/.22)}
     if(spec.type==="fv"){const a=.32+.18*Math.sin(2*Math.PI*.35*t+ph[1]);y+=a*(Math.sin(2*Math.PI*4.6*t+ph[2]+.6*Math.sin(2*Math.PI*.7*t))+.55*Math.sin(2*Math.PI*6.1*t+ph[3])+.3*Math.sin(2*Math.PI*3.1*t+ph[0]))}
     if(spec.type==="asistolia")y*=.6;
+    if(spec.type==="torsione"){const env=1.15*Math.sin(2*Math.PI*.32*t+ph[1]),q=Math.sin(2*Math.PI*3.7*t+ph[2]);y+=env*(q>0?Math.pow(q,3):-.55*q*q)+.12*Math.sin(2*Math.PI*1.8*t+ph[3])}
     out[i]=y;
   }
   return {y:out,B};
@@ -1649,6 +1678,22 @@ function ecgName(s){const h=Math.round(s.hr);return ({
   ischemia:["Sottoslivellamento ST e onde T invertite","Segni di ischemia (angina instabile o NSTEMI): servono troponina, ECG seriati e confronto con i tracciati precedenti."],
   iperk:["Iperpotassiemia","Onde T alte, strette e appuntite, onde P appiattite, QRS che inizia ad allargarsi: rischio di aritmie gravi."],
   ipok:["Ipopotassiemia","Onde T piatte, lieve sottoslivellamento ST e onda U evidente dopo la T."],
+  bav21:["BAV di II grado con conduzione 2:1","Ogni due onde P solo una è seguita dal QRS: non si può dire se è un Mobitz 1 o 2 perché non si vedono due PR consecutivi. Va trattato come potenzialmente pericoloso e monitorato."],
+  bigeminismo:["Bigeminismo ventricolare","Ogni battito sinusale è seguito da un'extrasistole ventricolare (QRS largo, prematuro, senza P): il ritmo va a coppie. La curva del polso mostra battiti alternati deboli."],
+  eas:["Ritmo sinusale con extrasistoli sopraventricolari","Ogni tanto un battito anticipato con QRS stretto preceduto da un'onda P diversa dalle altre, seguito da una pausa non compensatoria."],
+  aritmia:["Aritmia sinusale respiratoria","Onde P normali e PR costante, ma gli R-R si accorciano in inspirazione e si allungano in espirazione: fenomeno fisiologico, frequente nei giovani."],
+  tam:["Tachicardia atriale multifocale","Frequenza oltre 100/min, ritmo irregolarmente irregolare, onde P presenti ma di almeno tre forme diverse con PR variabili e linea di base isoelettrica. Tipica della BPCO riacutizzata e dello scompenso: si tratta la causa."],
+  giunzionale:["Ritmo giunzionale","QRS stretti e regolari a circa 40-60/min senza onde P prima del complesso; l'attivazione retrograda degli atri dà una piccola P negativa subito dopo il QRS."],
+  riva:["Ritmo idioventricolare accelerato (RIVA)","QRS larghi e regolari senza onde P, a una frequenza di circa 50-110/min. Compare spesso dopo la riperfusione di un infarto ed è di solito transitorio e ben tollerato."],
+  pm:["Ritmo da pacemaker (stimolazione ventricolare)","Prima di ogni QRS c'è uno stretto «spike» verticale seguito da un complesso largo con T opposta: è il segnale del pacemaker che cattura il ventricolo. Se uno spike non è seguito dal QRS c'è perdita di cattura."],
+  torsione:["Torsione di punta","Tachicardia ventricolare polimorfa: i QRS cambiano ampiezza e polarità come se si attorcigliassero attorno alla linea di base. Si associa a QT lungo; si tratta con magnesio solfato e, se senza polso, con defibrillazione."],
+  bbdx:["Blocco di branca destra (V1)","QRS largo (≥ 0,12 s) con aspetto rSR' «a orecchie di coniglio» in V1 e onda T negativa; in V6 S larga e smussata."],
+  bbsx:["Blocco di branca sinistra (V6)","QRS largo (≥ 0,12 s) con R ampia e intaccata in V6, senza onda Q, e ST-T opposti al QRS; in V1 complesso QS profondo. Un BBS nuovo con dolore toracico va valutato come possibile infarto."],
+  wpw:["Pre-eccitazione (Wolff-Parkinson-White)","PR corto (meno di 0,12 s) e onda delta: l'inizio del QRS sale lentamente perché una via accessoria attiva i ventricoli in anticipo; QRS lievemente allargato. Rischio di tachicardie da rientro e di FA pre-eccitata."],
+  pericardite:["Pericardite acuta","Sopraslivellamento ST diffuso a concavità verso l'alto in molte derivazioni con sottoslivellamento del PR; reciprocità solo in aVR e V1. Uno ST convesso o un sottoslivellamento in altre derivazioni fa pensare invece a uno STEMI."],
+  osborn:["Ipotermia con onda J di Osborn","Bradicardia con una gobba positiva alla fine del QRS (onda J o di Osborn), più evidente quanto più bassa è la temperatura; spesso artefatti da brivido e QT lungo."],
+  brugada:["Pattern di Brugada tipo 1 (V1)","In V1-V2 sopraslivellamento ST ≥ 2 mm «a tenda» (coved) che scende fino a un'onda T negativa: è l'unico pattern diagnostico. Rischio di aritmie ventricolari e morte improvvisa; la febbre lo può slatentizzare."],
+  digitale:["Effetto digitalico","Sottoslivellamento ST «a cucchiaio» (a scodella), onde T piatte e QT accorciato. È un effetto dei digitalici, non necessariamente tossicità: la tossicità dà aritmie e bradicardia."],
   qtlungo:["QT lungo","Tratto ST allungato con onda T ritardata (come nell'ipocalcemia o con farmaci che allungano il QT): rischio di torsione di punta."]
  })[s.type]||["Ritmo sinusale",""]}
 const RESP={
@@ -1770,8 +1815,8 @@ function miscStrip(kind){
 let STRIP_N=0;
 function strip(type,opt){
   opt=opt||{};const gid="eg"+(++STRIP_N);const dur=opt.dur||6,W=dur*25,H=30,fs=250;
-  const s={type:type==="stemiIII"?"stemi":type,morph:type==="stemiIII"?"stemiIII":type==="stemi"?"stemiV2":MORPH[type]?type:null,lead:type==="stemiIII"?"III":type==="stemi"?"V2":"II",hr:opt.hr||(type==="pea"?42:type==="tv"?175:type==="tsv"?180:type==="fa"?110:type==="flutter"?150:75),pulse:1};
-  const e=ecg(s,dur,fs,"strip"+type);
+  const s={type:type==="stemiIII"?"stemi":type,morph:type==="stemiIII"?"stemiIII":type==="stemi"?"stemiV2":MORPH[type]?type:null,lead:type==="stemiIII"?"III":type==="stemi"?"V2":({bbdx:"V1",brugada:"V1",bbsx:"V6"})[type]||"II",hr:opt.hr||DEFHR(type),pulse:1};
+  const e=ecg(s,dur,fs,"strip"+type+(opt.seed||""));
   const [n,d]=ecgName(s);
   return `<figure class="ecg-strip"><svg viewBox="0 0 ${W} ${H}" aria-label="${esc(n)}" role="img"><defs><pattern id="${gid}a" width="1" height="1" patternUnits="userSpaceOnUse"><path d="M1 0V1H0" fill="none" stroke="#f2bdb9" stroke-width=".1"/></pattern><pattern id="${gid}b" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="url(#${gid}a)"/><path d="M5 0V5H0" fill="none" stroke="#e08a84" stroke-width=".28"/></pattern></defs><rect width="${W}" height="${H}" fill="url(#${gid}b)"/><text x="1.5" y="4.2" class="eg-t">${s.lead}</text><path d="${path(e.y,W,H,19,10,1)}" class="eg-tr"/></svg><figcaption><b>${esc(n)}.</b> ${esc(d)}</figcaption></figure>`;
 }
@@ -1781,13 +1826,27 @@ function respStrip(type,fr){
 }
 function solution(c){return monitor(c,(c.id||"")+c.title).sol}
 function ecgRaw(spec,dur,fs,seed){return ecg(spec,dur,fs,seed).y}
-return {monitor,strip,respStrip,miscStrip,detect,solution,ecgRaw};
+function DEFHR(type){return ({pea:42,tv:175,tsv:180,fa:110,flutter:150,osborn:44,giunzionale:50,riva:72,pm:70,tam:128,bav3:36,torsione:200})[type]||75}
+function specOf(type,hr){return {type:type==="stemiIII"?"stemi":type,morph:type==="stemiIII"?"stemiIII":type==="stemi"?"stemiV2":MORPH[type]?type:null,lead:type==="stemiIII"?"III":type==="stemi"?"V2":({bbdx:"V1",brugada:"V1",bbsx:"V6"})[type]||"II",hr:hr||DEFHR(type),pulse:1}}
+function ecgFull(type,hr,dur,fs,seed){const s=specOf(type,hr);const e=ecg(s,dur,fs,seed);return {y:e.y,B:e.B,s,name:ecgName(s)}}
+return {monitor,strip,respStrip,miscStrip,detect,solution,ecgRaw,ecgFull,ecgName};
 })();
 const ENC_STRIPS={
  "ritmi":[["e","sinus"],["e","sinus",{hr:48}],["e","sinus",{hr:125}],["e","fa"],["e","flutter"],["e","tsv"],["e","ev"],["e","tv"],["e","fv"],["e","asistolia"]],
- "blocchi-av":[["e","bav1"],["e","mobitz1"],["e","mobitz2"],["e","bav3",{dur:8}]],
+ "blocchi-av":[["e","bav1"],["e","mobitz1"],["e","mobitz2"],["e","bav21"],["e","bav3",{dur:8}]],
  "stemi":[["e","ischemia"],["e","stemi"],["e","stemiIII"]],
  "elettroliti-ecg":[["e","iperk"],["e","ipok"],["e","qtlungo"]],
+ "ecg-blocchi-branca":[["e","bbdx"],["e","bbsx"]],
+ "ecg-preeccitazione":[["e","wpw"]],
+ "ecg-pericardite":[["e","pericardite",{hr:100}]],
+ "ecg-brugada":[["e","brugada"]],
+ "ecg-ipotermia":[["e","osborn"]],
+ "ecg-torsione":[["e","qtlungo",{hr:62}],["e","torsione"]],
+ "ecg-extrasistoli":[["e","eas"],["e","ev"],["e","bigeminismo"]],
+ "ecg-giunzionali":[["e","giunzionale"],["e","riva"]],
+ "ecg-pacemaker":[["e","pm"]],
+ "ecg-tachicardie-atriali":[["e","aritmia"],["e","tam"]],
+ "ecg-farmaci":[["e","digitale"]],
  "ecg-lettura":[["e","sinus"]],
  "fibrillazione-atriale":[["e","fa"]],
  "bls-acls":[["e","fv"],["e","tv"],["e","asistolia"],["r","gasp"]],
@@ -1805,7 +1864,7 @@ const ENC_STRIPS={
  "emogasanalisi":[["m","co2-norm"]]
 };
 ENC_STRIPS["bpco"].push(["m","co2-ostr"]);ENC_STRIPS["oppioidi"].push(["m","co2-ipo"]);
-function encStrips(id){const L=ENC_STRIPS[id];if(!L)return "";return `<div><h4>Tracciati di esempio</h4><div class="strips">${L.map(x=>x[0]==="e"?WAVE.strip(x[1],x[2]):x[0]==="m"?WAVE.miscStrip(x[1]):WAVE.respStrip(x[1],x[2])).join("")}</div></div>`}
+function encStrips(id){const L=ENC_STRIPS[id];const e=ENC_BY[id];const cta=e&&e.a==="ecg"?`<a class="btn primary" href="#ecg-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra ECG</a>`:"";if(!L)return cta;return cta+`<div><h4>Tracciati di esempio</h4><div class="strips">${L.map(x=>x[0]==="e"?WAVE.strip(x[1],x[2]):x[0]==="m"?WAVE.miscStrip(x[1]):WAVE.respStrip(x[1],x[2])).join("")}</div></div>`}
 function vitalsMonitor(vit,c){
   const cc=c||{vit,title:"",story:"",esami:[]};
   const col=k=>/^(FC|HR)/i.test(k)?"hr":/SpO2|Sat/i.test(k)?"sp":/^PA/i.test(k)?"bp":/^FR/i.test(k)?"rr":/^TC|Temp/i.test(k)?"tc":"ot";
@@ -2905,7 +2964,66 @@ function encEntry(e,open){
   ${qn?`<div class="row"><button class="btn primary" data-encq="${e.id}">Quiz su questa voce (${qn})</button></div>`:""}
   </div></details>`;
 }
+/* ---- Palestra ECG: esercizi di lettura sistematica ---- */
+const GYM_POOL=[
+ {k:"sinus",hr:[62,95],reg:"r",p:"n",q:"s"},{k:"sinus",hr:[40,54],reg:"r",p:"n",q:"s",id:"bradi"},{k:"sinus",hr:[108,140],reg:"r",p:"n",q:"s",id:"tachi"},{k:"aritmia",hr:[66,80],reg:"i",p:"n",q:"s"},
+ {k:"fa",hr:[80,140],reg:"i",p:"a",q:"s"},{k:"flutter",hr:[150,150],reg:"r",p:"a",q:"s"},{k:"flutter",hr:[75,75],reg:"r",p:"a",q:"s",id:"flutter4"},{k:"tsv",hr:[175,210],reg:"r",p:"a",q:"s"},{k:"tam",hr:[115,140],reg:"i",p:"v",q:"s"},
+ {k:"tv",hr:[160,200],reg:"r",p:"a",q:"l"},{k:"torsione",hr:[200,200],reg:"n",p:"a",q:"l"},{k:"fv",hr:[0,0],reg:"n",p:"a",q:"x"},{k:"asistolia",hr:[0,0],reg:"n",p:"a",q:"x"},
+ {k:"bav1",hr:[60,80],reg:"r",p:"n",q:"s"},{k:"mobitz1",hr:[60,70],reg:"i",p:"m",q:"s"},{k:"mobitz2",hr:[60,70],reg:"i",p:"m",q:"s"},{k:"bav21",hr:[75,75],reg:"r",p:"m",q:"s"},{k:"bav3",hr:[36,36],reg:"r",p:"m",q:"l"},
+ {k:"ev",hr:[70,90],reg:"i",p:"n",q:"s"},{k:"bigeminismo",hr:[70,85],reg:"i",p:"n",q:"s"},{k:"eas",hr:[70,90],reg:"i",p:"n",q:"s"},
+ {k:"giunzionale",hr:[45,58],reg:"r",p:"r",q:"s"},{k:"riva",hr:[60,90],reg:"r",p:"a",q:"l"},{k:"pm",hr:[60,72],reg:"r",p:"a",q:"l"},
+ {k:"bbdx",hr:[65,90],reg:"r",p:"n",q:"l"},{k:"bbsx",hr:[65,90],reg:"r",p:"n",q:"l"},{k:"wpw",hr:[65,90],reg:"r",p:"n",q:"l"},
+ {k:"stemi",hr:[75,100],reg:"r",p:"n",q:"s"},{k:"stemiIII",hr:[60,90],reg:"r",p:"n",q:"s"},{k:"ischemia",hr:[70,100],reg:"r",p:"n",q:"s"},{k:"pericardite",hr:[90,115],reg:"r",p:"n",q:"s"},
+ {k:"iperk",hr:[60,85],reg:"r",p:"n",q:"s"},{k:"ipok",hr:[65,90],reg:"r",p:"n",q:"s"},{k:"qtlungo",hr:[55,75],reg:"r",p:"n",q:"s"},{k:"osborn",hr:[38,50],reg:"r",p:"n",q:"s"},{k:"brugada",hr:[65,90],reg:"r",p:"n",q:"s"},{k:"digitale",hr:[60,80],reg:"r",p:"n",q:"s"}];
+const GYM_NURSE={fv:"Arresto cardiaco: chiama aiuto, RCP e defibrillazione il prima possibile.",asistolia:"Controlla elettrodi e derivazione, poi RCP e adrenalina: ritmo non defibrillabile.",tv:"Valuta subito il polso: senza polso RCP e defibrillazione; con polso ABCDE, ossigeno se serve, accesso venoso e medico subito.",torsione:"Emergenza: se senza polso RCP e defibrillazione; prepara magnesio solfato su prescrizione e cerca farmaci che allungano il QT.",
+ stemi:"ECG a 12 derivazioni entro 10 minuti, allerta del percorso per l'infarto, monitoraggio, accesso venoso, terapia su prescrizione.",stemiIII:"ECG anche in V4R, attenzione all'ipotensione con i nitrati (infarto del ventricolo destro), allerta del percorso per l'infarto.",
+ bav3:"Valuta la stabilità (PA, coscienza, perfusione), prepara atropina e pacing transcutaneo su prescrizione.",mobitz2:"Rischio di blocco completo: monitoraggio continuo, piastre per pacing a portata di mano.",bav21:"Monitoraggio continuo e valutazione della stabilità; informa il medico.",
+ fa:"Valuta frequenza e stabilità, data di insorgenza (rischio tromboembolico), terapia per il controllo della frequenza su prescrizione.",tsv:"Se stabile manovre vagali su indicazione e adenosina su prescrizione; se instabile prepara la cardioversione.",
+ iperk:"Prelievo per potassio, monitoraggio continuo, preparazione di calcio, insulina con glucosio e altri farmaci su prescrizione.",pericardite:"Valuta il dolore (migliora seduto in avanti?), confronta con gli ECG precedenti ed escludi lo STEMI con il medico.",
+ brugada:"Monitoraggio, tratta la febbre, evita i farmaci controindicati; il medico valuta il rischio di aritmie.",osborn:"Riscaldamento graduale, mobilizzazione delicata (rischio di FV), monitoraggio continuo.",pm:"Controlla che ogni spike sia seguito dal QRS (cattura) e annota il tipo di dispositivo.",
+ wpw:"Segnala al medico: con FA pre-eccitata vanno evitati i farmaci che bloccano il nodo AV.",qtlungo:"Rivedi la terapia con il medico (farmaci che allungano il QT), controlla potassio e magnesio.",tam:"Tratta la causa respiratoria: ossigenoterapia controllata e terapia della BPCO o dello scompenso."};
+const gpick=a=>a[Math.floor(Math.random()*a.length)];
+let GYM={mode:"guidato",n:0,ok:0,cur:null,step:0,ans:[],cal:[]};
+const GYM_RATE=["Meno di 60/min","60-100/min","101-150/min","Oltre 150/min","Non misurabile"];
+const GYM_REG={r:"Regolare",i:"Irregolare",n:"Nessun complesso organizzato"};
+const GYM_P={n:"Un'onda P normale prima di ogni QRS",a:"Onde P assenti o sostituite (onde f/F, spike, attività caotica)",m:"Più onde P che QRS",r:"Nessuna P prima del QRS, P invertita subito dopo",v:"Onde P presenti ma di forme diverse"};
+const GYM_Q={s:"Stretto (< 0,12 s)",l:"Largo (≥ 0,12 s)",x:"Nessun QRS riconoscibile"};
+function gymNew(){const it=gpick(GYM_POOL),hr=Math.round(it.hr[0]+Math.random()*(it.hr[1]-it.hr[0]));const f=WAVE.ecgFull(it.k,hr||undefined,6,250,"gym"+Math.random());
+  const nb=f.B.filter(b=>b.t>=0&&b.t<6).length;let rc=4;if(it.q!=="x"&&it.k!=="torsione"){const r=nb*10;rc=r<60?0:r<=100?1:r<=150?2:3}
+  const nm=f.name[0];const others=[...new Set(GYM_POOL.map(x=>WAVE.ecgName(Object.assign({},WAVE.ecgFull(x.k,x.hr[0]||75,.1,50,"n").s,{hr:x.hr[0]||75}))[0]))].filter(x=>x!==nm);
+  const same=others.filter(x=>GYM_POOL.some(g=>g.q===it.q&&WAVE.ecgFull(g.k,g.hr[0]||75,.1,50,"n").name[0]===x));
+  const dis=shuffle(same).slice(0,2);while(dis.length<3){const o=gpick(others);if(!dis.includes(o))dis.push(o)}
+  GYM.cur={it,f,rate:nb*10,rc,opts:shuffle([nm,...dis.slice(0,3)])};GYM.step=GYM.mode==="rapido"?4:0;GYM.ans=[];GYM.cal=[]}
+function gymSvg(){const f=GYM.cur.f,W=150,H=36,b0=21,y=f.y,sc=10;
+  const pd=y.map((v,i)=>(i?"L":"M")+(i*W/(y.length-1)).toFixed(2)+" "+Math.max(.5,Math.min(H-.5,b0-v*sc)).toFixed(2)).join("");
+  const c=GYM.cal.map(x=>`<path d="M${x.toFixed(2)} 0V${H}" class="gym-cal"/>`).join("")+(GYM.cal.length===2?`<path d="M${GYM.cal[0]} 3H${GYM.cal[1]}" class="gym-cal"/>`:"");
+  return `<svg viewBox="0 0 ${W} ${H}" id="gym-svg" role="img" aria-label="Tracciato ECG da interpretare"><defs><pattern id="gyma" width="1" height="1" patternUnits="userSpaceOnUse"><path d="M1 0V1H0" fill="none" stroke="#f2bdb9" stroke-width=".08"/></pattern><pattern id="gymb" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="url(#gyma)"/><path d="M5 0V5H0" fill="none" stroke="#e08a84" stroke-width=".25"/></pattern></defs><rect width="${W}" height="${H}" fill="url(#gymb)"/><text x="1.5" y="4" class="eg-t">${GYM.cur.f.s.lead} · 25 mm/s · 10 mm/mV</text><path d="${pd}" fill="none" stroke="#1d1d1f" stroke-width=".42" stroke-linejoin="round"/>${c}</svg>`}
+function ecgGym(){
+  if(!GYM.cur)gymNew();const C=GYM.cur,it=C.it;
+  const steps=[["Frequenza","Conta i QRS nei 6 secondi della striscia e moltiplica per 10 (o usa il compasso: 300 ÷ quadratoni tra due R).",GYM_RATE,C.rc],["Ritmo","Gli intervalli R-R sono tutti uguali?",["r","i","n"].map(x=>GYM_REG[x]),["r","i","n"].indexOf(it.reg)],["Onde P","C'è un'onda P prima di ogni QRS? Sono tutte uguali?",["n","a","m","r","v"].map(x=>GYM_P[x]),["n","a","m","r","v"].indexOf(it.p)],["QRS","Il complesso dura meno di 3 quadratini (0,12 s)?",["s","l","x"].map(x=>GYM_Q[x]),["s","l","x"].indexOf(it.q)],["Diagnosi","Metti insieme gli elementi: che cos'è?",C.opts,C.opts.indexOf(C.f.name[0])]];
+  const done=GYM.step>=5;
+  app.innerHTML=`
+  <div><span class="eyebrow">Elettrocardiogramma</span><h2>Palestra ECG: esercizi di lettura</h2></div>
+  <p class="lead">Una striscia alla volta, letta con metodo: frequenza, ritmo, onde P, QRS e infine la diagnosi. Tocca due punti del tracciato per misurare un intervallo con il compasso. ${GYM_POOL.length} quadri diversi, tracciati sempre nuovi.</p>
+  <div class="row"><button class="chip" data-gm="guidato" aria-pressed="${GYM.mode==="guidato"}">Lettura guidata (5 passaggi)</button><button class="chip" data-gm="rapido" aria-pressed="${GYM.mode==="rapido"}">Riconoscimento rapido</button><span class="small" style="margin-left:auto">Sessione: <b>${GYM.ok}</b> corrette su <b>${GYM.n}</b></span></div>
+  <div class="sheet gym" style="display:flex;flex-direction:column;gap:12px">
+    <div class="gym-strip">${gymSvg()}</div>
+    <div class="small" id="gym-cal">${GYM.cal.length===2?(()=>{const dt=Math.abs(GYM.cal[1]-GYM.cal[0])/25;return `Compasso: <b>${dt.toFixed(2).replace(".",",")} s</b> (${Math.round(dt*1000)} ms)${dt>.25?` · se è un R-R, FC ≈ <b>${Math.round(60/dt)}/min</b>`:""} · tocca di nuovo per ricominciare`})():GYM.cal.length===1?"Tocca il secondo punto…":"Compasso: tocca due punti del tracciato per misurare."}</div>
+    ${steps.map((st,i)=>{if(GYM.mode==="rapido"&&i<4)return "";if(i>GYM.step)return "";const a=GYM.ans[i];return `<div class="gym-step"><span class="eyebrow">${i+1-(GYM.mode==="rapido"?4:0)}. ${st[0]}</span><p class="small">${st[1]}</p><div class="opts">${st[2].map((o,j)=>`<button class="opt${a!=null?(j===st[3]?" right":j===a?" wrong":""):""}" data-gs="${i}" data-go="${j}" ${a!=null?"disabled":""}>${esc(o)}</button>`).join("")}</div></div>`}).join("")}
+    ${done?`<div class="expl"><b>${esc(C.f.name[0])}.</b> ${esc(C.f.name[1])}${it.q!=="x"&&it.k!=="torsione"?`<br><b>Frequenza misurata:</b> ${C.rate}/min (${C.rate/10} QRS in 6 s).`:""}<br><b>Cosa fa l'infermiere:</b> ${esc(GYM_NURSE[it.k]||"Valuta il paziente con l'ABCDE, confronta con gli ECG precedenti, monitora e informa il medico.")}</div>
+      <div class="row"><button class="btn primary" id="gym-next">Nuova striscia</button><a class="btn" href="#voce-ecg-lettura" style="text-decoration:none">Ripassa il metodo</a></div>`:""}
+  </div>`;
+  app.querySelectorAll("[data-gm]").forEach(b=>b.onclick=()=>{GYM.mode=b.dataset.gm;gymNew();ecgGym()});
+  app.querySelectorAll("[data-gs]").forEach(b=>b.onclick=()=>{const i=+b.dataset.gs,j=+b.dataset.go;GYM.ans[i]=j;GYM.step=i+1;
+    if(i===4){const keys=GYM.mode==="rapido"?[4]:[0,1,2,3,4],good=keys.filter(k=>GYM.ans[k]===steps[k][3]).length;GYM.n++;if(GYM.ans[4]===steps[4][3])GYM.ok++;try{logEv("mcq","eo",0,good/keys.length,"ecg-"+(it.id||it.k),{gym:1})}catch(e){}}
+    ecgGym();const st=app.querySelector(".gym-step:last-of-type, .expl");if(st)st.scrollIntoView({block:"nearest",behavior:RM?"auto":"smooth"})});
+  const svg=document.getElementById("gym-svg");svg.onclick=e=>{const r=svg.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*150;if(GYM.cal.length>=2)GYM.cal=[];GYM.cal.push(x);const gs=app.querySelector(".gym-strip");gs.innerHTML=gymSvg();ecgGymBind()};
+  if($("#gym-next"))$("#gym-next").onclick=()=>{gymNew();ecgGym();window.scrollTo({top:0,behavior:RM?"auto":"smooth"})};
+}
+function ecgGymBind(){const svg=document.getElementById("gym-svg");if(!svg)return;svg.onclick=e=>{const r=svg.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*150;if(GYM.cal.length>=2)GYM.cal=[];GYM.cal.push(x);document.querySelector(".gym-strip").innerHTML=gymSvg();
+  const dt=GYM.cal.length===2?Math.abs(GYM.cal[1]-GYM.cal[0])/25:null;$("#gym-cal").innerHTML=dt!=null?`Compasso: <b>${dt.toFixed(2).replace(".",",")} s</b> (${Math.round(dt*1000)} ms)${dt>.25?` · se è un R-R, FC ≈ <b>${Math.round(60/dt)}/min</b>`:""} · tocca di nuovo per ricominciare`:"Tocca il secondo punto…";ecgGymBind()}}
 function enciclopedia(v){
+  if(v==="ecg-esercizi"){ecgGym();return}
   const focus=(v&&v.startsWith("voce-"))?v.slice(5):state.encOpen;state.encOpen=null;
   const fe=focus&&ENC_BY[focus];
   let area=fe?fe.a:(state.encArea||"tutte");if(fe)state.encArea=area;
@@ -2918,6 +3036,7 @@ function enciclopedia(v){
   <div id="enc-res" hidden></div>
   <div id="enc-main" style="display:flex;flex-direction:column;gap:16px">
     <div class="enc-areas"><button class="enc-area" style="--c:var(--scrub)" data-area="tutte" aria-pressed="${area==="tutte"}"><b>Tutte le aree</b><span>${ENCY.length} voci</span></button>${Object.entries(EAREE).map(([k,a])=>`<button class="enc-area" style="--c:${a.c}" data-area="${k}" aria-pressed="${area===k}"><b>${esc(a.n)}</b><span>${counts[k]||0} voci</span></button>`).join("")}</div>
+    ${area==="ecg"||area==="tutte"?`<a class="sheet gym-cta" href="#ecg-esercizi"><span class="eyebrow">Novità</span><b>Palestra ECG: esercizi di lettura</b><span class="small">Strisce sempre nuove da leggere con metodo (frequenza, ritmo, P, QRS, diagnosi) con compasso per misurare gli intervalli →</span></a>`:""}
     <div class="enc-list">${list.map(e=>encEntry(e,e.id===focus)).join("")}</div>
   </div>`;
   const bind=root=>{
@@ -3125,7 +3244,7 @@ const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
 function route(){
   const v=(location.hash||"#oggi").slice(1);
-  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")?"enciclopedia":"oggi");
+  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"?"enciclopedia":"oggi");
   const changed=document.documentElement.dataset.view!==name;
   document.documentElement.dataset.view=name;
   document.querySelectorAll("nav.tabs a").forEach(a=>{const on=a.getAttribute("href")==="#"+name;a.setAttribute("aria-current",on?"page":"false");if(on&&changed)a.scrollIntoView({block:"nearest",inline:"center"})});
@@ -3545,6 +3664,7 @@ function quiz(){
   <div><span class="eyebrow">Autoverifica</span><h2>Allenamento</h2></div>
   <p class="lead">${QALL.length} domande a scelta multipla${DBQ.length?` (${DBQ.length} arrivate con gli aggiornamenti giornalieri)`:""}, ${PDFQ.length} domande aperte e ${CASES.length} casi clinici. La sessione mista li alterna come in un esame vero; le risposte scritte sono valutate in trentesimi con la griglia dei punti attesi.</p>
   <div class="row">${chips(f,["all",...SKEYS],"f")}</div>
+  <a class="sheet gym-cta" href="#ecg-esercizi"><b>Palestra ECG</b><span class="small">Esercizi di lettura dell'elettrocardiogramma, a parte rispetto ai quiz →</span></a>
   <div class="row">
     <label class="small" for="qmode">Tipo di sessione</label><select id="qmode" class="btn">
       <option value="misto" ${mode==="misto"?"selected":""}>Mista: quiz + domande aperte + casi</option>

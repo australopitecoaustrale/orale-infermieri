@@ -318,3 +318,33 @@ var QUIZ_ML=[
 ];
 QUIZ_ML.forEach((q,i)=>{const t=(i*7+3)%4,o=q[2].slice(),c=o.splice(q[3],1)[0];o.splice(t,0,c);q[2]=o;q[3]=t});
 if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_ML);
+/* quiz sui nuovi quadri ECG */
+var QUIZ_ECG2=[
+["ecg-blocchi-branca","Qual è il criterio comune ai blocchi di branca completi?",["PR > 0,20 s","QRS ≥ 0,12 s","QT > 500 ms","Onde P assenti"],1,"La conduzione passa attraverso il miocardio invece che lungo la branca: il QRS si allarga."],
+["ecg-blocchi-branca","Un aspetto rSR' «a orecchie di coniglio» in V1 indica…",["Blocco di branca sinistra","Blocco di branca destra","Pre-eccitazione","Iperpotassiemia"],1,"Nel blocco di branca sinistro in V1 c'è invece un QS profondo."],
+["ecg-blocchi-branca","Un blocco di branca sinistra nuovo in un paziente con dolore toracico va…",["Ignorato","Gestito come possibile infarto","Trattato con adenosina","Considerato sempre benigno"],1,"Le alterazioni del BBS mascherano lo STEMI: servono criteri dedicati e il confronto con ECG precedenti."],
+["ecg-preeccitazione","Quale combinazione è tipica della pre-eccitazione (WPW)?",["PR lungo e QRS stretto","PR corto, onda delta e QRS allargato","Onde F a dente di sega","QT lungo e onde U"],1,"La via accessoria attiva in anticipo i ventricoli: PR < 0,12 s e inizio del QRS impastato."],
+["ecg-preeccitazione","In una fibrillazione atriale pre-eccitata vanno evitati…",["I farmaci che bloccano il nodo AV, come adenosina e verapamil","L'ossigeno","Il monitoraggio","La cardioversione elettrica"],0,"Bloccando il nodo AV si favorisce la conduzione lungo la via accessoria, con rischio di FV."],
+["ecg-pericardite","Quale reperto fa pensare a una pericardite piuttosto che a uno STEMI?",["ST convesso in II, III, aVF con sottoslivellamento in DI","ST diffuso a concavità verso l'alto con PR sottoslivellato","ST più alto in III che in II","Onde Q patologiche"],1,"Nella pericardite la reciprocità è limitata ad aVR e V1."],
+["ecg-pericardite","Il dolore della pericardite tipicamente…",["Migliora da seduti piegati in avanti","Migliora da supini","Non cambia con la posizione","Compare solo sotto sforzo"],0,"Peggiora con l'inspirazione profonda e in posizione supina."],
+["ecg-brugada","Il pattern di Brugada diagnostico (tipo 1) mostra in V1-V2…",["ST sottoslivellato a cucchiaio","ST sopraslivellato ≥ 2 mm a tenda che termina in un'onda T negativa","Onde T alte e appuntite","Onda delta"],1,"Il tipo 2 «a sella» è solo suggestivo."],
+["ecg-brugada","Quale condizione può slatentizzare il pattern di Brugada?",["La febbre","L'ipertermia da esercizio leggero","Il digiuno di poche ore","La posizione seduta"],0,"Anche alcuni farmaci bloccanti dei canali del sodio, alcol, cocaina e ipokaliemia."],
+["ecg-ipotermia","L'onda J di Osborn è tipica di…",["Ipercalcemia","Ipotermia","Pericardite","Embolia polmonare"],1,"È una gobba alla fine del QRS, più ampia quanto più bassa è la temperatura."],
+["ecg-ipotermia","Nel paziente ipotermico è importante…",["Mobilizzarlo rapidamente","Mobilizzarlo con delicatezza per il rischio di FV","Somministrare liquidi freddi","Evitare il monitoraggio"],1,"Il cuore ipotermico è irritabile; il riscaldamento è graduale."],
+["ecg-torsione","Il trattamento farmacologico di prima scelta della torsione di punta è…",["Amiodarone","Magnesio solfato endovena","Adenosina","Digossina"],1,"Se il paziente è senza polso: RCP e defibrillazione."],
+["ecg-torsione","Oltre quale valore di QTc il rischio di torsione di punta è considerato alto?",["300 ms","400 ms","500 ms","350 ms"],2,"Il QT va sempre corretto per la frequenza (QTc)."],
+["ecg-torsione","Quale di questi squilibri favorisce il QT lungo?",["Ipermagnesiemia","Ipokaliemia","Ipercalcemia","Iperkaliemia"],1,"Anche ipomagnesiemia e ipocalcemia allungano il QT."],
+["ecg-extrasistoli","Un'extrasistole ventricolare ha…",["QRS stretto preceduto da P diversa","QRS largo e bizzarro senza P, con pausa compensatoria","Onde F","PR lungo e costante"],1,"La T è opposta al QRS; il polso di quel battito è spesso debole."],
+["ecg-extrasistoli","Il bigeminismo ventricolare è…",["Due QRS uniti","Un'extrasistole ventricolare dopo ogni battito normale","Un blocco 2:1","Una fibrillazione atriale"],1,"Se ce n'è una ogni due battiti normali si parla di trigeminismo."],
+["ecg-extrasistoli","Tre o più extrasistoli ventricolari consecutive a frequenza oltre 100/min sono…",["Un bigeminismo","Una tachicardia ventricolare (non sostenuta se < 30 s)","Un ritmo giunzionale","Un'aritmia sinusale"],1,"Va segnalata subito, soprattutto in un paziente con ischemia."],
+["ecg-giunzionali","Il ritmo giunzionale ha di solito una frequenza di…",["20-40/min","40-60/min","100-150/min","Oltre 150/min"],1,"QRS stretti e P assenti o invertite vicino al QRS."],
+["ecg-giunzionali","Il ritmo idioventricolare accelerato (RIVA) compare tipicamente…",["Dopo la riperfusione di un infarto","Nell'ipertiroidismo","Durante il sonno nei giovani","Nella pericardite"],0,"È di solito transitorio e ben tollerato."],
+["ecg-pacemaker","Uno spike del pacemaker non seguito dal QRS indica…",["Normale funzionamento","Perdita di cattura","Ipotermia","Iperkaliemia"],1,"Va segnalato subito: se il paziente dipende dal pacemaker può dare bradicardia grave."],
+["ecg-pacemaker","Con un pacemaker ventricolare il QRS stimolato è…",["Stretto","Largo","Assente","Invisibile"],1,"Ha una morfologia simile al blocco di branca sinistra perché parte dal ventricolo destro."],
+["ecg-tachicardie-atriali","La tachicardia atriale multifocale si riconosce per…",["Assenza di onde P","Almeno 3 forme diverse di onda P con ritmo irregolare e frequenza > 100/min","Onde F a dente di sega","QRS larghi"],1,"Si associa soprattutto a BPCO riacutizzata e scompenso."],
+["ecg-tachicardie-atriali","Un ritmo con P normali, PR costante e R-R che variano con il respiro è…",["Fibrillazione atriale","Aritmia sinusale respiratoria","Mobitz 1","Flutter"],1,"È fisiologica, soprattutto nei giovani."],
+["ecg-farmaci","Il sottoslivellamento ST «a cucchiaio» con QT corto suggerisce…",["Tossicità da potassio","Effetto della digossina","Pericardite","Brugada"],1,"È l'effetto atteso; la tossicità dà soprattutto aritmie e bradicardie."],
+["ecg-farmaci","Prima di somministrare la digossina l'infermiere…",["Misura la frequenza apicale per un minuto","Misura solo la temperatura","Controlla la glicemia","Non serve alcun controllo"],0,"Controlla anche potassio e funzionalità renale e i sintomi di tossicità (nausea, disturbi visivi)."]
+];
+QUIZ_ECG2.forEach((q,i)=>{const t=(i*7+1)%4,o=q[2].slice(),c=o.splice(q[3],1)[0];o.splice(t,0,c);q[2]=o;q[3]=t});
+if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_ECG2);
