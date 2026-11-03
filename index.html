@@ -824,6 +824,65 @@ header.top .top-in{gap:58px}
 .dir-card.ext{border-style:dashed}
 .dir-sig{font-weight:800}
 @media (max-width:600px){.dir-cards{grid-template-columns:1fr 1fr;gap:6px}.dir-card{padding:8px 9px}.dir-card b{font-size:.86rem}.dir-card span{font-size:.74rem}.dir-card i{display:none}}
+
+/* ---- mappa d'avventura della siringa ---- */
+.qm{--qm-ink:#d6336c;display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:20px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);margin-bottom:14px}
+.qm-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.qm-head>div:first-child{display:flex;flex-direction:column;gap:2px;min-width:0}
+.qm-head b{font-family:var(--f-display);font-size:1.15rem}
+.qm-badges{display:flex;gap:6px;align-items:center}
+.qm-b{font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:20px;background:color-mix(in srgb,var(--b,var(--scrub)) 20%,var(--paper));border:1px solid color-mix(in srgb,var(--b,var(--scrub)) 55%,transparent)}
+.qm-svg{width:100%;height:auto;display:block;border-radius:16px}
+.qm-road{fill:none;stroke:rgba(120,96,70,.28);stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+.qm-road.d2{stroke-dasharray:1 0}
+.qm-road.d3{stroke:rgba(120,96,70,.36)}
+.night .qm-road{stroke:rgba(255,255,255,.16)}
+.qm-trail{fill:none;stroke:rgba(255,255,255,.75);stroke-width:2;stroke-dasharray:3 6;stroke-linecap:round;stroke-linejoin:round}
+.night .qm-trail{stroke:rgba(255,255,255,.35)}
+.qm-trail.done{stroke:var(--qm-ink);stroke-width:4.2;stroke-dasharray:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.2))}
+.qm-grass path{fill:none;stroke:#51a35a;stroke-width:1.3;stroke-linecap:round}.qm-grass .fl{fill:#ffd43b}
+.qm-hill{fill:#e9b872;opacity:.55}
+.night .qm-hill{fill:#5c6aa8}
+.qm-mt path{fill:#9aa3b5}.qm-mt .snow{fill:#fff}
+.night .qm-mt path{fill:#6c77a8}.night .qm-mt .snow{fill:#e9ecff}
+.qm-star{fill:#fff;opacity:.7}
+.qm-pin circle{fill:#fff;stroke:color-mix(in srgb,var(--qm-ink) 55%,#999);stroke-width:1.6;transition:fill .3s,stroke .3s}
+.qm-pin .halo{fill:transparent;stroke:none}
+.qm-pin text{text-anchor:middle;font-family:var(--f-body)}
+.qm-emo{font-size:12px}.qm-let{font-size:11px;font-weight:800;fill:var(--qm-ink);font-family:var(--f-display)}
+.qm-lbl{font-size:9.5px;font-weight:700;fill:#33414a;paint-order:stroke;stroke:rgba(255,255,255,.85);stroke-width:3px;stroke-linejoin:round}
+.night .qm-lbl{fill:#eef2ff;stroke:rgba(20,26,50,.85)}
+.qm-pin.start circle{fill:#fff8e1;stroke:#c9a227}
+.qm-pin.reached circle:not(.halo){fill:color-mix(in srgb,var(--qm-ink) 16%,#fff);stroke:var(--qm-ink);stroke-width:2.4}
+.qm-pin.next .halo{stroke:var(--qm-ink);stroke-width:2;stroke-dasharray:3 4;transform-box:fill-box;transform-origin:center;animation:qmspin 6s linear infinite}
+.qm-pin.fin circle:not(.halo){fill:#fff4d6;stroke:#e0a100;stroke-width:2.2}
+.qm-pin.pop{animation:qmpop .6s cubic-bezier(.3,1.6,.5,1)}
+.qm-dot{fill:#fff;stroke:rgba(120,96,70,.5);stroke-width:1.4}.qm-dot.reached{fill:var(--qm-ink);stroke:var(--qm-ink)}
+@keyframes qmspin{to{transform:rotate(360deg)}}
+@keyframes qmpop{0%{transform-box:fill-box}40%{opacity:.6}100%{opacity:1}}
+.qm-pin.pop circle:not(.halo){animation:qmscale .6s cubic-bezier(.3,1.6,.5,1)}
+@keyframes qmscale{0%{transform:scale(.4)}100%{transform:scale(1)}}
+.qm-pin.pop circle{transform-box:fill-box;transform-origin:center}
+.qm-compass circle{fill:rgba(255,255,255,.75);stroke:rgba(0,0,0,.15)}.qm-compass path{fill:#868e96}.qm-compass .n{fill:#e03131}.qm-compass text{font-size:9px;font-weight:800;text-anchor:middle;fill:#495057}
+.night .qm-compass circle{fill:rgba(255,255,255,.12);stroke:rgba(255,255,255,.3)}.night .qm-compass text{fill:#eef2ff}
+#qm-syr{filter:drop-shadow(0 2px 2px rgba(0,0,0,.3))}
+#qm-syr .barrel{fill:rgba(255,255,255,.92);stroke:#5c6b73;stroke-width:1}
+#qm-syr .liq{fill:var(--qm-ink);opacity:.8}
+#qm-syr .rod{fill:#5c6b73}#qm-syr .hub{fill:#4dabf7}#qm-syr .needle{fill:#adb5bd;stroke:#868e96;stroke-width:.4}#qm-syr .tick{stroke:#5c6b73;stroke-width:.7}
+.qm-ob path{fill:#868e96;stroke:#495057;stroke-width:.8}
+.qm-obt{font-size:9px;font-weight:800;fill:#c92a2a;text-anchor:middle;paint-order:stroke;stroke:#fff;stroke-width:3px}
+.qm-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
+.qm-txt{flex:1 1 320px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.qm-next{font-size:.88rem}
+.qm-tag{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:12px;margin-right:6px;background:color-mix(in srgb,var(--b) 22%,var(--paper));border:1px solid color-mix(in srgb,var(--b) 60%,transparent)}
+.qm-info{font-size:.9rem;padding:9px 12px;border-radius:12px;background:color-mix(in srgb,var(--qm-ink) 8%,var(--paper));border-left:3px solid var(--qm-ink)}
+.qm-leg{display:flex;flex-direction:column;gap:3px;font-size:.74rem;color:var(--muted)}
+.qm-leg .sw{display:inline-block;width:18px;height:6px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.qm-leg .sw.d1{background:#69db7c}.qm-leg .sw.d2{background:#ffa94d}.qm-leg .sw.d3{background:#ff6b6b}.qm-leg .sw.ob{background:#868e96}
+.qm.won{border-color:#e0a100;box-shadow:0 0 0 3px rgba(224,161,0,.18),var(--shadow)}
+.dom-train{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-left:4px solid var(--scrub)}
+.dom-train>div:first-child{display:flex;flex-direction:column;gap:3px;flex:1 1 320px}
+@media (prefers-reduced-motion: reduce){.qm-pin.next .halo{animation:none}}
 </style>
 </head>
 <body>
@@ -2265,13 +2324,13 @@ function vitalsMonitor(vit,c){
       const off=(S.printed*spd)%g1;ctx.lineWidth=.8;ctx.strokeStyle=fade(["226,90,116",.12]);ctx.beginPath();for(let x=mx-off;x>0;x-=g1){ctx.moveTo(x,py);ctx.lineTo(x,py+ph)}for(let y=py+g1;y<py+ph;y+=g1){ctx.moveTo(0,y);ctx.lineTo(mx,y)}ctx.stroke();
       ctx.lineWidth=1;ctx.strokeStyle=fade(["226,90,116",.3]);ctx.beginPath();const off5=(S.printed*spd)%g5;for(let x=mx-off5;x>0;x-=g5){ctx.moveTo(x,py);ctx.lineTo(x,py+ph)}for(let y=py+g5;y<py+ph;y+=g5){ctx.moveTo(0,y);ctx.lineTo(mx,y)}ctx.stroke();
       const val=tau=>{let sg=null;for(let i=S.segs.length-1;i>=0;i--)if(S.segs[i].st<=tau){sg=S.segs[i];break}if(!sg)return null;const i=Math.floor((tau-sg.st)*125);let v=i<sg.ys.length?sg.ys[i]:0;if(sg.ev&&tau>=sg.ev.a&&tau<=sg.ev.b){if(sg.ev.ty==="off")return .03*Math.sin(tau*5);v+=.38*Math.sin(tau*31)+.24*Math.sin(tau*73+1)+.16*Math.sin(tau*11)}return v};
-      const tg=ctx.createLinearGradient(0,0,mx,0);tg.addColorStop(0,"rgba(201,24,74,0)");tg.addColorStop(Math.min(.9,fadeW/mx),"rgba(201,24,74,.95)");tg.addColorStop(1,"#c9184a");
-      ctx.strokeStyle=tg;ctx.lineWidth=M?1.6:2;ctx.lineJoin="round";ctx.lineCap="round";ctx.shadowColor="rgba(201,24,74,.45)";ctx.shadowBlur=M?4:6;ctx.beginPath();let pen=false,yl=py+ph*.6;
+      const tg=ctx.createLinearGradient(0,0,mx,0);tg.addColorStop(0,"rgba(26,26,28,0)");tg.addColorStop(Math.min(.9,fadeW/mx),"rgba(26,26,28,.92)");tg.addColorStop(1,"#1a1a1c");
+      ctx.strokeStyle=tg;ctx.lineWidth=M?1.2:1.5;ctx.lineJoin="round";ctx.lineCap="round";ctx.beginPath();let pen=false,yl=py+ph*.6;
       for(let x=mx;x>=0;x-=1.1){const tau=S.printed-(mx-x)/spd;if(tau<0)break;const v=val(tau);if(v==null){pen=false;continue}const y=Math.max(py+3,Math.min(py+ph-3,py+ph*.64-v*ph*.46));if(x===mx)yl=y;if(pen)ctx.lineTo(x,y);else{ctx.moveTo(x,y);pen=true}}ctx.stroke();ctx.shadowBlur=0;
-      ctx.setLineDash([2,4]);ctx.lineWidth=1;ctx.strokeStyle="rgba(201,24,74,.28)";for(const sg of S.segs){const x=mx-(S.printed-sg.st)*spd;if(x>fadeW*.5&&x<mx-2){ctx.beginPath();ctx.moveTo(x,py+3);ctx.lineTo(x,py+ph-3);ctx.stroke()}}ctx.setLineDash([]);
+      ctx.setLineDash([2,4]);ctx.lineWidth=1;ctx.strokeStyle="rgba(60,60,70,.25)";for(const sg of S.segs){const x=mx-(S.printed-sg.st)*spd;if(x>fadeW*.5&&x<mx-2){ctx.beginPath();ctx.moveTo(x,py+3);ctx.lineTo(x,py+ph-3);ctx.stroke()}}ctx.setLineDash([]);
       ctx.restore();
       // punta luminosa della penna
-      S.stylus+=(yl-S.stylus)*Math.min(1,dt*30);const sy0=S.stylus||yl;glow(mx-1,sy0,M?9:12,"#ff4d6d",.55+.35*S.flash);ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(mx-1,sy0,M?1.8:2.3,0,TAU);ctx.fill();
+      S.stylus+=(yl-S.stylus)*Math.min(1,dt*30);const sy0=S.stylus||yl;ctx.fillStyle="#1a1a1c";ctx.beginPath();ctx.arc(mx-1,sy0,M?1.6:2,0,TAU);ctx.fill();
       // compasso: misura l'intervallo R-R sotto il puntatore
       if(ptr.on&&ptr.x<mx&&ptr.y>py-12&&ptr.y<py+ph+12){const tp=S.printed-(mx-ptr.x)/spd;let sg=null;for(let i=S.segs.length-1;i>=0;i--)if(S.segs[i].st<=tp){sg=S.segs[i];break}
         if(sg){const ts=sg.pk.map(i=>sg.st+i/125).filter(x=>x<=S.printed);let a=null,b=null;for(const x of ts){if(x<=tp)a=x;else{b=x;break}}if(a!=null&&b!=null){const xa=mx-(S.printed-a)*spd,xb=mx-(S.printed-b)*spd,rrs=b-a;
@@ -3729,13 +3788,134 @@ Non inventare numeri o articoli che non siano nella domanda o nella spiegazione.
     box.innerHTML=`<div class="deep"><span class="eyebrow">Approfondimento</span><p>${esc(r.text)}</p></div>`;return true;
   }catch(e){box.innerHTML="";return false}
 }
+/* ---- Mappa d'avventura: la siringa avanza di una tappa per ogni risposta corretta ---- */
+const QM_THEMES={
+ cli:{t:"Il viaggio del farmaco",s:"Dalla vena al bersaglio, poi fegato e rene: assorbimento, distribuzione, metabolismo, eliminazione",fin:"Effetto ottenuto",fn:"Il farmaco ha agito ed è stato eliminato: il viaggio ADME è completo.",ink:"#d6336c",
+  steps:[["Accesso venoso","💉","Per via endovenosa la biodisponibilità è del 100%: non c'è la fase di assorbimento."],["Vena cava","🩸","Il sangue venoso refluo arriva all'atrio destro."],["Cuore destro","❤️","Atrio e ventricolo destro spingono il sangue nell'arteria polmonare."],["Polmoni","🫁","Nel circolo polmonare il sangue cede CO₂ e si ossigena."],["Cuore sinistro","❤️","Il ventricolo sinistro spinge il sangue ossigenato in aorta."],["Distribuzione","🧭","Il farmaco raggiunge i tessuti: è attiva solo la quota libera, non legata alle proteine plasmatiche."],["Bersaglio","🎯","Legandosi al recettore il farmaco produce l'effetto terapeutico."],["Fegato","🧪","Metabolismo epatico, in gran parte tramite gli enzimi del citocromo P450."],["Rene","💧","Eliminazione con le urine: con funzione renale ridotta le dosi vanno adeguate."]]},
+ eo:{t:"La valutazione ABCDE",s:"La sequenza della valutazione primaria del paziente critico",fin:"Paziente stabilizzato",fn:"Valutazione completa: problemi riconosciuti e trattati nell'ordine giusto.",ink:"#3557a8",
+  steps:[["Sicurezza","⚠️","Prima di avvicinarti valuta i pericoli per te, per il paziente e per gli altri."],["A · Vie aeree","A","Pervietà: il paziente parla? Ci sono rumori, sangue, corpi estranei?"],["B · Respiro","B","Frequenza respiratoria, SpO₂, espansione del torace, lavoro respiratorio."],["C · Circolo","C","Frequenza, pressione, refill capillare, colore della cute, perdite."],["D · Neurologico","D","AVPU o GCS, pupille e glicemia."],["E · Esposizione","E","Esamina tutto il corpo e la temperatura, evitando l'ipotermia."],["Rivalutazione","🔁","Dopo ogni intervento ricomincia da A."],["Passaggio SBAR","📞","Situazione, Background, Valutazione, Raccomandazione."]]},
+ dx:{t:"Il processo di nursing",s:"Le tappe del ragionamento clinico infermieristico",fin:"Obiettivo raggiunto",fn:"Il ciclo è chiuso: hai valutato i risultati e documentato.",ink:"#0f6e66",
+  steps:[["Accertamento","🔎","Raccolta di dati soggettivi e oggettivi, per esempio con i modelli di Gordon."],["Diagnosi","🏷️","Formato PES: problema, eziologia, segni e sintomi (NANDA-I)."],["Obiettivi","🎯","Risultati attesi misurabili e con un tempo (NOC)."],["Pianificazione","🗒️","Scelta degli interventi infermieristici per ogni obiettivo (NIC)."],["Attuazione","🙌","Gli interventi vengono erogati e registrati."],["Valutazione","✅","Si confrontano risultati ottenuti e attesi: il piano si conferma o si cambia."],["Documentazione","📝","Ciò che non è scritto non è stato fatto."]]},
+ leg:{t:"La strada della norma",s:"Dalla Costituzione al letto del paziente: la gerarchia delle fonti",fin:"Norma applicata",fn:"Hai percorso tutta la gerarchia: ogni livello rispetta quello superiore.",ink:"#7a4aa0",
+  steps:[["Costituzione","📜","Art. 32: la salute è un diritto fondamentale e un interesse della collettività."],["Norme europee","🌐","Regolamenti e direttive UE prevalgono sulle leggi nazionali in contrasto."],["Legge","🏛️","Approvata dal Parlamento, per esempio la L. 24/2017."],["Decreto legislativo","⚖️","Il Governo scrive la norma su delega, per esempio il D.Lgs. 81/2008."],["Decreto ministeriale","🗂️","Atto del ministro, per esempio il DM 77/2022."],["Regione","🗺️","La tutela della salute è materia concorrente: la Regione organizza i servizi."],["Azienda sanitaria","🏥","Atto aziendale, regolamenti e procedure interne."],["Reparto","📋","Procedure operative: vincolano, ma non possono contraddire la legge."]]},
+ cod:{t:"Il Codice deontologico 2025",s:"Gli otto capi del Codice delle professioni infermieristiche",fin:"Codice percorso",fn:"Hai attraversato tutti i capi del Codice 2025.",ink:"#a0522d",steps:null},
+ pa:{t:"Dal bando all'assunzione",s:"Le tappe del concorso pubblico per infermiere",fin:"Assunzione",fn:"Concorso superato: firma del contratto e periodo di prova.",ink:"#5f6b1f",
+  steps:[["Bando","📢","È la «legge speciale» del concorso: requisiti, prove e titoli."],["Domanda","📝","Si dichiarano titoli e servizi con le dichiarazioni sostitutive del DPR 445/2000."],["Prova scritta","✍️","Si supera con almeno 21/30 (DPR 220/2001)."],["Prova pratica","🩺","Si supera con almeno 14/20."],["Prova orale","🎤","Almeno 14/20; comprende informatica e lingua straniera."],["Graduatoria","🏆","Titoli (fino a 30 punti) più prove (fino a 70)."],["Contratto","🤝","Contratto individuale secondo il CCNL Comparto Sanità."],["Periodo di prova","⏳","Per l'infermiere dura 6 mesi secondo il contratto collettivo."]]},
+ tr:{t:"Dentro il caso clinico",s:"Come si costruisce una risposta completa all'orale",fin:"Risposta completa",fn:"Hai collegato clinica, norme e Codice: è la risposta che la commissione cerca.",ink:"#2d6a8a",
+  steps:[["Dati","🔎","Che cosa sai del paziente? Parametri, storia, contesto."],["Priorità","🚦","Prima ciò che minaccia la vita: A, B, C."],["Problema","🏷️","Diagnosi infermieristica o problema collaborativo."],["Interventi","🙌","Interventi autonomi e su prescrizione, con le motivazioni."],["Norme","⚖️","Quale legge entra in gioco: consenso, privacy, responsabilità?"],["Codice","🧭","Quale articolo del Codice deontologico guida la scelta?"],["Valutazione","✅","Il problema è risolto? Che cosa documenti?"]]},
+ lav:{t:"La valutazione dei rischi",s:"Dal pericolo alla tutela del lavoratore (D.Lgs. 81/2008)",fin:"Lavoratore tutelato",fn:"Il ciclo della prevenzione è completo.",ink:"#a86a00",
+  steps:[["Pericolo","🔺","Proprietà di un fattore capace di causare danno."],["Rischio","🎲","Probabilità che il danno si verifichi per la sua gravità."],["DVR","📄","Documento di valutazione dei rischi: obbligo non delegabile del datore di lavoro."],["Misure collettive","🏗️","Si elimina o si riduce il rischio alla fonte, prima dei DPI."],["DPI","🧤","Protezione individuale per il rischio che resta."],["Formazione","🎓","Informazione, formazione e addestramento dei lavoratori."],["Sorveglianza","🩺","Visite del medico competente e giudizio di idoneità."]]}
+};
+function qmCodSteps(){const C=typeof CODICE_CAPI!=="undefined"?CODICE_CAPI:[];const A=typeof CODICE_ART!=="undefined"?CODICE_ART:[];
+  return C.map(([n,t])=>{const ar=A.filter(a=>a[1]===n).map(a=>a[0]);return [t,n,`Capo ${n}${ar.length?` (artt. ${Math.min(...ar)}-${Math.max(...ar)})`:""}: ${t.toLowerCase()}.`]})}
+const QM_DIFF=[null,{n:"facile",t:"prato",c:"#69db7c"},{n:"media",t:"colline",c:"#ffa94d"},{n:"difficile",t:"montagna",c:"#ff6b6b"}];
+let QM=null;
+function qmRng(seed){let h=2166136261;for(const ch of String(seed))h=Math.imul(h^ch.charCodeAt(0),16777619)>>>0;return()=>{h^=h<<13;h>>>=0;h^=h>>>17;h^=h<<5;h>>>=0;return h/4294967296}}
+function qmDiff(it){const k=kindOf(it);let d=k==="mcq"?1:k==="open"?2:3;const ev=LOG.filter(e=>e.id===it.id);if(ev.length&&ev.slice(-3).some(e=>e.s<.6))d++;else if(ev.length>=2&&ev.slice(-2).every(e=>e.s>=.9))d--;if(it.novita)d++;return Math.max(1,Math.min(3,d))}
+function qmInit(list,key){
+  const wrap=$("#qmap");if(!wrap||!list.length)return null;
+  const cnt={};list.forEach(it=>{const m=QM_THEMES[it.m]?it.m:"tr";cnt[m]=(cnt[m]||0)+1});
+  const theme=Object.entries(cnt).sort((a,b)=>b[1]-a[1])[0][0],T=QM_THEMES[theme],S=T.steps||qmCodSteps();
+  const N=list.length,diffs=list.map(qmDiff),avg=diffs.reduce((a,b)=>a+b,0)/N,mood=avg<1.6?1:avg<2.35?2:3;
+  const R=qmRng(key+"|"+todayStr()+"|"+list.map(idOf).join(","));
+  // tappe: N-1 tappe intermedie con nome preso dal percorso della materia, poi il traguardo
+  const lab=[];for(let i=0;i<N-1;i++){const j=N-1<=S.length?(N-1===1?Math.floor(S.length/2):Math.round(i*(S.length-1)/(N-2))):Math.floor(i*S.length/(N-1));lab.push(S[Math.min(S.length-1,j)])}
+  lab.forEach((l,i)=>{if(i&&lab[i-1]===l)lab[i]=null});
+  lab.push([T.fin,"🏁",T.fn]);
+  QM={key,list,theme,T,N,diffs,mood,R,lab,pos:0,bad:0,anim:false,port:wrap.clientWidth<560,ph:R()*Math.PI*2};
+  qmBuild();return QM;
+}
+function qmGeom(){
+  const Q=QM,R=Q.R,port=Q.port,W=port?360:720,H=port?Math.min(470,300+Q.N*9):300,pad=port?44:56;
+  const P=[];const x0=pad,y0=H-pad,x1=W-pad,y1=pad+(port?18:10);
+  for(let k=0;k<=Q.N;k++){const t=k/Q.N;let x,y;
+    if(port){y=y0+(y1-y0)*t;x=k===0?x0+6:k===Q.N?x1-6:x0+(x1-x0)*(.5+.4*Math.sin(t*Math.PI*2.4+Q.ph))}
+    else{x=x0+(x1-x0)*t;y=y0+(y1-y0)*t+(k&&k<Q.N?(R()-.5)*(H*.42):0)}
+    if(k&&k<Q.N){x+=(R()-.5)*(port?18:30);y+=(R()-.5)*(port?24:10)}
+    P.push([Math.max(pad*.7,Math.min(W-pad*.7,x)),Math.max(pad*.8,Math.min(H-pad*.7,y))])}
+  // tratti: la curva dipende dalla difficoltà della domanda
+  const seg=[];for(let k=0;k<Q.N;k++){const [ax,ay]=P[k],[bx,by]=P[k+1],dx=bx-ax,dy=by-ay,L=Math.hypot(dx,dy)||1,nx=-dy/L,ny=dx/L,d=Q.diffs[k],sg=R()<.5?-1:1;let path;
+    if(d===1){const o=sg*L*.12;path=`M${ax} ${ay}Q${(ax+bx)/2+nx*o} ${(ay+by)/2+ny*o} ${bx} ${by}`}
+    else if(d===2){const o=sg*L*.28;path=`M${ax} ${ay}C${ax+dx*.3+nx*o} ${ay+dy*.3+ny*o} ${ax+dx*.7-nx*o} ${ay+dy*.7-ny*o} ${bx} ${by}`}
+    else{const z=Math.min(16,L*.2);let s2=`M${ax} ${ay}`;const n=3;for(let i=1;i<=n;i++){const t=i/(n+1),px=ax+dx*t+nx*z*(i%2?sg:-sg),py=ay+dy*t+ny*z*(i%2?sg:-sg);s2+=`L${px.toFixed(1)} ${py.toFixed(1)}`}path=s2+`L${bx} ${by}`}
+    seg.push({path,d,mx:(ax+bx)/2,my:(ay+by)/2,nx,ny,sg})}
+  return {W,H,P,seg};
+}
+function qmBuild(){
+  const Q=QM,wrap=$("#qmap");if(!wrap)return;const G=qmGeom();Q.G=G;const {W,H,P,seg}=G,T=Q.T,R=qmRng(Q.key+"deco");
+  const sky=[null,["#f3f9ec","#e6f4ea","#2b3a2f"],["#fff1e0","#ffe0c2","#4a2f1c"],["#1b2440","#26315a","#eef2ff"]][Q.mood],ink=sky[2],night=Q.mood===3;
+  const deco=seg.map((s,i)=>{const out=[];for(let j=0;j<2;j++){const side=j?1:-1,dist=(s.d===3?30:24)+R()*10,x=s.mx+s.nx*dist*side*s.sg*-1,y=s.my+s.ny*dist*side*s.sg*-1;
+      if(x<14||x>W-14||y<14||y>H-14)continue;
+      if(s.d===1)out.push(`<g class="qm-grass" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><path d="M-5 3Q-4 -3 -2 3M0 3Q1 -5 2 3M3 3Q5 -2 6 3"/><circle cx="-6" cy="-1" r="1.6" class="fl"/></g>`);
+      else if(s.d===2)out.push(`<path class="qm-hill" d="M${(x-18).toFixed(1)} ${(y+6).toFixed(1)}Q${x.toFixed(1)} ${(y-16).toFixed(1)} ${(x+18).toFixed(1)} ${(y+6).toFixed(1)}Z"/>`);
+      else out.push(`<g class="qm-mt" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><path d="M-16 8L-3 -14L10 8Z"/><path class="snow" d="M-7 -7L-3 -14L1 -7L-1 -8L-3 -6L-5 -8Z"/><path d="M2 8L11 -6L20 8Z" opacity=".75"/></g>`)}return out.join("")}).join("");
+  const stars=night?[...Array(26)].map(()=>`<circle cx="${(R()*W).toFixed(0)}" cy="${(R()*H*.9).toFixed(0)}" r="${(.5+R()*1.1).toFixed(1)}" class="qm-star"/>`).join(""):"";
+  const pins=P.map((p,k)=>{if(!k)return `<g class="qm-pin start" transform="translate(${p[0]} ${p[1]})"><circle r="11"/><text y="4">🚩</text><text class="qm-lbl" y="26">Partenza</text></g>`;
+    const l=Q.lab[k-1],fin=k===Q.N;if(!l)return `<circle class="qm-dot" id="qm-p${k}" cx="${p[0]}" cy="${p[1]}" r="4"/>`;
+    const words=l[0].split(" ");let l1="",l2="";for(const w of words){if(!l2&&(l1+" "+w).trim().length<=13)l1=(l1+" "+w).trim();else l2=(l2+" "+w).trim()}
+    const below=p[1]<H-40;return `<g class="qm-pin${fin?" fin":""}" id="qm-p${k}" transform="translate(${p[0]} ${p[1]})"><circle class="halo" r="17"/><circle r="${fin?14:12}"/><text class="${/^[A-Z]$/.test(l[1])||/^[IVX]+$/.test(l[1])?"qm-let":"qm-emo"}" y="${/^[A-Z]$/.test(l[1])||/^[IVX]+$/.test(l[1])?4.5:5}">${esc(l[1])}</text><text class="qm-lbl" y="${below?27:-21}">${esc(l1)}</text>${l2?`<text class="qm-lbl" y="${below?38:-10}">${esc(l2)}</text>`:""}</g>`}).join("");
+  wrap.innerHTML=`<div class="qm ${night?"night":""}" style="--qm-ink:${T.ink}">
+    <div class="qm-head"><div><span class="eyebrow">Mappa del percorso · ${esc(SUBJ[Q.theme]?SUBJ[Q.theme].short:"Collegamenti")}</span><b>${esc(T.t)}</b><span class="small">${esc(T.s)}</span></div>
+      <div class="qm-badges"><span class="qm-b" style="--b:${QM_DIFF[Q.mood].c}">Percorso ${QM_DIFF[Q.mood].n}</span><span class="qm-b mono" id="qm-count">0/${Q.N}</span><span class="qm-b" id="qm-bad" style="--b:#868e96" hidden></span></div></div>
+    <svg viewBox="0 0 ${W} ${H}" class="qm-svg" role="img" aria-label="Mappa: la siringa avanza di una tappa per ogni risposta corretta">
+      <defs><linearGradient id="qm-sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${sky[0]}"/><stop offset="1" stop-color="${sky[1]}"/></linearGradient>
+      <pattern id="qm-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="${night?"rgba(255,255,255,.05)":"rgba(0,0,0,.045)"}" stroke-width="1"/></pattern></defs>
+      <rect width="${W}" height="${H}" rx="16" fill="url(#qm-sky)"/><rect width="${W}" height="${H}" rx="16" fill="url(#qm-grid)"/>${stars}
+      ${deco}
+      ${seg.map((s,i)=>`<path class="qm-road d${s.d}" d="${s.path}"/>`).join("")}
+      ${seg.map((s,i)=>`<path class="qm-trail" id="qm-s${i}" d="${s.path}"/>`).join("")}
+      <g id="qm-obs"></g>
+      ${pins}
+      <g class="qm-compass" transform="translate(${W-30} ${H-34})"><circle r="15"/><path d="M0 -12L4 0L0 -3L-4 0Z" class="n"/><path d="M0 12L4 0L0 3L-4 0Z"/><text y="-17">N</text></g>
+      <g id="qm-syr"><g id="qm-syr-in"><rect x="-17" y="-4.6" width="24" height="9.2" rx="2.6" class="barrel"/><rect id="qm-liq" x="-15" y="-3" width="20" height="6" rx="1.6" class="liq"/><rect x="-23" y="-1.2" width="7" height="2.4" class="rod"/><rect x="-25" y="-5" width="2.6" height="10" rx="1" class="rod"/><rect x="7" y="-2.4" width="4" height="4.8" rx="1" class="hub"/><path d="M11 -.6H22L23.5 0L22 .6H11Z" class="needle"/><path d="M-14 -4.6V-2.8M-10 -4.6V-2.8M-6 -4.6V-2.8M-2 -4.6V-2.8M2 -4.6V-2.8" class="tick"/></g></g>
+      <g id="qm-fx"></g>
+    </svg>
+    <div class="qm-foot"><div class="qm-txt"><div id="qm-next" class="qm-next"></div><div id="qm-info" class="qm-info"><b>Partenza.</b> Rispondi correttamente per far avanzare la siringa di una tappa. Ogni tappa è un passaggio di «${esc(T.t.toLowerCase())}».</div></div>
+      <div class="qm-leg">${[1,2,3].filter(d=>Q.diffs.includes(d)).map(d=>`<span><i class="sw d${d}"></i>${QM_DIFF[d].t}: domanda ${QM_DIFF[d].n}</span>`).join("")}<span><i class="sw ob"></i>errore: ostacolo da ripassare</span></div></div>
+  </div>`;
+  qmPlace(0,1);
+}
+function qmPointOn(i,f){const el=document.getElementById("qm-s"+i);if(!el)return null;const L=el.getTotalLength(),d=Math.max(0,Math.min(L,L*f)),p=el.getPointAtLength(d),fw=d+2<=L,q=el.getPointAtLength(fw?d+2:Math.max(0,d-2));const dx=fw?q.x-p.x:p.x-q.x,dy=fw?q.y-p.y:p.y-q.y;return {x:p.x,y:p.y,a:Math.atan2(dy,dx)*180/Math.PI}}
+function qmSyr(x,y,a,fill){const g=document.getElementById("qm-syr"),l=document.getElementById("qm-liq");if(!g)return;const flip=Math.abs(((a%360)+360)%360-180)<90;g.setAttribute("transform",`translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${a.toFixed(1)})${flip?" scale(1 -1)":""}`);if(l)l.setAttribute("width",(20*Math.max(.04,fill)).toFixed(1))}
+function qmPlace(pos,instant){const Q=QM;if(!Q||!Q.G)return;Q.pos=pos;
+  for(let i=0;i<Q.N;i++){const tr=document.getElementById("qm-s"+i);if(tr){tr.classList.toggle("done",i<pos);if(i<pos){tr.style.strokeDasharray="";tr.style.strokeDashoffset=""}}}
+  for(let k=1;k<=Q.N;k++){const p=document.getElementById("qm-p"+k);if(p){p.classList.toggle("reached",k<=pos);p.classList.toggle("next",k===pos+1)}}
+  let pt;if(pos===0){const a=qmPointOn(0,0);pt=a?{x:a.x,y:a.y,a:a.a}:{x:Q.G.P[0][0],y:Q.G.P[0][1],a:0}}else{const a=qmPointOn(pos-1,1);pt=a?{x:a.x,y:a.y,a:a.a}:{x:Q.G.P[pos][0],y:Q.G.P[pos][1],a:0}}
+  qmSyr(pt.x,pt.y,pt.a,1-pos/Q.N);const c=$("#qm-count");if(c)c.textContent=pos+"/"+Q.N}
+function qmObstacles(){const Q=QM,g=document.getElementById("qm-obs"),bb=$("#qm-bad");if(bb){bb.hidden=!(Q&&Q.bad);if(Q&&Q.bad)bb.textContent="🪨 "+Q.bad+" da ripassare"}if(!Q||!g)return;if(Q.pos>=Q.N||!Q.bad){g.innerHTML="";return}
+  const a=qmPointOn(Q.pos,.32);if(!a){g.innerHTML="";return}g.innerHTML=[...Array(Math.min(3,Q.bad))].map((_,i)=>`<g class="qm-ob" transform="translate(${(a.x+i*7-((Math.min(3,Q.bad)-1)*3.5)).toFixed(1)} ${(a.y-2-i*2).toFixed(1)})"><path d="M-7 4Q-8 -3 -2 -5Q4 -7 7 -1Q8 4 2 5Z"/></g>`).join("")}
+function qmInfo(html){const b=$("#qm-info");if(b)b.innerHTML=html}
+function qmSync(){const Q=QM;if(!Q)return;const ok=Math.min(Q.N,qz.ok||0),bad=Math.max(0,Math.min(qz.i,qz.list.length)-(qz.ok||0));
+  if(!Q.anim&&(ok!==Q.pos||bad!==Q.bad)){Q.bad=bad;qmPlace(ok,1);qmObstacles()}
+  const nb=$("#qm-next");if(!nb)return;if(qz.i>=qz.list.length){nb.innerHTML="";return}
+  const nx=Q.lab.slice(Q.pos).find(Boolean),dd=QM_DIFF[qmDiff(qz.list[qz.i])];
+  nb.innerHTML=`<span class="qm-tag" style="--b:${dd.c}">Domanda ${qz.i+1}: ${esc(dd.n)} · ${esc(dd.t)}</span> Prossima tappa: <b>${esc(nx?nx[0]:Q.T.fin)}</b>`}
+function qmStep(ok,it){const Q=QM;if(!Q)return;
+  if(!ok){Q.bad++;qmObstacles();let st="";try{st=findStudy(it).t}catch(e){}qmInfo(`<b>Ostacolo sul percorso.</b> La siringa resta ferma${st?`: ripassa «${esc(st)}»`:""}. La domanda tornerà nel Ripasso errori.`);return}
+  if(Q.pos>=Q.N)return;const i=Q.pos,el=document.getElementById("qm-s"+i);if(!el){qmPlace(i+1,1);return}
+  Q.anim=true;const ob=document.getElementById("qm-obs");if(ob)ob.innerHTML="";const L=el.getTotalLength();el.classList.add("done");el.style.strokeDasharray=L;el.style.strokeDashoffset=L;
+  const dur=RM?1:Math.min(1600,600+L*6),t0=performance.now();
+  const tick=now=>{let f=Math.min(1,(now-t0)/dur);const e=f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2;const p=qmPointOn(i,e);if(p)qmSyr(p.x,p.y,p.a,1-(i+e)/Q.N);el.style.strokeDashoffset=L*(1-e);
+    if(f<1)requestAnimationFrame(tick);else{Q.anim=false;el.style.strokeDasharray="";el.style.strokeDashoffset="";qmPlace(i+1,1);qmObstacles();const l=Q.lab[i],pin=document.getElementById("qm-p"+(i+1));if(pin){pin.classList.remove("pop");void pin.getBBox();pin.classList.add("pop")}
+      qmBurst(Q.G.P[i+1][0],Q.G.P[i+1][1],i+1===Q.N);
+      qmInfo(l?`<b>${/^[A-Z]$|^[IVX]+$/.test(l[1])?"":esc(l[1])+" "}${esc(l[0])}.</b> ${esc(l[2])}`:`<b>Avanti!</b> Un altro passo verso «${esc(Q.lab.find((x,j)=>j>i&&x)?Q.lab.find((x,j)=>j>i&&x)[0]:Q.T.fin)}».`);if(qz.i>=qz.list.length||i+1>=Q.N)setTimeout(qmEnd,i+1>=Q.N?1800:0)}};
+  requestAnimationFrame(tick)}
+function qmBurst(x,y,big){const g=document.getElementById("qm-fx");if(!g||RM)return;const cols=["#ffd43b","#69db7c","#4dabf7","#ff8787","#b197fc"];const n=big?34:10;
+  const parts=[...Array(n)].map((_,i)=>{const a=Math.random()*Math.PI*2,v=(big?40:20)+Math.random()*(big?60:22);return {a,v,c:cols[i%cols.length],el:null}});
+  g.innerHTML=parts.map((p,i)=>`<circle id="qm-c${i}" r="${big?2.6:1.8}" fill="${p.c}"/>`).join("");const t0=performance.now();
+  const tick=now=>{const t=(now-t0)/1000;parts.forEach((p,i)=>{const c=document.getElementById("qm-c"+i);if(c){c.setAttribute("cx",(x+Math.cos(p.a)*p.v*t).toFixed(1));c.setAttribute("cy",(y+Math.sin(p.a)*p.v*t+40*t*t).toFixed(1));c.setAttribute("opacity",Math.max(0,1-t/(big?1.6:.8)).toFixed(2))}});if(t<(big?1.6:.8))requestAnimationFrame(tick);else g.innerHTML=""};requestAnimationFrame(tick)}
+function qmEnd(){const Q=QM;if(!Q)return;const nb=$("#qm-next");if(nb)nb.innerHTML="";const done=Math.min(Q.N,qz.ok||0)>=Q.N;
+  qmInfo(done?`<b>🏁 Traguardo raggiunto: ${esc(Q.T.fin)}!</b> ${esc(Q.T.fn)} Tutte le ${Q.N} tappe superate.`:`<b>Ti sei fermato a ${Q.pos?esc((Q.lab.slice(0,Q.pos).filter(Boolean).pop()||[""])[0]):"Partenza"}</b> (${Q.pos}/${Q.N} tappe). Le domande sbagliate tornano nel Ripasso errori: rifacendole puoi completare il percorso.`);
+  const w=$("#qmap .qm");if(w)w.classList.toggle("won",done)}
+
 /* ---- motore unico: quiz, domande aperte e casi clinici nella stessa sessione ---- */
-function startQuiz(list,key,onDone){qz={list,i:0,ok:0,sc:0,answered:false,f:key,onDone};drawQ()}
+function startQuiz(list,key,onDone){qz={list,i:0,ok:0,sc:0,answered:false,f:key,onDone};QM=null;try{QM=qmInit(list,key)}catch(e){QM=null}drawQ()}
 function kindOf(it){return it.kind||"mcq"}
 function drawQ(){
   const box=$("#qbox");if(!box)return;
   if(!qz.list.length){box.innerHTML=`<p class="small">Nessuna domanda disponibile con questo filtro.</p>`;return}
-  if(qz.i>=qz.list.length){
+  if(QM)try{qmSync()}catch(e){}
+  if(qz.i>=qz.list.length){if(QM)try{qmEnd()}catch(e){}
     const pct=Math.round(qz.sc/qz.list.length*100);
     if(qz.f&&qz.f!=="oggi"&&!String(qz.f).startsWith("mix")&&(state.quizBest[qz.f]==null||pct>state.quizBest[qz.f])){state.quizBest[qz.f]=pct;LS.set("quizBest",state.quizBest)}
     if(qz.onDone)qz.onDone(pct,qz.list.length);
@@ -3744,12 +3924,12 @@ function drawQ(){
     <div class="tbl-wrap"><table><tr><th>Tipo</th><th>Svolte</th><th>Punteggio</th></tr>${Object.entries(kinds).filter(([k,v])=>v[1]).map(([k,v])=>`<tr><td>${{mcq:"Quiz",open:"Domande aperte",case:"Casi clinici"}[k]}</td><td class="mono">${v[1]}</td><td class="mono">${Math.round(v[0]/v[1]*100)}%</td></tr>`).join("")}</table></div>
     <p>${pct>=80?"Ottimo livello.":pct>=60?"Buono: guarda in Avanzamento cosa rivedere.":"Da rinforzare: in Avanzamento trovi le sezioni su cui lavorare."}</p>
     <div class="row"><a class="btn primary" href="#avanzamento" style="text-decoration:none">Vedi l'avanzamento</a><button class="btn" id="qagain">${qz.f==="oggi"?"Sessione libera":"Nuova sessione"}</button></div>`;
-    $("#qagain").onclick=()=>{if(qz.f==="oggi")location.hash="quiz";else quiz()};return;
+    $("#qagain").onclick=()=>{if(qz.f==="oggi")location.hash="quiz";else if(String(qz.f).startsWith("dom"))domande();else quiz()};return;
   }
   const it=qz.list[qz.i], k=kindOf(it);
   const head=`<div class="row" style="justify-content:space-between"><span class="row">${tag(it.m||"tr")}<span class="tag t-src">${{mcq:"Quiz",open:"Domanda aperta",case:"Caso clinico"}[k]}</span>${it.src==="giorno"?`<span class="tag t-src">${it.novita?"Novità dalla letteratura":"Nuova"} · ${it.date}</span>`:it.enc&&ENC_BY[it.enc]?`<span class="tag t-src">Enciclopedia · ${esc(ENC_BY[it.enc].t)}</span>`:it.sec?`<span class="tag t-src">Sez. ${it.sec}</span>`:""}</span><span class="small mono">${qz.i+1}/${qz.list.length} · ${Math.round(qz.i?qz.sc/qz.i*100:0)}%</span></div>`;
   const next=()=>{const b=document.createElement("div");b.className="row";b.style.marginTop="12px";b.innerHTML=`<button class="btn primary" id="qnext">${qz.i+1<qz.list.length?"Avanti":"Vedi il risultato"}</button>`;box.appendChild(b);$("#qnext").onclick=()=>{qz.i++;qz.answered=false;drawQ();box.scrollIntoView({block:"start"})};$("#qnext").focus()};
-  const finish=(score,extra)=>{it._s=score;qz.sc+=score;if(score>=.6)qz.ok++;
+  const finish=(score,extra)=>{it._s=score;qz.sc+=score;if(score>=.6)qz.ok++;if(QM)try{qmStep(score>=.6,it)}catch(e){}
     if(qz.f==="oggi"){const kk="daily2-"+todayStr(),v=LS.get(kk,null);if(v&&!v.done&&v.ids.join()===qz.list.map(idOf).join()){v.started=true;v.pos=qz.i+1;v.sc=qz.sc;v.ok=qz.ok;v.s=Object.assign({},v.s||{},{[idOf(it)]:score});LS.set(kk,v)}}
     logEv(k,it.m||"tr",it.sec||(it.o&&it.o.s)||0,score,it.id,extra);
     if(k==="case"){const d=document.createElement("div");d.innerHTML=(!it.c.scena||it.c.scena.monitor?WAVE.solution(it.c):"")+scenaSol(it.c);const q=$("#qexp");if(q)while(d.firstElementChild)q.appendChild(d.firstElementChild)}
@@ -3936,6 +4116,7 @@ function oggi(){
   <div class="oggi-grid">
     <section class="og-main">
       <div class="og-title"><h3>Sessione mista del giorno</h3><span class="small">${list.filter(x=>kindOf(x)==="mcq").length} quiz · ${list.filter(x=>x.kind==="open").length} aperte · ${list.filter(x=>x.kind==="case").length} caso</span></div>
+      <div id="qmap"></div>
       <div class="sheet" id="qbox" style="display:flex;flex-direction:column;gap:14px"></div>
       <p class="small">Prima le domande arrivate stamattina, poi domande mai viste da materie diverse, due domande aperte e un caso. La serie cambia ogni giorno; quelle che sbagli tornano nel «Ripasso errori».</p>
     </section>
@@ -4107,11 +4288,17 @@ function domande(){
   <div class="row">${chips(sub,["all",...SKEYS.filter(k=>PDFQ.some(o=>o.m===k))],"b")}</div>
   <div class="row"><label class="small" for="bk-sec">Sezione</label><select id="bk-sec" class="btn"><option value="0">Tutte le sezioni</option>${secs.map(s=>`<option value="${s}" ${+sec===s?"selected":""}>${s}. ${PDF_TITLES[s-1]}</option>`).join("")}</select></div>
   <input class="search" id="bk-q" type="search" placeholder="Cerca nelle domande e nelle risposte (es. GDPR, TSO, sepsi, 165)">
+  <section class="sheet dom-train"><div><span class="eyebrow">Allenati con la mappa</span><b>Rispondi alle domande filtrate: per ogni risposta buona la siringa avanza di una tappa</b><span class="small">Scrivi la risposta (o dettala) e ricevi il voto con la griglia dei punti chiave. Il percorso cambia con la materia e con la difficoltà.</span></div>
+    <div class="row"><label class="small" for="dom-n">Domande</label><select id="dom-n" class="btn"><option>3</option><option selected>5</option><option>8</option></select><button class="btn primary" id="dom-go">Parti</button></div></section>
+  <div id="qmap"></div>
+  <div class="sheet" id="qbox" style="display:none;flex-direction:column;gap:14px"></div>
   <p class="small" id="bk-count"></p>
   <div id="bk-list" style="display:flex;flex-direction:column;gap:8px"></div>`;
   app.querySelectorAll("[data-b]").forEach(b=>b.onclick=()=>{state.bankSub=b.dataset.b;state.bankSec="0";domande()});
   $("#bk-sec").onchange=e=>{state.bankSec=e.target.value;draw()};
   $("#bk-q").oninput=draw;
+  const filtered=()=>{const q=$("#bk-q").value.trim().toLowerCase(), sc=+state.bankSec;return PDFQ.filter(o=>(sub==="all"||o.m===sub)&&(!sc||o.s===sc)&&(!q||(o.q+" "+o.a+" "+o.p.join(" ")+" "+o.r).toLowerCase().includes(q)))};
+  $("#dom-go").onclick=()=>{const L=shuffle(filtered()).slice(0,+$("#dom-n").value).map(openItem);if(!L.length)return;const qb=$("#qbox");qb.style.display="flex";startQuiz(L,"dom-"+sub+"-"+(state.bankSec||0));$("#qmap").scrollIntoView({block:"start",behavior:RM?"auto":"smooth"})};
   function draw(){
     const q=$("#bk-q").value.trim().toLowerCase(), sc=+state.bankSec;
     const list=PDFQ.filter(o=>(sub==="all"||o.m===sub)&&(!sc||o.s===sc)&&(!q||(o.q+" "+o.a+" "+o.p.join(" ")+" "+o.r).toLowerCase().includes(q)));
