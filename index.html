@@ -809,6 +809,21 @@ header.top .top-in{gap:58px}
 @media (min-width:1200px){header.top .top-in{gap:80px}}
 @media (prefers-reduced-motion: reduce){header.top{transition:none}}
 .toc{top:calc(var(--hdr-h,130px) - var(--hdr-shift,0px) + 14px)}
+
+/* ---- Enciclopedia: indice delle fonti del diritto ---- */
+.dir-ix{display:flex;flex-direction:column;gap:14px;border-top:4px solid var(--leg)}
+.dir-ix-h{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.dir-chips .chip em{font-style:normal;font-family:var(--f-mono);font-size:.72rem;opacity:.7;margin-left:4px}
+.dir-grp h4{margin:4px 0 8px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--leg)}
+.dir-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.dir-card{display:flex;flex-direction:column;gap:3px;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,var(--leg) 6%,var(--paper));border:1px solid color-mix(in srgb,var(--leg) 22%,var(--line));text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s,border-color .15s}
+.dir-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--leg)}
+.dir-card b{font-family:var(--f-display);font-size:.98rem;color:color-mix(in srgb,var(--leg) 80%,var(--ink))}
+.dir-card span{font-size:.84rem;color:var(--muted);line-height:1.3}
+.dir-card i{font-style:normal;font-size:.7rem;font-family:var(--f-mono);color:var(--muted);opacity:.8}
+.dir-card.ext{border-style:dashed}
+.dir-sig{font-weight:800}
+@media (max-width:600px){.dir-cards{grid-template-columns:1fr 1fr;gap:6px}.dir-card{padding:8px 9px}.dir-card b{font-size:.86rem}.dir-card span{font-size:.74rem}.dir-card i{display:none}}
 </style>
 </head>
 <body>
@@ -1053,7 +1068,7 @@ const BASE_CARDS = [
 /* ---- enciclopedia: dati comuni ---- */
 const ENCY=typeof ENC!=="undefined"?ENC:[], EAREE=typeof ENC_AREE!=="undefined"?ENC_AREE:{}, GLOS=typeof GLOSS!=="undefined"?GLOSS:[], GCAT=typeof GLOSS_CAT!=="undefined"?GLOSS_CAT:{};
 const ENC_BY={};ENCY.forEach(e=>ENC_BY[e.id]=e);
-const AREA_SUBJ={fond:"dx",rel:"tr",etica:"cod",legale:"leg",org:"pa",igiene:"cli",ricerca:"tr",anat:"eo",farm:"cli",ecg:"eo",emerg:"eo",med:"cli",chir:"cli",infett:"cli",onco:"cli",mat:"cli",psi:"cli",riab:"cli",nutr:"cli",diagn:"eo",codice:"cod",lavoro:"lav"};
+const AREA_SUBJ={fond:"dx",rel:"tr",etica:"cod",legale:"leg",org:"pa",igiene:"cli",ricerca:"tr",anat:"eo",farm:"cli",ecg:"eo",emerg:"eo",med:"cli",chir:"cli",infett:"cli",onco:"cli",mat:"cli",psi:"cli",riab:"cli",nutr:"cli",diagn:"eo",codice:"cod",lavoro:"lav",diritto:"leg"};
 const encSubj=id=>AREA_SUBJ[(ENC_BY[id]||{}).a]||"cli";
 ENCY.forEach(e=>BASE_CARDS.push({id:"ce-"+e.id,m:encSubj(e.id),q:e.t+": di che cosa si tratta e quali sono i punti chiave?",a:e.d+"\n\n"+(e.p||[]).slice(0,4).map(x=>"• "+x).join("\n"),src:"enc",enc:e.id}));
 GLOS.forEach((g,i)=>{if(g[1]==="p"||g[1]==="s"||g[1]==="d")BASE_CARDS.push({id:"cg-"+g[1]+"-"+g[0].toLowerCase().replace(/[^a-z0-9]+/g,"-"),m:g[4]?encSubj(g[4]):(g[1]==="p"?"dx":"eo"),q:(g[1]==="p"?"Chi è «"+g[0]+"» e che cosa ha fatto?":g[1]==="s"?"«"+g[0]+"»: che cosa valuta e come si legge?":"«"+g[0]+"»: che cos'è e a che cosa serve?"),a:g[2],src:"enc",enc:g[4]||""})});
@@ -3045,11 +3060,11 @@ function encEntry(e,open){
   const c=(EAREE[e.a]||{}).c||"var(--scrub)";
   const gl=GLOS.filter(g=>g[4]===e.id);
   const qn=Q3.filter(q=>q.enc===e.id).length;
-  return `<details class="enc-e" id="voce-${e.id}" style="--c:${c}" ${open?"open":""}><summary><span class="eyebrow" style="color:${c}">${esc((EAREE[e.a]||{}).n||"")}</span><b>${esc(e.t)}</b><span class="small">${esc(e.d)}</span></summary>
+  return `<details class="enc-e" id="voce-${e.id}" style="--c:${c}" ${open?"open":""}><summary><span class="eyebrow" style="color:${c}">${e.s?`<span class="dir-sig">${esc(e.s)}</span> · `:""}${esc((EAREE[e.a]||{}).n||"")}</span><b>${esc(e.t)}</b><span class="small">${esc(e.d)}</span></summary>
   <div class="enc-b"><p class="def" style="margin:0">${esc(e.d)}</p>${figsEnc(e.id)}
   ${e.p&&e.p.length?`<div><h4>Punti chiave</h4><ul>${e.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
-  ${e.v&&e.v.length?`<div><h4>${e.a==="codice"?"Articoli":"Valori, scale e riferimenti"}</h4><table class="enc-v"><tbody>${e.v.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td></tr>`).join("")}</tbody></table></div>`:""}
-  ${e.i&&e.i.length?`<div><h4>Cosa fa l'infermiere</h4><ul>${e.i.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
+  ${e.v&&e.v.length?`<div><h4>${e.a==="codice"||e.a==="diritto"?"Articoli e contenuti":"Valori, scale e riferimenti"}</h4><table class="enc-v"><tbody>${e.v.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td></tr>`).join("")}</tbody></table></div>`:""}
+  ${e.i&&e.i.length?`<div><h4>${e.a==="diritto"?"Cosa significa per l'infermiere":"Cosa fa l'infermiere"}</h4><ul>${e.i.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
   ${encStrips(e.id)}
   ${e.e&&e.e.length?`<div><h4>Errori da evitare</h4><ul class="enc-warn">${e.e.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
   ${e.n?`<p class="enc-norm" style="margin:0"><b>Norme e riferimenti.</b> ${esc(e.n)}</p>`:""}
@@ -3163,9 +3178,16 @@ function enciclopedia(v){
   if(v==="ecg-esercizi"){ecgGym();return}
   const focus=(v&&v.startsWith("voce-"))?v.slice(5):state.encOpen;state.encOpen=null;
   const fe=focus&&ENC_BY[focus];
-  let area=fe?fe.a:(state.encArea||"tutte");if(fe)state.encArea=area;
+  let area=fe?fe.a:(state.encArea||"tutte");if(fe){state.encArea=area;state.dirTipo=""}
   const counts={};ENCY.forEach(e=>counts[e.a]=(counts[e.a]||0)+1);
-  const list=ENCY.filter(e=>area==="tutte"||e.a===area);
+  const DT=typeof DIR_TIPI!=="undefined"?DIR_TIPI:{},DX=typeof DIR_EXTRA!=="undefined"?DIR_EXTRA:{};
+  const dirT=area==="diritto"&&DT[state.dirTipo]?state.dirTipo:"";
+  const list=ENCY.filter(e=>(area==="tutte"||e.a===area)&&(!dirT||e.k===dirT||(DX[e.id]&&DX[e.id][0]===dirT)));
+  const dirIdx=()=>{const all=ENCY.filter(e=>e.a==="diritto").map(e=>({id:e.id,k:e.k,s:e.s,t:e.t})).concat(Object.entries(DX).filter(([id])=>ENC_BY[id]).map(([id,x])=>({id,k:x[0],s:x[1],t:ENC_BY[id].t,ext:1})));
+    const grp=Object.keys(DT).filter(k=>!dirT||k===dirT).map(k=>[k,all.filter(x=>x.k===k)]).filter(g=>g[1].length);
+    return `<section class="sheet dir-ix"><div class="dir-ix-h"><div><span class="eyebrow">Codici, testi unici, leggi e decreti</span><h3 style="margin:2px 0 0">Indice delle fonti</h3></div><span class="small">${all.length} fonti · sintesi rielaborate, da verificare sempre sul testo vigente</span></div>
+    <div class="row dir-chips"><button class="chip" data-dt="" aria-pressed="${!dirT}">Tutte</button>${Object.entries(DT).map(([k,n])=>`<button class="chip" data-dt="${k}" aria-pressed="${dirT===k}">${n} <em>${all.filter(x=>x.k===k).length}</em></button>`).join("")}</div>
+    ${grp.map(([k,L])=>`<div class="dir-grp"><h4>${esc(DT[k])}</h4><div class="dir-cards">${L.map(x=>`<a class="dir-card${x.ext?" ext":""}" href="#voce-${x.id}"><b>${esc(x.s)}</b><span>${esc(x.t)}</span>${x.ext?`<i>in ${esc((EAREE[ENC_BY[x.id].a]||{}).n||"")}</i>`:""}</a>`).join("")}</div></div>`).join("")}</section>`};
   app.innerHTML=`
   <div><span class="eyebrow">Materiale rielaborato e verificato</span><h2>Enciclopedia infermieristica</h2></div>
   <p class="lead">${ENCY.length} voci in ${Object.keys(EAREE).length} aree: definizioni, punti chiave, valori di riferimento, scale, interventi, errori da evitare e norme. Ogni voce ha le sue domande d'allenamento.</p>
@@ -3174,6 +3196,8 @@ function enciclopedia(v){
   <div id="enc-main" style="display:flex;flex-direction:column;gap:16px">
     <div class="enc-areas"><button class="enc-area" style="--c:var(--scrub)" data-area="tutte" aria-pressed="${area==="tutte"}"><b>Tutte le aree</b><span>${ENCY.length} voci</span></button>${Object.entries(EAREE).map(([k,a])=>`<button class="enc-area" style="--c:${a.c}" data-area="${k}" aria-pressed="${area===k}"><b>${esc(a.n)}</b><span>${counts[k]||0} voci</span></button>`).join("")}</div>
     ${area==="ecg"||area==="tutte"?`<a class="sheet gym-cta" href="#ecg-esercizi"><span class="eyebrow">Novità</span><b>Palestra ECG: esercizi di lettura</b><span class="small">Strisce sempre nuove da leggere con metodo (frequenza, ritmo, P, QRS, diagnosi) con compasso per misurare gli intervalli →</span></a>`:""}
+    ${area==="diritto"?dirIdx():""}
+    ${area==="tutte"?`<a class="sheet gym-cta" href="#enciclopedia" data-goarea="diritto"><span class="eyebrow">Novità</span><b>Diritto: codici, testi unici, leggi e decreti</b><span class="small">Costituzione, codice penale e civile, procedura penale, testi unici, leggi e decreti della sanità riassunti articolo per articolo, con un indice per tipo di fonte →</span></a>`:""}
     <div class="enc-list">${list.map(e=>encEntry(e,e.id===focus)).join("")}</div>
   </div>`;
   const bind=root=>{
@@ -3182,7 +3206,9 @@ function enciclopedia(v){
     root.querySelectorAll('a[href^="#voce-"]').forEach(a=>a.onclick=ev=>{const id=a.getAttribute("href").slice(6);if((location.hash||"")==="#voce-"+id){ev.preventDefault();route()}});
   };
   bind(app);
-  app.querySelectorAll("[data-area]").forEach(b=>b.onclick=()=>{state.encArea=b.dataset.area;LS.set("encArea",state.encArea);if((location.hash||"")!=="#enciclopedia")location.hash="enciclopedia";else{enciclopedia("enciclopedia");decorateHead("enciclopedia")}});
+  app.querySelectorAll("[data-dt]").forEach(b=>b.onclick=()=>{state.dirTipo=b.dataset.dt;enciclopedia("enciclopedia")});
+  app.querySelectorAll("[data-goarea]").forEach(a=>a.onclick=ev=>{ev.preventDefault();state.encArea=a.dataset.goarea;state.dirTipo="";LS.set("encArea",state.encArea);enciclopedia("enciclopedia");decorateHead("enciclopedia");window.scrollTo({top:0})});
+  app.querySelectorAll("[data-area]").forEach(b=>b.onclick=()=>{state.dirTipo="";state.encArea=b.dataset.area;LS.set("encArea",state.encArea);if((location.hash||"")!=="#enciclopedia")location.hash="enciclopedia";else{enciclopedia("enciclopedia");decorateHead("enciclopedia")}});
   $("#enc-search").oninput=ev=>{
     const q=normTxt(ev.target.value.trim());const res=$("#enc-res"),main=$("#enc-main");
     if(q.length<2){res.hidden=true;main.hidden=false;return}
