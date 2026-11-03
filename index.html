@@ -955,6 +955,39 @@ header.top .top-in{gap:58px}
 .tolk .qm-leg .lg{display:inline-block;width:24px;font-style:normal;color:#4a2e16;text-align:center}
 .tolk .lg1::before{content:"♣"}.tolk .lg2::before{content:"⌒"}.tolk .lg3::before{content:"▲"}.tolk .lg4::before{content:"●";color:#a08a5a}.tolk .lg5::before{content:"━";color:#9b1c1c}
 .qm.tolk.won{border-color:#9b1c1c;box-shadow:0 0 0 3px rgba(155,28,28,.15),var(--shadow)}
+
+/* ---- accessibilità (revisione WCAG 2.1 AA) ---- */
+.t-dx{color:color-mix(in srgb,var(--dx) 68%,var(--ink))}.t-eo{color:color-mix(in srgb,var(--eo) 68%,var(--ink))}.t-leg{color:color-mix(in srgb,var(--leg) 68%,var(--ink))}
+.t-cod{color:color-mix(in srgb,var(--cod) 68%,var(--ink))}.t-pa{color:color-mix(in srgb,var(--pa) 68%,var(--ink))}.t-cli{color:color-mix(in srgb,var(--cli) 68%,var(--ink))}.t-tr{color:color-mix(in srgb,var(--tr) 68%,var(--ink))}
+.t-lav{background:color-mix(in srgb,var(--amber) 16%,transparent);color:color-mix(in srgb,var(--amber) 62%,var(--ink))}
+.t-src{color:color-mix(in srgb,var(--muted) 70%,var(--ink))}
+.lv-facile{color:color-mix(in srgb,var(--ok) 70%,var(--ink))}.lv-medio{color:color-mix(in srgb,var(--amber) 62%,var(--ink))}.lv-difficile{color:color-mix(in srgb,var(--vital) 75%,var(--ink))}
+.eyebrow{color:color-mix(in srgb,var(--scrub) 72%,var(--ink))}
+.sb .eyebrow{color:rgba(255,255,255,.82)}
+.small{color:color-mix(in srgb,var(--muted) 85%,var(--ink))}
+.skip{position:absolute;left:12px;top:-60px;z-index:50;background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none;transition:top .2s}
+.skip:focus{top:12px}
+#app:focus{outline:none}
+@media (pointer:coarse){
+  .chip,a.chip{min-height:40px}
+  .btn{min-height:44px}
+  .opt{min-height:48px}
+  details>summary{min-height:40px}
+  .az button{min-width:36px;min-height:36px}
+  input[type=checkbox],input[type=radio]{width:20px;height:20px}
+}
+/* ---- mappa: colonna laterale su computer, barra compatta su telefono ---- */
+.og-side.has-map{position:static}
+.og-side #qmap{position:sticky;top:calc(var(--hdr-h,130px) - var(--hdr-shift,0px) + 12px);z-index:2}
+.og-side #qmap .qm{margin-bottom:0}
+.og-side .qm-leg{display:none}.og-side .qm-head .small{display:none}.og-side .qm-head b{font-size:1.25rem}.og-side .qm{padding:12px;gap:8px}
+.qm-mini{display:none;align-items:center;gap:10px}
+.qm-mini .bar{flex:1;height:10px;border-radius:6px;background:rgba(74,46,22,.12);position:relative;overflow:visible}
+.qm-mini .bar i{position:absolute;inset:0 auto 0 0;border-radius:6px;background:#9b1c1c;width:0;transition:width .9s cubic-bezier(.4,0,.2,1)}
+.qm-mini .bar b{position:absolute;top:50%;transform:translate(-50%,-55%);font-size:15px;transition:left .9s cubic-bezier(.4,0,.2,1)}
+.qm-tog{font:inherit;font-size:.82rem;font-weight:700;border:1px solid #b8955a;background:#f6ebcd;color:#3b2208;border-radius:999px;padding:6px 12px;cursor:pointer;min-height:36px}
+.qm.collapsed .qm-svg,.qm.collapsed .qm-leg,.qm.collapsed .qm-head .small{display:none}
+.qm.collapsed .qm-mini{display:flex}
 </style>
 </head>
 <body>
@@ -978,7 +1011,7 @@ header.top .top-in{gap:58px}
     </nav>
   </div>
 </header>
-<main id="app"></main>
+<a class="skip" href="javascript:void 0" onclick="document.getElementById('app').focus()">Vai al contenuto</a><main id="app" tabindex="-1"></main>
 <footer class="foot"><div class="foot-in"><div class="foot-brand"><svg width="34" height="22" viewBox="0 0 44 28" aria-hidden="true"><path d="M1 17 L7.6 17 C8.32 17 9.04 15.05 9.76 15.05 C10.48 15.05 11.2 17 11.92 17 L13.72 17 L14.44 18.04 L15.52 4.0 L16.6 20.25 L17.5 17 C19.12 16.74 20.56 16.61 21.64 16.35 C23.08 14.66 24.16 13.1 25.24 13.1 C26.68 13.1 27.4 16.74 28.84 17 L40.0 17 L43 17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Atlante di Infermieristica</b></div><p>Un percorso per imparare l'infermieristica in ogni suo aspetto, pensato anche per la prova orale del concorso Infermieri · Regione Puglia 2026. Nuove domande ogni mattina dal programma e dalla letteratura recente.</p><p class="foot-src">Fonti di base: Codice deontologico FNOPI 2025 · NANDA-I 2024-2026 · guida al concorso Puglia 2026 · normativa italiana vigente. I progressi restano salvati in questo browser.</p></div></footer>
 
 <script src="pdfdata.js"></script>
@@ -3545,7 +3578,12 @@ function fitMonitors(){document.querySelectorAll(".pm-waves").forEach(w=>{const 
   w.querySelectorAll("svg[data-dur]").forEach(sv=>{const H=sv.dataset.h,dur=+sv.dataset.dur,vw=+(1000*f).toFixed(1);sv.setAttribute("viewBox",`0 0 ${vw} ${H}`);const g=sv.querySelector(".pm-gap");if(g){g.setAttribute("width",(34*f).toFixed(1));g.style.setProperty("--gx",vw+"px");g.style.animationDuration=(dur*f).toFixed(2)+"s"}});
   const box=w.parentNode;if(box)box.querySelectorAll(".pm-s").forEach(x=>{x.textContent=String(Math.round(+x.dataset.base*f*10)/10).replace(".",",")})})}
 let fitRaf=0;const fitSoon=()=>{cancelAnimationFrame(fitRaf);fitRaf=requestAnimationFrame(fitMonitors)};
-new MutationObserver(fitSoon).observe(app,{childList:true,subtree:true});window.addEventListener("resize",()=>{document.querySelectorAll(".pm-waves").forEach(w=>delete w.dataset.f);fitSoon()});
+new MutationObserver(fitSoon).observe(app,{childList:true,subtree:true});
+function a11yLabels(){document.querySelectorAll("#app input:not([type=hidden]),#app select,#app textarea").forEach(i=>{if(i.getAttribute("aria-label")||i.getAttribute("aria-labelledby")||(i.labels&&i.labels.length))return;let t="",s=i.previousElementSibling,unit=false;
+  while(s&&!t){if(/INPUT|SELECT|TEXTAREA/.test(s.tagName))unit=true;else if(s.tagName!=="BUTTON")t=s.textContent.trim();s=s.previousElementSibling}
+  for(let par=i.parentElement,n=0;!t&&par&&n<3;par=par.parentElement,n++){const lb=[...par.children].find(x=>!x.contains(i)&&/LABEL|B|SPAN|H4/.test(x.tagName)&&x.textContent.trim());if(lb)t=lb.textContent.trim()}
+  t=(t||i.placeholder||i.title||"").replace(/\s+/g," ").slice(0,90);if(t)i.setAttribute("aria-label",unit&&i.tagName==="SELECT"?t+" (unità)":t)})}
+let a11yT=0;new MutationObserver(()=>{clearTimeout(a11yT);a11yT=setTimeout(a11yLabels,80)}).observe(app,{childList:true,subtree:true});window.addEventListener("resize",()=>{document.querySelectorAll(".pm-waves").forEach(w=>delete w.dataset.f);fitSoon()});
 const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,calcoli,domande,casi,orale,metodo};
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
 function route(){
@@ -3965,7 +4003,8 @@ function qmBuild(){
   const corner=(x,y,r)=>`<g class="qm-corner" transform="translate(${x} ${y}) rotate(${r})"><path d="M0 22V6Q0 0 6 0H22M4 18V9Q4 4 9 4H18"/><circle cx="7" cy="7" r="1.8"/></g>`;
   wrap.innerHTML=`<div class="qm tolk mood${Q.mood}" style="--qm-ink:${T.ink}">
     <div class="qm-head"><div><span class="eyebrow">Mappa del percorso · ${esc(SUBJ[Q.theme]?SUBJ[Q.theme].short:"Collegamenti")}</span><b>${esc(T.t)}</b><span class="small">${esc(T.s)}</span></div>
-      <div class="qm-badges"><span class="qm-b" style="--b:${QM_DIFF[Q.mood].c}">${["","Sentiero dei boschi","Via delle colline","Passo delle montagne"][Q.mood]}</span><span class="qm-b mono" id="qm-count">0/${Q.N}</span><span class="qm-b" id="qm-bad" style="--b:#868e96" hidden></span></div></div>
+      <div class="qm-badges"><button class="qm-tog" id="qm-tog" aria-expanded="true">Nascondi la mappa</button><span class="qm-b" style="--b:${QM_DIFF[Q.mood].c}">${["","Sentiero dei boschi","Via delle colline","Passo delle montagne"][Q.mood]}</span><span class="qm-b mono" id="qm-count">0/${Q.N}</span><span class="qm-b" id="qm-bad" style="--b:#868e96" hidden></span></div></div>
+    <div class="qm-mini" aria-hidden="true"><span>🏰</span><div class="bar"><i id="qm-minibar"></i><b id="qm-minisyr" style="left:0%">💉</b></div><span class="mono small" id="qm-minicount">0/${Q.N}</span></div>
     <svg viewBox="0 0 ${W} ${H}" class="qm-svg" role="img" aria-label="Mappa: la siringa avanza di una tappa per ogni risposta corretta">
       <defs><radialGradient id="qm-par" cx=".5" cy=".45" r=".75"><stop offset="0" stop-color="${PAR[0]}"/><stop offset=".75" stop-color="${PAR[1]}"/><stop offset="1" stop-color="#b08a4e"/></radialGradient>
         <filter id="qm-paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="${Math.floor(R()*99)}" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 .35  0 0 0 0 .22  0 0 0 0 .08  0 0 0 .16 0"/></filter>
@@ -3997,6 +4036,9 @@ function qmBuild(){
     <div class="qm-foot"><div class="qm-txt"><div id="qm-next" class="qm-next"></div><div id="qm-info" class="qm-info"><b>Partenza.</b> Rispondi correttamente per far avanzare la siringa di una tappa lungo «${esc(T.t.toLowerCase())}». Il percorso compiuto si traccia in inchiostro rosso.</div></div>
       <div class="qm-leg">${[1,2,3].filter(d=>Q.diffs.includes(d)).map(d=>`<span><i class="lg lg${d}"></i>${QM_DIFF[d].t}: domanda ${QM_DIFF[d].n}</span>`).join("")}<span><i class="lg lg4"></i>errore: ostacolo da ripassare</span><span><i class="lg lg5"></i>cammino percorso</span></div></div>
   </div>`;
+  {const box=wrap.querySelector(".qm"),tg=$("#qm-tog");let col;try{col=localStorage.getItem("qmCollapsed")}catch(e){}const c0=col==null?innerWidth<700:col==="1";
+   const setC=c=>{box.classList.toggle("collapsed",c);tg.textContent=c?"Mostra la mappa":"Nascondi la mappa";tg.setAttribute("aria-expanded",String(!c))};setC(c0);
+   tg.onclick=()=>{const c=!box.classList.contains("collapsed");setC(c);try{localStorage.setItem("qmCollapsed",c?"1":"0")}catch(e){}}}
   qmPlace(0,1);
 }
 function qmPointOn(i,f){const el=document.getElementById("qm-s"+i);if(!el)return null;const L=el.getTotalLength(),d=Math.max(0,Math.min(L,L*f)),p=el.getPointAtLength(d),fw=d+2<=L,q=el.getPointAtLength(fw?d+2:Math.max(0,d-2));const dx=fw?q.x-p.x:p.x-q.x,dy=fw?q.y-p.y:p.y-q.y;return {x:p.x,y:p.y,a:Math.atan2(dy,dx)*180/Math.PI}}
@@ -4005,7 +4047,8 @@ function qmPlace(pos,instant){const Q=QM;if(!Q||!Q.G)return;Q.pos=pos;
   for(let i=0;i<Q.N;i++){const tr=document.getElementById("qm-s"+i);if(tr){tr.classList.toggle("done",i<pos);if(i<pos){tr.style.strokeDasharray="";tr.style.strokeDashoffset=""}}}
   for(let k=1;k<=Q.N;k++){const p=document.getElementById("qm-p"+k);if(p){p.classList.toggle("reached",k<=pos);p.classList.toggle("next",k===pos+1)}}
   let pt;if(pos===0){const a=qmPointOn(0,0);pt=a?{x:a.x,y:a.y,a:a.a}:{x:Q.G.P[0][0],y:Q.G.P[0][1],a:0}}else{const a=qmPointOn(pos-1,1);pt=a?{x:a.x,y:a.y,a:a.a}:{x:Q.G.P[pos][0],y:Q.G.P[pos][1],a:0}}
-  qmSyr(pt.x,pt.y,pt.a,1-pos/Q.N);const c=$("#qm-count");if(c)c.textContent=pos+"/"+Q.N}
+  qmSyr(pt.x,pt.y,pt.a,1-pos/Q.N);const c=$("#qm-count");if(c)c.textContent=pos+"/"+Q.N;
+  const mb=$("#qm-minibar"),ms=$("#qm-minisyr"),mc=$("#qm-minicount"),pc=Math.round(pos/Q.N*100)+"%";if(mb)mb.style.width=pc;if(ms)ms.style.left=pc;if(mc)mc.textContent=pos+"/"+Q.N}
 function qmObstacles(){const Q=QM,g=document.getElementById("qm-obs"),bb=$("#qm-bad");if(bb){bb.hidden=!(Q&&Q.bad);if(Q&&Q.bad)bb.textContent="🪨 "+Q.bad+" da ripassare"}if(!Q||!g)return;if(Q.pos>=Q.N||!Q.bad){g.innerHTML="";return}
   const a=qmPointOn(Q.pos,.32);if(!a){g.innerHTML="";return}g.innerHTML=[...Array(Math.min(3,Q.bad))].map((_,i)=>`<g class="qm-ob" transform="translate(${(a.x+i*9-((Math.min(3,Q.bad)-1)*4.5)).toFixed(1)} ${(a.y-1-i*2).toFixed(1)})"><ellipse cy="5" rx="9" ry="2.4" class="qm-sh"/><path d="M-8 5Q-9 -3 -3 -6Q4 -8 8 -1Q9 5 2 5Z" class="r1"/><path d="M-8 5Q-9 -3 -3 -6Q-1 -1 -2 5Z" class="r2"/></g>`).join("")}
 function qmInfo(html){const b=$("#qm-info");if(b)b.innerHTML=html}
@@ -4061,7 +4104,7 @@ function drawQ(){
     next()};
   if(k==="mcq"){
     const ord=shuffle(it.o.map((_,i)=>i));
-    box.innerHTML=head+`<h3>${esc(it.q)}</h3><div class="opts">${ord.map(i=>`<button class="opt" data-i="${i}">${esc(it.o[i])}</button>`).join("")}</div><div id="qexp"></div>`;
+    box.innerHTML=head+`<h3>${esc(it.q)}</h3><div class="opts">${ord.map(i=>`<button class="opt" data-i="${i}">${esc(it.o[i])}</button>`).join("")}</div><div id="qexp" aria-live="polite"></div>`;
     box.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
       if(qz.answered)return;qz.answered=true;const i=+b.dataset.i;
       box.querySelectorAll(".opt").forEach(x=>{x.disabled=true;if(+x.dataset.i===it.r)x.classList.add("right")});
@@ -4081,7 +4124,7 @@ function drawQ(){
   const rub=k==="open"?it.o.p:it.c.steps.filter((_,j)=>it.steps.includes(j)).map(st=>st[1]);
   const prompt=k==="open"?`<h3>${esc(it.o.q)}</h3><label class="small" for="ans">Rispondi come all'orale: definizione, norma, contenuto, applicazione pratica.</label><textarea id="ans" class="search" style="min-height:150px"></textarea>`
     :`<h3>${esc(it.c.title)}</h3><p>${esc(it.c.story)}</p>${scenaHtml(it.c)}${!it.c.scena||it.c.scena.monitor?vitalsMonitor(it.c.vit,it.c):""}`+it.steps.map((j,x)=>`<div class="step"><span class="num">DOMANDA ${x+1}</span><b>${esc(it.c.steps[j][0])}</b><textarea id="ans${x}" aria-label="Risposta ${x+1}"></textarea></div>`).join("");
-  box.innerHTML=head+prompt+`<div class="row"><button class="btn primary" id="consegna">Consegna e valuta</button><span class="status" id="gstat"></span></div><div id="qexp"></div>`;
+  box.innerHTML=head+prompt+`<div class="row"><button class="btn primary" id="consegna">Consegna e valuta</button><span class="status" id="gstat"></span></div><div id="qexp" aria-live="polite"></div>`;
   $("#consegna").onclick=async()=>{
     if(qz.answered)return;
     const answer=k==="open"?$("#ans").value.trim():it.steps.map((j,x)=>"Domanda: "+it.c.steps[j][0]+"\nRisposta: "+($("#ans"+x).value.trim()||"(nessuna)")).join("\n\n");
@@ -4242,7 +4285,7 @@ function oggi(){
   app.innerHTML=`
   <div><span class="eyebrow">${dateLbl}</span><h2>Allenamento di oggi</h2></div>
   <div class="statband">
-    <div class="sb"><span class="eyebrow">Nuove oggi</span><span class="sb-v mono">${isToday?latest.items.length:0}</span><span class="small">${isToday?esc(latest.topic||""):dbState==="ok"?(latest?"Ultimo aggiornamento: "+latest.date:"Arrivano ogni mattina"):dbState==="assente"?"Visibili aprendo la pagina da claude.ai":"Controllo gli aggiornamenti…"}</span></div>
+    <div class="sb"><span class="eyebrow">Nuove oggi</span><span class="sb-v mono">${isToday?latest.items.length:0}</span><span class="small">${isToday?esc(latest.topic||""):dbState==="ok"?(latest?"Ultimo aggiornamento: "+latest.date:"Arrivano ogni mattina"):dbState==="assente"?"Le domande nuove arrivano ogni mattina":"Controllo gli aggiornamenti…"}</span></div>
     <div class="sb"><span class="eyebrow">Ieri → oggi</span><span class="sb-v mono">${rep.text}</span><span class="small">${rep.sub}</span></div>
     <div class="sb"><span class="eyebrow">Giorni di fila</span><span class="sb-v mono">${streak}</span><span class="small">${set.done?"Sessione completata: "+set.done:"Completa la sessione di oggi"}</span></div>
   </div>
@@ -4266,6 +4309,7 @@ function oggi(){
   if($("#allnew"))$("#allnew").onclick=()=>{startQuiz(DBQ.filter(q=>q.date===d),"mix-nuove");$("#qbox").scrollIntoView({block:"start"})};
   const fin=(pct)=>LS.set("daily2-"+d,{ids:set.ids,done:pct+"%",fresh:set.fresh,started:true});
   if(set.done){$("#qbox").innerHTML=`<p>Hai già completato la sessione di oggi (${set.done}). Domani trovi una nuova serie.</p><div class="row"><button class="btn" id="redo">Rifalla</button><a class="btn primary" href="#avanzamento" style="text-decoration:none">Vedi l'avanzamento</a></div>`;$("#redo").onclick=()=>startQuiz(list,"oggi",fin);return}
+  if(innerWidth>=1000){const qm=$("#qmap"),side=app.querySelector(".og-side");if(qm&&side){side.prepend(qm);side.classList.add("has-map")}}
   startQuiz(list,"oggi",fin);
   {const cur=LS.get("daily2-"+d,null);
    if(cur&&!cur.done&&cur.pos>0&&cur.ids.join()===set.ids.join()&&list.length===set.ids.length){
