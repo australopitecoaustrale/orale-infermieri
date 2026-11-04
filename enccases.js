@@ -184,3 +184,39 @@ const CASES3 = [
  dx:["Triage JumpSTART: 3 rossi (Luca, Davide, Marta dopo le ventilazioni), 1 giallo","Paura (bambini e famiglie)"],
  oral:"Mostra le differenze del triage pediatrico e la gestione delle famiglie in una maxiemergenza."}
 ];
+/* casi clinici centrati sulla lettura degli esami di laboratorio */
+CASES3.push(
+{id:"k-lab1",lv:"medio",area:"Medicina",title:"Un potassio alto che forse non lo è",tags:["cli","eo"],
+ story:"Rosa, 52 anni, ricoverata per accertamenti, sta bene. Il prelievo del mattino è stato difficile: laccio stretto a lungo e più tentativi. Alle 10 il laboratorio telefona: potassio 6,7 mmol/l. Rosa non assume farmaci che aumentano il potassio.",
+ vit:[["FC","76 bpm"],["PA","125/80 mmHg"],["SpO2","98%"]],
+ esami:[["Potassio","6,7 mmol/l",1],["Sodio","139 mmol/l"],["Creatinina","0,8 mg/dl"],["Nota del laboratorio","campione emolizzato (++)",1]],
+ steps:[
+  ["Che cosa fai quando ricevi la telefonata?","Scrivo il valore, lo rileggo a chi ha chiamato (read-back) e chiedo se ci sono note sul campione. Valuto subito Rosa (sintomi, parametri vitali) e avviso il medico: un valore critico si comunica sempre, anche se si sospetta un errore."],
+  ["Il medico chiede un ECG: è normale. Come interpreti il potassio?","Con funzione renale normale, nessun farmaco a rischio, ECG normale e campione emolizzato, è molto probabile una falsa iperpotassiemia: l'emolisi libera il potassio contenuto nei globuli rossi. Anche laccio prolungato e pugno aperto e chiuso aumentano il potassio nel campione."],
+  ["Come ripeti il prelievo?","Laccio per meno di un minuto, senza far aprire e chiudere il pugno, ago di calibro adeguato, aspirazione delicata, ordine corretto delle provette, invio rapido al laboratorio. Documento la comunicazione e il nuovo prelievo.","Il controllo risulta 4,3 mmol/l."]
+ ],
+ dx:["Rischio di lesione da errore del processo diagnostico (CP: falso risultato di laboratorio)"],
+ oral:"Collega la fase preanalitica, la comunicazione dei valori critici con read-back e SBAR, e la lettura del potassio all'ECG."},
+{id:"k-lab2",lv:"medio",area:"Chirurgia",title:"La PCR che risale in quarta giornata",tags:["cli","dx"],
+ story:"Antonio, 67 anni, in quarta giornata dopo una resezione del colon. Fino a ieri stava migliorando. Oggi ha 38,2 °C, dolore addominale in aumento e si sente «gonfio».",
+ vit:[["TC","38,2 °C",1],["FC","112 bpm",1],["PA","105/65 mmHg"],["FR","22/min",1],["SpO2","95%"]],
+ esami:[["PCR (1ª giornata)","9,8 mg/dl"],["PCR (3ª giornata)","6,1 mg/dl"],["PCR (oggi)","21,4 mg/dl",1],["Globuli bianchi","17.800/mm³",1],["Lattati","2,9 mmol/l",1],["Creatinina","1,5 mg/dl (preoperatoria 0,9)",1]],
+ steps:[
+  ["Come leggi l'andamento della PCR?","Dopo un intervento la PCR sale normalmente nei primi 2-3 giorni e poi scende. Una nuova risalita in quarta giornata, con febbre, tachicardia e dolore, fa sospettare una complicanza infettiva, per esempio una deiscenza dell'anastomosi."],
+  ["Che cosa ti dicono lattati e creatinina?","Lattati sopra 2 mmol/l indicano ipoperfusione dei tessuti; la creatinina è aumentata di oltre 1,5 volte rispetto al valore preoperatorio: danno renale acuto (KDIGO). Insieme ai parametri, il quadro è di possibile sepsi con disfunzione d'organo."],
+  ["Che cosa fai?","Calcolo il NEWS2 e avviso subito il medico con SBAR; emocolture prima dell'antibiotico senza ritardarlo; accesso venoso, liquidi prescritti, diuresi oraria e bilancio idrico; digiuno in previsione di esami o reintervento; controllo dei drenaggi e della ferita; ripeto i lattati.","La TC addominale mostra una raccolta vicino all'anastomosi."]
+ ],
+ dx:["CP: sepsi","Rischio di squilibrio del volume dei liquidi","Dolore acuto"],
+ oral:"Collega la lettura dell'andamento della PCR, i lattati, i criteri KDIGO e il riconoscimento precoce della sepsi."},
+{id:"k-lab3",lv:"facile",area:"Territorio",title:"L'INR della signora in terapia con warfarin",tags:["cli","tr"],
+ story:"Giovanna, 79 anni, in warfarin per fibrillazione atriale. L'infermiere di famiglia passa per il controllo: da una settimana prende un antibiotico per una bronchite e oggi ha piccoli lividi sulle braccia e gengive che sanguinano lavando i denti.",
+ vit:[["FC","82 bpm, irregolare"],["PA","138/78 mmHg"]],
+ esami:[["INR (POCT)","6,4",1],["INR del mese scorso","2,6"],["Emoglobina","12,1 g/dl"]],
+ steps:[
+  ["Come interpreti l'INR?","Il range terapeutico per la fibrillazione atriale è 2-3: un INR di 6,4 è molto alto e il rischio di sanguinamento è elevato. Probabile interazione con l'antibiotico, che potenzia l'effetto del warfarin."],
+  ["Che cosa fai?","Cerco segni di sanguinamento maggiore (feci nere, urine rosse, cefalea, cadute recenti), contatto subito il medico curante e, su sua indicazione, sospendo la dose di oggi; non do vitamina K senza prescrizione. Se ci fossero segni di sanguinamento importante, invio in pronto soccorso.","Il medico sospende due dosi e prescrive vitamina K per bocca, con nuovo INR dopo 48 ore."],
+  ["Che cosa insegni a Giovanna e alla figlia?","Avvisare sempre il medico o il centro TAO quando inizia un nuovo farmaco (antibiotici, antinfiammatori, integratori); non raddoppiare le dosi dimenticate; dieta varia senza grandi cambiamenti di verdure a foglia verde; riconoscere e segnalare i sanguinamenti; portare con sé il diario della terapia."]
+ ],
+ dx:["Rischio di sanguinamento","Conoscenze insufficienti sulla terapia anticoagulante"],
+ oral:"Collega la lettura dell'INR, le interazioni del warfarin, il ruolo dell'infermiere di famiglia e comunità (DM 77/2022) e l'educazione terapeutica."}
+);

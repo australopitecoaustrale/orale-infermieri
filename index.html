@@ -615,6 +615,24 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .gym-case{border-left:3px solid var(--scrub);background:var(--scrub-soft);padding:10px 14px;border-radius:10px}.gym-case p{margin:4px 0 0}
 .gym-cta{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:inherit;border-left:4px solid var(--vital)}
 .gym-cta:hover{transform:translateY(-1px)}
+.gym-ctas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.es-ix{border-top-color:var(--vital)}.es-ix .dir-card{background:color-mix(in srgb,var(--vital) 5%,var(--paper));border-color:color-mix(in srgb,var(--vital) 20%,var(--line))}.es-ix .dir-card:hover{border-color:var(--vital)}.es-ix .dir-card b{color:color-mix(in srgb,var(--vital) 75%,var(--ink))}
+.dir-card.info{border-style:dashed}.es-ix .dir-grp h4{color:color-mix(in srgb,var(--vital) 80%,var(--ink))}
+.es-info{display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.02em;padding:1px 7px;border-radius:999px;border:1px dashed color-mix(in srgb,var(--ink) 35%,transparent);color:var(--muted);margin:2px 0;width:fit-content}
+.es-hl{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}.es-hl>div{padding:10px 14px;border-radius:12px}.es-hl ul{margin:4px 0 0;padding-left:18px}.es-hl h4{margin:0}
+.es-h{background:color-mix(in srgb,var(--vital) 8%,var(--paper));border-left:3px solid var(--vital)}.es-l{background:color-mix(in srgb,var(--eo) 8%,var(--paper));border-left:3px solid var(--eo)}
+.lab-sheet{border:1px solid var(--line);border-radius:12px;background:var(--paper);overflow:hidden}
+.lab-sh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:10px 14px;border-bottom:2px solid var(--ink);flex-wrap:wrap}
+.lab-t{width:100%;border-collapse:collapse;font-size:.92rem}.lab-t th{text-align:left;font-family:var(--f-mono);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:6px 10px;border-bottom:1px solid var(--line)}
+.lab-t td{padding:7px 10px;border-bottom:1px dotted var(--line)}.lab-v{font-family:var(--f-mono);font-weight:600;white-space:nowrap}.lab-u,.lab-r{color:var(--muted);font-size:.84rem}.lab-r{font-family:var(--f-mono);white-space:nowrap}
+.lab-row[data-lk]{cursor:pointer}.lab-row[data-lk]:hover{background:var(--grid)}.lab-row.sel{background:color-mix(in srgb,var(--amber) 16%,var(--paper));box-shadow:inset 3px 0 0 var(--amber)}
+.lab-row.ok{background:var(--ok-soft);box-shadow:inset 3px 0 0 var(--ok)}.lab-row.miss{background:color-mix(in srgb,var(--amber) 14%,var(--paper));box-shadow:inset 3px 0 0 var(--amber)}.lab-row.bad{background:var(--vital-soft);box-shadow:inset 3px 0 0 var(--vital)}
+.lab-flag{font-family:var(--f-mono);font-size:.7rem;font-weight:700;margin-left:6px;padding:1px 6px;border-radius:6px}.lab-flag.H{color:var(--vital);background:var(--vital-soft)}.lab-flag.L{color:var(--eo);background:color-mix(in srgb,var(--eo) 12%,var(--paper))}
+.lab-note{margin:0;padding:8px 14px;border-top:1px solid var(--line);font-style:italic}
+.lab-hide{display:flex;gap:6px;align-items:center}
+.lab-legend{display:flex;gap:12px;flex-wrap:wrap;padding:8px 14px;border-top:1px solid var(--line)}
+.lab-single{display:flex;flex-direction:column;gap:4px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}.lab-big{font-family:var(--f-mono);font-size:2rem;font-weight:700}.lab-big small{font-size:.9rem;color:var(--muted);font-weight:500}
+@media (max-width:560px){.lab-t{font-size:.84rem}.lab-t td,.lab-t th{padding:6px 6px}.lab-u{display:none}.lab-t th:nth-child(3){display:none}}
 .ecg-strip svg{width:100%;height:auto;display:block;border-radius:6px;background:#fff7f6;border:1px solid #efc9c6}
 .eg1{fill:none;stroke:#f6c9c6;stroke-width:.08}
 .eg5{fill:none;stroke:#e79b96;stroke-width:.22}
@@ -1232,9 +1250,11 @@ const BASE_CARDS = [
 /* ---- enciclopedia: dati comuni ---- */
 const ENCY=typeof ENC!=="undefined"?ENC:[], EAREE=typeof ENC_AREE!=="undefined"?ENC_AREE:{}, GLOS=typeof GLOSS!=="undefined"?GLOSS:[], GCAT=typeof GLOSS_CAT!=="undefined"?GLOSS_CAT:{};
 const ENC_BY={};ENCY.forEach(e=>ENC_BY[e.id]=e);
-const AREA_SUBJ={fond:"dx",rel:"tr",etica:"cod",legale:"leg",org:"pa",igiene:"cli",ricerca:"tr",anat:"eo",farm:"cli",ecg:"eo",emerg:"eo",med:"cli",chir:"cli",infett:"cli",onco:"cli",mat:"cli",psi:"cli",riab:"cli",nutr:"cli",diagn:"eo",codice:"cod",lavoro:"lav",diritto:"leg"};
+const AREA_SUBJ={fond:"dx",rel:"tr",etica:"cod",legale:"leg",org:"pa",igiene:"cli",ricerca:"tr",anat:"eo",farm:"cli",ecg:"eo",emerg:"eo",med:"cli",chir:"cli",infett:"cli",onco:"cli",mat:"cli",psi:"cli",riab:"cli",nutr:"cli",diagn:"eo",codice:"cod",lavoro:"lav",diritto:"leg",esami:"cli"};
 const encSubj=id=>AREA_SUBJ[(ENC_BY[id]||{}).a]||"cli";
-ENCY.forEach(e=>BASE_CARDS.push({id:"ce-"+e.id,m:encSubj(e.id),q:e.t+": di che cosa si tratta e quali sono i punti chiave?",a:e.d+"\n\n"+(e.p||[]).slice(0,4).map(x=>"• "+x).join("\n"),src:"enc",enc:e.id}));
+ENCY.forEach(e=>{if(e.x)return;BASE_CARDS.push({id:"ce-"+e.id,m:encSubj(e.id),q:e.t+": di che cosa si tratta e quali sono i punti chiave?",a:e.d+"\n\n"+(e.p||[]).slice(0,4).map(x=>"• "+x).join("\n"),src:"enc",enc:e.id})});
+/* flashcard degli esami di laboratorio: valori e significato delle alterazioni */
+ENCY.filter(e=>e.a==="esami"&&!e.x).forEach(e=>{(e.v||[]).forEach((v,i)=>BASE_CARDS.push({id:"cv-"+e.id+"-"+i,m:"cli",q:"Esami · «"+v[0]+"»: quale valore o significato?",a:v[1]+"\n\n("+e.t+")",src:"enc",enc:e.id}));if(e.hi&&e.hi.length)BASE_CARDS.push({id:"ch-"+e.id,m:"cli",q:e.t+": quando è ALTO e perché?",a:e.hi.map(x=>"• "+x).join("\n"),src:"enc",enc:e.id});if(e.lo&&e.lo.length)BASE_CARDS.push({id:"cl-"+e.id,m:"cli",q:e.t+": quando è BASSO e perché?",a:e.lo.map(x=>"• "+x).join("\n"),src:"enc",enc:e.id})});
 GLOS.forEach((g,i)=>{if(g[1]==="p"||g[1]==="s"||g[1]==="d")BASE_CARDS.push({id:"cg-"+g[1]+"-"+g[0].toLowerCase().replace(/[^a-z0-9]+/g,"-"),m:g[4]?encSubj(g[4]):(g[1]==="p"?"dx":"eo"),q:(g[1]==="p"?"Chi è «"+g[0]+"» e che cosa ha fatto?":g[1]==="s"?"«"+g[0]+"»: che cosa valuta e come si legge?":"«"+g[0]+"»: che cos'è e a che cosa serve?"),a:g[2],src:"enc",enc:g[4]||""})});
 const CODA=typeof CODICE_ART!=="undefined"?CODICE_ART:[];
 CODA.forEach(a=>BASE_CARDS.push({id:"cd-"+a[0],m:"cod",q:"Codice deontologico 2025, art. "+a[0]+" «"+a[2]+"»: che cosa prevede?",a:a[3],src:"enc",enc:"codice-capo-"+a[1].toLowerCase()}));
@@ -2137,7 +2157,7 @@ const ENC_STRIPS={
  "emogasanalisi":[["m","co2-norm"]]
 };
 ENC_STRIPS["bpco"].push(["m","co2-ostr"]);ENC_STRIPS["oppioidi"].push(["m","co2-ipo"]);
-function encStrips(id){const L=ENC_STRIPS[id];const e=ENC_BY[id];const cta=e&&e.a==="ecg"?`<a class="btn primary" href="#ecg-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra ECG</a>`:"";if(!L)return cta;return cta+`<div><h4>Tracciati di esempio</h4><div class="strips">${L.map(x=>x[0]==="e"?WAVE.strip(x[1],x[2]):x[0]==="m"?WAVE.miscStrip(x[1]):WAVE.respStrip(x[1],x[2])).join("")}</div></div>`}
+function encStrips(id){const L=ENC_STRIPS[id];const e=ENC_BY[id];const cta=e&&e.a==="ecg"?`<a class="btn primary" href="#ecg-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra ECG</a>`:e&&e.a==="esami"&&!e.x?`<a class="btn primary" href="#esami-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra esami</a>`:"";if(!L)return cta;return cta+`<div><h4>Tracciati di esempio</h4><div class="strips">${L.map(x=>x[0]==="e"?WAVE.strip(x[1],x[2]):x[0]==="m"?WAVE.miscStrip(x[1]):WAVE.respStrip(x[1],x[2])).join("")}</div></div>`}
 function vitalsMonitor(vit,c){
   const cc=c||{vit,title:"",story:"",esami:[]};
   const col=k=>/^(FC|HR)/i.test(k)?"hr":/SpO2|Sat/i.test(k)?"sp":/^PA/i.test(k)?"bp":/^FR/i.test(k)?"rr":/^TC|Temp/i.test(k)?"tc":"ot";
@@ -3236,10 +3256,11 @@ function encEntry(e,open){
   const c=(EAREE[e.a]||{}).c||"var(--scrub)";
   const gl=GLOS.filter(g=>g[4]===e.id);
   const qn=Q3.filter(q=>q.enc===e.id).length;
-  return `<details class="enc-e" id="voce-${e.id}" style="--c:${c}" ${open?"open":""}><summary><span class="eyebrow" style="color:${c}">${e.s?`<span class="dir-sig">${esc(e.s)}</span> · `:""}${esc((EAREE[e.a]||{}).n||"")}</span><b>${esc(e.t)}</b><span class="small">${esc(e.d)}</span></summary>
+  return `<details class="enc-e" id="voce-${e.id}" style="--c:${c}" ${open?"open":""}><summary><span class="eyebrow" style="color:${c}">${e.s?`<span class="dir-sig">${esc(e.s)}</span> · `:""}${esc((EAREE[e.a]||{}).n||"")}</span><b>${esc(e.t)}</b>${e.x?`<span class="es-info">Solo a titolo informativo · non negli esercizi</span>`:""}<span class="small">${esc(e.d)}</span></summary>
   <div class="enc-b"><p class="def" style="margin:0">${esc(e.d)}</p>${figsEnc(e.id)}
   ${e.p&&e.p.length?`<div><h4>Punti chiave</h4><ul>${e.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
-  ${e.v&&e.v.length?`<div><h4>${e.a==="codice"||e.a==="diritto"?"Articoli e contenuti":"Valori, scale e riferimenti"}</h4><table class="enc-v"><tbody>${e.v.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td></tr>`).join("")}</tbody></table></div>`:""}
+  ${e.v&&e.v.length?`<div><h4>${e.a==="codice"||e.a==="diritto"?"Articoli e contenuti":e.a==="esami"?"Valori di riferimento e significato":"Valori, scale e riferimenti"}</h4><table class="enc-v"><tbody>${e.v.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td></tr>`).join("")}</tbody></table></div>`:""}
+  ${(e.hi&&e.hi.length)||(e.lo&&e.lo.length)?`<div class="es-hl">${e.hi&&e.hi.length?`<div class="es-h"><h4>↑ Quando è alto</h4><ul>${e.hi.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}${e.lo&&e.lo.length?`<div class="es-l"><h4>↓ Quando è basso</h4><ul>${e.lo.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}</div>`:""}
   ${e.i&&e.i.length?`<div><h4>${e.a==="diritto"?"Cosa significa per l'infermiere":"Cosa fa l'infermiere"}</h4><ul>${e.i.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
   ${encStrips(e.id)}
   ${e.e&&e.e.length?`<div><h4>Errori da evitare</h4><ul class="enc-warn">${e.e.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
@@ -3348,17 +3369,98 @@ function ecgGym(){
   const svg=document.getElementById("gym-svg");svg.onclick=e=>{const r=svg.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*150;if(GYM.cal.length>=2)GYM.cal=[];GYM.cal.push(x);const gs=app.querySelector(".gym-strip");gs.innerHTML=gymSvg();ecgGymBind()};
   if($("#gym-next"))$("#gym-next").onclick=()=>{gymNew();ecgGym();window.scrollTo({top:0,behavior:RM?"auto":"smooth"})};
 }
+/* ---- Palestra esami: lettura di referti di laboratorio (solo esami comuni) ---- */
+const LAB_ENC={hb:"es-emocromo",ht:"es-emocromo",gr:"es-emocromo",mcv:"es-indici",mch:"es-indici",rdw:"es-indici",ret:"es-indici",gb:"es-leucociti",neu:"es-leucociti",lin:"es-leucociti",plt:"es-piastrine",inr:"es-coagulazione",aptt:"es-coagulazione",fib:"es-fibrinogeno-ddimero",dd:"es-fibrinogeno-ddimero",crea:"es-creatinina",egfr:"es-creatinina",urea:"es-azotemia",uric:"es-azotemia",na:"es-sodio-potassio",k:"es-sodio-potassio",cl:"es-sodio-potassio",ca:"es-calcio",mg:"es-calcio",p:"es-calcio",glu:"es-glicemia",hba1c:"es-glicemia",chet:"es-chetoni",col:"es-lipidi",ldl:"es-lipidi",tg:"es-lipidi",alt:"es-transaminasi",ast:"es-transaminasi",ggt:"es-colestasi",alp:"es-colestasi",bil:"es-colestasi",bild:"es-colestasi",alb:"es-proteine",nh3:"es-ammoniemia",lip:"es-pancreas",ami:"es-pancreas",trop:"es-troponina",ck:"es-ck",bnp:"es-bnp",pcr:"es-pcr",pct:"es-procalcitonina",lat:"es-procalcitonina",ferr:"es-ferro",sat:"es-ferro",b12:"es-b12",tsh:"es-tiroide",ft4:"es-tiroide",ph:"es-acido-base",pco2:"es-acido-base",hco3:"es-acido-base",dig:"es-tdm",li:"es-tdm"};
+let LG={mode:"guidato",n:0,ok:0,cur:null,step:0,sel:{},ans:[],hide:false,last:null};
+const labRef=(k,sex)=>{const r=LAB_AN[k][2];return Array.isArray(r)?r:r[sex]};
+const labRnd=(a,b)=>a+Math.random()*(b-a);
+function labRound(k,v){const d=LAB_AN[k][3];if(d<0){const m=Math.pow(10,-d);return Math.round(v/m)*m}const m=Math.pow(10,d);return Math.round(v*m)/m}
+function labFmt(k,v){const d=LAB_AN[k][3];return v.toLocaleString("it-IT",{minimumFractionDigits:Math.max(0,d),maximumFractionDigits:Math.max(0,d)})}
+function labRefTxt(k,sex){const r=labRef(k,sex);return r[0]===0?"< "+labFmt(k,r[1]):labFmt(k,r[0])+" – "+labFmt(k,r[1])}
+function labStatus(k,v,sex){const r=labRef(k,sex);return v<r[0]?"L":v>r[1]?"H":""}
+function labNormal(k,sex){const r=labRef(k,sex);const lo=r[0]===0?r[1]*.1:r[0];return labRnd(lo+(r[1]-lo)*.15,lo+(r[1]-lo)*.85)}
+function labEgfr(cr,age,sex){const F=sex==="F",kk=F?.7:.9,al=F?-.241:-.302,x=cr/kk;return 142*Math.pow(Math.min(x,1),al)*Math.pow(Math.max(x,1),-1.2)*Math.pow(.9938,age)*(F?1.012:1)}
+function labNew(){
+  if(LG.mode==="singolo"){const ks=Object.keys(LAB_AN).filter(k=>!["egfr","ph","pco2","hco3"].includes(k)),k=gpick(ks),sex=Math.random()<.5?"M":"F",r=labRef(k,sex);
+    const opts=r[0]===0?["n","h"]:["l","n","h"],st=gpick(opts);let v=st==="n"?labNormal(k,sex):st==="h"?r[1]*labRnd(1.2,r[0]===0?6:1.8):r[0]*labRnd(.55,.88);v=labRound(k,v);
+    LG.cur={single:1,k,sex,v,st:labStatus(k,v,sex)};LG.step=0;LG.ans=[];return}
+  const pool=LAB_SC.filter(s=>s.id!==LG.last),sc=gpick(pool);LG.last=sc.id;const sex=sc.sex||"M",age=Math.round(labRnd(sc.age[0],sc.age[1]));
+  const val={};sc.pan.forEach(k=>{const a=sc.ab[k];const rr=a?(Array.isArray(a)?a:a[sex]):null;val[k]=rr?labRnd(rr[0],rr[1]):labNormal(k,sex)});
+  if(val.ht!=null&&!sc.ab.ht&&val.hb!=null)val.ht=val.hb*3+labRnd(-1,1);
+  if(val.gr!=null&&!sc.ab.gr&&val.hb!=null)val.gr=val.hb*10/(val.mch||(val.mcv?val.mcv/3.1:30));
+  if(val.neu!=null&&val.gb!=null&&!sc.ab.neu)val.neu=val.gb*labRnd(.55,.7);if(val.neu!=null&&val.gb!=null&&val.neu>val.gb*.9)val.neu=val.gb*labRnd(.8,.9);
+  if(val.lin!=null&&val.gb!=null)val.lin=Math.max(150,Math.min(val.lin,val.gb-(val.neu||0)-150));
+  if(val.bild!=null&&val.bil!=null)val.bild=Math.min(val.bild,val.bil*.8);
+  if(val.ldl!=null&&val.col!=null)val.ldl=Math.min(val.ldl,val.col-45);
+  if(val.crea!=null&&val.egfr!=null)val.egfr=Math.min(125,labEgfr(val.crea,age,sex));
+  Object.keys(val).forEach(k=>val[k]=labRound(k,val[k]));
+  const others=shuffle(LAB_SC.filter(s=>s.id!==sc.id&&s.n!==sc.n)).slice(0,3).map(s=>s.n),opts=shuffle([sc.n,...others]),ao=shuffle([0,1,2,3].filter(i=>i<sc.o.length));
+  LG.cur={sc,sex,age,val,opts,ao};LG.step=LG.mode==="rapido"?1:0;LG.sel={};LG.ans=[]}
+function labGym(){
+  if(typeof LAB_SC==="undefined"){app.innerHTML="<p>Eserciziario non disponibile.</p>";return}
+  if(!LG.cur||(LG.mode==="singolo")!==!!LG.cur.single)labNew();
+  const C=LG.cur,SING=LG.mode==="singolo",RAP=LG.mode==="rapido";
+  const head=`<div><span class="eyebrow">Esami ematici e di laboratorio</span><h2>Palestra esami: lettura dei referti</h2></div>
+  <p class="lead">Referti inventati, con valori sempre nuovi, da leggere con metodo: quali valori sono alterati, che quadro compongono, che cosa fa l'infermiere. ${LAB_SC.length} quadri clinici sugli esami più usati in reparto; gli esami specialistici e genetici sono nell'Enciclopedia solo a titolo informativo. Gli intervalli sono indicativi: in reparto valgono quelli del tuo laboratorio.</p>
+  <div class="row"><button class="chip" data-lm="guidato" aria-pressed="${LG.mode==="guidato"}">Lettura guidata (3 passaggi)</button><button class="chip" data-lm="rapido" aria-pressed="${RAP}">Riconoscimento rapido</button><button class="chip" data-lm="singolo" aria-pressed="${SING}">Alto, basso o normale?</button>${SING?"":`<label class="small lab-hide"><input type="checkbox" id="lg-hide" ${LG.hide?"checked":""}> Senza intervalli di riferimento</label>`}<span class="small" style="margin-left:auto">Sessione: <b>${LG.ok}</b> corrette su <b>${LG.n}</b></span></div>`;
+  if(SING){const A=LAB_AN[C.k],e=ENC_BY[LAB_ENC[C.k]],a=LG.ans[0],ch=["L","","H"],lab=["Basso","Nella norma","Alto"],right=ch.indexOf(C.st),done=a!=null;
+    const why=done&&e?(C.st==="H"?e.hi:C.st==="L"?e.lo:null):null;
+    app.innerHTML=head+`<div class="sheet gym" style="display:flex;flex-direction:column;gap:12px"><div class="lab-single"><span class="small">${C.sex==="F"?"Donna":"Uomo"} adulto · ${esc(A[4])}</span><b>${esc(A[0])}</b><span class="lab-big">${labFmt(C.k,C.v)} <small>${esc(A[1])}</small></span><span class="small">Riferimento: ${labRefTxt(C.k,C.sex)} ${esc(A[1])}</span></div>
+    <div class="opts">${lab.map((o,j)=>`<button class="opt${done?(j===right?" right":j===a?" wrong":""):""}" data-ls="${j}" ${done?"disabled":""}>${o}</button>`).join("")}</div>
+    ${done?`<div class="expl"><b>${a===right?"Corretto.":"Il valore è "+lab[right].toLowerCase()+"."}</b> ${why&&why.length?`<br><b>${C.st==="H"?"Quando è alto":"Quando è basso"}:</b><ul>${why.slice(0,3).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:C.st===""?"Il valore rientra nell'intervallo di riferimento.":""}</div>
+    <div class="row"><button class="btn primary" id="lg-next">Nuovo valore</button>${e?`<a class="btn" href="#voce-${e.id}" style="text-decoration:none">Ripassa: ${esc(e.t)}</a>`:""}</div>`:""}</div>`;
+    labBind();return}
+  const sc=C.sc,keys=sc.pan,abn=keys.filter(k=>labStatus(k,C.val[k],C.sex)),chk=LG.step>0;
+  const rows=keys.map(k=>{const A=LAB_AN[k],st=labStatus(k,C.val[k],C.sex),sel=!!LG.sel[k];let cls="";if(chk&&!RAP)cls=st&&sel?" ok":st&&!sel?" miss":!st&&sel?" bad":"";else if(sel)cls=" sel";
+    const flag=(RAP||chk)&&st?`<span class="lab-flag ${st}">${st==="H"?"↑ alto":"↓ basso"}</span>`:"";
+    return `<tr class="lab-row${cls}" ${!chk?`data-lk="${k}" tabindex="0" role="button" aria-pressed="${sel}"`:""}><td>${esc(A[0])}</td><td class="lab-v">${labFmt(k,C.val[k])} ${flag}</td><td class="lab-u">${esc(A[1])}</td>${LG.hide&&!chk?"":`<td class="lab-r">${labRefTxt(k,C.sex)}</td>`}</tr>`}).join("");
+  const nGood=keys.filter(k=>!!LG.sel[k]===!!labStatus(k,C.val[k],C.sex)).length;
+  const steps=[["Che quadro è?","Metti insieme i valori alterati e la storia.",C.opts,C.opts.indexOf(sc.n)],["Che cosa fa l'infermiere?",sc.q,C.ao.map(i=>sc.o[i]),C.ao.indexOf(sc.c)]];
+  const done=LG.step>2;
+  app.innerHTML=head+`<div class="sheet gym" style="display:flex;flex-direction:column;gap:12px">
+   <div class="gym-case"><span class="eyebrow">${C.sex==="F"?"Donna":"Uomo"}, ${C.age} anni</span><p>${esc(sc.st)}</p></div>
+   <div class="lab-sheet"><div class="lab-sh"><b>Referto di laboratorio</b><span class="small mono">esercitazione · valori inventati</span></div>
+   <table class="lab-t"><thead><tr><th>Esame</th><th>Risultato</th><th>Unità</th>${LG.hide&&!chk?"":"<th>Riferimento</th>"}</tr></thead><tbody>${rows}</tbody></table>${sc.note?`<p class="small lab-note">${esc(sc.note)}</p>`:""}</div>
+   ${RAP?"":`<div class="gym-step"><span class="eyebrow">1. Valori alterati</span>${chk?`<p class="small"><b>${nGood} su ${keys.length}</b> valutati correttamente. ${abn.length?"Fuori intervallo: "+abn.map(k=>esc(LAB_AN[k][0])).join(", ")+".":"Nessun valore fuori intervallo."}<br><span style="color:var(--ok)">verde</span> trovato · <span style="color:var(--amber)">giallo</span> alterato ma non segnato · <span style="color:var(--vital)">rosso</span> segnato ma normale</p>`:`<p class="small">Tocca le righe con i valori fuori dall'intervallo di riferimento, poi controlla.</p><div class="row"><button class="btn primary" id="lg-chk">Controlla</button></div>`}</div>`}
+   ${steps.map((st,i)=>{const si=i+1;if(si>LG.step)return "";const a=LG.ans[si];return `<div class="gym-step"><span class="eyebrow">${RAP?si:si+1}. ${st[0]}</span><p class="small">${esc(st[1])}</p><div class="opts">${st[2].map((o,j)=>`<button class="opt${a!=null?(j===st[3]?" right":j===a?" wrong":""):""}" data-lq="${si}" data-lo="${j}" ${a!=null?"disabled":""}>${esc(o)}</button>`).join("")}</div></div>`}).join("")}
+   ${done?`<div class="expl"><b>${esc(sc.n)}.</b> ${esc(sc.e)}${LG.ans[2]===steps[1][3]?"":`<br><b>Che cosa fa l'infermiere:</b> ${esc(sc.o[sc.c])}`}</div>
+   <div class="row"><button class="btn primary" id="lg-next">Nuovo referto</button>${ENC_BY[sc.enc]?`<a class="btn" href="#voce-${sc.enc}" style="text-decoration:none">Ripassa: ${esc(ENC_BY[sc.enc].t)}</a>`:""}<a class="btn" href="#voce-es-lettura" style="text-decoration:none">Il metodo di lettura</a></div>`:""}
+  </div>`;
+  labBind();
+  const last=app.querySelector(".gym-step:last-of-type, .expl");if(LG.step>0&&last)last.scrollIntoView({block:"nearest"});
+}
+function labBind(){
+  app.querySelectorAll("[data-lm]").forEach(b=>b.onclick=()=>{LG.mode=b.dataset.lm;LG.cur=null;labGym()});
+  if($("#lg-hide"))$("#lg-hide").onchange=e=>{LG.hide=e.target.checked;labGym()};
+  app.querySelectorAll("[data-lk]").forEach(r=>{const t=()=>{const k=r.dataset.lk;LG.sel[k]=!LG.sel[k];labGym()};r.onclick=t;r.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();t()}}});
+  if($("#lg-chk"))$("#lg-chk").onclick=()=>{LG.step=1;labGym()};
+  app.querySelectorAll("[data-lq]").forEach(b=>b.onclick=()=>{const i=+b.dataset.lq,j=+b.dataset.lo,C=LG.cur;LG.ans[i]=j;LG.step=i+1;
+    if(i===2){const keys=C.sc.pan,good=keys.filter(k=>!!LG.sel[k]===!!labStatus(k,C.val[k],C.sex)).length/keys.length,q1=LG.ans[1]===C.opts.indexOf(C.sc.n)?1:0,q2=j===C.ao.indexOf(C.sc.c)?1:0;const sc=LG.mode==="rapido"?(q1+q2)/2:(good+q1+q2)/3;LG.n++;if(q1)LG.ok++;try{logEv("mcq","cli",0,sc,"lab-"+C.sc.id,{gym:1})}catch(e){}}
+    labGym()});
+  app.querySelectorAll("[data-ls]").forEach(b=>b.onclick=()=>{const j=+b.dataset.ls,C=LG.cur;LG.ans[0]=j;LG.n++;const ok=["L","","H"][j]===C.st;if(ok)LG.ok++;try{logEv("mcq","cli",0,ok?1:0,"lab1-"+C.k,{gym:1})}catch(e){}labGym()});
+  if($("#lg-next"))$("#lg-next").onclick=()=>{labNew();labGym();window.scrollTo({top:0,behavior:"auto"})};
+}
+
 function ecgGymBind(){const svg=document.getElementById("gym-svg");if(!svg)return;svg.onclick=e=>{const r=svg.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*150;if(GYM.cal.length>=2)GYM.cal=[];GYM.cal.push(x);document.querySelector(".gym-strip").innerHTML=gymSvg();
   const dt=GYM.cal.length===2?Math.abs(GYM.cal[1]-GYM.cal[0])/25:null;$("#gym-cal").innerHTML=dt!=null?`Compasso: <b>${dt.toFixed(2).replace(".",",")} s</b> (${Math.round(dt*1000)} ms)${dt>.25?` · se è un R-R, FC ≈ <b>${Math.round(60/dt)}/min</b>`:""} · tocca di nuovo per ricominciare`:"Tocca il secondo punto…";ecgGymBind()}}
 function enciclopedia(v){
   if(v==="ecg-esercizi"){ecgGym();return}
+  if(v==="esami-esercizi"){labGym();return}
   const focus=(v&&v.startsWith("voce-"))?v.slice(5):state.encOpen;state.encOpen=null;
   const fe=focus&&ENC_BY[focus];
-  let area=fe?fe.a:(state.encArea||"tutte");if(fe){state.encArea=area;state.dirTipo=""}
+  let area=fe?fe.a:(state.encArea||"tutte");if(fe){state.encArea=area;state.dirTipo="";state.esTipo=""}
   const counts={};ENCY.forEach(e=>counts[e.a]=(counts[e.a]||0)+1);
   const DT=typeof DIR_TIPI!=="undefined"?DIR_TIPI:{},DX=typeof DIR_EXTRA!=="undefined"?DIR_EXTRA:{};
   const dirT=area==="diritto"&&DT[state.dirTipo]?state.dirTipo:"";
-  const list=ENCY.filter(e=>(area==="tutte"||e.a===area)&&(!dirT||e.k===dirT||(DX[e.id]&&DX[e.id][0]===dirT)));
+  const ET=typeof ES_TIPI!=="undefined"?ES_TIPI:{},EX=typeof ES_EXTRA!=="undefined"?ES_EXTRA:{};
+  const esT=area==="esami"&&ET[state.esTipo]?state.esTipo:"";
+  const list=ENCY.filter(e=>(area==="tutte"||e.a===area)&&(!dirT||e.k===dirT||(DX[e.id]&&DX[e.id][0]===dirT))&&(!esT||e.k===esT));
+  const esIdx=()=>{const all=ENCY.filter(e=>e.a==="esami").map(e=>({id:e.id,k:e.k,s:e.s,t:e.t,x:e.x})).concat(Object.entries(EX).filter(([id])=>ENC_BY[id]).map(([id,x])=>({id,k:x[0],s:x[1],t:ENC_BY[id].t,ext:1})));
+    const grp=Object.keys(ET).filter(k=>!esT||k===esT).map(k=>[k,all.filter(x=>x.k===k)]).filter(g=>g[1].length);
+    return `<section class="sheet dir-ix es-ix"><div class="dir-ix-h"><div><span class="eyebrow">Esami ematici e di laboratorio</span><h3 style="margin:2px 0 0">Indice degli esami</h3></div><span class="small">${all.length} schede · valori indicativi: fanno fede gli intervalli del tuo laboratorio · <span class="es-info">informativo</span> = esami specialistici, non usati negli esercizi</span></div>
+    <a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami: lettura dei referti</b><span class="small">Referti con valori sempre nuovi: trova i valori alterati, riconosci il quadro e scegli che cosa fare (${typeof LAB_SC!=="undefined"?LAB_SC.length:0} quadri) →</span></a>
+    <div class="row dir-chips"><button class="chip" data-et="" aria-pressed="${!esT}">Tutti</button>${Object.entries(ET).map(([k,n])=>`<button class="chip" data-et="${k}" aria-pressed="${esT===k}">${n} <em>${all.filter(x=>x.k===k).length}</em></button>`).join("")}</div>
+    ${grp.map(([k,L])=>`<div class="dir-grp"><h4>${esc(ET[k])}</h4><div class="dir-cards">${L.map(x=>`<a class="dir-card${x.ext?" ext":""}${x.x?" info":""}" href="#voce-${x.id}"><b>${esc(x.s||"")}</b><span>${esc(x.t)}</span>${x.ext?`<i>in ${esc((EAREE[ENC_BY[x.id].a]||{}).n||"")}</i>`:x.x?`<i>a titolo informativo</i>`:""}</a>`).join("")}</div></div>`).join("")}</section>`};
   const dirIdx=()=>{const all=ENCY.filter(e=>e.a==="diritto").map(e=>({id:e.id,k:e.k,s:e.s,t:e.t})).concat(Object.entries(DX).filter(([id])=>ENC_BY[id]).map(([id,x])=>({id,k:x[0],s:x[1],t:ENC_BY[id].t,ext:1})));
     const grp=Object.keys(DT).filter(k=>!dirT||k===dirT).map(k=>[k,all.filter(x=>x.k===k)]).filter(g=>g[1].length);
     return `<section class="sheet dir-ix"><div class="dir-ix-h"><div><span class="eyebrow">Codici, testi unici, leggi e decreti</span><h3 style="margin:2px 0 0">Indice delle fonti</h3></div><span class="small">${all.length} fonti · sintesi rielaborate, da verificare sempre sul testo vigente</span></div>
@@ -3373,6 +3475,8 @@ function enciclopedia(v){
     <div class="enc-areas"><button class="enc-area" style="--c:var(--scrub)" data-area="tutte" aria-pressed="${area==="tutte"}"><b>Tutte le aree</b><span>${ENCY.length} voci</span></button>${Object.entries(EAREE).map(([k,a])=>`<button class="enc-area" style="--c:${a.c}" data-area="${k}" aria-pressed="${area===k}"><b>${esc(a.n)}</b><span>${counts[k]||0} voci</span></button>`).join("")}</div>
     ${area==="ecg"||area==="tutte"?`<a class="sheet gym-cta" href="#ecg-esercizi"><span class="eyebrow">Novità</span><b>Palestra ECG: esercizi di lettura</b><span class="small">Strisce sempre nuove da leggere con metodo (frequenza, ritmo, P, QRS, diagnosi) con compasso per misurare gli intervalli →</span></a>`:""}
     ${area==="diritto"?dirIdx():""}
+    ${area==="esami"?esIdx():""}
+    ${area==="tutte"?`<a class="sheet gym-cta" href="#enciclopedia" data-goarea="esami"><span class="eyebrow">Novità</span><b>Esami ematici e di laboratorio</b><span class="small">Emocromo, coagulazione, rene, fegato, cuore, sepsi, metabolismo, elettroliti, ormoni, farmaci, microbiologia e genetica: valori, significato delle alterazioni e che cosa fa l'infermiere, con la Palestra esami →</span></a>`:""}
     ${area==="tutte"?`<a class="sheet gym-cta" href="#enciclopedia" data-goarea="diritto"><span class="eyebrow">Novità</span><b>Diritto: codici, testi unici, leggi e decreti</b><span class="small">Costituzione, codice penale e civile, procedura penale, testi unici, leggi e decreti della sanità riassunti articolo per articolo, con un indice per tipo di fonte →</span></a>`:""}
     <div class="enc-list">${list.map(e=>encEntry(e,e.id===focus)).join("")}</div>
   </div>`;
@@ -3383,7 +3487,8 @@ function enciclopedia(v){
   };
   bind(app);
   app.querySelectorAll("[data-dt]").forEach(b=>b.onclick=()=>{state.dirTipo=b.dataset.dt;enciclopedia("enciclopedia")});
-  app.querySelectorAll("[data-goarea]").forEach(a=>a.onclick=ev=>{ev.preventDefault();state.encArea=a.dataset.goarea;state.dirTipo="";LS.set("encArea",state.encArea);enciclopedia("enciclopedia");decorateHead("enciclopedia");window.scrollTo({top:0})});
+  app.querySelectorAll("[data-et]").forEach(b=>b.onclick=()=>{state.esTipo=b.dataset.et;enciclopedia("enciclopedia")});
+  app.querySelectorAll("[data-goarea]").forEach(a=>a.onclick=ev=>{ev.preventDefault();state.encArea=a.dataset.goarea;state.dirTipo="";state.esTipo="";LS.set("encArea",state.encArea);enciclopedia("enciclopedia");decorateHead("enciclopedia");window.scrollTo({top:0})});
   app.querySelectorAll("[data-area]").forEach(b=>b.onclick=()=>{state.dirTipo="";state.encArea=b.dataset.area;LS.set("encArea",state.encArea);if((location.hash||"")!=="#enciclopedia")location.hash="enciclopedia";else{enciclopedia("enciclopedia");decorateHead("enciclopedia")}});
   $("#enc-search").oninput=ev=>{
     const q=normTxt(ev.target.value.trim());const res=$("#enc-res"),main=$("#enc-main");
@@ -3425,6 +3530,7 @@ function glossario(){
   app.querySelectorAll("[data-gc]").forEach(b=>b.onclick=()=>{state.glCat=b.dataset.gc;LS.set("glCat",state.glCat);state.glQuery=$("#gl-search").value;glossario();decorateHead("glossario")});
   $("#gl-search").oninput=draw;draw();
 }
+if(typeof ES_TIPI!=="undefined"){const EE=ENCY.filter(e=>e.a==="esami");(TOPICS.cli=TOPICS.cli||[]).push({t:"Esami ematici e di laboratorio: come leggerli",h:`<p>Per ogni esame: valore di riferimento, che cosa significa un valore alto o basso, che cosa fa l'infermiere. Le schede complete sono nell'Enciclopedia (area «Esami ematici e di laboratorio»); per esercitarti c'è la <a href="#esami-esercizi">Palestra esami</a>.</p>${Object.entries(ES_TIPI).map(([k,n])=>{const L=EE.filter(e=>e.k===k&&!e.x);return L.length?`<h4>${esc(n)}</h4><ul>${L.map(e=>`<li><a href="#voce-${e.id}"><b>${esc(e.t)}</b></a>${e.v&&e.v.length?": "+e.v.slice(0,2).map(v=>esc(v[0])+" "+esc(v[1])).join("; "):""}</li>`).join("")}</ul>`:""}).join("")}<p class="refs">Esami specialistici e genetici (a titolo informativo): ${EE.filter(e=>e.x).map(e=>`<a href="#voce-${e.id}">${esc(e.t.replace(/ \(a titolo informativo\)/,""))}</a>`).join(" · ")}.</p>`})}
 if(CODA.length&&TOPICS.cod&&typeof CODICE_CAPI!=="undefined")CODICE_CAPI.forEach(([cp,nome])=>{const arts=CODA.filter(a=>a[1]===cp);TOPICS.cod.push({t:"Codice 2025 articolo per articolo · Capo "+cp+" "+nome+" (artt. "+arts[0][0]+"–"+arts[arts.length-1][0]+")",h:`<div style="display:flex;flex-direction:column;gap:10px">${arts.map(a=>`<div><b>Art. ${a[0]} · ${esc(a[2])}</b><br>${esc(a[3])}</div>`).join("")}<p class="refs">Sintesi per lo studio; testo ufficiale FNOPI, in vigore dal 22 marzo 2025.</p></div>`})});
 /* ============ CALCOLATORE DI DOSAGGIO ============ */
 const CALC_U={g:1e6,mg:1e3,mcg:1,ng:1e-3};
@@ -3588,7 +3694,7 @@ const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
 function route(){
   const v=(location.hash||"#oggi").slice(1);
-  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"?"enciclopedia":"oggi");
+  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"||v==="esami-esercizi"?"enciclopedia":"oggi");
   const changed=document.documentElement.dataset.view!==name;
   document.documentElement.dataset.view=name;
   document.querySelectorAll("nav.tabs a").forEach(a=>{const on=a.getAttribute("href")==="#"+name;a.setAttribute("aria-current",on?"page":"false");if(on&&changed)a.scrollIntoView({block:"nearest",inline:"center"})});
@@ -4195,7 +4301,7 @@ function quiz(){
   <div><span class="eyebrow">Autoverifica</span><h2>Allenamento</h2></div>
   <p class="lead">${QALL.length} domande a scelta multipla${DBQ.length?` (${DBQ.length} arrivate con gli aggiornamenti giornalieri)`:""}, ${PDFQ.length} domande aperte e ${CASES.length} casi clinici. La sessione mista li alterna come in un esame vero; le risposte scritte sono valutate in trentesimi con la griglia dei punti attesi.</p>
   <div class="row">${chips(f,["all",...SKEYS],"f")}</div>
-  <a class="sheet gym-cta" href="#ecg-esercizi"><b>Palestra ECG</b><span class="small">Esercizi di lettura dell'elettrocardiogramma, a parte rispetto ai quiz →</span></a>
+  <div class="gym-ctas"><a class="sheet gym-cta" href="#ecg-esercizi"><b>Palestra ECG</b><span class="small">Esercizi di lettura dell'elettrocardiogramma, a parte rispetto ai quiz →</span></a><a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami</b><span class="small">Lettura di referti di laboratorio: valori alterati, quadro clinico, interventi →</span></a></div>
   <div class="row">
     <label class="small" for="qmode">Tipo di sessione</label><select id="qmode" class="btn">
       <option value="misto" ${mode==="misto"?"selected":""}>Mista: quiz + domande aperte + casi</option>
