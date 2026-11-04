@@ -615,6 +615,14 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .gym-case{border-left:3px solid var(--scrub);background:var(--scrub-soft);padding:10px 14px;border-radius:10px}.gym-case p{margin:4px 0 0}
 .gym-cta{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:inherit;border-left:4px solid var(--vital)}
 .gym-cta:hover{transform:translateY(-1px)}
+.mn-box{border:1.5px dashed color-mix(in srgb,var(--amber) 55%,var(--line));background:color-mix(in srgb,var(--amber) 7%,var(--paper));border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.mn-box h4{margin:0;color:color-mix(in srgb,var(--amber) 85%,var(--ink))}
+.mn-i{display:flex;flex-direction:column;gap:2px}.mn-i b{font-family:var(--f-display);font-size:1rem}.mn-i span{font-size:.92rem;line-height:1.45}
+.mn-cta{border-left-color:var(--amber)}
+.mn-sec{display:flex;flex-direction:column;gap:10px}.mn-sec h3{margin:6px 0 0;color:color-mix(in srgb,var(--c) 80%,var(--ink))}
+.mn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.mn-card{display:flex;flex-direction:column;gap:8px;padding:12px 14px;border-radius:12px;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--c)}
+.mn-t{font-size:.78rem;font-family:var(--f-mono);color:var(--muted);text-decoration:none}.mn-t:hover{text-decoration:underline}
 .gym-ctas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
 .es-ix{border-top-color:var(--vital)}.es-ix .dir-card{background:color-mix(in srgb,var(--vital) 5%,var(--paper));border-color:color-mix(in srgb,var(--vital) 20%,var(--line))}.es-ix .dir-card:hover{border-color:var(--vital)}.es-ix .dir-card b{color:color-mix(in srgb,var(--vital) 75%,var(--ink))}
 .dir-card.info{border-style:dashed}.es-ix .dir-grp h4{color:color-mix(in srgb,var(--vital) 80%,var(--ink))}
@@ -1276,6 +1284,8 @@ const ENC_BY={};ENCY.forEach(e=>ENC_BY[e.id]=e);
 const AREA_SUBJ={fond:"dx",rel:"tr",etica:"cod",legale:"leg",org:"pa",igiene:"cli",ricerca:"tr",anat:"eo",farm:"cli",ecg:"eo",emerg:"eo",med:"cli",chir:"cli",infett:"cli",onco:"cli",mat:"cli",psi:"cli",riab:"cli",nutr:"cli",diagn:"eo",codice:"cod",lavoro:"lav",diritto:"leg",esami:"cli"};
 const encSubj=id=>AREA_SUBJ[(ENC_BY[id]||{}).a]||"cli";
 ENCY.forEach(e=>{if(e.x)return;BASE_CARDS.push({id:"ce-"+e.id,m:encSubj(e.id),q:e.t+": di che cosa si tratta e quali sono i punti chiave?",a:e.d+"\n\n"+(e.p||[]).slice(0,4).map(x=>"• "+x).join("\n"),src:"enc",enc:e.id})});
+/* flashcard delle frasi mnemoniche */
+if(typeof MNEMO!=="undefined")Object.entries(MNEMO).forEach(([id,L])=>{if(!ENC_BY[id])return;L.forEach((m,i)=>BASE_CARDS.push({id:"cm-"+id+"-"+i,m:encSubj(id),q:"Per ricordare · "+ENC_BY[id].t+": «"+m[0]+"». Che cosa significa?",a:m[1],src:"enc",enc:id}))});
 /* flashcard degli esami di laboratorio: valori e significato delle alterazioni */
 ENCY.filter(e=>e.a==="esami"&&!e.x).forEach(e=>{(e.v||[]).forEach((v,i)=>BASE_CARDS.push({id:"cv-"+e.id+"-"+i,m:"cli",q:"Esami · «"+v[0]+"»: quale valore o significato?",a:v[1]+"\n\n("+e.t+")",src:"enc",enc:e.id}));if(e.hi&&e.hi.length)BASE_CARDS.push({id:"ch-"+e.id,m:"cli",q:e.t+": quando è ALTO e perché?",a:e.hi.map(x=>"• "+x).join("\n"),src:"enc",enc:e.id});if(e.lo&&e.lo.length)BASE_CARDS.push({id:"cl-"+e.id,m:"cli",q:e.t+": quando è BASSO e perché?",a:e.lo.map(x=>"• "+x).join("\n"),src:"enc",enc:e.id})});
 GLOS.forEach((g,i)=>{if(g[1]==="p"||g[1]==="s"||g[1]==="d")BASE_CARDS.push({id:"cg-"+g[1]+"-"+g[0].toLowerCase().replace(/[^a-z0-9]+/g,"-"),m:g[4]?encSubj(g[4]):(g[1]==="p"?"dx":"eo"),q:(g[1]==="p"?"Chi è «"+g[0]+"» e che cosa ha fatto?":g[1]==="s"?"«"+g[0]+"»: che cosa valuta e come si legge?":"«"+g[0]+"»: che cos'è e a che cosa serve?"),a:g[2],src:"enc",enc:g[4]||""})});
@@ -3280,7 +3290,7 @@ function encEntry(e,open){
   const gl=GLOS.filter(g=>g[4]===e.id);
   const qn=Q3.filter(q=>q.enc===e.id).length;
   return `<details class="enc-e" id="voce-${e.id}" style="--c:${c}" ${open?"open":""}><summary><span class="eyebrow" style="color:${c}">${e.s?`<span class="dir-sig">${esc(e.s)}</span> · `:""}${esc((EAREE[e.a]||{}).n||"")}</span><b>${esc(e.t)}</b>${e.x?`<span class="es-info">Solo a titolo informativo · non negli esercizi</span>`:""}<span class="small">${esc(e.d)}</span></summary>
-  <div class="enc-b"><p class="def" style="margin:0">${esc(e.d)}</p>${figsEnc(e.id)}
+  <div class="enc-b"><p class="def" style="margin:0">${esc(e.d)}</p>${figsEnc(e.id)}${mnBox(e.id)}
   ${e.p&&e.p.length?`<div><h4>Punti chiave</h4><ul>${e.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
   ${e.v&&e.v.length?`<div><h4>${e.a==="codice"||e.a==="diritto"?"Articoli e contenuti":e.a==="esami"?"Valori di riferimento e significato":"Valori, scale e riferimenti"}</h4><table class="enc-v"><tbody>${e.v.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td></tr>`).join("")}</tbody></table></div>`:""}
   ${(e.hi&&e.hi.length)||(e.lo&&e.lo.length)?`<div class="es-hl">${e.hi&&e.hi.length?`<div class="es-h"><h4>↑ Quando è alto</h4><ul>${e.hi.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}${e.lo&&e.lo.length?`<div class="es-l"><h4>↓ Quando è basso</h4><ul>${e.lo.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}</div>`:""}
@@ -3649,10 +3659,22 @@ function labBind(){
 
 function ecgGymBind(){const svg=document.getElementById("gym-svg");if(!svg)return;svg.onclick=e=>{const r=svg.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*150;if(GYM.cal.length>=2)GYM.cal=[];GYM.cal.push(x);document.querySelector(".gym-strip").innerHTML=gymSvg();
   const dt=GYM.cal.length===2?Math.abs(GYM.cal[1]-GYM.cal[0])/25:null;$("#gym-cal").innerHTML=dt!=null?`Compasso: <b>${dt.toFixed(2).replace(".",",")} s</b> (${Math.round(dt*1000)} ms)${dt>.25?` · se è un R-R, FC ≈ <b>${Math.round(60/dt)}/min</b>`:""} · tocca di nuovo per ricominciare`:"Tocca il secondo punto…";ecgGymBind()}}
+const MN=typeof MNEMO!=="undefined"?MNEMO:{};
+function mnBox(id){const L=MN[id];if(!L||!L.length)return "";return `<aside class="mn-box" aria-label="Per ricordare"><h4>Per ricordare</h4>${L.map(m=>`<div class="mn-i"><b>${esc(m[0])}</b><span>${esc(m[1])}</span></div>`).join("")}</aside>`}
+function mnView(){const q=(state.mnQ||"").toLowerCase();const ar=Object.keys(EAREE);
+  const rows=ENCY.filter(e=>MN[e.id]).filter(e=>!q||(e.t+" "+MN[e.id].map(m=>m.join(" ")).join(" ")).toLowerCase().includes(q));
+  const tot=Object.values(MN).reduce((a,l)=>a+l.length,0);
+  app.innerHTML=`<div><span class="eyebrow">Enciclopedia</span><h2>Per ricordare: acronimi e frasi mnemoniche</h2></div>
+  <p class="lead">${tot} trucchi per ${Object.keys(MN).length} argomenti: acronimi (ABCDE, SBAR, SAMPLE), regole numeriche (regola del 15, del 9, delle 7 G), filastrocche e immagini. Ripetili ad alta voce e poi prova a ricostruire l'argomento partendo dal trucco: è così che funzionano. Li trovi anche nelle flashcard.</p>
+  <div class="row"><input id="mn-q" class="btn" style="flex:1;min-width:200px;text-align:left" type="search" placeholder="Cerca un acronimo o un argomento (es. ABCDE, potassio, ustioni)" value="${esc(state.mnQ||"")}" aria-label="Cerca tra le frasi mnemoniche"><a class="btn" href="#enciclopedia" style="text-decoration:none">Torna all'Enciclopedia</a></div>
+  ${ar.map(a=>{const L=rows.filter(e=>e.a===a);if(!L.length)return "";const c=EAREE[a].c;return `<section class="mn-sec" style="--c:${c}"><h3>${esc(EAREE[a].n)}</h3><div class="mn-grid">${L.map(e=>`<article class="mn-card"><a href="#voce-${e.id}" class="mn-t">${esc(e.t)}</a>${MN[e.id].map(m=>`<div class="mn-i"><b>${esc(m[0])}</b><span>${esc(m[1])}</span></div>`).join("")}</article>`).join("")}</div></section>`}).join("")||`<p class="small">Nessun risultato: prova con un'altra parola.</p>`}`;
+  const inp=$("#mn-q");inp.oninput=()=>{state.mnQ=inp.value;clearTimeout(mnView.t);mnView.t=setTimeout(()=>{mnView();const i=$("#mn-q");i.focus();i.setSelectionRange(i.value.length,i.value.length)},250)};
+}
 function enciclopedia(v){
   if(v==="ecg-esercizi"){ecgGym();return}
   if(v==="esami-esercizi"){labGym();return}
   if(v==="ega-esercizi"){egaGym();return}
+  if(v==="mnemoniche"){mnView();return}
   const focus=(v&&v.startsWith("voce-"))?v.slice(5):state.encOpen;state.encOpen=null;
   const fe=focus&&ENC_BY[focus];
   let area=fe?fe.a:(state.encArea||"tutte");if(fe){state.encArea=area;state.dirTipo="";state.esTipo=""}
@@ -3682,6 +3704,7 @@ function enciclopedia(v){
   <div id="enc-main" style="display:flex;flex-direction:column;gap:16px">
     <div class="enc-areas"><button class="enc-area" style="--c:var(--scrub)" data-area="tutte" aria-pressed="${area==="tutte"}"><b>Tutte le aree</b><span>${ENCY.length} voci</span></button>${Object.entries(EAREE).map(([k,a])=>`<button class="enc-area" style="--c:${a.c}" data-area="${k}" aria-pressed="${area===k}"><b>${esc(a.n)}</b><span>${counts[k]||0} voci</span></button>`).join("")}</div>
     ${area==="ecg"||area==="tutte"?`<a class="sheet gym-cta" href="#ecg-esercizi"><span class="eyebrow">Novità</span><b>Palestra ECG: esercizi di lettura</b><span class="small">Strisce sempre nuove da leggere con metodo (frequenza, ritmo, P, QRS, diagnosi) con compasso per misurare gli intervalli →</span></a>`:""}
+    <a class="sheet gym-cta mn-cta" href="#mnemoniche"><b>Per ricordare: acronimi e frasi mnemoniche</b><span class="small">${Object.values(MN).reduce((a,l)=>a+l.length,0)} trucchi per memorizzare (regola delle 7 G, ABCDE, SBAR, regola del 15, del 9…), raccolti in un'unica pagina e dentro ogni voce →</span></a>
     ${area==="diritto"?dirIdx():""}
     ${area==="esami"?esIdx():""}
     ${area==="tutte"?`<a class="sheet gym-cta" href="#enciclopedia" data-goarea="esami"><span class="eyebrow">Novità</span><b>Esami ematici e di laboratorio</b><span class="small">Emocromo, coagulazione, rene, fegato, cuore, sepsi, metabolismo, elettroliti, ormoni, farmaci, microbiologia e genetica: valori, significato delle alterazioni e che cosa fa l'infermiere, con la Palestra esami →</span></a>`:""}
@@ -3902,7 +3925,7 @@ const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
 function route(){
   const v=(location.hash||"#oggi").slice(1);
-  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"||v==="esami-esercizi"||v==="ega-esercizi"?"enciclopedia":"oggi");
+  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"||v==="esami-esercizi"||v==="ega-esercizi"||v==="mnemoniche"?"enciclopedia":"oggi");
   const changed=document.documentElement.dataset.view!==name;
   document.documentElement.dataset.view=name;
   document.querySelectorAll("nav.tabs a").forEach(a=>{const on=a.getAttribute("href")==="#"+name;a.setAttribute("aria-current",on?"page":"false");if(on&&changed)a.scrollIntoView({block:"nearest",inline:"center"})});
