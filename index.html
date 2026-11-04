@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-title" content="Atlante Inf.">
 <script>window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();window.__pwaPrompt=e;var b=document.getElementById("pwa-inst");if(b)b.hidden=false});if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html,body{height:auto}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
 /* Layout: cartella infermieristica — fascia di reparto in alto con traccia ECG, contenuto su carta millimetrata tinta dal colore della sezione; ogni sezione ha il suo colore, che sfuma nel passaggio da una all'altra */
@@ -630,6 +630,29 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .lab-flag{font-family:var(--f-mono);font-size:.7rem;font-weight:700;margin-left:6px;padding:1px 6px;border-radius:6px}.lab-flag.H{color:var(--vital);background:var(--vital-soft)}.lab-flag.L{color:var(--eo);background:color-mix(in srgb,var(--eo) 12%,var(--paper))}
 .lab-note{margin:0;padding:8px 14px;border-top:1px solid var(--line);font-style:italic}
 .lab-hide{display:flex;gap:6px;align-items:center}
+.ega-lay{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:start}
+@media (min-width:920px){.ega-lay{grid-template-columns:380px minmax(0,1fr)}}
+.ep-wrap{--paper:#f5f5f1;--ink:#303236;position:relative;display:flex;flex-direction:column;align-items:center;padding-bottom:14px}
+.ep-slot{position:relative;z-index:2;width:min(372px,100%);height:22px;border-radius:9px 9px 6px 6px;background:linear-gradient(#5b6168,#3b4046 55%,#2c3035);box-shadow:0 2px 3px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.18)}
+.ep-slot i{position:absolute;left:14px;right:14px;bottom:5px;height:4px;border-radius:3px;background:#121416;box-shadow:inset 0 1px 2px #000}
+.ep-paper{position:relative;z-index:1;margin-top:-7px;width:min(340px,calc(100% - 18px));padding:30px 14px 26px;color:var(--ink);font-family:"Share Tech Mono","JetBrains Mono",ui-monospace,monospace;font-size:12.6px;line-height:1.42;letter-spacing:.01em;
+ background:linear-gradient(90deg,rgba(0,0,0,.05),transparent 5%,transparent 95%,rgba(0,0,0,.05)),linear-gradient(180deg,rgba(0,0,0,.10),transparent 26px),repeating-linear-gradient(0deg,transparent 0 3px,rgba(60,60,60,.018) 3px 4px),var(--paper);
+ text-shadow:0 0 .4px rgba(30,30,34,.55);transform:rotate(-.5deg);transform-origin:top center;
+ filter:drop-shadow(0 10px 14px rgba(30,30,30,.22)) drop-shadow(0 1px 1px rgba(0,0,0,.12));
+ -webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 7px) no-repeat,conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) bottom/10px 7px repeat-x;mask:linear-gradient(#000 0 0) top/100% calc(100% - 7px) no-repeat,conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) bottom/10px 7px repeat-x}
+.ep-paper::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 31%,rgba(255,255,255,.16) 32.5%,transparent 34%),linear-gradient(90deg,transparent 71%,rgba(255,255,255,.1) 71.6%,transparent 72.4%)}
+.ep-anim{animation:epfeed 2.4s steps(46,end) both}
+@keyframes epfeed{from{clip-path:inset(0 0 100% 0);translate:0 -40px}to{clip-path:inset(0 0 0 0);translate:0 0}}
+.ep-c{text-align:center;white-space:pre}.ep-s{opacity:.8}
+.ep-dash{border-top:1.5px dashed rgba(48,50,54,.7);margin:7px 0}
+.ep-kv{display:flex;justify-content:space-between;gap:8px}
+.ep-h{margin-top:7px;padding-bottom:1px;border-bottom:1px solid rgba(48,50,54,.55);text-decoration:none}
+.ep-r{display:grid;grid-template-columns:10.6ch 6.6ch 2.2ch 6ch 1fr;align-items:baseline}
+.ep-v{text-align:right;font-size:1.04em}.ep-f{text-align:center;font-weight:700}.ep-g{text-align:right;font-size:.84em;opacity:.78;white-space:nowrap}.ep-u{opacity:.92}
+.ep-r:nth-child(4n+1){opacity:.9}.ep-r:nth-child(7n+3){opacity:.82}
+.ep-bar{height:34px;margin:10px 18px 4px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px,var(--ink) 8px 11px,transparent 11px 12px,var(--ink) 12px 13px,transparent 13px 17px);opacity:.82}
+@media (max-width:380px){.ep-paper{font-size:11.4px;padding-inline:10px}.ep-g{font-size:.78em}}
+@media (prefers-reduced-motion:reduce){.ep-anim{animation:none}}
 .lab-legend{display:flex;gap:12px;flex-wrap:wrap;padding:8px 14px;border-top:1px solid var(--line)}
 .lab-single{display:flex;flex-direction:column;gap:4px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}.lab-big{font-family:var(--f-mono);font-size:2rem;font-weight:700}.lab-big small{font-size:.9rem;color:var(--muted);font-weight:500}
 @media (max-width:560px){.lab-t{font-size:.84rem}.lab-t td,.lab-t th{padding:6px 6px}.lab-u{display:none}.lab-t th:nth-child(3){display:none}}
@@ -2157,7 +2180,7 @@ const ENC_STRIPS={
  "emogasanalisi":[["m","co2-norm"]]
 };
 ENC_STRIPS["bpco"].push(["m","co2-ostr"]);ENC_STRIPS["oppioidi"].push(["m","co2-ipo"]);
-function encStrips(id){const L=ENC_STRIPS[id];const e=ENC_BY[id];const cta=e&&e.a==="ecg"?`<a class="btn primary" href="#ecg-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra ECG</a>`:e&&e.a==="esami"&&!e.x?`<a class="btn primary" href="#esami-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra esami</a>`:"";if(!L)return cta;return cta+`<div><h4>Tracciati di esempio</h4><div class="strips">${L.map(x=>x[0]==="e"?WAVE.strip(x[1],x[2]):x[0]==="m"?WAVE.miscStrip(x[1]):WAVE.respStrip(x[1],x[2])).join("")}</div></div>`}
+function encStrips(id){const L=ENC_STRIPS[id];const e=ENC_BY[id];const cta=e&&e.a==="ecg"?`<a class="btn primary" href="#ecg-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra ECG</a>`:e&&(e.id==="emogasanalisi"||e.id==="es-acido-base")?`<a class="btn primary" href="#ega-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra EGA</a>`:e&&e.a==="esami"&&!e.x?`<a class="btn primary" href="#esami-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra esami</a>`:"";if(!L)return cta;return cta+`<div><h4>Tracciati di esempio</h4><div class="strips">${L.map(x=>x[0]==="e"?WAVE.strip(x[1],x[2]):x[0]==="m"?WAVE.miscStrip(x[1]):WAVE.respStrip(x[1],x[2])).join("")}</div></div>`}
 function vitalsMonitor(vit,c){
   const cc=c||{vit,title:"",story:"",esami:[]};
   const col=k=>/^(FC|HR)/i.test(k)?"hr":/SpO2|Sat/i.test(k)?"sp":/^PA/i.test(k)?"bp":/^FR/i.test(k)?"rr":/^TC|Temp/i.test(k)?"tc":"ot";
@@ -3429,6 +3452,189 @@ function labGym(){
   labBind();
   const last=app.querySelector(".gym-step:last-of-type, .expl");if(LG.step>0&&last)last.scrollIntoView({block:"nearest"});
 }
+/* ---- Palestra EGA: lettura del referto stampato dall'emogasanalizzatore ---- */
+/* quadri: pco2/hco3/po2 = intervalli; fio2 in frazione; x = altri valori [min,max]; gap = gap anionico voluto; dis/comp = classificazione attesa (verificata dai test) */
+const EGA_SC=[
+ {id:"bpco-ac",n:"BPCO riacutizzata con acidosi respiratoria acuta su cronica",sex:"M",age:[66,82],rep:"Pronto soccorso",fio2:.28,pco2:[70,84],hco3:[31,35],po2:[52,62],dis:"ra",
+  st:"Uomo con BPCO grave, da tre giorni tosse con catarro verdastro. Sonnolento, cute calda; in ossigeno con maschera di Venturi al 28%.",
+  q:"Qual è l'intervento più appropriato?",o:["Aumentare l'ossigeno al massimo per portare la saturazione al 100%","Mantenere SpO2 tra 88 e 92%, preparare la ventilazione non invasiva prescritta e ricontrollare l'EGA dopo 1-2 ore","Sedare il paziente perché è agitato","Attendere il giorno dopo per ripetere l'emogas"],c:1,
+  e:"pH basso con pCO2 molto alta: acidosi respiratoria. I bicarbonati alti dicono che il rene compensava già da tempo (BPCO cronica), ma il compenso non basta più: è un peggioramento acuto. È l'indicazione tipica alla NIV."},
+ {id:"bpco-cr",n:"BPCO con ipercapnia cronica compensata",sex:"F",age:[68,84],rep:"Pneumologia",fio2:.24,pco2:[54,58],hco3:[31,33],po2:[58,66],dis:"ra",
+  st:"Donna con BPCO in ossigenoterapia domiciliare, ricoverata per un controllo programmato. Sta come sempre, vigile e collaborante.",
+  q:"Che cosa ti dice questo emogas?",o:["Che serve subito l'intubazione","Che la CO2 è alta da tempo ma il rene ha riportato il pH nella norma: è il suo equilibrio abituale, da non «correggere» con ossigeno in eccesso","Che è un'alcalosi metabolica da trattare","Che il campione è sicuramente venoso"],c:1,
+  e:"pCO2 e bicarbonati alti con pH normale (sul versante acido): acidosi respiratoria cronica compensata. Obiettivo SpO2 88-92%."},
+ {id:"oppioidi",n:"Ipoventilazione da oppioidi",sex:"M",age:[58,80],rep:"Chirurgia",fio2:.21,pco2:[64,78],hco3:[24,26],po2:[48,58],dis:"ra",
+  st:"Uomo operato ieri, in morfina con pompa elastomerica. Alle 4 è difficile da svegliare, pupille a punta di spillo, respiro lento (7 al minuto).",
+  q:"Che cosa fai?",o:["Lo lasci dormire perché è stanco","Stimoli, sostieni la respirazione, ossigeno, sospendi l'oppioide, chiami il medico e prepari il naloxone prescritto","Gli dai un sedativo","Aumenti la velocità della pompa per il dolore"],c:1,
+  e:"Acidosi respiratoria acuta: pCO2 alta con bicarbonati ancora normali (il rene non ha avuto il tempo di compensare) e ipossiemia da ipoventilazione."},
+ {id:"panico",n:"Iperventilazione da ansia",sex:"F",age:[19,38],rep:"Pronto soccorso",fio2:.21,pco2:[24,30],hco3:[22,24],po2:[98,112],dis:"rb",
+  st:"Ragazza arrivata dopo una lite, respira velocemente, riferisce formicolii alle mani e intorno alla bocca. Parametri vitali per il resto normali.",
+  q:"Che cosa fai, dopo aver escluso cause organiche con il medico?",o:["Ossigeno ad alto flusso","Rassicurazione, ambiente tranquillo, guida a respirare più lentamente; niente respirazione in un sacchetto","Bicarbonato endovena","Ventilazione non invasiva"],c:1,
+  e:"Alcalosi respiratoria acuta: pCO2 bassa da iperventilazione, bicarbonati normali. L'ipocapnia riduce il calcio ionizzato e dà formicolii. Prima di pensare all'ansia si escludono embolia, asma, sepsi, chetoacidosi."},
+ {id:"ep",n:"Embolia polmonare",sex:"F",age:[45,80],rep:"Medicina",fio2:.21,pco2:[27,32],hco3:[22,24],po2:[50,60],x:{lac:[1.6,2.4]},dis:"rb",
+  st:"Donna operata di protesi d'anca 6 giorni fa, dispnea improvvisa e dolore toracico che aumenta con il respiro; FC 118, SpO2 88% in aria.",
+  q:"Che cosa fai per primo?",o:["Fai camminare la paziente per valutare la dispnea","Ossigeno, monitoraggio, accesso venoso e avvisi subito il medico (sospetta embolia polmonare)","Massaggi il polpaccio dolente","Somministri un diuretico"],c:1,
+  e:"Ipossiemia con pCO2 bassa (iperventilazione) e alcalosi respiratoria: quadro tipico dell'embolia polmonare."},
+ {id:"dka",n:"Chetoacidosi diabetica",sex:"M",age:[17,32],rep:"Pronto soccorso",fio2:.21,pco2:[17,24],hco3:[5,10],po2:[100,115],gap:[24,32],x:{glu:[420,620],k:[5.3,6.1],na:[129,134]},dis:"ma",
+  st:"Ragazzo con diabete tipo 1, influenza da tre giorni, ha sospeso l'insulina. Vomito, dolore addominale, respiro profondo e frequente, alito fruttato.",
+  q:"Durante l'infusione di insulina che cosa controlli con attenzione?",o:["Solo la temperatura","Glicemia, chetoni e potassio ravvicinati: con l'insulina il potassio scende rapidamente","Nulla, basta l'insulina","Solo il peso"],c:1,
+  e:"Acidosi metabolica grave a gap anionico aumentato (chetoni) con compenso respiratorio (respiro di Kussmaul, pCO2 bassa). Per la formula di Winter la pCO2 attesa è 1,5 × HCO3 + 8 ± 2."},
+ {id:"sepsi",n:"Shock settico con acidosi lattica",sex:"F",age:[62,88],rep:"Medicina d'urgenza",fio2:.4,pco2:[28,33],hco3:[13,16],po2:[78,95],gap:[19,26],x:{lac:[4.5,8.5]},dis:"ma",
+  st:"Donna con febbre a 39,6 °C e brividi, PA 82/45, FC 124, confusa. Ha un catetere vescicale da 10 giorni.",
+  q:"Quale sequenza è corretta?",o:["Emocolture, antibiotico entro 1 ora, liquidi prescritti, lattati di controllo, diuresi oraria","Paracetamolo e rivalutazione al turno successivo","Solo ossigeno al 100%","Bicarbonato in bolo come prima cosa"],c:0,
+  e:"Acidosi metabolica a gap aumentato da lattati alti (ipoperfusione), con compenso respiratorio parziale. Lattati > 4 mmol/l indicano una sepsi grave: si ripetono per valutare la risposta."},
+ {id:"diarrea",n:"Acidosi metabolica da diarrea (gap normale)",sex:"M",age:[70,90],rep:"Geriatria",fio2:.21,pco2:[30,34],hco3:[14,17],po2:[82,96],gap:[8,12],x:{k:[2.9,3.3]},dis:"ma",
+  st:"Anziano con diarrea abbondante da 4 giorni, disidratato, astenico.",
+  q:"Che cosa ti aspetti tra gli interventi?",o:["Restrizione dei liquidi","Reidratazione e integrazione di potassio prescritte, bilancio idrico, precauzioni da contatto se infettiva","Diuretico","Ventilazione non invasiva"],c:1,
+  e:"Acidosi metabolica con gap anionico normale (ipercloremica): si perdono bicarbonati con le feci. Il potassio è basso per la stessa perdita."},
+ {id:"irc",n:"Acidosi metabolica da insufficienza renale acuta",sex:"M",age:[60,85],rep:"Nefrologia",fio2:.21,pco2:[28,33],hco3:[13,17],po2:[80,95],gap:[18,24],x:{k:[6.1,6.9]},dis:"ma",
+  st:"Uomo con diuresi quasi azzerata da 24 ore dopo un'esame con mezzo di contrasto; nausea e debolezza.",
+  q:"Quale valore richiede un'azione immediata?",o:["Il sodio","Il potassio: monitoraggio ECG continuo e terapia prescritta subito","La glicemia","Il cloro"],c:1,
+  e:"Acidosi metabolica a gap aumentato (il rene non elimina gli acidi) con iperpotassiemia, pericolosa per il cuore."},
+ {id:"vomito",n:"Alcalosi metabolica da vomito",sex:"F",age:[30,75],rep:"Chirurgia",fio2:.21,pco2:[45,50],hco3:[32,38],po2:[80,95],gap:[8,12],x:{k:[2.7,3.2]},dis:"mb",
+  st:"Donna con occlusione intestinale, vomita da due giorni; ora ha un sondino nasogastrico in aspirazione con molto ristagno.",
+  q:"Che cosa controlli in particolare?",o:["Bilancio idrico con il ristagno del sondino, potassio, ECG, reintegro prescritto","Solo la pressione","Solo il dolore","Niente, l'alcalosi non dà problemi"],c:0,
+  e:"Alcalosi metabolica: si perde acido cloridrico con il vomito o l'aspirazione gastrica; bicarbonati alti, cloro e potassio bassi. La pCO2 sale un po' per compenso (ipoventilazione)."},
+ {id:"diuretici",n:"Alcalosi metabolica da diuretici",sex:"M",age:[70,90],rep:"Cardiologia",fio2:.21,pco2:[46,49],hco3:[34,37],po2:[72,88],gap:[8,12],x:{k:[2.9,3.3],na:[131,135]},dis:"mb",
+  st:"Uomo con scompenso, in furosemide ad alte dosi da una settimana; crampi alle gambe.",
+  q:"Quale consiglio o intervento è corretto?",o:["Aumentare ancora il diuretico","Segnalare al medico potassio e alcalosi; integrazione prescritta e controlli elettrolitici","Dieta senza potassio","Bicarbonato per bocca"],c:1,
+  e:"Alcalosi metabolica da diuretici dell'ansa (perdita di cloro e potassio, contrazione del volume) con lieve compenso respiratorio."},
+ {id:"ards",n:"Insufficienza respiratoria grave (ARDS da polmonite)",sex:"M",age:[45,75],rep:"Terapia intensiva",fio2:.8,pco2:[38,42],hco3:[24,25],po2:[62,78],x:{lac:[1.8,2.6]},dis:"no",
+  st:"Uomo con polmonite bilaterale, in maschera con reservoir: FR 34, SpO2 88% nonostante l'ossigeno ad alto flusso.",
+  q:"Che cosa ti dice il rapporto P/F?",o:["Che l'ossigenazione è normale perché la pO2 è sopra 60","Che lo scambio di gas è gravemente compromesso: con FiO2 0,8 una pO2 di questo livello indica un P/F sotto 100","Che serve ridurre l'ossigeno","Che il problema è solo metabolico"],c:1,
+  e:"Acido-base nella norma, ma il P/F è sotto 100: ipossiemia grave. La pO2 va sempre letta insieme alla FiO2."},
+ {id:"asma",n:"Asma grave in esaurimento",sex:"F",age:[18,40],rep:"Pronto soccorso",fio2:.4,pco2:[49,55],hco3:[24,25],po2:[56,66],dis:"ra",
+  st:"Ragazza con asma, crisi da 6 ore nonostante il salbutamolo. Parla a monosillabi, torace quasi silente, sudata e stanca.",
+  q:"Perché questa pCO2 preoccupa?",o:["Non preoccupa: è quasi normale","Nell'asma grave la pCO2 dovrebbe essere bassa per l'iperventilazione: se è normale o alta la paziente si sta esaurendo e rischia l'arresto respiratorio","Indica un'alcalosi","Dipende solo dal campione"],c:1,
+  e:"Acidosi respiratoria acuta con ipossiemia: segno di esaurimento muscolare. Si allerta subito il medico e il team dell'emergenza."},
+ {id:"co",n:"Intossicazione da monossido di carbonio",sex:"F",age:[30,70],rep:"Pronto soccorso",fio2:.21,pco2:[32,36],hco3:[16,19],po2:[88,100],gap:[16,21],x:{lac:[3,5.2],cohb:[22,34]},dis:"ma",
+  st:"Donna trovata con cefalea, nausea e confusione in casa, con una stufa accesa in una stanza chiusa. Il saturimetro segna 98%.",
+  q:"Che cosa fai?",o:["Ti fidi della SpO2 al 98% e non dai ossigeno","Ossigeno al 100% con maschera con reservoir il prima possibile: il saturimetro comune non distingue la carbossiemoglobina","Le fai fare una passeggiata all'aria","Le dai un sedativo per la cefalea"],c:1,
+  e:"pO2 normale ma FCOHb molto alta: l'emoglobina legata al CO non trasporta ossigeno e il saturimetro comune la legge come ossiemoglobina. Acidosi lattica per ipossia dei tessuti."},
+ {id:"rosc",n:"Acidosi mista dopo arresto cardiaco",sex:"M",age:[50,80],rep:"Terapia intensiva",fio2:1,pco2:[56,68],hco3:[14,18],po2:[110,190],gap:[20,28],x:{lac:[8,13],k:[4.8,5.6]},dis:"mx",
+  st:"Uomo rianimato dopo un arresto cardiaco in reparto, ora intubato e ventilato con ossigeno al 100%; ripresa del circolo da 10 minuti.",
+  q:"Che cosa prevedi per la ventilazione e l'ossigeno?",o:["Lasciare FiO2 al 100% per sempre","Su prescrizione, correggere la ventilazione per normalizzare la pCO2 e ridurre la FiO2 per SpO2 94-98%, evitando sia l'ipossia sia l'iperossia","Ridurre la frequenza respiratoria","Somministrare un diuretico"],c:1,
+  e:"Acidosi mista: respiratoria (pCO2 alta) e metabolica (bicarbonati bassi, lattati molto alti). Dopo la ripresa del circolo si evitano ipossia e iperossia."},
+ {id:"normale",n:"Emogas nella norma",sex:"F",age:[30,60],rep:"Preospedalizzazione",fio2:.21,pco2:[38,42],hco3:[24,25],po2:[88,100],dis:"no",
+  st:"Donna sana, prelievo arterioso eseguito per uno studio prima di un intervento programmato.",
+  q:"Dopo il prelievo arterioso, che cosa fai?",o:["Comprimi il sito per almeno 5 minuti (di più se in anticoagulanti) e controlli polso e sanguinamento","Massaggi il sito","Applichi subito un laccio","Non serve compressione"],c:0,
+  e:"Tutti i valori sono nella norma. Ricorda: siringa eparinata, nessuna bolla d'aria, analisi entro pochi minuti."},
+ {id:"iperventil",n:"Iperventilazione eccessiva in ventilazione meccanica",sex:"M",age:[40,75],rep:"Terapia intensiva",fio2:.35,pco2:[25,30],hco3:[22,24],po2:[95,120],dis:"rb",
+  st:"Uomo intubato dopo un trauma, ventilato con frequenza elevata. Non ha segni di sofferenza.",
+  q:"Che cosa segnali al medico?",o:["Nulla: una pCO2 bassa è sempre un buon segno","L'ipocapnia: riduce il flusso di sangue al cervello e va corretta con le impostazioni del ventilatore","Che serve più ossigeno","Che serve il bicarbonato"],c:1,
+  e:"Alcalosi respiratoria da ventilazione eccessiva: pCO2 bassa, bicarbonati normali."}
+];
+const EGA_DIS={ra:"Acidosi respiratoria",ma:"Acidosi metabolica",rb:"Alcalosi respiratoria",mb:"Alcalosi metabolica",mx:"Disturbo misto",no:"Nessun disturbo acido-base"};
+const EGA_COMP=["Non compensato","Parzialmente compensato","Compensato (pH nella norma)","Non applicabile (valori normali o disturbo misto)"];
+const EGA_PF=["Adeguata (P/F ≥ 300)","Compromissione lieve (P/F 200-300)","Compromissione moderata (P/F 100-200)","Compromissione grave (P/F < 100)"];
+const EGA_PH=["Acidemia (pH < 7,35)","Nella norma (7,35-7,45)","Alcalemia (pH > 7,45)"];
+function egaClass(v){const ph=v.ph,c=v.pco2,h=v.hco3;const phc=ph<7.35?0:ph>7.45?2:1;let dis,comp;
+  const cH=c>45,cL=c<35,hH=h>26,hL=h<22;
+  if(phc===0){if(cH&&hL){dis="mx";comp=3}else if(cH){dis="ra";comp=hH?1:0}else{dis="ma";comp=cL?1:0}}
+  else if(phc===2){if(cL&&hH){dis="mx";comp=3}else if(cL){dis="rb";comp=hL?1:0}else{dis="mb";comp=cH?1:0}}
+  else{if(cH&&hH){dis=ph<7.4?"ra":"mb";comp=2}else if(cL&&hL){dis=ph<7.4?"ma":"rb";comp=2}else if((cH&&hL)||(cL&&hH)){dis="mx";comp=3}else{dis="no";comp=3}}
+  const pf=v.po2/v.fio2,pfc=pf>=300?0:pf>=200?1:pf>=100?2:3;return {phc,dis,comp,pf,pfc}}
+let EG={mode:"guidato",n:0,ok:0,cur:null,step:0,ans:[],noflag:false,last:null,seq:2200+Math.floor(Math.random()*500)};
+const egR=(a)=>a[0]+Math.random()*(a[1]-a[0]);
+function egaNew(){const pool=EGA_SC.filter(s=>s.id!==EG.last),sc=gpick(pool);EG.last=sc.id;const x=sc.x||{};
+  const v={fio2:sc.fio2,pco2:egR(sc.pco2),hco3:egR(sc.hco3),po2:egR(sc.po2)};v.ph=6.1+Math.log10(v.hco3/(.0307*v.pco2));
+  v.hb=x.hb?egR(x.hb):egR(sc.sex==="F"?[12.2,14.6]:[13.4,16.2]);v.cohb=x.cohb?egR(x.cohb):egR([.4,1.6]);v.methb=egR([.3,.9]);
+  const s=100/(23400/(Math.pow(v.po2,3)+150*v.po2)+1);v.so2=Math.min(99.6,s);v.o2hb=v.so2*(100-v.cohb-v.methb)/100;
+  v.na=x.na?egR(x.na):egR([136,143]);v.k=x.k?egR(x.k):egR([3.6,4.8]);v.ca=egR([1.15,1.29]);v.glu=x.glu?egR(x.glu):egR([84,128]);v.lac=x.lac?egR(x.lac):egR([.6,1.6]);
+  const gap=sc.gap?egR(sc.gap):egR([8,12]);v.cl=v.na-v.hco3-gap;v.gap=gap;
+  v.be=.93*(v.hco3-24.4+14.8*(v.ph-7.4));v.pao2=v.fio2*713-v.pco2/.8;v.aa=Math.max(2,v.pao2-v.po2);v.cto2=1.34*v.hb*v.o2hb/100+.0031*v.po2;
+  const now=new Date();EG.seq++;
+  EG.cur={sc,v,cls:egaClass(v),age:Math.round(egR(sc.age)),id:"ESE-"+Math.floor(1000+Math.random()*9000),seq:EG.seq,t:now,opts:shuffle([sc.n,...shuffle(EGA_SC.filter(s=>s.id!==sc.id)).slice(0,3).map(s=>s.n)]),ao:shuffle([0,1,2,3].filter(i=>i<sc.o.length))};
+  EG.step=EG.mode==="rapido"?4:0;EG.ans=[];EG.anim=true}
+const egF=(n,d)=>n.toFixed(d).replace(".",",");
+function egaPaper(){const C=EG.cur,v=C.v,sc=C.sc,nf=EG.noflag;const d=C.t,dd=String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+d.getFullYear(),hh=String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");
+  const fl=(x,lo,hi)=>nf?" ":x<lo?"↓":x>hi?"↑":" ";
+  const R=(name,val,unit,f,rng)=>`<div class="ep-r"><span class="ep-n">${name}</span><span class="ep-v">${val}</span><span class="ep-f">${f||" "}</span><span class="ep-u">${unit}</span><span class="ep-g">${rng||""}</span></div>`;
+  const H=t=>`<div class="ep-h">${t}</div>`;
+  const pf=v.po2/v.fio2;
+  return `<div class="ep-wrap"><div class="ep-slot" aria-hidden="true"><i></i></div><div class="ep-paper${EG.anim&&!RM?" ep-anim":""}" role="img" aria-label="Referto stampato dall'emogasanalizzatore">
+  <div class="ep-c">EMOGASANALIZZATORE  GX-7</div><div class="ep-c ep-s">${esc(sc.rep)}</div>
+  <div class="ep-dash"></div>
+  <div class="ep-kv"><span>Rapporto paziente</span><span>Siringa · 65 µl</span></div>
+  <div class="ep-kv"><span>${dd}</span><span>${hh}</span></div>
+  <div class="ep-kv"><span>N. campione</span><span>${C.seq}</span></div>
+  <div class="ep-kv"><span>ID paziente</span><span>${C.id}</span></div>
+  <div class="ep-kv"><span>Sesso / età</span><span>${sc.sex} / ${C.age} a</span></div>
+  <div class="ep-kv"><span>Tipo di campione</span><span>Arterioso</span></div>
+  <div class="ep-kv"><span>T paziente</span><span>37,0 °C</span></div>
+  <div class="ep-kv"><span>FiO2</span><span>${egF(v.fio2*100,1)} %</span></div>
+  <div class="ep-dash"></div>
+  ${H("Valori misurati (37,0 °C)")}
+  ${R("pH",egF(v.ph,3),"",fl(v.ph,7.35,7.45),"[7,350-7,450]")}
+  ${R("pCO2",egF(v.pco2,1),"mmHg",fl(v.pco2,35,45),"[35,0-45,0]")}
+  ${R("pO2",egF(v.po2,0),"mmHg",fl(v.po2,80,100),"[80-100]")}
+  ${H("Ossimetria")}
+  ${R("ctHb",egF(v.hb,1),"g/dL",fl(v.hb,sc.sex==="F"?12:13,sc.sex==="F"?16:17),sc.sex==="F"?"[12,0-16,0]":"[13,0-17,0]")}
+  ${R("sO2",egF(v.so2,1),"%",fl(v.so2,95,99),"[95,0-99,0]")}
+  ${R("FO2Hb",egF(v.o2hb,1),"%",fl(v.o2hb,94,98),"[94,0-98,0]")}
+  ${R("FCOHb",egF(v.cohb,1),"%",fl(v.cohb,0,2),"[0,0-2,0]")}
+  ${R("FMetHb",egF(v.methb,1),"%",fl(v.methb,0,1.5),"[0,0-1,5]")}
+  ${H("Elettroliti")}
+  ${R("cK+",egF(v.k,1),"mmol/L",fl(v.k,3.5,5),"[3,5-5,0]")}
+  ${R("cNa+",egF(v.na,0),"mmol/L",fl(v.na,135,145),"[135-145]")}
+  ${R("cCa2+",egF(v.ca,2),"mmol/L",fl(v.ca,1.15,1.3),"[1,15-1,30]")}
+  ${R("cCl-",egF(v.cl,0),"mmol/L",fl(v.cl,98,107),"[98-107]")}
+  ${H("Metaboliti")}
+  ${R("cGlu",egF(v.glu,0),"mg/dL",fl(v.glu,70,110),"[70-110]")}
+  ${R("cLac",egF(v.lac,1),"mmol/L",fl(v.lac,.5,2),"[0,5-2,0]")}
+  ${H("Valori calcolati")}
+  ${R("cHCO3-(P)",egF(v.hco3,1),"mmol/L",fl(v.hco3,22,26),"[22,0-26,0]")}
+  ${R("cBase(Ecf)",(v.be>=0?"+":"")+egF(v.be,1),"mmol/L",fl(v.be,-2,2),"[-2,0-+2,0]")}
+  ${R("AnionGap",egF(v.gap,1),"mmol/L",fl(v.gap,8,12),"[8,0-12,0]")}
+  ${R("ctO2",egF(v.cto2*1,1),"mL/dL","","")}
+  ${R("pO2(A-a)",egF(v.aa,0),"mmHg","","")}
+  ${R("pO2/FiO2",egF(pf,0),"mmHg","","")}
+  <div class="ep-dash"></div>
+  <div class="ep-kv"><span>Operatore</span><span>________</span></div>
+  <div class="ep-kv"><span>Firma</span><span>________</span></div>
+  <div class="ep-bar" aria-hidden="true"></div>
+  <div class="ep-c ep-s">esercitazione · valori simulati</div>
+  </div></div>`}
+function egaGym(){
+  if(!EG.cur)egaNew();const C=EG.cur,v=C.v,K=C.cls,sc=C.sc,RAP=EG.mode==="rapido";
+  const dk=["ra","ma","rb","mb","mx","no"];
+  const steps=[
+   ["pH","Il pH è basso, normale o alto?",EGA_PH,K.phc],
+   ["Disturbo primario","Guarda pCO2 (componente respiratoria) e HCO3- (componente metabolica): quale va nella stessa direzione del pH?",dk.map(k=>EGA_DIS[k]),dk.indexOf(K.dis)],
+   ["Compenso","L'altra componente si muove per correggere il pH?",EGA_COMP,K.comp],
+   ["Ossigenazione","Calcola pO2 / FiO2 (FiO2 in frazione: 21% = 0,21).",EGA_PF,K.pfc],
+   ["Che cosa sta succedendo?","Metti insieme referto, storia e valori di contorno (lattati, potassio, gap anionico, carbossiemoglobina).",C.opts,C.opts.indexOf(sc.n)],
+   ["Che cosa fai?",sc.q,C.ao.map(i=>sc.o[i]),C.ao.indexOf(sc.c)]];
+  const S0=RAP?4:0,done=EG.step>5;
+  const read=done?egaRead(C):"";
+  app.innerHTML=`<div><span class="eyebrow">Emogasanalisi arteriosa</span><h2>Palestra EGA: leggi il referto</h2></div>
+  <p class="lead">Il referto esce dall'analizzatore come in reparto. Leggilo con metodo: pH, disturbo primario, compenso, ossigenazione, poi il quadro clinico e che cosa fare. ${EGA_SC.length} quadri con valori sempre diversi.</p>
+  <div class="row"><button class="chip" data-em="guidato" aria-pressed="${!RAP}">Lettura guidata (6 passaggi)</button><button class="chip" data-em="rapido" aria-pressed="${RAP}">Riconoscimento rapido</button><label class="small lab-hide"><input type="checkbox" id="eg-nf" ${EG.noflag?"checked":""}> Senza frecce ↑↓</label><span class="small" style="margin-left:auto">Sessione: <b>${EG.ok}</b> corrette su <b>${EG.n}</b></span></div>
+  <div class="ega-lay">
+   <div class="ega-left">${egaPaper()}</div>
+   <div class="sheet gym ega-right" style="display:flex;flex-direction:column;gap:12px">
+    <div class="gym-case"><span class="eyebrow">${sc.sex==="F"?"Donna":"Uomo"}, ${C.age} anni · ${esc(sc.rep)}</span><p>${esc(sc.st)}</p></div>
+    ${steps.map((st,i)=>{if(i<S0||i>EG.step)return "";const a=EG.ans[i];return `<div class="gym-step"><span class="eyebrow">${i+1-S0}. ${st[0]}</span><p class="small">${esc(st[1])}</p><div class="opts">${st[2].map((o,j)=>`<button class="opt${a!=null?(j===st[3]?" right":j===a?" wrong":""):""}" data-eq="${i}" data-eo="${j}" ${a!=null?"disabled":""}>${esc(o)}</button>`).join("")}</div></div>`}).join("")}
+    ${done?`<div class="expl">${read}<br><br><b>${esc(sc.n)}.</b> ${esc(sc.e)}${EG.ans[5]===steps[5][3]?"":`<br><b>Che cosa fa l'infermiere:</b> ${esc(sc.o[sc.c])}`}</div>
+    <div class="row"><button class="btn primary" id="eg-next">Nuovo emogas</button><a class="btn" href="#voce-emogasanalisi" style="text-decoration:none">Ripassa l'emogasanalisi</a><a class="btn" href="#voce-es-acido-base" style="text-decoration:none">Gap anionico</a></div>`:""}
+   </div></div>`;
+  EG.anim=false;
+  app.querySelectorAll("[data-em]").forEach(b=>b.onclick=()=>{EG.mode=b.dataset.em;egaNew();egaGym()});
+  $("#eg-nf").onchange=e=>{EG.noflag=e.target.checked;egaGym()};
+  app.querySelectorAll("[data-eq]").forEach(b=>b.onclick=()=>{const i=+b.dataset.eq,j=+b.dataset.eo;EG.ans[i]=j;EG.step=i+1;
+    if(i===5){const ks=RAP?[4,5]:[0,1,2,3,4,5],good=ks.filter(k=>EG.ans[k]===steps[k][3]).length;EG.n++;if(good===ks.length)EG.ok++;try{logEv("mcq","eo",0,good/ks.length,"ega-"+sc.id,{gym:1})}catch(e){}}
+    egaGym();const p=app.querySelector(".ega-right .gym-step:last-of-type, .ega-right .expl");if(p)p.scrollIntoView({block:"nearest"})});
+  if($("#eg-next"))$("#eg-next").onclick=()=>{egaNew();egaGym();window.scrollTo({top:0,behavior:"auto"})};
+}
+function egaRead(C){const v=C.v,K=C.cls,f=egF;const L=[];
+  L.push(`<b>pH ${f(v.ph,2)}</b>: ${["acidemia","nella norma","alcalemia"][K.phc]}.`);
+  L.push(`<b>pCO2 ${f(v.pco2,0)} mmHg</b> (${v.pco2>45?"alta":v.pco2<35?"bassa":"normale"}) e <b>HCO3- ${f(v.hco3,0)} mmol/l</b> (${v.hco3>26?"alti":v.hco3<22?"bassi":"normali"}): ${EGA_DIS[K.dis].toLowerCase()}${K.dis!=="no"&&K.dis!=="mx"?", "+EGA_COMP[K.comp].toLowerCase().replace(" (ph nella norma)",""):""}.`);
+  if(K.dis==="ma"){const ex=1.5*v.hco3+8;L.push(`Formula di Winter: pCO2 attesa ${f(ex-2,0)}-${f(ex+2,0)} mmHg (misurata ${f(v.pco2,0)}). Gap anionico ${f(v.gap,0)}: ${v.gap>12?"aumentato (acidi non misurati: chetoni, lattati, uremia, tossici)":"normale (perdita di bicarbonati, es. diarrea)"}.`)}
+  L.push(`<b>P/F ${f(K.pf,0)}</b> (pO2 ${f(v.po2,0)} / FiO2 ${f(v.fio2,2)}): ossigenazione ${["adeguata","lievemente compromessa","moderatamente compromessa","gravemente compromessa"][K.pfc]}.`);
+  const ex=[];if(v.lac>2)ex.push(`lattati ${f(v.lac,1)} mmol/l`);if(v.k>5)ex.push(`potassio alto (${f(v.k,1)})`);if(v.k<3.5)ex.push(`potassio basso (${f(v.k,1)})`);if(v.cohb>3)ex.push(`carbossiemoglobina ${f(v.cohb,0)}%`);if(v.glu>200)ex.push(`glicemia ${f(v.glu,0)} mg/dl`);
+  if(ex.length)L.push("Da notare: "+ex.join(", ")+".");
+  return L.join("<br>")}
+
 function labBind(){
   app.querySelectorAll("[data-lm]").forEach(b=>b.onclick=()=>{LG.mode=b.dataset.lm;LG.cur=null;labGym()});
   if($("#lg-hide"))$("#lg-hide").onchange=e=>{LG.hide=e.target.checked;labGym()};
@@ -3446,6 +3652,7 @@ function ecgGymBind(){const svg=document.getElementById("gym-svg");if(!svg)retur
 function enciclopedia(v){
   if(v==="ecg-esercizi"){ecgGym();return}
   if(v==="esami-esercizi"){labGym();return}
+  if(v==="ega-esercizi"){egaGym();return}
   const focus=(v&&v.startsWith("voce-"))?v.slice(5):state.encOpen;state.encOpen=null;
   const fe=focus&&ENC_BY[focus];
   let area=fe?fe.a:(state.encArea||"tutte");if(fe){state.encArea=area;state.dirTipo="";state.esTipo=""}
@@ -3459,6 +3666,7 @@ function enciclopedia(v){
     const grp=Object.keys(ET).filter(k=>!esT||k===esT).map(k=>[k,all.filter(x=>x.k===k)]).filter(g=>g[1].length);
     return `<section class="sheet dir-ix es-ix"><div class="dir-ix-h"><div><span class="eyebrow">Esami ematici e di laboratorio</span><h3 style="margin:2px 0 0">Indice degli esami</h3></div><span class="small">${all.length} schede · valori indicativi: fanno fede gli intervalli del tuo laboratorio · <span class="es-info">informativo</span> = esami specialistici, non usati negli esercizi</span></div>
     <a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami: lettura dei referti</b><span class="small">Referti con valori sempre nuovi: trova i valori alterati, riconosci il quadro e scegli che cosa fare (${typeof LAB_SC!=="undefined"?LAB_SC.length:0} quadri) →</span></a>
+    <a class="sheet gym-cta" href="#ega-esercizi"><b>Palestra EGA: leggi il referto dell'emogasanalizzatore</b><span class="small">Il referto stampato come in reparto: pH, disturbo primario, compenso, P/F, quadro clinico e intervento →</span></a>
     <div class="row dir-chips"><button class="chip" data-et="" aria-pressed="${!esT}">Tutti</button>${Object.entries(ET).map(([k,n])=>`<button class="chip" data-et="${k}" aria-pressed="${esT===k}">${n} <em>${all.filter(x=>x.k===k).length}</em></button>`).join("")}</div>
     ${grp.map(([k,L])=>`<div class="dir-grp"><h4>${esc(ET[k])}</h4><div class="dir-cards">${L.map(x=>`<a class="dir-card${x.ext?" ext":""}${x.x?" info":""}" href="#voce-${x.id}"><b>${esc(x.s||"")}</b><span>${esc(x.t)}</span>${x.ext?`<i>in ${esc((EAREE[ENC_BY[x.id].a]||{}).n||"")}</i>`:x.x?`<i>a titolo informativo</i>`:""}</a>`).join("")}</div></div>`).join("")}</section>`};
   const dirIdx=()=>{const all=ENCY.filter(e=>e.a==="diritto").map(e=>({id:e.id,k:e.k,s:e.s,t:e.t})).concat(Object.entries(DX).filter(([id])=>ENC_BY[id]).map(([id,x])=>({id,k:x[0],s:x[1],t:ENC_BY[id].t,ext:1})));
@@ -3694,7 +3902,7 @@ const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
 function route(){
   const v=(location.hash||"#oggi").slice(1);
-  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"||v==="esami-esercizi"?"enciclopedia":"oggi");
+  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"||v==="esami-esercizi"||v==="ega-esercizi"?"enciclopedia":"oggi");
   const changed=document.documentElement.dataset.view!==name;
   document.documentElement.dataset.view=name;
   document.querySelectorAll("nav.tabs a").forEach(a=>{const on=a.getAttribute("href")==="#"+name;a.setAttribute("aria-current",on?"page":"false");if(on&&changed)a.scrollIntoView({block:"nearest",inline:"center"})});
@@ -4301,7 +4509,7 @@ function quiz(){
   <div><span class="eyebrow">Autoverifica</span><h2>Allenamento</h2></div>
   <p class="lead">${QALL.length} domande a scelta multipla${DBQ.length?` (${DBQ.length} arrivate con gli aggiornamenti giornalieri)`:""}, ${PDFQ.length} domande aperte e ${CASES.length} casi clinici. La sessione mista li alterna come in un esame vero; le risposte scritte sono valutate in trentesimi con la griglia dei punti attesi.</p>
   <div class="row">${chips(f,["all",...SKEYS],"f")}</div>
-  <div class="gym-ctas"><a class="sheet gym-cta" href="#ecg-esercizi"><b>Palestra ECG</b><span class="small">Esercizi di lettura dell'elettrocardiogramma, a parte rispetto ai quiz →</span></a><a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami</b><span class="small">Lettura di referti di laboratorio: valori alterati, quadro clinico, interventi →</span></a></div>
+  <div class="gym-ctas"><a class="sheet gym-cta" href="#ecg-esercizi"><b>Palestra ECG</b><span class="small">Esercizi di lettura dell'elettrocardiogramma, a parte rispetto ai quiz →</span></a><a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami</b><span class="small">Lettura di referti di laboratorio: valori alterati, quadro clinico, interventi →</span></a><a class="sheet gym-cta" href="#ega-esercizi"><b>Palestra EGA</b><span class="small">Il referto dell'emogasanalizzatore da leggere passo per passo →</span></a></div>
   <div class="row">
     <label class="small" for="qmode">Tipo di sessione</label><select id="qmode" class="btn">
       <option value="misto" ${mode==="misto"?"selected":""}>Mista: quiz + domande aperte + casi</option>
