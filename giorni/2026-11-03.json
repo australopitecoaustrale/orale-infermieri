@@ -1,0 +1,1319 @@
+{
+ "date": "2026-11-03",
+ "topic": "Infezioni e territorio, cardiologia, chirurgia e terapia intensiva; maxiemergenza al crollo di una tribuna + novità (resistenze OMS 2025, ipertensione ACC/AHA 2025, ictus AHA/ASA 2026, TBC, IDF 2025, GLP-1 OMS, donanemab)",
+ "created": "2026-11-03T05:50:00+01:00",
+ "items": [
+  {
+   "e": "Il problema non è ancora presente: non ci sono segni e sintomi da descrivere, ma solo i fattori che aumentano la vulnerabilità.",
+   "m": "dx",
+   "o": [
+    "Etichetta diagnostica e fattori di rischio, senza caratteristiche definenti",
+    "Diagnosi medica e complicanza attesa",
+    "Etichetta, fattori correlati e caratteristiche definenti",
+    "Solo le caratteristiche definenti osservate"
+   ],
+   "q": "Secondo NANDA-I, una diagnosi infermieristica «di rischio» si formula con…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Si esprime di solito con «Disponibilità a migliorare…» e può riguardare anche persone sane o famiglie.",
+   "m": "dx",
+   "o": [
+    "Un problema già presente che richiede interventi urgenti",
+    "Una complicanza da sorvegliare insieme al medico",
+    "La motivazione e il desiderio della persona di migliorare il proprio benessere",
+    "Un insieme di diagnosi che compaiono sempre insieme"
+   ],
+   "q": "Una diagnosi NANDA-I «di promozione della salute» descrive…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Aiutano a interpretare il quadro ma non sono il bersaglio degli interventi infermieristici autonomi, a differenza dei fattori correlati.",
+   "m": "dx",
+   "o": [
+    "I segni oggettivi rilevati all'esame obiettivo",
+    "Gli obiettivi di risultato NOC",
+    "Diagnosi mediche, procedure, dispositivi o farmaci che l'infermiere non può modificare in autonomia",
+    "I fattori correlati su cui l'infermiere interviene direttamente"
+   ],
+   "q": "Nella terminologia NANDA-I le «condizioni associate» sono…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "I domini (per esempio promozione della salute, nutrizione, eliminazione e scambi, attività/riposo…) sono 13; gli 11 modelli sono di Gordon e i 14 bisogni di Henderson.",
+   "m": "dx",
+   "o": [
+    "14 bisogni fondamentali",
+    "13 domini suddivisi in classi",
+    "4 concetti del metaparadigma",
+    "11 modelli funzionali di salute"
+   ],
+   "q": "La Tassonomia II di NANDA-I organizza le diagnosi in…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Il segno di Murphy si cerca facendo inspirare il paziente mentre si palpa sotto l'arcata costale destra.",
+   "m": "eo",
+   "o": [
+    "Blumberg, suggestivo di peritonite",
+    "Giordano, suggestivo di pielonefrite",
+    "Murphy, suggestivo di colecistite acuta",
+    "Rovsing, suggestivo di appendicite"
+   ],
+   "q": "Durante la palpazione profonda dell'ipocondrio destro il paziente interrompe bruscamente l'inspirazione per il dolore. È il segno di…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Il tessuto consolidato trasmette meglio le vibrazioni; aria o liquido nella pleura le attenuano.",
+   "m": "eo",
+   "o": [
+    "Versamento pleurico abbondante",
+    "Enfisema polmonare",
+    "Pneumotorace",
+    "Addensamento parenchimale, come nella polmonite"
+   ],
+   "q": "All'esame del torace il fremito vocale tattile è aumentato su una zona del polmone destro. Il reperto è tipico di…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "È l'ottusità mobile: il liquido libero si sposta per gravità, mentre l'aria intestinale sale verso l'alto.",
+   "m": "eo",
+   "o": [
+    "Meteorismo",
+    "Globo vescicale",
+    "Epatomegalia",
+    "Ascite"
+   ],
+   "q": "Alla percussione dell'addome l'ottusità si sposta nelle zone declivi quando il paziente cambia posizione. Il reperto suggerisce…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Si percuote con il margine ulnare della mano la regione lombare; il dolore evoca un interessamento renale.",
+   "m": "eo",
+   "o": [
+    "Pancreatite",
+    "Colecistite",
+    "Ernia inguinale",
+    "Pielonefrite o colica renale"
+   ],
+   "q": "La manovra di Giordano positiva (dolore alla percussione della loggia renale) orienta verso…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "La legge ha istituito anche l'obbligo di iscrizione all'albo e i requisiti per la funzione di coordinamento.",
+   "m": "leg",
+   "o": [
+    "Infermieri generici, specializzati e caposala",
+    "Categorie A, B, C e D",
+    "Collaboratori, assistenti, ausiliari e dirigenti",
+    "Professionisti, coordinatori, specialisti e dirigenti"
+   ],
+   "q": "La L. 43/2006 articola i professionisti sanitari in…",
+   "r": 3,
+   "sec": 21
+  },
+  {
+   "e": "Ha riconosciuto l'autonomia professionale e previsto il dirigente infermieristico; il mansionario era stato abolito dalla L. 42/1999.",
+   "m": "leg",
+   "o": [
+    "L'istituzione della dirigenza delle professioni sanitarie, compresa quella infermieristica",
+    "L'istituzione degli Ordini delle professioni infermieristiche",
+    "La responsabilità professionale e la sicurezza delle cure",
+    "L'abolizione del mansionario"
+   ],
+   "q": "La L. 251/2000 è ricordata soprattutto per…",
+   "r": 0,
+   "sec": 21
+  },
+  {
+   "e": "I 3 giorni mensili sono frazionabili anche a ore secondo le regole contrattuali.",
+   "m": "pa",
+   "o": [
+    "10 giorni di permesso retribuito al mese",
+    "3 giorni di permesso retribuito al mese",
+    "Solo a permessi non retribuiti",
+    "1 giorno di permesso retribuito all'anno"
+   ],
+   "q": "Il lavoratore che assiste un familiare con disabilità grave (L. 104/1992, art. 33) ha diritto di norma a…",
+   "r": 1,
+   "sec": 7
+  },
+  {
+   "e": "L'attribuzione di attività agli operatori di supporto resta sotto la responsabilità organizzativa e di verifica dell'infermiere.",
+   "m": "cod",
+   "o": [
+    "Non ha alcuna responsabilità, perché rispondono solo al coordinatore",
+    "Delega loro qualsiasi attività purché sia annotata in cartella",
+    "Si limita a segnalarne gli errori all'Ordine",
+    "Pianifica, supervisiona e verifica le attività loro affidate per la sicurezza dell'assistito"
+   ],
+   "q": "Secondo il Codice deontologico 2025 (art. 39), nei confronti degli operatori di supporto l'infermiere…",
+   "r": 3,
+   "sec": 4
+  },
+  {
+   "e": "La documentazione di sua competenza deve essere accurata, completa e veritiera, compreso l'eventuale rifiuto.",
+   "m": "cod",
+   "o": [
+    "Esclusivamente i parametri vitali",
+    "Le proprie opinioni personali sul paziente",
+    "Solo le prescrizioni mediche eseguite",
+    "Il consenso o il rifiuto della persona al trattamento infermieristico"
+   ],
+   "q": "Secondo l'art. 36 del Codice 2025, nella documentazione clinica l'infermiere deve riportare anche…",
+   "r": 3,
+   "sec": 4
+  },
+  {
+   "e": "È uno strumento di tutela della persona e della professione contro pratiche non fondate su prove.",
+   "m": "cod",
+   "o": [
+    "Le assenze per malattia dei colleghi",
+    "Ogni contrasto personale con i colleghi",
+    "I turni non graditi",
+    "Le attività di cura e assistenza infermieristica inappropriate e prive di basi scientificamente validate"
+   ],
+   "q": "L'art. 41 del Codice 2025 chiede all'infermiere di segnalare all'Ordine…",
+   "r": 3,
+   "sec": 4
+  },
+  {
+   "e": "Il sistema per aree ha sostituito le vecchie categorie A-D introdotte dai contratti precedenti.",
+   "m": "pa",
+   "o": [
+    "Nella categoria D",
+    "Nella categoria DS",
+    "Nell'area degli operatori",
+    "Nell'area dei professionisti della salute e dei funzionari"
+   ],
+   "q": "Nel CCNL Comparto Sanità 2022-2024, firmato il 27 ottobre 2025, l'infermiere è inquadrato…",
+   "r": 3,
+   "sec": 7
+  },
+  {
+   "e": "Il dipendente evita, anche sui social, dichiarazioni che possano ledere l'immagine dell'amministrazione e non divulga informazioni d'ufficio.",
+   "m": "pa",
+   "o": [
+    "Orario di lavoro notturno",
+    "Concorsi pubblici per titoli ed esami",
+    "Uso delle tecnologie informatiche, dei mezzi di informazione e dei social media",
+    "Ferie e permessi retribuiti"
+   ],
+   "q": "Il DPR 81/2023, che ha modificato il Codice di comportamento dei dipendenti pubblici (DPR 62/2013), ha introdotto regole specifiche su…",
+   "r": 2,
+   "sec": 6
+  },
+  {
+   "e": "È un pneumotorace iperteso iatrogeno: la diagnosi è clinica e la decompressione non deve attendere gli esami.",
+   "enc": "pneumotorace",
+   "m": "cli",
+   "o": [
+    "Radiografia del torace e attesa del referto prima di intervenire",
+    "Diuretico endovenoso",
+    "Decompressione immediata con ago, poi drenaggio toracico",
+    "Posizione di Trendelenburg e osservazione"
+   ],
+   "q": "Dopo il posizionamento di un CVC in succlavia il paziente diventa dispnoico e ipoteso, con turgore giugulare e trachea deviata verso il lato opposto. Che cosa ti aspetti come trattamento immediato?",
+   "r": 2,
+   "sec": 23
+  },
+  {
+   "e": "Insieme alla sensibilità e alla diuresi, il recupero motorio è un criterio per la dimissione dalla recovery room dopo spinale.",
+   "enc": "anestesia",
+   "m": "cli",
+   "o": [
+    "Il rischio di nausea e vomito postoperatori",
+    "Il recupero della motricità degli arti inferiori",
+    "Il livello di sedazione",
+    "Il dolore postoperatorio"
+   ],
+   "q": "Dopo un'anestesia spinale la scala di Bromage serve a valutare…",
+   "r": 1,
+   "sec": 20
+  },
+  {
+   "e": "L'ipertermia maligna è una complicanza rara ma grave degli anestetici volatili e della succinilcolina.",
+   "enc": "anestesia",
+   "m": "cli",
+   "o": [
+    "Flumazenil",
+    "Dantrolene",
+    "Paracetamolo",
+    "Naloxone"
+   ],
+   "q": "Il farmaco specifico dell'ipertermia maligna è…",
+   "r": 1,
+   "sec": 20
+  },
+  {
+   "e": "È uno dei messaggi chiave contro lo stigma e per l'aderenza alla terapia antiretrovirale.",
+   "enc": "hiv",
+   "m": "cli",
+   "o": [
+    "Una persona con HIV in terapia e carica virale non rilevabile non trasmette il virus per via sessuale",
+    "Il test HIV può essere eseguito senza consenso",
+    "L'HIV non si trasmette mai per via ematica",
+    "Chi ha CD4 normali non ha bisogno di terapia"
+   ],
+   "q": "Il principio «U=U» (non rilevabile = non trasmissibile) significa che…",
+   "r": 0,
+   "sec": 30
+  },
+  {
+   "e": "La permetrina va ripetuta secondo schema; si adottano precauzioni da contatto. Gli indumenti non lavabili si chiudono in sacchi per alcuni giorni.",
+   "enc": "scabbia",
+   "m": "cli",
+   "o": [
+    "Applicare solo un antistaminico per il prurito",
+    "Trattare contemporaneamente anche i contatti stretti e lavare la biancheria a 60 °C",
+    "Trattare solo il paziente sintomatico e attendere la comparsa di sintomi negli altri",
+    "Isolare il paziente in precauzioni per via aerea"
+   ],
+   "q": "Un ospite di RSA ha la scabbia. Quale misura è corretta?",
+   "r": 1,
+   "sec": 30
+  },
+  {
+   "e": "Ha sostituito le classi di notifica del DM 15 dicembre 1990; la segnalazione spetta al medico che pone il sospetto o la diagnosi.",
+   "enc": "malattie-notifica",
+   "m": "leg",
+   "o": [
+    "DM 77/2022",
+    "DPR 254/2003",
+    "DM 7 marzo 2022",
+    "DM 15 dicembre 1990"
+   ],
+   "q": "Il sistema di segnalazione delle malattie infettive PREMAL è stato introdotto dal…",
+   "r": 2,
+   "sec": 11
+  },
+  {
+   "e": "Riempirlo oltre i 3/4 aumenta il rischio di punture; la normativa di riferimento è il DPR 254/2003.",
+   "enc": "rifiuti-sanitari",
+   "m": "cli",
+   "o": [
+    "Solo a fine turno, indipendentemente dal riempimento",
+    "Fino all'orlo",
+    "Per metà",
+    "Al massimo per tre quarti"
+   ],
+   "q": "Il contenitore rigido per taglienti va chiuso e sostituito quando è pieno…",
+   "r": 3,
+   "sec": 11
+  },
+  {
+   "e": "La colpa generica è negligenza, imprudenza o imperizia; quella specifica è l'inosservanza di regole scritte.",
+   "enc": "colpa",
+   "m": "leg",
+   "o": [
+    "Un evento voluto dall'autore",
+    "Un caso fortuito non prevedibile",
+    "Violazione di leggi, regolamenti, ordini o discipline",
+    "Una scarsa preparazione tecnica"
+   ],
+   "q": "Si parla di «colpa specifica» quando l'evento dannoso deriva da…",
+   "r": 2,
+   "sec": 31
+  },
+  {
+   "e": "Sede, forma, dimensioni e colore delle lesioni; le parole testuali hanno valore anche medico-legale. Si attiva il percorso dedicato (codice rosa).",
+   "enc": "maltrattamento",
+   "m": "leg",
+   "o": [
+    "Riassumere con parole proprie e interpretare il racconto",
+    "Non scrivere nulla per tutelare la riservatezza",
+    "Descrivere le lesioni in modo oggettivo e riportare tra virgolette le frasi della paziente",
+    "Annotare solo la diagnosi sospetta di violenza"
+   ],
+   "q": "Una donna in pronto soccorso racconta un'aggressione da parte del partner. Nella documentazione infermieristica è corretto…",
+   "r": 2,
+   "sec": 31
+  },
+  {
+   "e": "70 + 12 = 82 mmHg; valori inferiori indicano ipotensione, segno tardivo di shock nel bambino.",
+   "enc": "pediatria-parametri",
+   "m": "eo",
+   "o": [
+    "76 mmHg",
+    "82 mmHg",
+    "90 mmHg",
+    "100 mmHg"
+   ],
+   "q": "Con la formula 70 + (2 × età in anni), la pressione sistolica minima accettabile in un bambino di 6 anni è circa…",
+   "r": 1,
+   "sec": 15
+  },
+  {
+   "e": "Alcune contrazioni ventricolari troppo ravvicinate non generano un'onda sfigmica periferica; si misura contando insieme apice e radiale per un minuto.",
+   "enc": "fibrillazione-atriale",
+   "m": "eo",
+   "o": [
+    "Bradicardia relativa",
+    "Polso paradosso",
+    "Deficit di polso, pari a 28 battiti",
+    "Polso alternante"
+   ],
+   "q": "In un paziente con fibrillazione atriale la frequenza apicale è 132/min e quella radiale 104/min. Questo dato si chiama…",
+   "r": 2,
+   "sec": 22
+  },
+  {
+   "e": "Gli altri criteri sono confusione, urea elevata, pressione bassa ed età ≥ 65 anni.",
+   "enc": "polmonite",
+   "m": "cli",
+   "o": [
+    "Frequenza respiratoria ≥ 30/min",
+    "SpO2 < 94%",
+    "Presenza di tosse produttiva",
+    "Frequenza respiratoria ≥ 20/min"
+   ],
+   "q": "Nel punteggio CURB-65 per la gravità della polmonite, il criterio respiratorio è…",
+   "r": 0,
+   "sec": 23
+  },
+  {
+   "e": "Si riduce il rischio di pungere la vescica; dopo si controllano pressione e sito, e per grandi volumi si infonde albumina su prescrizione.",
+   "enc": "epatopatie",
+   "m": "cli",
+   "o": [
+    "Posiziona il paziente in Trendelenburg",
+    "Fa bere almeno un litro d'acqua",
+    "Fa svuotare la vescica al paziente",
+    "Somministra un diuretico"
+   ],
+   "q": "Prima di una paracentesi l'infermiere…",
+   "r": 2,
+   "sec": 28
+  },
+  {
+   "e": "La rettocolite ulcerosa è continua, parte dal retto e interessa la mucosa; il Crohn è transmurale e dà fistole e stenosi.",
+   "enc": "mici",
+   "m": "cli",
+   "o": [
+    "Lesioni a salto e a tutto spessore, che possono colpire qualsiasi tratto dalla bocca all'ano",
+    "Infiammazione continua che parte sempre dal retto",
+    "Assenza di fistole e stenosi",
+    "Interessamento della sola mucosa"
+   ],
+   "q": "Quale caratteristica distingue la malattia di Crohn dalla rettocolite ulcerosa?",
+   "r": 0,
+   "sec": 28
+  },
+  {
+   "e": "Le soluzioni ad alta osmolarità richiedono un accesso centrale per il rischio di flebite.",
+   "enc": "nutrizione-parenterale",
+   "m": "cli",
+   "o": [
+    "Contiene lipidi",
+    "Viene infusa in meno di 2 ore",
+    "Ha bassa osmolarità, sotto circa 800-900 mOsm/L",
+    "Il paziente è a digiuno da almeno 24 ore"
+   ],
+   "q": "Una nutrizione parenterale può essere infusa in una vena periferica solo se…",
+   "r": 2,
+   "sec": 18
+  },
+  {
+   "e": "Si previene la radiodermite proteggendo la cute irradiata da traumi chimici, fisici e solari.",
+   "enc": "radioterapia",
+   "m": "cli",
+   "o": [
+    "Esporre la zona al sole per favorire la guarigione",
+    "Non cancellare i segni di centratura e usare detergenti delicati, evitando sole, profumi e talco",
+    "Frizionare la cute con alcol",
+    "Applicare creme profumate più volte al giorno"
+   ],
+   "q": "A un paziente in radioterapia esterna sul torace l'infermiere raccomanda di…",
+   "r": 1,
+   "sec": 17
+  },
+  {
+   "e": "L'IFeC prende in carico in modo proattivo, prima che la malattia si aggravi, nelle Case della Comunità e a domicilio.",
+   "enc": "ifec",
+   "m": "pa",
+   "o": [
+    "Il modello funzionale per compiti",
+    "Il modello biomedico centrato sull'ospedale",
+    "Il Chronic Care Model con la medicina d'iniziativa",
+    "Il primary nursing ospedaliero"
+   ],
+   "q": "Il modello di riferimento dell'infermiere di famiglia o comunità per la gestione della cronicità è…",
+   "r": 2,
+   "sec": 2
+  },
+  {
+   "e": "L'intensità dell'assistenza si misura con il coefficiente di intensità assistenziale (CIA).",
+   "enc": "adi",
+   "m": "pa",
+   "o": [
+    "La richiesta diretta al pronto soccorso",
+    "Il PUA e la valutazione multidimensionale (UVM)",
+    "La sola prescrizione dello specialista ospedaliero",
+    "L'iscrizione a una lista d'attesa del 118"
+   ],
+   "q": "L'accesso all'assistenza domiciliare integrata (ADI) avviene di norma attraverso…",
+   "r": 1,
+   "sec": 2
+  },
+  {
+   "e": "L'amiodarone potenzia l'effetto del warfarin: servono controlli dell'INR più ravvicinati.",
+   "enc": "interazioni",
+   "m": "cli",
+   "o": [
+    "Una riduzione dell'INR",
+    "Un aumento dell'INR, con maggiore rischio di sanguinamento",
+    "Un aumento della diuresi",
+    "Nessuna interazione"
+   ],
+   "q": "Un paziente in terapia con warfarin inizia l'amiodarone. Che cosa ti aspetti?",
+   "r": 1,
+   "sec": 9
+  },
+  {
+   "e": "1 corrisponde a «molto in forma», 9 al malato terminale; fa parte della valutazione multidimensionale geriatrica.",
+   "enc": "fragilita",
+   "m": "eo",
+   "o": [
+    "1 a 9",
+    "0 a 30",
+    "1 a 5",
+    "0 a 3"
+   ],
+   "q": "La Clinical Frailty Scale classifica la fragilità dell'anziano con un punteggio da…",
+   "r": 0,
+   "sec": 19
+  },
+  {
+   "e": "Nel binge eating mancano i comportamenti compensatori; nell'anoressia prevalgono restrizione e paura di ingrassare.",
+   "enc": "disturbi-alimentari",
+   "m": "cli",
+   "o": [
+    "La bulimia nervosa",
+    "La pica",
+    "L'anoressia nervosa di tipo restrittivo",
+    "Il disturbo da alimentazione incontrollata"
+   ],
+   "q": "Abbuffate ricorrenti seguite da vomito autoindotto o uso di lassativi descrivono…",
+   "r": 0,
+   "sec": 16
+  },
+  {
+   "e": "Le tecniche invasive richiedono consulenza e consenso informato specifici.",
+   "enc": "bioetica-inizio-vita",
+   "m": "cli",
+   "o": [
+    "Translucenza nucale e bitest",
+    "Test del DNA fetale su sangue materno",
+    "Villocentesi e amniocentesi",
+    "Ecografia e test combinato"
+   ],
+   "q": "Tra le tecniche di diagnosi prenatale, quali sono invasive e comportano un piccolo rischio di aborto?",
+   "r": 2,
+   "sec": 14
+  },
+  {
+   "e": "Il rapporto GLASS 2025 analizza 22 antibiotici e 8 patogeni; le regioni più colpite sono Sud-Est asiatico e Mediterraneo orientale (1 su 3).",
+   "fonte": "https://www.paho.org/en/news/13-10-2025-who-warns-widespread-resistance-common-antibiotics-worldwide",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "1 su 100",
+    "1 su 6",
+    "1 su 2",
+    "1 su 50"
+   ],
+   "q": "Secondo il rapporto OMS sulla sorveglianza delle resistenze agli antibiotici (ottobre 2025), nel 2023 le infezioni batteriche confermate in laboratorio resistenti agli antibiotici erano circa…",
+   "r": 1,
+   "sec": 30
+  },
+  {
+   "e": "Per E. coli supera il 40%; nella Regione africana per entrambi oltre il 70%. Igiene delle mani e stewardship restano decisive.",
+   "fonte": "https://www.paho.org/en/news/13-10-2025-who-warns-widespread-resistance-common-antibiotics-worldwide",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Il 55%",
+    "Il 15%",
+    "Il 5%",
+    "Il 95%"
+   ],
+   "q": "Nel rapporto OMS 2025, la resistenza di Klebsiella pneumoniae alle cefalosporine di terza generazione a livello globale supera…",
+   "r": 0,
+   "sec": 30
+  },
+  {
+   "e": "La crescita costante riduce le opzioni terapeutiche di prima linea, anche per infezioni comuni.",
+   "fonte": "https://www.paho.org/en/news/13-10-2025-who-warns-widespread-resistance-common-antibiotics-worldwide",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "100%",
+    "50-60%",
+    "5-15%",
+    "0,1-0,5%"
+   ],
+   "q": "Secondo l'OMS (2025), tra il 2018 e il 2023 la resistenza è aumentata per oltre il 40% degli antibiotici monitorati, con un incremento medio annuo del…",
+   "r": 2,
+   "sec": 30
+  },
+  {
+   "e": "Restano valide le categorie del 2017: stadio 1 = 130-139/80-89, stadio 2 ≥ 140/90.",
+   "fonte": "https://www.acc.org/Latest-in-Cardiology/Articles/2025/10/01/01/New-in-Clinical-Guidance-HBP",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "< 130/80 mmHg",
+    "< 120/70 mmHg",
+    "< 140/90 mmHg",
+    "< 150/90 mmHg"
+   ],
+   "q": "Secondo la linea guida ACC/AHA 2025 sull'ipertensione arteriosa, l'obiettivo pressorio generale per tutti gli adulti è…",
+   "r": 0,
+   "sec": 22
+  },
+  {
+   "e": "Le PREVENT sostituiscono le Pooled Cohort Equations; con rischio < 7,5% e PA 130-139/80-89 si iniziano i farmaci se 3-6 mesi di stile di vita non bastano.",
+   "fonte": "https://www.acc.org/Latest-in-Cardiology/Articles/2025/10/01/01/New-in-Clinical-Guidance-HBP",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "La carta SCORE2",
+    "Il punteggio di Framingham del 1998",
+    "Il CHA2DS2-VA",
+    "Le equazioni PREVENT"
+   ],
+   "q": "Per stimare il rischio cardiovascolare a 10 anni la linea guida ACC/AHA 2025 sull'ipertensione adotta…",
+   "r": 3,
+   "sec": 22
+  },
+  {
+   "e": "Durante il test si possono continuare quasi tutti gli antipertensivi, tranne gli antagonisti del recettore dei mineralcorticoidi.",
+   "fonte": "https://www.2minutemedicine.com/guidelines/high-blood-pressure/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Solo dopo i 75 anni",
+    "Solo nelle donne in gravidanza",
+    "Solo se il potassio è basso",
+    "In tutti gli adulti con ipertensione resistente, anche con potassio normale"
+   ],
+   "q": "La linea guida ACC/AHA 2025 raccomanda lo screening dell'iperaldosteronismo primario…",
+   "r": 3,
+   "sec": 22
+  },
+  {
+   "e": "È una raccomandazione di classe 1, livello A: un motivo in più per l'educazione all'aderenza terapeutica.",
+   "fonte": "https://www.acc.org/Latest-in-Cardiology/Articles/2025/10/01/01/New-in-Clinical-Guidance-HBP",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Decadimento cognitivo e demenza",
+    "Ipotiroidismo",
+    "Glaucoma ad angolo chiuso",
+    "Osteoporosi"
+   ],
+   "q": "Secondo la linea guida ACC/AHA 2025, raggiungere una pressione sistolica < 130 mmHg è raccomandato anche per ridurre il rischio di…",
+   "r": 0,
+   "sec": 22
+  },
+  {
+   "e": "Il sodio va mantenuto sotto 2.300 mg al giorno, idealmente sotto 1.500 mg.",
+   "fonte": "https://www.2minutemedicine.com/guidelines/high-blood-pressure/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Nei pazienti senza malattia renale cronica né rischio di iperkaliemia",
+    "In tutti i pazienti, compresi i dializzati",
+    "Solo in associazione allo spironolattone",
+    "Mai, perché aumentano la pressione"
+   ],
+   "q": "Riguardo ai sostituti del sale arricchiti di potassio, la linea guida ACC/AHA 2025 li raccomanda…",
+   "r": 0,
+   "sec": 22
+  },
+  {
+   "e": "In alternativa si usa l'alteplase 0,9 mg/kg; la trombolisi va avviata il prima possibile entro 4,5 ore senza ritardi per esami di imaging aggiuntivi.",
+   "fonte": "https://www.emdocs.net/2026-guideline-update-early-management-of-acute-ischemic-stroke",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "0,9 mg/kg, massimo 90 mg, in 60 minuti",
+    "1 mg/kg, massimo 100 mg",
+    "0,1 mg/kg in infusione continua per 24 ore",
+    "0,25 mg/kg in bolo, massimo 25 mg"
+   ],
+   "q": "Secondo la linea guida AHA/ASA 2026 sull'ictus ischemico acuto, la dose di tenecteplase per la trombolisi è…",
+   "r": 3,
+   "sec": 24
+  },
+  {
+   "e": "È una raccomandazione di classe 3 (danno): la pressione va gestita secondo prescrizione evitando abbassamenti troppo aggressivi.",
+   "fonte": "https://www.emdocs.net/2026-guideline-update-early-management-of-acute-ischemic-stroke",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Indicata solo nei pazienti giovani",
+    "Dannosa e non raccomandata",
+    "Indifferente, senza effetti",
+    "Obbligatoria in tutti i pazienti"
+   ],
+   "q": "Dopo una trombectomia riuscita per occlusione di un grosso vaso anteriore, la linea guida AHA/ASA 2026 considera la riduzione intensiva della sistolica sotto 140 mmHg per 72 ore…",
+   "r": 1,
+   "sec": 24
+  },
+  {
+   "e": "Nel 2024 si sono ammalate circa 10,7 milioni di persone; otto Paesi concentrano due terzi dei casi.",
+   "fonte": "https://www.khaleejtimes.com/world/tb-claimed-123-million-lives-last-year-who",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "1,23 milioni di morti, confermandosi la prima causa di morte per singolo agente infettivo",
+    "10.000 morti",
+    "12 milioni di morti",
+    "Nessun decesso in Europa e in Asia"
+   ],
+   "q": "Secondo l'OMS (Global Tuberculosis Report 2025), nel 2024 la tubercolosi ha causato circa…",
+   "r": 0,
+   "sec": 30
+  },
+  {
+   "e": "Circa 252 milioni non sanno di essere malati; la proiezione al 2050 è di 853 milioni.",
+   "fonte": "https://diabetesatlas.org/media/uploads/2025/04/2025-IDF-Diabetes-Atlas-Press-Release-FINAL-Embargo.pdf",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "58 milioni, cioè circa 1 su 100",
+    "589 milioni, cioè circa 1 su 9",
+    "2 miliardi, cioè circa 1 su 3",
+    "150 milioni, cioè circa 1 su 40"
+   ],
+   "q": "Secondo l'IDF Diabetes Atlas 2025 (11ª edizione), gli adulti con diabete nel mondo sono circa…",
+   "r": 1,
+   "sec": 29
+  },
+  {
+   "e": "Il dato sostiene l'importanza dello screening opportunistico nelle persone a rischio, anche da parte dell'IFeC.",
+   "fonte": "https://diabetesatlas.org/media/uploads/2025/04/2025-IDF-Diabetes-Atlas-Press-Release-FINAL-Embargo.pdf",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Nessuno, grazie allo screening universale",
+    "Circa 1 su 20",
+    "Meno di 1 su 100",
+    "Più di 4 su 10"
+   ],
+   "q": "Secondo l'IDF Diabetes Atlas 2025, la quota di adulti con diabete che non sa di esserlo è…",
+   "r": 3,
+   "sec": 29
+  },
+  {
+   "e": "In totale 469 casi confermati, di cui 85 importati; la trasmissione locale è sostenuta dalla zanzara tigre (Aedes albopictus).",
+   "fonte": "https://www.epicentro.iss.it/chikungunya/2025",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "384, senza decessi",
+    "Oltre 50.000",
+    "Nessuno: tutti i casi erano importati",
+    "12, tutti mortali"
+   ],
+   "q": "Secondo i dati ISS aggiornati a dicembre 2025, in Italia nel 2025 i casi di chikungunya autoctoni (non legati a viaggi) sono stati…",
+   "r": 0,
+   "sec": 30
+  },
+  {
+   "e": "Queste infezioni hanno spesso esordio simile e possono circolare insieme; le linee guida valgono a tutti i livelli di cura.",
+   "fonte": "https://www.who.int/news/item/10-07-2025-new-who-guidelines-for-clinical-management-of-arboviral-diseases--dengue--chikungunya--zika-and-yellow-fever",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Malaria, tubercolosi e HIV",
+    "Dengue, chikungunya, Zika e febbre gialla",
+    "Influenza, COVID-19 e virus respiratorio sinciziale",
+    "Morbillo, rosolia e parotite"
+   ],
+   "q": "Le linee guida OMS pubblicate nel luglio 2025 sulle arbovirosi sono le prime a trattare insieme la gestione clinica di…",
+   "r": 1,
+   "sec": 30
+  },
+  {
+   "e": "La soglia precedente era 75 anni; sotto i 70 anni a basso rischio resta standard la sostituzione chirurgica.",
+   "fonte": "https://www.pcronline.com/News/Congress-coverages/ESC/2025/Key-updates-in-valvular-heart-disease-management-insights-from-the-2025-ESC-EACTS-Guidelines",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Solo pediatrica",
+    "Pari o superiore a 85 anni",
+    "Inferiore a 50 anni",
+    "Pari o superiore a 70 anni"
+   ],
+   "q": "Nelle linee guida ESC/EACTS 2025 sulle valvulopatie, la TAVI è raccomandata nei pazienti con stenosi aortica di età…",
+   "r": 3,
+   "sec": 22
+  },
+  {
+   "e": "Per le valvole meccaniche resta obbligatorio l'antagonista della vitamina K a vita: i DOAC sono controindicati.",
+   "fonte": "https://www.pcronline.com/News/Congress-coverages/ESC/2025/Key-updates-in-valvular-heart-disease-management-insights-from-the-2025-ESC-EACTS-Guidelines",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Un solo antiaggregante (aspirina)",
+    "Nessuna terapia antitrombotica",
+    "La doppia antiaggregazione per 12 mesi",
+    "Il warfarin a vita"
+   ],
+   "q": "Dopo una TAVI, senza altre indicazioni, le linee guida ESC/EACTS 2025 preferiscono…",
+   "r": 0,
+   "sec": 22
+  },
+  {
+   "e": "I farmaci considerati sono liraglutide, semaglutide e tirzepatide; si possono affiancare interventi comportamentali intensivi.",
+   "fonte": "https://www.who.int/news/item/01-12-2025-who-issues-global-guideline-on-the-use-of-glp-1-medicines-in-treating-obesity",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Negli adulti, escluse le donne in gravidanza, con raccomandazione condizionata",
+    "Solo nelle donne in gravidanza",
+    "Solo come trattamento breve di 4 settimane",
+    "In tutti i bambini sopra i 2 anni, con raccomandazione forte"
+   ],
+   "q": "Con la linea guida del dicembre 2025, l'OMS raccomanda le terapie GLP-1 per il trattamento a lungo termine dell'obesità…",
+   "r": 0,
+   "sec": 29
+  },
+  {
+   "e": "Si somministra per infusione EV ogni 4 settimane, per non più di 18 mesi, con risonanze programmate per individuare le ARIA (edema o microemorragie cerebrali).",
+   "fonte": "https://www.ema.europa.eu/en/medicines/human/EPAR/kisunla",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Hanno demenza grave",
+    "Non hanno accumulo di amiloide",
+    "Hanno una sola copia o nessuna copia del gene ApoE4 e patologia amiloide confermata",
+    "Hanno due copie del gene ApoE4"
+   ],
+   "q": "Il donanemab (Kisunla), autorizzato nell'UE nel settembre 2025 per l'Alzheimer in fase iniziale, è indicato nelle persone che…",
+   "r": 2,
+   "sec": 24
+  },
+  {
+   "e": "Il decreto ha esteso l'arresto in flagranza alle lesioni contro gli operatori sanitari e inasprito le pene per il danneggiamento delle strutture.",
+   "fonte": "https://www.leggioggi.it/decreto-aggressioni-sanitari-in-vigore-le-pene/",
+   "m": "leg",
+   "novita": true,
+   "o": [
+    "Entro 6 mesi",
+    "Entro il tempo necessario all'identificazione e comunque entro 48 ore",
+    "Entro 30 giorni dalla denuncia",
+    "Solo durante il fatto"
+   ],
+   "q": "Con il DL 137/2024 contro la violenza sul personale sanitario, l'arresto in «flagranza differita» sulla base di video o foto deve avvenire…",
+   "r": 1,
+   "sec": 21
+  },
+  {
+   "e": "Il corso dura almeno 500 ore in 6-12 mesi; l'assistente infermiere collabora con l'infermiere, che mantiene la responsabilità del processo assistenziale.",
+   "fonte": "https://tg24.sky.it/salute-e-benessere/2024/10/03/assistente-infermiere",
+   "m": "leg",
+   "novita": true,
+   "o": [
+    "Solo il diploma di scuola media",
+    "Qualifica OSS, diploma quinquennale e almeno 24 mesi di esperienza come OSS",
+    "Laurea in infermieristica",
+    "Qualifica OSS conseguita da meno di 6 mesi"
+   ],
+   "q": "Per accedere al percorso di assistente infermiere (accordo Stato-Regioni del 3 ottobre 2024) occorrono…",
+   "r": 1,
+   "sec": 21
+  }
+ ],
+ "casi": [
+  {
+   "area": "Medicina",
+   "dx": [
+    "Rischio di riduzione della gittata cardiaca",
+    "Rischio di sanguinamento",
+    "Rischio di cadute",
+    "Conoscenze insufficienti sulla terapia anticoagulante",
+    "Ansia"
+   ],
+   "ecg": "fa",
+   "esami": [
+    [
+     "Potassio",
+     "3,6 mmol/l"
+    ],
+    [
+     "Glicemia",
+     "168 mg/dl",
+     1
+    ],
+    [
+     "TSH",
+     "1,9 µUI/ml"
+    ],
+    [
+     "Creatinina",
+     "0,9 mg/dl"
+    ]
+   ],
+   "lv": "facile",
+   "oral": "Collega il riconoscimento del ritmo (R-R irregolare, assenza di onde P) al deficit di polso e al calcolo del CHA2DS2-VA: mostri che l'infermiere sa leggere il monitor e trasformare il dato in educazione sanitaria.",
+   "resp": "normal",
+   "steps": [
+    {
+     "a": "È una fibrillazione atriale ad alta risposta ventricolare: intervalli R-R irregolarmente irregolari, assenza di onde P riconoscibili sostituite da un'ondulazione fine della linea di base (onde f), QRS stretti, frequenza ventricolare intorno a 128/min. Avviso subito il medico, chiedo un ECG a 12 derivazioni per documentare il ritmo e valuto sintomi di instabilità (dolore toracico, ipotensione, alterazione della coscienza, segni di scompenso), che al momento mancano.",
+     "q": "Osserva il tracciato del monitor: che ritmo riconosci e quali elementi lo caratterizzano?"
+    },
+    {
+     "a": "È il deficit di polso: 128 − 104 = 24 battiti. Alcune contrazioni ventricolari, troppo ravvicinate, non riempiono abbastanza il ventricolo e non producono un'onda percepibile in periferia. Si misura in due operatori, contando nello stesso minuto la frequenza apicale con il fonendoscopio e quella radiale. NEWS2: FR 20 = 0, SpO2 95% = 1, aria = 0, PAS 138 = 0, FC 128 = 2, vigile = 0, TC 36,8 = 0: totale 3, rischio basso ma con un ritmo nuovo da comunicare e un monitoraggio più ravvicinato.",
+     "evo": "Il medico prescrive un beta-bloccante per il controllo della frequenza; dopo un'ora la FC è 96/min e Rosa si sente meglio.",
+     "q": "Che cosa significa la differenza tra la frequenza del monitor e il polso radiale e come la misuri correttamente? Calcola anche il NEWS2."
+    },
+    {
+     "a": "Scompenso 0, ipertensione 1, età ≥ 75 anni 2, diabete 1, pregresso ictus/TIA 0, malattia vascolare 0, età 65-74 0: totale 4. Con un punteggio così alto la terapia anticoagulante orale è indicata (decisione medica): di solito si preferisce un anticoagulante diretto (DOAC). La caduta pregressa non è da sola un motivo per non anticoagulare, ma impone la valutazione del rischio di caduta (per esempio con la scala di Conley) e interventi di prevenzione.",
+     "q": "Calcola il punteggio CHA2DS2-VA di Rosa: è indicata la terapia anticoagulante?"
+    },
+    {
+     "a": "Rischio di riduzione della gittata cardiaca, rischio di sanguinamento legato alla terapia, rischio di cadute e conoscenze insufficienti sulla gestione della terapia. Educo Rosa (e un familiare o il caregiver) a: assumere il DOAC agli orari stabiliti senza saltare dosi; riconoscere i segni di sanguinamento (feci nere, sangue nelle urine, ecchimosi estese); non assumere FANS o prodotti da banco senza parlarne con il medico; controllare il polso e i sintomi; sicurezza in casa. Attivo la continuità con il medico di medicina generale e, se serve, l'infermiere di famiglia e comunità.",
+     "q": "Quali diagnosi infermieristiche e quale educazione prepari per la dimissione?"
+    }
+   ],
+   "story": "Rosa, 78 anni, ipertesa e diabetica di tipo 2, è ricoverata in medicina per una bronchite. Durante il giro del pomeriggio riferisce da circa due ore un battito «in gola», veloce e disordinato, con un po' di affanno salendo in bagno. È vigile e orientata, non ha dolore toracico. Le colleghe la collegano al monitor; misurando il polso radiale per un minuto ottieni un valore più basso di quello mostrato dal monitor. Non ha mai preso anticoagulanti; vive sola e al domicilio è caduta una volta nell'ultimo anno.",
+   "tags": [
+    "eo",
+    "dx"
+   ],
+   "title": "Cardiopalmo e polso irregolare in medicina",
+   "vit": [
+    [
+     "FC",
+     "128/min (monitor)",
+     1
+    ],
+    [
+     "Polso radiale",
+     "104/min",
+     1
+    ],
+    [
+     "PA",
+     "138/84 mmHg"
+    ],
+    [
+     "FR",
+     "20/min"
+    ],
+    [
+     "SpO2",
+     "95% in aria"
+    ],
+    [
+     "TC",
+     "36,8 °C"
+    ],
+    [
+     "Coscienza",
+     "vigile (A)"
+    ]
+   ]
+  },
+  {
+   "area": "Maxiemergenza territoriale",
+   "dx": [
+    "PC: shock emorragico (F)",
+    "PC: insufficienza respiratoria (D, E)",
+    "PC: ipertensione endocranica (H)",
+    "Rischio di ipotermia",
+    "Ansia e paura (bambini e familiari)"
+   ],
+   "ecg": "sinus",
+   "esami": [
+    [
+     "Shock index",
+     "1,6",
+     1
+    ]
+   ],
+   "etco2": 24,
+   "lv": "medio",
+   "oral": "In una maxiemergenza l'infermiere non cura il primo ferito che incontra: mette in sicurezza, comunica con METHANE, applica START o JumpSTART e rifà il triage al PMA. Saper spiegare la differenza tra adulto e bambino in apnea è una domanda classica dell'orale.",
+   "resp": "tachipnea",
+   "scena": {
+    "luogo": "Piazza principale del paese, tribuna in legno crollata durante la festa: 9 coinvolti rimasti sul posto",
+    "mon": "Vittima F, anziano, al PMA dopo il trasporto in barella",
+    "monitor": true,
+    "tipo": "crollo",
+    "v": [
+     {
+      "c": "verde",
+      "d": "Donna di 35 anni con escoriazioni alle braccia, in piedi accanto alle transenne",
+      "dati": [
+       [
+        "Cammina",
+        "sì"
+       ]
+      ],
+      "n": "A"
+     },
+     {
+      "c": "giallo",
+      "d": "Uomo di 45 anni seduto a terra con la gamba destra deformata",
+      "dati": [
+       [
+        "Cammina",
+        "no"
+       ],
+       [
+        "FR",
+        "22/min"
+       ],
+       [
+        "Polso radiale",
+        "presente"
+       ],
+       [
+        "Refill",
+        "1 s"
+       ],
+       [
+        "Ordini semplici",
+        "sì"
+       ]
+      ],
+      "n": "B"
+     },
+     {
+      "c": "nero",
+      "d": "Uomo di 60 anni sotto una trave, immobile",
+      "dati": [
+       [
+        "Cammina",
+        "no"
+       ],
+       [
+        "Respiro",
+        "assente anche dopo apertura delle vie aeree"
+       ]
+      ],
+      "n": "C",
+      "nota": "Nell'adulto l'apnea che persiste dopo l'apertura delle vie aeree corrisponde al codice nero: non si ventila durante il triage."
+     },
+     {
+      "c": "rosso",
+      "d": "Donna di 30 anni a terra, si tiene il torace",
+      "dati": [
+       [
+        "Cammina",
+        "no"
+       ],
+       [
+        "FR",
+        "34/min"
+       ],
+       [
+        "Polso radiale",
+        "presente"
+       ]
+      ],
+      "n": "D"
+     },
+     {
+      "c": "rosso",
+      "d": "Bambino di 7 anni a terra, pallido",
+      "dati": [
+       [
+        "Cammina",
+        "no"
+       ],
+       [
+        "FR",
+        "50/min"
+       ],
+       [
+        "Polso periferico",
+        "presente"
+       ]
+      ],
+      "n": "E",
+      "nota": "JumpSTART: FR sopra 45/min nel bambino = rosso."
+     },
+     {
+      "c": "rosso",
+      "d": "Uomo di 72 anni a terra, cute fredda e sudata, ferita al fianco",
+      "dati": [
+       [
+        "Cammina",
+        "no"
+       ],
+       [
+        "FR",
+        "24/min"
+       ],
+       [
+        "Polso radiale",
+        "assente"
+       ],
+       [
+        "Refill",
+        "4 s"
+       ]
+      ],
+      "n": "F"
+     },
+     {
+      "c": "giallo",
+      "d": "Bambina di 5 anni seduta in braccio a una vicina, piange",
+      "dati": [
+       [
+        "Cammina",
+        "no (non riesce ad appoggiare il piede)"
+       ],
+       [
+        "FR",
+        "28/min"
+       ],
+       [
+        "Polso periferico",
+        "presente"
+       ],
+       [
+        "AVPU",
+        "A"
+       ]
+      ],
+      "n": "G",
+      "nota": "Un bambino che viene tenuto in braccio non va classificato come «cammina»: si valuta con JumpSTART."
+     },
+     {
+      "c": "rosso",
+      "d": "Uomo di 50 anni seduto a terra con una ferita alla testa",
+      "dati": [
+       [
+        "Cammina",
+        "no"
+       ],
+       [
+        "FR",
+        "18/min"
+       ],
+       [
+        "Polso radiale",
+        "presente"
+       ],
+       [
+        "Refill",
+        "1 s"
+       ],
+       [
+        "Ordini semplici",
+        "no"
+       ]
+      ],
+      "n": "H"
+     },
+     {
+      "c": "rosso",
+      "d": "Bambino di 4 anni sotto alcune assi, immobile",
+      "dati": [
+       [
+        "Cammina",
+        "no"
+       ],
+       [
+        "Respiro",
+        "assente anche dopo apertura delle vie aeree"
+       ],
+       [
+        "Polso periferico",
+        "presente"
+       ],
+       [
+        "Dopo 5 ventilazioni di soccorso",
+        "respira spontaneamente"
+       ]
+      ],
+      "n": "I",
+      "nota": "JumpSTART: nel bambino apnoico con polso si danno 5 ventilazioni; se riprende a respirare è rosso, se resta in apnea è nero."
+     }
+    ]
+   },
+   "steps": [
+    {
+     "a": "Prima la sicurezza: mi fermo a distanza, valuto la stabilità della tribuna, i rischi da fuochi d'artificio inesplosi, la folla e i percorsi; non entro sotto la struttura finché i Vigili del fuoco non la mettono in sicurezza. Riconosco una maxiemergenza (vittime superiori alle risorse) e la dichiaro alla Centrale 118 con lo schema METHANE: Major incident (maxiemergenza dichiarata), Exact location (piazza e accessi), Type (crollo di struttura durante un evento con folla), Hazards (struttura instabile, materiale pirotecnico), Access (vie per mezzi e area di raccolta), Number (9 coinvolti, tra cui 3 bambini), Emergency services (presenti e necessari: altre ambulanze, automedica, Vigili del fuoco, forze dell'ordine). Non mi fermo a trattare il primo ferito: il mio compito è il triage.",
+     "q": "Che cosa fai appena arrivi, prima di avvicinarti ai feriti, e che cosa comunichi alla Centrale?"
+    },
+    {
+     "a": "A cammina: verde. B non cammina, FR 22, polso radiale presente, refill < 2 s, esegue ordini: giallo. C apnoico anche dopo apertura delle vie aeree: nero. D FR 34 (> 30): rosso. E bambino con FR 50 (> 45): rosso. F polso radiale assente e refill 4 s: rosso. G bambina che non cammina, FR 28 (tra 15 e 45), polso presente, AVPU A: giallo. H non esegue ordini semplici: rosso. I bambino apnoico con polso che riprende a respirare dopo 5 ventilazioni: rosso. Totale: 1 verde, 2 gialli, 5 rossi, 1 nero. Gli unici interventi durante il triage sono apertura delle vie aeree, controllo delle emorragie massive con compressione o laccio e posizione laterale di sicurezza.",
+     "q": "Applica START agli adulti e JumpSTART ai bambini e assegna il codice a ciascuna vittima dei cartellini."
+    },
+    {
+     "a": "Nell'adulto l'arresto respiratorio è quasi sempre secondario a un arresto cardiocircolatorio: se dopo l'apertura delle vie aeree non respira, START assegna il nero e non si investono risorse in RCP durante il triage. Nel bambino l'apnea è spesso primitiva e il cuore può ancora battere: JumpSTART prevede di controllare il polso e, se presente, di dare 5 ventilazioni di soccorso; I riprende a respirare e diventa rosso. Se fosse rimasto in apnea sarebbe stato nero; senza polso sarebbe stato nero subito.",
+     "evo": "Al PMA arriva F in barella: viene collegato al monitor, che mostra i tracciati e le misure.",
+     "q": "Perché C e I, entrambi in apnea, ricevono codici diversi?"
+    },
+    {
+     "a": "Il monitor mostra una tachicardia sinusale (ritmo regolare con onde P, 128/min), un respiro rapido (tachipnea, 26/min) e un EtCO₂ basso (24 mmHg) con capnogramma di forma normale: in un paziente ipoteso con refill allungato l'EtCO₂ ridotto riflette la bassa gittata cardiaca, non un'iperventilazione «benigna». Lo shock index 128/78 = 1,6 conferma uno shock emorragico probabile dalla ferita al fianco. F resta rosso con alta priorità di evacuazione verso un centro con chirurgia d'urgenza; nel frattempo compressione della ferita, ossigeno, due accessi venosi, prevenzione dell'ipotermia. Al PMA si fa ritriage di tutti, perché i codici cambiano: per esempio B (giallo) va rivalutato regolarmente, E e I richiedono un centro con pediatria. La destinazione e l'ordine dei trasporti si concordano con il direttore dei soccorsi sanitari e la Centrale, per non sovraccaricare un solo ospedale.",
+     "q": "Interpreta il monitor di F al PMA: che cosa indicano il ritmo, il respiro e la capnografia, e come gestisci il ritriage e l'evacuazione?"
+    }
+   ],
+   "story": "Sabato sera, ore 23:15. Durante i fuochi d'artificio della festa patronale cede una tribuna in legno montata in piazza. Sei l'infermiere della prima ambulanza arrivata, con un autista soccorritore; i Vigili del fuoco sono in arrivo, la folla è agitata e parte della struttura è ancora instabile. Molte persone si allontanano da sole; ne restano nove sul posto, che la prima squadra valuta con i dati riportati nei cartellini. Più tardi, al posto medico avanzato (PMA) allestito nel cortile della scuola vicina, l'anziano F viene collegato al monitor.",
+   "tags": [
+    "eo",
+    "leg"
+   ],
+   "title": "Crollo di una tribuna alla festa patronale",
+   "vit": [
+    [
+     "FC",
+     "128/min",
+     1
+    ],
+    [
+     "PA",
+     "78/50 mmHg",
+     1
+    ],
+    [
+     "FR",
+     "26/min",
+     1
+    ],
+    [
+     "SpO2",
+     "91%",
+     1
+    ],
+    [
+     "Refill",
+     "4 s",
+     1
+    ],
+    [
+     "Coscienza",
+     "risponde ma è rallentato"
+    ]
+   ]
+  },
+  {
+   "abp": {
+    "d": 55,
+    "s": 100
+   },
+   "area": "Terapia intensiva",
+   "dx": [
+    "Compromissione degli scambi gassosi",
+    "PC: barotrauma/volotrauma",
+    "PC: instabilità emodinamica",
+    "Rischio di lesione da pressione",
+    "Rischio di infezione (VAP, CRBSI)",
+    "Rischio di lesione corneale",
+    "Ansia dei familiari"
+   ],
+   "ecg": "sinus",
+   "esami": [
+    [
+     "pH",
+     "7,29",
+     1
+    ],
+    [
+     "PaCO2",
+     "58 mmHg",
+     1
+    ],
+    [
+     "PaO2",
+     "68 mmHg con FiO2 0,8",
+     1
+    ],
+    [
+     "HCO3-",
+     "27 mmol/l"
+    ],
+    [
+     "Lattato",
+     "1,8 mmol/l"
+    ],
+    [
+     "Tampone",
+     "influenza A positivo",
+     1
+    ]
+   ],
+   "etco2": 48,
+   "lv": "difficile",
+   "oral": "Mostra di saper leggere il ventilatore: driving pressure = plateau − PEEP, picco − plateau per le resistenze, volume corrente sul peso ideale. Sono numeri semplici che separano chi «guarda» il monitor da chi lo interpreta.",
+   "resp": "normal",
+   "steps": [
+    {
+     "a": "PaO2/FiO2 = 68 / 0,8 = 85 mmHg. Con PEEP ≥ 5, insorgenza entro una settimana e infiltrati bilaterali non spiegati da scompenso, il quadro corrisponde a una ARDS grave secondo la definizione di Berlino (P/F ≤ 100). PAM = PAD + (PAS − PAD)/3 = 55 + 45/3 = 70 mmHg: sopra il target iniziale di 65 mmHg, quindi adeguata con la noradrenalina in corso; sorveglio diuresi, lattato e curva arteriosa.",
+     "q": "Calcola il rapporto PaO2/FiO2 e la PAM: come classifichi l'ipossiemia e la pressione è adeguata?"
+    },
+    {
+     "a": "Driving pressure = plateau − PEEP = 32 − 12 = 20 cmH2O, troppo alta (l'obiettivo è ≤ 15) e il plateau 32 supera il limite di 30: il polmone è poco distensibile e sovradisteso. Picco − plateau = 38 − 32 = 6 cmH2O: la componente resistiva è modesta, quindi il problema non sono secrezioni o broncospasmo ma la rigidità polmonare. Peso ideale maschile = 50 + 0,91 × (175 − 152,4) ≈ 70,6 kg: 600 ml sono circa 8,5 ml/kg, troppi. La ventilazione protettiva prevede circa 6 ml/kg di peso ideale, cioè circa 420 ml (decisione medica), accettando una certa ipercapnia (ipercapnia permissiva) purché il pH resti accettabile. Il capnogramma con EtCO₂ 48 mmHg e PaCO2 58 mmHg mostra già ritenzione di CO2.",
+     "evo": "Il medico riduce il volume corrente a 420 ml e aumenta la FR a 28/min: plateau 26, driving pressure 14 cmH2O. Dopo 2 ore il P/F è ancora 95.",
+     "q": "Leggi le pressioni del ventilatore: quanto valgono la driving pressure e la differenza picco-plateau, e che cosa indicano? Il volume corrente è protettivo?"
+    },
+    {
+     "a": "La pronazione per almeno 12-16 ore al giorno è indicata nell'ARDS moderata-grave con P/F < 150 nonostante la ventilazione ottimizzata. Prima: verifico fissaggio e profondità del tubo, aspiro le secrezioni, sospendo la nutrizione enterale e aspiro il sondino, metto in sicurezza linee e drenaggi, proteggo occhi e punti di appoggio con medicazioni preventive, preparo un piano per l'emergenza. Durante: almeno 4-5 operatori con un leader alla testa che coordina e controlla il tubo, monitor e ventilatore sempre visibili. Dopo: controllo posizione del tubo, parametri e EGA, alterno la posizione di testa e braccia (posizione «del nuotatore»), sorveglio cute di viso, torace, ginocchia e creste iliache, edema del viso e degli occhi.",
+     "q": "Viene decisa la pronazione. Quali sono le indicazioni e quali compiti infermieristici sono critici prima, durante e dopo la manovra?"
+    },
+    {
+     "a": "Compromissione degli scambi gassosi, rischio di lesione da pressione (prono), rischio di infezione (polmonite associata a ventilazione, infezioni da CVC e catetere arterioso), rischio di sindrome da immobilizzazione, rischio di secchezza oculare, ansia e preoccupazione dei familiari. Applico il bundle per la prevenzione della VAP (testa del letto 30-45° in posizione supina, igiene orale, controllo della pressione della cuffia, aspirazione delle secrezioni sottoglottiche se disponibile, valutazione quotidiana della sedazione e dello svezzamento quando il medico lo ritiene possibile), il bundle di gestione del CVC, le precauzioni da droplet per l'influenza e l'informazione regolare alla famiglia, ricordando anche l'importanza della vaccinazione antinfluenzale.",
+     "q": "Quali diagnosi infermieristiche e quali bundle applichi in questi giorni di ventilazione?"
+    }
+   ],
+   "story": "Marco, 54 anni, alto 175 cm, 98 kg, non vaccinato contro l'influenza, è stato intubato in pronto soccorso per una polmonite influenzale con infiltrati bilaterali alla radiografia, comparsi in 4 giorni; l'ecocardiogramma non mostra scompenso cardiaco. Arriva in terapia intensiva sedato, con catetere arterioso radiale e catetere venoso centrale. È ventilato in volume controllato con volume corrente di 600 ml, FiO2 0,8, e noradrenalina a basso dosaggio. Sei l'infermiere che lo prende in carico e controlli il ventilatore e il monitor.",
+   "tags": [
+    "eo",
+    "dx"
+   ],
+   "title": "Polmonite grave da influenza in ventilazione invasiva",
+   "vent": {
+    "fr": 24,
+    "mode": "VC",
+    "peep": 12,
+    "pip": 38,
+    "plat": 32
+   },
+   "vit": [
+    [
+     "FC",
+     "112/min",
+     1
+    ],
+    [
+     "PA",
+     "100/55 mmHg (invasiva)"
+    ],
+    [
+     "FR",
+     "24/min (ventilatore)"
+    ],
+    [
+     "SpO2",
+     "90%",
+     1
+    ],
+    [
+     "TC",
+     "38,4 °C",
+     1
+    ],
+    [
+     "RASS",
+     "-4"
+    ]
+   ]
+  }
+ ]
+}

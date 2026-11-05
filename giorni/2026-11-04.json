@@ -1,0 +1,1284 @@
+{
+ "date": "2026-11-04",
+ "topic": "Processo di nursing ed esame obiettivo, Codice 2025, medicina del lavoro (rumore, radiazioni, videoterminali, antincendio) + novità (ESC 2026 scompenso e rene, quinta definizione di infarto, INAIL 2025, GINA 2026, OMS HIV 2026, nuove lauree magistrali)",
+ "created": "2026-11-04T05:52:00+01:00",
+ "items": [
+  {
+   "e": "Le caratteristiche definenti sono gli indizi osservabili o riferiti; i fattori correlati sono le cause modificabili con interventi infermieristici.",
+   "m": "dx",
+   "o": [
+    "Le malattie mediche che accompagnano la diagnosi",
+    "Le cause su cui l'infermiere può intervenire",
+    "Gli obiettivi da raggiungere alla dimissione",
+    "Segni e sintomi osservabili che, raggruppati, indicano la presenza della diagnosi"
+   ],
+   "q": "Nella terminologia NANDA-I le «caratteristiche definenti» sono…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "A differenza dei fattori correlati, le popolazioni a rischio non si modificano con interventi infermieristici autonomi, ma aiutano a riconoscere chi è più esposto.",
+   "m": "dx",
+   "o": [
+    "I fattori ambientali che l'infermiere deve eliminare",
+    "Le persone che rifiutano le cure",
+    "Gruppi di persone con caratteristiche non modificabili dall'infermiere (es. età, storia familiare) che le rendono più suscettibili",
+    "Le diagnosi mediche che causano il problema"
+   ],
+   "q": "Nella NANDA-I le «popolazioni a rischio» indicano…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Le diagnosi di sindrome raggruppano più diagnosi che compaiono insieme e si trattano meglio con interventi comuni.",
+   "m": "dx",
+   "o": [
+    "Una diagnosi medica tradotta in linguaggio infermieristico",
+    "Un giudizio clinico su un gruppo specifico di diagnosi infermieristiche che si presentano insieme",
+    "Un problema che riguarda solo l'ambito psichiatrico",
+    "Una diagnosi senza fattori correlati né caratteristiche definenti"
+   ],
+   "q": "Una diagnosi infermieristica di «sindrome» secondo NANDA-I è…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "NANDA-I (diagnosi), NOC (esiti) e NIC (interventi) sono i tre linguaggi standardizzati collegati nel processo di nursing.",
+   "m": "dx",
+   "o": [
+    "ICD-11",
+    "NOC (Nursing Outcomes Classification)",
+    "NIC (Nursing Interventions Classification)",
+    "ICF"
+   ],
+   "q": "La classificazione che descrive gli esiti sensibili all'assistenza infermieristica, usata per misurare i risultati del piano, è…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Il dolore di rimbalzo (segno di Blumberg) indica irritazione del peritoneo: va segnalato subito al medico.",
+   "m": "eo",
+   "o": [
+    "Blumberg, che orienta verso un'irritazione peritoneale",
+    "Giordano, tipico della colica renale",
+    "Rovsing, tipico della diverticolite",
+    "Murphy, tipico della colecistite"
+   ],
+   "q": "Alla palpazione dell'addome il paziente avverte un dolore intenso al rilascio improvviso della mano. È il segno di…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Il polso paradosso si osserva nel tamponamento cardiaco e nell'asma grave.",
+   "m": "eo",
+   "o": [
+    "La pressione sistolica cala di oltre 10 mmHg durante l'inspirazione",
+    "La frequenza radiale è maggiore di quella apicale",
+    "La frequenza cardiaca aumenta in posizione eretta",
+    "Il polso è assente a un solo braccio"
+   ],
+   "q": "Si parla di «polso paradosso» quando…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "I sibili sono tipici di asma e BPCO; i crepitii sono suoni discontinui, lo sfregamento pleurico è un rumore ruvido sincrono al respiro.",
+   "m": "eo",
+   "o": [
+    "Sfregamenti pleurici",
+    "Sibili, da restringimento delle vie aeree",
+    "Murmure vescicolare normale",
+    "Crepitii fini, da apertura degli alveoli"
+   ],
+   "q": "All'auscultazione del torace si sentono suoni continui, musicali, soprattutto in espirazione. Si tratta di…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Un refill superiore a 2 secondi suggerisce ipoperfusione periferica, da interpretare con temperatura ambiente e altri segni.",
+   "m": "eo",
+   "o": [
+    "Fino a 5 secondi",
+    "Almeno 4 secondi",
+    "Fino a 2 secondi",
+    "Fino a 8 secondi"
+   ],
+   "q": "Nell'adulto, un tempo di riempimento capillare normale è…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "La L. 42/1999 ha abolito il mansionario; i limiti sono le competenze previste per i medici e le altre professioni sanitarie.",
+   "m": "leg",
+   "o": [
+    "Contratto collettivo e regolamento aziendale",
+    "Prescrizioni del medico di reparto",
+    "Mansionario e ordini di servizio",
+    "Profilo professionale, ordinamento didattico e codice deontologico"
+   ],
+   "q": "Secondo la L. 42/1999 il campo di attività dell'infermiere è definito da…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Il DM 739/1994 definisce l'infermiere responsabile dell'assistenza generale infermieristica: prevenzione, cura, palliazione, riabilitazione ed educazione sanitaria.",
+   "m": "leg",
+   "o": [
+    "DM 77/2022",
+    "DM 739/1994",
+    "D.Lgs. 229/1999",
+    "DPR 225/1974"
+   ],
+   "q": "Il profilo professionale dell'infermiere è contenuto nel…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Con la L. 3/2018 sono nati gli OPI provinciali e la Federazione nazionale (FNOPI).",
+   "m": "leg",
+   "o": [
+    "Istituito il Servizio sanitario nazionale",
+    "Trasformato i Collegi IPASVI in Ordini delle professioni infermieristiche, coordinati dalla FNOPI",
+    "Disciplinato la responsabilità professionale",
+    "Introdotto il consenso informato e le DAT"
+   ],
+   "q": "La L. 3/2018 (legge Lorenzin) ha…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "La causa di non punibilità vale per l'imperizia, con linee guida (o buone pratiche) adeguate alle specificità del caso.",
+   "m": "leg",
+   "o": [
+    "Ha causato solo lesioni lievi",
+    "È avvenuto durante il turno notturno",
+    "È dovuto a imperizia e sono state rispettate le linee guida adeguate al caso concreto",
+    "È dovuto a negligenza ma il paziente ha firmato il consenso"
+   ],
+   "q": "L'art. 590-sexies del codice penale, introdotto dalla L. 24/2017, esclude la punibilità del professionista quando l'evento…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "L'art. 11 (supervisione e sicurezza) chiede di formarsi e di chiedere supervisione ogni volta che serve.",
+   "m": "cod",
+   "o": [
+    "La svolge purché sia prescritta",
+    "Si forma e chiede supervisione",
+    "La delega all'operatore di supporto",
+    "La rifiuta sempre"
+   ],
+   "q": "Secondo l'art. 11 del Codice deontologico 2025, davanti a un'attività nuova o in cui ha competenze limitate, l'infermiere…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "L'esercizio abusivo è anche reato (art. 348 c.p.); il Codice chiede di contrastarlo attivamente.",
+   "m": "cod",
+   "o": [
+    "Contrastare e denunciare l'esercizio abusivo della professione e il lavoro sommerso",
+    "Approvare i protocolli aziendali",
+    "Organizzare i turni di reparto",
+    "Fissare gli onorari minimi"
+   ],
+   "q": "L'art. 46 del Codice 2025 impegna infermiere e Ordine a…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "L'art. 54 separa il ruolo pubblico da quello professionale: l'Ordine non giudica le scelte politiche dell'iscritto.",
+   "m": "cod",
+   "o": [
+    "Chiedono l'autorizzazione preventiva",
+    "Sospendono l'iscrizione all'albo",
+    "Applicano sempre la censura",
+    "Non intervengono per le attività svolte nell'esercizio di quelle funzioni"
+   ],
+   "q": "Secondo l'art. 54 del Codice 2025, nei confronti dell'infermiere che svolge un incarico politico-istituzionale gli Ordini…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "L'art. 25 chiede di gestire il dolore secondo linee guida e buone pratiche, rispettando la volontà della persona.",
+   "m": "cod",
+   "o": [
+    "Art. 4",
+    "Art. 20",
+    "Art. 25",
+    "Art. 38"
+   ],
+   "q": "Quale articolo del Codice 2025 chiede di prevenire, rilevare e documentare il dolore?",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Art. 37 GDPR: il DPO è obbligatorio per gli enti pubblici e per chi tratta su larga scala categorie particolari di dati, come quelli sanitari.",
+   "m": "pa",
+   "o": [
+    "Per le autorità e gli organismi pubblici, quindi anche per le aziende sanitarie pubbliche",
+    "Solo se c'è stato un data breach",
+    "Mai: è sempre facoltativa",
+    "Solo per le aziende con più di 250 dipendenti"
+   ],
+   "q": "Nel GDPR la nomina del responsabile della protezione dei dati (DPO) è obbligatoria…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Il PIAO (art. 6 D.L. 80/2021) assorbe diversi piani, tra cui quello della prevenzione della corruzione e della trasparenza.",
+   "m": "pa",
+   "o": [
+    "D.L. 80/2021",
+    "D.Lgs. 165/2001",
+    "L. 241/1990",
+    "D.Lgs. 33/2013"
+   ],
+   "q": "Il PIAO (Piano integrato di attività e organizzazione), che riunisce performance, anticorruzione e fabbisogni di personale, è stato introdotto dal…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "La nomina del medico competente è un obbligo dell'art. 18 D.Lgs. 81/2008; il RLS viene consultato ma non nomina.",
+   "m": "lav",
+   "o": [
+    "INAIL",
+    "ASL",
+    "Datore di lavoro (o dirigente)",
+    "RLS"
+   ],
+   "q": "Nei casi in cui è prevista la sorveglianza sanitaria, il medico competente è nominato da…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Il termine è di 5 giorni dal certificato; per gli infortuni con prognosi oltre 3 giorni il termine è di 2 giorni.",
+   "m": "lav",
+   "o": [
+    "Solo se il lavoratore lo chiede per iscritto",
+    "Entro 5 giorni dalla ricezione del certificato medico",
+    "Entro 30 giorni dalla fine del rapporto di lavoro",
+    "Entro 24 ore dalla diagnosi"
+   ],
+   "q": "Una malattia professionale va denunciata all'INAIL dal datore di lavoro…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Per assenze da 1 a 3 giorni (escluso quello dell'evento) basta la comunicazione statistica; oltre 3 giorni serve la denuncia.",
+   "m": "lav",
+   "o": [
+    "Non deve fare nulla",
+    "Fa la denuncia di infortunio entro 24 ore",
+    "Fa la denuncia di malattia professionale",
+    "Fa la comunicazione a fini statistici e informativi"
+   ],
+   "q": "Un'infermiera si distorce una caviglia in reparto e ha una prognosi di 2 giorni. Verso l'INAIL il datore di lavoro…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "A 80 dB(A) i DPI uditivi sono messi a disposizione e la visita è su richiesta; a 85 sono obbligatori e la sorveglianza è obbligatoria; 87 dB(A) è il valore limite.",
+   "m": "lav",
+   "o": [
+    "Basta informare il lavoratore",
+    "Il lavoratore deve usare i protettori auricolari ed è sottoposto a sorveglianza sanitaria",
+    "Il lavoro va sospeso perché è superato il valore limite",
+    "Si fa solo la visita a richiesta"
+   ],
+   "q": "Quando l'esposizione giornaliera al rumore supera 85 dB(A) (valore superiore di azione)…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Oltre 1 mSv/anno si è lavoratori esposti; oltre 6 mSv/anno categoria A; 20 mSv/anno è il limite di dose efficace.",
+   "m": "lav",
+   "o": [
+    "6 mSv all'anno",
+    "20 mSv all'anno",
+    "1 mSv all'anno",
+    "50 mSv all'anno"
+   ],
+   "q": "Secondo il D.Lgs. 101/2020 un lavoratore esposto alle radiazioni ionizzanti è classificato in «categoria A» se può ricevere una dose efficace superiore a…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Dopo la L. 215/2021 il preposto va individuato obbligatoriamente; la sua formazione è di 12 ore con aggiornamento biennale.",
+   "m": "lav",
+   "o": [
+    "È facoltativa se il preposto è un infermiere esperto",
+    "Dura 4 ore e non va aggiornata",
+    "Dura 32 ore e va aggiornata ogni 10 anni",
+    "Dura 12 ore e va aggiornata ogni 2 anni"
+   ],
+   "q": "Secondo l'Accordo Stato-Regioni del 17 aprile 2025, la formazione particolare del preposto…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Il caring unisce azioni competenti, pensiero e sentimenti; per il Codice 2025 (art. 4) il tempo di cura è tempo di relazione.",
+   "enc": "caring",
+   "m": "dx",
+   "o": [
+    "Un insieme di procedure tecniche standardizzate",
+    "La sola risposta ai bisogni fisiologici",
+    "Una relazione transpersonale tra infermiere e persona",
+    "Un'attività delegabile all'operatore di supporto"
+   ],
+   "q": "Secondo la voce «Caring», Jean Watson descrive il prendersi cura come…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Il dilemma si affronta con un metodo: fatti e volontà della persona, valori in conflitto, ipotesi, scelta motivata, condivisa e documentata.",
+   "enc": "dilemmi-etici",
+   "m": "cod",
+   "o": [
+    "Una norma di legge non è chiara",
+    "Il paziente non firma il consenso",
+    "Due doveri o valori validi entrano in conflitto tra loro",
+    "Mancano le risorse per un intervento"
+   ],
+   "q": "Si parla di dilemma etico quando…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Il distretto garantisce assistenza primaria e integrazione socio-sanitaria e coordina ADI e cure palliative domiciliari.",
+   "enc": "distretto",
+   "m": "leg",
+   "o": [
+    "20.000 abitanti",
+    "3.000 abitanti",
+    "1 milione di abitanti",
+    "100.000 abitanti"
+   ],
+   "q": "Secondo il DM 77/2022 il bacino di riferimento di un distretto sanitario è di circa…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "BRASS ≥ 20 alto rischio, 11-19 medio, ≤ 10 basso: va attivata presto la pianificazione con COT, MMG e ADI.",
+   "enc": "dimissione",
+   "m": "cli",
+   "o": [
+    "Alto rischio di dimissione difficile",
+    "Alto rischio di lesioni da pressione",
+    "Basso rischio di cadute",
+    "Autonomia completa nelle attività quotidiane"
+   ],
+   "q": "Un indice di BRASS pari a 22 indica…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "L'iscrizione all'OPI è obbligatoria (L. 43/2006, L. 3/2018); l'aggiornamento ECM è un obbligo deontologico e di legge.",
+   "enc": "ecm",
+   "m": "leg",
+   "o": [
+    "L'iscrizione a un sindacato di categoria",
+    "Solo la laurea, senza iscrizione",
+    "L'abilitazione rilasciata dall'azienda sanitaria",
+    "L'iscrizione all'albo dell'Ordine delle professioni infermieristiche"
+   ],
+   "q": "Per esercitare la professione infermieristica, anche come dipendente pubblico, è necessaria…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Dopo una gastrectomia manca il fattore intrinseco: serve la B12 per via parenterale per evitare l'anemia megaloblastica.",
+   "enc": "apparato-digerente",
+   "m": "cli",
+   "o": [
+    "Dal colon",
+    "Dallo stomaco",
+    "Dal fegato",
+    "Dal pancreas esocrino"
+   ],
+   "q": "Il fattore intrinseco, necessario per assorbire la vitamina B12, è prodotto…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "La midollare del surrene produce adrenalina e noradrenalina; le paratiroidi il paratormone.",
+   "enc": "sistema-endocrino",
+   "m": "cli",
+   "o": [
+    "Dalla corticale del surrene",
+    "Dalle paratiroidi",
+    "Dall'ipofisi posteriore",
+    "Dalla midollare del surrene"
+   ],
+   "q": "Cortisolo e aldosterone sono prodotti…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "La macula è piana e si distingue solo per il colore; papula e nodulo sono rilevati ma solidi; vescicola e bolla contengono liquido chiaro.",
+   "enc": "cute",
+   "m": "eo",
+   "o": [
+    "Papula",
+    "Nodulo",
+    "Pustola",
+    "Macula"
+   ],
+   "q": "Una lesione elementare cutanea rilevata e piena di pus si chiama…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "È un elemento del Chronic Care Model, con supporto all'autogestione, PDTA e telemonitoraggio.",
+   "enc": "cronicita",
+   "m": "leg",
+   "o": [
+    "Si interviene solo quando il paziente chiede aiuto",
+    "I servizi vanno incontro alla persona prima che la malattia si aggravi",
+    "Si privilegia il ricovero ospedaliero",
+    "Il medico decide senza coinvolgere il paziente"
+   ],
+   "q": "La «medicina d'iniziativa» prevista per la gestione della cronicità significa che…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "È un'emergenza: misurare la pressione a entrambe le braccia e avvisare subito il medico.",
+   "enc": "dolore-toracico",
+   "m": "cli",
+   "o": [
+    "Pericardite",
+    "Reflusso gastroesofageo",
+    "Dissezione aortica",
+    "Dolore muscolo-scheletrico"
+   ],
+   "q": "Dolore toracico lacerante irradiato al dorso e differenza di pressione tra le due braccia fanno sospettare…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Nella valutazione PQRST la «P» (provocazione) comprende anche le posizioni che peggiorano o alleviano il dolore.",
+   "enc": "dolore-toracico",
+   "m": "cli",
+   "o": [
+    "Pneumotorace iperteso",
+    "Pericardite",
+    "Sindrome coronarica acuta",
+    "Embolia polmonare"
+   ],
+   "q": "Un dolore toracico che migliora quando il paziente si siede piegandosi in avanti orienta verso…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Posture corrette, mobilizzazione e prevenzione delle lesioni evitano danni che si aggiungono alla disabilità iniziale.",
+   "enc": "riabilitazione",
+   "m": "cli",
+   "o": [
+    "La riduzione del reddito familiare",
+    "Le complicanze della terapia farmacologica",
+    "La malattia che ha causato la disabilità",
+    "Le complicanze evitabili dell'immobilità, come lesioni da pressione e retrazioni"
+   ],
+   "q": "Nell'infermieristica riabilitativa la prevenzione dei «danni terziari» riguarda…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Meno di 5 g di sale al giorno, cioè circa 2 g di sodio; attenzione al sale nascosto in pane, salumi e formaggi.",
+   "enc": "dieta-mediterranea",
+   "m": "cli",
+   "o": [
+    "Sotto 5 g al giorno",
+    "Sotto 1 g a settimana",
+    "Libero, purché iodato",
+    "Sotto 15 g al giorno"
+   ],
+   "q": "In una dieta iposodica per scompenso o ipertensione il sale va mantenuto…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Molte norme del TULLS sono superate, ma restano istituti come l'obbligo di notifica delle malattie infettive (oggi PREMAL). Il DPR 285/1990 è il regolamento di polizia mortuaria.",
+   "enc": "dir-tulls",
+   "m": "leg",
+   "o": [
+    "La L. 833/1978",
+    "Il DPR 285/1990",
+    "Il D.Lgs. 502/1992",
+    "Il R.D. 1265/1934"
+   ],
+   "q": "Il Testo unico delle leggi sanitarie è…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "L'allattamento è a richiesta; l'attacco corretto (labbro inferiore rovesciato, mento sul seno) previene le ragadi.",
+   "enc": "allattamento",
+   "m": "cli",
+   "o": [
+    "Almeno 6 pannolini bagnati al giorno e crescita adeguata",
+    "Poppate a orario fisso ogni 4 ore",
+    "Assenza di feci per alcuni giorni",
+    "Sonno continuo di 8 ore dai primi giorni"
+   ],
+   "q": "Un segno che il neonato allattato al seno assume abbastanza latte è…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Le convulsioni sono possibili entro 48 ore; il delirium tremens compare più tardi. Si monitora con la CIWA-Ar.",
+   "enc": "astinenza-alcol",
+   "m": "cli",
+   "o": [
+    "Entro 10 minuti",
+    "Dopo 7 giorni",
+    "Entro 6-24 ore dall'ultima assunzione",
+    "Solo dopo 2 settimane"
+   ],
+   "q": "Nell'astinenza da alcol, i primi sintomi (tremori, sudorazione, tachicardia, ansia) compaiono di solito…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Il rischio principale è l'ipofosfatemia, con ipopotassiemia e ipomagnesiemia: aritmie e insufficienza cardiorespiratoria.",
+   "enc": "sindrome-rialimentazione",
+   "m": "cli",
+   "o": [
+    "Sospendere ogni integrazione di vitamine",
+    "Rialimentazione graduale, tiamina prima di iniziare e controllo quotidiano degli elettroliti",
+    "Apporto calorico pieno dal primo giorno",
+    "Controllare gli elettroliti solo alla dimissione"
+   ],
+   "q": "Per prevenire la sindrome da rialimentazione in una persona gravemente malnutrita si raccomanda…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "La controcannula si pulisce regolarmente; al letto restano comunque cannula di riserva della stessa misura e di una più piccola, aspiratore e ossigeno.",
+   "enc": "tracheostomia",
+   "m": "cli",
+   "o": [
+    "Permette di gonfiare la cuffia senza manometro",
+    "Rende inutile l'umidificazione dell'aria",
+    "Si può togliere e pulire la controcannula senza sostituire la cannula esterna, prevenendo l'ostruzione da secrezioni",
+    "Sostituisce la cannula di riserva al letto"
+   ],
+   "q": "Qual è il vantaggio di una cannula tracheostomica con controcannula?",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Ogni 2 anni oltre i 50 anni o con prescrizioni; ogni 5 anni negli altri casi.",
+   "enc": "ml-vdt",
+   "m": "lav",
+   "o": [
+    "Solo all'assunzione",
+    "Ogni 5 anni",
+    "Ogni 2 anni",
+    "Ogni 10 anni"
+   ],
+   "q": "Per un videoterminalista di 55 anni la visita periodica del medico competente è prevista…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "La distanza consigliata è di circa 50-70 cm, con sedia regolabile e piedi appoggiati.",
+   "enc": "ml-vdt",
+   "m": "lav",
+   "o": [
+    "Davanti alla finestra, per avere più luce",
+    "Il più vicino possibile agli occhi, a 20 cm",
+    "Di fronte a una lampada, per ridurre l'affaticamento",
+    "Perpendicolare alle finestre, senza riflessi, con il bordo superiore all'altezza degli occhi"
+   ],
+   "q": "In una postazione al videoterminale, lo schermo va posizionato…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Sulle apparecchiature elettriche l'acqua è pericolosa; durante un incendio non si usano gli ascensori e non si aprono porte calde.",
+   "enc": "ml-emergenze",
+   "m": "lav",
+   "o": [
+    "Estintore a polvere",
+    "La coperta antifiamma, se l'apparecchio è piccolo e già scollegato",
+    "Estintore a CO2",
+    "Acqua"
+   ],
+   "q": "Su un principio d'incendio di un'apparecchiatura elettrica in reparto NON si deve usare…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Si usano diluizioni e tempi indicati, non si travasano prodotti in contenitori senza etichetta e si leggono le schede di sicurezza (16 sezioni).",
+   "enc": "ml-chimico",
+   "m": "lav",
+   "o": [
+    "Perché il prodotto diventa troppo diluito",
+    "Perché si liberano gas tossici",
+    "Perché il cloro perde colore",
+    "Perché aumenta solo il costo"
+   ],
+   "q": "Perché non si devono mescolare disinfettanti a base di cloro con prodotti acidi?",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "È dovuta a lavaggi ripetuti, detergenti e occlusione dei guanti: si preferisce la frizione alcolica e si usano creme emollienti.",
+   "enc": "ml-lattice",
+   "m": "lav",
+   "o": [
+    "L'orticaria da freddo",
+    "L'allergia al lattice di tipo I",
+    "La dermatite irritativa da contatto",
+    "La dermatite allergica da additivi della gomma"
+   ],
+   "q": "La dermatite professionale delle mani più frequente negli operatori sanitari è…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Il D.Lgs. 151/2001 vieta i lavori pericolosi e faticosi in gravidanza e fino a 7 mesi dopo il parto; se lo spostamento è impossibile scatta l'interdizione.",
+   "enc": "ml-maternita",
+   "m": "lav",
+   "o": [
+    "Continua a lavorare con una cintura lombare",
+    "Viene licenziata per inidoneità",
+    "Deve prendere ferie",
+    "Si ricorre all'astensione anticipata (interdizione) dal lavoro"
+   ],
+   "q": "Un'infermiera in gravidanza lavora in un reparto con movimentazione dei pazienti e il datore di lavoro non può spostarla ad altra mansione. Che cosa succede?",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "La categoria «lievemente ridotta» (41-49%) è stata eliminata.",
+   "fonte": "https://www.escardio.org/news/press/press-releases/major-changes-made-to-the-esc-guidelines-on-heart-failure/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Nessuno: la frazione di eiezione non si usa più",
+    "Tre: ridotta, lievemente ridotta e preservata",
+    "Due: ridotta (< 50%) e preservata (≥ 50%)",
+    "Quattro, con l'aggiunta della frazione «migliorata»"
+   ],
+   "q": "Nelle linee guida ESC 2026 sullo scompenso cardiaco, i fenotipi basati sulla frazione di eiezione diventano…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Cambia anche la terapia: si parla di terapia medica fondamentale, terapia aggiuntiva e terapia interventistica.",
+   "fonte": "https://www.escardio.org/news/press/press-releases/major-changes-made-to-the-esc-guidelines-on-heart-failure/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Insufficienza cardiaca «refrattaria»",
+    "Insufficienza cardiaca «terminale»",
+    "Insufficienza cardiaca «primaria»",
+    "Insufficienza cardiaca «scompensata» (decompensated)"
+   ],
+   "q": "Nelle linee guida ESC 2026 il termine insufficienza cardiaca «acuta» viene sostituito da…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "È una delle principali novità delle linee guida, che puntano a iniziare il trattamento il prima possibile.",
+   "fonte": "https://www.escardio.org/news/press/press-releases/major-changes-made-to-the-esc-guidelines-on-heart-failure/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "In classe I, indipendentemente dalla frazione di eiezione",
+    "Solo nell'insufficienza cardiaca scompensata",
+    "Mai insieme ai diuretici",
+    "Solo se la frazione di eiezione è inferiore al 35%"
+   ],
+   "q": "Secondo le linee guida ESC 2026, gli antagonisti dei mineralcorticoidi (MRA) nello scompenso cronico sono raccomandati…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Per l'infermiere significa anche educazione su somministrazione sottocutanea ed effetti gastrointestinali.",
+   "fonte": "https://www.escardio.org/news/press/press-releases/major-changes-made-to-the-esc-guidelines-on-heart-failure/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Tutti i pazienti con frazione ridotta",
+    "Pazienti con scompenso a frazione di eiezione preservata e obesità",
+    "I pazienti senza obesità per prevenire lo scompenso",
+    "L'insufficienza cardiaca scompensata in pronto soccorso"
+   ],
+   "q": "Nelle linee guida ESC 2026 semaglutide o tirzepatide hanno una raccomandazione di classe IIa per…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "La malattia renale cronica spesso non dà sintomi: lo screening sistematico permette di trattarla presto.",
+   "fonte": "https://www.escardio.org/news/news-room/congress-news/2026-esc-guidelines-for-the-management-of-cvd-and-ckd/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "eGFR e albuminuria",
+    "Solo l'ecografia renale",
+    "Solo la creatinina",
+    "Solo l'azotemia"
+   ],
+   "q": "Secondo le linee guida ESC 2026 su malattie cardiovascolari e malattia renale cronica, in tutti i pazienti con malattia cardiovascolare si devono misurare…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "La cronicità richiede la persistenza dell'alterazione nel tempo.",
+   "fonte": "https://www.escardio.org/news/news-room/congress-news/2026-esc-guidelines-for-the-management-of-cvd-and-ckd/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Due misure di eGFR e rapporto albumina/creatinina a distanza di almeno 3 mesi",
+    "Una biopsia renale in tutti",
+    "Due misure nello stesso giorno",
+    "Un solo esame delle urine"
+   ],
+   "q": "Per confermare la malattia renale cronica le linee guida ESC 2026 chiedono…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "L'infarto «primario» corrisponde al vecchio tipo 1, il «secondario» al tipo 2, quello «correlato a procedura» ai tipi 4 e 5.",
+   "fonte": "https://www.tctmd.com/news/fifth-universal-definition-mi-unveiled-esc-2026",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Primario, secondario e correlato a procedura",
+    "Anteriore, inferiore e laterale",
+    "Lieve, moderato e grave",
+    "Acuto, subacuto e cronico"
+   ],
+   "q": "La quinta Definizione universale dell'infarto miocardico (2026) sostituisce i «tipi» numerati con le categorie…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Le soglie specifiche per sesso servono a ridurre il mancato riconoscimento dell'infarto nelle donne.",
+   "fonte": "https://www.tctmd.com/news/fifth-universal-definition-mi-unveiled-esc-2026",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Soglie diverse per uomini e donne",
+    "Abolizione del dosaggio della troponina",
+    "Una soglia unica per tutte le età e i sessi",
+    "Uso della sola CK-MB"
+   ],
+   "q": "Una novità della quinta Definizione universale dell'infarto (2026) riguarda la troponina:",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "MINOCA è considerata una diagnosi di lavoro da approfondire, non una diagnosi finale.",
+   "fonte": "https://www.tctmd.com/news/fifth-universal-definition-mi-unveiled-esc-2026",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Infiammazione",
+    "Infarto",
+    "Ischemia",
+    "Danno (injury) miocardico"
+   ],
+   "q": "Nella quinta Definizione universale (2026), nell'acronimo MINOCA la «I» indica ora…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Nel 2025 le denunce sono state 98.312 (+11,3% rispetto al 2024).",
+   "fonte": "https://www.ecnews.it/lavoro/rapporto-di-lavoro/gestione-del-rapporto/relazione-annuale-inail-il-punto-su-infortuni-e-malattie-professionali/",
+   "m": "lav",
+   "novita": true,
+   "o": [
+    "Sono aumentate di circa l'11%, al valore più alto degli ultimi 26 anni",
+    "Sono rimaste uguali al 2024",
+    "Sono diminuite di un terzo",
+    "Sono state meno di 10.000"
+   ],
+   "q": "Secondo la Relazione annuale INAIL presentata nel settembre 2026, nel 2025 le denunce di malattia professionale…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Seguono le malattie del sistema nervoso (soprattutto il tunnel carpale) e dell'orecchio: rilevante per la movimentazione dei pazienti.",
+   "fonte": "https://www.ecnews.it/lavoro/rapporto-di-lavoro/gestione-del-rapporto/relazione-annuale-inail-il-punto-su-infortuni-e-malattie-professionali/",
+   "m": "lav",
+   "novita": true,
+   "o": [
+    "Le dermatiti",
+    "Le patologie muscolo-scheletriche, circa tre su quattro",
+    "Le malattie respiratorie",
+    "I tumori professionali"
+   ],
+   "q": "Secondo la Relazione annuale INAIL (dati 2025), le malattie professionali più denunciate sono…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Le denunce in itinere sono state circa 104.000 (+2,4%): un tema importante per chi lavora su turni.",
+   "fonte": "https://www.ecnews.it/lavoro/rapporto-di-lavoro/gestione-del-rapporto/relazione-annuale-inail-il-punto-su-infortuni-e-malattie-professionali/",
+   "m": "lav",
+   "novita": true,
+   "o": [
+    "Sono diminuiti del 50%",
+    "Non vengono più tutelati",
+    "Sono aumentati, raggiungendo il valore più alto del periodo 2021-2025",
+    "Sono scomparsi grazie allo smart working"
+   ],
+   "q": "Secondo l'INAIL, nel 2025 gli infortuni in itinere (nel tragitto casa-lavoro)…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Il tempo della visita è quindi orario di lavoro a tutti gli effetti.",
+   "fonte": "https://www.dottrinalavoro.it/notizie-c/articolo-unattenzione-particolare-alla-salute-dei-lavoratori-nel-d-l-159-2025",
+   "m": "lav",
+   "novita": true,
+   "o": [
+    "Si svolgono sempre fuori dall'orario di lavoro",
+    "Sono stati aboliti per il personale sanitario",
+    "Sono a carico del lavoratore",
+    "Rientrano nell'orario di lavoro, tranne le visite preassuntive"
+   ],
+   "q": "Con il D.L. 159/2025 gli accertamenti sanitari del medico competente…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "GINA si allontana dalla terapia con solo SABA anche nei bambini; ai gradini 3-4 si usa la terapia MART.",
+   "fonte": "https://www.academicjobs.com/nz/research-publication-news/nz-research-drives-global-asthma-guidelines-update-for-children-or-academicjobs-17975",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Corticosteroide inalatorio-formoterolo al bisogno (terapia AIR)",
+    "Montelukast al bisogno",
+    "Salbutamolo da solo",
+    "Corticosteroide orale al bisogno"
+   ],
+   "q": "Secondo GINA 2026, nei bambini di 6-11 anni con asma lieve, il farmaco al bisogno preferito è…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Il corticosteroide inalatorio tratta l'infiammazione anche nell'asma lieve.",
+   "fonte": "https://www.academicjobs.com/nz/research-publication-news/nz-research-drives-global-asthma-guidelines-update-for-children-or-academicjobs-17975",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Perché si associa a un rischio maggiore di riacutizzazioni gravi e morte",
+    "Perché il salbutamolo non è più in commercio",
+    "Perché il SABA provoca dipendenza",
+    "Perché costa di più del corticosteroide"
+   ],
+   "q": "Perché GINA 2026 si allontana dalla terapia con solo SABA (es. salbutamolo) come unico farmaco al bisogno?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "I regimi a base di dolutegravir restano la prima scelta.",
+   "fonte": "https://www.who.int/japan/news/detail-global/07-01-2026-who-releases-updated-recommendations-on-hiv-clinical-management",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Nessuno: gli inibitori della proteasi sono sconsigliati",
+    "Darunavir/ritonavir",
+    "Atazanavir/ritonavir",
+    "Lopinavir/ritonavir"
+   ],
+   "q": "Nelle raccomandazioni OMS sull'HIV del gennaio 2026, quando serve un inibitore della proteasi il farmaco preferito è…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Il 3HP è più breve e favorisce l'adesione alla terapia.",
+   "fonte": "https://www.who.int/japan/news/detail-global/07-01-2026-who-releases-updated-recommendations-on-hiv-clinical-management",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Solo la vaccinazione BCG",
+    "Isoniazide più rifapentina una volta a settimana per 3 mesi (3HP)",
+    "Nessuna profilassi",
+    "Isoniazide quotidiana per 36 mesi"
+   ],
+   "q": "Secondo l'OMS (gennaio 2026), per prevenire la tubercolosi nelle persone con HIV il regime preferito è…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Ai neonati ad alto rischio si propone una profilassi rafforzata con tre farmaci.",
+   "fonte": "https://www.who.int/japan/news/detail-global/07-01-2026-who-releases-updated-recommendations-on-hiv-clinical-management",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Solo se la madre non allatta",
+    "Per 2 anni con tre farmaci in tutti i casi",
+    "Di 6 settimane, preferibilmente con nevirapina",
+    "Di 1 giorno con antibiotico"
+   ],
+   "q": "Secondo l'OMS (gennaio 2026), tutti i neonati esposti all'HIV ricevono una profilassi dopo la nascita…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Circa 188 milioni: l'OMS raccomanda un approccio che coinvolga tutta la scuola, con regole sui cibi offerti.",
+   "fonte": "https://www.news-medical.net/news/20260128/WHO-releases-a-new-global-guideline-to-create-healthy-school-food-environments.aspx",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Sono in calo in tutti i Paesi",
+    "Sono meno dell'1%",
+    "Sono pari a quelli con diabete tipo 1",
+    "Hanno superato per la prima volta quelli sottopeso"
+   ],
+   "q": "Con le prime linee guida sull'alimentazione nelle scuole (gennaio 2026), l'OMS segnala che nel 2025 i bambini e ragazzi in età scolare con obesità…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Sono percorsi biennali per chi ha già la laurea triennale; la partenza è prevista non prima dell'anno accademico 2027-2028.",
+   "fonte": "https://www.open.online/2026/01/20/infermieri-prescrizione-ricette-nuove-lauree/",
+   "m": "leg",
+   "novita": true,
+   "o": [
+    "Oncologia, cardiologia e nefrologia",
+    "Management, didattica e ricerca",
+    "Chirurgia, ortopedia e anestesia",
+    "Cure primarie e sanità pubblica; cure pediatriche e neonatali; cure intensive e nell'emergenza"
+   ],
+   "q": "Lo schema di decreto del Ministero dell'Università (dicembre 2025) prevede tre nuove lauree magistrali per infermieri in…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Non si estende ai farmaci; serve comunque una norma di legge che la definisca.",
+   "fonte": "https://www.open.online/2026/01/20/infermieri-prescrizione-ricette-nuove-lauree/",
+   "m": "leg",
+   "novita": true,
+   "o": [
+    "Gli esami radiologici",
+    "Presidi, ausili e tecnologie dell'assistenza (es. medicazioni, ausili per incontinenza, sacche per stomia)",
+    "Tutti i farmaci",
+    "Solo gli antibiotici"
+   ],
+   "q": "Con le nuove lauree magistrali specialistiche, la prescrizione infermieristica riguarderebbe…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "8,8% come media degli ospedali (10,2% sul totale dei pazienti); le infezioni più frequenti sono respiratorie, del sangue e urinarie.",
+   "fonte": "https://www.epicentro.iss.it/sorveglianza-ica/pdf/Summary%20report%20PPS3.pdf",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "25%",
+    "50%",
+    "9-10%",
+    "1%"
+   ],
+   "q": "Nell'ultimo studio nazionale di prevalenza (PPS3, novembre 2022, report ISS), la percentuale di pazienti ricoverati con almeno un'infezione correlata all'assistenza era circa…",
+   "r": 2,
+   "sec": 0
+  }
+ ],
+ "casi": [
+  {
+   "abp": false,
+   "area": "Medicina del lavoro",
+   "capno": false,
+   "dx": [
+    "Esposizione professionale a rischio biologico",
+    "Ansia correlata a minaccia per la salute",
+    "Rischio di infezione"
+   ],
+   "ecg": "sinus",
+   "esami": [
+    [
+     "Paziente fonte: HCV-RNA",
+     "positivo",
+     1
+    ],
+    [
+     "Paziente fonte: anticorpi anti-HIV",
+     "negativi",
+     0
+    ],
+    [
+     "Paziente fonte: HBsAg",
+     "negativo",
+     0
+    ],
+    [
+     "Marta: anti-HBs (2019)",
+     "120 mUI/ml",
+     0
+    ],
+    [
+     "Marta: anti-HCV al momento dell'esposizione",
+     "negativo",
+     0
+    ]
+   ],
+   "lv": "facile",
+   "oral": "Collega D.Lgs. 81/2008 (Titolo X-bis sulla prevenzione delle ferite da taglienti), denuncia INAIL e Codice 2025 art. 34 sulla gestione del rischio anche infettivo; ricorda che la tachicardia di Marta è sinusale e legata all'ansia.",
+   "resp": "normal",
+   "steps": [
+    {
+     "a": "Interrompere l'attività in sicurezza, togliere il guanto, lavare a lungo la ferita con acqua e sapone lasciandola sanguinare spontaneamente, senza spremere né usare sostanze caustiche; poi disinfettare. Avvisare il coordinatore (preposto) e seguire subito la procedura aziendale per l'esposizione a rischio biologico (pronto soccorso o medico competente).",
+     "q": "Che cosa deve fare Marta subito, nei primi minuti?"
+    },
+    {
+     "a": "Al paziente fonte, con il suo consenso: HBsAg, anti-HCV/HCV-RNA, anti-HIV. A Marta esami di base al momento dell'esposizione (anti-HIV, anti-HCV, HBsAg/anti-HBs, transaminasi). Un anti-HBs documentato ≥ 10 mUI/ml dopo la vaccinazione indica protezione: non servono immunoglobuline né richiami.",
+     "q": "Quali esami servono, a chi, e che cosa ci dice il valore di anti-HBs di Marta?"
+    },
+    {
+     "a": "Non esiste una profilassi post-esposizione per l'HCV e, con fonte HIV negativa e HBsAg negativo, non serve la profilassi anti-HIV. Si fa un follow-up: HCV-RNA dopo alcune settimane e anti-HCV nei mesi successivi, per trattare subito un'eventuale infezione acuta. Nel frattempo precauzioni con il partner e niente donazioni di sangue secondo indicazione del medico.",
+     "evo": "Il medico di pronto soccorso conferma i risultati della fonte e rassicura Marta.",
+     "q": "Il paziente fonte ha HIV negativo e HCV-RNA positivo. Serve una profilassi post-esposizione? Come si segue Marta?"
+    },
+    {
+     "a": "L'evento va registrato come infortunio a rischio biologico con certificato e segnalazione interna; per l'INAIL la denuncia è dovuta se la prognosi supera 3 giorni (entro 2 giorni dal certificato), altrimenti la comunicazione statistica. Analisi dell'evento: contenitore per taglienti lontano dal punto d'uso, mancato uso di dispositivi con meccanismo di sicurezza. Il DVR va aggiornato e la formazione ripetuta (D.Lgs. 81/2008, Titolo X-bis).",
+     "q": "Quali aspetti di sicurezza sul lavoro e di documentazione emergono dal caso?"
+    }
+   ],
+   "story": "Marta, 34 anni, infermiera di medicina interna. Alle 7 del mattino, dopo un prelievo venoso, si punge il dito indice attraverso il guanto con l'ago cavo usato mentre lo porta al contenitore per taglienti, rimasto sul carrello lontano dal letto. Il paziente fonte, 58 anni, ha un'epatite C nota. Marta è molto agitata e chiede al collega che cosa deve fare. È vaccinata contro l'epatite B: dal libretto vaccinale risulta un controllo anticorpale del 2019.",
+   "tags": [
+    "lav",
+    "cli"
+   ],
+   "title": "Puntura accidentale dopo un prelievo in medicina",
+   "vit": [
+    [
+     "FC",
+     "104 bpm",
+     1
+    ],
+    [
+     "PA",
+     "135/80 mmHg",
+     0
+    ],
+    [
+     "FR",
+     "20/min",
+     0
+    ],
+    [
+     "SpO2",
+     "99%",
+     0
+    ],
+    [
+     "TC",
+     "36,6 °C",
+     0
+    ]
+   ]
+  },
+  {
+   "abp": false,
+   "area": "Salute mentale",
+   "capno": false,
+   "dx": [
+    "Rischio di squilibrio elettrolitico",
+    "Rischio di riduzione della gittata cardiaca",
+    "Immagine corporea disturbata",
+    "Malnutrizione grave con sindrome da rialimentazione"
+   ],
+   "ecg": "ipok",
+   "esami": [
+    [
+     "Potassio",
+     "2,6 mmol/l",
+     1
+    ],
+    [
+     "Fosforo",
+     "0,5 mmol/l",
+     1
+    ],
+    [
+     "Magnesio",
+     "0,6 mmol/l",
+     1
+    ],
+    [
+     "Sodio",
+     "136 mmol/l",
+     0
+    ],
+    [
+     "Glicemia",
+     "68 mg/dl",
+     1
+    ]
+   ],
+   "lv": "medio",
+   "oral": "Collega disturbi alimentari, sindrome da rialimentazione e lettura dell'ECG nell'ipopotassiemia; ricorda la Raccomandazione ministeriale n. 1 sul KCl e l'art. 4 del Codice 2025 sulla relazione di cura.",
+   "resp": "normal",
+   "steps": [
+    {
+     "a": "Bradicardia sinusale con onde T appiattite, sottoslivellamento del tratto ST e onde U evidenti (intervallo QU allungato): sono i segni dell'ipopotassiemia, confermata dal potassio a 2,6 mmol/l. Il rischio è di aritmie ventricolari.",
+     "q": "Guarda il tracciato: che cosa vedi e con quale esame lo colleghi?"
+    },
+    {
+     "a": "È la sindrome da rialimentazione: con l'arrivo dei carboidrati l'insulina sposta fosforo, potassio e magnesio dentro le cellule e i valori nel sangue crollano; il vomito autoindotto peggiora la perdita di potassio. Il segno principale è l'ipofosfatemia. Si riduce l'apporto calorico secondo prescrizione, si integra tiamina e si controllano gli elettroliti ogni giorno.",
+     "q": "Perché proprio ora, al terzo giorno di nutrizione, compaiono questi squilibri?"
+    },
+    {
+     "a": "Mai in bolo né non diluito; usare preferibilmente soluzioni già pronte (le fiale concentrate sono conservate separate, Raccomandazione ministeriale n. 1); infusione con pompa, a velocità limitata secondo protocollo (in vena periferica di norma non oltre 10 mmol/ora); monitoraggio ECG continuo, controllo del sito per flebite e stravaso, controllo del potassio dopo l'infusione.",
+     "evo": "Il medico prescrive anche fosfato e magnesio per via endovenosa.",
+     "q": "Il medico prescrive cloruro di potassio endovena. Quali regole di sicurezza segui?"
+    },
+    {
+     "a": "Relazione empatica e non giudicante, patto terapeutico chiaro, condivisione delle regole su pasti e sondino; sorveglianza discreta dopo i pasti per prevenire il vomito; peso con modalità concordate; bilancio idrico, glicemia, controllo di edemi e segni di scompenso; coinvolgimento dell'équipe multidisciplinare e, con il suo consenso, della famiglia.",
+     "q": "Quali interventi relazionali e di sorveglianza servono con Giulia?"
+    }
+   ],
+   "story": "Giulia, 19 anni, è ricoverata da 3 giorni in un reparto per i disturbi della nutrizione per anoressia nervosa: pesa 38 kg ed è alta 1,65 m. Ha iniziato la nutrizione con sondino nasogastrico. Oggi riferisce debolezza alle gambe, crampi e palpitazioni; durante il giro del mattino è pallida e fredda alle estremità. Ammette di aver vomitato di nascosto dopo il pasto della sera. Il medico chiede un monitoraggio continuo.",
+   "tags": [
+    "cli",
+    "dx"
+   ],
+   "title": "Rialimentazione in una ragazza con anoressia nervosa",
+   "vit": [
+    [
+     "FC",
+     "52 bpm",
+     1
+    ],
+    [
+     "PA",
+     "85/55 mmHg",
+     1
+    ],
+    [
+     "FR",
+     "16/min",
+     0
+    ],
+    [
+     "SpO2",
+     "98%",
+     0
+    ],
+    [
+     "TC",
+     "35,6 °C",
+     1
+    ],
+    [
+     "IMC",
+     "circa 14 kg/m²",
+     1
+    ]
+   ]
+  },
+  {
+   "abp": false,
+   "area": "Territorio e cronicità",
+   "dx": [
+    "Ventilazione spontanea compromessa",
+    "Scambi gassosi compromessi",
+    "Confusione acuta",
+    "Conoscenze insufficienti del caregiver sull'ossigenoterapia"
+   ],
+   "ecg": "sinus",
+   "esami": [
+    [
+     "pH",
+     "7,26",
+     1
+    ],
+    [
+     "PaCO2",
+     "78 mmHg",
+     1
+    ],
+    [
+     "PaO2",
+     "70 mmHg (con O2)",
+     0
+    ],
+    [
+     "HCO3-",
+     "34 mmol/l",
+     1
+    ],
+    [
+     "Lattati",
+     "1,1 mmol/l",
+     0
+    ]
+   ],
+   "etco2": 62,
+   "lv": "difficile",
+   "oral": "Collega ossigenoterapia nella BPCO (target 88-92%), NEWS2 con scala 2, emogasanalisi e NIV; sul territorio ricorda il ruolo dell'IFeC (DM 77/2022) nell'educazione del caregiver.",
+   "resp": "bradipnea",
+   "steps": [
+    {
+     "a": "FR 10 = 1; SpO2 98% in ossigeno con scala 2 = 3; ossigeno supplementare = 2; PA 145 = 0; FC 96 = 1; nuova confusione = 3; TC 37,6 = 0. Totale 10: rischio alto, serve una valutazione urgente da parte di un'équipe di emergenza. Correttamente è stato chiamato il 118.",
+     "q": "Calcola il NEWS2 usando la scala 2 della SpO2 (paziente con insufficienza respiratoria ipercapnica nota). Che cosa significa?"
+    },
+    {
+     "a": "Non lo sospendi bruscamente (rischio di ipossiemia di rimbalzo), ma lo riduci gradualmente per ottenere una SpO2 tra 88% e 92%, preferibilmente con maschera di Venturi al 24-28% se disponibile; posizione semiseduta, sorveglianza continua di coscienza e respiro, aspirazione e via aerea pronte. Spieghi con calma alla moglie perché più ossigeno non è sempre meglio.",
+     "q": "Che cosa fai subito con l'ossigeno?"
+    },
+    {
+     "a": "Il monitor mostra un respiro lento e superficiale (bradipnea da ipoventilazione) con EtCO2 alta (62 mmHg): la CO2 si accumula. L'EGA mostra acidosi respiratoria acuta su cronica: pH 7,26, PaCO2 78 mmHg e bicarbonati elevati (34 mmol/l) per il compenso renale cronico, non sufficiente. La causa è l'eccesso di ossigeno che ha ridotto lo stimolo respiratorio e peggiorato il rapporto ventilazione/perfusione: narcosi da CO2.",
+     "evo": "In pronto soccorso viene eseguita un'emogasanalisi arteriosa (vedi esami).",
+     "q": "Interpreta il respiro e la capnografia sul monitor e poi l'emogasanalisi eseguita in pronto soccorso."
+    },
+    {
+     "a": "Sorvegli tolleranza e sincronia, perdite dalla maschera, coscienza, FR, SpO2 (88-92%), EtCO2 o PaCO2, pressione e lesioni cutanee alla radice del naso (protezione con medicazioni). EGA di controllo dopo 1-2 ore: se il pH non migliora o peggiora, se la coscienza cala, se compaiono vomito, instabilità emodinamica o incapacità di proteggere le vie aeree, la NIV è fallita e va valutata l'intubazione. Alla dimissione: rivalutare la prescrizione dell'ossigeno ed educare la famiglia sul flusso prescritto.",
+     "evo": "In pronto soccorso si inizia la NIV con maschera oronasale.",
+     "q": "Viene avviata la ventilazione non invasiva (NIV). Che cosa sorvegli e quando la consideri fallita?"
+    }
+   ],
+   "story": "Vincenzo, 76 anni, BPCO grave in ossigenoterapia domiciliare a lungo termine a 2 l/min con occhialini. Alle 10 l'infermiere di famiglia e comunità arriva per la visita programmata: la moglie racconta che nella notte «respirava male» e ha aumentato l'ossigeno a 5 l/min. Vincenzo è sonnolento, apre gli occhi alla chiamata, risponde in modo confuso ma esegue gli ordini; la cute è calda e arrossata, il polso è pieno. L'infermiere chiama il 118; l'équipe arriva dopo 15 minuti e collega il monitor con capnografia nasale.",
+   "tags": [
+    "eo",
+    "cli"
+   ],
+   "title": "Sonnolenza a domicilio in un uomo con BPCO in ossigenoterapia",
+   "vit": [
+    [
+     "FR",
+     "10/min",
+     1
+    ],
+    [
+     "SpO2",
+     "98% con O2 a 5 l/min",
+     1
+    ],
+    [
+     "FC",
+     "96 bpm",
+     1
+    ],
+    [
+     "PA",
+     "145/85 mmHg",
+     0
+    ],
+    [
+     "TC",
+     "37,6 °C",
+     0
+    ],
+    [
+     "GCS",
+     "13 (E3 V4 M6)",
+     1
+    ],
+    [
+     "EtCO2",
+     "62 mmHg",
+     1
+    ]
+   ]
+  }
+ ]
+}

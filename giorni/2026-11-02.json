@@ -1,0 +1,1065 @@
+{
+ "date": "2026-11-02",
+ "topic": "Materno-infantile, pediatria, vaccinazioni, psichiatria, geriatria e cure palliative + aggiornamenti dalla letteratura (EPP OMS-FIGO 2025, BLS pediatrico AHA 2025, ADA 2026, morbillo ECDC 2026, cadute Cochrane 2026)",
+ "created": "2026-11-02T04:50:10+00:00",
+ "items": [
+  {
+   "e": "Sono quattro manovre di palpazione addominale eseguite dall'ostetrica/medico per definire situazione, presentazione, posizione e impegno fetale.",
+   "m": "cli",
+   "o": [
+    "Valutare con la palpazione addominale situazione, presentazione e posizione del feto",
+    "Misurare la dilatazione della cervice",
+    "Stimare la perdita ematica dopo il parto",
+    "Valutare il tono dell'utero dopo il secondamento"
+   ],
+   "q": "Le manovre di Leopold servono a…",
+   "r": 0,
+   "sec": 14
+  },
+  {
+   "e": "Il Bishop score considera dilatazione, appianamento, consistenza e posizione della cervice e altezza della parte presentata.",
+   "m": "cli",
+   "o": [
+    "Valutare la vitalità del neonato",
+    "Valutare le condizioni della cervice per prevedere il successo di un'induzione del travaglio",
+    "Misurare il dolore in travaglio",
+    "Stimare il rischio di depressione post-partum"
+   ],
+   "q": "Il punteggio di Bishop serve a…",
+   "r": 1,
+   "sec": 14
+  },
+  {
+   "e": "Le linee guida italiane sulla gravidanza fisiologica prevedono la curva da carico con 75 g a 24-28 settimane (anticipata a 16-18 nelle donne ad alto rischio).",
+   "m": "cli",
+   "o": [
+    "Glicemia capillare a digiuno al primo trimestre soltanto",
+    "OGTT con 100 g di glucosio a 36 settimane",
+    "OGTT con 75 g di glucosio a 24-28 settimane",
+    "HbA1c a 32 settimane"
+   ],
+   "q": "Lo screening del diabete gestazionale nelle gravide con fattori di rischio si esegue di norma con…",
+   "r": 2,
+   "sec": 14
+  },
+  {
+   "e": "OMS e UNICEF raccomandano l'allattamento esclusivo fino a 6 mesi e la sua prosecuzione, con alimenti complementari, fino a 2 anni e oltre.",
+   "m": "cli",
+   "o": [
+    "I primi 3 mesi di vita",
+    "Il primo mese di vita",
+    "I primi 12 mesi di vita",
+    "I primi 6 mesi di vita"
+   ],
+   "q": "L'OMS raccomanda l'allattamento al seno esclusivo per…",
+   "r": 3,
+   "sec": 14
+  },
+  {
+   "e": "La profilassi anti-D entro 72 ore previene l'immunizzazione materna e la malattia emolitica nelle gravidanze successive.",
+   "m": "cli",
+   "o": [
+    "Entro 72 ore dal parto",
+    "Solo alla gravidanza successiva",
+    "Entro 7 giorni dalla dimissione",
+    "Solo se il test di Coombs indiretto è positivo"
+   ],
+   "q": "Una puerpera Rh negativa con neonato Rh positivo riceve le immunoglobuline anti-D…",
+   "r": 0,
+   "sec": 14
+  },
+  {
+   "e": "L'atonia uterina causa la gran parte delle emorragie post-partum; massaggio uterino e uterotonici sono il primo trattamento.",
+   "m": "cli",
+   "o": [
+    "Trauma del canale del parto",
+    "Tono: l'atonia uterina",
+    "Tessuto: ritenzione di placenta",
+    "Trombina: coagulopatia"
+   ],
+   "q": "Nell'emorragia post-partum la causa più frequente, secondo la regola delle «4 T», è…",
+   "r": 1,
+   "sec": 14
+  },
+  {
+   "e": "Lo schema OMS classifica come grave la disidratazione con letargia/incoscienza, occhi infossati, incapacità di bere e plica che scompare in più di 2 secondi.",
+   "m": "cli",
+   "o": [
+    "Sete intensa con bambino vigile",
+    "Una sola scarica diarroica in 24 ore",
+    "Letargia, occhi infossati e plica cutanea che scompare molto lentamente",
+    "Febbre di 38 °C"
+   ],
+   "q": "Nel bambino con gastroenterite, quale segno indica disidratazione grave secondo l'OMS?",
+   "r": 2,
+   "sec": 15
+  },
+  {
+   "e": "Le linee guida ESPGHAN raccomandano la SRO ipo-osmolare in piccoli volumi frequenti; la via EV è riservata alla disidratazione grave o al fallimento della via orale.",
+   "m": "cli",
+   "o": [
+    "L'infusione endovenosa di glucosata al 5%",
+    "Il digiuno per 24 ore",
+    "Bevande zuccherate o succhi di frutta",
+    "La reidratazione orale con soluzione reidratante a ridotta osmolarità"
+   ],
+   "q": "Nella disidratazione lieve-moderata del bambino con gastroenterite il trattamento di prima scelta è…",
+   "r": 3,
+   "sec": 15
+  },
+  {
+   "e": "Nel neonato la FR normale è circa 30-60 atti/min; valori persistenti oltre 60 configurano tachipnea.",
+   "m": "cli",
+   "o": [
+    "30-60 atti/min",
+    "12-20 atti/min",
+    "20-30 atti/min",
+    "70-90 atti/min"
+   ],
+   "q": "La frequenza respiratoria normale del neonato a riposo è di circa…",
+   "r": 0,
+   "sec": 15
+  },
+  {
+   "e": "L'esavalente (DTPa-IPV-HBV-Hib) copre sei malattie, tutte obbligatorie per i minori ai sensi della L. 119/2017.",
+   "m": "cli",
+   "o": [
+    "Morbillo, parotite, rosolia, varicella, epatite A e pertosse",
+    "Difterite, tetano, pertosse, poliomielite, epatite B e Haemophilus influenzae tipo b",
+    "Difterite, tetano, pertosse, pneumococco, meningococco B e rotavirus",
+    "Tetano, poliomielite, epatite B, morbillo, rosolia e influenza"
+   ],
+   "q": "Il vaccino esavalente protegge da…",
+   "r": 1,
+   "sec": 15
+  },
+  {
+   "e": "Il vaccino è orale, in 2 o 3 dosi a seconda del prodotto, iniziando dalla 6ª settimana e completando il ciclo entro la 24ª-32ª settimana.",
+   "m": "cli",
+   "o": [
+    "Si esegue per via intramuscolare a 12 mesi",
+    "È controindicata nei nati a termine",
+    "Si somministra per via orale a partire dalla 6ª settimana di vita",
+    "Si somministra solo in età scolare"
+   ],
+   "q": "La vaccinazione anti-rotavirus…",
+   "r": 2,
+   "sec": 15
+  },
+  {
+   "e": "I vaccini vivi attenuati come MPR e varicella sono controindicati in gravidanza; dTpa e antinfluenzale sono invece raccomandati.",
+   "m": "cli",
+   "o": [
+    "Il vaccino dTpa",
+    "Il vaccino antinfluenzale inattivato",
+    "Il vaccino anti-epatite B",
+    "Il vaccino morbillo-parotite-rosolia (vivo attenuato)"
+   ],
+   "q": "Quale vaccino è controindicato in gravidanza?",
+   "r": 3,
+   "sec": 15
+  },
+  {
+   "e": "Dose = 15 × 14 = 210 mg; 210 mg ÷ 24 mg/ml = 8,75 ml (dose massima giornaliera e intervalli vanno sempre rispettati).",
+   "m": "cli",
+   "o": [
+    "8,75 ml",
+    "5 ml",
+    "10,5 ml",
+    "17,5 ml"
+   ],
+   "q": "Bambino di 14 kg con febbre: è prescritto paracetamolo 15 mg/kg per via orale; lo sciroppo contiene 120 mg/5 ml. Quanti ml si somministrano?",
+   "r": 0,
+   "sec": 15
+  },
+  {
+   "e": "È una reazione rara e potenzialmente mortale agli antipsicotici: richiede sospensione del farmaco, raffreddamento, idratazione e monitoraggio intensivo.",
+   "m": "cli",
+   "o": [
+    "Ipotermia, flaccidità e bradicardia",
+    "Ipertermia, rigidità muscolare, alterazione della coscienza e aumento delle CPK",
+    "Midriasi, diarrea e piloerezione",
+    "Esclusivamente tremore a riposo"
+   ],
+   "q": "La sindrome neurolettica maligna si caratterizza per…",
+   "r": 1,
+   "sec": 16
+  },
+  {
+   "e": "Il litio ha un indice terapeutico stretto: oltre 1,5 mEq/l compaiono segni di tossicità (tremori grossolani, vomito, atassia, confusione).",
+   "m": "cli",
+   "o": [
+    "2-3 mEq/l",
+    "0,1-0,2 mEq/l",
+    "0,6-1,2 mEq/l",
+    "5-10 mEq/l"
+   ],
+   "q": "Nella terapia di mantenimento con litio la litiemia da mantenere è di norma…",
+   "r": 2,
+   "sec": 16
+  },
+  {
+   "e": "L'associazione di farmaci serotoninergici (SSRI, tramadolo, linezolid, triptani) può causare la sindrome serotoninergica, ad esordio rapido.",
+   "m": "cli",
+   "o": [
+    "Una crisi ipoglicemica",
+    "Una sindrome neurolettica maligna",
+    "Una sindrome da astinenza da oppioidi",
+    "Una sindrome serotoninergica"
+   ],
+   "q": "Agitazione, ipertermia, clonie e iperreflessia dopo l'aggiunta di tramadolo a un SSRI fanno sospettare…",
+   "r": 3,
+   "sec": 16
+  },
+  {
+   "e": "Gli artt. 33-35 della L. 833/1978 prevedono due certificazioni mediche e l'ordinanza del sindaco, poi notificata al giudice tutelare.",
+   "m": "cli",
+   "o": [
+    "Proposta motivata di un medico, convalida di un medico della struttura pubblica e ordinanza del sindaco",
+    "La sola richiesta dei familiari",
+    "Il solo provvedimento del giudice tutelare senza visita medica",
+    "La decisione del direttore sanitario"
+   ],
+   "q": "Il TSO in degenza ospedaliera richiede…",
+   "r": 0,
+   "sec": 16
+  },
+  {
+   "e": "È la forma più grave di astinenza alcolica (confusione, allucinazioni, iperattività autonomica); si tratta di solito con benzodiazepine e tiamina.",
+   "m": "cli",
+   "o": [
+    "Durante l'intossicazione acuta",
+    "Entro 2-4 giorni dall'ultima assunzione di alcol",
+    "Solo dopo 3 settimane di astinenza",
+    "Esclusivamente nei bevitori occasionali"
+   ],
+   "q": "Il delirium tremens compare tipicamente…",
+   "r": 1,
+   "sec": 16
+  },
+  {
+   "e": "Il punteggio CIWA-Ar guida il trattamento sintomatico dell'astinenza da alcol con benzodiazepine.",
+   "m": "eo",
+   "o": [
+    "Misurare il rischio di lesioni da pressione",
+    "Valutare il rischio di caduta",
+    "Valutare la gravità della sindrome da astinenza alcolica",
+    "Stadiare la demenza"
+   ],
+   "q": "La scala CIWA-Ar si utilizza per…",
+   "r": 2,
+   "sec": 19
+  },
+  {
+   "e": "L'MMSE valuta orientamento, memoria, attenzione, linguaggio e prassia; punteggi più bassi indicano maggiore deficit cognitivo.",
+   "m": "eo",
+   "o": [
+    "10",
+    "20",
+    "100",
+    "30"
+   ],
+   "q": "Il punteggio massimo del Mini-Mental State Examination (MMSE) è…",
+   "r": 3,
+   "sec": 19
+  },
+  {
+   "e": "Il Barthel esplora attività come alimentazione, igiene, continenza e deambulazione; le IADL si valutano con la scala di Lawton.",
+   "m": "eo",
+   "o": [
+    "L'autonomia nelle attività di base della vita quotidiana, con punteggio da 0 a 100",
+    "Le attività strumentali come usare il telefono o gestire il denaro",
+    "Il rischio nutrizionale",
+    "Il livello di coscienza"
+   ],
+   "q": "L'indice di Barthel valuta…",
+   "r": 0,
+   "sec": 19
+  },
+  {
+   "e": "Insieme ai criteri STOPP/START aiutano la revisione della terapia e la deprescrizione nella polifarmacoterapia.",
+   "m": "cli",
+   "o": [
+    "Una scala del dolore nella demenza",
+    "Un elenco di farmaci potenzialmente inappropriati nell'anziano",
+    "Criteri per la diagnosi di delirium",
+    "Indicazioni per la mobilizzazione post-operatoria"
+   ],
+   "q": "I criteri di Beers dell'American Geriatrics Society sono…",
+   "r": 1,
+   "sec": 19
+  },
+  {
+   "e": "L'algoritmo CAM richiede i criteri 1 e 2 più il 3 o il 4; anche il 4AT è uno strumento rapido validato.",
+   "m": "eo",
+   "o": [
+    "Solo la presenza di allucinazioni",
+    "Un MMSE inferiore a 24",
+    "Esordio acuto e decorso fluttuante e inattenzione, più pensiero disorganizzato o alterato livello di coscienza",
+    "Un deficit cognitivo stabile da almeno 6 mesi"
+   ],
+   "q": "Secondo il Confusion Assessment Method (CAM), la diagnosi di delirium richiede…",
+   "r": 2,
+   "sec": 19
+  },
+  {
+   "e": "La PAINAD osserva respiro, vocalizzazioni, espressione del volto, linguaggio del corpo e consolabilità (punteggio 0-10).",
+   "m": "eo",
+   "o": [
+    "La scala NRS",
+    "La scala VAS",
+    "La scala di Wong-Baker",
+    "La scala PAINAD"
+   ],
+   "q": "Per valutare il dolore nella persona con demenza avanzata non comunicante si usa…",
+   "r": 3,
+   "sec": 19
+  },
+  {
+   "e": "La FLACC è una scala osservazionale (0-10) per bambini piccoli o non in grado di autovalutare il dolore.",
+   "m": "eo",
+   "o": [
+    "Volto, gambe, attività, pianto e consolabilità",
+    "Frequenza, livello di coscienza, attività, colorito e circolo",
+    "Febbre, lacrimazione, appetito, cute e convulsioni",
+    "Solo l'autovalutazione numerica del bambino"
+   ],
+   "q": "La scala FLACC per il dolore valuta…",
+   "r": 0,
+   "sec": 15
+  },
+  {
+   "e": "Le secrezioni terminali si gestiscono con posizionamento, cura del cavo orale e farmaci antisecretivi; spiegare il fenomeno ai familiari è parte dell'assistenza.",
+   "m": "cli",
+   "o": [
+    "Eseguire aspirazioni tracheali profonde ogni ora",
+    "Riposizionare la persona sul fianco e valutare con il medico un anticolinergico, evitando l'aspirazione profonda di routine",
+    "Iniziare un'idratazione endovenosa abbondante",
+    "Posizionare un sondino nasogastrico"
+   ],
+   "q": "Nel «rantolo terminale» della persona morente è indicato…",
+   "r": 1,
+   "sec": 17
+  },
+  {
+   "e": "L'art. 7 della L. 38/2010 rende obbligatoria la rilevazione del dolore in cartella, con caratteristiche, evoluzione, tecnica antalgica, farmaci e risultato.",
+   "m": "leg",
+   "o": [
+    "La terapia con oppioidi sia vietata a domicilio",
+    "Le cure palliative siano riservate ai pazienti oncologici",
+    "Il dolore rilevato e la sua evoluzione siano riportati nella cartella clinica",
+    "La rilevazione del dolore sia facoltativa"
+   ],
+   "q": "La L. 38/2010 sulle cure palliative e la terapia del dolore prevede che…",
+   "r": 2,
+   "sec": 17
+  },
+  {
+   "e": "La morfina orale ha una biodisponibilità ridotta dall'effetto di primo passaggio epatico; le tabelle equianalgesiche indicano un rapporto orale/EV di circa 2-3:1.",
+   "m": "cli",
+   "o": [
+    "Uguale alla dose endovenosa",
+    "Un terzo della dose endovenosa",
+    "Circa 10 volte la dose endovenosa",
+    "Circa 2-3 volte la dose endovenosa"
+   ],
+   "q": "Passando dalla morfina endovenosa alla morfina orale, la dose orale equianalgesica è…",
+   "r": 3,
+   "sec": 17
+  },
+  {
+   "e": "L'art. 2, comma 2 della L. 219/2017 consente la sedazione palliativa profonda continua per sofferenze refrattarie, con consenso e annotazione in cartella.",
+   "m": "leg",
+   "o": [
+    "In presenza di sofferenze refrattarie il medico, con il consenso del paziente, può ricorrervi associandola alla terapia del dolore",
+    "È sempre vietata",
+    "È equiparata all'eutanasia",
+    "Può essere decisa dai familiari senza il consenso del paziente capace"
+   ],
+   "q": "La L. 219/2017 sulla sedazione palliativa profonda continua stabilisce che…",
+   "r": 0,
+   "sec": 17
+  },
+  {
+   "e": "L'art. 5 della L. 219/2017 prevede che medico ed équipe siano tenuti ad attenersi alla pianificazione se il paziente diventa incapace.",
+   "m": "leg",
+   "o": [
+    "È redatta solo dal notaio",
+    "È concordata tra paziente e medico per una patologia cronica e invalidante o a prognosi infausta e vincola l'équipe",
+    "Riguarda solo persone sane che non hanno alcuna malattia",
+    "Non ha valore se il paziente perde la capacità"
+   ],
+   "q": "Secondo la L. 219/2017 la pianificazione condivisa delle cure…",
+   "r": 1,
+   "sec": 4
+  },
+  {
+   "e": "L'art. 24 impegna l'infermiere a dare ascolto e a tenere conto dell'opinione del minore rispetto alle scelte assistenziali, in relazione all'età e alla maturità.",
+   "m": "cod",
+   "o": [
+    "Art. 16",
+    "Art. 38",
+    "Art. 24",
+    "Art. 51"
+   ],
+   "q": "Quale articolo del Codice deontologico 2025 riguarda la volontà del minore?",
+   "r": 2,
+   "sec": 4
+  },
+  {
+   "e": "L'art. 26 riguarda la presa in carico nel fine vita; l'art. 25 il dolore e l'art. 27 la volontà di limite agli interventi.",
+   "m": "cod",
+   "o": [
+    "6",
+    "29",
+    "39",
+    "26"
+   ],
+   "q": "Nel Codice deontologico 2025 l'assistenza nel fine vita è trattata dall'articolo…",
+   "r": 3,
+   "sec": 4
+  },
+  {
+   "e": "Il virus varicella-zoster si trasmette per via aerea e per contatto con le lesioni: stanza singola, idealmente a pressione negativa, e personale immune.",
+   "m": "cli",
+   "o": [
+    "Precauzioni per via aerea e da contatto",
+    "Solo precauzioni standard",
+    "Solo precauzioni per droplet",
+    "Nessun isolamento se apiretico"
+   ],
+   "q": "Per un paziente con varicella in reparto si adottano…",
+   "r": 0,
+   "sec": 11
+  },
+  {
+   "e": "Bordetella pertussis si trasmette con goccioline: mascherina chirurgica entro circa 1 metro, fino a 5 giorni di antibiotico efficace.",
+   "m": "cli",
+   "o": [
+    "Per via aerea con filtrante FFP3 obbligatorio",
+    "Per droplet, in aggiunta alle precauzioni standard",
+    "Da contatto soltanto",
+    "Nessuna precauzione specifica"
+   ],
+   "q": "Un bambino ricoverato con pertosse richiede precauzioni…",
+   "r": 1,
+   "sec": 11
+  },
+  {
+   "e": "Di norma 2 mesi prima e 3 dopo il parto; la flessibilità (1+4) o la fruizione integrale dopo il parto richiedono il parere medico che escluda rischi.",
+   "m": "pa",
+   "o": [
+    "3 mesi solo dopo il parto",
+    "6 mesi prima del parto",
+    "5 mesi complessivi, distribuibili anche interamente dopo il parto se non ci sono rischi",
+    "1 mese dopo il parto"
+   ],
+   "q": "Il congedo obbligatorio di maternità (D.Lgs. 151/2001) dura…",
+   "r": 2,
+   "sec": 7
+  },
+  {
+   "e": "Le nuove raccomandazioni affiancano alla soglia classica di 500 ml una soglia di intervento più precoce (300 ml con parametri vitali anomali) per evitare ritardi.",
+   "fonte": "https://www.figo.org/press-releases/global-health-agencies-issue-new-recommendations-help-end-deaths-postpartum-haemorrhage",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Solo quando la perdita supera i 1.000 ml",
+    "Solo dopo la comparsa di shock conclamato",
+    "Solo dopo il secondo controllo dell'emoglobina",
+    "Già con una perdita di 300 ml se associata a parametri vitali alterati"
+   ],
+   "q": "Secondo le raccomandazioni OMS-FIGO-ICM sull'emorragia post-partum (ottobre 2025), quando si dovrebbe intervenire?",
+   "r": 3,
+   "sec": 14
+  },
+  {
+   "e": "MOTIVE va attuato subito dopo la diagnosi; chirurgia o trasfusione sono riservate ai casi di sanguinamento persistente.",
+   "fonte": "https://www.figo.org/press-releases/global-health-agencies-issue-new-recommendations-help-end-deaths-postpartum-haemorrhage",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Massaggio uterino, ossitocici, acido tranexamico, fluidi EV, esame del tratto genitale ed escalation delle cure",
+    "Monitoraggio, ossigeno, trasfusione, isterectomia, ventilazione ed ecografia",
+    "Misoprostolo come prima scelta, osservazione e dimissione precoce",
+    "Mobilizzazione, ossigeno, terapia antibiotica, infusione e valutazione dell'emoglobina"
+   ],
+   "q": "Il bundle «MOTIVE» delle raccomandazioni OMS-FIGO-ICM 2025 sull'emorragia post-partum comprende…",
+   "r": 0,
+   "sec": 14
+  },
+  {
+   "e": "I teli calibrati raccolgono e quantificano il sangue perso, rendendo la diagnosi più tempestiva rispetto alla stima a occhio.",
+   "fonte": "https://www.figo.org/press-releases/global-health-agencies-issue-new-recommendations-help-end-deaths-postpartum-haemorrhage",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "La stima visiva dell'ostetrica",
+    "L'uso di teli di raccolta calibrati",
+    "Il solo controllo dell'emoglobina a 24 ore",
+    "Il peso della puerpera prima e dopo il parto"
+   ],
+   "q": "Per misurare la perdita ematica dopo il parto le raccomandazioni OMS-FIGO-ICM 2025 indicano…",
+   "r": 1,
+   "sec": 14
+  },
+  {
+   "e": "Il misoprostolo resta l'ultima risorsa dove non sono possibili vie EV o la catena del freddo; l'episiotomia di routine è sconsigliata.",
+   "fonte": "https://www.figo.org/press-releases/global-health-agencies-issue-new-recommendations-help-end-deaths-postpartum-haemorrhage",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Il misoprostolo in tutte le donne",
+    "Nessun uterotonico di routine",
+    "L'ossitocina, con la carbetocina termostabile come alternativa",
+    "L'episiotomia di routine"
+   ],
+   "q": "Per la prevenzione dell'emorragia post-partum nel terzo stadio del travaglio, le raccomandazioni OMS-FIGO-ICM 2025 preferiscono…",
+   "r": 2,
+   "sec": 14
+  },
+  {
+   "e": "La tecnica a due dita non è più raccomandata perché raramente consente di raggiungere una profondità adeguata.",
+   "fonte": "https://journalfeed.org/article-a-day/2025/new-aha-2025-pediatric-bls-big-changes-for-little-patients/",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "Con la tecnica a due dita, preferita a tutte le altre",
+    "Solo con due mani sovrapposte come nell'adulto",
+    "Solo con un dito",
+    "Con il palmo di una mano o con la tecnica dei due pollici a mani circondanti"
+   ],
+   "q": "Secondo le linee guida AHA/AAP 2025 sul BLS pediatrico, le compressioni toraciche nel lattante si eseguono…",
+   "r": 3,
+   "sec": 15
+  },
+  {
+   "e": "Nel lattante le compressioni addominali non sono raccomandate; nel bambino si alternano 5 colpi dorsali e 5 compressioni addominali.",
+   "fonte": "https://journalfeed.org/article-a-day/2025/new-aha-2025-pediatric-bls-big-changes-for-little-patients/",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "5 colpi dorsali alternati a 5 compressioni toraciche",
+    "5 compressioni addominali alternate a 5 colpi dorsali",
+    "Solo compressioni addominali",
+    "Il tentativo di rimozione del corpo estraneo alla cieca con le dita"
+   ],
+   "q": "Nell'ostruzione grave delle vie aeree da corpo estraneo nel lattante, le linee guida AHA/AAP 2025 indicano…",
+   "r": 0,
+   "sec": 15
+  },
+  {
+   "e": "La frequenza di 20-30 atti/min vale anche per lattanti e bambini con polso che ricevono solo ventilazioni; l'insufficienza respiratoria resta la prima causa di arresto pediatrico.",
+   "fonte": "https://journalfeed.org/article-a-day/2025/new-aha-2025-pediatric-bls-big-changes-for-little-patients/",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "8-10 al minuto",
+    "20-30 al minuto",
+    "2 ogni 30 compressioni",
+    "40-60 al minuto"
+   ],
+   "q": "Secondo le linee guida AHA/AAP 2025, nel bambino in RCP con via aerea avanzata le ventilazioni sono…",
+   "r": 1,
+   "sec": 15
+  },
+  {
+   "e": "In caso di più autoanticorpi confermati la persona va inviata a un centro specialistico per monitoraggio ed eventuale terapia.",
+   "fonte": "https://diabetesonthenet.com/diabetes-primary-care/factsheet-2026-ada-standards",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Tutti gli adulti oltre i 65 anni",
+    "Solo alle donne in gravidanza",
+    "Persone con familiarità per diabete di tipo 1 o rischio genetico elevato",
+    "Solo a chi è già in terapia con insulina"
+   ],
+   "q": "Gli Standards of Care ADA 2026 raccomandano di offrire la ricerca di autoanticorpi per il diabete di tipo 1 presintomatico a…",
+   "r": 2,
+   "sec": 29
+  },
+  {
+   "e": "Nei pazienti con scarsa salute o aspettativa di vita limitata il target è meno stringente (<140/90 mmHg).",
+   "fonte": "https://diabetesonthenet.com/diabetes-primary-care/factsheet-2026-ada-standards",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "<110/70 mmHg sempre",
+    "<160/100 mmHg",
+    "Nessun target specifico",
+    "<130/80 mmHg, se raggiungibile in sicurezza"
+   ],
+   "q": "Per la maggior parte degli anziani con diabete, gli Standards ADA 2026 indicano un target pressorio di…",
+   "r": 3,
+   "sec": 29
+  },
+  {
+   "e": "L'obiettivo è più ambizioso rispetto agli Standards precedenti e va accompagnato da attenzione alle carenze nutrizionali.",
+   "fonte": "https://diabetesonthenet.com/diabetes-primary-care/factsheet-2026-ada-standards",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Il 5-7% del peso iniziale, garantendo adeguato apporto di proteine e micronutrienti",
+    "Almeno il 30% del peso in 3 mesi",
+    "Il mantenimento del peso senza alcuna riduzione",
+    "Lo 0,5% del peso in un anno"
+   ],
+   "q": "Negli Standards ADA 2026 l'obiettivo di perdita di peso negli adulti con diabete tipo 2 e sovrappeso è…",
+   "r": 0,
+   "sec": 29
+  },
+  {
+   "e": "La paura dell'ipoglicemia può ridurre l'aderenza e la qualità di vita: va indagata regolarmente come parte dell'educazione terapeutica.",
+   "fonte": "https://diabetesonthenet.com/diabetes-primary-care/factsheet-2026-ada-standards",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Solo alla diagnosi",
+    "Almeno una volta l'anno e nei momenti di transizione o di complicanze",
+    "Solo nei bambini",
+    "Mai, perché non modificano la gestione"
+   ],
+   "q": "Gli Standards ADA 2026 raccomandano lo screening della paura dell'ipoglicemia e dell'ansia correlata al diabete…",
+   "r": 1,
+   "sec": 29
+  },
+  {
+   "e": "L'Italia ha registrato il 27,4% dei casi, seguita da Bulgaria e Romania; non sono stati segnalati decessi nel periodo.",
+   "fonte": "https://www.quotidianosanita.it/?p=153315",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "La Germania, con oltre 1.000 casi",
+    "La Francia, con 900 casi",
+    "L'Italia, con 640 casi su 2.339",
+    "La Spagna, con 800 casi"
+   ],
+   "q": "Secondo i dati ECDC riportati a settembre 2026 (agosto 2025-luglio 2026), quale Paese UE/SEE ha notificato più casi di morbillo?",
+   "r": 2,
+   "sec": 15
+  },
+  {
+   "e": "Il 73% dei casi con stato vaccinale noto era non vaccinato; l'obiettivo è almeno il 95% con due dosi a ogni livello territoriale.",
+   "fonte": "https://www.quotidianosanita.it/?p=153315",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "99%, sopra l'obiettivo",
+    "50%",
+    "Non rilevata",
+    "84%, sotto l'obiettivo del 95%"
+   ],
+   "q": "Secondo l'ECDC (settembre 2026), la copertura con la seconda dose di vaccino anti-morbillo in Italia nel 2024 era…",
+   "r": 3,
+   "sec": 15
+  },
+  {
+   "e": "Il simbolo (lente con punto esclamativo, in blu e rosso) compare su buste, email e documenti delle comunicazioni di sicurezza rivolte ai professionisti sanitari.",
+   "fonte": "https://www.aifa.gov.it/en/-/aifa-introduce-pittogramma-per-le-niis",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Rendere riconoscibili le Note Informative Importanti (comunicazioni di sicurezza sui medicinali)",
+    "Segnalare i farmaci LASA in reparto",
+    "Indicare i farmaci in carenza",
+    "Identificare i farmaci equivalenti"
+   ],
+   "q": "Nel maggio 2026 AIFA ha introdotto un pittogramma ufficiale per…",
+   "r": 0,
+   "sec": 9
+  },
+  {
+   "e": "L'atto rep. 29/CSR del 18/03/2026 definisce il cronoprogramma collegato alla proroga sancita con l'intesa rep. 243/CSR del 18/12/2025.",
+   "fonte": "https://www.statoregioni.it/media/eqpdiws2/p-3-csr-atto-rep-n29-18marzo2026.pdf",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "È stato abrogato senza sostituzione",
+    "È stato prorogato di un anno, con un cronoprogramma approvato in Conferenza il 18 marzo 2026",
+    "È stato sostituito da un piano decennale",
+    "È diventato facoltativo per le Regioni"
+   ],
+   "q": "Con l'intesa Stato-Regioni del dicembre 2025 il Piano Nazionale di Prevenzione Vaccinale 2023-2025…",
+   "r": 1,
+   "sec": 15
+  },
+  {
+   "e": "La certezza è moderata; gli approcci più efficaci appaiono personalizzati, adattati al contesto e con il coinvolgimento di pazienti e familiari.",
+   "fonte": "https://www.cochrane.org/ru/evidence/CD016065_how-effective-are-interventions-designed-reduce-falls-older-people-hospitals",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Aumenta le cadute",
+    "Non è mai stata studiata",
+    "Probabilmente riduce sia il tasso sia il rischio di cadute",
+    "Ha effetto solo nelle RSA"
+   ],
+   "q": "Secondo la revisione Cochrane sulla prevenzione delle cadute negli anziani in ospedale (2026, 55 studi), l'educazione di personale, pazienti e familiari…",
+   "r": 2,
+   "sec": 19
+  },
+  {
+   "e": "Diversamente dal contesto comunitario, in ospedale l'esercizio non ha mostrato un beneficio chiaro; più solide sono educazione e modifiche organizzative.",
+   "fonte": "https://www.cochrane.org/ru/evidence/CD016065_how-effective-are-interventions-designed-reduce-falls-older-people-hospitals",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Dimezza sicuramente le cadute",
+    "È l'intervento con la certezza di evidenza più alta",
+    "È controindicato",
+    "Ha un effetto incerto sul tasso di cadute, con evidenze di certezza bassa o molto bassa"
+   ],
+   "q": "Secondo la revisione Cochrane 2026 sulle cadute in ospedale, l'esercizio fisico come intervento in ambito ospedaliero…",
+   "r": 3,
+   "sec": 19
+  },
+  {
+   "e": "L'aggiornamento introduce anche SCORE2-OP oltre i 70 anni e ribadisce che gli integratori alimentari non sono raccomandati per ridurre il rischio aterosclerotico.",
+   "fonte": "https://pace-cme.org/news/focused-update-of-the-esceas-dyslipidaemia-guidelines-key-takeaways/2483517/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Superiore a 50 mg/dl (105 nmol/l)",
+    "Superiore a 5 mg/dl",
+    "Superiore a 500 mg/dl",
+    "Qualsiasi valore rilevabile"
+   ],
+   "q": "Nell'aggiornamento 2025 delle linee guida ESC/EAS sulle dislipidemie, un valore di lipoproteina(a) da considerare fattore di rischio cardiovascolare è…",
+   "r": 0,
+   "sec": 12
+  },
+  {
+   "e": "L'aggiornamento enfatizza la terapia di combinazione precoce; l'acido bempedoico è indicato in chi non tollera le statine.",
+   "fonte": "https://pace-cme.org/news/focused-update-of-the-esceas-dyslipidaemia-guidelines-key-takeaways/2483517/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Va iniziata solo dopo 6 mesi",
+    "Va intensificata o iniziata in combinazione già durante il ricovero indice",
+    "Va sostituita da integratori",
+    "Non è necessaria se il colesterolo è normale"
+   ],
+   "q": "Secondo l'aggiornamento ESC/EAS 2025, nella sindrome coronarica acuta la terapia ipolipemizzante…",
+   "r": 1,
+   "sec": 12
+  },
+  {
+   "e": "Può essere fatale entro 24 ore; le linee guida coprono diagnosi, antibiotici, terapia aggiuntiva, supporto e gestione delle sequele.",
+   "fonte": "https://www.who.int/news/item/10-04-2025-who-launches-first-ever-guidelines-on-meningitis-diagnosis--treatment-and-care",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "È sempre benigna",
+    "Ha una mortalità inferiore all'1%",
+    "Uccide circa 1 persona su 6 e lascia complicanze a lungo termine in circa il 20% dei casi",
+    "Colpisce solo i neonati"
+   ],
+   "q": "Secondo l'OMS (prime linee guida sulla meningite, aprile 2025), la meningite batterica…",
+   "r": 2,
+   "sec": 27
+  },
+  {
+   "e": "Riguardano forme batteriche e virali in contesti epidemici e non, e si inseriscono nella roadmap «Defeating Meningitis by 2030».",
+   "fonte": "https://www.who.int/news/item/10-04-2025-who-launches-first-ever-guidelines-on-meningitis-diagnosis--treatment-and-care",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Solo neonati nel primo mese di vita",
+    "Solo pazienti con meningite nosocomiale post-chirurgica",
+    "Solo adulti oltre i 65 anni",
+    "Bambini oltre il primo mese, adolescenti e adulti con meningite acuta acquisita in comunità"
+   ],
+   "q": "Le linee guida OMS 2025 sulla meningite si rivolgono a…",
+   "r": 3,
+   "sec": 27
+  }
+ ],
+ "casi": [
+  {
+   "area": "Pediatria",
+   "dx": [
+    "Deficit di volume di liquidi",
+    "Rischio di squilibrio elettrolitico",
+    "Ipertermia",
+    "Rischio di compromissione dell'integrità cutanea",
+    "PC: ipoglicemia",
+    "PC: ipopotassiemia",
+    "PC: shock ipovolemico"
+   ],
+   "esami": [
+    [
+     "Glicemia capillare",
+     "66 mg/dl",
+     true
+    ],
+    [
+     "Na",
+     "134 mmol/l",
+     true
+    ],
+    [
+     "K",
+     "3,3 mmol/l",
+     true
+    ],
+    [
+     "Antigene rotavirus fecale",
+     "positivo",
+     true
+    ]
+   ],
+   "lv": "facile",
+   "oral": "Parti sempre dal calcolo del calo ponderale (peso perso / peso di partenza × 100): ti permette di classificare la disidratazione e di giustificare le scelte.",
+   "steps": [
+    {
+     "a": "Il calo ponderale è di 0,7 kg su 12, cioè circa il 6%, compatibile con una disidratazione moderata, confermata da tachicardia, mucose asciutte, poche lacrime, refill rallentato e diuresi ridotta. Il bambino però è vigile e consolabile, quindi non ci sono segni di disidratazione grave (letargia, occhi molto infossati, plica che scompare lentamente, segni di shock). Le priorità sono iniziare subito la reidratazione, correggere la glicemia ai limiti bassi, monitorare parametri e diuresi e avvisare il medico. Vanno registrati peso, parametri e orari come base per valutare la risposta.",
+     "q": "Come valuti il grado di disidratazione e quali sono le priorità?"
+    },
+    {
+     "a": "La prima scelta, secondo le linee guida ESPGHAN, è la soluzione reidratante orale a ridotta osmolarità, circa 50-100 ml/kg in 3-4 ore su prescrizione, più circa 10 ml/kg per ogni scarica successiva. Per un bambino che vomita si danno piccoli volumi frequenti (5 ml ogni 1-2 minuti con siringa o cucchiaino), aumentandoli se tollerati. Se il bambino rifiuta o continua a vomitare, il medico può valutare la reidratazione con sondino nasogastrico o per via endovenosa. Bevande zuccherate, succhi e bibite gassate vanno evitati perché peggiorano la diarrea; l'alimentazione normale va ripresa appena reidratato.",
+     "q": "Come imposti la reidratazione orale?"
+    },
+    {
+     "a": "Monitoro FC, refill, temperatura, stato di coscienza, numero e volume di vomito e scariche, e la diuresi pesando i pannolini (1 g circa 1 ml). Ripeto il peso e la glicemia secondo indicazione. Sono segnali d'allarme la sonnolenza o la difficoltà a svegliarlo, il vomito incoercibile, la comparsa di sangue nelle feci, l'assenza di diuresi, il peggioramento del refill o della tachicardia. In questi casi la reidratazione orale va considerata fallita e si passa alla via endovenosa.",
+     "q": "Quali parametri monitori e quali segni ti fanno chiamare subito il medico?"
+    },
+    {
+     "a": "Il rotavirus si trasmette per via oro-fecale e resiste a lungo sulle superfici, quindi oltre alle precauzioni standard servono precauzioni da contatto: camice e guanti, materiale dedicato, pulizia frequente delle superfici e igiene delle mani, con particolare attenzione al cambio del pannolino. Ai genitori insegno a lavarsi le mani, a gestire i pannolini, a preparare e somministrare la SRO a casa e a riconoscere i segni di disidratazione. Ricordo che esiste un vaccino orale anti-rotavirus offerto dal calendario a partire dalla 6ª settimana di vita, utile per i futuri fratelli. Il rientro all'asilo avviene dopo la risoluzione dei sintomi secondo le indicazioni locali.",
+     "q": "Quali misure di prevenzione delle infezioni e quale educazione ai genitori?"
+    },
+    {
+     "a": "Le diagnosi principali sono il deficit di volume di liquidi correlato a perdite gastrointestinali, il rischio di squilibrio elettrolitico, l'ipertermia e il rischio di compromissione dell'integrità cutanea nella zona del pannolino. Come problemi collaborativi vanno considerati ipoglicemia, ipopotassiemia e, raramente, shock ipovolemico. In documentazione registro peso d'ingresso, bilancio entrate/uscite, volumi di SRO assunti, parametri, risposta e informazioni date ai genitori. Coinvolgo il bambino nel gioco e nella somministrazione per quanto la sua età lo consente, come previsto dall'attenzione al minore del Codice deontologico.",
+     "q": "Quali diagnosi infermieristiche e problemi collaborativi individui e cosa documenti?"
+    }
+   ],
+   "story": "Luca, 2 anni, arriva in Pronto Soccorso pediatrico con la madre per vomito e diarrea acquosa da 48 ore (6-7 scariche al giorno), con rifiuto parziale dei liquidi. Il peso rilevato è 11,3 kg; quello registrato dal pediatra due settimane fa era 12 kg. Il bambino è irritabile ma consolabile, piange con poche lacrime, ha mucose asciutte e un pannolino quasi asciutto nelle ultime 8 ore. All'asilo ci sono stati altri casi di gastroenterite.",
+   "tags": [
+    "cli",
+    "eo",
+    "dx"
+   ],
+   "title": "Vomito e diarrea in un bambino di 2 anni",
+   "vit": [
+    [
+     "FC",
+     "142 bpm",
+     true
+    ],
+    [
+     "FR",
+     "30 atti/min"
+    ],
+    [
+     "PA",
+     "92/56 mmHg"
+    ],
+    [
+     "TC",
+     "38,1 °C",
+     true
+    ],
+    [
+     "SpO2",
+     "99%"
+    ],
+    [
+     "Refill capillare",
+     "2-3 s",
+     true
+    ]
+   ]
+  },
+  {
+   "area": "Cure palliative",
+   "dx": [
+    "Dolore cronico",
+    "Stipsi",
+    "Confusione acuta",
+    "Nutrizione inferiore al fabbisogno",
+    "Tensione nel ruolo di caregiver",
+    "Rischio di compromissione dell'integrità cutanea",
+    "PC: neurotossicità da oppioidi",
+    "PC: occlusione intestinale"
+   ],
+   "esami": [
+    [
+     "Hb",
+     "9,8 g/dl",
+     true
+    ],
+    [
+     "Albumina",
+     "2,6 g/dl",
+     true
+    ],
+    [
+     "Creatinina",
+     "1,0 mg/dl"
+    ],
+    [
+     "Calcio corretto",
+     "9,6 mg/dl"
+    ]
+   ],
+   "lv": "medio",
+   "oral": "Ricorda il binomio «oppioide + lassativo regolare» e cita la L. 219/2017 (art. 5, pianificazione condivisa) insieme alla L. 38/2010: mostrano che conosci sia la clinica sia le norme.",
+   "steps": [
+    {
+     "a": "Si tratta di dolore episodico intenso (breakthrough pain) su un dolore di base controllato, da valutare con intensità, sede, durata, fattori scatenanti ed effetti sulla vita quotidiana, oltre al dolore di base. La dose giornaliera di morfina orale è 60 mg; la dose di salvataggio a rilascio immediato è di norma circa un sesto della dose totale giornaliera, cioè circa 10 mg, su prescrizione medica. Va registrato quante dosi al bisogno servono ogni giorno: se sono più di 3-4 il medico valuta di aumentare la terapia di base. La rilevazione del dolore va riportata in cartella come previsto dall'art. 7 della L. 38/2010.",
+     "q": "Come inquadri il dolore e come si calcola una dose al bisogno di morfina?"
+    },
+    {
+     "a": "La stipsi da oppioidi non va incontro a tolleranza, quindi il lassativo (osmotico e/o stimolante) va prescritto in modo regolare per tutta la durata della terapia, non solo al bisogno. Prima occorre escludere un fecaloma con l'ispezione e l'esplorazione rettale e valutare segni di occlusione intestinale, possibile per la malattia. Se la stipsi resta refrattaria il medico può valutare un antagonista periferico degli oppioidi (PAMORA). Idratazione e mobilizzazione si adattano a quanto il paziente può e desidera fare.",
+     "evo": "Dopo 48 ore con lassativo regolare l'alvo si sblocca e la nausea si riduce. Il dolore episodico è controllato con due dosi al giorno di morfina a rilascio immediato.",
+     "q": "Come gestisci la stipsi?"
+    },
+    {
+     "a": "Il quadro fa pensare a un delirium, frequente nelle ultime settimane di vita: va valutato con uno strumento come il CAM o il 4AT e segnalato al palliativista. Vanno ricercate cause reversibili coerenti con gli obiettivi di cura, come ritenzione urinaria, stipsi, dolore non controllato, farmaci (accumulo di oppioidi con mioclonie), disidratazione o alterazioni metaboliche. Le misure non farmacologiche (ambiente tranquillo, luce soffusa, voce familiare, orientamento) si affiancano a eventuali farmaci prescritti. Alla moglie spiego cosa sta accadendo e la coinvolgo, valutando con l'équipe un supporto o un sollievo temporaneo per il carico assistenziale.",
+     "evo": "Nei giorni successivi compaiono un respiro irregolare e secrezioni rumorose. La moglie chiede se è il caso di portarlo in ospedale.",
+     "q": "Dieci giorni dopo Giuseppe è sempre più sonnolento, di notte è agitato, strappa le coperte e non riconosce la moglie. Cosa fai?"
+    },
+    {
+     "a": "La pianificazione condivisa delle cure (art. 5 della L. 219/2017) esprime la volontà di Giuseppe di restare a casa e vincola medico ed équipe; la L. 219/2017 tutela anche il diritto a non subire trattamenti sproporzionati e prevede, per sofferenze refrattarie, la sedazione palliativa profonda continua con consenso. L'art. 26 del Codice deontologico 2025 impegna l'infermiere ad accompagnare la persona nel fine vita, l'art. 25 riguarda la gestione del dolore e l'art. 27 il rispetto della volontà di limite agli interventi. Alla moglie spiego che le secrezioni non sono soffocamento e si gestiscono con posizionamento laterale, cura della bocca e antisecretivi, e che l'UCP resta reperibile. Documento il colloquio, le informazioni date e le decisioni prese.",
+     "q": "Quali riferimenti normativi e deontologici guidano la risposta alla moglie?"
+    },
+    {
+     "a": "Le diagnosi principali sono il dolore cronico con episodi acuti, la stipsi, la confusione acuta, la nutrizione inferiore al fabbisogno e la tensione nel ruolo di caregiver della moglie. Si aggiunge il rischio di compromissione dell'integrità cutanea per allettamento e malnutrizione. Come problemi collaborativi ci sono la neurotossicità da oppioidi, l'occlusione intestinale e l'ipercalcemia neoplastica, da sospettare se peggiorano sonnolenza e confusione. Gli obiettivi sono centrati sul comfort e sulle priorità della persona, non sulla normalizzazione dei valori.",
+     "q": "Quali diagnosi infermieristiche e problemi collaborativi identifichi?"
+    }
+   ],
+   "story": "Giuseppe, 74 anni, ha un adenocarcinoma del pancreas con metastasi epatiche ed è seguito dall'Unità di Cure Palliative domiciliari. Assume morfina a rilascio prolungato 30 mg ogni 12 ore e lamenta da due giorni episodi di dolore intenso all'epigastrio irradiato al dorso, NRS 8, che durano circa 30 minuti, più volte al giorno. Non si scarica da 5 giorni, ha nausea e mangia poco. Con il medico ha condiviso una pianificazione delle cure in cui chiede di restare a casa; la moglie, unica caregiver, dorme poco ed è molto affaticata.",
+   "tags": [
+    "cli",
+    "leg",
+    "cod",
+    "dx"
+   ],
+   "title": "Dolore episodico e stipsi a domicilio",
+   "vit": [
+    [
+     "FC",
+     "96 bpm"
+    ],
+    [
+     "PA",
+     "105/65 mmHg"
+    ],
+    [
+     "SpO2",
+     "94%"
+    ],
+    [
+     "TC",
+     "36,8 °C"
+    ],
+    [
+     "NRS nel dolore episodico",
+     "8/10",
+     true
+    ],
+    [
+     "Peso",
+     "−6 kg in 2 mesi",
+     true
+    ]
+   ]
+  },
+  {
+   "area": "Ostetricia",
+   "dx": [
+    "PC: shock ipovolemico",
+    "PC: coagulopatia / CID",
+    "PC: reazione trasfusionale",
+    "Rischio di ipotermia",
+    "Ansia",
+    "Rischio di infezione",
+    "Rischio di compromissione del legame madre-neonato"
+   ],
+   "esami": [
+    [
+     "Hb",
+     "8,9 g/dl (11,8 all'ingresso)",
+     true
+    ],
+    [
+     "Fibrinogeno",
+     "220 mg/dl",
+     true
+    ],
+    [
+     "Piastrine",
+     "145.000/mm³"
+    ],
+    [
+     "Lattato",
+     "2,8 mmol/l",
+     true
+    ]
+   ],
+   "fonte": "https://www.figo.org/press-releases/global-health-agencies-issue-new-recommendations-help-end-deaths-postpartum-haemorrhage",
+   "lv": "difficile",
+   "oral": "Cita le «4 T» e il bundle MOTIVE con l'acido tranexamico entro 3 ore: è il modo più rapido per dimostrare un ragionamento ordinato e aggiornato.",
+   "steps": [
+    {
+     "a": "È un'emorragia post-partum primaria: oltre 500 ml entro 24 ore dal parto vaginale, con tachicardia, ipotensione relativa e shock index sopra 1, cioè segni di compromissione emodinamica. Le raccomandazioni OMS-FIGO-ICM 2025 invitano a intervenire già con 300 ml se i parametri vitali sono alterati. Chiamo subito aiuto (ginecologo, anestesista, altre ostetriche/infermieri) secondo il protocollo aziendale e assegno i ruoli, compreso chi annota gli orari. Somministro ossigeno, posiziono due accessi venosi di grosso calibro (14-16 G), eseguo prelievi per emocromo, coagulazione, fibrinogeno e prove crociate, monitoro in continuo e quantifico la perdita con il telo calibrato o pesando le garze.",
+     "q": "Come riconosci il quadro e quali sono le prime azioni?"
+    },
+    {
+     "a": "Applicando le «4 T», l'utero molle e alto indica atonia uterina (Tono), favorita da neonato macrosomico, travaglio prolungato e ossitocina prolungata. Gli interventi immediati sono il massaggio uterino esterno, eventualmente la compressione bimanuale, e lo svuotamento della vescica con catetere, perché una vescica piena ostacola la contrazione. Vanno comunque esclusi Trauma (lacerazioni di cervice, vagina, perineo) con l'ispezione del tratto genitale, Tessuto (ritenzione di frammenti) e Trombina (coagulopatia). Il fibrinogeno a 220 mg/dl è già basso per un puerperio e va seguito nel tempo.",
+     "q": "Qual è la causa più probabile e quali interventi meccanici sono indicati subito?"
+    },
+    {
+     "a": "Il bundle MOTIVE comprende massaggio uterino, ossitocici, acido tranexamico, fluidi EV, esame del tratto genitale ed escalation. L'ossitocina in infusione è il primo uterotonico, su prescrizione. L'acido tranexamico si somministra 1 g EV in 10 minuti il prima possibile ed entro 3 ore dal parto, con una seconda dose di 1 g se il sanguinamento continua dopo 30 minuti. I cristalloidi vanno infusi riscaldati per prevenire l'ipotermia, che peggiora la coagulopatia, e si prepara la trasfusione di emocomponenti su indicazione.",
+     "evo": "Nonostante l'ossitocina e l'acido tranexamico, dopo 20 minuti la perdita totale arriva a 1.500 ml, la PA scende a 80/45 mmHg e il fibrinogeno a 160 mg/dl. Il team attiva l'escalation.",
+     "q": "Quali interventi farmacologici e infusionali rientrano nel bundle MOTIVE?"
+    },
+    {
+     "a": "L'escalation prevede uterotonici di seconda linea su prescrizione (per esempio la metilergometrina, controindicata in caso di ipertensione o pre-eclampsia, o una prostaglandina come il sulprostone), il tamponamento con balloon intrauterino e l'attivazione del protocollo di trasfusione massiva con emazie, plasma e fibrinogeno. Se il sanguinamento non si arresta si procede con chirurgia o radiologia interventistica in sala operatoria. Monitoro shock ipovolemico (PA, FC, diuresi oraria con catetere, coscienza, lattato), coagulopatia e CID, ipotermia, reazioni trasfusionali e, dopo la stabilizzazione, il rischio tromboembolico e infettivo. Anche l'ansia della donna e del partner e il legame con il neonato vanno curati: il contatto pelle a pelle e l'allattamento riprendono appena le condizioni lo permettono.",
+     "q": "Cosa comporta l'escalation e quali problemi collaborativi monitori?"
+    },
+    {
+     "a": "La Raccomandazione ministeriale n. 6 riguarda la prevenzione della morte materna correlata al travaglio e/o al parto: chiede protocolli per l'emorragia post-partum, formazione con simulazioni e disponibilità di emocomponenti. La morte materna è un evento sentinella da segnalare tramite il SIMES, mentre l'evento grave senza esito infausto («near miss» ostetrico) va comunque analizzato, per esempio con audit o significant event analysis. In cartella vanno annotati in modo cronologico orari, volumi persi, parametri, farmaci con dosi e orari, emocomponenti e componenti del team; la documentazione è parte integrante della sicurezza (art. 36 del Codice deontologico 2025). Dopo l'evento, alla donna va offerto un colloquio per spiegare cosa è successo.",
+     "q": "Quali aspetti di rischio clinico e documentazione sono rilevanti?"
+    }
+   ],
+   "story": "Anna, 34 anni, secondipara, ha partorito per via vaginale un neonato di 4.100 g dopo un travaglio prolungato stimolato con ossitocina. Il secondamento è avvenuto spontaneamente e la placenta appare integra. Quaranta minuti dopo, in sala parto, il telo calibrato raccoglie 700 ml di sangue e il flusso continua; l'utero è molle e sopra l'ombelico. Anna è pallida, sudata e dice di sentirsi debole e agitata.",
+   "tags": [
+    "cli",
+    "eo",
+    "leg",
+    "dx"
+   ],
+   "title": "Emorragia dopo un parto vaginale",
+   "vit": [
+    [
+     "FC",
+     "118 bpm",
+     true
+    ],
+    [
+     "PA",
+     "95/55 mmHg",
+     true
+    ],
+    [
+     "Shock index",
+     "1,2",
+     true
+    ],
+    [
+     "FR",
+     "22 atti/min",
+     true
+    ],
+    [
+     "SpO2",
+     "97%"
+    ],
+    [
+     "TC",
+     "36,4 °C"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1104 @@
+{
+ "date": "2026-11-01",
+ "topic": "Sicurezza delle cure, terapia e infezioni; medicina e chirurgia + aggiornamenti dalla letteratura (GOLD 2026, sepsi 2026, ERC 2025, influenza 2026-27)",
+ "created": "2026-11-01T08:30:00+01:00",
+ "items": [
+  {
+   "e": "Gli eventi sentinella vanno segnalati secondo il protocollo ministeriale e analizzati (es. con root cause analysis).",
+   "m": "leg",
+   "o": [
+    "Un errore senza conseguenze",
+    "Un evento avverso di particolare gravità, potenzialmente evitabile, che può causare morte o grave danno",
+    "Una segnalazione anonima di un paziente",
+    "Un reclamo all'URP"
+   ],
+   "q": "Un evento sentinella è…",
+   "r": 1,
+   "sec": 3
+  },
+  {
+   "e": "Segnalare i near miss con l'incident reporting è utile perché mostra i punti deboli del sistema prima del danno.",
+   "m": "leg",
+   "o": [
+    "Un errore che ha causato danno grave",
+    "Un errore che non ha raggiunto il paziente o non ha causato danno, intercettato in tempo",
+    "Un evento non prevedibile",
+    "Una reazione allergica"
+   ],
+   "q": "Un «near miss» (quasi evento) è…",
+   "r": 1,
+   "sec": 3
+  },
+  {
+   "e": "È alla base dell'approccio sistemico alla gestione del rischio clinico, non colpevolizzante.",
+   "m": "leg",
+   "o": [
+    "Dipendono solo dalla distrazione del singolo",
+    "Nascono dall'allineamento di falle in più livelli di difesa del sistema",
+    "Sono inevitabili",
+    "Riguardano solo la chirurgia"
+   ],
+   "q": "Il modello del «formaggio svizzero» di Reason spiega che gli errori…",
+   "r": 1,
+   "sec": 3
+  },
+  {
+   "e": "Si usano almeno due identificatori (es. nome e data di nascita) e il braccialetto identificativo.",
+   "m": "leg",
+   "o": [
+    "Il KCl concentrato",
+    "La corretta identificazione dei pazienti, del sito chirurgico e della procedura",
+    "Le cadute in ospedale",
+    "La morte materna"
+   ],
+   "q": "La Raccomandazione ministeriale n. 3 riguarda…",
+   "r": 1,
+   "sec": 3
+  },
+  {
+   "e": "Di norma nome e cognome più data di nascita, confrontati con braccialetto e prescrizione.",
+   "m": "cli",
+   "o": [
+    "Uno: il numero del letto",
+    "Almeno due, mai il numero del letto o della stanza",
+    "Nessuno se il paziente è noto",
+    "Solo il cognome"
+   ],
+   "q": "Quanti identificatori del paziente vanno verificati prima di somministrare un farmaco?",
+   "r": 1,
+   "sec": 9
+  },
+  {
+   "e": "Il KCl concentrato in bolo può causare arresto cardiaco: Raccomandazione ministeriale n. 1.",
+   "m": "cli",
+   "o": [
+    "Conservate insieme alle fisiologiche",
+    "Conservate separate, con etichetta di allarme e diluite prima della somministrazione",
+    "Somministrate in bolo endovena",
+    "Tenute nel carrello delle urgenze senza controllo"
+   ],
+   "q": "Le soluzioni concentrate di KCl in reparto devono essere…",
+   "r": 1,
+   "sec": 9
+  },
+  {
+   "e": "Raccomandazione ministeriale n. 12: separazione negli armadi, evidenziazione grafica, attenzione alle prescrizioni verbali.",
+   "m": "cli",
+   "o": [
+    "Farmaci a lento assorbimento",
+    "Farmaci con nome o confezione simili (look-alike, sound-alike)",
+    "Farmaci stupefacenti",
+    "Farmaci in sperimentazione"
+   ],
+   "q": "I farmaci LASA sono…",
+   "r": 1,
+   "sec": 9
+  },
+  {
+   "e": "La tecnica del «read-back» riduce gli errori di comunicazione.",
+   "m": "cli",
+   "o": [
+    "È sempre accettabile",
+    "Va evitata; se inevitabile va ripetuta ad alta voce, confermata e trascritta, poi firmata dal medico",
+    "Può essere eseguita dall'OSS",
+    "Non va documentata"
+   ],
+   "q": "Una prescrizione verbale in condizioni non urgenti…",
+   "r": 1,
+   "sec": 9
+  },
+  {
+   "e": "500 ml × 20 gtt/ml = 10.000 gocce; diviso 240 minuti ≈ 42 gocce/min (pari a 125 ml/h).",
+   "m": "cli",
+   "o": [
+    "21 gocce/min",
+    "42 gocce/min",
+    "84 gocce/min",
+    "125 gocce/min"
+   ],
+   "q": "Per calcolare la velocità di un'infusione di 500 ml in 4 ore con deflussore da 20 gocce/ml servono circa…",
+   "r": 1,
+   "sec": 9
+  },
+  {
+   "e": "400 / 250 × 5 = 8 ml. Il calcolo va sempre ricontrollato, meglio con un secondo operatore per i farmaci ad alto rischio.",
+   "m": "cli",
+   "o": [
+    "4 ml",
+    "6 ml",
+    "8 ml",
+    "10 ml"
+   ],
+   "q": "Un farmaco da 250 mg/5 ml: per somministrare 400 mg servono…",
+   "r": 2,
+   "sec": 9
+  },
+  {
+   "e": "Il lavaggio con acqua e sapone dura circa 40–60 secondi ed è necessario se le mani sono visibilmente sporche o per le spore.",
+   "m": "cli",
+   "o": [
+    "5 secondi",
+    "20–30 secondi",
+    "2 minuti",
+    "5 minuti"
+   ],
+   "q": "Il gel alcolico per l'igiene delle mani va frizionato per circa…",
+   "r": 1,
+   "sec": 11
+  },
+  {
+   "e": "Precauzioni per trasmissione aerea, con stanza a pressione negativa quando disponibile; il paziente indossa la mascherina chirurgica durante gli spostamenti.",
+   "m": "cli",
+   "o": [
+    "Mascherina chirurgica",
+    "Facciale filtrante FFP2 o FFP3",
+    "Solo guanti",
+    "Nessun DPI"
+   ],
+   "q": "Per un paziente con tubercolosi polmonare contagiosa l'operatore indossa…",
+   "r": 1,
+   "sec": 11
+  },
+  {
+   "e": "Poi valutazione del rischio, prelievi, eventuale profilassi post-esposizione e denuncia di infortunio.",
+   "m": "cli",
+   "o": [
+    "Succhiare la ferita",
+    "Far sanguinare, lavare con acqua e sapone e disinfettare, poi segnalare subito",
+    "Aspettare il risultato degli esami del paziente",
+    "Coprire e continuare il turno senza dirlo"
+   ],
+   "q": "Dopo una puntura accidentale con ago usato, la prima cosa da fare è…",
+   "r": 1,
+   "sec": 11
+  },
+  {
+   "e": "Il contenitore va riempito al massimo per 3/4. Il D.Lgs. 19/2014 promuove i dispositivi con meccanismi di protezione.",
+   "m": "cli",
+   "o": [
+    "Rincappucciati con due mani",
+    "Eliminati subito nel contenitore per taglienti senza rincappucciarli",
+    "Gettati nei rifiuti urbani",
+    "Piegati prima di gettarli"
+   ],
+   "q": "Gli aghi usati vanno…",
+   "r": 1,
+   "sec": 11
+  },
+  {
+   "e": "Le misure applicate insieme riducono le CLABSI più di quanto facciano singolarmente.",
+   "m": "cli",
+   "o": [
+    "Cambio di routine del catetere ogni 3 giorni",
+    "Igiene delle mani, massime barriere sterili, clorexidina al 2% in alcol, scelta del sito, rimozione appena non serve",
+    "Antibiotico profilattico",
+    "Medicazione con garza ogni ora"
+   ],
+   "q": "Il bundle per prevenire le infezioni da catetere venoso centrale comprende…",
+   "r": 1,
+   "sec": 30
+  },
+  {
+   "e": "Il sito si valuta ogni turno, ad esempio con la scala VIP (Visual Infusion Phlebitis).",
+   "m": "cli",
+   "o": [
+    "Solo dopo 10 giorni",
+    "Quando non è più necessaria o compaiono segni di flebite",
+    "Mai prima della dimissione",
+    "Ogni 12 ore"
+   ],
+   "q": "La cannula venosa periferica va rimossa…",
+   "r": 1,
+   "sec": 30
+  },
+  {
+   "e": "Sign in prima dell'induzione, Time out prima dell'incisione, Sign out prima che il paziente lasci la sala.",
+   "m": "cli",
+   "o": [
+    "All'arrivo in reparto",
+    "Prima dell'incisione cutanea, con tutto il team che conferma paziente, sito e procedura",
+    "Dopo la sutura",
+    "In sala risveglio"
+   ],
+   "q": "Il «Time out» della check-list chirurgica avviene…",
+   "r": 1,
+   "sec": 20
+  },
+  {
+   "e": "Punteggio da 0 a 10; da 2 in su il paziente è a rischio. La Raccomandazione ministeriale n. 13 riguarda le cadute.",
+   "m": "cli",
+   "o": [
+    "Il dolore",
+    "Il rischio di cadute del paziente ricoverato",
+    "La malnutrizione",
+    "Lo stato di coscienza"
+   ],
+   "q": "La scala di Conley si usa per valutare…",
+   "r": 1,
+   "sec": 12
+  },
+  {
+   "e": "Situation, Background, Assessment, Recommendation: struttura la chiamata al medico e il passaggio di consegne.",
+   "m": "dx",
+   "o": [
+    "Allergie",
+    "Assessment: la valutazione dell'infermiere sulla situazione",
+    "Anamnesi familiare",
+    "Azione immediata del medico"
+   ],
+   "q": "Nella comunicazione SBAR la lettera «A» corrisponde a…",
+   "r": 1,
+   "sec": 8
+  },
+  {
+   "e": "Art. 34 «Partecipazione al governo clinico»: sicurezza, prevenzione del rischio e informazione alle persone coinvolte.",
+   "m": "cod",
+   "o": [
+    "Art. 4",
+    "Art. 20",
+    "Art. 34",
+    "Art. 46"
+   ],
+   "q": "Secondo il Codice deontologico 2025 la partecipazione alla gestione del rischio, anche infettivo, e all'analisi degli eventi è prevista dall'art.…",
+   "r": 2,
+   "sec": 4
+  },
+  {
+   "e": "La posizione seduta con arti inferiori declivi riduce il ritorno venoso e il precarico, migliorando la dispnea.",
+   "m": "cli",
+   "o": [
+    "Trendelenburg",
+    "Supina con gambe sollevate",
+    "Seduta o semiseduta con gambe declivi",
+    "Decubito laterale sinistro"
+   ],
+   "q": "Nel paziente con edema polmonare acuto cardiogeno, in attesa del medico, la posizione più indicata è…",
+   "r": 2,
+   "sec": 22
+  },
+  {
+   "e": "Idarucizumab è un frammento di anticorpo monoclonale che neutralizza il dabigatran; andexanet alfa riguarda gli inibitori del fattore Xa (apixaban, rivaroxaban).",
+   "m": "cli",
+   "o": [
+    "Vitamina K",
+    "Protamina solfato",
+    "Andexanet alfa",
+    "Idarucizumab"
+   ],
+   "q": "L'antidoto specifico del dabigatran è…",
+   "r": 3,
+   "sec": 22
+  },
+  {
+   "e": "Bradicardia (di norma FC < 60 bpm) e ipokaliemia, che favorisce la tossicità digitalica, vanno segnalate prima della somministrazione.",
+   "m": "cli",
+   "o": [
+    "La frequenza cardiaca apicale per un minuto e la kaliemia",
+    "La glicemia capillare",
+    "La temperatura corporea",
+    "La saturazione venosa centrale"
+   ],
+   "q": "Prima di somministrare la digossina l'infermiere controlla in particolare…",
+   "r": 0,
+   "sec": 22
+  },
+  {
+   "e": "Le linee guida BTS sull'ossigenoterapia indicano 88–92% nei pazienti a rischio di ipercapnia e 94–98% negli altri pazienti acuti.",
+   "m": "cli",
+   "o": [
+    "94–98%",
+    "88–92%",
+    "Sempre 100%",
+    "80–84%"
+   ],
+   "q": "Nel paziente con BPCO a rischio di insufficienza respiratoria ipercapnica il target di SpO2 raccomandato è…",
+   "r": 1,
+   "sec": 23
+  },
+  {
+   "e": "Il clampaggio può causare pneumotorace iperteso; tenere il sistema sotto il livello del torace impedisce il reflusso nel cavo pleurico.",
+   "m": "cli",
+   "o": [
+    "Clampato di routine per sicurezza",
+    "Appoggiato sul letto all'altezza del torace",
+    "Mantenuto sotto il livello del torace senza clampare il tubo",
+    "Scollegato dal tubo e tappato"
+   ],
+   "q": "Durante il trasporto di un paziente con drenaggio toracico, il sistema di raccolta va…",
+   "r": 2,
+   "sec": 23
+  },
+  {
+   "e": "La GCS valuta apertura degli occhi (1–4), risposta verbale (1–5) e motoria (1–6); un GCS ≤ 8 indica coma e rischio di perdita della pervietà delle vie aeree.",
+   "m": "eo",
+   "o": [
+    "0–10; ≤ 5",
+    "1–12; ≤ 6",
+    "3–15; ≤ 12",
+    "3–15; ≤ 8"
+   ],
+   "q": "La Glasgow Coma Scale ha un punteggio compreso tra… e quale valore indica di norma la necessità di proteggere le vie aeree?",
+   "r": 3,
+   "sec": 24
+  },
+  {
+   "e": "È segno di grave aumento della pressione intracranica e di possibile erniazione cerebrale imminente: richiede intervento immediato.",
+   "m": "cli",
+   "o": [
+    "Tachicardia, ipotensione e febbre",
+    "Ipertensione con aumento della differenziale, bradicardia e respiro irregolare",
+    "Ipotensione, bradicardia e cute calda",
+    "Tachipnea, tachicardia e midriasi bilaterale"
+   ],
+   "q": "La triade di Cushing, segno tardivo di ipertensione endocranica, comprende…",
+   "r": 1,
+   "sec": 24
+  },
+  {
+   "e": "La radiografia è il gold standard; il pH dell'aspirato ≤ 5,5 è un controllo di primo livello accettato, mentre il whoosh test non è affidabile (NPSA).",
+   "m": "cli",
+   "o": [
+    "La radiografia",
+    "Il test dell'insufflazione d'aria (whoosh test)",
+    "L'immersione dell'estremità in acqua",
+    "L'assenza di tosse durante l'inserimento"
+   ],
+   "q": "Il metodo più affidabile per verificare la posizione di un sondino nasogastrico prima del primo utilizzo è…",
+   "r": 0,
+   "sec": 28
+  },
+  {
+   "e": "Acidifica il colon e accelera il transito; la dose si titola sul numero di evacuazioni, con la rifaximina come possibile aggiunta.",
+   "m": "cli",
+   "o": [
+    "Aumentare l'assorbimento intestinale di ammoniaca",
+    "Trattare l'ascite",
+    "Ridurre produzione e assorbimento intestinale di ammoniaca, puntando a 2–3 evacuazioni morbide al giorno",
+    "Prevenire il sanguinamento da varici"
+   ],
+   "q": "Nell'encefalopatia epatica il lattulosio si somministra per…",
+   "r": 2,
+   "sec": 28
+  },
+  {
+   "e": "HbA1c ≥ 6,5% (48 mmol/mol); 5,7–6,4% indica prediabete. Senza iperglicemia inequivocabile il dato va confermato.",
+   "m": "cli",
+   "o": [
+    "≥ 5,7%",
+    "≥ 6,0%",
+    "≥ 6,5%",
+    "≥ 7,5%"
+   ],
+   "q": "Secondo gli Standards of Care ADA, un valore di HbA1c compatibile con la diagnosi di diabete è…",
+   "r": 2,
+   "sec": 29
+  },
+  {
+   "e": "Copre il fabbisogno basale per circa 24 ore e non va miscelata con altre insuline nella stessa siringa; nella chetoacidosi EV si usa l'insulina rapida.",
+   "m": "cli",
+   "o": [
+    "Rapida, da somministrare ai pasti",
+    "Da usare in infusione EV nella chetoacidosi",
+    "Intermedia NPH con picco a 4–8 ore",
+    "Basale a lunga durata d'azione, praticamente senza picco, una volta al giorno"
+   ],
+   "q": "L'insulina glargine è…",
+   "r": 3,
+   "sec": 29
+  },
+  {
+   "e": "Thrill alla palpazione e soffio all'auscultazione indicano la pervietà; la loro scomparsa va segnalata subito per il rischio di trombosi.",
+   "m": "cli",
+   "o": [
+    "Si evitano prelievi, misurazione della PA e compressioni su quel braccio e si controlla il fremito (thrill)",
+    "Si misura la pressione preferibilmente sul braccio della FAV",
+    "Si applica un bendaggio compressivo notturno",
+    "Si incannula la FAV per le infusioni di reparto"
+   ],
+   "q": "Nel paziente in emodialisi con fistola artero-venosa al braccio sinistro…",
+   "r": 0,
+   "sec": 25
+  },
+  {
+   "e": "Valuta attività motoria, respiro, circolazione, coscienza e saturazione (0–2 ciascuno); di norma un punteggio ≥ 9 consente il trasferimento in reparto.",
+   "m": "cli",
+   "o": [
+    "Valutare il rischio di lesioni da pressione",
+    "Stabilire la dimissibilità dalla sala risveglio (recovery room)",
+    "Misurare il dolore post-operatorio",
+    "Stadiare la sedazione in terapia intensiva"
+   ],
+   "q": "Il punteggio di Aldrete modificato serve a…",
+   "r": 1,
+   "sec": 20
+  },
+  {
+   "e": "GOLD 2026 ha rivisto i gruppi A, B ed E: anche una sola riacutizzazione moderata o grave aumenta il rischio di eventi futuri; l'obiettivo è una bassa attività di malattia senza riacutizzazioni.",
+   "fonte": "https://goldcopd.org/wp-content/uploads/2025/11/KEY-CHANGES-GOLD-2026-10Nov2025.pdf",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Almeno 3 riacutizzazioni moderate in un anno",
+    "Una sola riacutizzazione moderata",
+    "Due ricoveri nello stesso anno",
+    "Un calo del FEV1 di 100 ml"
+   ],
+   "q": "Secondo il report GOLD 2026, l'intensificazione della terapia di mantenimento nella BPCO va considerata già dopo…",
+   "r": 1,
+   "sec": 23
+  },
+  {
+   "e": "Per la BPCO sono stati approvati dupilumab e mepolizumab; il loro uso precoce richiede ancora studi.",
+   "fonte": "https://www.chestphysician.org/2026-gold-report-provides-key-updates-on-copd-exacerbations-case-finding/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Non hanno mai usato broncodilatatori",
+    "Hanno solo dispnea lieve",
+    "Sono fumatori attivi asintomatici",
+    "Continuano ad avere riacutizzazioni nonostante la triplice terapia inalatoria"
+   ],
+   "q": "Secondo il GOLD 2026, i farmaci biologici vanno considerati nei pazienti con BPCO che…",
+   "r": 3,
+   "sec": 23
+  },
+  {
+   "e": "La priorità è individuare i pazienti sotto-diagnosticati; anche chi fa lo screening del tumore polmonare è a rischio di BPCO.",
+   "fonte": "https://www.chestphysician.org/2026-gold-report-provides-key-updates-on-copd-exacerbations-case-finding/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Usare questionari o modelli di rischio nei soggetti a rischio e poi eseguire la spirometria in base ai risultati",
+    "Eseguire la TC del torace a tutti i fumatori",
+    "Basarsi solo sulla saturimetria",
+    "Attendere la prima riacutizzazione"
+   ],
+   "q": "Per il case finding della BPCO, il GOLD 2026 suggerisce di…",
+   "r": 0,
+   "sec": 23
+  },
+  {
+   "e": "La circolare ministeriale del 23 giugno 2026 segue le raccomandazioni OMS: due ceppi A (H1N1pdm09 e H3N2) e un ceppo B/Victoria.",
+   "fonte": "https://www.lapresse.it/salute/sanita/2026/06/25/influenza-e-vaccino-le-novita-nella-circolare-del-ministero/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Per ridurre i costi di produzione",
+    "Perché è stato aggiunto un ceppo aviario",
+    "Perché il lignaggio B/Yamagata, non più confermato dal 2020, è stato escluso",
+    "Perché è stato eliminato il sottotipo H3N2"
+   ],
+   "q": "Perché il vaccino antinfluenzale della stagione 2026-2027 è trivalente?",
+   "r": 2,
+   "sec": 15
+  },
+  {
+   "e": "L'età è stata abbassata a 60 anni per proteggere persone che possono essere fragili già prima dei 65.",
+   "fonte": "https://www.lapresse.it/salute/sanita/2026/06/25/influenza-e-vaccino-le-novita-nella-circolare-del-ministero/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "50 anni",
+    "60 anni",
+    "65 anni",
+    "75 anni"
+   ],
+   "q": "Secondo la circolare antinfluenzale 2026-2027, i vaccini adiuvati o ad alto dosaggio sono raccomandati a partire da…",
+   "r": 1,
+   "sec": 15
+  },
+  {
+   "e": "La vaccinazione è raccomandata dai 6 mesi di età; l'avvio a inizio ottobre permette la copertura prima della circolazione del virus.",
+   "fonte": "https://www.lapresse.it/salute/sanita/2026/06/25/influenza-e-vaccino-le-novita-nella-circolare-del-ministero/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "A metà dicembre",
+    "A gennaio, al picco epidemico",
+    "Dai primi di ottobre, con offerta attiva ai soggetti eleggibili",
+    "Solo su richiesta del medico curante"
+   ],
+   "q": "Secondo la circolare 2026-2027, le campagne antinfluenzali regionali devono iniziare…",
+   "r": 2,
+   "sec": 15
+  },
+  {
+   "e": "Per i vaccini da uova il ceppo è B/Tokyo/EIS13-175/2025, per quelli da colture cellulari o ricombinanti B/Pennsylvania/14/2025, entrambi lignaggio Victoria (circolare 23/06/2026).",
+   "fonte": "https://www.epicentro.iss.it/influenza/raccomandazioni-ministero",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Yamagata",
+    "Brisbane",
+    "Hong Kong",
+    "Victoria"
+   ],
+   "q": "Nel vaccino antinfluenzale 2026-2027 il ceppo B appartiene al lignaggio…",
+   "r": 3,
+   "sec": 15
+  },
+  {
+   "e": "Raccomandazione forte: PAM iniziale di circa 65 mmHg, gestita come intervallo di ±5 mmHg.",
+   "fonte": "https://epocrates.com/online/article/sepsis-care-gets-sharper-and-more-selective-in-major-2026-guideline-update",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "Circa 65 mmHg, gestito come intervallo",
+    "Almeno 80 mmHg",
+    "Almeno 90 mmHg",
+    "Circa 55 mmHg"
+   ],
+   "q": "Secondo le linee guida Surviving Sepsis Campaign 2026, nello shock settico il target iniziale di pressione arteriosa media è…",
+   "r": 0,
+   "sec": 26
+  },
+  {
+   "e": "Raccomandazione condizionale: nell'anziano un target più basso (60–65 mmHg) invece di target più alti.",
+   "fonte": "https://epocrates.com/online/article/sepsis-care-gets-sharper-and-more-selective-in-major-2026-guideline-update",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "75–80 mmHg",
+    "70–75 mmHg",
+    "60–65 mmHg",
+    "50–55 mmHg"
+   ],
+   "q": "Secondo la Surviving Sepsis Campaign 2026, nei pazienti con shock settico di 65 anni o più si suggerisce un intervallo iniziale di PAM di…",
+   "r": 2,
+   "sec": 26
+  },
+  {
+   "e": "Raccomandazione forte: il qSOFA da solo è meno sensibile come strumento di screening.",
+   "fonte": "https://epocrates.com/online/article/sepsis-care-gets-sharper-and-more-selective-in-major-2026-guideline-update",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "Il qSOFA da solo",
+    "NEWS/NEWS2, MEWS o SIRS anziché il solo qSOFA",
+    "Solo la procalcitonina",
+    "La sola temperatura corporea"
+   ],
+   "q": "Per lo screening della sepsi negli adulti ricoverati, le linee guida SSC 2026 raccomandano…",
+   "r": 1,
+   "sec": 26
+  },
+  {
+   "e": "Raccomandazione condizionale a favore dei cristalloidi bilanciati rispetto alla fisiologica; dopo la rianimazione si suggerisce la rimozione attiva dei liquidi in eccesso.",
+   "fonte": "https://epocrates.com/online/article/sepsis-care-gets-sharper-and-more-selective-in-major-2026-guideline-update",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "Soluzione fisiologica 0,9%",
+    "Albumina al 20% come prima scelta",
+    "Glucosata al 5%",
+    "Cristalloidi bilanciati"
+   ],
+   "q": "Per la rianimazione volemica iniziale nella sepsi, le linee guida SSC 2026 suggeriscono…",
+   "r": 3,
+   "sec": 26
+  },
+  {
+   "e": "Raccomandazione forte; nella sepsi senza shock la somministrazione resta precoce ma bilanciata con la stewardship diagnostica.",
+   "fonte": "https://epocrates.com/online/article/sepsis-care-gets-sharper-and-more-selective-in-major-2026-guideline-update",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "Entro 6 ore",
+    "Dopo l'esito delle emocolture",
+    "Immediatamente, idealmente entro 1 ora",
+    "Solo dopo la conferma del focolaio"
+   ],
+   "q": "Secondo la Surviving Sepsis Campaign 2026, nello shock settico gli antimicrobici vanno somministrati…",
+   "r": 2,
+   "sec": 26
+  },
+  {
+   "e": "L'operatore della centrale aiuta a riconoscere l'arresto e guida la RCP e l'uso del DAE; compressioni 100–120/min, profondità 5–6 cm.",
+   "fonte": "https://www.resus.org.uk/print/pdf/node/36448",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "Valuta il respiro per 30 secondi prima di chiamare",
+    "Chiama il numero di emergenza prima di valutare il respiro",
+    "Inizia con 5 ventilazioni",
+    "Cerca il polso carotideo per 1 minuto"
+   ],
+   "q": "Secondo le linee guida 2025 sul BLS dell'adulto (ERC/Resuscitation Council UK), davanti a una persona che non risponde il soccorritore…",
+   "r": 1,
+   "sec": 10
+  },
+  {
+   "e": "Le ventilazioni vanno date solo se il soccorritore è addestrato; RCP degli astanti e defibrillazione precoce aumentano da 2 a 4 volte la sopravvivenza.",
+   "fonte": "https://www.resus.org.uk/print/pdf/node/36448",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "Eseguire la RCP con sole compressioni toraciche",
+    "Non intervenire fino all'arrivo dei soccorsi",
+    "Eseguire solo ventilazioni",
+    "Alternare 15 compressioni e 2 ventilazioni"
+   ],
+   "q": "Secondo le linee guida 2025 sul BLS, chi non è addestrato alle ventilazioni deve…",
+   "r": 0,
+   "sec": 10
+  },
+  {
+   "e": "La via EV è preferita, l'intraossea se l'accesso venoso non è rapido; calcio, bicarbonato e corticosteroidi di routine sono sconsigliati.",
+   "fonte": "https://www.mp.pl/paim/issue/article/17251/",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "Boli di adrenalina da 5 mg",
+    "Piccole dosi EV di adrenalina (50–100 µg) invece del bolo da 1 mg",
+    "Solo adrenalina intramuscolo",
+    "Calcio e bicarbonato di routine"
+   ],
+   "q": "Secondo le linee guida ERC 2025 ALS, nel paziente in arresto cardiaco con monitoraggio arterioso invasivo si possono usare…",
+   "r": 1,
+   "sec": 26
+  },
+  {
+   "e": "Vanno evitate sia l'ipossia sia l'iperossia (PaO2 75–100 mmHg); si punta alla normocapnia e a una PAM > 60–65 mmHg.",
+   "fonte": "https://www.mp.pl/paim/issue/article/17251/",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "88–92%",
+    "100%",
+    "94–98%",
+    "85–90%"
+   ],
+   "q": "Dopo il ritorno alla circolazione spontanea (ROSC), le linee guida ERC 2025 indicano un target di SpO2 di…",
+   "r": 2,
+   "sec": 26
+  },
+  {
+   "e": "Il raffreddamento preospedaliero con liquidi freddi non è più consigliato; il beneficio dell'ipotermia moderata (32–34 °C) resta incerto.",
+   "fonte": "https://www.mp.pl/paim/issue/article/17251/",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "Raffreddamento preospedaliero con grandi volumi di liquidi freddi EV",
+    "Mantenere 39 °C per favorire la risposta immunitaria",
+    "Riscaldamento attivo sempre e subito",
+    "Temperatura ≤ 37,5 °C per 36–72 ore, senza riscaldare attivamente l'ipotermia lieve spontanea"
+   ],
+   "q": "Per il controllo della temperatura dopo ROSC, le linee guida ERC 2025 raccomandano…",
+   "r": 3,
+   "sec": 26
+  },
+  {
+   "e": "La nuova sezione pediatrica allinea la sequenza a quella dell'adulto e tratta le situazioni speciali.",
+   "fonte": "https://www.mp.pl/paim/issue/article/17251/",
+   "m": "eo",
+   "novita": true,
+   "o": [
+    "Check–Call–CPR, allineato a quello dell'adulto",
+    "Solo ventilazioni per 5 minuti prima di chiamare",
+    "Attendere i soccorsi senza iniziare la RCP",
+    "Compressioni solo dopo 1 minuto di osservazione"
+   ],
+   "q": "Le linee guida ERC 2025 raccomandano anche nel bambino l'approccio…",
+   "r": 0,
+   "sec": 15
+  },
+  {
+   "e": "10 RCT, 4.817 pazienti: riduzione significativa soprattutto a livello sacrale; restano da chiarire costo-efficacia ed esiti a lungo termine.",
+   "fonte": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2025.1644290/pdf",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Non hanno effetto sull'incidenza",
+    "Riducono l'incidenza delle lesioni da pressione, ma affiancano e non sostituiscono riposizionamento e superfici antidecubito",
+    "Possono sostituire il riposizionamento",
+    "Aumentano le lesioni di categoria 2"
+   ],
+   "q": "Secondo una meta-analisi di RCT (Frontiers in Medicine, 2025), le medicazioni preventive in schiuma di silicone su sacro e talloni…",
+   "r": 1,
+   "sec": 12
+  },
+  {
+   "e": "La revisione (8 studi) segnala eterogeneità degli interventi e della qualità degli studi e chiede protocolli standardizzati.",
+   "fonte": "https://pubmed.ncbi.nlm.nih.gov/41444505/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Gli interventi non farmacologici sono inefficaci",
+    "La contenzione previene il delirium",
+    "Musicoterapia e massaggio delle mani riducono dolore acuto e ansia; per il delirium i risultati sono contrastanti, con riduzione grazie ai bundle geriatrici",
+    "Gli antipsicotici sono la prima scelta per prevenire il delirium"
+   ],
+   "q": "Secondo una revisione sistematica (BMC Geriatrics, 2025) sugli interventi non farmacologici nell'anziano ricoverato…",
+   "r": 2,
+   "sec": 19
+  },
+  {
+   "e": "Nel 90% dei programmi il paziente era passivo; gli autori raccomandano di individuare i sottogruppi che ne beneficiano e di integrarlo con la cura standard.",
+   "fonte": "https://pubmed.ncbi.nlm.nih.gov/40731906/",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Riduce sempre la mortalità del 50%",
+    "Gli effetti su mortalità, riammissioni e qualità di vita sono incoerenti e il paziente ha spesso un ruolo passivo",
+    "Peggiora la qualità di vita",
+    "Sostituisce le visite di controllo"
+   ],
+   "q": "Secondo una revisione sistematica di 32 RCT (Medicina, 2025) sul telemonitoraggio non invasivo nello scompenso cardiaco…",
+   "r": 1,
+   "sec": 22
+  },
+  {
+   "e": "Gli infermieri nel mondo sono 29,8 milioni (2023), l'85% donne; il 78% lavora in Paesi che hanno il 49% della popolazione mondiale.",
+   "fonte": "https://www.who.int/news/item/11-05-2025-nursing-workforce-grows--but-inequities-threaten-global-health-goals",
+   "m": "leg",
+   "novita": true,
+   "o": [
+    "È stata azzerata nel 2023",
+    "È di 5,8 milioni (2023) e si prevede scenda a 4,1 milioni nel 2030",
+    "Supera i 20 milioni",
+    "È salita a 10 milioni"
+   ],
+   "q": "Secondo il rapporto OMS-ICN «State of the World's Nursing 2025», la carenza globale di infermieri…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Approccio individualizzato e multidisciplinare; dopo trapianto cardiaco si consiglia di rinviare la gravidanza di almeno un anno.",
+   "fonte": "https://acc.org/latest-in-cardiology/articles/2025/08/26/11/47/fri-new-esc-guidance-esc-2025",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Vietano la gravidanza alle donne ad alto rischio",
+    "Superano il consiglio di evitare la gravidanza nelle donne ad alto rischio, a favore di una decisione condivisa con un Pregnancy Heart Team",
+    "Raccomandano sempre il taglio cesareo",
+    "Escludono ogni farmaco antipertensivo"
+   ],
+   "q": "Le linee guida ESC 2025 su malattie cardiovascolari e gravidanza…",
+   "r": 1,
+   "sec": 14
+  },
+  {
+   "e": "È la prima linea guida ESC che tratta insieme le due condizioni, con segni d'allarme e consigli individualizzati su ritorno al lavoro e allo sport.",
+   "fonte": "https://acc.org/latest-in-cardiology/articles/2025/08/26/11/47/fri-new-esc-guidance-esc-2025",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Sindrome infiammatoria miopericardica",
+    "Sindrome coronarica cronica",
+    "Cardiomiopatia da stress",
+    "Pericardite costrittiva acuta"
+   ],
+   "q": "Le linee guida ESC 2025 su miocarditi e pericarditi introducono, per le forme sovrapposte, il termine…",
+   "r": 0,
+   "sec": 22
+  }
+ ],
+ "casi": [
+  {
+   "area": "Geriatria",
+   "dx": [
+    "Confusione acuta",
+    "Rischio di cadute",
+    "Rischio di squilibrio del volume dei liquidi",
+    "Disturbo del modello di sonno",
+    "PC: sepsi",
+    "PC: iponatriemia"
+   ],
+   "esami": [
+    [
+     "Leucociti",
+     "13.800/mm³",
+     true
+    ],
+    [
+     "PCR",
+     "6,8 mg/dl",
+     true
+    ],
+    [
+     "Na",
+     "134 mEq/l",
+     true
+    ],
+    [
+     "Creatinina",
+     "1,1 mg/dl"
+    ]
+   ],
+   "lv": "facile",
+   "oral": "All'orale distingui sempre delirium (acuto, fluttuante, con deficit di attenzione) da demenza (lenta e progressiva) e cita il 4AT come strumento di screening.",
+   "steps": [
+    {
+     "a": "L'esordio acuto, l'andamento fluttuante (tranquilla di giorno, confusa di notte), il disorientamento e il contenuto del pensiero alterato in corso di infezione fanno sospettare un delirium iperattivo, non un peggioramento della demenza. Si conferma con uno strumento validato e rapido come il 4AT (vigilanza, AMT4, test dell'attenzione con i mesi all'indietro, esordio acuto o fluttuazione): un punteggio di 4 o più è suggestivo di delirium. Va informato il medico, perché il delirium è un'urgenza clinica da ricondurre a una causa.",
+     "q": "Che cosa sospetti e come lo confermi rapidamente al letto?"
+    },
+    {
+     "a": "Si cercano le cause correggibili: infezione e febbre, dolore, ritenzione urinaria o stipsi, disidratazione e iponatriemia, ipossia, ipoglicemia, farmaci (sedativi, anticolinergici), privazione di sonno e dispositivi come il catetere. Gli interventi immediati sono: avvicinarsi con calma, presentarsi e riorientarla, luce soffusa ma non buio, occhiali e protesi acustiche disponibili, idratazione, controllo del dolore e dell'alvo. Si valuta con il medico se il catetere è ancora necessario, perché è sia fonte di infezione sia stimolo all'agitazione, e si coinvolge la figlia come presenza rassicurante.",
+     "q": "Quali fattori precipitanti cerchi e quali interventi non farmacologici metti in atto subito?"
+    },
+    {
+     "a": "No, la contenzione non è una risposta assistenziale ordinaria: secondo l'art. 38 del Codice deontologico FNOPI 2025 è un atto eccezionale, motivato, limitato nel tempo e documentato, da usare solo quando ogni alternativa è risultata inefficace. Nel delirium, inoltre, spondine e mezzi di contenzione aumentano agitazione, rischio di caduta dall'alto e di lesioni. Si preferiscono letto basso, sorveglianza ravvicinata, sensori di uscita dal letto, campanello a portata di mano e presenza del familiare, con rivalutazione del rischio con la scala di Conley.",
+     "q": "La paziente rischia di cadere: è corretto applicare le spondine o legarla al letto?"
+    },
+    {
+     "a": "Diagnosi possibili: Confusione acuta correlata a infezione e ospedalizzazione; Rischio di cadute; Rischio di squilibrio del volume dei liquidi; Disturbo del modello di sonno. Problemi collaborativi: complicanze dell'infezione (sepsi) e iponatriemia. In cartella si registrano l'ora, i comportamenti osservati con parole precise, il punteggio 4AT, i parametri, le azioni messe in atto, l'avviso al medico e la risposta della paziente, come richiesto dall'art. 36 del Codice sulla documentazione. Il delirium va rivalutato a ogni turno.",
+     "q": "Quali diagnosi infermieristiche e problemi collaborativi individui e come documenti l'episodio?"
+    }
+   ],
+   "story": "La signora Anna, 86 anni, è ricoverata in Medicina da due giorni per infezione delle vie urinarie in terapia antibiotica. A casa vive con la figlia ed era autonoma nelle attività di base, con lieve calo di memoria. Alle 2 di notte l'infermiere la trova in piedi accanto al letto, disorientata nel tempo e nello spazio, che cerca di togliersi il catetere vescicale e dice di dover «andare a prendere i bambini a scuola». Di giorno era tranquilla e orientata.",
+   "tags": [
+    "cli",
+    "cod",
+    "dx"
+   ],
+   "title": "Agitazione notturna nell'anziana con infezione urinaria",
+   "vit": [
+    [
+     "FC",
+     "98"
+    ],
+    [
+     "PA",
+     "138/82"
+    ],
+    [
+     "FR",
+     "20"
+    ],
+    [
+     "SpO2",
+     "95%"
+    ],
+    [
+     "TC",
+     "37,6 °C",
+     true
+    ],
+    [
+     "Glicemia capillare",
+     "112 mg/dl"
+    ]
+   ]
+  },
+  {
+   "area": "Chirurgia",
+   "dx": [
+    "Rischio di lesione",
+    "Ansia",
+    "Conoscenza insufficiente",
+    "PC: ipocalcemia/tetania",
+    "PC: ematoma cervicale compressivo",
+    "PC: lesione del nervo laringeo ricorrente"
+   ],
+   "esami": [
+    [
+     "Calcio totale",
+     "7,1 mg/dl",
+     true
+    ],
+    [
+     "Albumina",
+     "4,0 g/dl"
+    ],
+    [
+     "PTH",
+     "8 pg/ml",
+     true
+    ],
+    [
+     "Magnesio",
+     "1,6 mg/dl",
+     true
+    ],
+    [
+     "K",
+     "4,1 mEq/l"
+    ]
+   ],
+   "lv": "medio",
+   "oral": "Ricorda la coppia Chvostek–Trousseau e che dopo una tiroidectomia il kit per riaprire la ferita deve stare vicino al letto.",
+   "steps": [
+    {
+     "a": "Parestesie periorali e distali, crampi e lo spasmo carpale indotto dal bracciale (segno di Trousseau) indicano un'ipocalcemia sintomatica, con ipersensibilità neuromuscolare. Dopo tiroidectomia totale la causa più frequente è l'ipoparatiroidismo da lesione, devascolarizzazione o asportazione delle paratiroidi, confermato da PTH basso e calcio totale ridotto con albumina normale. Si può ricercare anche il segno di Chvostek, contrazione dei muscoli facciali alla percussione del nervo faciale davanti all'orecchio. L'infermiere avvisa subito il medico perché il quadro può progredire.",
+     "q": "Come interpreti i sintomi e il segno comparso durante la misurazione della pressione?"
+    },
+    {
+     "a": "I segni di gravità sono laringospasmo e broncospasmo con stridore, tetania generalizzata, convulsioni e aritmie con allungamento dell'intervallo QT: per questo si richiede un ECG e si valuta il monitoraggio. Su prescrizione si somministra calcio gluconato 10% endovena lentamente, in circa 10 minuti, in vena di buon calibro controllando il sito perché lo stravaso causa necrosi dei tessuti, e si avvia la terapia orale con calcio e calcitriolo. Il magnesio basso va corretto, perché l'ipomagnesiemia rende l'ipocalcemia resistente alla terapia. Si ricontrolla la calcemia secondo prescrizione.",
+     "evo": "Dopo la somministrazione di calcio gluconato le parestesie si riducono in 20 minuti; alla ricalcolata delle 14 il calcio è 7,9 mg/dl e viene impostata terapia orale con calcio carbonato e calcitriolo.",
+     "q": "Quali segni di gravità devi monitorare e quali interventi metti in atto?"
+    },
+    {
+     "a": "La complicanza più temibile nelle prime 24 ore è l'ematoma cervicale compressivo, che si manifesta con gonfiore del collo, senso di oppressione, disfagia, stridore e dispnea: è un'emergenza che può richiedere la riapertura immediata della ferita. Per questo al letto devono essere disponibili il necessario per l'apertura dei punti o delle clip, aspiratore e ossigeno. Si sorvegliano anche la voce e la deglutizione, perché raucedine e disfonia possono indicare una lesione del nervo laringeo ricorrente, che se bilaterale causa ostruzione respiratoria. Il paziente si mantiene in posizione semi-Fowler con il capo in asse.",
+     "q": "Quali altre complicanze precoci della tiroidectomia sorvegli e che cosa tieni pronto al letto?"
+    },
+    {
+     "a": "Diagnosi infermieristiche: Rischio di lesione correlato a ipocalcemia e irritabilità neuromuscolare; Ansia; Conoscenza insufficiente della terapia sostitutiva; problemi collaborativi PC ipocalcemia, PC ematoma compressivo, PC lesione del nervo ricorrente. L'educazione riguarda l'assunzione regolare della levotiroxina a digiuno, 30-60 minuti prima della colazione e distanziata dal calcio, che ne riduce l'assorbimento. Il paziente deve riconoscere parestesie e crampi come segnali per contattare il medico e sapere che spesso l'ipoparatiroidismo postoperatorio è transitorio, con controlli della calcemia programmati.",
+     "q": "Quali diagnosi infermieristiche e quale educazione prevedi per la dimissione?"
+    }
+   ],
+   "story": "Il signor Luca, 52 anni, è stato operato ieri di tiroidectomia totale per gozzo multinodulare. Questa mattina riferisce formicolio intorno alla bocca e alle punte delle dita e sensazione di «crampi» alle mani. La ferita è asciutta, il collo non è gonfio e la voce è lievemente rauca ma comprensibile. Durante la misurazione della pressione con il bracciale gonfiato compare uno spasmo della mano con flessione del polso.",
+   "tags": [
+    "cli",
+    "eo",
+    "dx"
+   ],
+   "title": "Formicolii alle labbra dopo tiroidectomia totale",
+   "vit": [
+    [
+     "FC",
+     "92"
+    ],
+    [
+     "PA",
+     "132/84"
+    ],
+    [
+     "FR",
+     "18"
+    ],
+    [
+     "SpO2",
+     "97%"
+    ],
+    [
+     "TC",
+     "36,9 °C"
+    ],
+    [
+     "NRS",
+     "3/10"
+    ]
+   ]
+  },
+  {
+   "area": "Emergenza",
+   "dx": [
+    "Volume di liquidi insufficiente",
+    "Rischio di glicemia instabile",
+    "Rischio di squilibrio elettrolitico",
+    "Conoscenza insufficiente",
+    "PC: ipopotassiemia/aritmie",
+    "PC: ipoglicemia",
+    "PC: edema cerebrale",
+    "PC: sepsi"
+   ],
+   "esami": [
+    [
+     "Glicemia",
+     "486 mg/dl",
+     true
+    ],
+    [
+     "β-idrossibutirrato",
+     "5,4 mmol/l",
+     true
+    ],
+    [
+     "pH venoso",
+     "7,12",
+     true
+    ],
+    [
+     "HCO3-",
+     "9 mmol/l",
+     true
+    ],
+    [
+     "Gap anionico",
+     "24 mmol/l",
+     true
+    ],
+    [
+     "K",
+     "5,6 mmol/l",
+     true
+    ],
+    [
+     "Na",
+     "131 mmol/l",
+     true
+    ],
+    [
+     "Creatinina",
+     "1,4 mg/dl",
+     true
+    ],
+    [
+     "Lattati",
+     "2,1 mmol/l",
+     true
+    ]
+   ],
+   "fonte": "https://www.uspharmacist.com/article/managing-hyperglycemic-crises-in-adults-with-diabetes",
+   "lv": "difficile",
+   "oral": "Spiega perché il potassio «normale» in chetoacidosi è un falso amico e perché si aggiunge glucosio senza fermare l'insulina.",
+   "steps": [
+    {
+     "a": "Il quadro è una chetoacidosi diabetica: secondo il consensus ADA/EASD 2024 la diagnosi richiede iperglicemia (≥200 mg/dl o diabete noto), chetonemia ≥3 mmol/l e acidosi metabolica (pH <7,3 o bicarbonati <18 mmol/l). Il respiro di Kussmaul è un compenso respiratorio all'acidosi; il fattore scatenante è la doppia causa infezione più interruzione dell'insulina per malfunzionamento del microinfusore. Con tachicardia, ipotensione relativa, alterazione della coscienza e tachipnea la paziente ha compromissione delle funzioni vitali e va trattata come priorità massima (codice rosso o arancione secondo il sistema di triage a cinque codici), con valutazione ABCDE e monitoraggio continuo.",
+     "q": "Quale quadro riconosci e quale codice di priorità assegni al triage?"
+    },
+    {
+     "a": "No. Nella chetoacidosi il potassio corporeo totale è ridotto per le perdite urinarie e il vomito, ma il valore nel sangue appare normale o alto perché l'acidosi e la carenza di insulina spostano il potassio fuori dalle cellule. Con l'insulina e la correzione dell'acidosi il potassio rientra nelle cellule e la potassiemia può crollare rapidamente, con rischio di aritmie: per questo si monitora l'ECG e il potassio va ricontrollato a breve dopo l'avvio dell'insulina e poi a intervalli regolari, iniziando la supplementazione su prescrizione quando scende sotto il valore di protocollo. Se il potassio iniziale fosse sotto 3,5 mmol/l l'insulina andrebbe rinviata finché non viene corretto.",
+     "evo": "Due ore dopo l'avvio dell'insulina la potassiemia è scesa a 3,9 mmol/l e il medico prescrive l'aggiunta di cloruro di potassio alle infusioni.",
+     "q": "Il potassio è 5,6 mmol/l: significa che non c'è rischio di ipopotassiemia?"
+    },
+    {
+     "a": "Si posizionano due accessi venosi, si avvia su prescrizione la reidratazione con cristalloidi a 500-1000 ml/h nelle prime ore, con attenzione al rischio di sovraccarico. L'insulina rapida si somministra in infusione endovenosa continua con pompa, a dose fissa di 0,1 U/kg/h (6 U/h per questa paziente di 60 kg), dopo aver sospeso e rimosso il microinfusore. Si controllano glicemia capillare ogni ora, chetonemia ed emogas venoso ogni 2-4 ore, bilancio idrico con diuresi oraria, stato di coscienza e parametri. Quando la glicemia scende sotto 250 mg/dl si aggiunge glucosio al 5-10% continuando l'insulina, che serve a eliminare i chetoni e non solo a ridurre la glicemia.",
+     "evo": "Dopo 10 ore la glicemia è 180 mg/dl, il β-idrossibutirrato 0,5 mmol/l e il pH 7,32: la chetoacidosi rispetta i criteri di risoluzione e si pianifica il passaggio all'insulina sottocutanea.",
+     "q": "Quali sono gli interventi infermieristici prioritari della prima fase di trattamento?"
+    },
+    {
+     "a": "Secondo il consensus 2024 la chetoacidosi è risolta con chetonemia <0,6 mmol/l, pH ≥7,3 o bicarbonati ≥18 mmol/l e glicemia <200 mg/dl, e la paziente deve essere in grado di alimentarsi. L'insulina basale sottocutanea va somministrata prima di interrompere l'infusione endovena, con sovrapposizione di circa 1-2 ore, perché l'insulina endovena ha un'emivita di pochi minuti e la sospensione brusca fa ricomparire la chetosi. Il microinfusore si riposiziona solo con un nuovo set di infusione e dopo valutazione del team diabetologico.",
+     "q": "Quando si può sospendere l'insulina endovena e che cosa occorre per farlo in sicurezza?"
+    },
+    {
+     "a": "Diagnosi infermieristiche: Volume di liquidi insufficiente; Rischio di glicemia instabile; Rischio di squilibrio elettrolitico; Conoscenza insufficiente della gestione delle malattie intercorrenti. Problemi collaborativi: ipopotassiemia e aritmie, ipoglicemia, edema cerebrale (raro nell'adulto ma da sospettare se cefalea e calo della coscienza durante il trattamento), sepsi. L'educazione terapeutica riguarda le «sick day rules»: non sospendere mai l'insulina basale durante la malattia, controllare spesso glicemia e chetoni, bere, sapere quando passare alla penna in caso di guasto del microinfusore e quando chiedere aiuto. Tutti gli interventi, gli orari e i valori vanno documentati in modo tracciabile, come richiede la responsabilità professionale prevista dalla L. 24/2017.",
+     "q": "Quali diagnosi infermieristiche, problemi collaborativi ed educazione prevedi prima della dimissione?"
+    }
+   ],
+   "story": "Martina, 24 anni, con diabete di tipo 1 in terapia con microinfusore da 6 anni, arriva in Pronto Soccorso accompagnata dal compagno. Da due giorni ha febbre e mal di gola; da ieri vomita, ha sete intensa e urina molto e ha ridotto i boli perché «non riusciva a mangiare». Il catetere del microinfusore risulta piegato da almeno 12 ore. È sonnolenta ma risponde, ha mucose asciutte, alito acetonemico e respiro profondo e frequente.",
+   "tags": [
+    "eo",
+    "cli",
+    "dx",
+    "leg"
+   ],
+   "title": "Vomito e respiro profondo in giovane con diabete tipo 1",
+   "vit": [
+    [
+     "FC",
+     "124",
+     true
+    ],
+    [
+     "PA",
+     "98/58",
+     true
+    ],
+    [
+     "FR",
+     "30",
+     true
+    ],
+    [
+     "SpO2",
+     "98%"
+    ],
+    [
+     "TC",
+     "38,1 °C",
+     true
+    ],
+    [
+     "GCS",
+     "14",
+     true
+    ],
+    [
+     "Peso",
+     "60 kg"
+    ]
+   ]
+  }
+ ]
+}

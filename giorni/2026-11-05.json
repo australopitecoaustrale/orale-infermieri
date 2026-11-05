@@ -1,0 +1,1202 @@
+{
+ "date": "2026-11-05",
+ "topic": "Processo di nursing, esame obiettivo, Codice 2025 e PA; enciclopedia (stomie, drenaggi, intossicazioni, elettroliti); medicina del lavoro (aggressioni, MAPO, notturno, chimico) + novità (ONSEPS 2025, D.L. 159/2025, ESC 2026 riabilitazione e rene, PNP 2026-2031, OsMed 2025)",
+ "created": "2026-11-05T05:51:13+01:00",
+ "items": [
+  {
+   "e": "Dopo accertamento e diagnosi, nella pianificazione si ordinano i problemi per priorità, si scrivono gli obiettivi e si scelgono gli interventi.",
+   "m": "dx",
+   "o": [
+    "Pianificazione",
+    "Accertamento",
+    "Attuazione",
+    "Valutazione"
+   ],
+   "q": "In quale fase del processo di nursing si stabiliscono le priorità tra i problemi e si formulano gli esiti attesi?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "La valutazione è continua: se l'esito non è raggiunto si cerca il motivo in ogni fase del processo e si aggiorna il piano.",
+   "m": "dx",
+   "o": [
+    "Chiude il piano perché il tempo è scaduto",
+    "Ripete gli stessi interventi senza cambiare nulla",
+    "Sostituisce la diagnosi infermieristica con quella medica",
+    "Riesamina tutte le fasi: dati raccolti, diagnosi, obiettivo e interventi, e modifica il piano"
+   ],
+   "q": "Durante la valutazione l'infermiere rileva che l'obiettivo non è stato raggiunto nei tempi previsti. Che cosa fa?",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Nell'addome si ausculta prima di toccare, perché percussione e palpazione possono modificare la peristalsi.",
+   "m": "eo",
+   "o": [
+    "Ispezione, palpazione, percussione, auscultazione",
+    "Ispezione, auscultazione, percussione, palpazione",
+    "Palpazione, ispezione, auscultazione, percussione",
+    "Auscultazione, ispezione, palpazione, percussione"
+   ],
+   "q": "Nell'esame obiettivo dell'addome la sequenza corretta delle tecniche è…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "La distensione giugulare a 45° indica pressione venosa elevata: scompenso, sovraccarico, tamponamento o pneumotorace iperteso.",
+   "m": "eo",
+   "o": [
+    "Una disidratazione grave",
+    "Un reperto normale a qualsiasi altezza",
+    "Un'ipotensione ortostatica",
+    "Un aumento della pressione venosa centrale, come nello scompenso destro o nel sovraccarico di liquidi"
+   ],
+   "q": "Con il paziente semiseduto a 45° si osserva un turgore delle vene giugulari ben oltre la clavicola. Che cosa suggerisce?",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Romberg positivo: la perdita di equilibrio a occhi chiusi indica un deficit propriocettivo; nel danno cerebellare l'instabilità c'è anche a occhi aperti.",
+   "m": "eo",
+   "o": [
+    "La forza dei muscoli delle gambe",
+    "La funzione del nervo ottico",
+    "La sensibilità propriocettiva (segno di Romberg)",
+    "L'equilibrio di origine solo cerebellare"
+   ],
+   "q": "Il paziente in piedi a piedi uniti mantiene l'equilibrio a occhi aperti ma oscilla e tende a cadere quando li chiude. Questa manovra valuta…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "La Corte ha segnalato le carenze del sistema delle REMS (liste d'attesa, competenze tra Stato e Regioni) e chiesto una riforma.",
+   "m": "leg",
+   "o": [
+    "Il suicidio medicalmente assistito",
+    "Le REMS, le residenze per l'esecuzione delle misure di sicurezza",
+    "Il consenso informato dei minori",
+    "La responsabilità civile delle strutture sanitarie"
+   ],
+   "q": "La sentenza della Corte costituzionale n. 22 del 2022 riguarda…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Art. 4 della L. 24/2017: trasparenza sui risarcimenti pagati negli ultimi 5 anni.",
+   "m": "leg",
+   "o": [
+    "I dati sui risarcimenti erogati nell'ultimo quinquennio",
+    "I nomi dei professionisti coinvolti in contenziosi",
+    "Le cartelle cliniche anonimizzate",
+    "Le sentenze di condanna dei dipendenti"
+   ],
+   "q": "Secondo la L. 24/2017 (Gelli-Bianco), le strutture sanitarie pubbliche e private devono pubblicare sul proprio sito internet…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Art. 16 posizione di protezione, art. 20 riservatezza, art. 29 segreto, art. 34 governo clinico, art. 38 contenzione.",
+   "m": "cod",
+   "o": [
+    "Art. 20 – riservatezza",
+    "Art. 29 – contenzione",
+    "Art. 38 – segreto professionale",
+    "Art. 16 – governo clinico"
+   ],
+   "q": "Nel Codice deontologico FNOPI 2025, quale abbinamento tra articolo e tema è corretto?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Il segreto professionale (art. 29) è distinto dalla riservatezza sui dati (art. 20).",
+   "m": "cod",
+   "o": [
+    "La libera professione",
+    "Il passaggio di consegne",
+    "La partecipazione alla ricerca",
+    "Il segreto professionale"
+   ],
+   "q": "L'articolo 29 del Codice deontologico 2025 tratta…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Il trattamento per finalità di cura è ammesso con le garanzie del segreto professionale; l'infermiere accede solo ai dati necessari.",
+   "m": "pa",
+   "o": [
+    "Informazioni pubbliche liberamente comunicabili",
+    "Categorie particolari di dati personali (art. 9), trattabili solo nei casi previsti",
+    "Dati anonimi per definizione",
+    "Dati giudiziari (art. 10)"
+   ],
+   "q": "Nel GDPR i dati relativi alla salute appartengono alle…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Il cosiddetto FOIA italiano si aggiunge all'accesso documentale della L. 241/1990, che richiede un interesse diretto.",
+   "m": "pa",
+   "o": [
+    "L. 241/1990",
+    "D.Lgs. 165/2001",
+    "D.Lgs. 97/2016 (modifiche al D.Lgs. 33/2013)",
+    "L. 190/2012"
+   ],
+   "q": "L'accesso civico «generalizzato», che permette a chiunque di chiedere dati e documenti della PA senza motivare, è stato introdotto da…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Nello START chi non esegue ordini semplici è rosso anche se respiro e circolo sono nei limiti.",
+   "m": "cli",
+   "o": [
+    "Giallo",
+    "Verde",
+    "Rosso",
+    "Nero"
+   ],
+   "q": "Triage START in una maxiemergenza: un adulto non cammina, respira con FR 24/min, ha polso radiale presente ma non esegue ordini semplici. Codice?",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "L'art. 19 del D.Lgs. 81/2008 modificato obbliga il preposto a intervenire e, se la non conformità persiste, a fermare l'attività.",
+   "m": "lav",
+   "o": [
+    "Solo annotarlo nel DVR a fine anno",
+    "Sanzionare direttamente il lavoratore con una multa",
+    "Sostituirsi al medico competente",
+    "Interrompere l'attività del lavoratore e informare i superiori diretti"
+   ],
+   "q": "Dopo la L. 215/2021, se il preposto rileva che un lavoratore non usa i DPI e non si adegua alle sue indicazioni, deve…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Formazione generale 4 ore; poi formazione specifica 4/8/12 ore secondo il rischio basso, medio o alto (sanità = alto).",
+   "m": "lav",
+   "o": [
+    "8 ore per la sanità",
+    "4 ore, uguali per tutti i settori",
+    "12 ore per il rischio alto",
+    "2 ore in modalità e-learning"
+   ],
+   "q": "Secondo l'Accordo Stato-Regioni del 17 aprile 2025, la formazione generale dei lavoratori dura…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Art. 41 D.Lgs. 81/2008: copia scritta a entrambi; contro il giudizio si può ricorrere entro 30 giorni all'organo di vigilanza.",
+   "m": "lav",
+   "o": [
+    "Comunicato solo a voce al lavoratore",
+    "Inviato solo all'INAIL",
+    "Comunicato per iscritto al lavoratore e al datore di lavoro",
+    "Inserito nella cartella clinica del reparto"
+   ],
+   "q": "Il giudizio di idoneità del medico competente viene…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "La Trendelenburg è poco usata nello shock; il sollevamento passivo delle gambe è un test e un aiuto temporaneo.",
+   "enc": "mobilizzazione",
+   "m": "cli",
+   "o": [
+    "La posizione di Sims",
+    "La posizione prona",
+    "Il sollevamento passivo delle gambe",
+    "La Fowler alta a 90°"
+   ],
+   "q": "Nel paziente ipoteso, per aumentare il ritorno venoso, oggi si preferisce alla Trendelenburg…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Sul fianco sinistro il liquido segue l'anatomia di sigma e colon discendente.",
+   "enc": "mobilizzazione",
+   "m": "cli",
+   "o": [
+    "Eseguire un clistere",
+    "Ridurre la dispnea nell'edema polmonare",
+    "Eseguire una puntura lombare in posizione seduta",
+    "L'intubazione"
+   ],
+   "q": "La posizione di Sims (laterale sinistra semiprona) si usa soprattutto per…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "IDDSI: livelli 0-4 per le bevande, 3-7 per i cibi; i liquidi si addensano secondo il livello prescritto.",
+   "enc": "disfagia",
+   "m": "cli",
+   "o": [
+    "1 (cibo normale) a 5 (liquido)",
+    "0 (liquido) a 7 (cibo normale)",
+    "A a E come per le lesioni midollari",
+    "0 (cibo normale) a 10 (gel)"
+   ],
+   "q": "Nella classificazione IDDSI delle consistenze per la disfagia, i livelli vanno da…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Rispetta anche il diritto a non sapere (Codice 2025, art. 21).",
+   "enc": "cattive-notizie",
+   "m": "tr",
+   "o": [
+    "Scegliere una stanza riservata",
+    "Capire quanto e che cosa la persona vuole sapere",
+    "Accogliere le emozioni",
+    "Concordare il piano di cura"
+   ],
+   "q": "Nel protocollo SPIKES, la fase «Invitation» serve a…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "L. 194/1978 e L. 413/1993 (sperimentazione animale); in altri casi il Codice 2025 parla di libertà di coscienza.",
+   "enc": "obiezione-coscienza",
+   "m": "cod",
+   "o": [
+    "Le trasfusioni di sangue",
+    "La somministrazione di oppioidi",
+    "La sperimentazione animale",
+    "La contenzione"
+   ],
+   "q": "Oltre all'interruzione volontaria di gravidanza, la legge prevede espressamente l'obiezione di coscienza per…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Il referto è dovuto per i delitti procedibili d'ufficio (es. maltrattamenti, lesioni gravi o gravissime).",
+   "enc": "referto-denuncia",
+   "m": "leg",
+   "o": [
+    "Lesioni compatibili con maltrattamenti in famiglia",
+    "Una caduta accidentale in casa senza sospetti",
+    "Una lesione lieve procedibile solo a querela",
+    "Un'intossicazione alimentare in famiglia senza ipotesi di reato"
+   ],
+   "q": "Quale di questi casi rende obbligatorio il referto all'autorità giudiziaria?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Riduce gli errori soprattutto per valori critici e prescrizioni telefoniche in urgenza.",
+   "enc": "consegne",
+   "m": "dx",
+   "o": [
+    "Chi riceve un'informazione critica la ripete a chi l'ha data per conferma",
+    "La rilettura della cartella a fine turno",
+    "La consegna scritta senza colloquio",
+    "La firma della consegna da parte del medico"
+   ],
+   "q": "Che cos'è il «read-back» nella comunicazione tra professionisti?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "VPP e VPN dipendono dalla prevalenza: in una popolazione a bassa prevalenza aumentano i falsi positivi.",
+   "enc": "epidemiologia",
+   "m": "tr",
+   "o": [
+    "Il campione è più piccolo",
+    "La malattia è più frequente nella popolazione testata",
+    "Il test costa meno",
+    "La malattia è più rara"
+   ],
+   "q": "A parità di sensibilità e specificità, il valore predittivo positivo di un test aumenta quando…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Ogni somministrazione, residuo o rottura va registrata; il registro è vidimato dalla direzione sanitaria.",
+   "enc": "stupefacenti",
+   "m": "cli",
+   "o": [
+    "Si documenta la rottura secondo la procedura, con annotazione nel registro di carico e scarico",
+    "La si sostituisce con un'altra fiala senza annotare nulla",
+    "Si butta il contenuto nel lavandino e non si segnala",
+    "Si chiede al paziente di firmare per la fiala"
+   ],
+   "q": "Durante la preparazione si rompe una fiala di morfina. Come si procede?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Il rischio di tossicità aumenta con l'ipopotassiemia, che va corretta.",
+   "enc": "digossina",
+   "m": "cli",
+   "o": [
+    "Il naloxone",
+    "I frammenti anticorpali anti-digossina",
+    "Il flumazenil",
+    "La vitamina K"
+   ],
+   "q": "In caso di grave intossicazione da digossina con aritmie pericolose l'antidoto è…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Nell'iperpotassiemia invece le T sono alte e appuntite; l'ipopotassiemia predispone alle aritmie.",
+   "enc": "elettroliti-ecg",
+   "m": "cli",
+   "o": [
+    "Iperpotassiemia",
+    "Ipercalcemia",
+    "Ipermagnesiemia",
+    "Ipopotassiemia"
+   ],
+   "q": "Onde T appiattite, comparsa di onde U e sottoslivellamento del tratto ST fanno pensare a…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "In gravidanza avanzata e nelle persone obese le compressioni addominali sono sostituite da quelle toraciche.",
+   "enc": "ostruzione-vie-aeree",
+   "m": "eo",
+   "o": [
+    "Compressioni toraciche invece di quelle addominali",
+    "Compressioni addominali come nell'adulto",
+    "La metti supina e la ventili subito",
+    "Aspetti che perda coscienza"
+   ],
+   "q": "Una donna al nono mese di gravidanza, cosciente, ha un'ostruzione completa da corpo estraneo e i colpi interscapolari non funzionano. Che cosa fai?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "La colinergica dà invece miosi, salivazione e bradicardia; quella da oppioidi miosi e depressione respiratoria.",
+   "enc": "intossicazioni",
+   "m": "cli",
+   "o": [
+    "Anticolinergica",
+    "Colinergica",
+    "Da oppioidi",
+    "Da astinenza da benzodiazepine"
+   ],
+   "q": "Midriasi, cute secca e calda, ritenzione urinaria e agitazione suggeriscono una sindrome…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Il monofilamento esplora la neuropatia; l'ABI confronta la pressione alla caviglia con quella al braccio.",
+   "enc": "piede-diabetico",
+   "m": "eo",
+   "o": [
+    "L'indice caviglia-braccio (ABI)",
+    "La scala di Braden",
+    "Il test del monofilamento",
+    "L'indice di Barthel"
+   ],
+   "q": "Per valutare l'arteriopatia degli arti inferiori nel piede diabetico si misura…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "La medicazione a tre lati fa da valvola: impedisce all'aria di entrare e la lascia uscire.",
+   "enc": "drenaggi",
+   "m": "cli",
+   "o": [
+    "Coprire subito il foro con una medicazione occlusiva fissata su tre lati e avvisare il medico",
+    "Reinserire il tubo",
+    "Lasciare il foro scoperto in attesa del medico",
+    "Clampare il tubo e rimetterlo nel sistema"
+   ],
+   "q": "Il drenaggio toracico si sfila accidentalmente dal torace. Qual è il primo intervento?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Un foro troppo largo espone la cute agli effluenti; troppo stretto può ledere lo stoma.",
+   "enc": "stomie",
+   "m": "cli",
+   "o": [
+    "Esattamente della stessa misura dello stoma, premendolo",
+    "2-3 mm più grande dello stoma",
+    "1 cm più grande per sicurezza",
+    "Più piccolo, per comprimere lo stoma"
+   ],
+   "q": "Nel cambio del presidio di una colostomia il foro della placca va tagliato…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Ha un'enorme carica di acari: precauzioni da contatto e trattamento di contatti e ambiente.",
+   "enc": "scabbia",
+   "m": "cli",
+   "o": [
+    "La scabbia nodulare del bambino",
+    "La scabbia crostosa (norvegese)",
+    "La pediculosi del capo",
+    "La scabbia «delle persone pulite»"
+   ],
+   "q": "Quale forma di scabbia è molto contagiosa e tipica di immunodepressi e anziani istituzionalizzati?",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Il freddo riduce il flusso di sangue alla mucosa durante l'infusione; si valutano poi i gradi OMS 0-4.",
+   "enc": "mucosite",
+   "m": "cli",
+   "o": [
+    "Colluttori a base alcolica",
+    "Uno spazzolino a setole dure",
+    "La crioterapia orale con cubetti di ghiaccio",
+    "Cibi acidi per stimolare la saliva"
+   ],
+   "q": "Per ridurre la mucosite durante alcuni chemioterapici somministrati in bolo si può usare…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Disreflessia autonomica nelle lesioni sopra T6: è un'urgenza ipertensiva; si rimuove la causa (globo, fecaloma, catetere piegato).",
+   "enc": "lesione-midollare",
+   "m": "cli",
+   "o": [
+    "Metterlo in Trendelenburg",
+    "Somministrare liquidi in bolo",
+    "Metterlo seduto e cercare lo stimolo, iniziando da vescica e intestino",
+    "Attendere la visita del giorno dopo"
+   ],
+   "q": "Un paziente tetraplegico (lesione C6) ha improvvisamente PA 200/110, cefalea pulsante e sudorazione al volto. Qual è il primo intervento?",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Il pancreas continua a produrre insulina adattata al glucosio infuso; il set si cambia ogni 24 ore.",
+   "enc": "nutrizione-parenterale",
+   "m": "cli",
+   "o": [
+    "Per il rischio di ipoglicemia",
+    "Per il rischio di iperpotassiemia",
+    "Perché il catetere si chiude subito",
+    "Perché aumenta la pressione arteriosa"
+   ],
+   "q": "Perché una nutrizione parenterale non va interrotta bruscamente?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "L'attesa evita che il secondo collirio lavi via il primo; poi si comprime il canto interno.",
+   "enc": "occhio",
+   "m": "cli",
+   "o": [
+    "5 secondi",
+    "1 ora",
+    "24 ore",
+    "5 minuti"
+   ],
+   "q": "Se si devono instillare due colliri diversi nello stesso occhio, tra l'uno e l'altro si attendono circa…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "MAPO 0-1,5 trascurabile, 1,51-5 medio, oltre 5 elevato: servono ausili, formazione e sorveglianza sanitaria.",
+   "enc": "ml-mmc",
+   "m": "lav",
+   "o": [
+    "Trascurabile",
+    "Elevato",
+    "Non classificabile",
+    "Medio"
+   ],
+   "q": "In un reparto l'indice MAPO risulta 3,2. Il rischio da movimentazione dei pazienti è…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Il lavoratore notturno è valutato per l'idoneità prima dell'assegnazione e almeno ogni 2 anni.",
+   "enc": "ml-stress",
+   "m": "lav",
+   "o": [
+    "L'intervallo fisso dalle 20 alle 8",
+    "Un periodo di almeno 7 ore consecutive che comprende l'intervallo tra mezzanotte e le 5",
+    "Qualsiasi turno dopo le 18",
+    "Solo l'intervallo da mezzanotte alle 3"
+   ],
+   "q": "Ai fini del D.Lgs. 66/2003, il «periodo notturno» è…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Indica misure organizzative, strutturali e formative e la segnalazione di ogni episodio.",
+   "enc": "ml-aggressioni",
+   "m": "lav",
+   "o": [
+    "La corretta identificazione del paziente",
+    "La prevenzione degli atti di violenza contro gli operatori sanitari",
+    "La prevenzione delle cadute",
+    "L'uso del cloruro di potassio"
+   ],
+   "q": "La Raccomandazione del Ministero della Salute n. 8 (2007) riguarda…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "La polvere disperde le proteine del lattice nell'aria; per pazienti e operatori allergici si attivano percorsi «latex safe».",
+   "enc": "ml-lattice",
+   "m": "lav",
+   "o": [
+    "Senza lattice e senza polvere",
+    "In lattice con polvere",
+    "In lattice spesso, a doppio strato",
+    "Di cotone sotto i guanti in lattice per tutti"
+   ],
+   "q": "Per ridurre il rischio di sensibilizzazione al lattice in reparto si preferiscono guanti…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Rientra nel Titolo IX del D.Lgs. 81/2008 (cancerogeni); si leggono la scheda di sicurezza e l'etichetta CLP.",
+   "enc": "ml-chimico",
+   "m": "lav",
+   "o": [
+    "In bacinelle aperte per far evaporare i vapori",
+    "In contenitori chiusi e con aspirazione localizzata, perché è classificata cancerogena",
+    "Senza DPI, perché è solo irritante",
+    "Diluendola con candeggina"
+   ],
+   "q": "La formaldeide, usata in anatomia patologica e in sala operatoria, va gestita…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Il medico competente valuta immunità e indicazioni (es. epatite B, influenza, MPR, varicella).",
+   "enc": "ml-vaccini-op",
+   "m": "lav",
+   "o": [
+    "Sono a carico del lavoratore",
+    "Sono obbligatori solo per i medici",
+    "Sono decisi dal RLS",
+    "Sono messi a disposizione dal datore di lavoro, su parere del medico competente"
+   ],
+   "q": "Secondo l'art. 279 del D.Lgs. 81/2008, i vaccini efficaci per i lavoratori non immuni…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Seguono i medici (circa 16%) e gli OSS (circa 11%); le donne sono le più colpite.",
+   "fonte": "https://www.fortuneita.com/?p=378959",
+   "m": "lav",
+   "novita": true,
+   "o": [
+    "Il 16% degli operatori aggrediti",
+    "Il 90% degli operatori aggrediti",
+    "Il 5% degli operatori aggrediti",
+    "Il 55% degli operatori aggrediti"
+   ],
+   "q": "Secondo la relazione dell'Osservatorio nazionale ONSEPS sulle aggressioni del 2025, gli infermieri sono circa…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Verbali circa 69%, fisiche circa 25%: anche l'aggressione verbale va segnalata.",
+   "fonte": "https://www.fortuneita.com/?p=378959",
+   "m": "lav",
+   "novita": true,
+   "o": [
+    "Verbale, circa 7 casi su 10",
+    "Fisica, circa 7 casi su 10",
+    "Contro i beni, circa metà dei casi",
+    "Fisica e verbale si equivalgono"
+   ],
+   "q": "Nella relazione ONSEPS sul 2025, quale tipo di aggressione prevale?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "23.367 operatori: gli episodi sono stabili rispetto al 2024 (18.392), cresce il numero di persone aggredite.",
+   "fonte": "https://www.fortuneita.com/?p=378959",
+   "m": "lav",
+   "novita": true,
+   "o": [
+    "Circa 1.800",
+    "Esattamente lo stesso numero degli episodi",
+    "Meno di 10.000",
+    "Oltre 23.000, perché in un episodio possono essere coinvolti più operatori"
+   ],
+   "q": "Nel 2025 le aggressioni al personale sanitario segnalate all'ONSEPS sono state quasi 18.000. Gli operatori coinvolti sono stati…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "La tessera può essere anche digitale; inoltre la sanzione per chi lavora senza patente a crediti sale a 12.000 euro.",
+   "fonte": "https://www.diritto.it/salute-sicurezza-luoghi-lavoro-nuove-misure-dl-159/",
+   "m": "lav",
+   "novita": true,
+   "o": [
+    "L'abolizione della patente a crediti",
+    "Una tessera di riconoscimento (badge di cantiere) con codice univoco anticontraffazione",
+    "La sorveglianza sanitaria solo su richiesta del lavoratore",
+    "L'eliminazione del DVR per le piccole imprese"
+   ],
+   "q": "Il D.L. 159/2025 sulla sicurezza sul lavoro prevede per le imprese edili in appalto e subappalto…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "La ISO 45001 sostituisce la vecchia OHSAS 18001 ai fini dell'efficacia esimente dei modelli (D.Lgs. 231/2001).",
+   "fonte": "https://www.diritto.it/salute-sicurezza-luoghi-lavoro-nuove-misure-dl-159/",
+   "m": "lav",
+   "novita": true,
+   "o": [
+    "La OHSAS 18001:2007",
+    "La ISO 9001",
+    "La UNI EN ISO 45001",
+    "Il regolamento CLP"
+   ],
+   "q": "Con il D.L. 159/2025, per i modelli organizzativi di gestione della sicurezza lo standard di riferimento diventa…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Può iniziare già in ospedale e proseguire in centro, a domicilio, in telemedicina o in modo ibrido.",
+   "fonte": "https://www.eurekalert.org/news-releases/1145288",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Solo dopo 6 mesi",
+    "Solo se il paziente ha meno di 65 anni",
+    "Prima possibile, preferibilmente entro 14 giorni e non oltre 30",
+    "Dopo la prima visita cardiologica annuale"
+   ],
+   "q": "Secondo le prime linee guida ESC sulla riabilitazione cardiologica (2026), dopo una sindrome coronarica acuta la riabilitazione dovrebbe iniziare…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Il programma è multidisciplinare (infermieri inclusi): esercizio, educazione, farmaci, nutrizione, fumo, supporto psicologico, ritorno al lavoro.",
+   "fonte": "https://www.eurekalert.org/news-releases/1145288",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Escludono la riabilitazione",
+    "Permettono solo esercizi respiratori",
+    "Richiedono sempre il ricovero in riabilitazione intensiva",
+    "Non sono di per sé un ostacolo: il programma va adattato alla persona"
+   ],
+   "q": "Le linee guida ESC 2026 sulla riabilitazione cardiologica affermano che età avanzata, fragilità e multimorbidità…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Punta anche su intersettorialità, intero corso della vita e contesti di vita e di lavoro.",
+   "fonte": "https://certifico.com/sicurezza-lavoro/news-sicurezza/piano-nazionale-della-prevenzione-2026-2031",
+   "m": "leg",
+   "novita": true,
+   "o": [
+    "Esclusivamente ospedaliero",
+    "Basato solo sugli screening oncologici",
+    "Riservato alla prevenzione terziaria",
+    "One Health, che integra salute umana, animale e ambientale"
+   ],
+   "q": "Il Piano nazionale della prevenzione 2026-2031, adottato con Intesa Stato-Regioni del 21 maggio 2026, conferma l'approccio…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Previsto anche l'allargamento dello screening colorettale alla fascia 70-74 anni.",
+   "fonte": "https://certifico.com/sicurezza-lavoro/news-sicurezza/piano-nazionale-della-prevenzione-2026-2031",
+   "m": "leg",
+   "novita": true,
+   "o": [
+    "20-29 anni",
+    "50-69 anni soltanto, senza estensioni",
+    "45-49 e 70-74 anni",
+    "Oltre gli 85 anni"
+   ],
+   "q": "Il PNP 2026-2031 prevede l'estensione graduale dello screening mammografico alle fasce di età…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Il piano fissa obiettivi vincolanti per 14 aree tematiche, tra cui salute e sicurezza sul lavoro.",
+   "fonte": "https://certifico.com/sicurezza-lavoro/news-sicurezza/piano-nazionale-della-prevenzione-2026-2031",
+   "m": "leg",
+   "novita": true,
+   "o": [
+    "Adottare i propri Piani regionali della prevenzione, che rientrano nelle verifiche dei LEA",
+    "Limitarsi ad attendere i finanziamenti europei",
+    "Nominare un Infermiere di famiglia per ogni comune",
+    "Sospendere i piani vaccinali regionali"
+   ],
+   "q": "Dopo l'adozione del PNP 2026-2031, le Regioni devono…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Aggiorna l'allegato V del D.Lgs. 206/2007; in vigore dal 27 febbraio 2026.",
+   "fonte": "https://www.fiscoetasse.com/new-rassegna-stampa/3563-qualifiche-professionali-infermiere-dentista-farmacista-nuovi-requisiti.html",
+   "m": "leg",
+   "novita": true,
+   "o": [
+    "La medicina legale veterinaria",
+    "La farmacologia industriale",
+    "Il diritto commerciale",
+    "La e-health (sanità digitale)"
+   ],
+   "q": "Il D.Lgs. 17/2026, che recepisce la direttiva (UE) 2024/782 sulla formazione minima dell'infermiere, aggiunge tra le materie teoriche…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Nella maggior parte dei pazienti con malattia renale cronica si associano a un ACE-inibitore o sartano.",
+   "fonte": "https://www.hcplive.com/view/new-esc-era-guideline-calls-for-universal-ckd-screening-in-cardiovascular-disease",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Si sospendono sempre sotto 60 ml/min",
+    "Sono controindicati nella malattia renale cronica",
+    "Si possono iniziare con eGFR ≥ 20 ml/min/1,73 m² e proseguire fino alla terapia sostitutiva renale",
+    "Si usano solo nei diabetici senza albuminuria"
+   ],
+   "q": "Secondo la linea guida ESC/ERA 2026 su malattie cardiovascolari e malattia renale cronica, gli inibitori SGLT2…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Con eGFR < 30 si usano inoltre mezzi di contrasto iso o a bassa osmolarità e protocolli che ne riducono la quantità.",
+   "fonte": "https://www.hcplive.com/view/new-esc-era-guideline-calls-for-universal-ckd-screening-in-cardiovascular-disease",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "L'eGFR è inferiore a 10",
+    "Il paziente è in dialisi",
+    "L'eGFR è superiore a 30 ml/min/1,73 m²",
+    "Mai: si preferisce sempre il warfarin"
+   ],
+   "q": "Nei pazienti con malattia renale cronica e indicazione all'anticoagulazione, la linea guida ESC/ERA 2026 preferisce i DOAC agli antagonisti della vitamina K quando…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Statina con o senza ezetimibe; nel diabete tipo 2 con albuminuria si aggiungono finerenone e semaglutide.",
+   "fonte": "https://www.hcplive.com/view/new-esc-era-guideline-calls-for-universal-ckd-screening-in-cardiovascular-disease",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Si usa solo se il colesterolo LDL supera 190 mg/dl",
+    "È controindicata",
+    "È indicata indipendentemente dai valori dei lipidi",
+    "Si sospende appena la creatinina aumenta"
+   ],
+   "q": "Secondo la linea guida ESC/ERA 2026, nei pazienti con malattia renale cronica non in dialisi la terapia con statina…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Circa 1 paziente su 10 subisce un danno durante le cure e quasi la metà di questi eventi è evitabile.",
+   "fonte": "https://www.paho.org/en/events/world-patient-safety-day-2026-safe-care-people-noncommunicable-diseases-ncd",
+   "m": "leg",
+   "novita": true,
+   "o": [
+    "La sicurezza dei farmaci in gravidanza",
+    "La sicurezza delle cure per le persone con malattie non trasmissibili",
+    "L'igiene delle mani in sala operatoria",
+    "La sicurezza del neonato"
+   ],
+   "q": "Il tema della Giornata mondiale per la sicurezza del paziente del 17 settembre 2026 è…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Ipertensione e sue complicanze (ictus, infarto) causano oltre 1.000 morti ogni ora.",
+   "fonte": "https://guardian.ng/?p=2683063",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Circa 9 su 10",
+    "Poco più di 1 su 5",
+    "Circa la metà",
+    "Meno di 1 su 100"
+   ],
+   "q": "Secondo il rapporto globale dell'OMS sull'ipertensione presentato all'80ª Assemblea generale ONU, delle circa 1,4 miliardi di persone ipertese ha la pressione sotto controllo…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Il 27,9% è in politerapia grave (10 o più farmaci): ricognizione e riconciliazione sono decisive.",
+   "fonte": "https://www.aifa.gov.it/documents/20142/3346516/Comunicato_AIFA_30-2026.pdf",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "1 su 10",
+    "1 su 3",
+    "2 su 3 (67,7%)",
+    "Il 99%"
+   ],
+   "q": "Secondo il Rapporto OsMed 2025 dell'AIFA, gli over 65 che assumono almeno 5 farmaci diversi sono circa…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Nelle strutture pubbliche invece la spesa più alta è per antineoplastici e immunomodulatori.",
+   "fonte": "https://www.aifa.gov.it/documents/20142/3346516/Comunicato_AIFA_30-2026.pdf",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Antimicrobici",
+    "Antineoplastici",
+    "Dermatologici",
+    "Cardiovascolari"
+   ],
+   "q": "Nel Rapporto OsMed 2025, nell'assistenza convenzionata la categoria di farmaci prima sia per spesa sia per consumi è quella dei farmaci…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "−7,9% in dosi e −8,6% in spesa; negli acquisti delle strutture pubbliche c'è invece un +2,4%.",
+   "fonte": "https://www.aifa.gov.it/documents/20142/3346516/Comunicato_AIFA_30-2026.pdf",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "È raddoppiato",
+    "È aumentato del 25%",
+    "È rimasto identico",
+    "È diminuito di circa l'8%"
+   ],
+   "q": "Secondo il Rapporto OsMed 2025, nell'assistenza convenzionata il consumo di antibiotici nel 2025…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Prevalenza 0,64% (+12,1%), con aumenti di metilfenidato, aripiprazolo, risperidone e sertralina.",
+   "fonte": "https://www.aifa.gov.it/documents/20142/3346516/Comunicato_AIFA_30-2026.pdf",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "È in aumento, con consumi triplicati dal 2016",
+    "È quasi scomparso",
+    "È stabile da vent'anni",
+    "Riguarda solo gli antiepilettici"
+   ],
+   "q": "Secondo il Rapporto OsMed 2025, l'uso di psicofarmaci in età pediatrica…",
+   "r": 0,
+   "sec": 0
+  }
+ ],
+ "casi": [
+  {
+   "abp": false,
+   "area": "Chirurgia",
+   "capno": false,
+   "dx": [
+    "Stomia ad alta portata con ipovolemia",
+    "Danno renale acuto prerenale",
+    "Volume di liquidi insufficiente",
+    "Rischio di squilibrio elettrolitico",
+    "Rischio di compromissione dell'integrità cutanea peristomale"
+   ],
+   "ecg": "sinus",
+   "esami": [
+    [
+     "Na",
+     "131 mmol/l",
+     1
+    ],
+    [
+     "K",
+     "3,3 mmol/l",
+     1
+    ],
+    [
+     "Mg",
+     "0,6 mmol/l",
+     1
+    ],
+    [
+     "Creatinina",
+     "1,7 mg/dl (preoperatoria 0,9)",
+     1
+    ],
+    [
+     "Hb",
+     "12,8 g/dl",
+     0
+    ]
+   ],
+   "lv": "facile",
+   "oral": "Collega le stomie (ileostomia: effluente liquido e rischio di disidratazione), il bilancio idrico e la diuresi oraria (sotto 0,5 ml/kg/h è oliguria), il danno renale acuto e l'educazione terapeutica con teach-back.",
+   "resp": "normal",
+   "steps": [
+    {
+     "a": "Ha una stomia ad alta portata (oltre circa 1,5-2 litri al giorno) con perdita di acqua, sodio e magnesio. I segni di ipovolemia sono la tachicardia, la PA bassa, il capogiro in piedi, la sete e l'oliguria: 120 ml in 6 ore per 80 kg sono 0,25 ml/kg/h, sotto 0,5. La creatinina quasi raddoppiata rispetto al valore di partenza indica un danno renale acuto prerenale.",
+     "q": "Che cosa sta succedendo a Giorgio? Quali dati ti permettono di dirlo?"
+    },
+    {
+     "a": "Volume di liquidi insufficiente correlato a perdite attive dalla stomia, evidenziato da tachicardia, ipotensione, oliguria e sete.\nRischio di squilibrio elettrolitico (sodio, potassio, magnesio).\nRischio di compromissione dell'integrità cutanea peristomale, per l'effluente liquido ricco di enzimi.\nRischio di cadute per l'ipotensione ortostatica.",
+     "q": "Formula le diagnosi infermieristiche principali."
+    },
+    {
+     "a": "Avviso il medico con SBAR. Reidratazione endovenosa con cristalloidi ed elettroliti come prescritto. Bilancio idrico preciso (entrate, effluente della stomia, diuresi), peso ogni giorno, parametri e controllo degli esami. Spiego a Giorgio che bere molta acqua o tè peggiora le perdite: si limitano i liquidi ipotonici e si usa una soluzione reidratante orale ricca di sodio, se prescritta. Alimenti che rendono le feci più dense (riso, patate, banane, pane), pasti piccoli e frequenti; loperamide prima dei pasti se prescritta. Alzata accompagnata.",
+     "q": "Quali interventi metti in atto, anche su prescrizione?"
+    },
+    {
+     "a": "Riconoscere i segni di disidratazione (sete, urine scarse e scure, capogiri, crampi) e misurare quanto esce dalla sacca; chiamare se l'effluente supera la soglia indicata o se compaiono sintomi. Svuotare la sacca quando è piena a un terzo-metà. Cambio del presidio con foro della placca 2-3 mm più grande dello stoma e controllo della cute. Uso della soluzione reidratante e dell'alimentazione indicata. Contatti con l'ambulatorio di stomaterapia.",
+     "evo": "Dopo 48 ore l'effluente scende a 1.100 ml al giorno, la creatinina torna a 1,0 mg/dl e Giorgio si prepara alla dimissione.",
+     "q": "Che cosa insegni a Giorgio prima della dimissione?"
+    }
+   ],
+   "story": "Giorgio, 67 anni, è alla quinta giornata dopo una resezione anteriore del retto per tumore, con ileostomia di protezione. Ha ripreso a mangiare da due giorni. Nelle ultime 24 ore ha svuotato la sacca molte volte: in totale 2.300 ml di effluente liquido. Riferisce sete, bocca secca e un capogiro quando si alza dal letto; per «compensare» beve molta acqua e tè. La diuresi delle ultime 6 ore è stata di 120 ml (peso 80 kg).",
+   "tags": [
+    "cli",
+    "dx"
+   ],
+   "title": "Sacca piena di liquido dopo un'ileostomia",
+   "vit": [
+    [
+     "FC",
+     "108/min",
+     1
+    ],
+    [
+     "PA",
+     "98/60 mmHg",
+     1
+    ],
+    [
+     "FR",
+     "18/min",
+     0
+    ],
+    [
+     "SpO2",
+     "97% in aria",
+     0
+    ],
+    [
+     "TC",
+     "36,9 °C",
+     0
+    ],
+    [
+     "Diuresi",
+     "0,25 ml/kg/h",
+     1
+    ]
+   ]
+  },
+  {
+   "abp": false,
+   "area": "Geriatria",
+   "capno": false,
+   "dx": [
+    "Iperpotassiemia grave con alterazioni ECG",
+    "Danno renale acuto su malattia renale cronica",
+    "Interazione tra ACE-inibitore, antialdosteronico e FANS",
+    "Rischio di diminuzione della gittata cardiaca",
+    "Rischio di cadute"
+   ],
+   "ecg": "iperk",
+   "esami": [
+    [
+     "K",
+     "7,2 mmol/l (campione non emolizzato)",
+     1
+    ],
+    [
+     "Creatinina",
+     "2,9 mg/dl (abituale 1,4)",
+     1
+    ],
+    [
+     "Na",
+     "134 mmol/l",
+     1
+    ],
+    [
+     "pH venoso",
+     "7,29",
+     1
+    ],
+    [
+     "HCO3-",
+     "17 mmol/l",
+     1
+    ],
+    [
+     "Glicemia",
+     "108 mg/dl",
+     0
+    ]
+   ],
+   "lv": "medio",
+   "oral": "Collega l'ECG degli elettroliti (T appuntite, QRS larghi), la farmacovigilanza, la ricognizione e riconciliazione farmacologica e i criteri di Beers. Ricorda che il calcio protegge il cuore ma non abbassa il potassio.",
+   "resp": "normal",
+   "steps": [
+    {
+     "a": "Onde T alte e appuntite, P poco visibili, QRS allargati e frequenza bassa: è il quadro ECG dell'iperpotassiemia, qui grave (7,2 mmol/l con alterazioni ECG): è un'emergenza con rischio di arresto. Lucia resta a letto con monitoraggio continuo, carrello delle emergenze e defibrillatore vicini; chiamo subito il medico con SBAR, accesso venoso sicuro di buon calibro, ECG a 12 derivazioni, valutazione ABCDE.",
+     "q": "Che cosa vedi sul monitor e che cosa fai subito?"
+    },
+    {
+     "a": "Il calcio stabilizza la membrana del cuore ma non abbassa il potassio: agisce in pochi minuti e si somministra lentamente sotto monitor, controllando la vena (lo stravaso danneggia i tessuti). Insulina con glucosio e salbutamolo spostano il potassio dentro le cellule. Controllo la glicemia prima e poi regolarmente per diverse ore, perché l'insulina può dare ipoglicemia anche tardiva; ricontrollo il potassio come prescritto. Con il salbutamolo sorveglio la tachicardia. Il medico valuterà anche come eliminare il potassio (resine o leganti, diuretico, dialisi se non risponde).",
+     "evo": "Dopo il calcio i QRS si restringono e la frequenza sale a 58/min.",
+     "q": "Il medico prescrive calcio gluconato 10% 30 ml EV, poi 10 UI di insulina rapida con 25 g di glucosio EV e salbutamolo per aerosol. A che cosa servono e che cosa sorvegli?"
+    },
+    {
+     "a": "Somma di fattori: ACE-inibitore e spironolattone trattengono il potassio; l'ibuprofene (FANS) e la disidratazione da diarrea riducono la funzione renale; il beta-bloccante contribuisce alla bradicardia. L'infermiere fa la ricognizione completa dei farmaci, compresi quelli da banco come l'ibuprofene e gli integratori, e la segnala per la riconciliazione; ricorda che nell'anziano con malattia renale i FANS sono potenzialmente inappropriati (criteri di Beers). Segnala la possibile reazione avversa secondo la farmacovigilanza.",
+     "q": "Perché è successo? Che ruolo ha l'infermiere nella revisione della terapia?"
+    },
+    {
+     "a": "Rischio di diminuzione della gittata cardiaca; rischio di squilibrio elettrolitico; volume di liquidi insufficiente; rischio di cadute per debolezza e ipotensione; gestione inefficace della salute legata alla politerapia. Educazione: non usare FANS senza parlarne con il medico, usare il paracetamolo per il dolore se indicato; in caso di diarrea, vomito o se si beve poco contattare il medico per sospendere temporaneamente i farmaci che lo richiedono; evitare sostituti del sale al potassio; esami del sangue programmati; schema scritto dei farmaci con teach-back.",
+     "q": "Quali diagnosi infermieristiche e quale educazione prepari per Lucia e la figlia?"
+    }
+   ],
+   "story": "Lucia, 83 anni, scompenso cardiaco e malattia renale cronica, arriva nel reparto di geriatria dal pronto soccorso per debolezza alle gambe e malessere. Assume ramipril, spironolattone, furosemide e bisoprololo; da una settimana prende anche ibuprofene per un dolore al ginocchio e da tre giorni ha diarrea e mangia poco. È vigile, orientata, ma molto stanca. Viene collegata al monitor appena arriva in stanza.",
+   "tags": [
+    "cli",
+    "eo"
+   ],
+   "title": "Debolezza e polso lento in un'anziana in politerapia",
+   "vit": [
+    [
+     "FC",
+     "44/min",
+     1
+    ],
+    [
+     "PA",
+     "102/58 mmHg",
+     1
+    ],
+    [
+     "FR",
+     "20/min",
+     0
+    ],
+    [
+     "SpO2",
+     "95% in aria",
+     0
+    ],
+    [
+     "TC",
+     "36,4 °C",
+     0
+    ],
+    [
+     "GCS",
+     "15",
+     0
+    ]
+   ]
+  },
+  {
+   "abp": {
+    "d": 70,
+    "s": 178
+   },
+   "area": "Emergenza ospedaliera",
+   "dx": [
+    "Trauma cranico grave (GCS 7) con anisocoria",
+    "Ipertensione endocranica con triade di Cushing",
+    "Ipercapnia da ipoventilazione",
+    "Ematoma extradurale destro",
+    "Rischio di perfusione tissutale cerebrale inefficace"
+   ],
+   "ecg": "sinus",
+   "esami": [
+    [
+     "EGA arteriosa: PaCO2",
+     "52 mmHg",
+     1
+    ],
+    [
+     "PaO2",
+     "128 mmHg",
+     0
+    ],
+    [
+     "pH",
+     "7,30",
+     1
+    ],
+    [
+     "Glicemia",
+     "168 mg/dl",
+     1
+    ],
+    [
+     "Hb",
+     "13,1 g/dl",
+     0
+    ],
+    [
+     "Pupille",
+     "dx 6 mm areagente, sx 3 mm reattiva",
+     1
+    ]
+   ],
+   "etco2": 48,
+   "lv": "difficile",
+   "oral": "Collega la Glasgow Coma Scale, il trauma cranico e l'ipertensione endocranica, la capnografia (EtCO2 alto = ipoventilazione) e i parametri del ventilatore (driving pressure = plateau − PEEP). Ricorda la regola: evitare ipossia, ipotensione e alterazioni della CO2.",
+   "resp": "normal",
+   "steps": [
+    {
+     "a": "Apertura degli occhi assente al dolore E1, suoni incomprensibili V2, ritrae l'arto al dolore M4: GCS 7. Un GCS uguale o inferiore a 8 indica un trauma cranico grave e la necessità di proteggere le vie aeree. La pupilla destra dilatata e non reattiva (anisocoria) fa temere un ematoma con aumento della pressione intracranica ed erniazione dal lato destro: è un'emergenza neurochirurgica.",
+     "q": "Calcola il GCS rilevato dal 118 prima dell'intubazione. Che cosa significano questo valore e le pupille?"
+    },
+    {
+     "a": "PA 178/70 con differenziale molto ampia (108 mmHg) e frequenza 52: con il respiro irregolare descritto prima dell'intubazione è la triade di Cushing, segno tardivo di ipertensione endocranica. PAM = (178 + 2 × 70) / 3 ≈ 106 mmHg. L'EtCO2 di 48 mmHg (PaCO2 52) indica ipoventilazione: la CO2 alta dilata i vasi cerebrali e fa salire ancora la pressione intracranica. Ventilatore: pressione di picco 24, plateau 18, PEEP 5; driving pressure 18 − 5 = 13 cmH2O e picco − plateau 6: meccanica respiratoria accettabile, senza segni di ostruzione o secrezioni importanti.",
+     "q": "Osserva il monitor (pressione arteriosa invasiva, frequenza, capnografia, ventilatore). Come li interpreti?"
+    },
+    {
+     "a": "Segnalo subito al medico l'ipercapnia: su prescrizione si aumenta la ventilazione per riportare la PaCO2 nella norma (circa 35-40 mmHg), evitando l'iperventilazione profonda prolungata, usata solo brevemente come ponte se ci sono segni di erniazione. Testata a 30° (con la colonna protetta), capo in asse, collare e fissaggio del tubo che non comprimano le giugulari. Evitare ipossia e ipotensione (anche un solo episodio peggiora la prognosi): SpO2 adeguata, pressione sorvegliata in continuo. Sedazione e analgesia adeguate, normotermia, controllo della glicemia. Preparo la terapia osmotica se prescritta (mannitolo o soluzione salina ipertonica) e il trasporto in TC monitorato, con neurochirurgo allertato.",
+     "evo": "Con FR portata a 16/min l'EtCO2 scende a 38 mmHg. La TC mostra un ematoma extradurale destro: Andrea va subito in sala operatoria.",
+     "q": "Che cosa proponi e che cosa fai per proteggere il cervello di Andrea?"
+    },
+    {
+     "a": "Rischio di perfusione tissutale cerebrale inefficace; ventilazione spontanea compromessa; rischio di aspirazione e di infezione (tubo, catetere arterioso); rischio di ipotermia; ansia e processi familiari interrotti nei familiari. Organizzazione: lavoro in trauma team con ruoli chiari, comunicazione SBAR al neurochirurgo e alla sala operatoria, check del trasporto, documentazione di orari, GCS, pupille e parametri. Accolgo i familiari in un luogo riservato, li informo di ciò che compete all'infermiere e favorisco il colloquio con il medico.",
+     "q": "Quali diagnosi infermieristiche e quali aspetti organizzativi e relazionali curi in questa fase?"
+    }
+   ],
+   "story": "Andrea, 34 anni, è caduto dalla moto a forte velocità. Sulla strada l'equipe del 118 lo ha trovato con gli occhi chiusi che non si aprivano nemmeno al dolore, emetteva solo suoni incomprensibili e al dolore ritraeva il braccio. Il respiro era irregolare. È stato intubato e arriva in shock room sedato, in ventilazione meccanica, con collare cervicale. Durante la valutazione l'anestesista posiziona un catetere arterioso radiale. Pupilla destra 6 mm che non reagisce alla luce, sinistra 3 mm reattiva. Peso stimato 75 kg.",
+   "tags": [
+    "cli",
+    "eo"
+   ],
+   "title": "Motociclista intubato con pupille diverse",
+   "vent": {
+    "fr": 12,
+    "mode": "VC",
+    "peep": 5,
+    "pip": 24,
+    "plat": 18
+   },
+   "vit": [
+    [
+     "FC",
+     "52/min",
+     1
+    ],
+    [
+     "PA",
+     "178/70 mmHg",
+     1
+    ],
+    [
+     "FR",
+     "12/min (ventilatore)",
+     0
+    ],
+    [
+     "SpO2",
+     "97% con FiO2 0,5",
+     0
+    ],
+    [
+     "EtCO2",
+     "48 mmHg",
+     1
+    ],
+    [
+     "TC",
+     "35,7 °C",
+     1
+    ]
+   ]
+  }
+ ]
+}
