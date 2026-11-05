@@ -1096,6 +1096,22 @@ a{text-underline-offset:.18em;text-decoration-thickness:.08em}
 .enc-b h4,.mn-box h4{font-size:.95rem;font-weight:700}
 .dir-grp h4{font-size:.95rem;font-weight:700}
 th:not(.lab-t th){font-size:.82rem}
+
+/* token di movimento (estratti dal sistema esistente: durate brevi, uscite morbide) */
+:root{--dur-1:120ms;--dur-2:200ms;--dur-3:320ms;--ease-out:cubic-bezier(.22,1,.36,1);--ease-in-out:cubic-bezier(.65,0,.35,1)}
+.btn,.chip,.opt{transition:background-color var(--dur-2) var(--ease-out),border-color var(--dur-2) var(--ease-out),transform var(--dur-1) var(--ease-out)}
+.btn:active,.chip:active,.opt:active:not([disabled]){transform:scale(.98)}
+.lottie-ok{width:64px;height:64px;margin:0 auto 6px;display:grid;place-items:center;font-size:40px;color:var(--scrub)}
+.h3d{display:flex;flex-direction:column;gap:10px;border-radius:14px;background:radial-gradient(120% 90% at 50% 20%,#2a2230,#141118);color:#f4eee8;padding:12px;overflow:hidden}
+.h3d-stage{position:relative;display:none}.h3d.on .h3d-stage{display:block}
+.h3d-cv{height:340px;cursor:grab;touch-action:pan-y}.h3d-cv:active{cursor:grabbing}
+.h3d-lab{position:absolute;left:0;right:0;top:0;height:340px;pointer-events:none}.h3d-lab span{position:absolute;left:0;top:0;font-size:.74rem;font-weight:700;color:#ffe9b0;white-space:nowrap;margin:-22px 0 0 10px;text-shadow:0 1px 2px #000}
+.h3d-ecg{width:100%;height:70px;background:#fff7f3;border-radius:8px;display:block;margin-top:6px}
+.h3d-ph{min-height:2.8em;font-size:.9rem;line-height:1.4;margin-top:8px;color:#efe6df}.h3d-ph b{color:#ffd166;margin-right:6px}
+.h3d .small{color:#d9cfc8}.h3d .btn{background:#2f2836;color:#fff;border-color:#4a4152}.h3d .btn.primary{background:#ffd166;color:#241c10;border-color:#ffd166}
+.h3d-fc{display:flex;gap:6px;align-items:center}.h3d-fc input{accent-color:#ffd166}
+.h3d-ecg{order:2}
+@media (max-width:560px){.h3d-cv{height:280px}}
 </style>
 </head>
 <body>
@@ -1125,6 +1141,9 @@ th:not(.lab-t th){font-size:.82rem}
 <script src="pdfdata.js"></script>
 <script src="quizbank.js"></script>
 <script src="casebank.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js" defer></script>
 <script src="enciclopedia.js"></script>
 <script src="glossario.js"></script>
 <script src="encquiz.js"></script>
@@ -3349,7 +3368,7 @@ function encEntry(e,open){
   const gl=GLOS.filter(g=>g[4]===e.id);
   const qn=Q3.filter(q=>q.enc===e.id).length;
   return `<details class="enc-e" id="voce-${e.id}" style="--c:${c}" ${open?"open":""}><summary><h3 class="enc-t">${esc(e.t)}</h3><span class="enc-meta">${e.s?`<span class="dir-sig">${esc(e.s)}</span>`:""}<span>${esc((EAREE[e.a]||{}).n||"")}</span>${e.x?`<span class="es-info">Solo a titolo informativo, non negli esercizi</span>`:""}</span><span class="small">${esc(e.d)}</span></summary>
-  <div class="enc-b"><p class="def" style="margin:0">${esc(e.d)}</p>${figsEnc(e.id)}${mnBox(e.id)}
+  <div class="enc-b"><p class="def" style="margin:0">${esc(e.d)}</p>${figsEnc(e.id)}${mnBox(e.id)}${["cuore-fisiologia","ecg-basi"].includes(e.id)?heart3dHtml():""}
   ${e.p&&e.p.length?`<div><h4>Punti chiave</h4><ul>${e.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
   ${e.v&&e.v.length?`<div><h4>${e.a==="codice"||e.a==="diritto"?"Articoli e contenuti":e.a==="esami"?"Valori di riferimento e significato":"Valori, scale e riferimenti"}</h4><table class="enc-v"><tbody>${e.v.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td></tr>`).join("")}</tbody></table></div>`:""}
   ${(e.hi&&e.hi.length)||(e.lo&&e.lo.length)?`<div class="es-hl">${e.hi&&e.hi.length?`<div class="es-h"><h4>↑ Quando è alto</h4><ul>${e.hi.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}${e.lo&&e.lo.length?`<div class="es-l"><h4>↓ Quando è basso</h4><ul>${e.lo.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}</div>`:""}
@@ -3984,6 +4003,105 @@ new MutationObserver(()=>headFix(app)).observe(app,{childList:true,subtree:true}
 let a11yT=0;new MutationObserver(()=>{clearTimeout(a11yT);a11yT=setTimeout(a11yLabels,80)}).observe(app,{childList:true,subtree:true});window.addEventListener("resize",()=>{document.querySelectorAll(".pm-waves").forEach(w=>delete w.dataset.f);fitSoon()});
 const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,calcoli,domande,casi,orale,metodo};
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
+/* ---- Movimento: GSAP (entrate, conteggi, feedback), Lottie (traguardo), Three.js (cuore 3D) ---- */
+const MOTION=(()=>{
+  const rm=()=>window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ok=()=>typeof gsap!=="undefined"&&!rm();
+  let lastHash="";
+  /* conteggio dei numeri: dà il senso del cambiamento senza distrarre */
+  function countUp(root){root.querySelectorAll(".sb-v,.kpi-v,[data-count]").forEach(el=>{const t=el.textContent.trim();if(!/^\d{1,5}$/.test(t)||t==="0")return;const n=+t,o={v:0};gsap.to(o,{v:n,duration:Math.min(1.1,.35+n/400),ease:"power2.out",onUpdate:()=>{el.textContent=Math.round(o.v)}})})}
+  function enter(changed){if(!ok())return;const h=location.hash;const isNew=changed||h!==lastHash;lastHash=h;if(!isNew)return;
+    const kids=[...app.children].filter(e=>e.offsetParent!==null).slice(0,6);
+    gsap.from(kids,{y:10,opacity:0,duration:.32,ease:"power2.out",stagger:.045,clearProps:"transform,opacity"});
+    countUp(app);
+    if(typeof ScrollTrigger!=="undefined"){ScrollTrigger.getAll().forEach(t=>t.kill());
+      const sel=".enc-area,.dir-card,.mn-card,.gym-cta,.cc,.enc-e";const below=[...app.querySelectorAll(sel)].filter(e=>e.getBoundingClientRect().top>innerHeight);
+      if(below.length){gsap.set(below,{opacity:0,y:14});ScrollTrigger.batch(below,{start:"top 92%",once:true,onEnter:b=>gsap.to(b,{opacity:1,y:0,duration:.4,ease:"power2.out",stagger:.05,clearProps:"transform,opacity"})})}
+      ScrollTrigger.refresh()}}
+  /* risposta: verde che «si posa», rosso che fa un piccolo no con la testa */
+  function feedback(){if(!ok())return;requestAnimationFrame(()=>{app.querySelectorAll(".opt.right:not([data-mv])").forEach(e=>{e.dataset.mv=1;gsap.fromTo(e,{scale:.985},{scale:1,duration:.45,ease:"back.out(3)"})});
+    app.querySelectorAll(".opt.wrong:not([data-mv])").forEach(e=>{e.dataset.mv=1;gsap.fromTo(e,{x:0},{keyframes:{x:[-6,6,-4,3,0]},duration:.36,ease:"power1.inOut"})})})}
+  document.addEventListener("click",e=>{if(e.target.closest(".opt,[data-ls],[data-eq],[data-lq]"))setTimeout(feedback,30)},true);
+  /* traguardo: animazione Lottie disegnata a mano (cerchio e spunta) */
+  const DONE={v:"5.7.4",fr:60,ip:0,op:60,w:120,h:120,nm:"ok",ddd:0,assets:[],layers:[{ddd:0,ind:1,ty:4,nm:"s",sr:1,ks:{o:{a:0,k:100},r:{a:0,k:0},p:{a:0,k:[60,60,0]},a:{a:0,k:[0,0,0]},s:{a:1,k:[{t:0,s:[70,70,100],o:{x:[.3],y:[0]},i:{x:[.2],y:[1]}},{t:22,s:[104,104,100],o:{x:[.3],y:[0]},i:{x:[.4],y:[1]}},{t:32,s:[100,100,100]}]}},ao:0,
+    shapes:[{ty:"gr",nm:"c",it:[{ty:"el",p:{a:0,k:[0,0]},s:{a:0,k:[92,92]}},{ty:"st",c:{a:0,k:[.06,.48,.43,1]},o:{a:0,k:100},w:{a:0,k:7},lc:2,lj:2},{ty:"tm",s:{a:0,k:0},e:{a:1,k:[{t:0,s:[0],o:{x:[.4],y:[0]},i:{x:[.2],y:[1]}},{t:26,s:[100]}]},o:{a:0,k:0},m:1},{ty:"tr",p:{a:0,k:[0,0]},a:{a:0,k:[0,0]},s:{a:0,k:[100,100]},r:{a:0,k:-90},o:{a:0,k:100}}]},
+            {ty:"gr",nm:"k",it:[{ty:"sh",ks:{a:0,k:{i:[[0,0],[0,0],[0,0]],o:[[0,0],[0,0],[0,0]],v:[[-20,2],[-6,16],[22,-14]],c:false}}},{ty:"st",c:{a:0,k:[.06,.48,.43,1]},o:{a:0,k:100},w:{a:0,k:8},lc:2,lj:2},{ty:"tm",s:{a:0,k:0},e:{a:1,k:[{t:18,s:[0],o:{x:[.5],y:[0]},i:{x:[.2],y:[1]}},{t:40,s:[100]}]},o:{a:0,k:0},m:1},{ty:"tr",p:{a:0,k:[0,0]},a:{a:0,k:[0,0]},s:{a:0,k:[100,100]},r:{a:0,k:0},o:{a:0,k:100}}]}],ip:0,op:60,st:0,bm:0}]};
+  function celebrate(host){if(!host)return;const d=document.createElement("div");d.className="lottie-ok";d.setAttribute("aria-hidden","true");host.prepend(d);
+    if(typeof lottie==="undefined"||rm()){d.innerHTML="✓";return}lottie.loadAnimation({container:d,renderer:"svg",loop:false,autoplay:true,animationData:DONE})}
+  return {enter,celebrate,feedback,ok};
+})();
+
+/* ---- Cuore 3D: sistema di conduzione sincronizzato con l'ECG (Three.js + timeline GSAP) ---- */
+function heart3dHtml(){return `<div class="h3d" data-h3d><div class="h3d-stage"><div class="h3d-cv"></div><div class="h3d-lab"></div><canvas class="h3d-ecg" width="600" height="90" aria-hidden="true"></canvas><div class="h3d-ph" aria-live="polite"></div></div>
+ <div class="row h3d-ctl"><button class="btn primary" data-h3d-go>Mostra il cuore in 3D</button><span class="small">Trascina per ruotare. Il segnale parte dal nodo del seno e il tracciato sotto mostra la fase corrispondente.</span></div></div>`}
+async function heart3dStart(box){
+  box.classList.add("on");const ctl=box.querySelector(".h3d-ctl");ctl.innerHTML=`<span class="small">Caricamento del modello…</span>`;
+  let THREE;try{THREE=await import("https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js")}catch(e){ctl.innerHTML=`<span class="small">Il modello 3D richiede la connessione a internet: riprova quando sei online.</span>`;return}
+  const cv=box.querySelector(".h3d-cv"),W=()=>cv.clientWidth,Hh=()=>cv.clientHeight;
+  const ren=new THREE.WebGLRenderer({antialias:true,alpha:true});ren.setPixelRatio(Math.min(2,devicePixelRatio));ren.setSize(W(),Hh());cv.appendChild(ren.domElement);
+  const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(36,W()/Hh(),.1,100);cam.position.set(0,.3,9.2);
+  sc.add(new THREE.HemisphereLight(0xfff4ee,0x30202a,1.1));const dl=new THREE.DirectionalLight(0xffffff,1.6);dl.position.set(3,5,6);sc.add(dl);const rim=new THREE.DirectionalLight(0xff9f8f,.8);rim.position.set(-4,-2,-5);sc.add(rim);
+  const g=new THREE.Group();sc.add(g);g.rotation.z=-.32;
+  const mat=c=>new THREE.MeshStandardMaterial({color:c,roughness:.55,metalness:.05,transparent:true,opacity:.34,depthWrite:false,side:THREE.DoubleSide});
+  const ch=(c,x,y,z,sx,sy,sz)=>{const m=new THREE.Mesh(new THREE.SphereGeometry(1,40,28),mat(c));m.position.set(x,y,z);m.scale.set(sx,sy,sz);m.userData.s=[sx,sy,sz];g.add(m);return m};
+  const RA=ch(0x6f8fd6,-1.05,1.15,.15,.95,.85,.85),LA=ch(0xd46a6a,.95,1.25,-.25,.9,.8,.8),RV=ch(0x7d9be0,-.75,-.55,.35,1.25,1.55,1.05),LV=ch(0xd65a5a,.65,-.75,-.1,1.35,1.85,1.15);
+  const pts=a=>a.map(p=>new THREE.Vector3(...p));
+  const P={SA:[-1.55,1.85,.6],AV:[-.15,.45,.45],HIS:[-.05,-.05,.45],RB:[-1.15,-2,.55],LB:[1.1,-2.25,.2]};
+  const paths=[pts([P.SA,[-1.1,1.2,.75],[-.55,.8,.6],P.AV]),pts([P.SA,[-.3,1.75,.4],[.6,1.5,.1],[1.3,1.25,-.1]]),pts([P.AV,P.HIS,[-.45,-.9,.6],[-.95,-1.6,.6],P.RB,[-1.55,-1.2,.5]]),pts([P.HIS,[.45,-.9,.35],[.95,-1.7,.25],P.LB,[1.75,-1.3,0]])];
+  const curves=paths.map(p=>new THREE.CatmullRomCurve3(p));
+  curves.forEach(c=>g.add(new THREE.Mesh(new THREE.TubeGeometry(c,80,.035,8),new THREE.MeshBasicMaterial({color:0xffd166}))));
+  const node=(p,r)=>{const m=new THREE.Mesh(new THREE.SphereGeometry(r,20,16),new THREE.MeshBasicMaterial({color:0xffe08a}));m.position.set(...p);g.add(m);return m};
+  node(P.SA,.13);node(P.AV,.12);
+  const spark=()=>{const m=new THREE.Mesh(new THREE.SphereGeometry(.11,16,12),new THREE.MeshBasicMaterial({color:0xffffff}));const l=new THREE.PointLight(0xffd166,2.2,2.2);m.add(l);m.visible=false;g.add(m);return m};
+  const sp=[spark(),spark(),spark(),spark()];
+  /* etichette */
+  const LABS=[["Nodo del seno",P.SA],["Nodo atrioventricolare",P.AV],["Fascio di His",P.HIS],["Branca destra",P.RB],["Branca sinistra",P.LB]];
+  const lab=box.querySelector(".h3d-lab");lab.innerHTML=LABS.map(l=>`<span>${l[0]}</span>`).join("");const lel=[...lab.children];
+  /* ciclo cardiaco come timeline GSAP: S = stato letto dal render */
+  const S={a:-1,b:-1,c:-1,d:-1,atr:0,ven:0,ph:"",cur:0};
+  const PH=[["P","Onda P: il nodo del seno si attiva e gli atri si depolarizzano"],["PR","Tratto PR: pausa nel nodo atrioventricolare, gli atri finiscono di riempire i ventricoli"],["QRS","QRS: His, branche e fibre di Purkinje attivano i ventricoli in pochi centesimi di secondo"],["T","Onda T: i ventricoli si ripolarizzano"],["","Diastole: il cuore si riempie in attesa del prossimo impulso"]];
+  const ph=box.querySelector(".h3d-ph");let lastPh="";
+  let fc=70;const tl=(typeof gsap!=="undefined")?gsap.timeline({repeat:-1,paused:true}):null;
+  function buildTl(){if(!tl)return;tl.clear();const k=60/fc;// durate proporzionali alla FC (diastole si accorcia)
+    tl.set(S,{a:0,b:0,c:-1,d:-1,ph:0,cur:0},0)
+      .to(S,{a:1,b:1,duration:.1,ease:"none"},0).to(S,{atr:1,duration:.06,yoyo:true,repeat:1,ease:"sine.inOut"},.04).to(S,{cur:.16,duration:.1,ease:"none"},0)
+      .set(S,{ph:1,a:-1,b:-1},.1).to(S,{cur:.27,duration:.08,ease:"none"},.1)
+      .set(S,{ph:2,c:0,d:0},.18).to(S,{c:1,d:1,duration:.08,ease:"power1.in"},.18).to(S,{ven:1,duration:.12,yoyo:true,repeat:1,ease:"sine.inOut"},.22).to(S,{cur:.4,duration:.08,ease:"none"},.18)
+      .set(S,{ph:3,c:-1,d:-1},.3).to(S,{cur:.62,duration:.16,ease:"none"},.3)
+      .set(S,{ph:4},.46).to(S,{cur:1,duration:Math.max(.05,k-.46),ease:"none"},.46);
+    tl.timeScale(slow?.25:1)}
+  let slow=false;
+  /* tracciato ECG sincronizzato */
+  const ec=box.querySelector(".h3d-ecg"),ex=ec.getContext("2d");
+  const ecgY=x=>{const k=60/fc,t=x*k;const gs=(m,s,a)=>a*Math.exp(-((t-m)**2)/(2*s*s));return gs(.06,.025,.12)-gs(.2,.008,.12)+gs(.22,.01,1)-gs(.245,.01,.25)+gs(.42,.045,.28)};
+  function drawEcg(){const w=ec.width,h=ec.height;ex.clearRect(0,0,w,h);ex.strokeStyle="rgba(200,60,60,.18)";ex.lineWidth=1;for(let x=0;x<w;x+=12){ex.beginPath();ex.moveTo(x,0);ex.lineTo(x,h);ex.stroke()}for(let y=0;y<h;y+=12){ex.beginPath();ex.moveTo(0,y);ex.lineTo(w,y);ex.stroke()}
+    ex.strokeStyle="#1a1a1c";ex.lineWidth=2;ex.beginPath();for(let i=0;i<=w;i++){const y=h*.7-ecgY(i/w)*h*.6;i?ex.lineTo(i,y):ex.moveTo(i,y)}ex.stroke();
+    const cx=S.cur*w;ex.fillStyle="rgba(15,122,111,.16)";ex.fillRect(0,0,cx,h);ex.fillStyle="#0f7a6f";ex.fillRect(cx-1,0,2,h)}
+  /* rotazione con trascinamento + lieve orbita della camera */
+  let rx=0,ry=0,drag=null,auto=!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches);
+  cv.addEventListener("pointerdown",e=>{drag=[e.clientX,e.clientY,ry,rx];cv.setPointerCapture(e.pointerId);auto=false});
+  cv.addEventListener("pointermove",e=>{if(!drag)return;ry=drag[2]+(e.clientX-drag[0])*.01;rx=Math.max(-.8,Math.min(.8,drag[3]+(e.clientY-drag[1])*.01))});
+  cv.addEventListener("pointerup",()=>drag=null);
+  const v3=new THREE.Vector3();let vis=true,raf=0,t0=performance.now();
+  new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis&&!raf)loop()}).observe(box);
+  function place(){LABS.forEach((l,i)=>{v3.set(...l[1]);g.localToWorld(v3);v3.project(cam);const x=(v3.x*.5+.5)*W(),y=(-v3.y*.5+.5)*Hh();lel[i].style.transform=`translate(${x}px,${y}px)`})}
+  function loop(){if(!vis||!box.isConnected){raf=0;if(!box.isConnected)ren.dispose();return}raf=requestAnimationFrame(loop);
+    const t=(performance.now()-t0)/1000;if(auto)ry=Math.sin(t*.25)*.5;g.rotation.y=ry;g.rotation.x=rx;
+    [[sp[0],0,S.a],[sp[1],1,S.b],[sp[2],2,S.c],[sp[3],3,S.d]].forEach(([m,i,u])=>{m.visible=u>=0;if(u>=0)m.position.copy(curves[i].getPointAt(Math.min(1,u)))});
+    const sA=1+.07*S.atr,sV=1-.08*S.ven;[RA,LA].forEach(m=>m.scale.set(...m.userData.s.map(v=>v*sA)));[RV,LV].forEach(m=>m.scale.set(...m.userData.s.map(v=>v*sV)));
+    [RA,LA].forEach(m=>m.material.opacity=.3+.25*S.atr);[RV,LV].forEach(m=>m.material.opacity=.3+.25*S.ven);
+    ren.render(sc,cam);place();drawEcg();const p=PH[S.ph]||PH[4];if(p[1]!==lastPh){lastPh=p[1];ph.innerHTML=`<b>${p[0]||"Diastole"}</b> ${p[1].replace(/^[^:]+: /,"")}`}}
+  new ResizeObserver(()=>{ren.setSize(W(),Hh());cam.aspect=W()/Hh();cam.updateProjectionMatrix()}).observe(cv);
+  ctl.innerHTML=`<button class="btn" data-h3d-play>Pausa</button><button class="btn" data-h3d-slow aria-pressed="false">Rallenta ×4</button><label class="small h3d-fc">FC <input type="range" min="40" max="150" value="70" aria-label="Frequenza cardiaca"> <b>70</b> bpm</label>`;
+  const pb=ctl.querySelector("[data-h3d-play]"),sb=ctl.querySelector("[data-h3d-slow]"),fr=ctl.querySelector("input"),fb=ctl.querySelector(".h3d-fc b");
+  pb.onclick=()=>{if(!tl)return;tl.paused(!tl.paused());pb.textContent=tl.paused()?"Riprendi":"Pausa"};
+  sb.onclick=()=>{slow=!slow;sb.setAttribute("aria-pressed",slow);if(tl)tl.timeScale(slow?.25:1)};
+  fr.oninput=()=>{fc=+fr.value;fb.textContent=fc;buildTl()};
+  buildTl();if(tl){if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){slow=true;sb.setAttribute("aria-pressed","true");tl.timeScale(.25)}tl.play()}
+  loop();
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-h3d-go]");if(b)heart3dStart(b.closest("[data-h3d]"))});
+
 function route(){
   const v=(location.hash||"#oggi").slice(1);
   const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"||v==="esami-esercizi"||v==="ega-esercizi"||v==="mnemoniche"?"enciclopedia":"oggi");
@@ -3991,7 +4109,7 @@ function route(){
   document.documentElement.dataset.view=name;
   document.querySelectorAll("nav.tabs a").forEach(a=>{const on=a.getAttribute("href")==="#"+name;a.setAttribute("aria-current",on?"page":"false");if(on&&changed)a.scrollIntoView({block:"nearest",inline:"center"})});
   moveInd(name);
-  const render=()=>{VIEWS[name](v);decorateHead(name)};
+  const render=()=>{VIEWS[name](v);decorateHead(name);try{MOTION.enter(changed)}catch(e){}};
   const RMq=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
   if(changed&&document.startViewTransition&&!RMq&&app.childElementCount){
     app.classList.remove("enter");
@@ -4471,7 +4589,7 @@ function qmBurst(x,y,big){const g=document.getElementById("qm-fx");if(!g||RM)ret
   const tick=now=>{const t=(now-t0)/1000;parts.forEach((p,i)=>{const c=document.getElementById("qm-c"+i);if(c){c.setAttribute("cx",(x+Math.cos(p.a)*p.v*t).toFixed(1));c.setAttribute("cy",(y+Math.sin(p.a)*p.v*t+40*t*t).toFixed(1));c.setAttribute("opacity",Math.max(0,1-t/(big?1.6:.8)).toFixed(2))}});if(t<(big?1.6:.8))requestAnimationFrame(tick);else g.innerHTML=""};requestAnimationFrame(tick)}
 function qmEnd(){const Q=QM;if(!Q)return;const nb=$("#qm-next");if(nb)nb.innerHTML="";const done=Math.min(Q.N,qz.ok||0)>=Q.N;
   qmInfo(done?`<b>🏁 Traguardo raggiunto: ${esc(Q.T.fin)}!</b> ${esc(Q.T.fn)} Tutte le ${Q.N} tappe superate.`:`<b>Ti sei fermato a ${Q.pos?esc((Q.lab.slice(0,Q.pos).filter(Boolean).pop()||[""])[0]):"Partenza"}</b> (${Q.pos}/${Q.N} tappe). Le domande sbagliate tornano nel Ripasso errori: rifacendole puoi completare il percorso.`);
-  const w=$("#qmap .qm");if(w)w.classList.toggle("won",done)}
+  const w=$("#qmap .qm");if(w)w.classList.toggle("won",done);if(done)try{MOTION.celebrate($("#qmap .qm-info")||w)}catch(e){}}
 
 /* ---- motore unico: quiz, domande aperte e casi clinici nella stessa sessione ---- */
 function startQuiz(list,key,onDone){qz={list,i:0,ok:0,sc:0,answered:false,f:key,onDone};QM=null;try{QM=qmInit(list,key)}catch(e){QM=null}drawQ()}
