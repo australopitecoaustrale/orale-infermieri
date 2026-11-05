@@ -1037,6 +1037,65 @@ header.top .top-in{gap:58px}
 .qm-tog{font:inherit;font-size:.82rem;font-weight:700;border:1px solid #b8955a;background:#f6ebcd;color:#3b2208;border-radius:999px;padding:6px 12px;cursor:pointer;min-height:36px}
 .qm.collapsed .qm-svg,.qm.collapsed .qm-leg,.qm.collapsed .qm-head .small{display:none}
 .qm.collapsed .qm-mini{display:flex}
+
+/* ===== Rifinitura (Impeccable · Taste · sistemi di lettura) ===== */
+/* titoli: niente etichette sopra; la riga di contesto va sotto, in minuscolo e leggibile */
+.subhead{margin:4px 0 0;font-size:.98rem;color:color-mix(in srgb,var(--ink) 72%,var(--paper));font-weight:500;max-width:68ch}
+.pagehead .subhead{order:0}
+.enc-e>summary .enc-t{margin:0;font-family:var(--f-display);font-size:17px;line-height:1.3;display:flex;gap:9px;align-items:baseline;text-wrap:balance}
+.enc-e>summary .enc-t::before{content:"";flex:none;width:9px;height:9px;border-radius:3px;background:var(--c);transform:translateY(-1px)}
+.enc-meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:.8rem;color:color-mix(in srgb,var(--c) 70%,var(--ink));font-weight:600;padding-left:18px}
+.enc-e>summary .small{padding-left:18px}
+/* niente strisce colorate laterali: tinta del colore e un filo di contorno */
+.enc-e{border-left:1px solid var(--line);box-shadow:none;background:var(--paper)}
+.enc-e[open]{background:color-mix(in srgb,var(--c) 3%,var(--paper));border-color:color-mix(in srgb,var(--c) 28%,var(--line))}
+.enc-area{border-left:1px solid var(--line);box-shadow:none;background:color-mix(in srgb,var(--c) 6%,var(--paper))}
+.enc-area b::before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;background:var(--c);margin-right:8px;vertical-align:1px}
+.fixnote,.note,.answer,.expl,.gym-case,.es-h,.es-l,.qm-info{border-left:0!important;border-radius:12px}
+.fixnote{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--vital) 22%,transparent)}
+.note{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--amber) 26%,transparent)}
+.answer,.expl,.gym-case{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--scrub) 22%,transparent)}
+.es-h{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--vital) 20%,transparent)}.es-l{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--eo) 20%,transparent)}
+.enc-norm{border-left:0;padding-left:0}
+.gym-cta{border-left:1px solid var(--line);background:color-mix(in srgb,var(--scrub) 5%,var(--paper))}
+.gym-cta b::after{content:"";display:inline-block;width:.55em;height:.55em;margin-left:.45em;border-right:2px solid currentColor;border-top:2px solid currentColor;transform:rotate(45deg) translateY(-1px)}
+.mn-cta{background:color-mix(in srgb,var(--amber) 8%,var(--paper))}
+/* niente schede dentro le schede */
+.dir-ix .gym-cta,.sheet .gym-cta{box-shadow:none;border:0;border-radius:12px;background:color-mix(in srgb,var(--vital) 7%,var(--paper))}
+.gym .gym-case{box-shadow:none}
+/* leggibilità: misura, interlinea, dimensioni minime, contrasto */
+.lead{max-width:66ch;line-height:1.55}
+p,li{text-wrap:pretty}
+h1,h2,h3{text-wrap:balance}
+.es-info{font-size:.75rem}
+.qm text{font-size:max(11.5px,1em)}
+.small{line-height:1.5}
+::placeholder{color:color-mix(in srgb,var(--ink) 74%,var(--paper));opacity:1}
+.foot-src{color:rgba(255,255,255,.93)!important;opacity:1!important}
+.cc-vit span{color:color-mix(in srgb,var(--vital) 62%,#000)}.cc-vit i{opacity:.85}.foot-src a{color:#fff}
+.qm-scale text{font-size:12px!important}
+.lead,.pagehead .lead{max-width:60ch}
+#app>p.small,.sheet>p.small,.calc-foot{max-width:64ch}
+.calc-disclaimer{border-left:0!important;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--amber) 30%,transparent)}
+.toc-h{font-size:.8rem!important}
+.body>p,.body>ul,.body>ol,.body>.note{max-width:72ch}
+header.top .brand span,header.top .sub{opacity:.94!important}
+.pm-v{text-shadow:none}
+/* superfici del browser */
+html{caret-color:var(--scrub);accent-color:var(--scrub)}
+a{text-underline-offset:.18em;text-decoration-thickness:.08em}
+.lab-v,.ep-v,.lab-r,.stat b,.num,td{font-variant-numeric:tabular-nums}
+/* il puntino «tocca la carta» pulsa poche volte, poi resta fermo */
+@media (prefers-reduced-motion: no-preference){.tapdot{animation-iteration-count:3}}
+
+/* etichette: niente maiuscoletto spaziato in monospace; frase normale, leggibile */
+.eyebrow,.tag,.vitals .k,.msg .who,.wb-l,.toc-h,.dir-grp h4,th:not(.lab-t th),.mn-box h4,.enc-b h4{font-family:var(--f-body)!important;text-transform:none!important;letter-spacing:0!important}
+.eyebrow{font-size:.84rem;font-weight:700}
+.tag{font-size:.78rem;font-weight:700}
+.vitals .k,.wb-l,.msg .who{font-size:.8rem;font-weight:600}
+.enc-b h4,.mn-box h4{font-size:.95rem;font-weight:700}
+.dir-grp h4{font-size:.95rem;font-weight:700}
+th:not(.lab-t th){font-size:.82rem}
 </style>
 </head>
 <body>
@@ -3289,7 +3348,7 @@ function encEntry(e,open){
   const c=(EAREE[e.a]||{}).c||"var(--scrub)";
   const gl=GLOS.filter(g=>g[4]===e.id);
   const qn=Q3.filter(q=>q.enc===e.id).length;
-  return `<details class="enc-e" id="voce-${e.id}" style="--c:${c}" ${open?"open":""}><summary><span class="eyebrow" style="color:${c}">${e.s?`<span class="dir-sig">${esc(e.s)}</span> · `:""}${esc((EAREE[e.a]||{}).n||"")}</span><b>${esc(e.t)}</b>${e.x?`<span class="es-info">Solo a titolo informativo · non negli esercizi</span>`:""}<span class="small">${esc(e.d)}</span></summary>
+  return `<details class="enc-e" id="voce-${e.id}" style="--c:${c}" ${open?"open":""}><summary><h3 class="enc-t">${esc(e.t)}</h3><span class="enc-meta">${e.s?`<span class="dir-sig">${esc(e.s)}</span>`:""}<span>${esc((EAREE[e.a]||{}).n||"")}</span>${e.x?`<span class="es-info">Solo a titolo informativo, non negli esercizi</span>`:""}</span><span class="small">${esc(e.d)}</span></summary>
   <div class="enc-b"><p class="def" style="margin:0">${esc(e.d)}</p>${figsEnc(e.id)}${mnBox(e.id)}
   ${e.p&&e.p.length?`<div><h4>Punti chiave</h4><ul>${e.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
   ${e.v&&e.v.length?`<div><h4>${e.a==="codice"||e.a==="diritto"?"Articoli e contenuti":e.a==="esami"?"Valori di riferimento e significato":"Valori, scale e riferimenti"}</h4><table class="enc-v"><tbody>${e.v.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td></tr>`).join("")}</tbody></table></div>`:""}
@@ -3687,8 +3746,8 @@ function enciclopedia(v){
   const esIdx=()=>{const all=ENCY.filter(e=>e.a==="esami").map(e=>({id:e.id,k:e.k,s:e.s,t:e.t,x:e.x})).concat(Object.entries(EX).filter(([id])=>ENC_BY[id]).map(([id,x])=>({id,k:x[0],s:x[1],t:ENC_BY[id].t,ext:1})));
     const grp=Object.keys(ET).filter(k=>!esT||k===esT).map(k=>[k,all.filter(x=>x.k===k)]).filter(g=>g[1].length);
     return `<section class="sheet dir-ix es-ix"><div class="dir-ix-h"><div><span class="eyebrow">Esami ematici e di laboratorio</span><h3 style="margin:2px 0 0">Indice degli esami</h3></div><span class="small">${all.length} schede · valori indicativi: fanno fede gli intervalli del tuo laboratorio · <span class="es-info">informativo</span> = esami specialistici, non usati negli esercizi</span></div>
-    <a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami: lettura dei referti</b><span class="small">Referti con valori sempre nuovi: trova i valori alterati, riconosci il quadro e scegli che cosa fare (${typeof LAB_SC!=="undefined"?LAB_SC.length:0} quadri) →</span></a>
-    <a class="sheet gym-cta" href="#ega-esercizi"><b>Palestra EGA: leggi il referto dell'emogasanalizzatore</b><span class="small">Il referto stampato come in reparto: pH, disturbo primario, compenso, P/F, quadro clinico e intervento →</span></a>
+    <a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami: lettura dei referti</b><span class="small">Referti con valori sempre nuovi: trova i valori alterati, riconosci il quadro e scegli che cosa fare (${typeof LAB_SC!=="undefined"?LAB_SC.length:0} quadri)</span></a>
+    <a class="sheet gym-cta" href="#ega-esercizi"><b>Palestra EGA: leggi il referto dell'emogasanalizzatore</b><span class="small">Il referto stampato come in reparto: pH, disturbo primario, compenso, P/F, quadro clinico e intervento</span></a>
     <div class="row dir-chips"><button class="chip" data-et="" aria-pressed="${!esT}">Tutti</button>${Object.entries(ET).map(([k,n])=>`<button class="chip" data-et="${k}" aria-pressed="${esT===k}">${n} <em>${all.filter(x=>x.k===k).length}</em></button>`).join("")}</div>
     ${grp.map(([k,L])=>`<div class="dir-grp"><h4>${esc(ET[k])}</h4><div class="dir-cards">${L.map(x=>`<a class="dir-card${x.ext?" ext":""}${x.x?" info":""}" href="#voce-${x.id}"><b>${esc(x.s||"")}</b><span>${esc(x.t)}</span>${x.ext?`<i>in ${esc((EAREE[ENC_BY[x.id].a]||{}).n||"")}</i>`:x.x?`<i>a titolo informativo</i>`:""}</a>`).join("")}</div></div>`).join("")}</section>`};
   const dirIdx=()=>{const all=ENCY.filter(e=>e.a==="diritto").map(e=>({id:e.id,k:e.k,s:e.s,t:e.t})).concat(Object.entries(DX).filter(([id])=>ENC_BY[id]).map(([id,x])=>({id,k:x[0],s:x[1],t:ENC_BY[id].t,ext:1})));
@@ -3703,12 +3762,12 @@ function enciclopedia(v){
   <div id="enc-res" hidden></div>
   <div id="enc-main" style="display:flex;flex-direction:column;gap:16px">
     <div class="enc-areas"><button class="enc-area" style="--c:var(--scrub)" data-area="tutte" aria-pressed="${area==="tutte"}"><b>Tutte le aree</b><span>${ENCY.length} voci</span></button>${Object.entries(EAREE).map(([k,a])=>`<button class="enc-area" style="--c:${a.c}" data-area="${k}" aria-pressed="${area===k}"><b>${esc(a.n)}</b><span>${counts[k]||0} voci</span></button>`).join("")}</div>
-    ${area==="ecg"||area==="tutte"?`<a class="sheet gym-cta" href="#ecg-esercizi"><span class="eyebrow">Novità</span><b>Palestra ECG: esercizi di lettura</b><span class="small">Strisce sempre nuove da leggere con metodo (frequenza, ritmo, P, QRS, diagnosi) con compasso per misurare gli intervalli →</span></a>`:""}
-    <a class="sheet gym-cta mn-cta" href="#mnemoniche"><b>Per ricordare: acronimi e frasi mnemoniche</b><span class="small">${Object.values(MN).reduce((a,l)=>a+l.length,0)} trucchi per memorizzare (regola delle 7 G, ABCDE, SBAR, regola del 15, del 9…), raccolti in un'unica pagina e dentro ogni voce →</span></a>
+    ${area==="ecg"||area==="tutte"?`<a class="sheet gym-cta" href="#ecg-esercizi"><span class="eyebrow">Novità</span><b>Palestra ECG: esercizi di lettura</b><span class="small">Strisce sempre nuove da leggere con metodo (frequenza, ritmo, P, QRS, diagnosi) con compasso per misurare gli intervalli</span></a>`:""}
+    <a class="sheet gym-cta mn-cta" href="#mnemoniche"><b>Per ricordare: acronimi e frasi mnemoniche</b><span class="small">${Object.values(MN).reduce((a,l)=>a+l.length,0)} trucchi per memorizzare (regola delle 7 G, ABCDE, SBAR, regola del 15, del 9…), raccolti in un'unica pagina e dentro ogni voce</span></a>
     ${area==="diritto"?dirIdx():""}
     ${area==="esami"?esIdx():""}
-    ${area==="tutte"?`<a class="sheet gym-cta" href="#enciclopedia" data-goarea="esami"><span class="eyebrow">Novità</span><b>Esami ematici e di laboratorio</b><span class="small">Emocromo, coagulazione, rene, fegato, cuore, sepsi, metabolismo, elettroliti, ormoni, farmaci, microbiologia e genetica: valori, significato delle alterazioni e che cosa fa l'infermiere, con la Palestra esami →</span></a>`:""}
-    ${area==="tutte"?`<a class="sheet gym-cta" href="#enciclopedia" data-goarea="diritto"><span class="eyebrow">Novità</span><b>Diritto: codici, testi unici, leggi e decreti</b><span class="small">Costituzione, codice penale e civile, procedura penale, testi unici, leggi e decreti della sanità riassunti articolo per articolo, con un indice per tipo di fonte →</span></a>`:""}
+    ${area==="tutte"?`<a class="sheet gym-cta" href="#enciclopedia" data-goarea="esami"><span class="eyebrow">Novità</span><b>Esami ematici e di laboratorio</b><span class="small">Emocromo, coagulazione, rene, fegato, cuore, sepsi, metabolismo, elettroliti, ormoni, farmaci, microbiologia e genetica: valori, significato delle alterazioni e che cosa fa l'infermiere, con la Palestra esami</span></a>`:""}
+    ${area==="tutte"?`<a class="sheet gym-cta" href="#enciclopedia" data-goarea="diritto"><span class="eyebrow">Novità</span><b>Diritto: codici, testi unici, leggi e decreti</b><span class="small">Costituzione, codice penale e civile, procedura penale, testi unici, leggi e decreti della sanità riassunti articolo per articolo, con un indice per tipo di fonte</span></a>`:""}
     <div class="enc-list">${list.map(e=>encEntry(e,e.id===focus)).join("")}</div>
   </div>`;
   const bind=root=>{
@@ -3916,10 +3975,12 @@ function fitMonitors(){document.querySelectorAll(".pm-waves").forEach(w=>{const 
   const box=w.parentNode;if(box)box.querySelectorAll(".pm-s").forEach(x=>{x.textContent=String(Math.round(+x.dataset.base*f*10)/10).replace(".",",")})})}
 let fitRaf=0;const fitSoon=()=>{cancelAnimationFrame(fitRaf);fitRaf=requestAnimationFrame(fitMonitors)};
 new MutationObserver(fitSoon).observe(app,{childList:true,subtree:true});
+function headFix(root){(root||document).querySelectorAll(".eyebrow").forEach(k=>{const n=k.nextElementSibling;if(!n||!/^H[1-4]$/.test(n.tagName)||k.closest("summary,.qm,.tolk,.ep-paper"))return;const p=document.createElement("p");p.className="subhead";p.innerHTML=k.innerHTML;if(k.getAttribute("style"))p.setAttribute("style",k.getAttribute("style"));n.after(p);k.remove()})}
 function a11yLabels(){document.querySelectorAll("#app input:not([type=hidden]),#app select,#app textarea").forEach(i=>{if(i.getAttribute("aria-label")||i.getAttribute("aria-labelledby")||(i.labels&&i.labels.length))return;let t="",s=i.previousElementSibling,unit=false;
   while(s&&!t){if(/INPUT|SELECT|TEXTAREA/.test(s.tagName))unit=true;else if(s.tagName!=="BUTTON")t=s.textContent.trim();s=s.previousElementSibling}
   for(let par=i.parentElement,n=0;!t&&par&&n<3;par=par.parentElement,n++){const lb=[...par.children].find(x=>!x.contains(i)&&/LABEL|B|SPAN|H4/.test(x.tagName)&&x.textContent.trim());if(lb)t=lb.textContent.trim()}
   t=(t||i.placeholder||i.title||"").replace(/\s+/g," ").slice(0,90);if(t)i.setAttribute("aria-label",unit&&i.tagName==="SELECT"?t+" (unità)":t)})}
+new MutationObserver(()=>headFix(app)).observe(app,{childList:true,subtree:true});
 let a11yT=0;new MutationObserver(()=>{clearTimeout(a11yT);a11yT=setTimeout(a11yLabels,80)}).observe(app,{childList:true,subtree:true});window.addEventListener("resize",()=>{document.querySelectorAll(".pm-waves").forEach(w=>delete w.dataset.f);fitSoon()});
 const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,calcoli,domande,casi,orale,metodo};
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
@@ -4532,7 +4593,7 @@ function quiz(){
   <div><span class="eyebrow">Autoverifica</span><h2>Allenamento</h2></div>
   <p class="lead">${QALL.length} domande a scelta multipla${DBQ.length?` (${DBQ.length} arrivate con gli aggiornamenti giornalieri)`:""}, ${PDFQ.length} domande aperte e ${CASES.length} casi clinici. La sessione mista li alterna come in un esame vero; le risposte scritte sono valutate in trentesimi con la griglia dei punti attesi.</p>
   <div class="row">${chips(f,["all",...SKEYS],"f")}</div>
-  <div class="gym-ctas"><a class="sheet gym-cta" href="#ecg-esercizi"><b>Palestra ECG</b><span class="small">Esercizi di lettura dell'elettrocardiogramma, a parte rispetto ai quiz →</span></a><a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami</b><span class="small">Lettura di referti di laboratorio: valori alterati, quadro clinico, interventi →</span></a><a class="sheet gym-cta" href="#ega-esercizi"><b>Palestra EGA</b><span class="small">Il referto dell'emogasanalizzatore da leggere passo per passo →</span></a></div>
+  <div class="gym-ctas"><a class="sheet gym-cta" href="#ecg-esercizi"><b>Palestra ECG</b><span class="small">Esercizi di lettura dell'elettrocardiogramma, a parte rispetto ai quiz</span></a><a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami</b><span class="small">Lettura di referti di laboratorio: valori alterati, quadro clinico, interventi</span></a><a class="sheet gym-cta" href="#ega-esercizi"><b>Palestra EGA</b><span class="small">Il referto dell'emogasanalizzatore da leggere passo per passo</span></a></div>
   <div class="row">
     <label class="small" for="qmode">Tipo di sessione</label><select id="qmode" class="btn">
       <option value="misto" ${mode==="misto"?"selected":""}>Mista: quiz + domande aperte + casi</option>
@@ -4638,7 +4699,7 @@ function oggi(){
       ${oq?`<div class="sheet side-card"><span class="eyebrow">Domanda d'orale del giorno · D${oq.n}</span><h3>${esc(oq.q)}</h3><p class="small">Rispondi ad alta voce in 3 minuti, poi fatti interrogare.</p><button class="btn primary" id="oq-train">Fatti interrogare</button></div>`:""}
       <div class="sheet side-card"><span class="eyebrow">Ripasso errori</span><p><b>${ripDue().length}</b> domande sbagliate da rivedere oggi${ripTot()>ripDue().length?` · <b>${ripTot()-ripDue().length}</b> in programma nei prossimi giorni`:""}.</p><p class="small">Ogni errore torna dopo 1, 3, 7 e 15 giorni: se sbagli di nuovo, si riparte da 1.</p><button class="btn primary" id="rip-go" ${ripDue().length?"":"disabled"}>Ripassa ora</button></div>
       <div class="sheet side-card"><span class="eyebrow">Flashcard</span><p><b>${due}</b> carte da ripassare oggi.</p><a class="btn" href="#flashcard" style="text-decoration:none;text-align:center">Vai alle flashcard</a></div>
-      <a class="sheet side-card side-link" href="#avanzamento"><span class="eyebrow">Progressi</span><span>Vedi come stai andando e cosa rivedere →</span></a>
+      <a class="sheet side-card side-link" href="#avanzamento"><span class="eyebrow">Progressi</span><span>Vedi come stai andando e cosa rivedere</span></a>
     </aside>
   </div>`;
   if(oq)$("#oq-train").onclick=()=>{oralPreset={q:oq};location.hash="orale"};
