@@ -1,5 +1,0 @@
-I modelli 3D in questa cartella derivano da BodyParts3D, (c) The Database Center for Life Science (DBCLS),
-distribuiti con licenza Creative Commons Attribuzione - Condividi allo stesso modo 2.1 Giappone (CC BY-SA 2.1 JP):
-https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en
-Modifiche: selezione delle strutture, semplificazione delle mesh, normalizzazione delle coordinate e conversione in formato compatto.
-Questi file derivati sono distribuiti con la stessa licenza CC BY-SA 2.1 JP.
