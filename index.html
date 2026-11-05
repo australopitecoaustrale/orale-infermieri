@@ -1254,6 +1254,13 @@ button[disabled],.opt[disabled]{cursor:default}
  .vm-modep{align-self:center}
 }
 @media (max-width:560px){.vm-panels{grid-template-columns:1fr}.vm-nums{grid-template-columns:repeat(2,minmax(0,1fr))}.vm-mini b{font-size:.92rem}}
+.vc-gap{fill:color-mix(in srgb,var(--va) 30%,#0b1a1d);animation:vcgap linear infinite}
+@keyframes vcgap{from{transform:translateX(0)}to{transform:translateX(var(--gx))}}
+.vc-dot{fill:#fff;filter:drop-shadow(0 0 4px var(--vacc))}
+.lu-b{transform-box:fill-box;transform-origin:50% 30%}
+.lu-b.on{animation:lub ease-in-out infinite}
+@keyframes lub{0%,100%{transform:scale(1)}38%{transform:scale(1.07)}}
+@media (prefers-reduced-motion:reduce){.vc-gap,.lu-b.on{animation:none;display:none}.lu-b.on{display:inline}}
 @media (prefers-reduced-motion:reduce){.vm-al .r{animation:none}.vm-anim .vm-sweep{animation:none}}
 </style>
 </head>

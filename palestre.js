@@ -139,7 +139,7 @@ function vChart(a,lo,hi,o){const W=o.W||VW(),H=o.H||120,L=36,Rr=8,Tp=16,B=o.xl?1
   const tk=(o.ticks||[]).map(v=>`<path class="vc-g${v===0?" z":""}" d="M${L} ${Y(v).toFixed(1)}H${W-Rr}"/><text x="${L-5}" y="${(Y(v)+3.5).toFixed(1)}" class="vc-n" text-anchor="end">${v}</text>`).join("");
   const refs=(o.refs||[]).map(r=>`<path class="vc-ref ${r[1]||""}" d="M${L} ${Y(r[0]).toFixed(1)}H${W-Rr}"/>`).join("");
   let xt="";if(o.xl&&o.T){const stp=W<500?2:1;for(let s=stp;s<o.T-.6;s+=stp){const x=L+s/o.T*iw;xt+=`<path class="vc-g" d="M${x.toFixed(1)} ${Tp+ih}v4"/><text x="${x.toFixed(1)}" y="${H-3}" class="vc-n" text-anchor="middle">${s}</text>`}xt+=`<text x="${W-Rr}" y="${H-3}" class="vc-n" text-anchor="end">s</text>`}
-  return `<svg class="vc ${o.cls||""}" viewBox="0 0 ${W} ${H}" aria-hidden="true"><text x="${L+4}" y="11"><tspan class="vc-t">${o.lab}</tspan><tspan class="vc-u" dx="6">${o.unit}</tspan></text>${tk}${refs}<path class="vc-axis" d="M${L} ${Tp}V${Tp+ih}"/>${xt}<path class="vc-w" d="${d}"/>${o.extra||""}</svg>`}
+  return `<svg class="vc ${o.cls||""}" viewBox="0 0 ${W} ${H}" aria-hidden="true"><text x="${L+4}" y="11"><tspan class="vc-t">${o.lab}</tspan><tspan class="vc-u" dx="6">${o.unit}</tspan></text>${tk}${refs}<path class="vc-axis" d="M${L} ${Tp}V${Tp+ih}"/>${xt}<path class="vc-w" d="${d}"/>${o.T&&!(typeof RM!=="undefined"&&RM)?`<rect class="vc-gap" x="${L+1}" y="${Tp-2}" width="${Math.round(iw*.045)}" height="${ih+4}" style="--gx:${iw-Math.round(iw*.045)}px;animation-duration:${o.T}s"/>`:""}${o.extra||""}</svg>`}
 /* ultimo atto completo: indici [inizio, fine) */
 function lastBreath(S){const st=[];for(let i=1;i<S.co.length;i++)if(S.co[i]==="insp"&&S.co[i-1]!=="insp")st.push(i);
   if(st.length>=2)return [st[st.length-2],st[st.length-1]];if(st.length===1)return [st[0],S.co.length];return [0,S.co.length]}
@@ -148,18 +148,20 @@ function vLoop(S,pmax,vmax){const W=300,H=210,L=34,B=20,Tp=16,Rr=10,iw=W-L-Rr,ih
   let d="";for(let i=a;i<b;i++)d+=(i===a?"M":"L")+X(S.p[i]).toFixed(1)+" "+Y(S.v[i]).toFixed(1);
   const gx=[0,pmax/2,pmax].map(p=>`<path class="vc-g" d="M${X(p).toFixed(1)} ${Tp}V${Tp+ih}"/><text x="${X(p).toFixed(1)}" y="${H-5}" class="vc-n" text-anchor="middle">${p}</text>`).join("");
   const gy=[0,vmax/2,vmax].map(v=>`<path class="vc-g" d="M${L} ${Y(v).toFixed(1)}H${W-Rr}"/><text x="${L-5}" y="${(Y(v)+3.5).toFixed(1)}" class="vc-n" text-anchor="end">${v}</text>`).join("");
-  return `<svg class="vc vc-loop" viewBox="0 0 ${W} ${H}" aria-hidden="true"><text x="${L+4}" y="11" class="vc-t">Anello P-V</text><text x="${W-Rr}" y="11" class="vc-u" text-anchor="end">ml / cmH₂O</text>${gx}${gy}<path class="vc-w" d="${d||"M0 0"}"/></svg>`}
+  const per=(b-a)*(S.T/S.p.length);const dot=d&&!(typeof RM!=="undefined"&&RM)&&!S.m.disc&&!S.m.apnea?`<circle r="4.5" class="vc-dot"><animateMotion dur="${Math.max(1,per).toFixed(2)}s" repeatCount="indefinite" path="${d}"/></circle>`:"";
+  return `<svg class="vc vc-loop" viewBox="0 0 ${W} ${H}" aria-hidden="true"><text x="${L+4}" y="11" class="vc-t">Anello P-V</text><text x="${W-Rr}" y="11" class="vc-u" text-anchor="end">ml / cmH₂O</text>${gx}${gy}<path class="vc-w" d="${d||"M0 0"}"/>${dot}</svg>`}
 /* polmone schematico: dimensione = compliance, bronchi = resistenze */
 function vLung(S){const m=S.m,mm=S.mm;const sc=clamp((mm.cst||m.C)/60,.62,1.06),hiR=m.R>=18||m.sec,bw=clamp(9-m.R/6,2.6,7.5);
   const lung=(dx,flip)=>`<path class="lu" transform="translate(${dx} 92) scale(${flip?-sc:sc} ${sc})" d="M-6 -62C-30 -62-46 -30-50 6C-54 40-46 58-24 60C-12 61-6 54-6 44Z"/>`;
   const tre=`<path class="br${hiR?" hi":""}" style="stroke-width:${(bw*1.5).toFixed(1)}" d="M150 18V66"/><path class="br${hiR?" hi":""}" style="stroke-width:${bw.toFixed(1)}" d="M150 66C140 74 128 80 118 92M150 66C160 74 172 80 182 92M118 92L106 112M118 92L116 120M182 92L194 112M182 92L184 120"/>`;
   const brk=m.disc?`<path class="brk" d="M136 30L164 30M140 38L160 38"/>`:"";
   const lk=m.leak>=.2?`<g class="lk"><circle cx="138" cy="26" r="3"/><circle cx="131" cy="20" r="2.2"/><circle cx="126" cy="13" r="1.5"/></g>`:"";
-  return `<svg class="vc vc-lung" viewBox="0 0 300 160" aria-hidden="true">${lung(146,0)}${lung(154,1)}${tre}${brk}${lk}</svg>`}
+  const still=m.disc||m.apnea||(typeof RM!=="undefined"&&RM),per=60/Math.max(4,mm.rr||m.rr||12);
+  return `<svg class="vc vc-lung" viewBox="0 0 300 160" aria-hidden="true"><g class="lu-b${still?"":" on"}" style="animation-duration:${per.toFixed(2)}s">${lung(146,0)}${lung(154,1)}</g>${tre}${brk}${lk}</svg>`}
 function ventMon(S,o){o=o||{};const m=S.m,mm=S.mm,x=o.x||{},esc=G.esc||(s=>s);
   const pmax=niceMax(mm.ppeak+4,10,30),fA=Math.max(...S.f.map(Math.abs)),fmax=niceMax(fA+5,20,40),vmax=niceMax(Math.max(...S.v)+40,200,600);
-  const charts=vChart(S.p,0,pmax,{H:118,lab:"Paw",unit:"cmH₂O",cls:"vc-p",ticks:[0,pmax/2,pmax],refs:[[m.peep,"peep"],[m.plim,"lim"]]})
-   +vChart(S.f,-fmax,fmax,{H:118,lab:"Flusso",unit:"l/min",cls:"vc-f",ticks:[-fmax,0,fmax]})
+  const charts=vChart(S.p,0,pmax,{H:118,lab:"Paw",unit:"cmH₂O",cls:"vc-p",ticks:[0,pmax/2,pmax],refs:[[m.peep,"peep"],[m.plim,"lim"]],T:S.T})
+   +vChart(S.f,-fmax,fmax,{H:118,lab:"Flusso",unit:"l/min",cls:"vc-f",ticks:[-fmax,0,fmax],T:S.T})
    +vChart(S.v,0,vmax,{H:100,lab:"Volume",unit:"ml",cls:"vc-v",ticks:[0,vmax/2,vmax],xl:!S.cap,T:S.T})
    +(S.cap?vChart(S.cap,0,60,{H:86,lab:"CO₂",unit:"mmHg",cls:"vc-c",ticks:[0,30,60],xl:1,T:S.T}):"");
   const hide=o.hideMode,modeTxt=(m.niv?"NIV · ":"")+({VC:"VC-AC",PC:"PC-AC",PSV:"PSV",CPAP:"CPAP"}[m.mode]);
