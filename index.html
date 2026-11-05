@@ -1160,6 +1160,101 @@ button[disabled],.opt[disabled]{cursor:default}
 .qm.chart .lg::before{content:none!important}.qm.chart .lg2{border-top-style:dashed}.qm.chart .lg3{border-top-style:dotted;border-top-width:4px}
 .qm.chart .lg4{width:9px;height:9px;border:0;border-radius:50%;background:#adb5bd}.qm.chart .lg5{border-top:4px solid var(--qm-ink)}
 .qm.chart .qm-mini .bar{background:color-mix(in srgb,var(--qm-ink) 10%,var(--paper))}.qm.chart .qm-mini .bar i{background:var(--qm-ink)}.qm.chart .qm-mini b,.qm.chart .qm-mini span{color:var(--qm-ink)}
+/* ---- monitor del ventilatore e capnografo (palestra TI e casi integrati) ---- */
+.pal-mon{min-width:0}
+.vmon{--vbg:color-mix(in srgb,var(--va) 24%,#061012);--vpan:color-mix(in srgb,var(--va) 30%,#0b1a1d);--vline:color-mix(in srgb,var(--va) 40%,#23383b);--vtx:#e6f2f0;--vmut:#9fbdb8;--vp:#ffd166;--vf:#ff8fb1;--vv:#7cc4ff;--vc:#eef6f4;--vacc:#5fd3c0;
+ background:var(--vbg);color:var(--vtx);border-radius:var(--r);padding:10px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow);border:1px solid var(--vline);font-family:var(--f-body);position:relative;overflow:hidden}
+.vm-al{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-height:30px;padding:4px 6px;border-radius:10px;background:var(--vpan)}
+.vm-al span{font-size:.8rem;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.01em}
+.vm-al .r{background:#ff6b6b;color:#2a0606;animation:vmblink 1s steps(2,end) infinite}
+.vm-al .y{background:#f0b54a;color:#2b1a00}
+.vm-al .ok{color:var(--vmut);font-weight:500}
+.vm-al .hold{margin-left:auto;background:#fff3b0;color:#3a3000;font-family:var(--f-mono)}
+@keyframes vmblink{50%{filter:brightness(.72)}}
+.vm-grid{display:grid;grid-template-columns:170px minmax(0,1fr) 96px;gap:8px;align-items:stretch}
+.vm-nums{display:flex;flex-direction:column;background:var(--vpan);border-radius:12px;padding:2px 10px}
+.vm-n{display:grid;grid-template-columns:28px 1fr;grid-template-rows:auto auto;align-items:end;column-gap:6px;padding:6px 0;border-bottom:1px solid var(--vline)}
+.vm-n:last-of-type{border-bottom:0}
+.vm-n .lim{grid-row:1/3;font-family:var(--f-mono);font-size:.62rem;line-height:1.5;color:var(--vmut);align-self:center}
+.vm-n b{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.85rem;font-weight:600;line-height:1;text-align:right;color:#fff}
+.vm-n .nm{font-size:.74rem;font-weight:700;text-align:right;color:var(--vtx)}
+.vm-n .nm i{font-style:normal;font-weight:400;color:var(--vmut);margin-left:4px}
+.vm-n.al b{color:#ffb3b3}.vm-n.al .nm{color:#ffb3b3}
+.vm-vit{display:flex;flex-wrap:wrap;gap:4px 10px;padding:8px 0 6px;font-family:var(--f-mono);font-size:.78rem;color:var(--vtx)}
+.vm-vit i{font-style:normal;color:var(--vmut);margin-right:4px}
+.vm-mid{display:flex;flex-direction:column;gap:8px;min-width:0}
+.vm-waves{position:relative;background:var(--vpan);border-radius:12px;padding:4px 4px 2px;overflow:hidden}
+.vc{display:block;width:100%;height:auto}
+.vc-t{font:700 11px var(--f-body);fill:var(--vtx)}.vc-u{font:400 10px var(--f-body);fill:var(--vmut)}
+.vc-n{font:400 9.5px var(--f-mono);fill:var(--vmut)}
+.vc-g{stroke:rgba(255,255,255,.1);stroke-width:.8;stroke-dasharray:2 4;fill:none}.vc-g.z{stroke:rgba(255,255,255,.28);stroke-dasharray:none}
+.vc-axis{stroke:rgba(255,255,255,.3);stroke-width:1;fill:none}
+.vc-ref{stroke-width:1;fill:none;stroke-dasharray:6 5}.vc-ref.peep{stroke:rgba(255,209,102,.55)}.vc-ref.lim{stroke:rgba(255,107,107,.5)}.vc-ref.band{stroke:rgba(238,246,244,.22)}
+.vc-w{fill:none;stroke-width:1.9;stroke-linejoin:round;stroke-linecap:round}
+.vc-p .vc-w{stroke:var(--vp)}.vc-f .vc-w{stroke:var(--vf)}.vc-v .vc-w{stroke:var(--vv)}.vc-c .vc-w{stroke:var(--vc)}.vc-loop .vc-w{stroke:var(--vacc);stroke-width:2.2}
+.vc-p .vc-t{fill:var(--vp)}.vc-f .vc-t{fill:var(--vf)}.vc-v .vc-t{fill:var(--vv)}.vc-c .vc-t{fill:var(--vc)}.vc-loop .vc-t{fill:var(--vacc)}
+.vm-sweep{position:absolute;top:0;bottom:0;left:0;width:100%;background:var(--vpan);transform-origin:right;pointer-events:none;transform:scaleX(0)}
+.vm-anim .vm-sweep{animation:vmsweep 1.6s cubic-bezier(.3,.7,.3,1) both}
+@keyframes vmsweep{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+.vm-panels{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.vm-panels.one{grid-template-columns:1fr}
+.vm-pan{background:var(--vpan);border-radius:12px;padding:6px 8px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.vm-pan-h{display:flex;justify-content:space-between;gap:8px;font-size:.72rem;color:var(--vmut)}
+.vc-lung .lu{fill:color-mix(in srgb,var(--vv) 22%,transparent);stroke:var(--vv);stroke-width:1.6}
+.vc-lung .br{fill:none;stroke:#e8c49a;stroke-linecap:round}.vc-lung .br.hi{stroke:#ff9f43}
+.vc-lung .brk{stroke:#ff6b6b;stroke-width:3;stroke-linecap:round}.vc-lung .lk circle{fill:none;stroke:#f0b54a;stroke-width:1.4}
+.vm-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;text-align:center}
+.vm-mini b{display:block;font-family:var(--f-mono);font-size:1.05rem;color:#fff}
+.vm-mini i{font-style:normal;font-size:.62rem;line-height:1.25;color:var(--vmut)}
+.vm-knobs{display:flex;flex-direction:column;align-items:center;gap:8px;background:var(--vpan);border-radius:12px;padding:8px 4px}
+.vm-modep{font-size:.74rem;font-weight:700;background:var(--vacc);color:#06201c;border-radius:999px;padding:3px 10px;text-align:center;white-space:nowrap}
+.vm-hid{letter-spacing:.04em;opacity:.85}
+.vm-kb{display:flex;flex-direction:column;align-items:center;gap:2px}
+.vm-kb .vm-ring{width:62px;height:62px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,color-mix(in srgb,var(--va) 70%,#1d5d58),color-mix(in srgb,var(--va) 45%,#0a2524));box-shadow:inset 0 0 0 2px var(--vacc),0 2px 6px rgba(0,0,0,.4)}
+.vm-kb b{font-family:var(--f-mono);font-size:1.05rem;color:#fff;line-height:1.1}
+.vm-kb i{font-style:normal;font-size:.58rem;color:#cfe9e4}
+.vm-kb em{font-style:normal;font-size:.68rem;color:var(--vtx)}
+.vm-tabs{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.vm-tabs span{font-size:.78rem;padding:5px 14px;border-radius:999px;background:var(--vpan);color:var(--vmut);border:1px solid var(--vline)}
+.vm-tabs span.on{background:var(--vacc);color:#06201c;font-weight:700;border-color:transparent}
+.vm-tabs em{font-style:normal;background:#ff6b6b;color:#2a0606;border-radius:999px;padding:0 6px;font-weight:700;margin-left:2px}
+.vm-tabs .vm-clock{margin-left:auto;background:none;border:0;color:var(--vmut)}
+.cm-bars{display:flex;align-items:flex-end;gap:6px;height:84px;padding:14px 2px 0}
+.cm-bars i{flex:1;max-width:44px;background:color-mix(in srgb,var(--vc) 70%,transparent);border-radius:4px 4px 0 0;position:relative;min-height:2px}
+.cm-bars em{position:absolute;top:-15px;left:0;right:0;text-align:center;font:400 .66rem var(--f-mono);color:var(--vtx);font-style:normal}
+.pal-new{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.02em;text-transform:none;background:color-mix(in srgb,var(--va) 16%,var(--paper));color:var(--va);border-radius:999px;padding:1px 8px;margin-left:4px;vertical-align:1px}
+.pal-sep{width:1px;height:22px;background:var(--line);margin:0 4px}
+.ig-head{display:flex;flex-direction:column;gap:10px}
+.ig-head h3{margin:2px 0 4px}
+.ig-vit{display:flex;flex-wrap:wrap;gap:6px}
+.ig-vit span{display:flex;gap:6px;align-items:baseline;border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-family:var(--f-mono);font-size:.84rem}
+.ig-vit i{font-style:normal;color:var(--muted);font-family:var(--f-body);font-size:.78rem}
+.ig-prog{display:flex;gap:6px;flex-wrap:wrap}
+.ig-prog i{font-style:normal;font-size:.74rem;padding:3px 10px;border-radius:999px;background:var(--grid);color:var(--muted)}
+.ig-prog i.cur{background:color-mix(in srgb,var(--va) 16%,var(--paper));color:var(--va);font-weight:700}
+.ig-prog i.ok{background:color-mix(in srgb,var(--ok) 16%,var(--paper));color:var(--ok)}
+.ig-prog i.ko{background:color-mix(in srgb,var(--vital) 14%,var(--paper));color:var(--vital)}
+.ig-part{display:flex;flex-direction:column;gap:12px}
+.ig-ph{display:flex;gap:10px;align-items:flex-start}
+.ig-n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--va);color:#fff;font-weight:700;font-family:var(--f-mono)}
+.ig-evo{margin:4px 0 0}
+.ig-body{display:flex;flex-direction:column;gap:12px}
+.ig-split .ig-body{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.ig-q{display:flex;flex-direction:column;gap:8px}
+.ig-ega .ep-paper{animation:none}
+.ig-end{display:flex;flex-direction:column;gap:10px}
+@media (min-width:900px){.ig-split .ig-body{grid-template-columns:minmax(300px,380px) minmax(0,1fr);align-items:start}}
+@media (max-width:899px){
+ .vm-grid{grid-template-columns:minmax(0,1fr)}
+ .vm-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 10px;padding:4px 8px}
+ .vm-n{grid-template-columns:22px 1fr}.vm-n b{font-size:1.35rem}
+ .vm-vit{grid-column:1/-1}
+ .vm-knobs{flex-direction:row;flex-wrap:wrap;justify-content:center;order:3}
+ .vm-kb .vm-ring{width:54px;height:54px}
+ .vm-modep{align-self:center}
+}
+@media (max-width:560px){.vm-panels{grid-template-columns:1fr}.vm-nums{grid-template-columns:repeat(2,minmax(0,1fr))}.vm-mini b{font-size:.92rem}}
+@media (prefers-reduced-motion:reduce){.vm-al .r{animation:none}.vm-anim .vm-sweep{animation:none}}
 </style>
 </head>
 <body>
@@ -1197,6 +1292,7 @@ button[disabled],.opt[disabled]{cursor:default}
 <script src="encquiz.js"></script>
 <script src="enccases.js"></script>
 <script src="figure.js"></script>
+<script src="palestre.js"></script>
 <script>
 if(typeof PDFQ==="undefined"){window.PDFQ=[];window.PDF_TITLES=[]}
 /* ============ DATI ============ */
@@ -3493,7 +3589,7 @@ const GYM_RATE=["Meno di 60/min","60-100/min","101-150/min","Oltre 150/min","Non
 const GYM_REG={r:"Regolare",i:"Irregolare",n:"Nessun complesso organizzato"};
 const GYM_P={n:"Un'onda P normale prima di ogni QRS",a:"Onde P assenti o sostituite (onde f/F, spike, attività caotica)",m:"Più onde P che QRS",r:"Nessuna P prima del QRS, P invertita subito dopo",v:"Onde P presenti ma di forme diverse"};
 const GYM_Q={s:"Stretto (< 0,12 s)",m:"Stretti, con alcuni complessi larghi",l:"Largo (≥ 0,12 s)",x:"Nessun QRS riconoscibile"};
-function gymNew(){let it,cs=null;if(GYM.mode==="casi"){cs=gpick(GYM_CASES.filter(c=>c!==GYM.lastCase));GYM.lastCase=cs;it=Object.assign({},GYM_POOL.find(g=>g.k===cs.k&&(cs.id?g.id===cs.id:!g.id))||{k:cs.k,reg:"r",p:"n",q:"s"},{hr:cs.hr})}else it=gpick(GYM_POOL);const hr=Math.round(it.hr[0]+Math.random()*(it.hr[1]-it.hr[0]));const f=WAVE.ecgFull(it.k,hr||undefined,6,250,"gym"+Math.random());
+function gymNew(){let it,cs=null;if(GYM.mode==="casi"){cs=palPick(GYM_CASES.filter(c=>c!==GYM.lastCase));GYM.lastCase=cs;it=Object.assign({},GYM_POOL.find(g=>g.k===cs.k&&(cs.id?g.id===cs.id:!g.id))||{k:cs.k,reg:"r",p:"n",q:"s"},{hr:cs.hr})}else it=gpick(GYM_POOL);const hr=Math.round(it.hr[0]+Math.random()*(it.hr[1]-it.hr[0]));const f=WAVE.ecgFull(it.k,hr||undefined,6,250,"gym"+Math.random());
   const nb=f.B.filter(b=>b.t>=0&&b.t<6&&b.k!=="s").length;let rc=4;if(it.q!=="x"&&it.k!=="torsione"){const r=nb*10;rc=r<60?0:r<=100?1:r<=150?2:3}
   const nm=f.name[0];const others=[...new Set(GYM_POOL.map(x=>WAVE.ecgName(Object.assign({},WAVE.ecgFull(x.k,x.hr[0]||75,.1,50,"n").s,{hr:x.hr[0]||75}))[0]))].filter(x=>x!==nm);
   const same=others.filter(x=>GYM_POOL.some(g=>g.q===it.q&&WAVE.ecgFull(g.k,g.hr[0]||75,.1,50,"n").name[0]===x));
@@ -3514,7 +3610,7 @@ function ecgGym(){
   <p class="lead">Una striscia alla volta, letta con metodo: frequenza, ritmo, onde P, QRS e infine la diagnosi. Tocca due punti del tracciato per misurare un intervallo con il compasso. ${GYM_POOL.length} quadri diversi con tracciati sempre nuovi, più ${GYM_CASES.length} casi clinici in cui riconoscere il ritmo e scegliere cosa fare.</p>
   <div class="row"><button class="chip" data-gm="guidato" aria-pressed="${GYM.mode==="guidato"}">Lettura guidata (5 passaggi)</button><button class="chip" data-gm="rapido" aria-pressed="${GYM.mode==="rapido"}">Riconoscimento rapido</button><button class="chip" data-gm="casi" aria-pressed="${CASI}">Casi clinici (${GYM_CASES.length})</button><span class="small" style="margin-left:auto">Sessione: <b>${GYM.ok}</b> corrette su <b>${GYM.n}</b></span></div>
   <div class="sheet gym" style="display:flex;flex-direction:column;gap:12px">
-    ${CASI?`<div class="gym-case"><span class="eyebrow">Caso clinico</span><p>${esc(cs.t)}</p></div>`:""}
+    ${CASI?`<div class="gym-case"><span class="eyebrow">Caso clinico ${palNewBadge(cs)}</span><p>${esc(cs.t)}</p></div>`:""}
     <div class="gym-strip">${gymSvg()}</div>
     <div class="small" id="gym-cal">${GYM.cal.length===2?(()=>{const dt=Math.abs(GYM.cal[1]-GYM.cal[0])/25;return `Compasso: <b>${dt.toFixed(2).replace(".",",")} s</b> (${Math.round(dt*1000)} ms)${dt>.25?` · se è un R-R, FC ≈ <b>${Math.round(60/dt)}/min</b>`:""} · tocca di nuovo per ricominciare`})():GYM.cal.length===1?"Tocca il secondo punto…":"Compasso: tocca due punti del tracciato per misurare."}</div>
     ${steps.map((st,i)=>{if(i<S0)return "";if(i>GYM.step)return "";const a=GYM.ans[i];return `<div class="gym-step"><span class="eyebrow">${i+1-S0}. ${st[0]}</span><p class="small">${st[1]}</p><div class="opts">${st[2].map((o,j)=>`<button class="opt${a!=null?(j===st[3]?" right":j===a?" wrong":""):""}" data-gs="${i}" data-go="${j}" ${a!=null?"disabled":""}>${esc(o)}</button>`).join("")}</div></div>`}).join("")}
@@ -3543,7 +3639,7 @@ function labNew(){
   if(LG.mode==="singolo"){const ks=Object.keys(LAB_AN).filter(k=>!["egfr","ph","pco2","hco3"].includes(k)),k=gpick(ks),sex=Math.random()<.5?"M":"F",r=labRef(k,sex);
     const opts=r[0]===0?["n","h"]:["l","n","h"],st=gpick(opts);let v=st==="n"?labNormal(k,sex):st==="h"?r[1]*labRnd(1.2,r[0]===0?6:1.8):r[0]*labRnd(.55,.88);v=labRound(k,v);
     LG.cur={single:1,k,sex,v,st:labStatus(k,v,sex)};LG.step=0;LG.ans=[];return}
-  const pool=LAB_SC.filter(s=>s.id!==LG.last),sc=gpick(pool);LG.last=sc.id;const sex=sc.sex||"M",age=Math.round(labRnd(sc.age[0],sc.age[1]));
+  const pool=LAB_SC.filter(s=>s.id!==LG.last),sc=palPick(pool);LG.last=sc.id;const sex=sc.sex||"M",age=Math.round(labRnd(sc.age[0],sc.age[1]));
   const val={};sc.pan.forEach(k=>{const a=sc.ab[k];const rr=a?(Array.isArray(a)?a:a[sex]):null;val[k]=rr?labRnd(rr[0],rr[1]):labNormal(k,sex)});
   if(val.ht!=null&&!sc.ab.ht&&val.hb!=null)val.ht=val.hb*3+labRnd(-1,1);
   if(val.gr!=null&&!sc.ab.gr&&val.hb!=null)val.gr=val.hb*10/(val.mch||(val.mcv?val.mcv/3.1:30));
@@ -3577,7 +3673,7 @@ function labGym(){
   const steps=[["Che quadro è?","Metti insieme i valori alterati e la storia.",C.opts,C.opts.indexOf(sc.n)],["Che cosa fa l'infermiere?",sc.q,C.ao.map(i=>sc.o[i]),C.ao.indexOf(sc.c)]];
   const done=LG.step>2;
   app.innerHTML=head+`<div class="sheet gym" style="display:flex;flex-direction:column;gap:12px">
-   <div class="gym-case"><span class="eyebrow">${C.sex==="F"?"Donna":"Uomo"}, ${C.age} anni</span><p>${esc(sc.st)}</p></div>
+   <div class="gym-case"><span class="eyebrow">${C.sex==="F"?"Donna":"Uomo"}, ${C.age} anni ${palNewBadge(sc)}</span><p>${esc(sc.st)}</p></div>
    <div class="lab-sheet"><div class="lab-sh"><b>Referto di laboratorio</b><span class="small mono">esercitazione · valori inventati</span></div>
    <table class="lab-t"><thead><tr><th>Esame</th><th>Risultato</th><th>Unità</th>${LG.hide&&!chk?"":"<th>Riferimento</th>"}</tr></thead><tbody>${rows}</tbody></table>${sc.note?`<p class="small lab-note">${esc(sc.note)}</p>`:""}</div>
    ${RAP?"":`<div class="gym-step"><span class="eyebrow">1. Valori alterati</span>${chk?`<p class="small"><b>${nGood} su ${keys.length}</b> valutati correttamente. ${abn.length?"Fuori intervallo: "+abn.map(k=>esc(LAB_AN[k][0])).join(", ")+".":"Nessun valore fuori intervallo."}<br><span style="color:var(--ok)">verde</span> trovato · <span style="color:var(--amber)">giallo</span> alterato ma non segnato · <span style="color:var(--vital)">rosso</span> segnato ma normale</p>`:`<p class="small">Tocca le righe con i valori fuori dall'intervallo di riferimento, poi controlla.</p><div class="row"><button class="btn primary" id="lg-chk">Controlla</button></div>`}</div>`}
@@ -3664,31 +3760,20 @@ const EGA_DIS={ra:"Acidosi respiratoria",ma:"Acidosi metabolica",rb:"Alcalosi re
 const EGA_COMP=["Non compensato","Parzialmente compensato","Compensato (pH nella norma)","Non applicabile (valori normali o disturbo misto)"];
 const EGA_PF=["Adeguata (P/F ≥ 300)","Compromissione lieve (P/F 200-300)","Compromissione moderata (P/F 100-200)","Compromissione grave (P/F < 100)"];
 const EGA_PH=["Acidemia (pH < 7,35)","Nella norma (7,35-7,45)","Alcalemia (pH > 7,45)"];
-function egaClass(v){const ph=v.ph,c=v.pco2,h=v.hco3;const phc=ph<7.35?0:ph>7.45?2:1;let dis,comp;
-  const cH=c>45,cL=c<35,hH=h>26,hL=h<22;
-  if(phc===0){if(cH&&hL){dis="mx";comp=3}else if(cH){dis="ra";comp=hH?1:0}else{dis="ma";comp=cL?1:0}}
-  else if(phc===2){if(cL&&hH){dis="mx";comp=3}else if(cL){dis="rb";comp=hL?1:0}else{dis="mb";comp=cH?1:0}}
-  else{if(cH&&hH){dis=ph<7.4?"ra":"mb";comp=2}else if(cL&&hL){dis=ph<7.4?"ma":"rb";comp=2}else if((cH&&hL)||(cL&&hH)){dis="mx";comp=3}else{dis="no";comp=3}}
-  const pf=v.po2/v.fio2,pfc=pf>=300?0:pf>=200?1:pf>=100?2:3;return {phc,dis,comp,pf,pfc}}
 let EG={mode:"guidato",n:0,ok:0,cur:null,step:0,ans:[],noflag:false,last:null,seq:2200+Math.floor(Math.random()*500)};
 const egR=(a)=>a[0]+Math.random()*(a[1]-a[0]);
-function egaNew(){const pool=EGA_SC.filter(s=>s.id!==EG.last),sc=gpick(pool);EG.last=sc.id;const x=sc.x||{};
-  const v={fio2:sc.fio2,pco2:egR(sc.pco2),hco3:egR(sc.hco3),po2:egR(sc.po2)};v.ph=6.1+Math.log10(v.hco3/(.0307*v.pco2));
-  v.hb=x.hb?egR(x.hb):egR(sc.sex==="F"?[12.2,14.6]:[13.4,16.2]);v.cohb=x.cohb?egR(x.cohb):egR([.4,1.6]);v.methb=egR([.3,.9]);
-  const s=100/(23400/(Math.pow(v.po2,3)+150*v.po2)+1);v.so2=Math.min(99.6,s);v.o2hb=v.so2*(100-v.cohb-v.methb)/100;
-  v.na=x.na?egR(x.na):egR([136,143]);v.k=x.k?egR(x.k):egR([3.6,4.8]);v.ca=egR([1.15,1.29]);v.glu=x.glu?egR(x.glu):egR([84,128]);v.lac=x.lac?egR(x.lac):egR([.6,1.6]);
-  const gap=sc.gap?egR(sc.gap):egR([8,12]);v.cl=v.na-v.hco3-gap;v.gap=gap;
-  v.be=.93*(v.hco3-24.4+14.8*(v.ph-7.4));v.pao2=v.fio2*713-v.pco2/.8;v.aa=Math.max(2,v.pao2-v.po2);v.cto2=1.34*v.hb*v.o2hb/100+.0031*v.po2;
+function egaNew(){const pool=EGA_SC.filter(s=>s.id!==EG.last),sc=palPick(pool);EG.last=sc.id;
+  const v=egaGen(sc);
   const now=new Date();EG.seq++;
   EG.cur={sc,v,cls:egaClass(v),age:Math.round(egR(sc.age)),id:"ESE-"+Math.floor(1000+Math.random()*9000),seq:EG.seq,t:now,opts:shuffle([sc.n,...shuffle(EGA_SC.filter(s=>s.id!==sc.id)).slice(0,3).map(s=>s.n)]),ao:shuffle([0,1,2,3].filter(i=>i<sc.o.length))};
   EG.step=EG.mode==="rapido"?4:0;EG.ans=[];EG.anim=true}
 const egF=(n,d)=>n.toFixed(d).replace(".",",");
-function egaPaper(){const C=EG.cur,v=C.v,sc=C.sc,nf=EG.noflag;const d=C.t,dd=String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+d.getFullYear(),hh=String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");
+function egaPaper(C0,o){const C=C0||EG.cur,v=C.v,sc=C.sc,nf=o?!!o.nf:EG.noflag,an=o?!!o.anim:EG.anim;const d=C.t,dd=String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+d.getFullYear(),hh=String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");
   const fl=(x,lo,hi)=>nf?" ":x<lo?"↓":x>hi?"↑":" ";
   const R=(name,val,unit,f,rng)=>`<div class="ep-r"><span class="ep-n">${name}</span><span class="ep-v">${val}</span><span class="ep-f">${f||" "}</span><span class="ep-u">${unit}</span><span class="ep-g">${rng||""}</span></div>`;
   const H=t=>`<div class="ep-h">${t}</div>`;
   const pf=v.po2/v.fio2;
-  return `<div class="ep-wrap"><div class="ep-slot" aria-hidden="true"><i></i></div><div class="ep-paper${EG.anim&&!RM?" ep-anim":""}" role="img" aria-label="Referto stampato dall'emogasanalizzatore">
+  return `<div class="ep-wrap"><div class="ep-slot" aria-hidden="true"><i></i></div><div class="ep-paper${an&&!RM?" ep-anim":""}" role="img" aria-label="Referto stampato dall'emogasanalizzatore">
   <div class="ep-c">EMOGASANALIZZATORE  GX-7</div><div class="ep-c ep-s">${esc(sc.rep)}</div>
   <div class="ep-dash"></div>
   <div class="ep-kv"><span>Rapporto paziente</span><span>Siringa · 65 µl</span></div>
@@ -3749,7 +3834,7 @@ function egaGym(){
   <div class="ega-lay">
    <div class="ega-left">${egaPaper()}</div>
    <div class="sheet gym ega-right" style="display:flex;flex-direction:column;gap:12px">
-    <div class="gym-case"><span class="eyebrow">${sc.sex==="F"?"Donna":"Uomo"}, ${C.age} anni · ${esc(sc.rep)}</span><p>${esc(sc.st)}</p></div>
+    <div class="gym-case"><span class="eyebrow">${sc.sex==="F"?"Donna":"Uomo"}, ${C.age} anni · ${esc(sc.rep)} ${palNewBadge(sc)}</span><p>${esc(sc.st)}</p></div>
     ${steps.map((st,i)=>{if(i<S0||i>EG.step)return "";const a=EG.ans[i];return `<div class="gym-step"><span class="eyebrow">${i+1-S0}. ${st[0]}</span><p class="small">${esc(st[1])}</p><div class="opts">${st[2].map((o,j)=>`<button class="opt${a!=null?(j===st[3]?" right":j===a?" wrong":""):""}" data-eq="${i}" data-eo="${j}" ${a!=null?"disabled":""}>${esc(o)}</button>`).join("")}</div></div>`}).join("")}
     ${done?`<div class="expl">${read}<br><br><b>${esc(sc.n)}.</b> ${esc(sc.e)}${EG.ans[5]===steps[5][3]?"":`<br><b>Che cosa fa l'infermiere:</b> ${esc(sc.o[sc.c])}`}</div>
     <div class="row"><button class="btn primary" id="eg-next">Nuovo emogas</button><a class="btn" href="#voce-emogasanalisi" style="text-decoration:none">Ripassa l'emogasanalisi</a><a class="btn" href="#voce-es-acido-base" style="text-decoration:none">Gap anionico</a></div>`:""}
@@ -3800,6 +3885,8 @@ function enciclopedia(v){
   if(v==="ecg-esercizi"){ecgGym();return}
   if(v==="esami-esercizi"){labGym();return}
   if(v==="ega-esercizi"){egaGym();return}
+  if(v==="vent-esercizi"){ventGym();return}
+  if(v==="casi-integrati"){integGym();return}
   if(v==="mnemoniche"){mnView();return}
   const focus=(v&&v.startsWith("voce-"))?v.slice(5):state.encOpen;state.encOpen=null;
   const fe=focus&&ENC_BY[focus];
@@ -3815,6 +3902,7 @@ function enciclopedia(v){
     return `<section class="sheet dir-ix es-ix"><div class="dir-ix-h"><div><span class="eyebrow">Esami ematici e di laboratorio</span><h3 style="margin:2px 0 0">Indice degli esami</h3></div><span class="small">${all.length} schede · valori indicativi: fanno fede gli intervalli del tuo laboratorio · <span class="es-info">informativo</span> = esami specialistici, non usati negli esercizi</span></div>
     <a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami: lettura dei referti</b><span class="small">Referti con valori sempre nuovi: trova i valori alterati, riconosci il quadro e scegli che cosa fare (${typeof LAB_SC!=="undefined"?LAB_SC.length:0} quadri)</span></a>
     <a class="sheet gym-cta" href="#ega-esercizi"><b>Palestra EGA: leggi il referto dell'emogasanalizzatore</b><span class="small">Il referto stampato come in reparto: pH, disturbo primario, compenso, P/F, quadro clinico e intervento</span></a>
+    <a class="sheet gym-cta" href="#casi-integrati"><b>Casi integrati: esami, EGA, ECG e ventilatore insieme</b><span class="small">Un paziente, più referti da leggere uno dopo l'altro fino alla sintesi</span></a>
     <div class="row dir-chips"><button class="chip" data-et="" aria-pressed="${!esT}">Tutti</button>${Object.entries(ET).map(([k,n])=>`<button class="chip" data-et="${k}" aria-pressed="${esT===k}">${n} <em>${all.filter(x=>x.k===k).length}</em></button>`).join("")}</div>
     ${grp.map(([k,L])=>`<div class="dir-grp"><h4>${esc(ET[k])}</h4><div class="dir-cards">${L.map(x=>`<a class="dir-card${x.ext?" ext":""}${x.x?" info":""}" href="#voce-${x.id}"><b>${esc(x.s||"")}</b><span>${esc(x.t)}</span>${x.ext?`<i>in ${esc((EAREE[ENC_BY[x.id].a]||{}).n||"")}</i>`:x.x?`<i>a titolo informativo</i>`:""}</a>`).join("")}</div></div>`).join("")}</section>`};
   const dirIdx=()=>{const all=ENCY.filter(e=>e.a==="diritto").map(e=>({id:e.id,k:e.k,s:e.s,t:e.t})).concat(Object.entries(DX).filter(([id])=>ENC_BY[id]).map(([id,x])=>({id,k:x[0],s:x[1],t:ENC_BY[id].t,ext:1})));
@@ -3830,6 +3918,7 @@ function enciclopedia(v){
   <div id="enc-main" style="display:flex;flex-direction:column;gap:16px">
     <div class="enc-areas"><button class="enc-area" style="--c:var(--scrub)" data-area="tutte" aria-pressed="${area==="tutte"}"><b>Tutte le aree</b><span>${ENCY.length} voci</span></button>${Object.entries(EAREE).map(([k,a])=>`<button class="enc-area" style="--c:${a.c}" data-area="${k}" aria-pressed="${area===k}"><b>${esc(a.n)}</b><span>${counts[k]||0} voci</span></button>`).join("")}</div>
     ${area==="ecg"||area==="tutte"?`<a class="sheet gym-cta" href="#ecg-esercizi"><span class="eyebrow">Novità</span><b>Palestra ECG: esercizi di lettura</b><span class="small">Strisce sempre nuove da leggere con metodo (frequenza, ritmo, P, QRS, diagnosi) con compasso per misurare gli intervalli</span></a>`:""}
+    ${area==="emerg"||area==="tutte"?`<a class="sheet gym-cta" href="#vent-esercizi"><span class="eyebrow">Novità</span><b>Palestra ventilatore e capnografia</b><span class="small">Il monitor della terapia intensiva: PEEP, picco e plateau, driving pressure, curve, allarmi e capnogrammi</span></a><a class="sheet gym-cta" href="#casi-integrati"><span class="eyebrow">Novità</span><b>Casi integrati</b><span class="small">Emogas, esami del sangue, ECG, ventilatore e capnografia dello stesso paziente, in più parti</span></a>`:""}
     <a class="sheet gym-cta mn-cta" href="#mnemoniche"><b>Per ricordare: acronimi e frasi mnemoniche</b><span class="small">${Object.values(MN).reduce((a,l)=>a+l.length,0)} trucchi per memorizzare (regola delle 7 G, ABCDE, SBAR, regola del 15, del 9…), raccolti in un'unica pagina e dentro ogni voce</span></a>
     ${area==="diritto"?dirIdx():""}
     ${area==="esami"?esIdx():""}
@@ -4152,7 +4241,7 @@ document.addEventListener("click",e=>{const b=e.target.closest("[data-h3d-go]");
 
 function route(){
   const v=(location.hash||"#oggi").slice(1);
-  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"||v==="esami-esercizi"||v==="ega-esercizi"||v==="mnemoniche"?"enciclopedia":"oggi");
+  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"||v==="esami-esercizi"||v==="ega-esercizi"||v==="vent-esercizi"||v==="casi-integrati"||v==="mnemoniche"?"enciclopedia":"oggi");
   const changed=document.documentElement.dataset.view!==name;
   document.documentElement.dataset.view=name;
   document.querySelectorAll("nav.tabs a").forEach(a=>{const on=a.getAttribute("href")==="#"+name;a.setAttribute("aria-current",on?"page":"false");if(on&&changed)a.scrollIntoView({block:"nearest",inline:"center"})});
@@ -4775,7 +4864,7 @@ function quiz(){
   <div><span class="eyebrow">Autoverifica</span><h2>Allenamento</h2></div>
   <p class="lead">${QALL.length} domande a scelta multipla${DBQ.length?` (${DBQ.length} arrivate con gli aggiornamenti giornalieri)`:""}, ${PDFQ.length} domande aperte e ${CASES.length} casi clinici. La sessione mista li alterna come in un esame vero; le risposte scritte sono valutate in trentesimi con la griglia dei punti attesi.</p>
   <div class="row">${chips(f,["all",...SKEYS],"f")}</div>
-  <div class="gym-ctas"><a class="sheet gym-cta" href="#ecg-esercizi"><b>Palestra ECG</b><span class="small">Esercizi di lettura dell'elettrocardiogramma, a parte rispetto ai quiz</span></a><a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami</b><span class="small">Lettura di referti di laboratorio: valori alterati, quadro clinico, interventi</span></a><a class="sheet gym-cta" href="#ega-esercizi"><b>Palestra EGA</b><span class="small">Il referto dell'emogasanalizzatore da leggere passo per passo</span></a></div>
+  <div class="gym-ctas"><a class="sheet gym-cta" href="#ecg-esercizi"><b>Palestra ECG</b><span class="small">Esercizi di lettura dell'elettrocardiogramma, a parte rispetto ai quiz</span></a><a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami</b><span class="small">Lettura di referti di laboratorio: valori alterati, quadro clinico, interventi</span></a><a class="sheet gym-cta" href="#ega-esercizi"><b>Palestra EGA</b><span class="small">Il referto dell'emogasanalizzatore da leggere passo per passo</span></a><a class="sheet gym-cta" href="#vent-esercizi"><b>Palestra ventilatore</b><span class="small">Monitor da terapia intensiva: PEEP, plateau, curve, allarmi e capnografia</span></a><a class="sheet gym-cta" href="#casi-integrati"><b>Casi integrati</b><span class="small">Emogas, esami, ECG e ventilatore dello stesso paziente, da leggere in più parti</span></a></div>
   <div class="row">
     <label class="small" for="qmode">Tipo di sessione</label><select id="qmode" class="btn">
       <option value="misto" ${mode==="misto"?"selected":""}>Mista: quiz + domande aperte + casi</option>
@@ -5015,6 +5104,7 @@ function applyDaily(docs){
       steps,dx:(k.dx||[]).map(String),oral:String(k.oral||""),date:day.date,fonte:(typeof k.fonte==="string"&&/^https:\/\//.test(k.fonte))?k.fonte:""});
   });
   CASES=CASES0.concat(typeof CASES2!=="undefined"?CASES2:[],typeof CASES3!=="undefined"?CASES3:[],dc);
+  try{palDaily(DAILY)}catch(e){console.warn(e)}
   rebuildQ();
 }
 async function initDb(){
