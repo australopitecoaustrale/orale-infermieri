@@ -96,7 +96,7 @@ function ventSim(m0,T){const m=m0.__r?m0:Object.assign(ventResolve(m0),{__r:1});
   mm.ie=(()=>{const b=L[0];if(!b||b.te==null)return null;const ti=b.te-b.ts,tt=60/Math.max(1,mm.rr||m.rr);return tt/ti-1})();
   mm.pres=mm.pplat!=null?mm.ppeak-mm.pplat:null;
   /* curva della CO2 allineata agli atti */
-  const et=m.etco2||0;if(et){let lev=0;out.cap=out.t.map((t,i)=>{const ins=out.co[i]==="insp";const tgt=disc!=null&&t>=disc?0:ins?0:et*(.9+.1*Math.min(1,(t%3)/3));lev+=(tgt-lev)*(ins?.45:.22);return Math.max(0,lev)})}
+  const et=m.etco2||0;const lastTs=B.length?B[B.length-1].ts:0,apEnd=lastTs+Math.max(1.2,m.ti||1)+1.6;if(et){let lev=0;out.cap=out.t.map((t,i)=>{const ins=out.co[i]==="insp";const tgt=(disc!=null&&t>=disc)||(m.apnea&&t>apEnd)?0:ins?0:et*(.9+.1*Math.min(1,(t%3)/3));lev+=(tgt-lev)*(ins?.45:.22);return Math.max(0,lev)})}
   out.m=m;out.mm=mm;out.T=T;out.disc=disc;
   out.alarms=ventAlarms(m,mm);out.find=ventFind(m,mm);
   return out}
@@ -158,6 +158,25 @@ function vLung(S){const m=S.m,mm=S.mm;const sc=clamp((mm.cst||m.C)/60,.62,1.06),
   const lk=m.leak>=.2?`<g class="lk"><circle cx="138" cy="26" r="3"/><circle cx="131" cy="20" r="2.2"/><circle cx="126" cy="13" r="1.5"/></g>`:"";
   const still=m.disc||m.apnea||(typeof RM!=="undefined"&&RM),per=60/Math.max(4,mm.rr||m.rr||12);
   return `<svg class="vc vc-lung" viewBox="0 0 300 160" aria-hidden="true"><g class="lu-b${still?"":" on"}" style="animation-duration:${per.toFixed(2)}s">${lung(146,0)}${lung(154,1)}</g>${tre}${brk}${lk}</svg>`}
+/* ---- involucro del monitor: cornice, vetro, spia d'allarme, tasti fisici ---- */
+function vDev(inner,al,label){const lamp=al.some(a=>a[0]==="r")?"r":al.length?"y":"";
+  const kb=(ic,t,act)=>`<button type="button" class="vd-key" data-vd="${act}" aria-label="${t}"><span class="vd-ic" aria-hidden="true">${ic}</span><em>${t}</em></button>`;
+  const bell='<svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/><path d="M4 4l16 16"/></svg>',lock='<svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>',home='<svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></svg>';
+  return `<div class="vdev${lamp?" al-"+lamp:""}" data-lamp="${lamp}"><div class="vd-top"><span class="vd-led" title="Acceso"></span><span class="vd-name">${label}</span><span class="vd-lamp" aria-hidden="true"></span></div>
+   <div class="vd-screen"><div class="vd-status"><span class="vd-bed">Letto 4 · TI</span><span class="vd-sil" hidden></span><span class="vd-lock" hidden>Schermo bloccato</span><span class="vd-sys"><i class="vd-net" aria-hidden="true"></i><i class="vd-bat" aria-hidden="true"><b></b></i><b class="vd-clock mono">${clkS()}</b></span></div>${inner}<div class="vd-glass" aria-hidden="true"></div></div>
+   <div class="vd-keys">${kb(bell,"Silenzia allarmi","sil")}${kb(lock,"Blocca schermo","lock")}${kb(home,"Schermata principale","home")}<span class="vd-knob" aria-hidden="true"><i></i></span></div></div>`}
+function clkS(){const d=new Date();return [d.getHours(),d.getMinutes(),d.getSeconds()].map(x=>String(x).padStart(2,"0")).join(":")}
+let VD_BOUND=false;
+function vdBind(){if(VD_BOUND||typeof document==="undefined")return;VD_BOUND=true;
+  document.addEventListener("click",e=>{const k=e.target.closest(".vd-key");if(!k)return;const dv=k.closest(".vdev");const a=k.dataset.vd;
+    if(a==="sil"){if(!dv.dataset.lamp)return;dv._sil=Date.now()+120000;dv.classList.add("sil");vdTick()}
+    if(a==="lock"){dv.classList.toggle("locked");dv.querySelector(".vd-lock").hidden=!dv.classList.contains("locked")}
+    if(a==="home"){dv.classList.remove("locked");dv.querySelector(".vd-lock").hidden=true;dv.scrollIntoView({block:"nearest"})}
+    k.classList.add("pr");setTimeout(()=>k.classList.remove("pr"),160)});
+}
+function vdTick(){document.querySelectorAll(".vd-clock").forEach(c=>c.textContent=clkS());
+  document.querySelectorAll(".vdev.sil").forEach(dv=>{const left=Math.max(0,Math.round((dv._sil-Date.now())/1000)),el=dv.querySelector(".vd-sil");
+    if(!left){dv.classList.remove("sil");el.hidden=true;return}el.hidden=false;el.textContent="Allarmi silenziati "+Math.floor(left/60)+":"+String(left%60).padStart(2,"0")})}
 /* ---- numeri «vivi»: oscillano leggermente come su un monitor vero ---- */
 function lv(v,d,o){o=o||{};if(v==null||!isFinite(v))return "---";const a=o.a!=null?o.a:Math.abs(v)*(o.j!=null?o.j:.02);
   if(!a)return f1(v,d);return `<span class="lv" data-b="${v}" data-d="${d||0}" data-a="${a}" data-p="${o.p||4}"${o.mn!=null?` data-mn="${o.mn}"`:""}${o.mx!=null?` data-mx="${o.mx}"`:""}>${f1(v,d)}</span>`}
@@ -169,7 +188,8 @@ function liveText(k,t){const esc=G.esc||(x=>x);t=String(t);k=String(k);
   return esc(t).replace(/\d+(?:[.,]\d+)?/g,m=>{if(/^ART/i.test(k)||n++<1){const d=m.includes(",")||m.includes(".")?(m.split(/[.,]/)[1].length):(sp.d||0);const v=parseFloat(m.replace(",","."));if(!v)return m;return lv(v,d,{a:sp.a,p:sp.p,mn:sp.mn,mx:sp.mx})}return m})}
 let LVT=null;
 function lvStart(){if(LVT||typeof document==="undefined")return;
-  LVT=setInterval(()=>{if(document.hidden)return;const now=Date.now();
+  vdBind();let lastS=0;
+  LVT=setInterval(()=>{if(document.hidden)return;const now=Date.now();if(now-lastS>=1000){lastS=now;vdTick()}
     document.querySelectorAll(".lv").forEach(el=>{if(el._n&&now<el._n)return;const p=+el.dataset.p||4;el._n=now+p*1000*(.75+.5*Math.random());if(!el._c){el._c=+el.dataset.b;return}
       const b=+el.dataset.b,a=+el.dataset.a,d=+el.dataset.d;let c=el._c+(Math.random()-.5)*a*2.2;c=b+clamp(c-b,-a,a);
       if(el.dataset.mn!=null)c=Math.max(+el.dataset.mn,c);if(el.dataset.mx!=null)c=Math.min(+el.dataset.mx,c);el._c=c;
@@ -198,7 +218,7 @@ function ventMon(S,o){lvStart();o=o||{};const m=S.m,mm=S.mm,x=o.x||{},esc=G.esc|
     :m.mode==="PSV"?[[m.ps,"cmH₂O","Psupporto"],[m.peep,"cmH₂O",m.niv?"EPAP":"PEEP"],[Math.round(m.fio2*100),"%","Ossigeno"],[2,"l/min","Trigger"],[25,"%","Ciclaggio"]]
     :[[m.peep,"cmH₂O","CPAP"],[Math.round(m.fio2*100),"%","Ossigeno"]];
   const vit=Object.entries(x).map(([k,v])=>`<span><i>${esc(k)}</i>${liveText(k,v)}</span>`).join("");
-  return `<div class="vmon${o.anim&&!(typeof RM!=="undefined"&&RM)?" vm-anim":""}" role="img" aria-label="Monitor del ventilatore: valori misurati, curve di pressione, flusso e volume, polmone e impostazioni">
+  return vDev(`<div class="vmon${o.anim&&!(typeof RM!=="undefined"&&RM)?" vm-anim":""}" role="img" aria-label="Monitor del ventilatore: valori misurati, curve di pressione, flusso e volume, polmone e impostazioni">
    <div class="vm-al${al.length?(red?" r":" y"):""}">${al.length?al.map(a=>`<span class="${a[0]}">${esc(a[1])}</span>`).join(""):"<span class=\"ok\">Nessun allarme attivo</span>"}${m.hold?`<span class="hold">PEEP totale <b>${f1(mm.peeptot,1)}</b></span>`:""}</div>
    <div class="vm-grid">
     <div class="vm-nums">${nums}${vit?`<div class="vm-vit">${vit}</div>`:""}</div>
@@ -208,8 +228,8 @@ function ventMon(S,o){lvStart();o=o||{};const m=S.m,mm=S.mm,x=o.x||{},esc=G.esc|
       <div class="vm-pan">${vLoop(S,pmax,vmax)}</div></div></div>
     <div class="vm-knobs"><div class="vm-modep">${hide?"<span class=\"vm-hid\">modalità ?</span>":esc(modeTxt)}</div>${kn.map(k=>knob(k[0],k[1],k[2])).join("")}</div>
    </div>
-   <div class="vm-tabs"><span class="on">Monitoraggio</span><span>Curve</span><span>Allarmi${al.length?` <em>${al.length}</em>`:""}</span><span class="vm-clock mono">${esc(o.clock||"")}</span></div>
-  </div>`}
+   <div class="vm-tabs"><span class="on">Monitoraggio</span><span>Curve</span><span>Allarmi${al.length?` <em>${al.length}</em>`:""}</span></div>
+  </div>`,al,"Ventilatore polmonare")}
 function ventRead(S,kg){const m=S.m,mm=S.mm,L=[];
   if(m.disc){L.push("La pressione crolla vicino a zero e non c'è più flusso espiratorio: il circuito è aperto. Il ventilatore continua a erogare, ma il gas non arriva al paziente e non torna indietro.");return L.join("<br>")}
   if(m.apnea){L.push("Dopo l'ultimo atto non arrivano più sforzi del paziente: in pressione di supporto, senza sforzi non c'è ventilazione. Il ventilatore passa alla ventilazione di riserva (backup) solo dopo il tempo di apnea impostato.");return L.join("<br>")}
@@ -258,15 +278,15 @@ function capnoMon(S,o){lvStart();o=o||{};const esc=G.esc||(s=>s);const top=S.cp.
   const vit=Object.entries(o.x||{}).map(([k,v])=>`<span><i>${esc(k)}</i>${liveText(k,v)}</span>`).join("");
   const NR=(hi,lo,v,lab,unit,alarm)=>`<div class="vm-n${alarm?" al":""}"><span class="lim">${hi!=null?hi:""}<br>${lo!=null?lo:""}</span><b>${v}</b><span class="nm">${lab}<i>${unit}</i></span></div>`;
   const al=[];if(S.et<5)al.push(["r","CO₂ assente"]);else if(S.et<30)al.push(["y","EtCO₂ bassa"]);else if(S.et>50)al.push(["y","EtCO₂ alta"]);if((S.cp.base||0)>3)al.push(["y","CO₂ inspirata"]);if(S.rr&&S.rr<8)al.push(["y","Frequenza bassa"]);
-  return `<div class="vmon cmon${o.anim&&!(typeof RM!=="undefined"&&RM)?" vm-anim":""}" role="img" aria-label="Capnogramma con valori di EtCO₂ atto per atto">
+  return vDev(`<div class="vmon cmon${o.anim&&!(typeof RM!=="undefined"&&RM)?" vm-anim":""}" role="img" aria-label="Capnogramma con valori di EtCO₂ atto per atto">
    <div class="vm-al${al.length?(al.some(a=>a[0]==="r")?" r":" y"):""}">${al.length?al.map(a=>`<span class="${a[0]}">${esc(a[1])}</span>`).join(""):"<span class=\"ok\">Nessun allarme attivo</span>"}</div>
    <div class="vm-grid">
     <div class="vm-nums">${NR(50,30,S.et<3?f1(S.et):lv(S.et,0,{a:1.2,p:60/Math.max(4,S.rr||10),mn:0}),"EtCO₂","mmHg",S.et<30||S.et>50)}${NR(30,8,S.rr?lv(S.rr,0,{a:S.cp.f==="rcp"?0:1,p:9,mn:1}):"---","FR","/min",!S.rr||S.rr<8)}${NR(3,null,f1(S.cp.base||0),"FiCO₂","mmHg",(S.cp.base||0)>3)}${vit?`<div class="vm-vit">${vit}</div>`:""}</div>
     <div class="vm-mid"><div class="vm-waves">${chart}<div class="vm-sweep" aria-hidden="true"></div></div>
      <div class="vm-panels one"><div class="vm-pan"><div class="vm-pan-h"><span>EtCO₂ atto per atto</span><span>${esc(o.where||"campionamento dal circuito")}</span></div><div class="cm-bars">${bars}</div></div></div></div>
    </div>
-   <div class="vm-tabs"><span class="on">Capnografia</span><span>Andamento</span><span>Allarmi${al.length?` <em>${al.length}</em>`:""}</span><span class="vm-clock mono">${esc(o.clock||"")}</span></div>
-  </div>`}
+   <div class="vm-tabs"><span class="on">Capnografia</span><span>Andamento</span><span>Allarmi${al.length?` <em>${al.length}</em>`:""}</span></div>
+  </div>`,al,"Capnografo")}
 /* ===================== Scenari del ventilatore ===================== */
 const VENT_SC=[
  {id:"vc-ok",n:"Ventilazione in volume controllato ben impostata",rep:"Terapia intensiva",sex:"M",age:[55,75],kg:70,
