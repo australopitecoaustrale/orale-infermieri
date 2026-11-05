@@ -1254,6 +1254,7 @@ button[disabled],.opt[disabled]{cursor:default}
  .vm-modep{align-self:center}
 }
 @media (max-width:560px){.vm-panels{grid-template-columns:1fr}.vm-nums{grid-template-columns:repeat(2,minmax(0,1fr))}.vm-mini b{font-size:.92rem}}
+.lv{font-variant-numeric:tabular-nums}
 .vc-gap{fill:color-mix(in srgb,var(--va) 30%,#0b1a1d);animation:vcgap linear infinite}
 @keyframes vcgap{from{transform:translateX(0)}to{transform:translateX(var(--gx))}}
 .vc-dot{fill:#fff;filter:drop-shadow(0 0 4px var(--vacc))}
@@ -2428,8 +2429,9 @@ function vitalsMonitor(vit,c){
   const extra=m.cells.filter(x=>!have.has(x[0].toLowerCase().replace(/[^a-z]/g,""))&&!(x[0]==="ART"&&have.has("pa"))).map(x=>[x[0],x[1],x[2]?1:0,1]);
   vit=vit.concat(extra);
   const col2=k=>/^ART/.test(k)?"art":/EtCO/.test(k)?"co2":/PEEP|Ppicco|IPAP/.test(k)?"paw":col(k);
+  if(typeof lvStart==="function")lvStart();
   return `<div class="pmon">${m.html}
-  <div class="pm-grid">${vit.map(v=>`<div class="pm-cell pm-${col2(v[0])} ${v[2]?"pm-alarm":""}"><span class="pm-k">${esc(v[0])}${v[2]?' <b class="pm-bell">ALLARME</b>':""}</span><span class="pm-v ${String(v[1]).length>9?"pm-long":""}">${esc(v[1])}</span></div>`).join("")}</div></div>`;
+  <div class="pm-grid">${vit.map(v=>`<div class="pm-cell pm-${col2(v[0])} ${v[2]?"pm-alarm":""}"><span class="pm-k">${esc(v[0])}${v[2]?' <b class="pm-bell">ALLARME</b>':""}</span><span class="pm-v ${String(v[1]).length>9?"pm-long":""}">${typeof liveText==="function"?liveText(v[0],v[1]):esc(v[1])}</span></div>`).join("")}</div></div>`;
 }
 
 

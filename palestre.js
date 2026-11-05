@@ -158,7 +158,24 @@ function vLung(S){const m=S.m,mm=S.mm;const sc=clamp((mm.cst||m.C)/60,.62,1.06),
   const lk=m.leak>=.2?`<g class="lk"><circle cx="138" cy="26" r="3"/><circle cx="131" cy="20" r="2.2"/><circle cx="126" cy="13" r="1.5"/></g>`:"";
   const still=m.disc||m.apnea||(typeof RM!=="undefined"&&RM),per=60/Math.max(4,mm.rr||m.rr||12);
   return `<svg class="vc vc-lung" viewBox="0 0 300 160" aria-hidden="true"><g class="lu-b${still?"":" on"}" style="animation-duration:${per.toFixed(2)}s">${lung(146,0)}${lung(154,1)}</g>${tre}${brk}${lk}</svg>`}
-function ventMon(S,o){o=o||{};const m=S.m,mm=S.mm,x=o.x||{},esc=G.esc||(s=>s);
+/* ---- numeri «vivi»: oscillano leggermente come su un monitor vero ---- */
+function lv(v,d,o){o=o||{};if(v==null||!isFinite(v))return "---";const a=o.a!=null?o.a:Math.abs(v)*(o.j!=null?o.j:.02);
+  if(!a)return f1(v,d);return `<span class="lv" data-b="${v}" data-d="${d||0}" data-a="${a}" data-p="${o.p||4}"${o.mn!=null?` data-mn="${o.mn}"`:""}${o.mx!=null?` data-mx="${o.mx}"`:""}>${f1(v,d)}</span>`}
+/* testo di un parametro (es. "118", "95%", "110/64 (79)") con i numeri che oscillano secondo il tipo di parametro */
+function liveText(k,t){const esc=G.esc||(x=>x);t=String(t);k=String(k);
+  let sp=null;if(/^(FC|HR|Polso)/i.test(k))sp={a:2,p:1.4};else if(/SpO|Sat/i.test(k))sp={a:1,p:5,mx:100};else if(/^FR/i.test(k))sp={a:1,p:7,mn:0};
+  else if(/^ART/i.test(k))sp={a:2,p:1.6};else if(/EtCO/i.test(k))sp={a:1,p:4,mn:0};else if(/^(TC|T$|Temp)/i.test(k))sp={a:.1,p:25,d:1};else if(/Ppicco|Pplat|IPAP/i.test(k))sp={a:1,p:5};
+  if(!sp)return esc(t);let n=0;
+  return esc(t).replace(/\d+(?:[.,]\d+)?/g,m=>{if(/^ART/i.test(k)||n++<1){const d=m.includes(",")||m.includes(".")?(m.split(/[.,]/)[1].length):(sp.d||0);const v=parseFloat(m.replace(",","."));if(!v)return m;return lv(v,d,{a:sp.a,p:sp.p,mn:sp.mn,mx:sp.mx})}return m})}
+let LVT=null;
+function lvStart(){if(LVT||typeof document==="undefined")return;
+  LVT=setInterval(()=>{if(document.hidden)return;const now=Date.now();
+    document.querySelectorAll(".lv").forEach(el=>{if(el._n&&now<el._n)return;const p=+el.dataset.p||4;el._n=now+p*1000*(.75+.5*Math.random());if(!el._c){el._c=+el.dataset.b;return}
+      const b=+el.dataset.b,a=+el.dataset.a,d=+el.dataset.d;let c=el._c+(Math.random()-.5)*a*2.2;c=b+clamp(c-b,-a,a);
+      if(el.dataset.mn!=null)c=Math.max(+el.dataset.mn,c);if(el.dataset.mx!=null)c=Math.min(+el.dataset.mx,c);el._c=c;
+      const txt=f1(d?c:Math.round(c),d);if(el.textContent!==txt)el.textContent=txt})},400)}
+G.liveText=liveText;G.lvStart=lvStart;
+function ventMon(S,o){lvStart();o=o||{};const m=S.m,mm=S.mm,x=o.x||{},esc=G.esc||(s=>s);
   const pmax=niceMax(mm.ppeak+4,10,30),fA=Math.max(...S.f.map(Math.abs)),fmax=niceMax(fA+5,20,40),vmax=niceMax(Math.max(...S.v)+40,200,600);
   const charts=vChart(S.p,0,pmax,{H:118,lab:"Paw",unit:"cmH₂O",cls:"vc-p",ticks:[0,pmax/2,pmax],refs:[[m.peep,"peep"],[m.plim,"lim"]],T:S.T})
    +vChart(S.f,-fmax,fmax,{H:118,lab:"Flusso",unit:"l/min",cls:"vc-f",ticks:[-fmax,0,fmax],T:S.T})
@@ -168,26 +185,26 @@ function ventMon(S,o){o=o||{};const m=S.m,mm=S.mm,x=o.x||{},esc=G.esc||(s=>s);
   const al=S.alarms,red=al.some(a=>a[0]==="r");
   const NR=(hi,lo,v,lab,unit,cls,alarm)=>`<div class="vm-n${cls?" "+cls:""}${alarm?" al":""}"><span class="lim">${hi!=null?hi:""}<br>${lo!=null?lo:""}</span><b>${v}</b><span class="nm">${lab}<i>${unit}</i></span></div>`;
   const vlo=m.mode==="VC"?Math.round(m.vt*.75):(m.vtlo||300),vhi=m.mode==="VC"?Math.round(m.vt*1.5):900;
-  const nums=[NR(m.plim,5,f1(mm.ppeak),"Ppicco","cmH₂O","",mm.ppeak>=m.plim||m.disc),
-    NR(vhi,vlo,f1(mm.vte),"VTe","ml","",mm.vte<vlo),
-    NR(35,8,f1(mm.rr),"FRtot","/min","",mm.rr>35||m.apnea),
-    NR(null,null,mm.pplat!=null&&!m.disc?f1(mm.pplat):"---","Pplat","cmH₂O"),
-    NR(15,4,f1(mm.ve,1),"VMe","l/min","",mm.ve<4||mm.ve>15),
-    o.kg?NR(null,null,f1(mm.vte/o.kg,1),"VT/PI","ml/kg"):NR(null,null,f1(mm.pmean),"Pmedia","cmH₂O")].join("");
+  const nums=[NR(m.plim,5,m.disc?f1(mm.ppeak):lv(mm.ppeak,0,{a:Math.max(1,mm.ppeak*.03),p:60/Math.max(6,mm.rr)}),"Ppicco","cmH₂O","",mm.ppeak>=m.plim||m.disc),
+    NR(vhi,vlo,lv(mm.vte,0,{j:(m.mode==="PSV"||m.mode==="CPAP")?.06:.025,p:60/Math.max(6,mm.rr)}),"VTe","ml","",mm.vte<vlo),
+    NR(35,8,(m.mode==="PSV"||m.mode==="CPAP")&&!m.apnea?lv(mm.rr,0,{a:1.5,p:8,mn:1}):f1(mm.rr),"FRtot","/min","",mm.rr>35||m.apnea),
+    NR(null,null,mm.pplat!=null&&!m.disc?lv(mm.pplat,0,{a:Math.max(.8,mm.pplat*.02),p:60/Math.max(6,mm.rr)}):"---","Pplat","cmH₂O"),
+    NR(15,4,m.disc?f1(mm.ve,1):lv(mm.ve,1,{j:.035,p:6,mn:0}),"VMe","l/min","",mm.ve<4||mm.ve>15),
+    o.kg?NR(null,null,m.disc?"0,0":lv(mm.vte/o.kg,1,{j:(m.mode==="PSV"||m.mode==="CPAP")?.06:.025,p:60/Math.max(6,mm.rr)}),"VT/PI","ml/kg"):NR(null,null,lv(mm.pmean,0,{a:.8,p:5}),"Pmedia","cmH₂O")].join("");
   const rinsp=m.mode==="VC"&&mm.pres!=null&&!m.disc?mm.pres/(m.vt/1000/Math.max(.2,m.ti-m.pause)):null;
   const knob=(v,u,l,hl)=>`<div class="vm-kb${hl?" hl":""}"><span class="vm-ring"><b>${v}</b><i>${u}</i></span><em>${l}</em></div>`;
   const kn=m.mode==="VC"?[[m.rr,"/min","Frequenza"],[m.vt,"ml","Volume"],[m.peep,"cmH₂O","PEEP"],[Math.round(m.fio2*100),"%","Ossigeno"],[f1(m.ti,1),"s","Ti"]]
     :m.mode==="PC"?[[m.rr,"/min","Frequenza"],[m.pins,"cmH₂O","Pinsp"],[m.peep,"cmH₂O","PEEP"],[Math.round(m.fio2*100),"%","Ossigeno"],[f1(m.ti,1),"s","Ti"]]
     :m.mode==="PSV"?[[m.ps,"cmH₂O","Psupporto"],[m.peep,"cmH₂O",m.niv?"EPAP":"PEEP"],[Math.round(m.fio2*100),"%","Ossigeno"],[2,"l/min","Trigger"],[25,"%","Ciclaggio"]]
     :[[m.peep,"cmH₂O","CPAP"],[Math.round(m.fio2*100),"%","Ossigeno"]];
-  const vit=Object.entries(x).map(([k,v])=>`<span><i>${esc(k)}</i>${esc(String(v))}</span>`).join("");
+  const vit=Object.entries(x).map(([k,v])=>`<span><i>${esc(k)}</i>${liveText(k,v)}</span>`).join("");
   return `<div class="vmon${o.anim&&!(typeof RM!=="undefined"&&RM)?" vm-anim":""}" role="img" aria-label="Monitor del ventilatore: valori misurati, curve di pressione, flusso e volume, polmone e impostazioni">
    <div class="vm-al${al.length?(red?" r":" y"):""}">${al.length?al.map(a=>`<span class="${a[0]}">${esc(a[1])}</span>`).join(""):"<span class=\"ok\">Nessun allarme attivo</span>"}${m.hold?`<span class="hold">PEEP totale <b>${f1(mm.peeptot,1)}</b></span>`:""}</div>
    <div class="vm-grid">
     <div class="vm-nums">${nums}${vit?`<div class="vm-vit">${vit}</div>`:""}</div>
     <div class="vm-mid"><div class="vm-waves">${charts}<div class="vm-sweep" aria-hidden="true"></div></div>
      <div class="vm-panels"><div class="vm-pan"><div class="vm-pan-h"><span>${o.kg?`Adulto · peso ideale ${o.kg} kg`:"Adulto"}</span><span>${m.mode==="VC"||m.mode==="PC"?"Polmone dinamico":"Polmone"}</span></div>${vLung(S)}
-       <div class="vm-mini"><span><b>${rinsp!=null?f1(rinsp):"---"}</b><i>Rinsp<br>cmH₂O/l/s</i></span><span><b>${mm.cst!=null&&!m.disc?f1(mm.cst):"---"}</b><i>Cstat<br>ml/cmH₂O</i></span><span><b>${S.cap&&!m.disc?f1(m.etco2):"---"}</b><i>PetCO₂<br>mmHg</i></span><span><b>${x.SpO2?esc(String(x.SpO2).replace(/[^0-9]/g,"").slice(0,3)||"---"):"---"}</b><i>SpO₂<br>%</i></span></div></div>
+       <div class="vm-mini"><span><b>${rinsp!=null?lv(rinsp,0,{j:.04,p:7}):"---"}</b><i>Rinsp<br>cmH₂O/l/s</i></span><span><b>${mm.cst!=null&&!m.disc?lv(mm.cst,0,{j:.04,p:7}):"---"}</b><i>Cstat<br>ml/cmH₂O</i></span><span><b>${S.cap&&!m.disc?lv(m.etco2,0,{a:1,p:60/Math.max(6,mm.rr),mn:0}):"---"}</b><i>PetCO₂<br>mmHg</i></span><span><b>${x.SpO2&&/\d/.test(String(x.SpO2))?lv(parseInt(String(x.SpO2).match(/\d+/)[0]),0,{a:1,p:5,mx:100}):"---"}</b><i>SpO₂<br>%</i></span></div></div>
       <div class="vm-pan">${vLoop(S,pmax,vmax)}</div></div></div>
     <div class="vm-knobs"><div class="vm-modep">${hide?"<span class=\"vm-hid\">modalità ?</span>":esc(modeTxt)}</div>${kn.map(k=>knob(k[0],k[1],k[2])).join("")}</div>
    </div>
@@ -234,17 +251,17 @@ function capnoSim(cp0){const cp=Object.assign({rr:12,base:0,at:.5},cp0||{});for(
   const li=Math.max(0,Math.min(ets.length-1,Math.ceil(T/per-1e-6)-1)),shown=ets[li];
   return {cp,T,y,ets:ets.slice(0,Math.ceil(T/per)),et:shown,rr:cp.f==="zero"&&shown<1?0:cp.f==="exo"&&shown<1?0:cp.rr}}
 function capnoCat(S){const e=S.et;return e<5?0:e<35?1:e<=45?2:3}
-function capnoMon(S,o){o=o||{};const esc=G.esc||(s=>s);const top=S.cp.et>58||(S.cp.et0||0)>58?80:60;
+function capnoMon(S,o){lvStart();o=o||{};const esc=G.esc||(s=>s);const top=S.cp.et>58||(S.cp.et0||0)>58?80:60;
   const ticks=top===80?[0,20,40,60,80]:[0,15,30,45,60];
   const chart=vChart(S.y,0,top,{H:170,lab:"CO₂",unit:"mmHg",cls:"vc-c",ticks,refs:[[35,"band"],[45,"band"]],xl:1,T:S.T});
   const bars=S.ets.map(e=>`<i style="height:${Math.max(2,Math.round(e/top*100))}%"><em>${Math.round(e)}</em></i>`).join("");
-  const vit=Object.entries(o.x||{}).map(([k,v])=>`<span><i>${esc(k)}</i>${esc(String(v))}</span>`).join("");
+  const vit=Object.entries(o.x||{}).map(([k,v])=>`<span><i>${esc(k)}</i>${liveText(k,v)}</span>`).join("");
   const NR=(hi,lo,v,lab,unit,alarm)=>`<div class="vm-n${alarm?" al":""}"><span class="lim">${hi!=null?hi:""}<br>${lo!=null?lo:""}</span><b>${v}</b><span class="nm">${lab}<i>${unit}</i></span></div>`;
   const al=[];if(S.et<5)al.push(["r","CO₂ assente"]);else if(S.et<30)al.push(["y","EtCO₂ bassa"]);else if(S.et>50)al.push(["y","EtCO₂ alta"]);if((S.cp.base||0)>3)al.push(["y","CO₂ inspirata"]);if(S.rr&&S.rr<8)al.push(["y","Frequenza bassa"]);
   return `<div class="vmon cmon${o.anim&&!(typeof RM!=="undefined"&&RM)?" vm-anim":""}" role="img" aria-label="Capnogramma con valori di EtCO₂ atto per atto">
    <div class="vm-al${al.length?(al.some(a=>a[0]==="r")?" r":" y"):""}">${al.length?al.map(a=>`<span class="${a[0]}">${esc(a[1])}</span>`).join(""):"<span class=\"ok\">Nessun allarme attivo</span>"}</div>
    <div class="vm-grid">
-    <div class="vm-nums">${NR(50,30,f1(S.et),"EtCO₂","mmHg",S.et<30||S.et>50)}${NR(30,8,S.rr?f1(S.rr):"---","FR","/min",!S.rr||S.rr<8)}${NR(3,null,f1(S.cp.base||0),"FiCO₂","mmHg",(S.cp.base||0)>3)}${vit?`<div class="vm-vit">${vit}</div>`:""}</div>
+    <div class="vm-nums">${NR(50,30,S.et<3?f1(S.et):lv(S.et,0,{a:1.2,p:60/Math.max(4,S.rr||10),mn:0}),"EtCO₂","mmHg",S.et<30||S.et>50)}${NR(30,8,S.rr?lv(S.rr,0,{a:S.cp.f==="rcp"?0:1,p:9,mn:1}):"---","FR","/min",!S.rr||S.rr<8)}${NR(3,null,f1(S.cp.base||0),"FiCO₂","mmHg",(S.cp.base||0)>3)}${vit?`<div class="vm-vit">${vit}</div>`:""}</div>
     <div class="vm-mid"><div class="vm-waves">${chart}<div class="vm-sweep" aria-hidden="true"></div></div>
      <div class="vm-panels one"><div class="vm-pan"><div class="vm-pan-h"><span>EtCO₂ atto per atto</span><span>${esc(o.where||"campionamento dal circuito")}</span></div><div class="cm-bars">${bars}</div></div></div></div>
    </div>
@@ -700,7 +717,7 @@ function igLab(o,sex,showFlag){const esc=G.esc,A=G.LAB_AN||LAB_AN;
   const rows=o.p.pan.map(k=>{const st=G.labStatus(k,o.val[k],sex);return `<tr class="lab-row"><td>${esc(A[k][0])}</td><td class="lab-v">${G.labFmt(k,o.val[k])} ${showFlag&&st?`<span class="lab-flag ${st}">${st==="H"?"↑ alto":"↓ basso"}</span>`:""}</td><td class="lab-u">${esc(A[k][1])}</td><td class="lab-r">${G.labRefTxt(k,sex)}</td></tr>`}).join("");
   return `<div class="lab-sheet"><div class="lab-sh"><b>Referto di laboratorio</b><span class="small mono">esercitazione · valori inventati</span></div><table class="lab-t"><thead><tr><th>Esame</th><th>Risultato</th><th>Unità</th><th>Riferimento</th></tr></thead><tbody>${rows}</tbody></table></div>`}
 const IG_T={ega:"Emogasanalisi",lab:"Esami di laboratorio",ecg:"Elettrocardiogramma",vent:"Monitor del ventilatore",capno:"Capnografia"};
-function integGym(){const app=document.getElementById("app"),esc=G.esc;if(!IG.cur)igNew();const K=IG.cur;if(!K){app.innerHTML="<p>Nessun caso disponibile.</p>";return}const sc=K.sc;
+function integGym(){lvStart();const app=document.getElementById("app"),esc=G.esc;if(!IG.cur)igNew();const K=IG.cur;if(!K){app.innerHTML="<p>Nessun caso disponibile.</p>";return}const sc=K.sc;
   const nP=K.parts.length,allDone=IG.ans.length>=nP&&IG.ans.every(a=>a!=null),finDone=IG.fin!=null;
   const exhibit=(o,i)=>{const ans=IG.ans[i]!=null;
     if(o.p.t==="ega")return `<div class="ig-ega">${G.egaPaper(o.C,{nf:false,anim:false})}</div>`;
@@ -721,7 +738,7 @@ function integGym(){const app=document.getElementById("app"),esc=G.esc;if(!IG.cu
   <p class="lead">Un paziente, più esami da interpretare uno dopo l'altro: emogas, esami del sangue, ECG, monitor del ventilatore e capnografia. Il quadro si chiarisce parte dopo parte, come in reparto. ${INTEG_SC.length} casi${palNew(INTEG_SC)?` (${palNew(INTEG_SC)} arrivati con gli aggiornamenti giornalieri)`:""}, con valori e tracciati sempre nuovi.</p>
   <div class="row">${["tutti","facile","medio","difficile"].map(l=>`<button class="chip" data-il="${l}" aria-pressed="${IG.lv===l}">${l==="tutti"?"Tutti i livelli":l[0].toUpperCase()+l.slice(1)}</button>`).join("")}<select class="btn" id="ig-sel" aria-label="Scegli un caso"><option value="">Scegli un caso…</option>${INTEG_SC.filter(s=>IG.lv==="tutti"||s.lv===IG.lv).map(s=>`<option value="${s.id}" ${s.id===sc.id?"selected":""}>${esc(s.n)}</option>`).join("")}</select><span class="small" style="margin-left:auto">Casi completati: <b>${IG.ok}</b> su <b>${IG.n}</b></span></div>
   <section class="sheet ig-head"><div><span class="eyebrow">${sc.sex==="F"?"Donna":"Uomo"}, ${K.age} anni · ${esc(sc.rep)} · livello ${esc(sc.lv||"medio")} ${palNewBadge(sc)}</span><h3>${esc(sc.n)}</h3><p>${esc(sc.st)}</p></div>
-   ${sc.x?`<div class="ig-vit">${Object.entries(sc.x).map(([k,v])=>`<span><i>${esc(k)}</i><b>${esc(String(v))}</b></span>`).join("")}</div>`:""}
+   ${sc.x?`<div class="ig-vit">${Object.entries(sc.x).map(([k,v])=>`<span><i>${esc(k)}</i><b>${liveText(k,v)}</b></span>`).join("")}</div>`:""}
    <div class="ig-prog" aria-label="Avanzamento del caso">${K.parts.map((o,i)=>`<i class="${IG.ans[i]!=null?(IG.ans[i]===o.ao.indexOf(o.p.c)?"ok":"ko"):i===IG.part?"cur":""}" title="${IG_T[o.p.t]}">${IG_T[o.p.t]}</i>`).join("")}${F?`<i class="${finDone?(IG.fin===fr?"ok":"ko"):""}">Sintesi</i>`:""}</div></section>
   ${K.parts.map(partHtml).join("")}${finHtml}
   ${over?`<section class="sheet ig-end"><b>${got} ${got===1?"risposta corretta":"risposte corrette"} su ${tot}.</b><div class="row"><button class="btn primary" id="ig-new">Nuovo caso</button><a class="btn" href="#vent-esercizi" style="text-decoration:none">Palestra ventilatore</a><a class="btn" href="#ega-esercizi" style="text-decoration:none">Palestra EGA</a></div></section>`:""}`;
