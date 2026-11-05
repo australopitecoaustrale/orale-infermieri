@@ -44,6 +44,7 @@
 :root[data-view="home"]{--va:#0f6f8c}
 :root[data-view="studio"]{--va:#5b3a99}
 :root[data-view="enciclopedia"]{--va:#7a4a26}
+:root[data-view="anatomia"]{--va:#9c2f3a}
 :root[data-view="glossario"]{--va:#4a5d73}
 :root[data-view="calcoli"]{--va:#4f7a12}
 :root[data-view="flashcard"]{--va:#c0600e}
@@ -1160,6 +1161,36 @@ button[disabled],.opt[disabled]{cursor:default}
 .qm.chart .lg::before{content:none!important}.qm.chart .lg2{border-top-style:dashed}.qm.chart .lg3{border-top-style:dotted;border-top-width:4px}
 .qm.chart .lg4{width:9px;height:9px;border:0;border-radius:50%;background:#adb5bd}.qm.chart .lg5{border-top:4px solid var(--qm-ink)}
 .qm.chart .qm-mini .bar{background:color-mix(in srgb,var(--qm-ink) 10%,var(--paper))}.qm.chart .qm-mini .bar i{background:var(--qm-ink)}.qm.chart .qm-mini b,.qm.chart .qm-mini span{color:var(--qm-ink)}
+
+/* ===== Atlante 3D ===== */
+.an-orgs{flex-wrap:wrap}
+.an-lay{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start}
+@media (min-width:980px){.an-lay{grid-template-columns:minmax(0,1fr) 340px}}
+.an-stage-w{display:flex;flex-direction:column;gap:12px}
+.an-stage{position:relative;height:min(72vh,620px);min-height:380px;border-radius:18px;overflow:hidden;background:radial-gradient(120% 90% at 50% 25%,#2b2228 0%,#16121a 70%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.an-stage canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.an-hud{position:absolute;left:16px;top:14px;display:flex;flex-direction:column;color:#f4ece6;pointer-events:none}.an-hud b{font-family:var(--f-display);font-size:1.15rem}.an-hud span{font-size:.85rem;color:#d6c8c0}
+.an-zoom{position:absolute;right:12px;top:12px;display:flex;gap:6px}.an-zoom .btn{min-width:38px;background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.18)}
+.an-tip{position:absolute;left:0;top:0;pointer-events:none;background:rgba(20,16,22,.9);color:#fff;font-size:.82rem;font-weight:600;padding:4px 9px;border-radius:8px;white-space:nowrap}
+.an-load{position:absolute;inset:0;display:grid;place-items:center;color:#e9ddd5;font-size:.95rem}
+.an-ctl{display:flex;flex-direction:column;gap:10px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.an-row{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}.an-l{font-weight:700;font-size:.9rem;min-width:9.5em}
+.an-row input[type=range]{flex:1;min-width:160px;accent-color:var(--va)}
+.an-cuthint{margin:0}
+.an-side{display:flex;flex-direction:column;gap:12px}
+.an-info{padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:var(--paper);display:flex;flex-direction:column;gap:6px}
+.an-info h3{margin:0;font-family:var(--f-display);font-size:1.08rem}.an-info p{margin:0;line-height:1.5}
+.an-dot{width:12px;height:12px;border-radius:4px}
+.an-list{padding:12px 14px;border-radius:16px;border:1px solid var(--line);background:var(--paper);max-height:520px;overflow:auto;display:flex;flex-direction:column;gap:6px}
+.an-g summary{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.9rem;padding:4px 0;cursor:pointer}
+.an-iso{font-size:.75rem;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:1px 8px;color:var(--muted)}
+.an-p{display:flex;gap:8px;align-items:center;padding:5px 6px;border-radius:8px;font-size:.88rem;cursor:pointer}
+.an-p:hover{background:color-mix(in srgb,var(--va) 7%,var(--paper))}.an-p.on{background:color-mix(in srgb,var(--va) 14%,var(--paper));font-weight:700}
+.an-p i{width:11px;height:11px;border-radius:3px;flex:none}.an-p input{accent-color:var(--va)}
+.an-fis ul{margin:6px 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:80ch}
+.an-quiz{display:flex;flex-direction:column;gap:10px}.an-quiz .row{flex-wrap:wrap}.an-q{margin:0;font-size:1.02rem}
+.an-cred{color:var(--muted)}
+@media (max-width:560px){.an-stage{height:56vh;min-height:320px}.an-l{min-width:0;width:100%}}
 </style>
 </head>
 <body>
@@ -1172,6 +1203,7 @@ button[disabled],.opt[disabled]{cursor:default}
       <a href="#home">Panoramica</a>
       <a href="#studio">Studio</a>
       <a href="#enciclopedia">Enciclopedia</a>
+      <a href="#anatomia">Anatomia 3D</a>
       <a href="#glossario">Glossario</a>
       <a href="#flashcard">Flashcard</a>
       <a href="#quiz">Allenamento</a>
@@ -1193,6 +1225,7 @@ button[disabled],.opt[disabled]{cursor:default}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js" defer></script>
 <script src="enciclopedia.js"></script>
+<script src="anatomia.js"></script>
 <script src="glossario.js"></script>
 <script src="encquiz.js"></script>
 <script src="enccases.js"></script>
@@ -1677,6 +1710,7 @@ function tag(m){return `<span class="tag t-${m}">${SUBJ[m].short}</span>`}
 /* ============ VISTE ============ */
 
 const ICONS={
+ anatomia:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M12 7.4V13M9.5 10.5h5"/>',
  oggi:'<rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M8 2v4M16 2v4M3 9h18"/><path d="M8.5 15l2.5 2.5 4.5-5"/>',
  avanzamento:'<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/><path d="M16 7h4v4"/>',
  home:'<path d="M5 3v5a5 5 0 0 0 10 0V3"/><path d="M10 13v3a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="12" r="2"/><path d="M4 3h2M14 3h2"/>',
@@ -1710,6 +1744,7 @@ function decorateHead(name){
 
 /* ---- selettore delle schede: pillola che scorre con un oggetto sanitario diverso per sezione ---- */
 const TABICONS={
+ anatomia:['Cuore','<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>'],
  oggi:['Siringa','<g transform="rotate(45 12 12)"><rect x="9" y="6" width="6" height="11" rx="1.2"/><path d="M12 2.5V6M9.5 2.5h5M12 17v4.5M9 9.5h2.5M9 12.5h2.5"/></g>'],
  avanzamento:['Termometro','<path d="M10 14.5V4.5a2 2 0 0 1 4 0v10a4 4 0 1 1-4 0z"/><path d="M12 9v8.5"/><circle cx="12" cy="17.6" r="1.3" class="fillc"/>'],
  home:['Fonendoscopio','<path d="M6 3v5a5 5 0 0 0 10 0V3"/><path d="M4.5 3H7M15 3h2.5"/><path d="M11 13v3.5a4 4 0 0 0 8 0V14"/><circle cx="19" cy="12" r="2"/>'],
@@ -1803,6 +1838,7 @@ function geom(nav,name){
   const H=a.offsetHeight+6, W=a.offsetWidth+S.l+S.r;
   return {a,S,H,W,x:a.offsetLeft-S.l,y:a.offsetTop-3};
 }
+SHAPES.anatomia=SHAPES.enciclopedia;
 function moveInd(name){
   const nav=document.querySelector("nav.tabs");if(!nav)return;
   ensureShape(nav);
@@ -2316,7 +2352,7 @@ const ENC_STRIPS={
  "emogasanalisi":[["m","co2-norm"]]
 };
 ENC_STRIPS["bpco"].push(["m","co2-ostr"]);ENC_STRIPS["oppioidi"].push(["m","co2-ipo"]);
-function encStrips(id){const L=ENC_STRIPS[id];const e=ENC_BY[id];const cta=e&&e.a==="ecg"?`<a class="btn primary" href="#ecg-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra ECG</a>`:e&&(e.id==="emogasanalisi"||e.id==="es-acido-base")?`<a class="btn primary" href="#ega-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra EGA</a>`:e&&e.a==="esami"&&!e.x?`<a class="btn primary" href="#esami-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra esami</a>`:"";if(!L)return cta;return cta+`<div><h4>Tracciati di esempio</h4><div class="strips">${L.map(x=>x[0]==="e"?WAVE.strip(x[1],x[2]):x[0]==="m"?WAVE.miscStrip(x[1]):WAVE.respStrip(x[1],x[2])).join("")}</div></div>`}
+function encStrips(id){const L=ENC_STRIPS[id];const e=ENC_BY[id];const AORG={"cuore-fisiologia":"cuore","respiro-fisiologia":"polmoni","sistema-nervoso":"encefalo","rene-fisiologia":"reni","apparato-digerente":"digerente"};const cta=e&&AORG[e.id]?`<a class="btn primary" href="#anatomia" data-anorg="${AORG[e.id]}" style="text-decoration:none;align-self:flex-start">Guarda l'organo in 3D</a>`:e&&e.a==="ecg"?`<a class="btn primary" href="#ecg-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra ECG</a>`:e&&(e.id==="emogasanalisi"||e.id==="es-acido-base")?`<a class="btn primary" href="#ega-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra EGA</a>`:e&&e.a==="esami"&&!e.x?`<a class="btn primary" href="#esami-esercizi" style="text-decoration:none;align-self:flex-start">Esercitati nella Palestra esami</a>`:"";if(!L)return cta;return cta+`<div><h4>Tracciati di esempio</h4><div class="strips">${L.map(x=>x[0]==="e"?WAVE.strip(x[1],x[2]):x[0]==="m"?WAVE.miscStrip(x[1]):WAVE.respStrip(x[1],x[2])).join("")}</div></div>`}
 function vitalsMonitor(vit,c){
   const cc=c||{vit,title:"",story:"",esami:[]};
   const col=k=>/^(FC|HR)/i.test(k)?"hr":/SpO2|Sat/i.test(k)?"sp":/^PA/i.test(k)?"bp":/^FR/i.test(k)?"rr":/^TC|Temp/i.test(k)?"tc":"ot";
@@ -2381,9 +2417,9 @@ function vitalsMonitor(vit,c){
   const cv=document.querySelector(".hdr-fx"),hd=document.querySelector("header.top"),ecg=document.querySelector(".hdr-ecg");if(!cv||!hd)return;
   const ctx=cv.getContext("2d");if(!ctx)return;
   const RMq=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const MODE={oggi:"ecgp",home:"ecgp",casi:"ecgp",avanzamento:"thermo",studio:"vessel",enciclopedia:"atlas",glossario:"catalog",flashcard:"line",quiz:"tubes",calcoli:"infusion",domande:"bubbles",orale:"wave",metodo:"plus"};
+  const MODE={oggi:"ecgp",home:"ecgp",casi:"ecgp",avanzamento:"thermo",studio:"vessel",enciclopedia:"atlas",anatomia:"atlas",glossario:"catalog",flashcard:"line",quiz:"tubes",calcoli:"infusion",domande:"bubbles",orale:"wave",metodo:"plus"};
   const STATES={};let W=0,H=0,dpr=1,mode=null,st=null,bok=[],last=0,raf=0,curView="oggi";
-  const DESK={oggi:"monitor",home:"monitor",casi:"monitor",avanzamento:"clip",studio:"micro",enciclopedia:"book",glossario:"type",flashcard:"organizer",calcoli:"pump",orale:"mic"};
+  const DESK={oggi:"monitor",home:"monitor",casi:"monitor",avanzamento:"clip",studio:"micro",enciclopedia:"book",anatomia:"book",glossario:"type",flashcard:"organizer",calcoli:"pump",orale:"mic"};
   const rnd=(a,b)=>a+Math.random()*(b-a),pick=a=>a[Math.floor(Math.random()*a.length)],TAU=Math.PI*2;
   const rgba=(hex,a)=>{const n=parseInt(hex.slice(1),16);return `rgba(${n>>16},${n>>8&255},${n&255},${a})`};
   const W_=a=>`rgba(255,255,255,${a})`;
@@ -3830,6 +3866,7 @@ function enciclopedia(v){
   <div id="enc-main" style="display:flex;flex-direction:column;gap:16px">
     <div class="enc-areas"><button class="enc-area" style="--c:var(--scrub)" data-area="tutte" aria-pressed="${area==="tutte"}"><b>Tutte le aree</b><span>${ENCY.length} voci</span></button>${Object.entries(EAREE).map(([k,a])=>`<button class="enc-area" style="--c:${a.c}" data-area="${k}" aria-pressed="${area===k}"><b>${esc(a.n)}</b><span>${counts[k]||0} voci</span></button>`).join("")}</div>
     ${area==="ecg"||area==="tutte"?`<a class="sheet gym-cta" href="#ecg-esercizi"><span class="eyebrow">Novità</span><b>Palestra ECG: esercizi di lettura</b><span class="small">Strisce sempre nuove da leggere con metodo (frequenza, ritmo, P, QRS, diagnosi) con compasso per misurare gli intervalli</span></a>`:""}
+    <a class="sheet gym-cta" href="#anatomia"><b>Atlante 3D degli organi</b><span class="small">Cuore, polmoni, encefalo, reni, fegato e apparato digerente in 3D: ruota, taglia in sezione e tocca le strutture, con domande di anatomia e fisiologia</span></a>
     <a class="sheet gym-cta mn-cta" href="#mnemoniche"><b>Per ricordare: acronimi e frasi mnemoniche</b><span class="small">${Object.values(MN).reduce((a,l)=>a+l.length,0)} trucchi per memorizzare (regola delle 7 G, ABCDE, SBAR, regola del 15, del 9…), raccolti in un'unica pagina e dentro ogni voce</span></a>
     ${area==="diritto"?dirIdx():""}
     ${area==="esami"?esIdx():""}
@@ -4049,7 +4086,7 @@ function a11yLabels(){document.querySelectorAll("#app input:not([type=hidden]),#
   t=(t||i.placeholder||i.title||"").replace(/\s+/g," ").slice(0,90);if(t)i.setAttribute("aria-label",unit&&i.tagName==="SELECT"?t+" (unità)":t)})}
 new MutationObserver(()=>headFix(app)).observe(app,{childList:true,subtree:true});
 let a11yT=0;new MutationObserver(()=>{clearTimeout(a11yT);a11yT=setTimeout(a11yLabels,80)}).observe(app,{childList:true,subtree:true});window.addEventListener("resize",()=>{document.querySelectorAll(".pm-waves").forEach(w=>delete w.dataset.f);fitSoon()});
-const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,calcoli,domande,casi,orale,metodo};
+const VIEWS={oggi,avanzamento,home,studio,enciclopedia,anatomia,glossario,flashcard,quiz,calcoli,domande,casi,orale,metodo};
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
 /* ---- Movimento: GSAP (entrate, conteggi, feedback), Lottie (traguardo), Three.js (cuore 3D) ---- */
 const MOTION=(()=>{
@@ -4148,7 +4185,134 @@ async function heart3dStart(box){
   buildTl();if(tl){if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){slow=true;sb.setAttribute("aria-pressed","true");tl.timeScale(.25)}tl.play()}
   loop();
 }
+document.addEventListener("click",e=>{const a=e.target.closest("[data-anorg]");if(a){AN={...AN,org:a.dataset.anorg,sel:null,cut:"",hidden:{},expl:0}}},true);
 document.addEventListener("click",e=>{const b=e.target.closest("[data-h3d-go]");if(b)heart3dStart(b.closest("[data-h3d]"))});
+
+/* ---- Anatomia 3D: modelli BodyParts3D (CC BY-SA 2.1 JP) con sezioni, selezione e domande ---- */
+let AN={org:"cuore",sel:null,cut:"",cutPos:0,flip:false,expl:0,hidden:{},anim:true,qi:0,qa:null,qok:0,qn:0,qorg:""};
+const anLoad=id=>new Promise((res,rej)=>{if(window.ANAT_MESH&&ANAT_MESH[id])return res(ANAT_MESH[id]);const s=document.createElement("script");s.src="anat/anat-"+id+".js";s.onload=()=>ANAT_MESH&&ANAT_MESH[id]?res(ANAT_MESH[id]):rej();s.onerror=rej;document.head.appendChild(s)});
+function b64(s,T){const b=atob(s),u=new Uint8Array(b.length);for(let i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new T(u.buffer)}
+function anatomia(){
+  if(typeof ANAT==="undefined"){app.innerHTML="<p>Sezione non disponibile.</p>";return}
+  const O=ANAT.find(o=>o.id===AN.org)||ANAT[0];AN.org=O.id;
+  const grp=Object.entries(O.groups).map(([g,n])=>{const L=Object.entries(O.parts).filter(([,p])=>p[1]===g);return L.length?`<details class="an-g" open><summary><span>${esc(n)}</span><button class="an-iso" data-iso="${g}" title="Mostra solo questo gruppo">solo</button></summary>${L.map(([id,p])=>`<label class="an-p${AN.sel===id?" on":""}" data-pid="${id}"><input type="checkbox" data-hide="${id}" ${AN.hidden[id]?"":"checked"} aria-label="Mostra ${esc(p[0])}"><i style="background:${p[3]}"></i><span>${esc(p[0])}</span></label>`).join("")}</details>`:""}).join("");
+  const S=AN.sel&&O.parts[AN.sel];
+  app.innerHTML=`<div><span class="eyebrow">Anatomia e fisiologia umana</span><h2>Atlante 3D degli organi</h2></div>
+  <p class="lead">Modelli tridimensionali ricostruiti da dati anatomici reali. Ruota, ingrandisci, taglia l'organo lungo i tre piani per vedere l'interno e tocca una struttura per sapere che cos'è e a che cosa serve. In fondo trovi le domande di anatomia e fisiologia.</p>
+  <div class="row an-orgs" role="tablist">${ANAT.map(o=>`<button class="chip" role="tab" data-org="${o.id}" aria-pressed="${o.id===O.id}">${esc(o.t)}</button>`).join("")}</div>
+  <div class="an-lay">
+   <div class="an-stage-w"><div class="an-stage" id="an-stage" style="--ink:${O.ink}"><canvas id="an-cv" aria-label="Modello 3D: ${esc(O.t)}"></canvas><div class="an-tip" id="an-tip" hidden></div><div class="an-load" id="an-load">Caricamento del modello 3D…</div>
+     <div class="an-hud"><b>${esc(O.t)}</b><span>${esc(O.s)}</span></div>
+     <div class="an-zoom"><button class="btn" data-zoom="-1" aria-label="Riduci">−</button><button class="btn" data-zoom="1" aria-label="Ingrandisci">+</button><button class="btn" data-reset aria-label="Vista iniziale">⟲</button></div></div>
+    <div class="an-ctl">
+     <div class="an-row"><span class="an-l">Sezione</span><div class="row">${[["","Intero"],["coronale","Frontale"],["sagittale","Sagittale"],["trasversale","Trasversale"]].map(([k,n])=>`<button class="chip" data-cut="${k}" aria-pressed="${AN.cut===k}">${n}</button>`).join("")}${AN.cut?`<button class="chip" data-flip aria-pressed="${AN.flip}">Inverti lato</button>`:""}</div></div>
+     ${AN.cut?`<div class="an-row"><span class="an-l">Profondità del taglio</span><input type="range" id="an-cutpos" min="-100" max="100" value="${AN.cutPos}" aria-label="Profondità del taglio"></div><p class="small an-cuthint">${esc((O.cuts.find(c=>c[0]===AN.cut)||["",""])[1])}</p>`:""}
+     <div class="an-row"><span class="an-l">Esploso</span><input type="range" id="an-expl" min="0" max="100" value="${AN.expl}" aria-label="Separa le strutture">${O.anim?`<button class="chip" data-anim aria-pressed="${AN.anim}">${O.anim==="beat"?"Battito":"Respiro"}</button>`:""}</div>
+    </div>
+   </div>
+   <aside class="an-side">
+    <div class="an-info">${S?`<span class="an-dot" style="background:${S[3]}"></span><h3>${esc(S[0])}</h3><p>${esc(S[2])}</p><div class="row"><button class="btn" data-only="${AN.sel}">Mostra solo questa</button><button class="btn" data-desel>Chiudi</button></div>`:`<h3>Tocca una struttura</h3><p class="small">Selezionala sul modello o nell'elenco: comparirà qui che cos'è, a che cosa serve e che cosa deve osservare l'infermiere.</p>`}</div>
+    <div class="an-list"><div class="row" style="justify-content:space-between"><b>Strutture</b><button class="chip" data-showall>Mostra tutto</button></div>${grp}</div>
+   </aside>
+  </div>
+  <section class="sheet an-fis"><h3>Come funziona</h3><ul>${O.fis.map(f=>`<li>${esc(f)}</li>`).join("")}</ul><p class="small"><b>Che cosa osserva l'infermiere:</b> ${esc(O.inf)}</p></section>
+  <section class="sheet an-quiz" id="an-quiz"></section>
+  <p class="small an-cred">Modelli 3D derivati da BodyParts3D, © The Database Center for Life Science, licenza CC BY-SA 2.1 Japan, semplificati per il web. Testi originali.</p>`;
+  anBind(O);anQuiz();anScene(O);
+}
+function anBind(O){
+  app.querySelectorAll("[data-org]").forEach(b=>b.onclick=()=>{AN={...AN,org:b.dataset.org,sel:null,cut:"",cutPos:0,hidden:{},expl:0};anatomia()});
+  app.querySelectorAll("[data-cut]").forEach(b=>b.onclick=()=>{AN.cut=b.dataset.cut;AN.cutPos=0;anatomia()});
+  const fl=app.querySelector("[data-flip]");if(fl)fl.onclick=()=>{AN.flip=!AN.flip;fl.setAttribute("aria-pressed",AN.flip);anApply()};
+  const cp=$("#an-cutpos");if(cp)cp.oninput=()=>{AN.cutPos=+cp.value;anApply()};
+  const ex=$("#an-expl");ex.oninput=()=>{AN.expl=+ex.value;anApply()};
+  const an=app.querySelector("[data-anim]");if(an)an.onclick=()=>{AN.anim=!AN.anim;an.setAttribute("aria-pressed",AN.anim)};
+  app.querySelectorAll("[data-hide]").forEach(c=>c.onchange=()=>{AN.hidden[c.dataset.hide]=!c.checked;anApply()});
+  app.querySelectorAll(".an-p").forEach(l=>l.addEventListener("click",e=>{if(e.target.tagName==="INPUT")return;e.preventDefault();anSelect(l.dataset.pid,true)}));
+  app.querySelectorAll("[data-iso]").forEach(b=>b.onclick=e=>{e.preventDefault();e.stopPropagation();const g=b.dataset.iso;Object.entries(O.parts).forEach(([id,p])=>AN.hidden[id]=p[1]!==g);anatomia()});
+  const sa=app.querySelector("[data-showall]");sa.onclick=()=>{AN.hidden={};anatomia()};
+  const so=app.querySelector("[data-only]");if(so)so.onclick=()=>{Object.keys(O.parts).forEach(id=>AN.hidden[id]=id!==AN.sel);anatomia()};
+  const ds=app.querySelector("[data-desel]");if(ds)ds.onclick=()=>anSelect(null,true);
+  app.querySelectorAll("[data-zoom]").forEach(b=>b.onclick=()=>{if(AN3)AN3.dist=Math.max(1.6,Math.min(9,AN3.dist*(b.dataset.zoom>0?.82:1.22)))});
+  const rs=app.querySelector("[data-reset]");rs.onclick=()=>{if(AN3){AN3.rx=.1;AN3.ry=0;AN3.dist=4.2}};
+}
+function anSelect(id,rerender){AN.sel=id;if(AN3)AN3.meshes.forEach(m=>{const on=m.userData.id===id;m.material.emissive.setHex(on?0x553311:0x000000);m.material.emissiveIntensity=on?.9:0});
+  const O=ANAT.find(o=>o.id===AN.org),S=id&&O.parts[id],box=app.querySelector(".an-info");
+  if(box)box.innerHTML=S?`<span class="an-dot" style="background:${S[3]}"></span><h3>${esc(S[0])}</h3><p>${esc(S[2])}</p><div class="row"><button class="btn" data-only="${id}">Mostra solo questa</button><button class="btn" data-desel>Chiudi</button></div>`:`<h3>Tocca una struttura</h3><p class="small">Selezionala sul modello o nell'elenco.</p>`;
+  app.querySelectorAll(".an-p").forEach(l=>l.classList.toggle("on",l.dataset.pid===id));
+  const so=app.querySelector("[data-only]");if(so)so.onclick=()=>{Object.keys(O.parts).forEach(k=>AN.hidden[k]=k!==id);anatomia()};
+  const ds=app.querySelector("[data-desel]");if(ds)ds.onclick=()=>anSelect(null);
+  if(id&&window.matchMedia&&matchMedia("(max-width:900px)").matches&&box)box.scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+let AN3=null;
+function anApply(){if(!AN3)return;const {THREE,meshes,base}=AN3;const plane=base;
+  const ax={coronale:[0,0,-1],sagittale:[-1,0,0],trasversale:[0,-1,0]}[AN.cut];
+  if(ax){const n=new THREE.Vector3(...ax);if(AN.flip)n.negate();plane.normal.copy(n);plane.constant=(AN.flip?-1:1)*AN.cutPos/100*1.05}else{plane.normal.set(0,-1,0);plane.constant=99}
+  meshes.forEach(m=>{m.visible=!AN.hidden[m.userData.id];m.userData.back.visible=m.visible;const d=m.userData.dir,k=AN.expl/100*.9;m.position.set(d.x*k,d.y*k,d.z*k);m.userData.back.position.copy(m.position)})}
+async function anScene(O){
+  const st=$("#an-stage"),cv=$("#an-cv"),ld=$("#an-load");if(AN3&&AN3.stop)AN3.stop();AN3=null;
+  let THREE,data;
+  try{THREE=await import("https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js");data=await anLoad(O.id)}catch(e){ld.textContent="Il modello 3D richiede la connessione a internet: riprova quando sei online.";return}
+  if(!cv.isConnected)return;ld.hidden=true;
+  const ren=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});ren.setPixelRatio(Math.min(2,devicePixelRatio));ren.localClippingEnabled=true;ren.outputColorSpace=THREE.SRGBColorSpace;ren.toneMapping=THREE.ACESFilmicToneMapping;ren.toneMappingExposure=1.05;
+  const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(32,1,.05,60);
+  sc.add(new THREE.HemisphereLight(0xfff6f0,0x2a1d22,.9));const k=new THREE.DirectionalLight(0xffffff,2.2);k.position.set(3,4,5);sc.add(k);const f=new THREE.DirectionalLight(0xffe4d6,.8);f.position.set(-4,1,3);sc.add(f);const r=new THREE.DirectionalLight(0x9fc4ff,1.1);r.position.set(-2,3,-5);sc.add(r);
+  const plane=new THREE.Plane(new THREE.Vector3(0,-1,0),99);
+  const root=new THREE.Group();sc.add(root);const meshes=[];
+  /* BodyParts3D: Z verso la testa, Y verso il dorso: ruotiamo per avere Y in alto e la faccia anteriore verso chi guarda */
+  root.rotation.x=-Math.PI/2;
+  const gAll=new THREE.Box3();
+  data.parts.forEach(p=>{const info=O.parts[p.id];if(!info)return;
+    const pos=b64(p.p,Int16Array),idx=b64(p.i,p.u32?Uint32Array:Uint16Array);const fpos=new Float32Array(pos.length);for(let i=0;i<pos.length;i++)fpos[i]=pos[i]/32767;
+    const g=new THREE.BufferGeometry();g.setAttribute("position",new THREE.BufferAttribute(fpos,3));g.setIndex(new THREE.BufferAttribute(idx,1));g.computeVertexNormals();g.computeBoundingBox();
+    const col=new THREE.Color(info[3]);
+    const front=new THREE.MeshPhysicalMaterial({color:col,roughness:.48,metalness:0,clearcoat:.55,clearcoatRoughness:.35,sheen:.4,sheenColor:new THREE.Color(0xffffff).lerp(col,.5),clippingPlanes:[plane],side:THREE.FrontSide});
+    const back=new THREE.MeshStandardMaterial({color:col.clone().multiplyScalar(.55),roughness:.8,clippingPlanes:[plane],side:THREE.BackSide,polygonOffset:true,polygonOffsetFactor:2,polygonOffsetUnits:2});
+    const m=new THREE.Mesh(g,front),mb=new THREE.Mesh(g,back);m.userData={id:p.id,back:mb};root.add(mb);root.add(m);meshes.push(m);gAll.union(g.boundingBox)});
+  const center=gAll.getCenter(new THREE.Vector3());
+  meshes.forEach(m=>{m.geometry.translate(-center.x,-center.y,-center.z);m.geometry.computeBoundingBox();const c=m.geometry.boundingBox.getCenter(new THREE.Vector3());m.userData.dir=c.length()>1e-4?c.clone().normalize().multiplyScalar(Math.min(1,.4+c.length())):new THREE.Vector3()});
+  const piv=new THREE.Group();sc.remove(root);piv.add(root);sc.add(piv);
+  const base=new THREE.Plane(new THREE.Vector3(0,-1,0),99);
+  const S={THREE,ren,sc,cam,meshes,plane,base,center,piv,rx:.1,ry:0,dist:4.2,stop:null};AN3=S;
+  const fit=()=>{const w=st.clientWidth,h=st.clientHeight;ren.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()};fit();
+  const ro=new ResizeObserver(fit);ro.observe(st);
+  /* rotazione, zoom, selezione */
+  let drag=null,moved=0;const ptrs=new Map();
+  cv.addEventListener("pointerdown",e=>{cv.setPointerCapture(e.pointerId);ptrs.set(e.pointerId,[e.clientX,e.clientY]);drag=[e.clientX,e.clientY,S.ry,S.rx];moved=0});
+  cv.addEventListener("pointermove",e=>{if(ptrs.has(e.pointerId))ptrs.set(e.pointerId,[e.clientX,e.clientY]);
+    if(ptrs.size===2){const [a,b]=[...ptrs.values()],dd=Math.hypot(a[0]-b[0],a[1]-b[1]);if(S.pd)S.dist=Math.max(1.6,Math.min(9,S.dist*S.pd/dd));S.pd=dd;moved=9;return}
+    if(drag){const dx=e.clientX-drag[0],dy=e.clientY-drag[1];moved=Math.max(moved,Math.abs(dx)+Math.abs(dy));S.ry=drag[2]+dx*.008;S.rx=Math.max(-1.4,Math.min(1.4,drag[3]+dy*.008))}else hover(e)});
+  const up=e=>{ptrs.delete(e.pointerId);S.pd=0;if(drag&&moved<6)pick(e);drag=null};cv.addEventListener("pointerup",up);cv.addEventListener("pointercancel",up);
+  cv.addEventListener("wheel",e=>{e.preventDefault();S.dist=Math.max(1.6,Math.min(9,S.dist*(e.deltaY>0?1.1:.9)))},{passive:false});
+  const rc=new THREE.Raycaster(),v2=new THREE.Vector2(),tip=$("#an-tip");
+  const hit=e=>{const r=cv.getBoundingClientRect();v2.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);rc.setFromCamera(v2,cam);const hs=rc.intersectObjects(meshes.filter(m=>m.visible),false).filter(h=>plane.distanceToPoint(h.point)>=0||plane.constant>50);return hs[0]};
+  function pick(e){const h=hit(e);anSelect(h?h.object.userData.id:null)}
+  function hover(e){const h=hit(e);if(h){const p=O.parts[h.object.userData.id];tip.hidden=false;tip.textContent=p[0];const r=st.getBoundingClientRect();tip.style.transform=`translate(${e.clientX-r.left+12}px,${e.clientY-r.top+12}px)`;cv.style.cursor="pointer"}else{tip.hidden=true;cv.style.cursor="grab"}}
+  cv.addEventListener("pointerleave",()=>tip.hidden=true);
+  anApply();anSelect(AN.sel);
+  const rm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;let raf=0,vis=true,t0=performance.now();
+  const io=new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis&&!raf)loop()});io.observe(st);
+  function loop(){if(!vis||!cv.isConnected){raf=0;if(!cv.isConnected){ren.dispose();ro.disconnect();io.disconnect()}return}raf=requestAnimationFrame(loop);
+    const t=(performance.now()-t0)/1000;
+    piv.rotation.set(S.rx,S.ry,0);cam.position.set(0,0,S.dist);cam.lookAt(0,0,0);
+    let s=1;if(AN.anim&&!rm&&O.anim==="beat"){const ph=(t%0.86)/0.86;s=1-.035*Math.max(0,Math.sin(Math.min(1,ph/.38)*Math.PI))}else if(AN.anim&&!rm&&O.anim==="breath"){s=1+.04*Math.sin(t*Math.PI*2/4.5)}
+    piv.scale.setScalar(s);piv.updateMatrixWorld();plane.copy(base);if(base.constant<50)plane.applyMatrix4(piv.matrixWorld);
+    ren.render(sc,cam)}
+  S.stop=()=>{vis=false};loop();
+}
+/* domande di anatomia e fisiologia */
+function anQuiz(){const box=$("#an-quiz");if(!box||typeof ANAT_Q==="undefined")return;
+  const org=AN.qorg,L=ANAT_Q.filter(q=>!org||q[0]===org);if(AN.qi>=L.length)AN.qi=0;const q=L[AN.qi],a=AN.qa;
+  box.innerHTML=`<div class="row" style="justify-content:space-between;align-items:baseline"><h3 style="margin:0">Domande di anatomia e fisiologia</h3><span class="small">${AN.qok} corrette su ${AN.qn}</span></div>
+  <div class="row">${[["","Tutti gli organi"],...ANAT.map(o=>[o.id,o.t])].map(([k,n])=>`<button class="chip" data-qorg="${k}" aria-pressed="${org===k}">${esc(n)}</button>`).join("")}</div>
+  <p class="small">Domanda ${AN.qi+1} di ${L.length} · ${esc((ANAT.find(o=>o.id===q[0])||{}).t||"")}</p><p class="an-q"><b>${esc(q[1])}</b></p>
+  <div class="opts">${q[2].map((o,j)=>`<button class="opt${a!=null?(j===q[3]?" right":j===a?" wrong":""):""}" data-qa="${j}" ${a!=null?"disabled":""}>${esc(o)}</button>`).join("")}</div>
+  ${a!=null?`<div class="expl"><b>${a===q[3]?"Corretto.":"Risposta corretta: "+esc(q[2][q[3]])+"."}</b> ${esc(q[4])}</div><div class="row"><button class="btn primary" data-qnext>Domanda successiva</button><button class="btn" data-qsee="${q[0]}">Guarda l'organo in 3D</button></div>`:""}`;
+  box.querySelectorAll("[data-qorg]").forEach(b=>b.onclick=()=>{AN.qorg=b.dataset.qorg;AN.qi=0;AN.qa=null;anQuiz()});
+  box.querySelectorAll("[data-qa]").forEach(b=>b.onclick=()=>{AN.qa=+b.dataset.qa;AN.qn++;const ok=AN.qa===q[3];if(ok)AN.qok++;try{logEv("mcq","cli",0,ok?1:0,"anat-"+q[0]+"-"+AN.qi,{anat:1})}catch(e){}anQuiz()});
+  const n=box.querySelector("[data-qnext]");if(n)n.onclick=()=>{AN.qi=(AN.qi+1)%L.length;AN.qa=null;anQuiz()};
+  const sg=box.querySelector("[data-qsee]");if(sg)sg.onclick=()=>{if(AN.org!==sg.dataset.qsee){AN={...AN,org:sg.dataset.qsee,sel:null,cut:"",hidden:{},expl:0};anatomia()}window.scrollTo({top:0,behavior:"smooth"})};
+}
 
 function route(){
   const v=(location.hash||"#oggi").slice(1);
@@ -4349,7 +4513,8 @@ let qz=null;
 const Q2=(typeof QUIZ2!=="undefined"?QUIZ2:[]).map((q,i)=>({id:"s"+q[1]+"-"+i,m:q[0],sec:q[1],q:q[2],o:q[3],r:q[4],e:q[5],src:"puglia"}));
 let DBQ=[], DAILY=[], dbState="attesa";
 let QALL=[];
-const Q3=(()=>{const cnt={};return (typeof QUIZ3!=="undefined"?QUIZ3:[]).map(q=>{cnt[q[0]]=(cnt[q[0]]||0)+1;return {id:"e-"+q[0]+"-"+cnt[q[0]],m:encSubj(q[0]),sec:0,enc:q[0],q:q[1],o:q[2],r:q[3],e:q[4],src:"enc"}})})();
+const ANQ_ENC={cuore:"cuore-fisiologia",polmoni:"respiro-fisiologia",encefalo:"sistema-nervoso",reni:"rene-fisiologia",fegato:"apparato-digerente",digerente:"apparato-digerente"};
+const Q3=(()=>{const cnt={};return (typeof QUIZ3!=="undefined"?QUIZ3:[]).concat(typeof ANAT_Q!=="undefined"?ANAT_Q.map(q=>[ANQ_ENC[q[0]]||"cuore-fisiologia",q[1],q[2],q[3],q[4]]):[]).map(q=>{cnt[q[0]]=(cnt[q[0]]||0)+1;return {id:"e-"+q[0]+"-"+cnt[q[0]],m:encSubj(q[0]),sec:0,enc:q[0],q:q[1],o:q[2],r:q[3],e:q[4],src:"enc"}})})();
 const Q4=CODA.map((a,i)=>{const n=a[0],pool=[n+3,n-2,n+7,n-5,n+11,n-9].map(x=>((x-1+55)%55)+1).filter((x,j,arr)=>x!==n&&arr.indexOf(x)===j).slice(0,3);const r=(n*7)%4;const o=pool.map(x=>"Art. "+x);o.splice(r,0,"Art. "+n);
   return {id:"cdq-"+n,m:"cod",sec:0,enc:"codice-capo-"+a[1].toLowerCase(),q:"Nel Codice deontologico 2025, quale articolo tratta «"+a[2]+"»?",o,r,e:"Art. "+n+" «"+a[2]+"» (capo "+a[1]+"): "+a[3],src:"enc"}});
 function rebuildQ(){QALL=QUIZ.concat(Q2,Q3,Q4,DBQ)}
