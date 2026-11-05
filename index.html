@@ -154,7 +154,7 @@ select.btn{max-width:100%}
 .monitor .m-row:last-child{border-bottom:0}
 .monitor .lbl{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
 .monitor .val{font-family:var(--f-mono);font-size:1.5rem;font-weight:600}
-.subj{border-top:4px solid var(--c);display:flex;flex-direction:column;gap:10px}
+.subj{background:color-mix(in srgb,var(--c) 4%,var(--paper));display:flex;flex-direction:column;gap:10px}
 .bar{height:8px;border-radius:99px;background:var(--grid);overflow:hidden}
 .bar i{display:block;height:100%;background:var(--c,var(--scrub));border-radius:99px}
 .small{font-size:.86rem;color:var(--muted)}
@@ -621,7 +621,8 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .mn-cta{border-left-color:var(--amber)}
 .mn-sec{display:flex;flex-direction:column;gap:10px}.mn-sec h3{margin:6px 0 0;color:color-mix(in srgb,var(--c) 80%,var(--ink))}
 .mn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
-.mn-card{display:flex;flex-direction:column;gap:8px;padding:12px 14px;border-radius:12px;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--c)}
+.mn-card{display:flex;flex-direction:column;gap:8px;padding:12px 14px;border-radius:12px;background:var(--paper);border:1px solid var(--line);background:color-mix(in srgb,var(--c) 4%,var(--paper))}
+.mn-t::before{content:"";display:inline-block;width:8px;height:8px;border-radius:3px;background:var(--c);margin-right:7px;vertical-align:1px}
 .mn-t{font-size:.78rem;font-family:var(--f-mono);color:var(--muted);text-decoration:none}.mn-t:hover{text-decoration:underline}
 .gym-ctas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
 .es-ix{border-top-color:var(--vital)}.es-ix .dir-card{background:color-mix(in srgb,var(--vital) 5%,var(--paper));border-color:color-mix(in srgb,var(--vital) 20%,var(--line))}.es-ix .dir-card:hover{border-color:var(--vital)}.es-ix .dir-card b{color:color-mix(in srgb,var(--vital) 75%,var(--ink))}
@@ -860,7 +861,7 @@ header.top .top-in{gap:58px}
 .toc{top:calc(var(--hdr-h,130px) - var(--hdr-shift,0px) + 14px)}
 
 /* ---- Enciclopedia: indice delle fonti del diritto ---- */
-.dir-ix{display:flex;flex-direction:column;gap:14px;border-top:4px solid var(--leg)}
+.dir-ix{display:flex;flex-direction:column;gap:14px}
 .dir-ix-h{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
 .dir-chips .chip em{font-style:normal;font-family:var(--f-mono);font-size:.72rem;opacity:.7;margin-left:4px}
 .dir-grp h4{margin:4px 0 8px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--leg)}
@@ -1112,6 +1113,19 @@ th:not(.lab-t th){font-size:.82rem}
 .h3d-fc{display:flex;gap:6px;align-items:center}.h3d-fc input{accent-color:#ffd166}
 .h3d-ecg{order:2}
 @media (max-width:560px){.h3d-cv{height:280px}}
+
+/* icone a tratto (al posto delle emoji) */
+.ico{display:inline-block;vertical-align:-3px;flex:none}
+.qm-ico{color:var(--qm-ink)}.tolk .qm-pin.reached .qm-ico{color:#f8ead0}
+/* checklist UI/UX Pro Max: puntatore, stati hover/attivi coerenti */
+a,button,summary,[role=button],label[for],.chip,.opt,.dir-card,.mn-card a,.lab-row[data-lk]{cursor:pointer}
+button[disabled],.opt[disabled]{cursor:default}
+.dir-card,.enc-area,.gym-cta,.cc{transition:transform var(--dur-2) var(--ease-out),border-color var(--dur-2) var(--ease-out),background-color var(--dur-2) var(--ease-out)}
+@media (hover:hover){.dir-card:hover,.enc-area:hover,.gym-cta:hover,.cc:hover{transform:translateY(-2px)}}
+
+.es-ix{border-top:0}
+.gym .gym-case,.gym .lab-sheet,.gym .lab-single{background:transparent}
+.gym .gym-case{padding:0 0 4px;box-shadow:none;border-radius:0;border-bottom:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -4513,14 +4527,14 @@ function qmBuild(){
     const l=Q.lab[k-1],fin=k===Q.N;if(!l)return `<g class="qm-dot" id="qm-p${k}" transform="translate(${f1(x)} ${f1(y)})"><circle r="3.4"/></g>`;
     const below=y<H-58,isL=/^[A-Z]$|^[IVX]+$/.test(l[1]);
     if(fin)return `<g class="qm-pin fin" id="qm-p${k}" transform="translate(${f1(x)} ${f1(y)})"><circle class="halo" cy="-14" r="24"/><g class="castle"><path class="fill" d="M-16 6V-10H-10V-14H-6V-10H-2V-22H2V-26H6V-22H10V-10H16V6Z"/><path d="M-16 6V-10H-10V-14H-6V-10H-2V-22H2V-26H6V-22H10V-10H16V6Z"/><path d="M-3 6V0A3 3 0 0 1 3 0V6M-12 -4V-1M12 -4V-1M4 -16V-13"/><path d="M4 -26V-36"/><path class="flag" d="M4 -36C9 -38 12 -33 17 -35V-29C12 -27 9 -32 4 -30Z"/></g>${lab(l[0],below?20:-44,"fin",10)}</g>`;
-    return `<g class="qm-pin" id="qm-p${k}" transform="translate(${f1(x)} ${f1(y)})"><circle class="halo" r="17"/><circle class="seal" r="12"/><circle class="ring" r="9.5"/><text class="${isL?"qm-let":"qm-emo"}" y="${isL?4.5:4}">${esc(l[1])}</text><g class="ok" transform="translate(9 -9)"><circle r="4.6"/><path d="M-2.2 0L-.5 1.7L2.4 -1.5"/></g>${lab(l[0],below?24:-18)}</g>`}).join("");
+    return `<g class="qm-pin" id="qm-p${k}" transform="translate(${f1(x)} ${f1(y)})"><circle class="halo" r="17"/><circle class="seal" r="12"/><circle class="ring" r="9.5"/>${!isL&&icoG(l[1])?icoG(l[1],13):`<text class="${isL?"qm-let":"qm-emo"}" y="${isL?4.5:4}">${esc(l[1])}</text>`}<g class="ok" transform="translate(9 -9)"><circle r="4.6"/><path d="M-2.2 0L-.5 1.7L2.4 -1.5"/></g>${lab(l[0],below?24:-18)}</g>`}).join("");
   const pts=16,rose=`<g class="qm-rosek" transform="translate(${W-40} ${H-44}) scale(${Q.port?.85:1})"><circle r="22" class="r0"/><circle r="17" class="r1"/>${[...Array(pts)].map((_,i)=>{const a=i*Math.PI*2/pts,L=i%4===0?24:i%2===0?16:11,w=i%4===0?4:2.6,ca=Math.cos(a),sa=Math.sin(a),px=-sa*w,py=ca*w;return `<path class="${i%2?"b":"a"}" d="M0 0L${f1(px)} ${f1(py)}L${f1(sa*L)} ${f1(-ca*L)}Z"/><path class="${i%2?"a":"b"}" d="M0 0L${f1(-px)} ${f1(-py)}L${f1(sa*L)} ${f1(-ca*L)}Z"/>`}).join("")}<circle r="2.4" class="c"/><text y="-28">N</text></g>`;
   const title=`<g class="qm-cart" transform="translate(${Q.port?W/2:Math.min(W/2,250)} 22)"><path d="M-${Q.port?120:150} -11H${Q.port?120:150}L${Q.port?128:158} 0L${Q.port?120:150} 11H-${Q.port?120:150}L-${Q.port?128:158} 0Z"/><path class="in" d="M-${Q.port?114:144} -7H${Q.port?114:144}M-${Q.port?114:144} 7H${Q.port?114:144}"/><text y="4">${esc(T.t)}</text></g>`;
   const corner=(x,y,r)=>`<g class="qm-corner" transform="translate(${x} ${y}) rotate(${r})"><path d="M0 22V6Q0 0 6 0H22M4 18V9Q4 4 9 4H18"/><circle cx="7" cy="7" r="1.8"/></g>`;
   wrap.innerHTML=`<div class="qm tolk mood${Q.mood}" style="--qm-ink:${T.ink}">
     <div class="qm-head"><div><span class="eyebrow">Mappa del percorso · ${esc(SUBJ[Q.theme]?SUBJ[Q.theme].short:"Collegamenti")}</span><b>${esc(T.t)}</b><span class="small">${esc(T.s)}</span></div>
       <div class="qm-badges"><button class="qm-tog" id="qm-tog" aria-expanded="true">Nascondi la mappa</button><span class="qm-b" style="--b:${QM_DIFF[Q.mood].c}">${["","Sentiero dei boschi","Via delle colline","Passo delle montagne"][Q.mood]}</span><span class="qm-b mono" id="qm-count">0/${Q.N}</span><span class="qm-b" id="qm-bad" style="--b:#868e96" hidden></span></div></div>
-    <div class="qm-mini" aria-hidden="true"><span>🏰</span><div class="bar"><i id="qm-minibar"></i><b id="qm-minisyr" style="left:0%">💉</b></div><span class="mono small" id="qm-minicount">0/${Q.N}</span></div>
+    <div class="qm-mini" aria-hidden="true"><span>${icoSvg("🏰",15)}</span><div class="bar"><i id="qm-minibar"></i><b id="qm-minisyr" style="left:0%">${icoSvg("💉",15)}</b></div><span class="mono small" id="qm-minicount">0/${Q.N}</span></div>
     <svg viewBox="0 0 ${W} ${H}" class="qm-svg" role="img" aria-label="Mappa: la siringa avanza di una tappa per ogni risposta corretta">
       <defs><radialGradient id="qm-par" cx=".5" cy=".45" r=".75"><stop offset="0" stop-color="${PAR[0]}"/><stop offset=".75" stop-color="${PAR[1]}"/><stop offset="1" stop-color="#b08a4e"/></radialGradient>
         <filter id="qm-paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="${Math.floor(R()*99)}" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 .35  0 0 0 0 .22  0 0 0 0 .08  0 0 0 .16 0"/></filter>
@@ -4565,7 +4579,7 @@ function qmPlace(pos,instant){const Q=QM;if(!Q||!Q.G)return;Q.pos=pos;
   let pt;if(pos===0){const a=qmPointOn(0,0);pt=a?{x:a.x,y:a.y,a:a.a}:{x:Q.G.P[0][0],y:Q.G.P[0][1],a:0}}else{const a=qmPointOn(pos-1,1);pt=a?{x:a.x,y:a.y,a:a.a}:{x:Q.G.P[pos][0],y:Q.G.P[pos][1],a:0}}
   qmSyr(pt.x,pt.y,pt.a,1-pos/Q.N);const c=$("#qm-count");if(c)c.textContent=pos+"/"+Q.N;
   const mb=$("#qm-minibar"),ms=$("#qm-minisyr"),mc=$("#qm-minicount"),pc=Math.round(pos/Q.N*100)+"%";if(mb)mb.style.width=pc;if(ms)ms.style.left=pc;if(mc)mc.textContent=pos+"/"+Q.N}
-function qmObstacles(){const Q=QM,g=document.getElementById("qm-obs"),bb=$("#qm-bad");if(bb){bb.hidden=!(Q&&Q.bad);if(Q&&Q.bad)bb.textContent="🪨 "+Q.bad+" da ripassare"}if(!Q||!g)return;if(Q.pos>=Q.N||!Q.bad){g.innerHTML="";return}
+function qmObstacles(){const Q=QM,g=document.getElementById("qm-obs"),bb=$("#qm-bad");if(bb){bb.hidden=!(Q&&Q.bad);if(Q&&Q.bad)bb.innerHTML=icoSvg("🪨",14)+" "+Q.bad+" da ripassare"}if(!Q||!g)return;if(Q.pos>=Q.N||!Q.bad){g.innerHTML="";return}
   const a=qmPointOn(Q.pos,.32);if(!a){g.innerHTML="";return}g.innerHTML=[...Array(Math.min(3,Q.bad))].map((_,i)=>`<g class="qm-ob" transform="translate(${(a.x+i*9-((Math.min(3,Q.bad)-1)*4.5)).toFixed(1)} ${(a.y-1-i*2).toFixed(1)})"><ellipse cy="5" rx="9" ry="2.4" class="qm-sh"/><path d="M-8 5Q-9 -3 -3 -6Q4 -8 8 -1Q9 5 2 5Z" class="r1"/><path d="M-8 5Q-9 -3 -3 -6Q-1 -1 -2 5Z" class="r2"/></g>`).join("")}
 function qmInfo(html){const b=$("#qm-info");if(b)b.innerHTML=html}
 function qmSync(){const Q=QM;if(!Q)return;const ok=Math.min(Q.N,qz.ok||0),bad=Math.max(0,Math.min(qz.i,qz.list.length)-(qz.ok||0));
@@ -4587,8 +4601,54 @@ function qmBurst(x,y,big){const g=document.getElementById("qm-fx");if(!g||RM)ret
   const parts=[...Array(n)].map((_,i)=>{const a=Math.random()*Math.PI*2,v=(big?40:20)+Math.random()*(big?60:22);return {a,v,c:cols[i%cols.length],el:null}});
   g.innerHTML=parts.map((p,i)=>`<circle id="qm-c${i}" r="${big?2.6:1.8}" fill="${p.c}"/>`).join("");const t0=performance.now();
   const tick=now=>{const t=(now-t0)/1000;parts.forEach((p,i)=>{const c=document.getElementById("qm-c"+i);if(c){c.setAttribute("cx",(x+Math.cos(p.a)*p.v*t).toFixed(1));c.setAttribute("cy",(y+Math.sin(p.a)*p.v*t+40*t*t).toFixed(1));c.setAttribute("opacity",Math.max(0,1-t/(big?1.6:.8)).toFixed(2))}});if(t<(big?1.6:.8))requestAnimationFrame(tick);else g.innerHTML=""};requestAnimationFrame(tick)}
+/* icone disegnate a tratto (griglia 24, stile lineare coerente) al posto delle emoji */
+const ICO={
+ syr:'<path d="M18 2l4 4M17 7l-9.5 9.5M14 4l6 6M4 20l3.5-3.5M9 9l2 2M7 11l2 2"/><path d="M15 5L5.5 14.5 9.5 18.5 19 9z"/>',
+ drop:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>',
+ heart:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+ lungs:'<path d="M12 4v8M12 12c-1 1-2 1.5-3 1.5M12 12c1 1 2 1.5 3 1.5"/><path d="M9 7C6 7 4 12 4 17c0 2 2 3 3.5 2.5S9 17 9 15V7zM15 7c3 0 5 5 5 10 0 2-2 3-3.5 2.5S15 17 15 15V7z"/>',
+ compass:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+ target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/>',
+ flask:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3M7.5 15h9"/>',
+ loop:'<path d="M20 12a8 8 0 0 1-14 5.3M4 12A8 8 0 0 1 18 6.7"/><path d="M18 3v4h-4M6 21v-4h4"/>',
+ phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/>',
+ search:'<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>',
+ tag:'<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/>',
+ note:'<path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h5"/>',
+ hands:'<path d="M7 11V6a1.5 1.5 0 0 1 3 0v4M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 9a1.5 1.5 0 0 1 3 0v4a8 8 0 0 1-8 8h-.5A6.5 6.5 0 0 1 5 16l-1.5-3a1.5 1.5 0 0 1 2.6-1.5L7 13"/>',
+ check:'<circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9"/>',
+ pen:'<path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/>',
+ scroll:'<path d="M7 4h11v13a3 3 0 0 1-3 3H6a2 2 0 0 1-2-2v-2h11"/><path d="M7 4a2 2 0 0 0-2 2v10M10 9h5M10 13h5"/>',
+ globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/>',
+ columns:'<path d="M3 9l9-5 9 5M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 21h18"/>',
+ scale:'<path d="M12 4v16M7 20h10M5 7h14M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/>',
+ folder:'<path d="M3 6h6l2 2h10v11H3z"/>',
+ map:'<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/>',
+ hosp:'<path d="M4 21V5h16v16M9 21v-4h6v4M12 8v5M9.5 10.5h5"/>',
+ clip:'<path d="M9 4h6v3H9zM7 5H5v16h14V5h-2M8 12h8M8 16h5"/>',
+ mega:'<path d="M4 10v4h3l8 5V5L7 10zM18 9a4 4 0 0 1 0 6"/>',
+ steth:'<path d="M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/>',
+ mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/>',
+ trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M9 17h6"/>',
+ shake:'<path d="M3 11l4-4 5 3 5-3 4 4-5 6-4-3M7 7l5 5M12 17l-2 2M14.5 15.5l-2 2"/>',
+ light:'<rect x="8" y="2" width="8" height="20" rx="3"/><circle cx="12" cy="7" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="17" r="1.6"/>',
+ warn:'<path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/>',
+ dice:'<rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1.2"/><circle cx="15" cy="15" r="1.2"/><circle cx="15" cy="9" r="1.2"/><circle cx="9" cy="15" r="1.2"/>',
+ doc:'<path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/>',
+ crane:'<path d="M5 21V4l11 3H5M5 7l7 7M16 7v5M3 21h8"/><rect x="14" y="12" width="4" height="3"/>',
+ glove:'<path d="M8 21v-4L5 13V8a1.5 1.5 0 0 1 3 0v3V5a1.5 1.5 0 0 1 3 0v6V4a1.5 1.5 0 0 1 3 0v7V6a1.5 1.5 0 0 1 3 0v8l-1 3v4z"/>',
+ cap:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/>',
+ hour:'<path d="M6 3h12M6 21h12M7 3c0 6 10 6 10 9s-10 3-10 9M17 3c0 6-10 6-10 9s10 3 10 9"/>',
+ flag:'<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
+ castle:'<path d="M4 21V9h3V6h3v3h4V6h3v3h3v12zM10 21v-5h4v5"/>',
+ stone:'<path d="M4 17l2-7 5-4 6 2 3 6-3 4H6z"/>'
+};
+const EMO2ICO={"💉":"syr","🩸":"drop","❤️":"heart","❤":"heart","🫁":"lungs","🧭":"compass","🎯":"target","🧪":"flask","💧":"drop","🔁":"loop","📞":"phone","🔎":"search","🏷️":"tag","🗒️":"note","🙌":"hands","✅":"check","📝":"pen","📜":"scroll","🌐":"globe","🏛️":"columns","⚖️":"scale","🗂️":"folder","🗺️":"map","🏥":"hosp","📋":"clip","📢":"mega","✍️":"pen","🩺":"steth","🎤":"mic","🏆":"trophy","🤝":"shake","🚦":"light","🔺":"warn","⚠️":"warn","🎲":"dice","📄":"doc","🏗️":"crane","🧤":"glove","🎓":"cap","⏳":"hour","🏁":"flag","🏰":"castle","🪨":"stone"};
+function icoSvg(e,sz){const k=EMO2ICO[e]||e;const p=ICO[k];if(!p)return esc(e);return `<svg class="ico" viewBox="0 0 24 24" width="${sz||18}" height="${sz||18}" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`}
+function icoG(e,sz){const k=EMO2ICO[e]||e;const p=ICO[k];if(!p)return null;const s=(sz||12)/24;return `<g class="qm-ico" transform="translate(${-12*s} ${-12*s}) scale(${s})" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${p}</g>`}
+
 function qmEnd(){const Q=QM;if(!Q)return;const nb=$("#qm-next");if(nb)nb.innerHTML="";const done=Math.min(Q.N,qz.ok||0)>=Q.N;
-  qmInfo(done?`<b>🏁 Traguardo raggiunto: ${esc(Q.T.fin)}!</b> ${esc(Q.T.fn)} Tutte le ${Q.N} tappe superate.`:`<b>Ti sei fermato a ${Q.pos?esc((Q.lab.slice(0,Q.pos).filter(Boolean).pop()||[""])[0]):"Partenza"}</b> (${Q.pos}/${Q.N} tappe). Le domande sbagliate tornano nel Ripasso errori: rifacendole puoi completare il percorso.`);
+  qmInfo(done?`<b>${icoSvg("🏁",15)} Traguardo raggiunto: ${esc(Q.T.fin)}!</b> ${esc(Q.T.fn)} Tutte le ${Q.N} tappe superate.`:`<b>Ti sei fermato a ${Q.pos?esc((Q.lab.slice(0,Q.pos).filter(Boolean).pop()||[""])[0]):"Partenza"}</b> (${Q.pos}/${Q.N} tappe). Le domande sbagliate tornano nel Ripasso errori: rifacendole puoi completare il percorso.`);
   const w=$("#qmap .qm");if(w)w.classList.toggle("won",done);if(done)try{MOTION.celebrate($("#qmap .qm-info")||w)}catch(e){}}
 
 /* ---- motore unico: quiz, domande aperte e casi clinici nella stessa sessione ---- */
