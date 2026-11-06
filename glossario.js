@@ -476,3 +476,27 @@ GLOSS.push(
 ["MI e TI","g","Indice meccanico e indice termico mostrati sullo schermo dell'ecografo: stimano l'energia trasmessa ai tessuti e vanno mantenuti bassi.","Mechanical index, thermal index","eco-principi"],
 ["TGC","g","Time Gain Compensation: comandi che regolano la luminosità dell'immagine per fasce di profondità.","Time gain compensation","eco-sonde"]
 );
+GLOSS.push(
+["Ecostruttura","t","In ecografia: il modo in cui gli echi sono distribuiti dentro un organo o una lesione (omogenea o disomogenea).","Echotexture","eco-semeiotica"],
+["Cisti semplice","t","Formazione liquida nera, a pareti sottili e regolari, con rinforzo posteriore e senza parti solide né flusso al color Doppler: quasi sempre benigna.","Simple cyst","eco-semeiotica"],
+["Ombra sporca","t","Ombra posteriore con bordi sfumati e riverberi al suo interno, tipica del gas; quella dei calcoli è invece netta e «pulita».","Dirty shadowing","eco-semeiotica"],
+["Imaging armonico","g","Modalità che costruisce l'immagine con gli echi a frequenza doppia generati nei tessuti: immagine più pulita e meno artefatti.","Tissue harmonic imaging","eco-regolazioni"],
+["Compound spaziale","g","Tecnica che somma più scansioni con angoli diversi: bordi più netti e meno rumore, ma ombre e rinforzi meno evidenti.","Spatial compound imaging","eco-regolazioni"],
+["Preset","g","Insieme di regolazioni predefinite dell'ecografo per un distretto (vasi, addome, vescica, polmone).","Preset","eco-regolazioni"],
+["Fuoco","g","Profondità a cui il fascio ultrasonoro è più stretto e l'immagine più nitida; si indica con un segno sul righello e va posto sul bersaglio.","Focal zone","eco-regolazioni"],
+["Seno renale","t","Parte centrale del rene, chiara all'ecografia per il grasso, che contiene bacinetto, calici e vasi.","Renal sinus","eco-rene"],
+["Idronefrosi","p","Dilatazione di bacinetto e calici renali per difficoltà di deflusso dell'urina; all'ecografia spazi neri ramificati nel seno renale.","Hydronephrosis","eco-rene"],
+["Twinkling","t","Artefatto del color Doppler: un luccichio di colori dietro un calcolo, utile per riconoscerlo.","Twinkling artifact","eco-rene"],
+["Jet ureterale","t","Getto di urina che entra in vescica dall'uretere, visibile con il color Doppler; la sua assenza da un lato può indicare un'ostruzione.","Ureteric jet","eco-rene"],
+["Incontinenza da rigurgito","p","Perdita continua di piccole quantità di urina da una vescica troppo piena che non si svuota: è una forma di ritenzione.","Overflow incontinence","eco-rene"],
+["Aneurisma dell'aorta addominale","p","Dilatazione permanente dell'aorta addominale oltre 3 cm di diametro; spesso asintomatico, il rischio di rottura cresce con il diametro.","Abdominal aortic aneurysm (AAA)","eco-aorta"],
+["Trombo murale","t","Strato di trombo che riveste la parete di un aneurisma; all'ecografia è grigio intorno al lume pervio nero.","Mural thrombus","eco-aorta"],
+["Endoleak","p","Dopo un'endoprotesi aortica, flusso di sangue che continua a riempire la sacca dell'aneurisma.","Endoleak","eco-aorta"],
+["Ipotensione permissiva","n","Strategia di rianimazione che accetta una pressione più bassa del normale finché il sanguinamento non è controllato, per non aggravarlo.","Permissive hypotension","eco-aorta"],
+["RUSH","t","Protocollo ecografico nello shock che valuta pompa (cuore), serbatoio (cava, liquido libero, polmone) e tubi (aorta, vene profonde).","Rapid Ultrasound in Shock","eco-pocus"],
+["In-plane","t","Approccio ecoguidato in cui l'ago entra nel piano del fascio e si vede per intero, punta compresa (asse lungo).","In-plane approach","eco-procedure"],
+["Out-of-plane","t","Approccio ecoguidato in cui l'ago attraversa il piano del fascio e appare come un punto (asse corto).","Out-of-plane approach","eco-procedure"],
+["Tecnica eco-assistita","t","Uso dell'ecografia per individuare e marcare il punto di accesso prima della procedura, che poi si esegue senza guida in tempo reale.","Ultrasound-assisted technique","eco-procedure"],
+["Ago-aspirato","p","Prelievo di cellule con un ago sottile per l'esame citologico (FNAC).","Fine-needle aspiration cytology","eco-procedure"],
+["Biopsia con ago tranciante","p","Prelievo di un frustolo di tessuto con un ago dotato di meccanismo di taglio, per l'esame istologico.","Core needle biopsy","eco-procedure"]
+);

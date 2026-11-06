@@ -80,6 +80,9 @@ const SCN={
   if(S.mode==="C"||S.mode==="PW"){const sc=P.cscale||(P.ven?20:40);
    for(let x=g.Wc*.12-.3;x<g.Wc*.88+.3;x+=.12){const narrow=r0/half(x+.06),v=vel(P,t-x*.01,S)/(P.wf==="sten"?3.4:1)*narrow;const top=yc-half(x)-.01,hh=half(x)+r0*(1+pul)+.02,seg=k=>{k.rect(x,top,.13,hh)};
     if(S.mode==="C"){c.save();c.beginPath();lum(c);c.clip();colorFlow(c,seg,x>xs&&x<xs+1.4&&st>.4?v*1.8:v,sc,t,true,[x,top,.13,hh]);c.restore()}}}
+  if(P.needleIP){const tip=[g.Wc*.56,yc+.05],st0=[-.1,.12],L=Math.hypot(tip[0]-st0[0],tip[1]-st0[1]),nx=-(tip[1]-st0[1])/L,ny=(tip[0]-st0[0])/L;
+   for(let k=3;k>=1;k--)line(c,[[st0[0]+nx*k*.13,st0[1]+ny*k*.13],[tip[0]+nx*k*.13,tip[1]+ny*k*.13]],.03,"#fff",.3/k);
+   c.save();c.shadowColor="#fff";c.shadowBlur=5;line(c,[st0,tip],.06,"#fff",.97);c.restore();c.save();c.fillStyle="#fff";c.beginPath();ell(c,tip[0],tip[1],.06,.05);c.fill();c.restore()}
   S.gate={x:P.gx||g.Wc*(st?.58:.45),y:yc};S.mx=g.Wc*.5;
  },
  polmone(c,g,P,S,t){const rr=P.rr||16,sl=P.sliding?.12*Math.sin(2*PI*((t*rr/60)%1)):0,yp=1.45,r1=g.Wc*.16,r2=g.Wc*.84;
@@ -135,6 +138,34 @@ const SCN={
   anech(c,g,gb,t);c.save();c.strokeStyle="#fff";c.globalAlpha=.75;c.lineWidth=wt>.35?.12:.07;c.beginPath();ell(c,gx,gy,3.1+wt*.3,1.25+wt*.3,.18);c.stroke();if(wt>.35){c.globalAlpha=.4;c.lineWidth=.06;c.beginPath();ell(c,gx,gy,3.1+wt,1.25+wt,.18);c.stroke()}c.restore();enh(c,g,gx-2,gx+1.4,gy+1.3,.14);
   if(P.stone){const sx=gx+1.4,sy=gy+.55;c.save();c.fillStyle="#fff";c.shadowColor="#fff";c.shadowBlur=8;c.beginPath();c.ellipse(sx,sy,.45,.32,0,PI,2*PI);c.fill();c.restore();shadow(c,g,sx-.42,sx+.42,sy+.05,.95)}
   S.mx=g.Wc*.5;
+ },
+ rene(c,g,P,S,t){const b=insp(t,P.rr||16)*.3;texFill(c,g,.58,{scale:.75,dy:b*g.s});
+  const kx=g.Wc*.5,ky=7.2+b,rot=-.12,hy=P.hydro||0,kd=k=>ell(k,kx,ky,5.1,2.35,rot);
+  clipDo(c,kd,()=>{c.fillStyle="#121212";c.fillRect(0,0,g.Wc,g.D);texFill(c,g,.36,{scale:.85})});
+  const sr=[3.3+hy*.15,.95+hy*.22];clipDo(c,k=>ell(k,kx,ky,sr[0],sr[1],rot),()=>{texFill(c,g,1,{scale:.65});c.fillStyle="rgba(255,255,255,.3)";c.fillRect(0,0,g.Wc,g.D)});
+  if(hy){const pc=Math.cos(rot),ps=Math.sin(rot),at=(dx,dy)=>[kx+dx*pc-dy*ps,ky+dx*ps+dy*pc];
+   const pel=[.7+hy*.55,.28+hy*.25],cal=[[-2.1,-.55],[-1,-.8],[.4,-.85],[1.6,-.6],[-1.6,.6],[.9,.75]],cr=.18+hy*.17;
+   const hp=k=>{const q=at(.6,0);ell(k,q[0],q[1],pel[0],pel[1],rot);if(hy>1)cal.forEach(d=>{const q2=at(d[0]*(1+hy*.05),d[1]*(1+hy*.12));k.moveTo(q2[0]+cr,q2[1]);ell(k,q2[0],q2[1],cr,cr*.85,rot)})};
+   anech(c,g,hp,t);if(hy>1)cal.forEach(d=>{const q2=at(d[0]*(1+hy*.05),d[1]*(1+hy*.12)),q=at(.6,0);clipDo(c,k=>{k.moveTo(q[0],q[1]-.14);k.lineTo(q2[0],q2[1]-.12);k.lineTo(q2[0],q2[1]+.12);k.lineTo(q[0],q[1]+.14);k.closePath()},()=>{c.fillStyle="#030303";c.fillRect(0,0,g.Wc,g.D)})})}
+  if(P.stone){const q=[kx+.6+(.7+hy*.55)*.8,ky+.05-.12];c.save();c.fillStyle="#fff";c.shadowColor="#fff";c.shadowBlur=7;c.beginPath();c.ellipse(q[0],q[1],.34,.26,0,0,2*PI);c.fill();c.restore();shadow(c,g,q[0]-.32,q[0]+.32,q[1]+.2,.9)}
+  c.save();c.strokeStyle="#fff";c.globalAlpha=.85;c.lineWidth=.09;c.beginPath();kd(c);c.stroke();c.restore();
+  const pts=[];for(let x=0;x<=g.Wc*.55;x+=.2)pts.push([x,3.1+.25*x+b]);line(c,pts,.08,"#ddd",.45);
+  S.mx=g.Wc*.5;
+ },
+ aorta(c,g,P,S,t){const b=insp(t,P.rr||16)*.12,f=ph(t,P.hr||72);texFill(c,g,.56,{scale:.8,dy:b*g.s});
+  const ad=P.ad||2,vy=10.6+b,vx=g.Wc*.5,R0=ad/2*(1+.025*pulse(f)),ax=vx+.55,ay=vy-R0-.55;
+  c.save();c.fillStyle="#fff";c.globalAlpha=.9;c.beginPath();c.ellipse(vx,vy+.15,2.3,.55,0,PI,2*PI);c.fill();c.restore();shadow(c,g,vx-2.3,vx+2.3,vy,.95);
+  if(P.rupt)clipDo(c,k=>{k.moveTo(ax+R0*.6,ay-R0*.5);k.bezierCurveTo(ax+R0*2.1,ay-R0*.4,ax+R0*2.4,ay+R0*1.1,ax+R0*1.2,vy+.3);k.bezierCurveTo(ax+R0*.4,vy+.1,ax,ay+R0,ax+R0*.6,ay-R0*.5);k.closePath()},()=>{c.fillStyle="#0a0a0a";c.fillRect(0,0,g.Wc,g.D);texFill(c,g,.32,{scale:1.6});texFill(c,g,.18,{scale:.5,dx:5})});
+  anech(c,g,k=>ell(k,vx-2.7,ay+.35,1.05,.42+.08*insp(t,P.rr||16)),t);
+  const lr=P.thr?R0*(1-P.thr):R0,ly=ay-(R0-lr)*.75,lum=k=>ell(k,ax,ly,lr,lr);
+  if(P.thr)clipDo(c,k=>ell(k,ax,ay,R0,R0),()=>{c.fillStyle="#0c0c0c";c.fillRect(0,0,g.Wc,g.D);texFill(c,g,.2,{scale:.55});c.save();c.globalAlpha=.22;c.strokeStyle="#aaa";c.lineWidth=.03;for(let k=1;k<4;k++){c.beginPath();ell(c,ax,ay-(R0-lr)*.75*k/4,lr+(R0-lr)*k/4,lr+(R0-lr)*k/4);c.stroke()}c.restore()});
+  anech(c,g,lum,t);enh(c,g,ax-R0*.8,ax+R0*.8,ay+R0,.08);
+  c.save();c.strokeStyle="#fff";c.globalAlpha=.9;c.lineWidth=.1;c.beginPath();ell(c,ax,ay,R0,R0);c.stroke();c.restore();
+  if(S.mode==="C"){const sc=P.cscale||60,v=12+60*pulse(f);colorFlow(c,k=>{k.moveTo(ax,ly-lr);k.arc(ax,ly,lr,-PI/2,PI/2,false);k.closePath()},v,sc,t,true,[ax,ly-lr,lr,2*lr]);
+   if(ad>3)colorFlow(c,k=>{k.moveTo(ax,ly+lr);k.arc(ax,ly,lr,PI/2,3*PI/2,false);k.closePath()},-v*.7,sc,t,true,[ax-lr,ly-lr,lr,2*lr])}
+  if(S.cal){c.save();c.strokeStyle="#ffe14d";c.fillStyle="#ffe14d";c.lineWidth=.05;[[ax-R0,ay],[ax+R0,ay],[ax,ay-R0],[ax,ay+R0]].forEach(q=>{c.beginPath();c.moveTo(q[0]-.22,q[1]);c.lineTo(q[0]+.22,q[1]);c.moveTo(q[0],q[1]-.22);c.lineTo(q[0],q[1]+.22);c.stroke()});
+   c.setLineDash([.15,.15]);c.lineWidth=.03;c.beginPath();c.moveTo(ax-R0,ay);c.lineTo(ax+R0,ay);c.moveTo(ax,ay-R0);c.lineTo(ax,ay+R0);c.stroke();c.restore()}
+  S.mx=ax;
  }
 };
 
@@ -338,19 +369,54 @@ const ECO_SC=[
   st:"Donna di 46 anni con dolore all'ipocondrio destro dopo un pasto grasso, durato 3 ore e poi passato. Ecografia dell'addome superiore.",
   s:[{q:"Che cosa vedi nella colecisti?",o:["Un'immagine iperecogena (bianca) nella parte declive con un cono d'ombra nero dietro: calcolo","Una massa solida senza ombra","Liquido libero","Aria nel colon"],c:0},
      {q:"Quale informazione dai per la prossima ecografia dell'addome?",o:["Venire a digiuno da almeno 6-8 ore, perché la colecisti resti distesa e l'aria intestinale non disturbi","Bere molto latte prima dell'esame","Mangiare un pasto grasso prima","Non serve alcuna preparazione"],c:0}],
-  e:"Il calcolo riflette quasi tutti gli ultrasuoni: è bianco e lascia un cono d'ombra posteriore. La bile è anecogena. Il digiuno mantiene la colecisti distesa e riduce i gas intestinali."}
+  e:"Il calcolo riflette quasi tutti gli ultrasuoni: è bianco e lascia un cono d'ombra posteriore. La bile è anecogena. Il digiuno mantiene la colecisti distesa e riduce i gas intestinali."},
+ {id:"us-idro",n:"Colica renale con idronefrosi",rep:"Pronto soccorso",P:{scene:"rene",probe:"cvx",D:14,preset:"Rene",modes:["B"],hydro:2,stone:1,rr:18},
+  st:"Uomo di 42 anni con dolore al fianco sinistro a ondate, irradiato all'inguine, e nausea; T 37,2 °C. Ecografia del rene sinistro in asse lungo.",
+  s:[{q:"Che cosa vedi al centro del rene?",o:["Bacinetto e calici dilatati, neri e comunicanti tra loro, con un'immagine bianca e cono d'ombra all'uscita del bacinetto: idronefrosi da calcolo","Una cisti singola della corticale","Rene normale: il centro è chiaro e compatto","Liquido intorno al rene"],c:0},
+     {q:"Che cosa sorvegli con più attenzione?",o:["Temperatura e segni di infezione: febbre con la via urinaria ostruita va segnalata subito, perché può servire un drenaggio urgente; intanto analgesia prescritta, diuresi e urine filtrate se richiesto","Far bere tre litri d'acqua in un'ora","Nulla: il calcolo passa sempre da solo","Ghiaccio sul fianco e dimissione"],c:0}],
+  e:"Il centro del rene (seno renale) è normalmente chiaro per il grasso. Quando le vie urinarie sono dilatate compaiono al suo interno spazi neri ramificati: bacinetto e calici. Il calcolo è bianco con cono d'ombra. Un rene ostruito e infetto (febbre, brividi) è un'urgenza: va decompresso con nefrostomia o stent."},
+ {id:"us-idro-globo",n:"Reni dilatati per vescica troppo piena",rep:"Medicina",P:{scene:"rene",probe:"cvx",D:14,preset:"Rene",modes:["B"],hydro:1,rr:16},
+  st:"Uomo di 81 anni con ipertrofia prostatica, confuso, perde urina goccia a goccia di continuo. Entrambi i reni appaiono così; la vescica contiene circa 900 ml.",
+  s:[{q:"Che cosa vedi nel rene?",o:["Lieve dilatazione del bacinetto (area nera al centro del seno renale), senza calcoli","Idronefrosi grave con corticale assottigliata","Rene normale","Calcolo a stampo"],c:0},
+     {q:"Qual è il passo successivo?",o:["Svuotare la vescica con il cateterismo prescritto e ricontrollare i reni: se la dilatazione si riduce, era dovuta alla vescica sovradistesa","Nefrostomia bilaterale immediata","Diuretico per «lavare» i reni","Ridurre i liquidi e aspettare"],c:0}],
+  e:"Una vescica molto distesa può dilatare le vie urinarie di entrambi i reni; anche gravidanza e reflusso danno dilatazione senza un vero ostacolo. Per questo una dilatazione lieve si rivaluta dopo la minzione o il cateterismo. Nell'anziano la perdita continua di urina può essere incontinenza da rigurgito, cioè una ritenzione."},
+ {id:"us-aaa",n:"Aneurisma dell'aorta addominale",rep:"Ambulatorio vascolare",P:{scene:"aorta",probe:"cvx",D:14,preset:"Aorta",modes:["B","C"],ad:5.6,thr:.35,hr:70,cscale:70,meas:[["Diametro antero-posteriore","5,6 cm"],["Diametro trasverso","5,5 cm"]]},
+  st:"Uomo di 70 anni, fumatore e iperteso, senza sintomi. Ecografia dell'aorta addominale in scansione trasversale. Premi «Calibri» e prova il Color.",
+  s:[{q:"Che cosa mostra l'immagine?",o:["Aorta dilatata (circa 5,6 cm) con trombo grigio sulla parete intorno al lume nero: aneurisma dell'aorta addominale","Aorta normale, sotto i 3 cm","Vena cava dilatata","Cisti del rene"],c:0},
+     {q:"Che cosa ti aspetti e che cosa insegni alla persona?",o:["Valutazione chirurgica vascolare a breve, perché il diametro è vicino alla soglia di intervento; controllo della pressione, stop al fumo e accesso immediato in pronto soccorso se compare dolore improvviso all'addome o alla schiena","Un controllo tra 5 anni","Sport intensi per «rinforzare» la parete","Nessuna indicazione"],c:0}],
+  e:"L'aorta addominale normale misura circa 2 cm; sopra i 3 cm si parla di aneurisma. Si misura in scansione trasversale, perpendicolare all'asse del vaso, da parete a parete: se si misura solo il lume colorato, il trombo fa sottostimare il calibro. Nell'uomo la riparazione si valuta di solito da 5,5 cm (da circa 5 cm nella donna) o se il diametro cresce rapidamente."},
+ {id:"us-aaa-rotto",n:"Aneurisma aortico in rottura",rep:"Pronto soccorso",P:{scene:"aorta",probe:"cvx",D:14,preset:"Aorta",modes:["B","C"],ad:7,thr:.3,rupt:1,hr:124,cscale:70,meas:[["Diametro antero-posteriore","7,0 cm"]]},
+  st:"Uomo di 76 anni con dolore lombare improvviso, sudato, PA 78/45, FC 124, massa pulsante nell'addome. Ecografia al letto, scansione trasversale.",
+  s:[{q:"Che cosa vedi?",o:["Aorta di circa 7 cm con un'area grigia irregolare accanto alla parete: grosso aneurisma con probabile rottura","Aorta normale","Calcolo renale","Ansa intestinale piena di liquido"],c:0},
+     {q:"Che cosa fai?",o:["Allerta immediata di chirurgo vascolare e sala operatoria, due accessi venosi di grosso calibro, prove crociate e sangue pronto, liquidi secondo indicazione medica mantenendo una pressione bassa ma sufficiente","Grandi volumi di liquidi per riportare subito la PA a 130","TC programmata in giornata","Antidolorifico e osservazione"],c:0}],
+  e:"Dolore all'addome o alla schiena, ipotensione e massa pulsante sono la triade della rottura. Un aneurisma grande in un paziente in shock si considera rotto fino a prova contraria; l'ecografia vede male l'ematoma dietro il peritoneo, quindi un esame dubbio non deve ritardare la chirurgia. Fino al controllo del sanguinamento si accetta una pressione più bassa del normale (ipotensione permissiva)."},
+ {id:"us-residuo",n:"Residuo post-minzionale",rep:"Urologia",P:{scene:"vescica",probe:"cvx",D:14,preset:"Vescica",modes:["B"],bw:5.2,bh:3.6,meas:[["D1 (trasversale)","6,0 cm"],["D2 (antero-posteriore)","4,0 cm"],["D3 (longitudinale)","5,5 cm"]]},
+  st:"Donna di 68 anni con infezioni urinarie ripetute. Ha appena urinato: misuri il residuo. Premi «Calibri».",
+  s:[{q:"Quanto vale il residuo (D1 × D2 × D3 × 0,52)?",o:["Circa 70 ml","Circa 7 ml","Circa 700 ml","Circa 130 ml"],c:0},
+     {q:"Come lo interpreti e che cosa fai?",o:["Residuo modesto ma non trascurabile: lo registro con l'ora della minzione, lo comunico e lo ripeto come da protocollo, perché un residuo che si ripete favorisce le infezioni","Catetere a permanenza subito","Ritenzione grave: chiamo l'urgenza","Lo ignoro: il residuo non conta"],c:0}],
+  e:"6,0 × 4,0 × 5,5 × 0,52 ≈ 69 ml. La misura va fatta subito dopo la minzione. Nell'adulto un residuo di poche decine di millilitri è trascurabile, valori ripetuti tra 50 e 100 ml meritano attenzione e oltre 150-200 ml si parla di solito di ritenzione; le soglie precise dipendono dal protocollo."},
+ {id:"us-gain",n:"Immagine troppo chiara: regolare il guadagno",rep:"Medicina",P:{scene:"vasi",probe:"lin",D:3.5,preset:"Accessi vascolari",modes:["B","C"],compress:"Comprimi con la sonda"},startGain:1.45,
+  st:"Cerchi una vena per un accesso ecoguidato, ma l'immagine è lattiginosa e i vasi non sono neri. Prova a spostare il cursore Gain.",
+  s:[{q:"Perché l'immagine appare così?",o:["Il guadagno è troppo alto: amplifica tutti gli echi e riempie di falsi echi anche i vasi","La vena è trombizzata","La sonda è rotta","Il paziente è disidratato"],c:0},
+     {q:"Che cosa fai?",o:["Abbasso il guadagno finché il sangue nei vasi è nero e i tessuti grigi, poi regolo profondità e fuoco sul vaso","Alzo ancora il guadagno","Premo più forte con la sonda","Passo alla sonda convex"],c:0}],
+  e:"Il guadagno amplifica gli echi di ritorno: troppo alto crea falsi echi nei vasi e può far pensare a un trombo, troppo basso fa sparire strutture deboli. Il TGC lo regola per fasce di profondità. Prima di parlare di trombosi conviene controllare le regolazioni e provare la compressione."},
+ {id:"us-inplane",n:"Ago visto in asse lungo (in-plane)",rep:"Medicina",P:{scene:"vlong",probe:"lin",D:4,preset:"Accessi vascolari",modes:["B"],ven:1,r:.45,needleIP:1},
+  st:"Accesso venoso ecoguidato: la sonda è posta lungo la vena e l'ago entra dal lato corto della sonda, nello stesso piano del fascio.",
+  s:[{q:"Che cosa vedi?",o:["L'ago intero come una linea bianca obliqua, con la punta dentro il lume della vena","Solo un punto luminoso","L'ago fuori dal vaso, sopra la parete","Una valvola venosa"],c:0},
+     {q:"Qual è il vantaggio principale di questo approccio?",o:["La punta resta visibile in ogni momento e si evita di attraversare la parete posteriore; serve però tenere ago e sonda perfettamente allineati","Non serve la sterilità","Si vede meglio l'arteria vicina","Non richiede di regolare la profondità"],c:0}],
+  e:"In asse lungo (in-plane) l'ago entra nel piano del fascio e si vede per tutta la lunghezza; le linee sottili parallele sotto l'ago sono riverberi. In asse corto (out-of-plane) l'ago attraversa il piano e appare come un punto, ed è facile scambiare il corpo dell'ago per la punta. Spesso si usa l'asse corto per trovare la vena e l'asse lungo per seguire l'ago."}
 ];
 
 /* ---------- palestra ---------- */
 const EG={cur:null,step:0,ans:[],n:0,ok:0,S:null};
 function egNew(id){const sh=G.shuffle;const pool=ECO_SC.filter(s=>!EG.cur||s.id!==EG.cur.sc.id);const sc=id?ECO_SC.find(s=>s.id===id):(G.palPick?G.palPick(pool):pool[Math.floor(rnd()*pool.length)]);
   EG.cur={sc,ao:sc.s.map(q=>sh(q.o.map((_,i)=>i))),pid:"ESE-"+Math.floor(1000+rnd()*9000)};EG.step=0;EG.ans=[];
-  EG.S={mode:sc.startMode||"B",gain:1,comp:0,cal:false,frozen:false}}
+  EG.S={mode:sc.startMode||"B",gain:sc.startGain||1,comp:0,cal:false,frozen:false}}
 function ecoGym(){const app=document.getElementById("app"),esc=G.esc;if(!EG.cur)egNew();const C=EG.cur,sc=C.sc,done=EG.step>=sc.s.length;
   const steps=sc.s.map((q,i)=>{if(i>EG.step)return "";const a=EG.ans[i],ao=C.ao[i],right=ao.indexOf(q.c);
     return `<div class="gym-step"><span class="eyebrow">${i+1}. ${i===sc.s.length-1?"Che cosa fai":"Che cosa vedi"}</span><p><b>${esc(q.q)}</b></p><div class="opts">${ao.map((k,j)=>`<button class="opt${a!=null?(j===right?" right":j===a?" wrong":""):""}" data-uq="${i}" data-o="${j}" ${a!=null?"disabled":""}>${esc(q.o[k])}</button>`).join("")}</div></div>`}).join("");
   app.innerHTML=`<div><span class="eyebrow">Allenamento</span><h2>Palestra di ecografia ed eco-Doppler</h2></div>
-  <p class="lead">Un ecografo da carrello simulato: immagine in tempo reale, color Doppler, Doppler pulsato con lo spettro che scorre e modo M. Cambia modalità dal pannello touch, comprimi con la sonda, regola il guadagno, congela l'immagine e misura. ${ECO_SC.length} quadri: accessi venosi ecoguidati, vasi e trombosi, forme d'onda Doppler, polmone, vescica, eFAST, vena cava e colecisti.</p>
+  <p class="lead">Un ecografo da carrello simulato: immagine in tempo reale, color Doppler, Doppler pulsato con lo spettro che scorre e modo M. Cambia modalità dal pannello touch, comprimi con la sonda, regola il guadagno, congela l'immagine e misura. ${ECO_SC.length} quadri: accessi venosi ecoguidati, vasi e trombosi, forme d'onda Doppler, polmone, vescica e residuo post-minzionale, eFAST, vena cava, colecisti, rene e aorta addominale, oltre alla regolazione del guadagno.</p>
   <div class="row"><select class="btn" id="eg-sel" aria-label="Scegli un quadro"><option value="">Scegli un quadro…</option>${ECO_SC.map(s=>`<option value="${s.id}" ${s.id===sc.id?"selected":""}>${esc(s.n)}</option>`).join("")}</select><a class="btn" href="#voce-eco-principi" style="text-decoration:none">Ripassa le basi</a><span class="small" style="margin-left:auto">Sessione: <b>${EG.ok}</b> quadri corretti su <b>${EG.n}</b></span></div>
   <div class="us-wrap" id="eg-dev"></div>
   <div class="sheet gym" style="display:flex;flex-direction:column;gap:12px">
