@@ -127,7 +127,6 @@ const GLOSS=[
 ["Catetere di Foley","d","Catetere vescicale a permanenza con palloncino di ancoraggio; misura in Charrière (1 Ch = 1/3 mm).","Foley catheter","cateterismo"],
 ["Catetere di Nelaton","d","Catetere dritto senza palloncino per cateterismo intermittente.","","cateterismo"],
 ["Catetere di Tiemann","d","Catetere a punta curva, utile nell'uomo con ipertrofia prostatica.","","cateterismo"],
-["Bladder scanner","d","Ecografo portatile che misura il volume di urina in vescica.","","cateterismo"],
 ["Sondino nasogastrico (Levin, Salem)","d","Levin: a un lume; Salem: a due lumi con presa d'aria, per la decompressione.","Nasogastric tube","sng"],
 ["PEG","d","Gastrostomia endoscopica percutanea per la nutrizione enterale di lunga durata.","Percutaneous Endoscopic Gastrostomy","nutrizione-enterale"],
 ["Sonda di Sengstaken-Blakemore","d","Sonda a palloncini per tamponare il sanguinamento da varici esofagee.","","emorragia-digestiva"],
@@ -446,4 +445,34 @@ GLOSS.push(
 ["DPYD","g","Gene dell'enzima che elimina le fluoropirimidine; AIFA raccomanda il test prima di fluorouracile, capecitabina e tegafur.","DPYD genotyping","es-farmacogenetica"],
 ["Screening neonatale esteso","t","Esame su goccia di sangue del neonato (L. 167/2016) per decine di malattie rare curabili; dal 2026 comprende anche la SMA.","Expanded newborn screening","es-gen-neonatale"],
 ["Componente monoclonale","t","Picco di un'unica immunoglobulina all'elettroforesi: MGUS, mieloma o linfomi.","Monoclonal protein (M-protein)","es-elettroforesi"]
+);
+/* ---- ECOGRAFIA ED ECO-DOPPLER ---- */
+GLOSS.push(
+["Anecogeno","t","In ecografia: area che non produce echi e appare nera; tipico dei liquidi (sangue nei vasi, urina, bile, versamenti, cisti).","Anechoic","eco-principi"],
+["Ipoecogeno","t","Area con pochi echi, più scura del tessuto circostante (muscolo, linfonodo, trombo recente).","Hypoechoic","eco-principi"],
+["Iperecogeno","t","Area che riflette molto e appare bianca: osso, calcoli, aria, pleura, fasce, aghi.","Hyperechoic","eco-principi"],
+["Isoecogeno","t","Con la stessa luminosità del tessuto vicino.","Isoechoic","eco-principi"],
+["B-mode","t","Modalità ecografica di base: immagine bidimensionale in scala di grigi in cui la luminosità di ogni punto dipende dall'intensità dell'eco.","Brightness mode","eco-sonde"],
+["Modo M","t","Modalità che registra nel tempo i movimenti lungo una sola linea dell'immagine: utile per pleura, vena cava e valvole cardiache.","M-mode (motion mode)","eco-sonde"],
+["Color Doppler","t","Rappresentazione a colori del flusso sopra l'immagine ecografica; nella convenzione più usata rosso verso la sonda e blu in allontanamento.","Color Doppler","eco-doppler"],
+["Power Doppler","t","Doppler che mostra la presenza di flusso anche lento, senza indicarne la direzione.","Power Doppler","eco-doppler"],
+["Doppler pulsato","t","Modalità che registra lo spettro delle velocità del sangue in un punto preciso del vaso (volume campione).","Pulsed-wave Doppler (PW)","eco-doppler"],
+["Aliasing","t","Artefatto Doppler: velocità superiori alla scala impostata appaiono invertite o a mosaico di colori; tipico delle stenosi.","Aliasing","eco-doppler"],
+["Ombra acustica","t","Banda nera dietro una struttura che riflette quasi tutti gli ultrasuoni, come un calcolo o un osso.","Acoustic shadowing","eco-artefatti"],
+["Rinforzo posteriore","t","Zona più luminosa dietro una raccolta liquida, che attenua poco il fascio ultrasonoro.","Posterior acoustic enhancement","eco-artefatti"],
+["Linee A","t","Linee orizzontali ripetute sotto la pleura, dovute al riverbero: indicano polmone aerato.","A-lines","eco-polmone"],
+["Linee B","t","Linee verticali luminose che partono dalla pleura e arrivano al fondo dello schermo muovendosi con il respiro; se numerose indicano sindrome interstiziale (per esempio edema polmonare).","B-lines","eco-polmone"],
+["Scivolamento pleurico","t","Movimento della linea pleurica con il respiro (sliding): la sua presenza esclude il pneumotorace nel punto esaminato.","Lung sliding","eco-polmone"],
+["Punto polmone","t","Punto in cui lo scivolamento pleurico ricompare al confine del pneumotorace: segno molto specifico.","Lung point","eco-polmone"],
+["Indice di resistenza","s","(Velocità sistolica di picco − velocità telediastolica) ÷ velocità sistolica di picco: valori alti nelle arterie ad alta resistenza, bassi in quelle di cervello, reni e fegato.","Resistive index (RI)","eco-doppler"],
+["Augmentation","t","Aumento del flusso venoso al Doppler comprimendo i muscoli a valle: la sua assenza fa sospettare un'ostruzione tra il punto esaminato e la zona compressa.","Augmentation","eco-onde-doppler"],
+["Onda trifasica","t","Forma d'onda Doppler normale delle arterie degli arti a riposo: picco sistolico, breve flusso invertito, piccola onda diastolica.","Triphasic waveform","eco-onde-doppler"],
+["Tardus parvus","t","Onda arteriosa con salita lenta e picco basso e arrotondato, a valle di una stenosi o di un'occlusione.","Tardus parvus","eco-onde-doppler"],
+["Sonda lineare","d","Sonda ecografica ad alta frequenza che produce un'immagine rettangolare: vasi, accessi venosi, pleura, tessuti superficiali.","Linear probe","eco-sonde"],
+["Sonda convex","d","Sonda ecografica a bassa frequenza con immagine a ventaglio: addome, vescica, eFAST.","Curvilinear (convex) probe","eco-sonde"],
+["Bladder scanner","d","Ecografo portatile dedicato che calcola in automatico il volume di urina in vescica, utile per decidere se serve un cateterismo.","Bladder scanner","eco-vescica"],
+["eFAST","g","Extended Focused Assessment with Sonography for Trauma: ecografia rapida nel trauma per cercare liquido libero, versamento pericardico, pneumotorace ed emotorace.","eFAST","eco-fast"],
+["POCUS","g","Point-of-care ultrasound: ecografia eseguita al letto del paziente da chi lo assiste, per rispondere a domande cliniche mirate o guidare procedure.","Point-of-care ultrasound","eco-infermiere"],
+["MI e TI","g","Indice meccanico e indice termico mostrati sullo schermo dell'ecografo: stimano l'energia trasmessa ai tessuti e vanno mantenuti bassi.","Mechanical index, thermal index","eco-principi"],
+["TGC","g","Time Gain Compensation: comandi che regolano la luminosità dell'immagine per fasce di profondità.","Time gain compensation","eco-sonde"]
 );
