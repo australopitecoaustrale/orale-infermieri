@@ -1,0 +1,1786 @@
+{
+ "date": "2026-11-07",
+ "topic": "Processo di nursing, esame obiettivo, Codice 2025 e PA; medicina del lavoro (formazione, malattie professionali, stress, turni, maternità); enciclopedia (esami di laboratorio, emergenza, chirurgia, igiene) + novità (ipotesi di CCNL Sanità 2025-2027, ISS accessi vascolari, OMS obesità in età evolutiva, Nota AIFA 31, ddl professioni sanitarie, INAIL 2026)",
+ "created": "2026-11-07T05:54:25+01:00",
+ "items": [
+  {
+   "e": "I dati soggettivi sono ciò che la persona riferisce (sintomi, sensazioni, percezioni); i dati oggettivi sono osservati o misurati dall'infermiere (segni, parametri). La persona assistita è la fonte primaria; familiari, cartella e altri professionisti sono fonti secondarie.",
+   "m": "dx",
+   "o": [
+    "Un dato soggettivo: è un sintomo riferito dalla persona, che è la fonte primaria",
+    "Un dato oggettivo, perché l'infermiere lo scrive in cartella",
+    "Un dato secondario, perché non è stato misurato",
+    "Una caratteristica definente di una diagnosi di rischio"
+   ],
+   "q": "Durante l'accertamento la signora dice: «Da stamattina ho la nausea». Per il processo di nursing questo è…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Le diagnosi focalizzate sul problema hanno il formato PES (problema, eziologia, segni e sintomi). Nelle diagnosi di rischio la persona non presenta ancora il problema: si scrive il titolo seguito dai fattori di rischio.",
+   "m": "dx",
+   "o": [
+    "Niente: la formulazione è corretta",
+    "In una diagnosi di rischio il problema non è ancora presente, quindi non ci sono caratteristiche definenti: si indicano solo i fattori di rischio e non si usa «evidenziato da»",
+    "Manca il nome del medico che ha prescritto la mobilizzazione",
+    "Andrebbe scritta come problema collaborativo con la sigla CP"
+   ],
+   "q": "Un infermiere scrive: «Rischio di cadute correlato a debolezza muscolare, evidenziato da instabilità nella deambulazione». Che cosa c'è di sbagliato?",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "La diagnosi infermieristica descrive la risposta della persona a un problema di salute o a un processo vitale, su cui l'infermiere interviene in autonomia; la diagnosi medica descrive la malattia.",
+   "m": "dx",
+   "o": [
+    "Polmonite del lobo inferiore destro",
+    "Broncopneumopatia cronica ostruttiva riacutizzata",
+    "Liberazione inefficace delle vie aeree",
+    "Insufficienza respiratoria ipercapnica"
+   ],
+   "q": "Quale delle seguenti è una diagnosi infermieristica e non una diagnosi medica?",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "A 30-45° si apprezza il livello di riempimento venoso del collo. Una colonna che supera di circa 3-4 cm l'angolo sternale indica una pressione venosa centrale aumentata, come nello scompenso destro o nel sovraccarico di liquidi.",
+   "m": "eo",
+   "o": [
+    "Supina con il capo piatto",
+    "Seduta a 90° con le gambe fuori dal letto",
+    "In decubito laterale sinistro",
+    "Semiseduta con la testata a circa 30-45° e il capo ruotato leggermente dal lato opposto"
+   ],
+   "q": "Per osservare il turgore delle vene giugulari in una persona con scompenso cardiaco, come la posizioni?",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "I crepitii fini sono discontinui, telinspiratori e non cambiano con la tosse. I ronchi sono più grossolani e si modificano dopo la tosse; i sibili sono continui e musicali, soprattutto in espirazione; lo sfregamento si sente in entrambe le fasi ed è spesso doloroso.",
+   "m": "eo",
+   "o": [
+    "Crepitii (rantoli) fini, come nell'edema polmonare interstiziale o nella fibrosi",
+    "Sibili da restringimento delle piccole vie aeree",
+    "Ronchi da secrezioni nelle vie aeree più grandi",
+    "Sfregamento pleurico"
+   ],
+   "q": "Alle basi polmonari senti, a fine inspirazione, rumori fini e discontinui, simili a capelli strofinati vicino all'orecchio, che non si modificano con la tosse. Si tratta di…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Il TSO (L. 180 e L. 833/1978) richiede alterazioni psichiche che necessitano di interventi urgenti, rifiuto delle cure e impossibilità di misure extraospedaliere: proposta e convalida di due medici, ordinanza del Sindaco, notifica al giudice tutelare. L'ASO segue un iter analogo ma ha lo scopo di una valutazione.",
+   "m": "leg",
+   "o": [
+    "L'ASO prevede sempre il ricovero in SPDC per 7 giorni",
+    "L'ASO serve solo a valutare la persona che rifiuta il contatto con i servizi, con una procedura simile a quella del TSO, senza imporre la cura in degenza",
+    "L'ASO può essere disposto dal solo infermiere del servizio",
+    "L'ASO non richiede l'ordinanza del Sindaco perché lo decide il giudice"
+   ],
+   "q": "Che cosa distingue l'accertamento sanitario obbligatorio (ASO) dal trattamento sanitario obbligatorio (TSO) in psichiatria?",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Universalità: il servizio è rivolto a tutti. Uguaglianza: stesso accesso senza discriminazioni. Equità: risposte proporzionate al bisogno. La compartecipazione alla spesa (ticket) esiste comunque per alcune prestazioni.",
+   "m": "leg",
+   "o": [
+    "Che tutte le prestazioni sono gratuite, senza alcun ticket",
+    "Che ogni Regione decide liberamente chi può essere assistito",
+    "Che il SSN si rivolge a tutta la popolazione, senza distinzioni di condizioni individuali o sociali",
+    "Che il SSN garantisce soltanto le cure ospedaliere"
+   ],
+   "q": "Tra i principi del Servizio sanitario nazionale (L. 833/1978) c'è l'universalità. Che cosa significa?",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "L'art. 20 riguarda la riservatezza: le informazioni sulla persona assistita si condividono solo per finalità di cura e con chi ne ha titolo. Raccontarle per curiosità, anche a uno studente, la viola; l'art. 29 tratta invece il segreto professionale.",
+   "m": "cod",
+   "o": [
+    "Art. 38, contenzione",
+    "Art. 34, governo clinico",
+    "Art. 16, posizione di protezione",
+    "Art. 20, riservatezza"
+   ],
+   "q": "In mensa uno studente chiede a un'infermiera di raccontargli la storia di un personaggio noto ricoverato in reparto. Quale articolo del Codice deontologico 2025 è il riferimento più diretto?",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "L'art. 21 riguarda il rifiuto all'informazione: la volontà della persona di non sapere va rispettata, così come l'eventuale indicazione di chi debba ricevere le informazioni al suo posto (anche L. 219/2017, art. 1).",
+   "m": "cod",
+   "o": [
+    "Art. 21, rifiuto all'informazione",
+    "Art. 28, donazione",
+    "Art. 39, operatori di supporto",
+    "Art. 46, rapporti con l'Ordine"
+   ],
+   "q": "Quale articolo del Codice deontologico 2025 riguarda la persona che non vuole essere informata sulla propria salute?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "La pseudonimizzazione è una misura di sicurezza che riduce i rischi, ma il dato resta personale. Solo i dati realmente anonimi, non più riconducibili alla persona con mezzi ragionevoli, escono dall'ambito del GDPR.",
+   "m": "pa",
+   "o": [
+    "Non è più un dato personale e il GDPR non si applica",
+    "Resta un dato personale soggetto al GDPR, perché con informazioni aggiuntive la persona è ancora identificabile",
+    "Può essere pubblicato liberamente su un sito web",
+    "È equiparato in tutto a un dato anonimo"
+   ],
+   "q": "Secondo il GDPR, un dato sanitario pseudonimizzato (il nome sostituito da un codice, con la chiave di corrispondenza conservata a parte)…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Formazione generale 4 ore, specifica 4, 8 o 12 ore per rischio basso, medio o alto. Il settore sanitario è a rischio alto: 16 ore in totale, con aggiornamento di 6 ore ogni 5 anni, in orario di lavoro e senza costi per il lavoratore.",
+   "enc": "ml-formazione",
+   "m": "lav",
+   "o": [
+    "8 ore",
+    "12 ore",
+    "16 ore: 4 di formazione generale e 12 di formazione specifica, perché la sanità è a rischio alto",
+    "32 ore, come l'RLS"
+   ],
+   "q": "Un'infermiera neoassunta in ospedale, senza alcuna formazione precedente sulla sicurezza, quante ore di formazione deve ricevere in tutto secondo l'Accordo Stato-Regioni 2025?",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "I DPI di terza categoria proteggono da rischi gravi o mortali (per esempio i facciali filtranti): per questi e per gli otoprotettori il D.Lgs. 81/2008 (art. 77) richiede l'addestramento, cioè prove pratiche di indossamento e uso.",
+   "enc": "ml-formazione",
+   "m": "lav",
+   "o": [
+    "Qualsiasi guanto monouso",
+    "Camice e calzari",
+    "Nessun dispositivo: basta la formazione in aula",
+    "DPI di terza categoria, come gli apparecchi di protezione delle vie respiratorie, e dispositivi di protezione dell'udito"
+   ],
+   "q": "Oltre all'informazione e alla formazione, l'addestramento pratico è obbligatorio per l'uso di…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Infortunio: causa violenta in occasione di lavoro. Malattia professionale: esposizione lenta e prolungata a un fattore di rischio. In sanità le malattie professionali più frequenti riguardano rachide e arti superiori; il medico rilascia il certificato e il datore di lavoro invia la denuncia all'INAIL entro 5 giorni.",
+   "enc": "ml-malprof",
+   "m": "lav",
+   "o": [
+    "È una possibile malattia professionale: deriva da una causa lenta e prolungata (la movimentazione ripetuta dei pazienti), non da una causa violenta concentrata nel tempo",
+    "Nulla: ogni problema alla schiena sul lavoro è un infortunio",
+    "È sempre una malattia comune che non si segnala",
+    "Va denunciata dalla lavoratrice all'INAIL entro 24 ore"
+   ],
+   "q": "Un'infermiera con 25 anni di lavoro in ortopedia sviluppa un'ernia discale lombare senza un evento acuto preciso. Che cosa la distingue da un infortunio?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Le malattie tabellate sono elencate con le lavorazioni che le causano: il nesso è presunto. Per quelle non tabellate l'origine professionale va dimostrata dal lavoratore.",
+   "enc": "ml-malprof",
+   "m": "lav",
+   "o": [
+    "Il lavoratore deve sempre dimostrare da solo il legame con il lavoro",
+    "Il nesso causale con la lavorazione indicata nelle tabelle è presunto per legge",
+    "Non è previsto alcun indennizzo",
+    "La denuncia all'INAIL è facoltativa"
+   ],
+   "q": "Per una malattia professionale «tabellata»…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "La fase preliminare usa dati oggettivi ed elementi organizzativi; se emergono criticità e le misure correttive non bastano, si passa alla fase approfondita, che valuta la percezione dei lavoratori con questionari, focus group o interviste. È parte obbligatoria del DVR (art. 28).",
+   "enc": "ml-stress",
+   "m": "lav",
+   "o": [
+    "Su un colloquio individuale di ogni lavoratore con lo psicologo",
+    "Sui soli risultati delle visite del medico competente",
+    "Su indicatori oggettivi e verificabili (assenze, turnover, infortuni, segnalazioni, orari) e sui fattori di contenuto e di contesto del lavoro",
+    "Su questionari anonimi a tutti i lavoratori, obbligatori fin dall'inizio"
+   ],
+   "q": "La valutazione del rischio stress lavoro-correlato si svolge in due fasi. Su che cosa si basa la fase preliminare?",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "La rotazione «in avanti» asseconda la tendenza dell'orologio biologico ad allungarsi; riposi adeguati dopo le notti riducono disturbi del sonno ed errori. Il lavoratore notturno è sottoposto a valutazione dell'idoneità.",
+   "enc": "ml-stress",
+   "m": "lav",
+   "o": [
+    "Rotazione in senso antiorario (notte, pomeriggio, mattino)",
+    "Molte notti consecutive senza limiti",
+    "Rientro al mattino subito dopo la notte",
+    "Rotazione in senso orario (mattino, pomeriggio, notte) con riposi adeguati dopo le notti"
+   ],
+   "q": "Nell'organizzazione dei turni a rotazione, quale scelta rispetta meglio i ritmi circadiani?",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "L'ICD-11 lo colloca tra i fattori che influenzano lo stato di salute, legandolo al contesto lavorativo. Le dimensioni sono esaurimento delle energie, distacco o cinismo verso il lavoro e ridotta efficacia professionale.",
+   "enc": "ml-stress",
+   "m": "lav",
+   "o": [
+    "Un fenomeno occupazionale dovuto a stress cronico sul lavoro non gestito con successo, non classificato come condizione medica",
+    "Un disturbo dell'umore, sinonimo di depressione",
+    "Una malattia psichiatrica che riguarda solo i medici",
+    "Una malattia professionale tabellata per tutti gli infermieri"
+   ],
+   "q": "Secondo l'ICD-11 dell'OMS, il burnout è…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "D.Lgs. 151/2001, art. 53: divieto di lavoro notturno dall'accertamento della gravidanza fino a un anno di età del bambino. Dopo, fino ai 3 anni del figlio (o con un figlio sotto i 12 anni se è l'unico genitore affidatario), la lavoratrice non è obbligata: può rifiutare, ma non c'è un divieto.",
+   "enc": "ml-maternita",
+   "m": "lav",
+   "o": [
+    "Sì, senza alcun limite",
+    "No: il lavoro dalle 24 alle 6 è vietato fino al compimento di 1 anno di età del bambino",
+    "Sì, se lo autorizza il preposto",
+    "No, il divieto vale in ogni caso fino ai 3 anni del bambino"
+   ],
+   "q": "Un'infermiera ha partorito 8 mesi fa e rientra in servizio. Può essere inserita nei turni di notte?",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Immobilità e oppioidi favoriscono la stipsi fino al fecaloma; le feci liquide che filtrano intorno simulano una diarrea. Dare un antidiarroico peggiorerebbe il quadro: si segnala al medico per l'esplorazione rettale e la rimozione.",
+   "enc": "stipsi-diarrea",
+   "m": "cli",
+   "o": [
+    "Gastroenterite virale",
+    "Effetto dei lassativi",
+    "Fecaloma con diarrea paradossa: le feci liquide passano intorno alla massa",
+    "Incontinenza da urgenza"
+   ],
+   "q": "Un anziano allettato, in terapia con oppioidi, non evacua da giorni; ora perde in continuazione piccole quantità di feci liquide. Che cosa sospetti per primo?",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Riformulare e lasciare spazio all'altro esprime empatia e ascolto attivo. Le rassicurazioni generiche e i rinvii chiudono la comunicazione e fanno sentire la persona non capita.",
+   "enc": "relazione-aiuto",
+   "m": "tr",
+   "o": [
+    "«Vedrà che andrà tutto bene»",
+    "«Non ci pensi adesso, cerchi di riposare»",
+    "«Queste cose deve chiederle al medico»",
+    "«Mi sembra di capire che è preoccupato per quello che succederà dopo: vuole parlarmene?»"
+   ],
+   "q": "Un paziente ti dice: «Ho paura di non riuscire più a tornare a casa». Quale risposta è più coerente con la relazione d'aiuto?",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Lo iodopovidone agisce mentre asciuga: rispettare il tempo di contatto è parte dell'efficacia. Per gli accessi vascolari la scelta preferita resta la clorexidina al 2% in alcol isopropilico al 70%; non si mescolano antisettici diversi.",
+   "enc": "antisettici",
+   "m": "cli",
+   "o": [
+    "Dopo che l'antisettico si è asciugato, circa 2 minuti",
+    "Subito dopo l'applicazione",
+    "Dopo averlo rimosso con soluzione fisiologica",
+    "Dopo 10 secondi, tamponando con una garza"
+   ],
+   "q": "Prima di inserire un catetere venoso periferico disinfetti la cute con iodopovidone. Quando puoi pungere?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Il DPR 254/2003 classifica come rifiuti a rischio infettivo quelli contaminati da liquidi biologici e il materiale proveniente da isolamento infettivo. I taglienti vanno invece nel contenitore rigido dedicato.",
+   "enc": "rifiuti-sanitari",
+   "m": "cli",
+   "o": [
+    "Nei rifiuti urbani indifferenziati",
+    "Nel contenitore per rifiuti sanitari pericolosi a rischio infettivo, con sacco interno e simbolo del rischio biologico",
+    "Nel contenitore rigido per taglienti",
+    "Nella raccolta della carta, se asciutti"
+   ],
+   "q": "Le garze intrise di sangue e il materiale monouso usato in una stanza di isolamento per un'infezione trasmissibile vanno smaltiti…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "GRADE distingue la certezza delle prove (alta, moderata, bassa, molto bassa) dalla forza della raccomandazione (forte o condizionata), che tiene conto anche di benefici, rischi, valori e risorse.",
+   "enc": "livelli-evidenza",
+   "m": "tr",
+   "o": [
+    "Classificare i pazienti in base alla gravità",
+    "Calcolare la dimensione del campione di uno studio",
+    "Valutare la qualità (certezza) delle prove e la forza delle raccomandazioni",
+    "Misurare il dolore nei pazienti non comunicanti"
+   ],
+   "q": "Il sistema GRADE, usato anche per le raccomandazioni pubblicate dall'ISS, serve a…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Le alte dosi di diuretico dell'ansa si danno in infusione lenta secondo prescrizione. Si sorvegliano peso, diuresi, pressione, potassio e sodio e i segni di ipovolemia.",
+   "enc": "diuretici",
+   "m": "cli",
+   "o": [
+    "Perché in bolo non ha effetto diuretico",
+    "Per evitare l'iperpotassiemia",
+    "Per non far salire la pressione arteriosa",
+    "Perché le alte dosi in bolo rapido aumentano il rischio di ototossicità"
+   ],
+   "q": "Il medico prescrive furosemide 250 mg endovena in un paziente con scompenso. Perché non si somministra in bolo rapido?",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Nel blocco completo c'è dissociazione atrio-ventricolare con bradicardia. Si valutano subito i segni di instabilità (ipotensione, sincope, ischemia, scompenso), si avvisa il medico e si preparano atropina, stimolazione transcutanea e, quasi sempre, il pacemaker.",
+   "enc": "blocchi-av",
+   "m": "cli",
+   "o": [
+    "BAV di III grado (completo): atri e ventricoli battono in modo indipendente",
+    "BAV di I grado",
+    "BAV di II grado tipo Mobitz 1",
+    "Bradicardia sinusale"
+   ],
+   "q": "Al monitor le onde P sono regolari a 80/min, i QRS regolari a 38/min, e il PR cambia continuamente senza alcun rapporto fisso. Si tratta di…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Nell'anafilassi la posizione si adatta al problema principale: seduta se respira male, supina con gambe sollevate se è ipotesa. Mettere in piedi o far sedere bruscamente un paziente in shock può causare un arresto. Va osservata a lungo per il rischio di reazione bifasica.",
+   "enc": "anafilassi",
+   "m": "cli",
+   "o": [
+    "Supina con le gambe sollevate in ogni caso",
+    "Seduta, perché ha difficoltà respiratoria; supina con le gambe sollevate se prevalesse l'ipotensione senza dispnea",
+    "Prona",
+    "In Trendelenburg con la testa molto in basso"
+   ],
+   "q": "Dopo un antibiotico endovena una paziente ha orticaria diffusa, stridore e respiro faticoso, PA 100/60. Hai somministrato l'adrenalina intramuscolo. Come la posizioni?",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Ecchimosi retroauricolare, occhi «da procione» e perdita di liquor da naso o orecchio orientano verso la frattura della base. Si sorvegliano GCS e pupille, si mantiene la testa in asse sollevata a 30° e si evitano manovre nasali.",
+   "enc": "trauma-cranico",
+   "m": "cli",
+   "o": [
+    "Una semplice contusione: basta il ghiaccio",
+    "Una sinusite: si prepara un antibiotico",
+    "Una frattura della base cranica (segno di Battle e rinoliquorrea): si evita di inserire sondini o aspiratori dal naso",
+    "Un'epistassi anteriore: si tampona il naso"
+   ],
+   "q": "Un uomo caduto dalle scale ha un'ecchimosi dietro l'orecchio e perde liquido chiaro dal naso. Che cosa sospetti e che cosa eviti?",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Una crisi che supera i 5 minuti, o crisi ripetute senza recupero, è uno stato di male: va interrotta con farmaci. Durante la crisi si protegge la testa, si allontanano gli oggetti, si annota l'ora; dopo, posizione laterale di sicurezza.",
+   "enc": "epilessia",
+   "m": "cli",
+   "o": [
+    "È una crisi breve: si aspetta che finisca da sola",
+    "Si inserisce un oggetto tra i denti per evitare il morso della lingua",
+    "Si tiene ferma la paziente per evitare traumi",
+    "È uno stato di male epilettico: si chiama aiuto e si prepara la benzodiazepina prescritta (midazolam buccale o intramuscolo, lorazepam o diazepam endovena)"
+   ],
+   "q": "Una paziente ha una crisi tonico-clonica generalizzata che dura ormai da 5 minuti. Che cosa significa e che cosa prepari?",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Nell'adulto prevalgono aderenze ed ernie, nell'anziano tumori, diverticolite e volvolo del sigma; nel lattante l'invaginazione, con pianto a crisi, vomito e talvolta feci con muco e sangue.",
+   "enc": "occlusione",
+   "m": "cli",
+   "o": [
+    "Invaginazione intestinale",
+    "Aderenze dopo interventi chirurgici",
+    "Volvolo del sigma",
+    "Tumore del colon"
+   ],
+   "q": "Nel lattante, quale causa di occlusione intestinale è tipica?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Tempo, distanza e schermatura sono i tre principi della radioprotezione. Si organizzano le attività per stare poco vicino alla sorgente, senza trascurare l'assistenza e la comunicazione.",
+   "enc": "radioterapia",
+   "m": "cli",
+   "o": [
+    "Nessuno: le radiazioni restano dentro il paziente",
+    "Ridurre il tempo vicino alla persona, aumentare la distanza e usare le schermature, con visite limitate secondo il protocollo",
+    "Restare a lungo accanto al letto per rassicurarla",
+    "Indossare solo guanti in lattice"
+   ],
+   "q": "Assisti una persona con un impianto temporaneo di brachiterapia. Quali principi di radioprotezione applichi?",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Sotto i 3 mesi la febbre può essere l'unico segno di un'infezione batterica grave: il lattante va sempre valutato dal medico, indipendentemente dall'aspetto.",
+   "enc": "pediatria-parametri",
+   "m": "cli",
+   "o": [
+    "Paracetamolo e ricontrollo a casa dopo 48 ore",
+    "Spugnature fredde e nessun'altra azione",
+    "Serve sempre una valutazione medica, anche se il bambino sembra stare bene",
+    "Antibiotico per bocca subito"
+   ],
+   "q": "Un lattante di 6 settimane ha febbre a 38,3 °C, ma è vivace e mangia. Come ti comporti?",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "L'ICF descrive il funzionamento come interazione tra condizione di salute, funzioni e strutture corporee, attività e partecipazione e fattori contestuali (ambientali e personali): la disabilità dipende anche dall'ambiente.",
+   "enc": "icf",
+   "m": "cli",
+   "o": [
+    "Una menomazione delle strutture corporee",
+    "Un fattore personale",
+    "Una nuova malattia",
+    "Un fattore ambientale che agisce da barriera e limita la partecipazione"
+   ],
+   "q": "Secondo l'ICF, l'ascensore rotto che impedisce a una persona in carrozzina di uscire di casa è…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Nell'addome l'ordine è ispezione, auscultazione, percussione, palpazione. Si parte lontano dalla zona dolente per non provocare una difesa che renderebbe l'esame poco attendibile.",
+   "enc": "esame-addome",
+   "m": "eo",
+   "o": [
+    "Dal quadrante più lontano dal dolore, prima in superficie e poi in profondità, dopo aver ispezionato e auscultato",
+    "Direttamente dal punto più dolente",
+    "Dalla percussione energica della fossa iliaca destra",
+    "Non si palpa mai un addome dolente"
+   ],
+   "q": "Devi palpare l'addome di un paziente con dolore in fossa iliaca destra. Da dove cominci?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "L'INR serve a seguire il warfarin. Con eparine a basso peso molecolare e anticoagulanti orali diretti né INR né aPTT sono affidabili per il controllo dell'effetto; contano aderenza, funzione renale e segni di sanguinamento.",
+   "enc": "es-coagulazione",
+   "m": "cli",
+   "o": [
+    "Ogni settimana, come con il warfarin",
+    "Gli anticoagulanti orali diretti non si monitorano con l'INR: il medico programma i controlli periodici, per esempio funzione renale ed emocromo",
+    "Ogni giorno, con l'apparecchio a domicilio",
+    "L'INR deve restare tra 2 e 3"
+   ],
+   "q": "Una persona in terapia con apixaban (anticoagulante orale diretto) ti chiede ogni quanto deve controllare l'INR. Che cosa rispondi?",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Il sangue contaminato dall'eparina darebbe un aPTT falsamente molto lungo e porterebbe a ridurre la dose senza motivo. La provetta citrato va riempita fino alla tacca.",
+   "enc": "es-coagulazione",
+   "m": "cli",
+   "o": [
+    "Dallo stesso braccio, sopra il punto di infusione",
+    "Dal catetere dell'infusione dopo averla chiusa per 10 secondi",
+    "Dal braccio opposto (o secondo il protocollo), mai dalla via in cui scorre l'eparina",
+    "È indifferente"
+   ],
+   "q": "Un paziente riceve eparina non frazionata in infusione nel braccio sinistro. Da dove prelevi il sangue per l'aPTT?",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Nell'infiammazione il ferro resta intrappolato nei depositi: sideremia bassa ma ferritina normale o alta (è anche una proteina della fase acuta) e transferrina normale o bassa. Nella carenza vera la ferritina è bassa e la transferrina alta.",
+   "enc": "es-ferro",
+   "m": "cli",
+   "o": [
+    "Carenza di ferro pura",
+    "Emocromatosi",
+    "Carenza di vitamina B12",
+    "Anemia delle malattie croniche (infiammatoria)"
+   ],
+   "q": "Una persona con artrite reumatoide in fase attiva ha anemia, sideremia bassa, transferrina bassa e ferritina 280 ng/ml. Qual è il quadro più probabile?",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "La biotina interferisce con alcuni metodi di laboratorio e può simulare valori alterati. Anche per questo, all'accettazione di un prelievo, si chiedono farmaci e integratori.",
+   "enc": "es-tiroide",
+   "m": "cli",
+   "o": [
+    "Perché la biotina può falsare molti dosaggi ormonali: va sospesa prima del prelievo secondo l'indicazione ricevuta",
+    "Perché la biotina provoca ipertiroidismo",
+    "Perché impedisce l'assorbimento della levotiroxina",
+    "Non ha alcuna importanza"
+   ],
+   "q": "Una paziente assume integratori di biotina ad alte dosi e deve dosare TSH e FT4. Perché va segnalato?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Lipasi e amilasi servono alla diagnosi, non alla prognosi. Si sorvegliano respiro, pressione, diuresi, glicemia, calcio e PCR, che indicano l'evoluzione verso le forme gravi.",
+   "enc": "es-pancreas",
+   "m": "cli",
+   "o": [
+    "Il primo è certamente più grave",
+    "Il valore della lipasi non indica la gravità: questa si valuta con l'insufficienza d'organo e gli indici clinici",
+    "Il secondo non ha una pancreatite",
+    "Bisogna ripetere la lipasi ogni ora per capirlo"
+   ],
+   "q": "Due pazienti hanno una pancreatite acuta: uno con lipasi 4.000 U/l, l'altro con 600 U/l. Che cosa puoi dire della gravità?",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Il dolore epigastrico «a barra» irradiato al dorso con enzimi oltre tre volte il limite superiore basta per la diagnosi; le immagini servono se manca uno dei due criteri o per le complicanze.",
+   "enc": "es-pancreas",
+   "m": "cli",
+   "o": [
+    "Tutti e tre i criteri insieme",
+    "Solo la TC con mezzo di contrasto",
+    "Almeno 2 criteri su 3: dolore tipico, lipasi o amilasi oltre 3 volte il limite superiore, immagini compatibili",
+    "Solo l'amilasi oltre 2 volte il normale"
+   ],
+   "q": "Secondo i criteri di Atlanta, per fare diagnosi di pancreatite acuta servono…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Per i contratti pubblici l'ipotesi di accordo è trasmessa agli organi di controllo (art. 47 D.Lgs. 165/2001); solo dopo il via libera si firma il testo definitivo. Fino ad allora resta in vigore il CCNL 2022-2024, firmato il 27 ottobre 2025.",
+   "fonte": "https://www.quotidianosanita.it/lavoro-e-professioni/comparto-sanita-firmato-il-contratto-2025-2027-aumenti-fino-a-240-euro-per-gli-infermieri-arriva-il-capitolo-sullia-e-nuove-tutele-per-il-personale/",
+   "m": "pa",
+   "novita": true,
+   "o": [
+    "Perché deve essere approvato con un referendum dei dipendenti",
+    "Perché deve essere convertito in legge dal Parlamento entro 60 giorni",
+    "Perché serve il parere vincolante degli Ordini professionali",
+    "Perché deve passare il controllo degli organi competenti con la certificazione economico-finanziaria; poi arriva la firma definitiva"
+   ],
+   "q": "Il 29 luglio 2026 ARAN e sindacati hanno sottoscritto l'ipotesi di CCNL del Comparto Sanità 2025-2027. Perché non è ancora il contratto definitivo?",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Il dipendente ha diritto a conoscere in modo comprensibile i criteri generali di funzionamento dei sistemi; la responsabilità dirigenziale non è delegabile all'IA e gli effetti sull'organizzazione rientrano nella contrattazione integrativa.",
+   "fonte": "https://www.quotidianosanita.it/lavoro-e-professioni/comparto-sanita-firmato-il-contratto-2025-2027-aumenti-fino-a-240-euro-per-gli-infermieri-arriva-il-capitolo-sullia-e-nuove-tutele-per-il-personale/",
+   "m": "pa",
+   "novita": true,
+   "o": [
+    "Informativa preventiva ai dipendenti sui sistemi usati ed esclusione di atti basati solo o prevalentemente su decisioni automatizzate che incidano sul rapporto di lavoro senza un adeguato intervento umano",
+    "Che l'IA possa decidere da sola le sanzioni disciplinari",
+    "Che l'IA sostituisca il coordinatore nella compilazione dei turni",
+    "Il divieto assoluto di usare l'IA nelle aziende sanitarie"
+   ],
+   "q": "L'ipotesi di CCNL Sanità 2025-2027 contiene il primo titolo dedicato all'intelligenza artificiale. Che cosa prevede?",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "L'aumento medio del comparto è di circa 209 euro lordi al mese (7,76%); per gli infermieri circa 240 euro, oltre l'8%, anche grazie alle risorse per l'indennità di specificità. L'indennità di pronto soccorso cresce di 100 euro.",
+   "fonte": "https://www.quotidianosanita.it/lavoro-e-professioni/comparto-sanita-firmato-il-contratto-2025-2027-aumenti-fino-a-240-euro-per-gli-infermieri-arriva-il-capitolo-sullia-e-nuove-tutele-per-il-personale/",
+   "m": "pa",
+   "novita": true,
+   "o": [
+    "50 euro",
+    "240 euro",
+    "120 euro",
+    "500 euro"
+   ],
+   "q": "Secondo l'ipotesi di CCNL Sanità 2025-2027, l'aumento medio mensile a regime per il personale infermieristico è di circa…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Per tutte le età la base sono interventi strutturati su alimentazione, attività fisica e comportamenti (raccomandazione forte), con il coinvolgimento della famiglia e attenzione alla salute mentale.",
+   "fonte": "https://www.who.int/news/item/07-10-2026-who-issues-first-global-guidelines-on-child-and-adolescent-obesity",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Raccomanda i farmaci come prima scelta",
+    "Raccomanda la chirurgia bariatrica dopo i 6 anni",
+    "Non raccomanda farmaci, chirurgia bariatrica né dispositivi per la perdita di peso",
+    "Raccomanda diete ipocaloriche drastiche"
+   ],
+   "q": "Nelle prime linee guida globali sull'obesità in età evolutiva (ottobre 2026), per i bambini da 0 a 9 anni l'OMS…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "La chirurgia bariatrica può essere considerata nell'obesità grave dell'adolescente a condizioni rigorose. Gli obiettivi vanno oltre il peso: salute, funzionalità e benessere, con follow-up a lungo termine.",
+   "fonte": "https://www.who.int/news/item/07-10-2026-who-issues-first-global-guidelines-on-child-and-adolescent-obesity",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Sono la prima scelta, prima di qualsiasi intervento sullo stile di vita",
+    "Sono sempre vietati",
+    "Vanno usati solo per un mese",
+    "Possono essere considerati solo se un programma multimodale supervisionato sullo stile di vita non ha dato i risultati attesi"
+   ],
+   "q": "Negli adolescenti di 10-19 anni, secondo l'OMS (2026), i farmaci approvati per l'obesità…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Circa 70 milioni tra 5 e 9 anni e 100 milioni tra 10 e 19 anni; la prevalenza è passata dal 2% del 1990 all'8%.",
+   "fonte": "https://www.who.int/news/item/07-10-2026-who-issues-first-global-guidelines-on-child-and-adolescent-obesity",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "170 milioni",
+    "17 milioni",
+    "70 milioni",
+    "1 miliardo"
+   ],
+   "q": "Secondo l'OMS, nel 2024 i bambini e gli adolescenti di 5-19 anni con obesità nel mondo erano circa…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "La Nota 31 limita la rimborsabilità alla tosse persistente non produttiva in gravi pneumopatie croniche e tumori polmonari primitivi o secondari. La diidrocodeina è un oppioide: sonnolenza e stipsi vanno sorvegliate.",
+   "fonte": "https://www.doctor33.it/articolo/69267/sedativi-della-tosse-aifa-modifica-la-nota-31-cosa-cambia-per-le-prescrizioni",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "La diidrocodeina è stata esclusa dalla rimborsabilità",
+    "La levodropropizina non è più rimborsata dal SSN, mentre la diidrocodeina resta nella Nota per la tosse persistente non produttiva in gravi pneumopatie croniche e neoplasie polmonari",
+    "La codeina è diventata un farmaco senza obbligo di ricetta",
+    "La Nota 31 è stata abolita"
+   ],
+   "q": "Con la modifica AIFA della Nota 31 sui sedativi della tosse, in vigore dal 31 ottobre 2026…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "È un'immunizzazione passiva come il nirsevimab: protegge subito senza attendere la risposta del sistema immunitario. Si somministra ai nati prima della dimissione e, per i nati fuori stagione, prima dell'inverno.",
+   "fonte": "https://www.ansa.it/ansacom/notizie/canale_saluteebenessere/Msd/2026/10/13/virus-respiratorio-sinciziale-un-nuovo-anticorpo-protegge-i-bambini_8a4b6f34-3847-46ba-8bdf-cb096729b1db.html",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Un vaccino a virus vivo da ripetere ogni mese",
+    "Un antivirale per bocca per la bronchiolite già in corso",
+    "Un anticorpo monoclonale a lunga durata d'azione, in dose unica a dosaggio fisso, senza calcolo in base al peso",
+    "Un vaccino destinato solo alle donne in gravidanza"
+   ],
+   "q": "Il clesrovimab, approvato in Italia nel 2026 per proteggere i lattanti dal virus respiratorio sinciziale, è…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Le forme neuroinvasive (meningite, encefalite, paralisi flaccida) colpiscono soprattutto anziani e immunodepressi. Prevenzione: protezione dalle punture di zanzara e controllo delle donazioni di sangue e organi nelle aree di circolazione.",
+   "fonte": "https://www.my-personaltrainer.it/news/arbovirosi-in-italia-787-casi-di-west-nile-e-61-decessi-i-numeri-iss-su-dengue-e-chikungunya.html",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Circa 80, tutti importati",
+    "Oltre 10.000",
+    "Nessuno, per la prima volta",
+    "787, di cui 422 forme neuroinvasive, con 61 decessi"
+   ],
+   "q": "Secondo il bollettino ISS sulle arbovirosi con dati al 27 ottobre 2026, i casi di infezione da virus West Nile in Italia nel 2026 erano…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Il 51% dei casi importati veniva dalle Maldive; i casi confermati erano 369, di cui 73 autoctoni. Nei casi sospetti di arbovirosi, anche in reparto, si evitano le punture di zanzara per non innescare trasmissione locale.",
+   "fonte": "https://www.my-personaltrainer.it/news/arbovirosi-in-italia-787-casi-di-west-nile-e-61-decessi-i-numeri-iss-su-dengue-e-chikungunya.html",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Le Maldive",
+    "Il Brasile",
+    "La Thailandia",
+    "Cuba"
+   ],
+   "q": "Secondo l'ISS (dati 2026 al 27 ottobre), oltre metà dei casi di dengue legati a viaggi aveva come luogo di esposizione…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Con una legge delega il Parlamento fissa principi e criteri direttivi e il Governo esercita la delega con decreti legislativi. Il voto alla Camera (143 sì, 113 no) non produce ancora effetti.",
+   "fonte": "https://nursetimes.org/professioni-sanitarie-la-camera-approva-la-riforma-cosa-cambia",
+   "m": "leg",
+   "novita": true,
+   "o": [
+    "Che la riforma è già in vigore",
+    "Che il testo passa al Senato; dopo l'approvazione definitiva e la pubblicazione, il Governo dovrà adottare i decreti legislativi attuativi",
+    "Che la legge è stata pubblicata in Gazzetta Ufficiale",
+    "Che il testo è stato respinto"
+   ],
+   "q": "Il 28 ottobre 2026 la Camera ha approvato in prima lettura il disegno di legge delega sulle professioni sanitarie. Che cosa significa?",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Il quadro attuale resta la L. 24/2017 (Gelli-Bianco): rispetto delle linee guida del SNLG o delle buone pratiche e non punibilità per imperizia se adeguate al caso (art. 590-sexies c.p.). Le modifiche dipenderanno dal testo definitivo e dai decreti attuativi.",
+   "fonte": "https://nursetimes.org/professioni-sanitarie-la-camera-approva-la-riforma-cosa-cambia",
+   "m": "leg",
+   "novita": true,
+   "o": [
+    "Abolisce la responsabilità civile dei professionisti",
+    "Elimina l'obbligo di assicurazione",
+    "Amplia, a determinate condizioni, le ipotesi di non punibilità in ambito penale, senza introdurre un'esenzione generale",
+    "Introduce l'arresto obbligatorio per ogni errore"
+   ],
+   "q": "Sul piano della responsabilità, il ddl delega sulle professioni sanitarie approvato dalla Camera nell'ottobre 2026…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "La raccomandazione, coordinata da SIAARTI e IVAS nel Sistema nazionale linee guida, è stata comunicata dalla FNOPI agli iscritti. Ai sensi della L. 24/2017 è un riferimento anche medico-legale.",
+   "fonte": "https://nursetimes.org/accessi-vascolari-liss-pubblica-le-raccomandazioni-per-ladulto-ecoguida-ed-ecg-intracavitario-diventano-la-regola",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Si usa la puntura su repere anatomici",
+    "Si preferisce sempre la vena femorale",
+    "L'ecografia serve solo per controllare dopo l'inserimento",
+    "Si raccomanda la venipuntura ecoguidata in tempo reale (raccomandazione forte, certezza alta)"
+   ],
+   "q": "Secondo la raccomandazione di buona pratica ISS sugli accessi vascolari nell'adulto ospedalizzato (21 ottobre 2026), per inserire un catetere venoso centrale…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "L'ECG intracavitario osserva la modifica dell'onda P quando la punta si avvicina alla giunzione cavo-atriale, posizione indicata per PICC e CICC. Con FA o pacemaker l'onda P non è utilizzabile.",
+   "fonte": "https://nursetimes.org/accessi-vascolari-liss-pubblica-le-raccomandazioni-per-ladulto-ecoguida-ed-ecg-intracavitario-diventano-la-regola",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "L'ECG intracavitario, salvo fibrillazione atriale o pacemaker",
+    "L'auscultazione del torace",
+    "Il pH del sangue aspirato",
+    "La misura esterna del catetere"
+   ],
+   "q": "Per verificare la posizione della punta di un PICC o di un CICC, la raccomandazione ISS 2026 indica come alternativa alla radiografia…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "Il rapporto 1:3, misurato con l'ecografia, lascia flusso intorno al catetere e riduce il rischio di trombosi correlata.",
+   "fonte": "https://nursetimes.org/accessi-vascolari-liss-pubblica-le-raccomandazioni-per-ladulto-ecoguida-ed-ecg-intracavitario-diventano-la-regola",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Metà del diametro interno della vena",
+    "Un terzo del diametro interno della vena",
+    "Due terzi del diametro della vena",
+    "Il diametro non ha importanza"
+   ],
+   "q": "Secondo la raccomandazione ISS 2026 sugli accessi vascolari, il diametro esterno del catetere non dovrebbe superare…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "La tecnica pulsante crea turbolenza che pulisce il lume; la chiusura a pressione positiva impedisce il reflusso di sangue in punta. Su questo punto il consenso del gruppo è stato del 100%.",
+   "fonte": "https://nursetimes.org/accessi-vascolari-liss-pubblica-le-raccomandazioni-per-ladulto-ecoguida-ed-ecg-intracavitario-diventano-la-regola",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Eparina in tutti i cateteri",
+    "Acqua per preparazioni iniettabili a flusso continuo",
+    "Soluzione fisiologica con tecnica pulsante (push-pause), chiusura a pressione positiva e volume almeno doppio dello spazio morto del sistema",
+    "Un lavaggio alla settimana, indipendentemente dall'uso"
+   ],
+   "q": "Per i lavaggi dei cateteri vascolari la raccomandazione ISS 2026 indica…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Mantenere il catetere è sconsigliato in particolare con infezione locale suppurativa, tromboflebite settica, endocardite, batteriemia oltre 72 ore o infezione da S. aureus o Candida. Nel sospetto si prelevano emocolture appaiate (almeno 10 ml per flacone) per il tempo differenziale di positività.",
+   "fonte": "https://nursetimes.org/accessi-vascolari-liss-pubblica-le-raccomandazioni-per-ladulto-ecoguida-ed-ecg-intracavitario-diventano-la-regola",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Lasciare sempre il catetere in sede",
+    "Sostituirlo su guida metallica senza rimuoverlo",
+    "Aspettare 7 giorni di antibiotico prima di decidere",
+    "Rimuovere il catetere entro 24 ore"
+   ],
+   "q": "In un paziente emodinamicamente stabile con infezione del sangue correlata al catetere confermata, la raccomandazione ISS 2026 indica di…",
+   "r": 3,
+   "sec": 0
+  },
+  {
+   "e": "Le medicazioni che rilasciano clorexidina riducono le infezioni correlate al catetere. La raccomandazione non tratta invece la scelta del dispositivo, la medicazione standard e il fissaggio.",
+   "fonte": "https://nursetimes.org/accessi-vascolari-liss-pubblica-le-raccomandazioni-per-ladulto-ecoguida-ed-ecg-intracavitario-diventano-la-regola",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "Medicazioni a rilascio di clorexidina (raccomandazione forte)",
+    "Pomate antibiotiche di routine",
+    "Garze asciutte cambiate ogni ora",
+    "Nessuna medicazione, per lasciare respirare la cute"
+   ],
+   "q": "Sul sito di uscita di un catetere venoso centrale, oltre all'antisepsi con clorexidina al 2% in alcol, la raccomandazione ISS 2026 indica…",
+   "r": 0,
+   "sec": 0
+  },
+  {
+   "e": "L'approccio One Health considera insieme salute umana, animale e ambientale. Per l'infermiere significa igiene delle mani, precauzioni, corretta gestione dei prelievi per colture e educazione sull'uso degli antibiotici.",
+   "fonte": "https://www.who.int/campaigns/world-amr-awareness-week/world-amr-awareness-week-2026",
+   "m": "cli",
+   "novita": true,
+   "o": [
+    "«Mani pulite salvano vite»",
+    "«Una sola salute, una sola azione: prevenire l'antimicrobico-resistenza ora» (One Health, one action: Prevent AMR now)",
+    "«Antibiotici per tutti, subito»",
+    "«Vaccinarsi contro l'influenza»"
+   ],
+   "q": "La Settimana mondiale di sensibilizzazione sull'antimicrobico-resistenza 2026 (18-24 novembre) ha come tema…",
+   "r": 1,
+   "sec": 0
+  },
+  {
+   "e": "Le denunce sono state 83.335, 11.653 in più rispetto allo stesso periodo del 2025. Le patologie più denunciate restano quelle muscolo-scheletriche, frequenti anche in sanità per la movimentazione dei pazienti.",
+   "enc": "ml-malprof",
+   "fonte": "https://www.teleborsa.it/News/2026/11/03/infortuni-e-decessi-inail-i-numeri-di-settembre-199.html",
+   "m": "lav",
+   "novita": true,
+   "o": [
+    "Sono diminuite di circa il 20%",
+    "Sono rimaste stabili",
+    "Sono aumentate di circa il 16%, superando le 83.000",
+    "Sono state meno di 10.000"
+   ],
+   "q": "Secondo i dati INAIL provvisori dei primi nove mesi del 2026, le denunce di malattia professionale…",
+   "r": 2,
+   "sec": 0
+  },
+  {
+   "e": "Le denunce in itinere sono state 75.966 su 325.525 denunce di infortunio (+4,8% complessivo). L'infortunio in itinere è tutelato se il percorso è quello normale tra abitazione e lavoro; per chi fa turni di notte la stanchezza alla guida è un fattore di rischio.",
+   "enc": "ml-infortuni",
+   "fonte": "https://www.teleborsa.it/News/2026/11/03/infortuni-e-decessi-inail-i-numeri-di-settembre-199.html",
+   "m": "lav",
+   "novita": true,
+   "o": [
+    "Il 2% delle denunce",
+    "La metà delle denunce",
+    "Nessuna quota: non sono tutelati dall'INAIL",
+    "Quasi un quinto delle denunce (circa il 19%), in aumento del 6% circa"
+   ],
+   "q": "Secondo i dati INAIL di gennaio-settembre 2026, gli infortuni in itinere (nel tragitto casa-lavoro) rappresentano circa…",
+   "r": 3,
+   "sec": 0
+  }
+ ],
+ "casi": [
+  {
+   "abp": false,
+   "area": "Medicina del lavoro",
+   "capno": false,
+   "dx": [
+    "Dolore acuto correlato a lesione muscolo-scheletrica da sovraccarico",
+    "Mobilità fisica compromessa",
+    "Infortunio sul lavoro da movimentazione manuale dei pazienti",
+    "Ausili non disponibili: rischio organizzativo da valutare nel DVR"
+   ],
+   "ecg": "sinus",
+   "esami": [
+    [
+     "Lasègue",
+     "negativo bilateralmente",
+     0
+    ],
+    [
+     "Forza e sensibilità degli arti inferiori",
+     "conservate",
+     0
+    ],
+    [
+     "Sensibilità perineale e controllo degli sfinteri",
+     "conservati",
+     0
+    ]
+   ],
+   "lv": "facile",
+   "oral": "Collega D.Lgs. 81/2008 (Titolo VI, valutazione MAPO, formazione e addestramento), la differenza tra infortunio e malattia professionale, le scadenze della denuncia INAIL, la sorveglianza sanitaria con i giudizi di idoneità e il ricorso, e la segnalazione degli eventi come strumento del governo clinico (Codice 2025, art. 34).",
+   "resp": "normal",
+   "steps": [
+    {
+     "a": "Interrompe l'attività mettendo in sicurezza il paziente, chiede a un collega di completare la manovra, informa il coordinatore o chi lo sostituisce (preposto) e si fa valutare in pronto soccorso. Vanno esclusi i segnali di allarme: debolezza o perdita di sensibilità alle gambe, anestesia «a sella», ritenzione o incontinenza urinaria o fecale (possibile compressione della cauda equina), febbre, trauma importante. In Giulia sono assenti: è verosimilmente una lombalgia acuta da sovraccarico.",
+     "q": "Che cosa deve fare Giulia subito e quali segni di allarme vanno cercati?"
+    },
+    {
+     "a": "Sì: è una lesione da causa violenta (uno sforzo concentrato nel tempo) avvenuta in occasione di lavoro. Giulia avvisa subito il datore di lavoro, anche tramite il coordinatore; il medico che la visita rilascia il certificato. Con una prognosi superiore a 3 giorni il datore di lavoro invia la denuncia all'INAIL entro 2 giorni dalla ricezione del certificato; per assenze di 1-3 giorni è prevista solo la comunicazione a fini statistici. L'evento si segnala anche nel sistema aziendale di segnalazione degli eventi.",
+     "evo": "In pronto soccorso le assegnano 7 giorni di prognosi, analgesici e l'indicazione a restare attiva compatibilmente con il dolore.",
+     "q": "È un infortunio sul lavoro? Che cosa deve fare e che cosa deve fare il datore di lavoro?"
+    },
+    {
+     "a": "Pazienti non collaboranti da spostare, ausili guasti o mancanti, manovra eseguita tirando il paziente, probabilmente personale ridotto di notte. La movimentazione dei pazienti è un rischio che il datore di lavoro valuta nel DVR (D.Lgs. 81/2008, Titolo VI e allegato XXXIII), per esempio con il metodo MAPO, che considera il rapporto tra pazienti non autosufficienti e operatori, la disponibilità di sollevatori e ausili minori, gli ambienti e la formazione. Seguono ausili adeguati e manutenuti, formazione e addestramento al loro uso e sorveglianza sanitaria. Il guasto del sollevatore andava segnalato e risolto; il preposto vigila sul rispetto delle procedure.",
+     "q": "Quali fattori organizzativi hanno contribuito e che cosa prevede la normativa per prevenirli?"
+    },
+    {
+     "a": "Dopo 7 giorni non è prevista la visita obbligatoria per il rientro, che riguarda assenze per motivi di salute superiori a 60 giorni continuativi. Giulia può però chiedere una visita al medico competente, perché il disturbo è legato ai rischi della mansione. Il medico può esprimere un giudizio di idoneità con limitazioni temporanee (per esempio movimentazione solo con ausili); contro il giudizio è ammesso ricorso entro 30 giorni all'organo di vigilanza dell'ASL. L'esperienza va discussa in équipe per migliorare l'organizzazione.",
+     "q": "Al rientro, che ruolo ha il medico competente?"
+    }
+   ],
+   "story": "Giulia, 41 anni, infermiera di geriatria, è in turno di notte con un'operatrice socio-sanitaria. Insieme spostano verso la testata del letto un uomo di 95 kg, non collaborante, tirandolo per le braccia e per il lenzuolo: il sollevatore del reparto è guasto da una settimana e i teli ad alto scorrimento sono finiti. Giulia avverte una fitta alla parte bassa della schiena e non riesce a raddrizzarsi. Il dolore non scende alle gambe, non ha formicolii e ha urinato normalmente poco fa.",
+   "tags": [
+    "lav",
+    "pa"
+   ],
+   "title": "Fitta alla schiena durante lo spostamento di un paziente",
+   "vit": [
+    [
+     "FC",
+     "96/min",
+     1
+    ],
+    [
+     "PA",
+     "138/84 mmHg",
+     0
+    ],
+    [
+     "FR",
+     "18/min",
+     0
+    ],
+    [
+     "SpO2",
+     "99%",
+     0
+    ],
+    [
+     "Dolore NRS",
+     "7/10",
+     1
+    ]
+   ]
+  },
+  {
+   "abp": false,
+   "area": "Medicina",
+   "capno": false,
+   "dx": [
+    "Tachicardia sopraventricolare parossistica da rientro in paziente con polmonite",
+    "Rischio di diminuzione della gittata cardiaca",
+    "Ansia",
+    "Bisogno di educazione sulla gestione delle recidive"
+   ],
+   "ecg": "tsv",
+   "esami": [
+    [
+     "Potassio",
+     "3,9 mmol/l",
+     0
+    ],
+    [
+     "Magnesio",
+     "2,0 mg/dl",
+     0
+    ],
+    [
+     "PCR",
+     "6,2 mg/dl",
+     1
+    ],
+    [
+     "TSH",
+     "1,8 mUI/l",
+     0
+    ],
+    [
+     "Troponina I hs",
+     "8 ng/l",
+     0
+    ]
+   ],
+   "lv": "medio",
+   "oral": "Collega l'algoritmo ERC 2025 delle tachicardie con polso (segni avversi, manovre vagali, adenosina, cardioversione nel paziente instabile), la sicurezza nella somministrazione dei farmaci ad alto rischio e l'educazione terapeutica alla dimissione.",
+   "resp": "normal",
+   "steps": [
+    {
+     "a": "Tachicardia regolare a QRS stretto intorno a 185-190/min, senza onde P visibili prima dei QRS: il quadro più probabile è una tachicardia sopraventricolare parossistica da rientro, coerente con l'esordio e la fine improvvisi degli episodi precedenti. Anna è stabile: non ha segni avversi (shock, sincope, ischemia miocardica, scompenso). Avviso il medico, registro un ECG a 12 derivazioni durante la tachicardia, posiziono un accesso venoso di buon calibro al braccio e tengo pronto il carrello con defibrillatore.",
+     "q": "Osserva il monitor: che ritmo vedi? Anna è stabile o instabile?"
+    },
+    {
+     "a": "Le manovre vagali, in particolare la manovra di Valsalva modificata: da semiseduta Anna soffia con forza per circa 15 secondi in una siringa da 10 ml, come per spingerne lo stantuffo; subito dopo la si mette supina con le gambe sollevate per circa 15 secondi, sotto monitor. Il massaggio del seno carotideo non si esegue senza indicazione medica. Si annota l'orario e si registra il tracciato.",
+     "evo": "Due tentativi di manovra vagale non interrompono la tachicardia. Il medico prescrive adenosina 6 mg endovena.",
+     "q": "Che cosa si tenta per primo, nella paziente stabile?"
+    },
+    {
+     "a": "L'adenosina agisce per pochi secondi: si inietta in bolo rapido in una vena grande e vicina al cuore (piega del gomito), seguita subito da un lavaggio rapido di 20 ml di soluzione fisiologica (due siringhe su un rubinetto a tre vie), con il braccio sollevato, ECG registrato in continuo e defibrillatore disponibile. Prima avviso Anna che per qualche secondo potrà sentire oppressione al petto, vampate o una sensazione spiacevole, che passano rapidamente. Se non funziona il medico può prescrivere dosi successive più alte. Si usa con cautela nell'asma per il rischio di broncospasmo.",
+     "evo": "Dopo la seconda dose il monitor mostra una breve pausa e poi un ritmo sinusale a 92/min. Anna sta meglio.",
+     "q": "Come prepari e somministri l'adenosina e che cosa dici ad Anna prima?"
+    },
+    {
+     "a": "Rischio di diminuzione della gittata cardiaca nelle recidive; ansia legata agli episodi; bisogno di educazione. Le insegno a riconoscere l'esordio, a eseguire la manovra di Valsalva modificata e a chiamare il 112 se compaiono dolore toracico, svenimento o fiato corto o se l'episodio non si risolve. Febbre, infezione, disidratazione e alcuni stimolanti possono favorire le crisi. Documento orari, tracciati, farmaci ed effetti; il medico programmerà la valutazione cardiologica (studio elettrofisiologico ed eventuale ablazione).",
+     "q": "Quali problemi assistenziali individui e che cosa insegni ad Anna prima della dimissione?"
+    }
+   ],
+   "story": "Anna, 46 anni, è ricoverata in medicina da due giorni per una polmonite comunitaria e prende amoxicillina-acido clavulanico endovena. Alle 16 suona il campanello: mentre si chinava a raccogliere il telefono ha sentito iniziare all'improvviso un battito «velocissimo, come in gola». È lucida, un po' spaventata, non ha dolore toracico. Racconta di aver avuto episodi simili negli ultimi anni, finiti da soli dopo pochi minuti. Il monitor viene collegato subito.",
+   "tags": [
+    "cli",
+    "eo"
+   ],
+   "title": "Battito velocissimo in gola in una donna ricoverata per polmonite",
+   "vit": [
+    [
+     "FC",
+     "188/min",
+     1
+    ],
+    [
+     "PA",
+     "112/70 mmHg",
+     0
+    ],
+    [
+     "FR",
+     "22/min",
+     1
+    ],
+    [
+     "SpO2",
+     "96% in aria",
+     0
+    ],
+    [
+     "TC",
+     "37,4 °C",
+     0
+    ],
+    [
+     "Coscienza",
+     "vigile e orientata",
+     0
+    ]
+   ]
+  },
+  {
+   "abp": false,
+   "area": "Maxiemergenza territoriale",
+   "capno": false,
+   "dx": [
+    "Intossicazione collettiva da monossido di carbonio",
+    "Ischemia miocardica da monossido di carbonio (vittima F)",
+    "Compromissione degli scambi gassosi",
+    "Rischio per la sicurezza dei soccorritori"
+   ],
+   "ecg": "ischemia",
+   "esami": [
+    [
+     "COHb (CO-ossimetria)",
+     "28%",
+     1
+    ],
+    [
+     "Glicemia capillare",
+     "112 mg/dl",
+     1
+    ],
+    [
+     "Lattati (EGA venoso)",
+     "3,8 mmol/l",
+     1
+    ],
+    [
+     "Troponina I hs (in ospedale)",
+     "in aumento",
+     1
+    ]
+   ],
+   "lv": "difficile",
+   "oral": "Collega la maxiemergenza (sicurezza della scena, METHANE, START e JumpSTART, PMA, ritriage, distribuzione dei pazienti), i limiti della pulsossimetria e il significato della CO-ossimetria, l'ossigeno come antidoto e l'ossigenoterapia iperbarica, la lettura dell'ischemia all'ECG e la documentazione in emergenza.",
+   "resp": "tachipnea",
+   "scena": {
+    "luogo": "Circolo ricreativo con generatore acceso in un locale chiuso: 8 persone ancora sul posto da valutare",
+    "mon": "Vittima F, uomo di 52 anni, al posto medico avanzato",
+    "monitor": true,
+    "tipo": "co",
+    "v": [
+     {
+      "c": "verde",
+      "d": "Donna di 40 anni uscita da sola, con mal di testa e nausea; tiene in braccio il figlio (vittima G)",
+      "dati": [
+       [
+        "Cammina",
+        "sì"
+       ]
+      ],
+      "n": "A",
+      "nota": "Anche i codici verdi vanno rivalutati e trattati con ossigeno: i sintomi da monossido di carbonio possono peggiorare o comparire più tardi."
+     },
+     {
+      "c": "verde",
+      "d": "Ragazzo di 17 anni in piedi all'esterno, riferisce capogiri",
+      "dati": [
+       [
+        "Cammina",
+        "sì"
+       ]
+      ],
+      "n": "B"
+     },
+     {
+      "c": "nero",
+      "d": "Uomo di 70 anni portato fuori dai Vigili del fuoco dal locale vicino al generatore, immobile",
+      "dati": [
+       [
+        "Cammina",
+        "no"
+       ],
+       [
+        "Respiro",
+        "assente anche dopo apertura delle vie aeree"
+       ]
+      ],
+      "n": "C",
+      "nota": "Nell'adulto l'apnea che persiste dopo l'apertura delle vie aeree corrisponde al codice nero nel triage START, qualunque sia la causa."
+     },
+     {
+      "c": "rosso",
+      "d": "Donna di 55 anni seduta sul pavimento, confusa, ha vomitato",
+      "dati": [
+       [
+        "Cammina",
+        "no"
+       ],
+       [
+        "FR",
+        "24/min"
+       ],
+       [
+        "Polso radiale",
+        "presente"
+       ],
+       [
+        "Refill",
+        "2 s"
+       ],
+       [
+        "Ordini semplici",
+        "no"
+       ]
+      ],
+      "n": "D"
+     },
+     {
+      "c": "giallo",
+      "d": "Bambina di 6 anni sdraiata su una panca, sonnolenta",
+      "dati": [
+       [
+        "Cammina",
+        "no"
+       ],
+       [
+        "FR",
+        "32/min"
+       ],
+       [
+        "Polso periferico",
+        "presente"
+       ],
+       [
+        "AVPU",
+        "V (apre gli occhi e risponde alla voce)"
+       ]
+      ],
+      "n": "E",
+      "nota": "JumpSTART: FR tra 15 e 45/min, polso presente e risposta alla voce (V) danno il codice giallo."
+     },
+     {
+      "c": "giallo",
+      "d": "Uomo di 52 anni seduto, sudato, si tiene il petto; prova ad alzarsi ma deve risedersi per i capogiri",
+      "dati": [
+       [
+        "Cammina",
+        "no"
+       ],
+       [
+        "FR",
+        "26/min"
+       ],
+       [
+        "Polso radiale",
+        "presente"
+       ],
+       [
+        "Refill",
+        "1 s"
+       ],
+       [
+        "Ordini semplici",
+        "sì"
+       ]
+      ],
+      "n": "F",
+      "nota": "Il triage START non considera il dolore toracico: al PMA il monitor e la rivalutazione possono far cambiare la priorità di trasporto."
+     },
+     {
+      "c": "rosso",
+      "d": "Bambino di 3 anni in braccio alla madre, floscio, non piange",
+      "dati": [
+       [
+        "Cammina",
+        "no (è in braccio)"
+       ],
+       [
+        "FR",
+        "12/min"
+       ],
+       [
+        "Polso periferico",
+        "presente"
+       ]
+      ],
+      "n": "G",
+      "nota": "JumpSTART: una frequenza respiratoria sotto 15/min nel bambino dà il codice rosso; un bambino portato in braccio non si considera «che cammina»."
+     },
+     {
+      "c": "rosso",
+      "d": "Uomo di 30 anni che era rientrato per spegnere il generatore, ora steso all'esterno, risponde a fatica",
+      "dati": [
+       [
+        "Cammina",
+        "no"
+       ],
+       [
+        "FR",
+        "34/min"
+       ]
+      ],
+      "n": "H"
+     }
+    ]
+   },
+   "steps": [
+    {
+     "a": "Prima la sicurezza: malori simultanei di più persone in un locale chiuso con un generatore acceso fanno pensare a un'intossicazione da gas, verosimilmente monossido di carbonio, inodore e invisibile. Non si entra senza protezione respiratoria: il recupero delle persone ancora dentro spetta ai Vigili del fuoco con autorespiratore, che spengono il generatore e aerano. L'équipe lavora all'esterno, sopravento, con rilevatore personale di CO se disponibile. Si trasmette il messaggio METHANE: Major incident (maxiemergenza dichiarata); Exact location (indirizzo e punto di accesso); Type (intossicazione collettiva da sospetto CO da generatore in locale chiuso); Hazards (gas, carburante, rischio per i soccorritori, pioggia e buio); Access (via d'accesso, area per le ambulanze e per il posto medico avanzato); Number (circa 8 persone, tra cui 2 bambini, alcune gravi); Emergency services (presenti e necessari: Vigili del fuoco, altre ambulanze, automedica, forze dell'ordine).",
+     "q": "Arrivi per primo: che cosa fai prima di entrare e che cosa comunichi alla centrale?"
+    },
+    {
+     "a": "A e B camminano: verde. C non respira nemmeno dopo l'apertura delle vie aeree: nero. D non cammina, FR 24, polso presente, refill 2 s, ma non esegue ordini semplici: rosso. E (6 anni) ha FR 32, polso presente e risponde alla voce: giallo. F non cammina, FR 26, polso presente, refill 1 s, esegue gli ordini: giallo. G (3 anni) ha FR 12, sotto il limite di 15/min del JumpSTART: rosso. H ha FR 34, sopra 30/min: rosso. Durante il triage si eseguono solo manovre rapide (apertura delle vie aeree, posizione laterale, compressione di emorragie). Poiché la causa è comune, a tutti i sintomatici si dà al più presto ossigeno ad alto flusso con maschera con reservoir, iniziando dai rossi.",
+     "evo": "Al posto medico avanzato F viene collegato al monitor. Riferisce oppressione al petto da circa mezz'ora.",
+     "q": "Guarda i cartellini delle vittime: assegna i codici con START (adulti) e JumpSTART (bambini)."
+    },
+    {
+     "a": "Tachicardia sinusale con sottoslivellamento del tratto ST: segno di ischemia miocardica. Il monossido di carbonio lega l'emoglobina con un'affinità molto maggiore dell'ossigeno, riduce l'ossigeno ceduto ai tessuti ed è tossico anche per il cuore. Il pulsossimetro comune non distingue la carbossiemoglobina dall'ossiemoglobina: il 98% è falsamente rassicurante e la cute può apparire rosea. Serve la CO-ossimetria (pulsossimetro dedicato o emogas con COHb), che mostra 28%. Si continua l'ossigeno al 100% con reservoir, che accorcia molto l'emivita della COHb rispetto all'aria ambiente; si registra un ECG a 12 derivazioni e si comunica il quadro al medico e alla centrale.",
+     "evo": "Il medico dell'automedica chiede alla centrale la disponibilità della camera iperbarica più vicina.",
+     "q": "Osserva il tracciato e la saturazione di F: che cosa noti e perché la SpO2 non ti rassicura?"
+    },
+    {
+     "a": "Il triage è dinamico: i pazienti si rivalutano di continuo al PMA e il codice può cambiare (F, per l'ischemia, sale di priorità di trasporto). Si trasportano prima i rossi (D, G, H) e poi F, distribuendoli tra più ospedali secondo le indicazioni della centrale: il bambino G verso un pronto soccorso pediatrico; perdita di coscienza, segni neurologici, ischemia cardiaca o gravidanza sono situazioni in cui si valuta l'ossigenoterapia iperbarica. Gialli e verdi restano in ossigeno e in osservazione, con la rivalutazione dei sintomi. Il decesso di C è constatato dal medico e il corpo resta a disposizione dell'autorità giudiziaria. Ogni vittima mantiene il cartellino con codice, orari e trattamenti; alla fine l'équipe partecipa al debriefing.",
+     "q": "Come organizzi ritriage, trasporti e documentazione?"
+    }
+   ],
+   "story": "Domenica sera, paese di collina, pioggia e vento. Durante un blackout i gestori di un circolo ricreativo hanno acceso un generatore a benzina in un ripostiglio accanto alla sala, dove una ventina di persone cenava a porte chiuse. Dopo circa due ore alcuni lamentano mal di testa e nausea, altri vomitano, qualcuno si accascia; la maggior parte si allontana da sola. Alla centrale 118 arrivano più chiamate dallo stesso indirizzo. Sei l'infermiere dell'ambulanza con soccorritori (MSA) che arriva per prima; auto medica e Vigili del fuoco sono a pochi minuti. Davanti all'ingresso ci sono persone uscite da sole, alcune sedute a terra; altre sono ancora dentro.",
+   "tags": [
+    "eo",
+    "cli"
+   ],
+   "title": "Malori collettivi in un circolo ricreativo durante un blackout",
+   "vit": [
+    [
+     "FC",
+     "118/min",
+     1
+    ],
+    [
+     "PA",
+     "148/92 mmHg",
+     1
+    ],
+    [
+     "FR",
+     "26/min",
+     1
+    ],
+    [
+     "SpO2",
+     "98% in aria",
+     0
+    ],
+    [
+     "GCS",
+     "14 (E4 V4 M6)",
+     1
+    ],
+    [
+     "TC",
+     "36,8 °C",
+     0
+    ]
+   ]
+  }
+ ],
+ "palestre": {
+  "capno": [
+   {
+    "c": 0,
+    "cp": {
+     "at": [
+      0.4,
+      0.5
+     ],
+     "et": [
+      44,
+      48
+     ],
+     "et0": [
+      34,
+      36
+     ],
+     "f": "up",
+     "rr": 12
+    },
+    "e": "Durante l'ischemia l'arto accumula CO2 e acidi; allo sgonfiaggio il sangue torna in circolo e l'EtCO2 sale per alcuni minuti, spesso con un calo della pressione. L'anestesista può aumentare temporaneamente la ventilazione. Un aumento che continua a crescere senza spiegazione richiederebbe invece di cercare altre cause.",
+    "n": "Rilascio del laccio emostatico in chirurgia ortopedica",
+    "o": [
+     "Aumento brusco dell'EtCO2 per il ritorno in circolo del sangue dell'arto ischemico, ricco di CO2: è atteso e transitorio; si sorvegliano pressione arteriosa, frequenza ed EtCO2 fino al ritorno ai valori di partenza",
+     "Intubazione esofagea",
+     "Ipoventilazione da disconnessione del circuito",
+     "Ripresa del circolo dopo un arresto cardiaco"
+    ],
+    "q": "Come interpreti il capnogramma?",
+    "rep": "Sala operatoria",
+    "st": "Uomo di 58 anni in anestesia generale per una protesi di ginocchio; il laccio pneumatico sulla coscia è gonfio da 90 minuti. La ventilazione non è stata modificata. Pochi secondi dopo lo sgonfiaggio del laccio il capnogramma cambia.",
+    "x": {
+     "FC": 96,
+     "PA": "104/62",
+     "SpO2": "98%"
+    }
+   }
+  ],
+  "ecg": [
+   {
+    "c": 2,
+    "e": "Nella sindrome di Wolff-Parkinson-White una via accessoria conduce l'impulso ai ventricoli scavalcando il nodo atrioventricolare: PR inferiore a 0,12 s e onda delta con QRS un po' allargato. Se insorge una fibrillazione atriale, la conduzione rapida lungo la via accessoria può degenerare: in quel caso i farmaci che bloccano il nodo (come verapamil, digossina, adenosina) sono pericolosi.",
+    "hr": [
+     68,
+     84
+    ],
+    "k": "wpw",
+    "o": [
+     "Blocco di branca destro senza importanza",
+     "Ritmo idioventricolare",
+     "PR corto con impastamento iniziale del QRS (onda delta): preeccitazione ventricolare da via accessoria; va inviato all'elettrofisiologo prima dell'idoneità",
+     "BAV di I grado da allenamento"
+    ],
+    "q": "Che cosa mostra il tracciato e che cosa ne consegue?",
+    "t": "Ragazzo di 19 anni alla visita per l'idoneità allo sport agonistico. Riferisce due episodi di cardiopalmo improvviso negli ultimi mesi, terminati da soli. Ora è asintomatico, PA 118/72."
+   },
+   {
+    "c": 1,
+    "e": "Un blocco di branca sinistra nuovo o presunto tale, con sintomi di ischemia, rende difficile leggere il tratto ST e può nascondere un'occlusione coronarica acuta: si gestisce con la stessa urgenza dello STEMI (ECG seriati, troponina, accesso venoso, defibrillatore pronto, contatto con l'emodinamica).",
+    "hr": [
+     70,
+     88
+    ],
+    "k": "bbsx",
+    "o": [
+     "Ritmo normale: si attende la troponina prima di avvisare il medico",
+     "QRS largo con aspetto di blocco di branca sinistra non presente nell'ECG precedente: con questo dolore può equivalere a un infarto; avviso subito il medico e si attiva il percorso come per lo STEMI",
+     "Fibrillazione atriale: si prepara l'anticoagulante",
+     "Iperpotassiemia: si prepara il calcio gluconato"
+    ],
+    "q": "Come interpreti il tracciato e che cosa fai?",
+    "t": "Donna di 71 anni in pronto soccorso con dolore oppressivo retrosternale da 40 minuti, sudata e nauseata. Un ECG di sei mesi fa era normale."
+   }
+  ],
+  "ega": [
+   {
+    "age": [
+     70,
+     82
+    ],
+    "c": 2,
+    "dis": "ma",
+    "e": "pH molto basso con bicarbonati bassi: acidosi metabolica. La pCO2 bassa è il compenso atteso (circa 1,5 × HCO3 + 8 ± 2). Gap anionico alto e lattati molto alti indicano un'acidosi lattica: la metformina si elimina con il rene e, se la funzione renale crolla per disidratazione (anche con un ACE-inibitore), si accumula. Glicemia non molto alta e assenza di chetoni orientano lontano dalla chetoacidosi.",
+    "fio2": 0.21,
+    "gap": [
+     24,
+     30
+    ],
+    "hco3": [
+     8,
+     11
+    ],
+    "n": "Acidosi lattica da metformina con danno renale acuto",
+    "o": [
+     "Acidosi respiratoria da ipoventilazione: serve la ventilazione non invasiva",
+     "Chetoacidosi diabetica: insulina in bolo e nient'altro",
+     "Acidosi metabolica a gap anionico aumentato con lattati molto alti e compenso respiratorio: probabile accumulo di metformina per il danno renale da disidratazione; sospensione del farmaco, liquidi, controlli ravvicinati e valutazione della dialisi",
+     "Alcalosi metabolica da vomito"
+    ],
+    "pco2": [
+     22,
+     25
+    ],
+    "po2": [
+     92,
+     104
+    ],
+    "q": "Come interpreti l'emogas e che cosa ti aspetti dalla prescrizione?",
+    "rep": "Pronto soccorso",
+    "sex": "F",
+    "st": "Donna con diabete tipo 2 in terapia con metformina 1 g due volte al giorno e ramipril. Da quattro giorni ha diarrea e vomito e beve pochissimo; oggi è sonnolenta e respira in modo rapido e profondo. Urina pochissimo da ieri.",
+    "x": {
+     "glu": [
+      110,
+      150
+     ],
+     "k": [
+      5.2,
+      5.8
+     ],
+     "lac": [
+      9,
+      14
+     ],
+     "na": [
+      133,
+      137
+     ]
+    }
+   },
+   {
+    "age": [
+     66,
+     80
+    ],
+    "c": 0,
+    "dis": "mb",
+    "e": "pH alto, bicarbonati molto alti e pCO2 ormai normale: alcalosi metabolica. Il compenso renale dell'ipercapnia cronica si adegua in giorni, non in ore; diuretici e cortisonici fanno perdere potassio e cloro e mantengono i bicarbonati alti. L'alcalosi può ridurre lo stimolo a respirare: si correggono gli elettroliti su prescrizione e si monitora.",
+    "fio2": 0.28,
+    "hco3": [
+     34,
+     38
+    ],
+    "n": "Alcalosi metabolica post-ipercapnica dopo ventilazione non invasiva",
+    "o": [
+     "Alcalosi metabolica: il rene aveva trattenuto bicarbonati durante l'ipercapnia cronica e questi restano alti dopo la rapida correzione della pCO2, con il contributo di diuretico e potassio basso; si segnalano potassio e cloro e si rivede la terapia con il medico",
+     "Acidosi respiratoria cronica compensata, come sempre in questo paziente",
+     "Alcalosi respiratoria da iperventilazione",
+     "Emogas normale per una persona con BPCO"
+    ],
+    "pco2": [
+     40,
+     44
+    ],
+    "po2": [
+     64,
+     72
+    ],
+    "q": "Che disturbo mostra l'emogas e da che cosa dipende?",
+    "rep": "Pneumologia, terapia semintensiva",
+    "sex": "M",
+    "st": "Uomo con BPCO grave e ipercapnia cronica, ricoverato tre giorni fa per una riacutizzazione e trattato con ventilazione non invasiva, che ha ridotto rapidamente l'anidride carbonica. Prende furosemide e un cortisonico. Oggi è vigile, lamenta crampi e formicolii alle mani e respira più lentamente del solito.",
+    "x": {
+     "k": [
+      3,
+      3.4
+     ],
+     "na": [
+      136,
+      140
+     ]
+    }
+   }
+  ],
+  "integ": [
+   {
+    "age": [
+     28,
+     40
+    ],
+    "fin": {
+     "c": 1,
+     "e": "Dopo uno stato di male servono sorveglianza e sicurezza, la ricerca della causa (dimenticanza dei farmaci, infezione, alcol, privazione di sonno, interazioni) e l'educazione della persona e dei familiari sul farmaco di soccorso da usare dopo 5 minuti di crisi.",
+     "o": [
+      "Contenzione al letto per prevenire nuove crisi",
+      "Sorveglianza neurologica e respiratoria continua, sponde imbottite e letto basso, ossigeno e aspiratore pronti, benzodiazepina prescritta al bisogno, documentazione accurata di durata e tipo delle eventuali crisi, verifica dell'aderenza alla terapia antiepilettica e dei fattori scatenanti",
+      "Digiuno assoluto per 48 ore senza controlli",
+      "Dimissione appena sveglia senza rivedere la terapia"
+     ],
+     "q": "Quale insieme di interventi è più corretto per questa paziente?"
+    },
+    "lv": "medio",
+    "n": "Stato di male epilettico: dall'arresto delle crisi al giorno dopo",
+    "parts": [
+     {
+      "c": 1,
+      "dis": "mx",
+      "e": "pCO2 alta e bicarbonati bassi spingono entrambi il pH verso l'acidosi. L'acidosi lattica delle crisi di solito si riduce rapidamente quando le crisi cessano; la componente respiratoria dipende da quanto e come respira la paziente.",
+      "fio2": 0.36,
+      "gap": [
+       18,
+       22
+      ],
+      "hco3": [
+       17,
+       19
+      ],
+      "o": [
+       "Alcalosi respiratoria da iperventilazione",
+       "Acidosi mista: metabolica (lattati prodotti dai muscoli durante le crisi) e respiratoria (ipoventilazione da stato post-critico e benzodiazepine)",
+       "Emogas normale",
+       "Acidosi metabolica da chetoacidosi"
+      ],
+      "pco2": [
+       52,
+       58
+      ],
+      "po2": [
+       70,
+       82
+      ],
+      "q": "Emogas arterioso subito dopo la fine delle crisi: come lo interpreti?",
+      "t": "ega",
+      "x": {
+       "glu": [
+        150,
+        190
+       ],
+       "k": [
+        4,
+        4.6
+       ],
+       "lac": [
+        7,
+        10
+       ]
+      }
+     },
+     {
+      "c": 2,
+      "cp": {
+       "et": [
+        54,
+        58
+       ],
+       "et0": [
+        42,
+        45
+       ],
+       "f": "rise",
+       "rr": [
+        7,
+        9
+       ]
+      },
+      "e": "Lo stato post-critico e le benzodiazepine sommate riducono il respiro. Il flumazenil di solito si evita nelle persone con epilessia perché può scatenare nuove crisi: la priorità è sostenere vie aeree e ventilazione.",
+      "evo": "Venti minuti dopo è ancora molto sonnolenta e la frequenza respiratoria scende.",
+      "o": [
+       "EtCO2 bassa: iperventilazione da ansia",
+       "Assenza di curva: estubazione",
+       "EtCO2 in aumento progressivo con frequenza bassa: ipoventilazione; stimolo la paziente, la metto in posizione laterale di sicurezza, apro le vie aeree, avviso il medico e preparo il supporto ventilatorio con pallone e maschera",
+       "Incisura nel plateau: atti spontanei durante la ventilazione meccanica"
+      ],
+      "q": "Che cosa mostra il capnogramma e che cosa fai?",
+      "t": "capno",
+      "where": "cannula nasale con campionamento"
+     },
+     {
+      "ab": {
+       "ck": [
+        2600,
+        5200
+       ],
+       "crea": {
+        "F": [
+         1.1,
+         1.4
+        ]
+       }
+      },
+      "c": 1,
+      "e": "Le contrazioni muscolari intense e prolungate danneggiano i muscoli: la CK sale nelle ore successive e la mioglobina può danneggiare il rene. I lattati sono già tornati normali.",
+      "evo": "Il mattino dopo è vigile e orientata, lamenta dolori muscolari diffusi; le urine sono più scure.",
+      "o": [
+       "Infarto miocardico: si prepara l'angioplastica",
+       "Danno muscolare da crisi prolungate (CK alta) con lieve aumento della creatinina: idratazione su prescrizione, bilancio idrico e diuresi, colore delle urine e potassio",
+       "Insufficienza epatica acuta",
+       "Esami attesi e senza conseguenze: nessuna sorveglianza"
+      ],
+      "pan": [
+       "ck",
+       "crea",
+       "k",
+       "na",
+       "glu",
+       "lat",
+       "pcr",
+       "mg"
+      ],
+      "q": "Che cosa indicano gli esami e che cosa sorvegli?",
+      "t": "lab"
+     }
+    ],
+    "rep": "Pronto soccorso",
+    "sex": "F",
+    "st": "Donna con epilessia nota, portata dal 118 per crisi tonico-cloniche ripetute senza ripresa della coscienza tra una crisi e l'altra. A casa ha ricevuto midazolam per via buccale, in pronto soccorso lorazepam endovena; le crisi si sono fermate da 10 minuti. Ha un morso alla lingua e incontinenza urinaria.",
+    "x": {
+     "FC": 112,
+     "FR": 10,
+     "PA": "146/88",
+     "SpO2": "93% con O2 4 l/min",
+     "TC": "37,8 °C"
+    }
+   }
+  ],
+  "lab": [
+   {
+    "ab": {
+     "ast": [
+      48,
+      70
+     ],
+     "bil": [
+      3.2,
+      4.8
+     ],
+     "hb": {
+      "M": [
+       7.6,
+       9.2
+      ]
+     },
+     "ht": {
+      "M": [
+       23,
+       28
+      ]
+     },
+     "rdw": [
+      15,
+      17
+     ],
+     "ret": [
+      5,
+      9
+     ]
+    },
+    "age": [
+     18,
+     30
+    ],
+    "c": 3,
+    "e": "Reticolociti alti dicono che il midollo risponde; la bilirubina è alta ma la diretta resta normale, quindi l'eccesso è indiretto (pre-epatico). L'AST lievemente alta può venire dai globuli rossi. Dopo le fave il sospetto è il deficit di G6PD (favismo): l'emoglobina libera nelle urine può danneggiare il rene, perciò idratazione e controllo della diuresi.",
+    "enc": "es-indici",
+    "n": "Anemia emolitica acuta dopo un pasto con fave",
+    "o": [
+     "Un'emorragia digestiva: si prepara la gastroscopia",
+     "Un ostacolo al deflusso della bile: bilirubina diretta alta",
+     "Un'anemia da carenza di ferro",
+     "Una distruzione accelerata dei globuli rossi (emolisi): emoglobina bassa, reticolociti alti e bilirubina soprattutto indiretta; si sorvegliano colore delle urine, diuresi e funzione renale e si educa a evitare fave e farmaci ossidanti"
+    ],
+    "pan": [
+     "hb",
+     "ht",
+     "mcv",
+     "rdw",
+     "ret",
+     "gb",
+     "plt",
+     "bil",
+     "bild",
+     "ast",
+     "crea"
+    ],
+    "q": "Che cosa indicano gli esami e che cosa sorvegli?",
+    "sex": "M",
+    "st": "Ragazzo di origine sarda, arriva in pronto soccorso due giorni dopo aver mangiato fave fresche: è molto stanco e pallido, ha le sclere giallastre e urine color tè. Nessun dolore addominale, feci di colore normale."
+   },
+   {
+    "ab": {
+     "ast": [
+      85,
+      130
+     ],
+     "ggt": {
+      "M": [
+       190,
+       360
+      ]
+     },
+     "mcv": [
+      103,
+      110
+     ],
+     "plt": [
+      90000,
+      130000
+     ]
+    },
+    "age": [
+     50,
+     65
+    ],
+    "c": 0,
+    "e": "Macrocitosi con B12 normale, gamma-GT alta e rapporto AST/ALT maggiore di 2 sono tipici del danno da alcol; le piastrine si riducono per tossicità sul midollo e per l'ingrossamento della milza. Tremori, sudorazione e agitazione 24-48 ore dopo l'ultima bevanda indicano l'astinenza, che può evolvere verso convulsioni e delirium tremens.",
+    "enc": "es-transaminasi",
+    "n": "Esami da consumo cronico di alcol in un paziente agitato",
+    "o": [
+     "Esami compatibili con consumo cronico di alcol (globuli rossi grandi, gamma-GT alta, AST più del doppio dell'ALT, piastrine basse) e sintomi da astinenza: valutazione con una scala dedicata (CIWA-Ar), benzodiazepine su prescrizione, tiamina prima delle soluzioni glucosate, sorveglianza per convulsioni e delirium",
+     "Epatite virale acuta: isolamento da contatto e nient'altro",
+     "Anemia da carenza di ferro: ferro per bocca",
+     "Esami normali: l'agitazione è dovuta al dolore"
+    ],
+    "pan": [
+     "hb",
+     "mcv",
+     "plt",
+     "ast",
+     "alt",
+     "ggt",
+     "bil",
+     "alb",
+     "inr",
+     "b12"
+    ],
+    "q": "Come leggi gli esami e qual è la priorità assistenziale?",
+    "sex": "M",
+    "st": "Uomo ricoverato in ortopedia per una frattura del polso dopo una caduta. Al secondo giorno è agitato, sudato, con tremori alle mani e insonnia; la moglie riferisce che beve vino e superalcolici ogni giorno da anni."
+   }
+  ],
+  "vent": [
+   {
+    "age": [
+     55,
+     72
+    ],
+    "c": 3,
+    "e": "Con la cuffia a pressione corretta, la differenza tra volume inspirato ed espirato con gorgoglio continuo a ogni atto indica una fistola broncopleurica: parte del volume esce dal drenaggio. Clampare il drenaggio potrebbe causare un pneumotorace iperteso; il medico può modificare la ventilazione per ridurre le pressioni.",
+    "find": "leak",
+    "kg": 70,
+    "m": {
+     "C": [
+      40,
+      46
+     ],
+     "R": [
+      10,
+      12
+     ],
+     "etco2": [
+      36,
+      40
+     ],
+     "fio2": 0.5,
+     "leak": [
+      0.3,
+      0.38
+     ],
+     "mode": "VC",
+     "pause": 0.3,
+     "peep": 6,
+     "rr": 16,
+     "ti": 1,
+     "vt": 460
+    },
+    "n": "Perdita aerea da fistola broncopleurica",
+    "o": [
+     "Picco − plateau alto: si aspirano le secrezioni",
+     "Il flusso espiratorio non torna a zero: auto-PEEP da broncospasmo",
+     "Curve normali: il gorgoglio del drenaggio è sempre fisiologico",
+     "Volume espirato minore dell'inspirato: perdita d'aria che, con cuffia integra e gorgoglio continuo nel drenaggio, passa dal polmone alla pleura; non si clampa il drenaggio, si controllano connessioni e camera ad acqua, si documenta il gorgoglio e si avvisa il medico"
+    ],
+    "q": "Che cosa mostrano le curve e che cosa fai?",
+    "rep": "Terapia intensiva",
+    "sex": "M",
+    "st": "Uomo intubato dopo una lobectomia polmonare complicata da polmonite. Il drenaggio toracico gorgoglia in modo continuo, a ogni atto del ventilatore. La pressione della cuffia del tubo è 25 cmH2O e dalla bocca non si sentono perdite.",
+    "x": {
+     "FC": 104,
+     "PA": "118/70",
+     "SpO2": "93%"
+    }
+   }
+  ]
+ }
+}
