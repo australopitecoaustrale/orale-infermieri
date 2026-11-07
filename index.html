@@ -1385,6 +1385,7 @@ h2{font-weight:900}
 <script src="enccases.js"></script>
 <script src="figure.js"></script>
 <script src="palestre.js"></script>
+<script src="ecg12.js"></script>
 <script>
 if(typeof PDFQ==="undefined"){window.PDFQ=[];window.PDF_TITLES=[]}
 /* ============ DATI ============ */
@@ -3701,6 +3702,7 @@ function ecgGym(){
   app.innerHTML=`
   <div><span class="eyebrow">Elettrocardiogramma</span><h2>Palestra ECG: esercizi di lettura</h2></div>
   <p class="lead">Una striscia alla volta, letta con metodo: frequenza, ritmo, onde P, QRS e infine la diagnosi. Tocca due punti del tracciato per misurare un intervallo con il compasso. ${GYM_POOL.length} quadri diversi con tracciati sempre nuovi, più ${GYM_CASES.length} casi clinici in cui riconoscere il ritmo e scegliere cosa fare.</p>
+  <div class="row"><a class="btn" href="#ecg12" style="text-decoration:none">Passa agli ECG a 12 derivazioni</a></div>
   <div class="row"><button class="chip" data-gm="guidato" aria-pressed="${GYM.mode==="guidato"}">Lettura guidata (5 passaggi)</button><button class="chip" data-gm="rapido" aria-pressed="${GYM.mode==="rapido"}">Riconoscimento rapido</button><button class="chip" data-gm="casi" aria-pressed="${CASI}">Casi clinici (${GYM_CASES.length})</button><span class="small" style="margin-left:auto">Sessione: <b>${GYM.ok}</b> corrette su <b>${GYM.n}</b></span></div>
   <div class="sheet gym" style="display:flex;flex-direction:column;gap:12px">
     ${CASI?`<div class="gym-case"><span class="eyebrow">Caso clinico ${palNewBadge(cs)}</span><p>${esc(cs.t)}</p></div>`:""}
@@ -3976,6 +3978,7 @@ function mnView(){const q=(state.mnQ||"").toLowerCase();const ar=Object.keys(EAR
 }
 function enciclopedia(v){
   if(v==="ecg-esercizi"){ecgGym();return}
+  if(v==="ecg12"){if(typeof ECG12!=="undefined")ECG12.view();return}
   if(v==="esami-esercizi"){labGym();return}
   if(v==="ega-esercizi"){egaGym();return}
   if(v==="vent-esercizi"){ventGym();return}
@@ -4010,7 +4013,7 @@ function enciclopedia(v){
   <div id="enc-res" hidden></div>
   <div id="enc-main" style="display:flex;flex-direction:column;gap:16px">
     <div class="enc-areas qk-grid">${qkTile("tutte",ENCY.length,area==="tutte","area")}${Object.keys(EAREE).map(k=>qkTile(k,counts[k]||0,area===k,"area")).join("")}</div>
-    ${area==="ecg"||area==="tutte"?`<a class="sheet gym-cta" href="#ecg-esercizi"><span class="eyebrow">Novità</span><b>Palestra ECG: esercizi di lettura</b><span class="small">Strisce sempre nuove da leggere con metodo (frequenza, ritmo, P, QRS, diagnosi) con compasso per misurare gli intervalli</span></a>`:""}
+    ${area==="ecg"||area==="tutte"?`<a class="sheet gym-cta" href="#ecg-esercizi"><span class="eyebrow">Novità</span><b>Palestra ECG: esercizi di lettura</b><span class="small">Strisce sempre nuove da leggere con metodo (frequenza, ritmo, P, QRS, diagnosi) con compasso per misurare gli intervalli</span></a><a class="sheet gym-cta" href="#ecg12"><span class="eyebrow">Novità</span><b>ECG a 12 derivazioni</b><span class="small">Tracciati completi su carta e su monitor: 16 quadri commentati (infarti, blocchi di branca, aritmie, elettroliti) ed esercizi di lettura</span></a>`:""}
     ${area==="emerg"||area==="tutte"?`<a class="sheet gym-cta" href="#vent-esercizi"><span class="eyebrow">Novità</span><b>Palestra ventilatore e capnografia</b><span class="small">Il monitor della terapia intensiva: PEEP, picco e plateau, driving pressure, curve, allarmi e capnogrammi</span></a><a class="sheet gym-cta" href="#casi-integrati"><span class="eyebrow">Novità</span><b>Casi integrati</b><span class="small">Emogas, esami del sangue, ECG, ventilatore e capnografia dello stesso paziente, in più parti</span></a>`:""}
     <a class="sheet gym-cta mn-cta" href="#mnemoniche"><b>Per ricordare: acronimi e frasi mnemoniche</b><span class="small">${Object.values(MN).reduce((a,l)=>a+l.length,0)} trucchi per memorizzare (regola delle 7 G, ABCDE, SBAR, regola del 15, del 9…), raccolti in un'unica pagina e dentro ogni voce</span></a>
     ${area==="diritto"?dirIdx():""}
@@ -4346,7 +4349,7 @@ document.addEventListener("click",e=>{const b=e.target.closest("[data-h3d-go]");
 
 function route(){
   const v=(location.hash||"#oggi").slice(1);
-  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"||v==="esami-esercizi"||v==="ega-esercizi"||v==="vent-esercizi"||v==="casi-integrati"||v==="mnemoniche"?"enciclopedia":"oggi");
+  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"||v==="ecg12"||v==="esami-esercizi"||v==="ega-esercizi"||v==="vent-esercizi"||v==="casi-integrati"||v==="mnemoniche"?"enciclopedia":"oggi");
   const changed=document.documentElement.dataset.view!==name;
   document.documentElement.dataset.view=name;
   document.querySelectorAll("nav.tabs a").forEach(a=>{const on=a.getAttribute("href")==="#"+name;a.setAttribute("aria-current",on?"page":"false");if(on&&changed)a.scrollIntoView({block:"nearest",inline:"center"})});
