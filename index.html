@@ -1304,74 +1304,15 @@ button[disabled],.opt[disabled]{cursor:default}
 @media (prefers-reduced-motion:reduce){.vc-gap,.lu-b.on{animation:none;display:none}.lu-b.on{display:inline}}
 @media (prefers-reduced-motion:reduce){.vm-al .r{animation:none}.vm-anim .vm-sweep{animation:none}}
 
-/* ==== Tema «app»: intestazione blu sfumata con ricerca, schede arrotondate, riquadri colorati con icone e contatori ==== */
-:root,:root[data-view]{
-  --va:#1f63d6;
-  --brand:#1f63d6; --brand-2:#2f8cf0; --navy:#0e1c3f;
-  --paper:#ffffff; --ink:#0e1c3f; --muted:#5b6782; --line:#e2e8f2;
-  --scrub:#1f63d6; --scrub-soft:#e8f0ff;
-  --bg:#edf1f7; --grid:transparent; --head:#12306b; --on-accent:#ffffff;
-  --shadow:0 1px 2px rgba(16,36,80,.05),0 14px 32px -20px rgba(16,36,80,.35);
-  --shadow-lg:0 2px 4px rgba(16,36,80,.05),0 24px 48px -24px rgba(16,36,80,.45);
-  --hot:#ef3b64;
-  --f-display:"Nunito","Segoe UI",system-ui,sans-serif;
-  --f-body:"Nunito Sans","Segoe UI",system-ui,sans-serif;
-  --r:20px;
-  --hdr-grad:linear-gradient(155deg,#0a1d4a 0%,#123a86 48%,#1d6ed0 100%);
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]),:root[data-view]:not([data-theme="light"]){
-  --paper:#141d31; --ink:#e8eefb; --muted:#9aa8c4; --line:#25324d;
-  --scrub:#7aa8ff; --scrub-soft:#1b2b4f; --bg:#0a1120; --head:#0b1b44; --on-accent:#0a1120;
-  --shadow:0 1px 2px rgba(0,0,0,.35),0 14px 32px -20px rgba(0,0,0,.8); --shadow-lg:0 24px 48px -24px rgba(0,0,0,.9);
-  --hdr-grad:linear-gradient(155deg,#060f28 0%,#0c2660 52%,#1552a8 100%)}}
-:root[data-theme="dark"],:root[data-view][data-theme="dark"]{
-  --paper:#141d31; --ink:#e8eefb; --muted:#9aa8c4; --line:#25324d;
-  --scrub:#7aa8ff; --scrub-soft:#1b2b4f; --bg:#0a1120; --head:#0b1b44; --on-accent:#0a1120;
-  --shadow:0 1px 2px rgba(0,0,0,.35),0 14px 32px -20px rgba(0,0,0,.8); --shadow-lg:0 24px 48px -24px rgba(0,0,0,.9);
-  --hdr-grad:linear-gradient(155deg,#060f28 0%,#0c2660 52%,#1552a8 100%)}
-body{background:var(--bg)!important;background-image:radial-gradient(900px 420px at 85% 0%,color-mix(in srgb,var(--brand) 9%,transparent),transparent 70%)!important;font-family:var(--f-body)}
-body::after{display:none!important}
-body::before{background:#0a1d4a!important}
+/* ==== Tema «app» per i contenuti: caratteri arrotondati, schede morbide, emergenze e riquadri delle aree con icone e contatori (intestazioni e colori di sezione invariati) ==== */
+:root{--f-display:"Nunito","Segoe UI",system-ui,sans-serif;--f-body:"Nunito Sans","Segoe UI",system-ui,sans-serif;--r:20px;--hot:#ef3b64;
+  --shadow:0 1px 2px rgba(16,36,80,.05),0 14px 32px -20px rgba(16,36,80,.35)}
 h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-.015em}
-h2{font-weight:900;color:var(--ink)}
+h2{font-weight:900}
 .eyebrow{font-family:var(--f-body);font-weight:800;letter-spacing:.06em;color:var(--scrub)}
-
-/* intestazione */
-header.top.app-top{background:var(--hdr-grad)!important;border-radius:0 0 28px 28px;box-shadow:0 18px 40px -26px rgba(10,29,74,.85)!important;overflow:visible}
-header.top.app-top::after{display:none}
-header.top.app-top::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(520px 220px at 92% -10%,rgba(120,200,255,.28),transparent 70%),radial-gradient(380px 200px at 0% 120%,rgba(255,255,255,.08),transparent 70%)}
-header.top.app-top .top-in{padding-block:18px 14px!important;gap:14px!important;max-width:1100px}
-.app-top .brand{gap:12px;align-items:center}
-.app-ico{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(160deg,rgba(255,255,255,.28),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 8px 18px -10px rgba(0,0,0,.6)}
-.app-top .brand .txt{flex:1;min-width:0}
-.app-top .brand b{font-family:var(--f-display)!important;font-weight:900;font-size:1.45rem!important;letter-spacing:-.02em;text-shadow:none!important;line-height:1.1}
-.app-top .brand span{display:block!important;font-family:var(--f-display);font-weight:800;font-size:1rem!important;opacity:1!important;margin-top:2px!important;color:rgba(255,255,255,.82);text-shadow:none!important}
-.app-top .brand span em{font-style:normal;color:#8cc8ff}
-.app-theme{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;cursor:pointer}
-.app-theme:hover{background:rgba(255,255,255,.22)}
-.app-tools{display:flex;flex-direction:column;gap:10px}
-.app-chips{display:flex;flex-wrap:wrap;gap:6px}
-.app-chips span{font:800 .76rem/1 var(--f-display);color:#fff;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22)}
-.app-search{display:flex;align-items:center;gap:10px;background:#fff;color:#6b7690;border-radius:16px;padding:0 14px;height:50px;box-shadow:0 14px 28px -16px rgba(0,0,0,.55);margin:0}
-.app-search input{all:unset;flex:1;min-width:0;font:600 1rem var(--f-body);color:#0e1c3f}
-.app-search input::placeholder{color:#8b95ab}
-.app-search:focus-within{box-shadow:0 0 0 3px rgba(140,200,255,.55),0 14px 28px -16px rgba(0,0,0,.55)}
-@media (min-width:860px){.app-tools{flex-direction:row-reverse;align-items:center}.app-search{flex:1;max-width:560px}.app-chips{flex:none}}
-@media (max-width:600px){.app-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.app-chips::-webkit-scrollbar{display:none}.app-chips span{flex:none}.app-top .brand b{font-size:1.25rem!important}.app-top .brand span{font-size:.9rem!important}.app-search{height:46px}}
-nav.tabs{background:rgba(255,255,255,.1)!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:none!important;border-radius:16px!important;padding:4px!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
-nav.tabs a{font-family:var(--f-display)!important;font-weight:800!important;font-size:.9rem!important;margin:0!important;padding:8px 14px!important;border-radius:12px!important;text-shadow:none!important;color:rgba(255,255,255,.9)!important}
-nav.tabs a::after{display:none!important}
-nav.tabs a[aria-current="page"]{color:var(--navy)!important}
-.tab-ind{border-radius:12px!important;box-shadow:0 6px 16px -8px rgba(0,0,0,.5)!important}
-.tab-ind .ico{display:none!important}
-nav.tabs .ts-rim{stroke:rgba(255,255,255,.9)!important}nav.tabs .ts-body{fill:#fff!important}nav.tabs .ts-out{display:none}
-nav.tabs{padding-left:4px!important;padding-right:4px!important}
-header.top.compact{transform:translateY(calc(-1 * var(--stage-h,0px)))}
-
 /* superfici */
 .sheet{border-radius:var(--r)!important;border:1px solid color-mix(in srgb,var(--line) 70%,transparent)!important;box-shadow:var(--shadow)!important}
 .btn{border-radius:12px;font-family:var(--f-display);font-weight:800}
-.btn.primary{background:var(--brand);border-color:var(--brand);box-shadow:0 10px 20px -12px var(--brand)}
 .chip{font-family:var(--f-display);font-weight:800}
 .search,input.search{border-radius:16px!important}
 .gym-cta{border-radius:var(--r)!important}
@@ -1398,9 +1339,9 @@ header.top.compact{transform:translateY(calc(-1 * var(--stage-h,0px)))}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .qk-ic{background:linear-gradient(160deg,color-mix(in srgb,var(--tc) 30%,#1a2440),color-mix(in srgb,var(--tc) 48%,#141d31));box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 10px 18px -10px rgba(0,0,0,.8)}}
 .qk-badge{position:absolute;top:-7px;right:-7px;min-width:22px;height:22px;padding:0 6px;border-radius:11px;background:var(--hot);color:#fff;font:900 .7rem/22px var(--f-display);box-shadow:0 0 0 2px var(--paper);font-style:normal}
 @media (hover:hover){.qk-tile:hover .qk-ic{transform:translateY(-3px) scale(1.04)}}
-.qk-tile:focus-visible .qk-ic{outline:3px solid var(--brand);outline-offset:3px}
-.qk-tile[aria-pressed="true"] .qk-ic{box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--brand),0 10px 18px -10px color-mix(in srgb,var(--tc) 75%,transparent)}
-.qk-tile[aria-pressed="true"]{color:var(--brand)}
+.qk-tile:focus-visible .qk-ic{outline:3px solid var(--scrub);outline-offset:3px}
+.qk-tile[aria-pressed="true"] .qk-ic{box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--scrub),0 10px 18px -10px color-mix(in srgb,var(--tc) 75%,transparent)}
+.qk-tile[aria-pressed="true"]{color:var(--scrub)}
 .qk-tile.enc-area{padding:0!important;border:0!important;background:none!important;box-shadow:none!important;border-radius:0!important;transform:none}
 .qk-tile.enc-area b::before{display:none}
 .enc-areas.qk-grid{display:grid}
@@ -1409,10 +1350,9 @@ header.top.compact{transform:translateY(calc(-1 * var(--stage-h,0px)))}
 </style>
 </head>
 <body>
-<header class="top app-top">
+<header class="top"><canvas class="hdr-fx" aria-hidden="true"></canvas><svg class="hdr-ecg" viewBox="0 0 2400 60" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><defs><linearGradient id="trail" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".8" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient><mask id="sweepmask" maskUnits="userSpaceOnUse" x="0" y="0" width="2400" height="60"><rect class="sweeprect" x="-700" y="0" width="700" height="60" fill="url(#trail)"/></mask></defs><path class="hdr-base" d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40"/><path class="hdr-sweep" d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40" mask="url(#sweepmask)"/></svg>
   <div class="top-in">
-    <div class="brand"><span class="app-ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M3 12.5h4l2-5 3.5 10 2.5-7 1.5 2H21" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="txt"><b>Atlante di Infermieristica</b><span>Trova un argomento <em>in pochi secondi.</em></span></div><button class="app-theme" type="button" aria-label="Tema chiaro o scuro" title="Tema chiaro o scuro"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg></button></div>
-    <div class="app-tools"><div class="app-chips" id="app-chips"></div><form class="app-search" role="search" onsubmit="return false"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><input id="app-q" type="search" placeholder="Patologia, farmaco, scala o legge…" aria-label="Cerca nell'enciclopedia" autocomplete="off"></form></div>
+    <div class="brand"><svg width="44" height="28" viewBox="0 0 44 28" aria-hidden="true"><path class="ecg" d="M1 17 L7.6 17 C8.32 17 9.04 15.05 9.76 15.05 C10.48 15.05 11.2 17 11.92 17 L13.72 17 L14.44 18.04 L15.52 4.0 L16.6 20.25 L17.5 17 C19.12 16.74 20.56 16.61 21.64 16.35 C23.08 14.66 24.16 13.1 25.24 13.1 C26.68 13.1 27.4 16.74 28.84 17 L40.0 17 L43 17"/></svg><div class="txt"><b>Atlante di Infermieristica</b><span>Studiare l'infermieristica in ogni sua parte: teoria, clinica, emergenza, norme, deontologia e casi</span></div></div>
     <nav class="tabs" aria-label="Sezioni">
       <a href="#oggi">Oggi</a>
       <a href="#avanzamento">Progressi</a>
@@ -2016,8 +1956,6 @@ const SHAPES={
  metodo:{label:"Cerotto",l:26,r:26,d:(W,H)=>{const y=3,h=H-6,r=h/2;return `M${r} ${y}H${W-r}A${r} ${r} 0 0 1 ${W-r} ${y+h}H${r}A${r} ${r} 0 0 1 ${r} ${y}Z`},
    det:(W,H)=>{const m=H/2;let d="";for(const x of [8,13,W-13,W-8])for(const y of [m-5,m,m+5])d+=`<circle cx="${x}" cy="${y}" r=".95" class="f-dot"/>`;return `<rect x="0" y="0" width="${W}" height="${H}" class="f-skin"/><rect x="${W*.2}" y="5" width="${W*.6}" height="${H-10}" rx="5" class="f-pad"/>`+d}}
 };
-/* tema app: indicatore a pillola semplice al posto degli oggetti sanitari */
-for(const k in SHAPES){const o=SHAPES[k];SHAPES[k]={label:o.label,l:0,r:0,out:null,det:()=>"",d:(W,H)=>{const r=Math.min(12,H/2);return `M${r} 0H${W-r}Q${W} 0 ${W} ${r}V${H-r}Q${W} ${H} ${W-r} ${H}H${r}Q0 ${H} 0 ${H-r}V${r}Q0 0 ${r} 0Z`}}}
 let shapeOut=null,shapeSvg=null,shapePath=null,shapeDet=null,shapeAnim=null,curPts=null,curX=0;
 const NPTS=150;
 function ensureShape(nav){
@@ -4299,29 +4237,12 @@ const areaUI=k=>AREA_UI[k]||["📄",(EAREE[k]||{}).n||k,"#64748b"];
 const EMERG_QK=[["bls-acls","❤️‍🩹","Arresto cardiaco","BLS e ALS"],["stemi","🫀","STEMI","Sindrome coronarica",1],["sepsi","🦠","Shock settico","Sepsi e bundle"],["anafilassi","🐝","Anafilassi","Adrenalina IM"],["ictus","🧠","Ictus","Tempo è cervello"],["trauma","🚑","Trauma","ABCDE"],["ipoglicemia","🍬","Ipoglicemia","Regola del 15"],["chetoacidosi","🧪","Chetoacidosi","Liquidi e insulina"]];
 function qkTile(k,n,pressed,attr){const u=areaUI(k);return `<button class="qk-tile${attr==="area"?" enc-area":""}" type="button" ${attr==="area"?`data-area="${k}" aria-pressed="${pressed}"`:`data-qarea="${k}"`} title="${esc(k==="tutte"?"Tutte le aree":(EAREE[k]||{}).n||u[1])}"><span class="qk-ic" style="--tc:${u[2]}" aria-hidden="true">${u[0]}<em class="qk-badge">${n}</em></span><b>${esc(u[1])}</b></button>`}
 function quickHome(){
-  const counts={};ENCY.forEach(e=>counts[e.a]=(counts[e.a]||0)+1);
   const em=EMERG_QK.filter(x=>ENC_BY[x[0]]);
-  return `<section class="qk" aria-label="Accesso rapido">
+  return `<section class="qk" aria-label="Emergenze">
     <div class="qk-h"><h3>Emergenze</h3><span>un tocco e sei alla voce</span></div>
     <div class="qk-emerg">${em.map(x=>`<a class="qk-em${x[4]?" hot":""}" href="#voce-${x[0]}"><i aria-hidden="true">${x[1]}</i><b>${esc(x[2])}</b><small>${esc(x[3])}</small></a>`).join("")}</div>
-    <div class="qk-h"><h3>Aree di studio</h3><span>${Object.keys(EAREE).length} aree · ${ENCY.length} voci</span></div>
-    <div class="qk-grid">${Object.keys(EAREE).map(k=>qkTile(k,counts[k]||0,false,"q")).join("")}</div>
   </section>`;
 }
-document.addEventListener("click",ev=>{const t=ev.target.closest&&ev.target.closest("[data-qarea]");if(!t)return;state.encArea=t.dataset.qarea;state.dirTipo="";state.esTipo="";try{LS.set("encArea",state.encArea)}catch(e){}
-  if((location.hash||"")!=="#enciclopedia")location.hash="enciclopedia";else{enciclopedia("enciclopedia");decorateHead("enciclopedia")}window.scrollTo({top:0})});
-(function appHeader(){
-  const root=document.documentElement,hd=document.querySelector("header.top");if(!hd)return;
-  try{const t=localStorage.getItem("theme");if(t==="dark"||t==="light")root.dataset.theme=t}catch(e){}
-  const tb=hd.querySelector(".app-theme");if(tb)tb.onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;root.dataset.theme=dark?"light":"dark";try{localStorage.setItem("theme",root.dataset.theme)}catch(e){}};
-  const ch=document.getElementById("app-chips");const chips=()=>{if(!ch)return;let nq=0;try{nq=QALL.length}catch(e){}ch.innerHTML=`<span>${ENCY.length} voci</span><span>${Object.keys(EAREE).length} aree</span><span>${GLOS.length} termini</span>${nq?`<span>${nq} domande</span>`:""}`};setTimeout(chips,0);addEventListener("hashchange",chips);
-  const q=document.getElementById("app-q");let tm=0;
-  const go=()=>{const v=q.value.trim();const fill=()=>{const s=document.getElementById("enc-search");if(!s)return false;s.value=v;s.dispatchEvent(new Event("input",{bubbles:true}));return true};
-    if((location.hash||"")!=="#enciclopedia"){if(!v)return;location.hash="enciclopedia";let n=0;const w=()=>{if(!fill()&&n++<20)setTimeout(w,50)};setTimeout(w,60)}else fill()};
-  if(q){q.addEventListener("input",()=>{clearTimeout(tm);tm=setTimeout(go,220)});q.addEventListener("keydown",e=>{if(e.key==="Enter"){clearTimeout(tm);go();q.blur()}})}
-  const size=()=>{const r=hd.getBoundingClientRect(),nv=hd.querySelector("nav.tabs");root.style.setProperty("--hdr-h",Math.round(r.height)+"px");if(nv)root.style.setProperty("--stage-h",Math.round(nv.getBoundingClientRect().top-r.top-8)+"px")};
-  size();addEventListener("resize",size);if(document.fonts)document.fonts.ready.then(size);
-})();
 const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,calcoli,domande,casi,orale,metodo};
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
 /* ---- Movimento: GSAP (entrate, conteggi, feedback), Lottie (traguardo), Three.js (cuore 3D) ---- */
