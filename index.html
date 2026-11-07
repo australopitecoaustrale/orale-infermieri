@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-title" content="Atlante Inf.">
 <script>window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();window.__pwaPrompt=e;var b=document.getElementById("pwa-inst");if(b)b.hidden=false});if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;600&family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html,body{height:auto}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
 /* Layout: cartella infermieristica — fascia di reparto in alto con traccia ECG, contenuto su carta millimetrata tinta dal colore della sezione; ogni sezione ha il suo colore, che sfuma nel passaggio da una all'altra */
@@ -1294,53 +1294,6 @@ button[disabled],.opt[disabled]{cursor:default}
 .vd-knob i::after{content:"";position:absolute;left:50%;top:4px;width:2px;height:8px;margin-left:-1px;border-radius:1px;background:var(--vacc,#5fd3c0)}
 @media (max-width:560px){.vdev{padding:8px 8px 10px;border-radius:18px}.vd-key em{display:none}.vd-screen{padding:3px}.vd-bed{display:none}}
 @media (prefers-reduced-motion:reduce){.vdev.al-r .vd-lamp{animation:none}}
-/* ---- ecografo simulato (palestra di ecografia) ---- */
-.us-wrap{min-width:0}
-.us-dev{--usb:#1f2329;--usp:#272c33;--usk:#323943;--usa:#2f8cff;--ust:#dfe6ee;--usm:#8d99a6;position:relative;border-radius:20px;padding:12px;background:linear-gradient(170deg,#3a3f47 0%,#24282e 55%,#1a1d22 100%);border:1px solid #0d0f12;box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 30px 50px -30px rgba(0,0,0,.8),var(--shadow);color:var(--ust);display:flex;flex-direction:column;gap:10px}
-.us-screen{position:relative;background:#000;border-radius:10px;overflow:hidden;box-shadow:inset 0 0 0 1px #000,inset 0 0 0 4px #121418,0 0 0 1px #4a5059}
-.us-glass{position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,.02) 22%,transparent 38%),radial-gradient(130% 100% at 50% 45%,transparent 65%,rgba(0,0,0,.4) 100%)}
-.us-top{display:grid;grid-template-columns:auto 1fr auto auto auto;gap:14px;align-items:center;padding:6px 10px;background:linear-gradient(#1c2129,#12161b);border-bottom:1px solid #2a313a;font-size:.72rem;color:var(--ust)}
-.us-top i{display:block;font-style:normal;color:var(--usm);font-size:.66rem}
-.us-logo{font:800 .78rem var(--f-body);letter-spacing:.12em;color:#fff}.us-logo b{color:var(--usa);margin-left:2px}
-.us-pid{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.us-probe{color:#9fd0ff;font-weight:700}.us-idx,.us-dt{font-family:var(--f-mono);font-size:.66rem;line-height:1.35;color:var(--usm)}.us-dt b{color:var(--ust);font-weight:600}
-.us-main{display:grid;grid-template-columns:118px minmax(0,1fr);background:#000}
-.us-params{display:flex;flex-direction:column;gap:2px;padding:8px 8px;font-family:var(--f-mono);font-size:.66rem;color:#cfe4ff;border-right:1px solid #161a1f}
-.us-params .hd{margin-top:6px;color:#000;background:#9fd0ff;border-radius:3px;padding:0 5px;align-self:flex-start;font-size:.64rem}
-.us-params .hd:first-child{margin-top:0}
-.us-params span{display:flex;justify-content:space-between;gap:6px}.us-params i{font-style:normal;color:#fff}
-.us-img{position:relative;display:flex;flex-direction:column;align-items:center;padding:6px 26px 6px 24px}
-.us-cv{display:block;width:100%;max-width:560px;height:auto;aspect-ratio:480/400;image-rendering:auto}
-.us-main.split .us-cv{max-width:420px}
-.us-gbar{position:absolute;left:6px;top:20px;width:8px;height:120px;border:1px solid #333}.us-gbar i{position:absolute;inset:0;background:linear-gradient(#fff,#000)}
-.us-cbar{position:absolute;left:2px;top:14px;width:20px;display:flex;flex-direction:column;align-items:center;font:.56rem var(--f-mono);color:#ddd;gap:2px}
-.us-cbar i{display:block;width:8px;height:110px;background:linear-gradient(#ffe14d,#ff3b30 30%,#3a0d0d 49%,#000 50%,#0b1e4a 51%,#1d4ed8 70%,#22d3ee);border:1px solid #333}
-.us-cbar em{font-style:normal;color:#999;font-size:.5rem}
-.us-trace{position:relative;width:100%;max-width:560px;margin-top:4px;border-top:1px solid #222}
-.us-tc{display:block;width:100%;height:auto;aspect-ratio:480/150}
-.us-axis{position:absolute;right:-24px;top:0;bottom:0;width:22px;font:.56rem var(--f-mono);color:#bcd}
-.us-axis span{position:absolute;right:0;transform:translateY(-50%)}.us-axis span[style*="bottom"]{transform:none}.us-axis em{position:absolute;right:0;bottom:-12px;font-style:normal;color:#789}
-.us-meas{position:absolute;right:30px;bottom:10px;background:rgba(10,14,20,.82);border:1px solid #3a4452;border-radius:6px;padding:5px 8px;font:.66rem var(--f-mono);color:#ffe14d;display:flex;flex-direction:column;gap:1px;min-width:120px}
-.us-meas b{color:#9fd0ff;font-weight:600}.us-meas span{display:flex;justify-content:space-between;gap:10px;color:#e8e8e8}.us-meas i{font-style:normal;color:#ffe14d}
-.us-foot{display:flex;align-items:center;gap:12px;padding:5px 10px;background:#0d1014;border-top:1px solid #20262d;font-size:.68rem;color:var(--usm)}
-.us-thumbs{display:flex;gap:4px}.us-thumbs i{width:26px;height:18px;border:1px solid #39424d;border-radius:2px;background:linear-gradient(#222,#000)}.us-thumbs i.on{border-color:var(--usa)}
-.us-fr{margin-left:auto;font-family:var(--f-mono)}
-.us-touch{background:linear-gradient(#20252c,#191d22);border-radius:12px;padding:8px;border:1px solid #0d0f12;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);display:flex;flex-direction:column;gap:8px}
-.us-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.us-key{min-width:64px;padding:9px 14px;border-radius:9px;border:1px solid #0b0d10;background:linear-gradient(#3a424d,#2c333c);color:#e6edf5;font:600 .8rem var(--f-body);cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 2px 0 #0b0d10;transition:transform .12s cubic-bezier(.5,0,0,.75),box-shadow .12s,background .2s}
-.us-key:hover:not(:disabled){background:linear-gradient(#44505d,#333c46)}
-.us-key:active{transform:translateY(2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
-.us-key.on{background:linear-gradient(#3d9bff,#1f74e0);color:#fff;border-color:#0b3a78}
-.us-key:disabled{opacity:.35;cursor:not-allowed}
-.us-gain{display:flex;align-items:center;gap:8px;margin-left:auto;font:600 .76rem var(--f-body);color:#c9d3de}
-.us-gain input{accent-color:var(--usa);width:120px}
-.us-base{display:flex;align-items:center;gap:14px;padding:2px 6px}
-.us-ball{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 38% 32%,#b9c6d6,#56677c 45%,#1e2630 80%);box-shadow:0 0 0 5px #15181c,0 3px 6px rgba(0,0,0,.6)}
-.us-knob{position:relative;width:34px;height:34px;border-radius:50%;background:repeating-conic-gradient(#3a414b 0 8deg,#1d2127 8deg 16deg);box-shadow:0 3px 5px rgba(0,0,0,.6),inset 0 0 0 4px #16191d}
-.us-knob i{position:absolute;inset:7px;border-radius:50%;background:radial-gradient(circle at 40% 32%,#48505c,#1c2026 70%)}
-.us-led{margin-left:auto;width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 6px #3ddc84}
-@media (max-width:760px){.us-main{grid-template-columns:1fr}.us-params{flex-direction:row;flex-wrap:wrap;gap:4px 12px;border-right:0;border-bottom:1px solid #161a1f;padding:6px 8px}.us-params .hd{margin-top:0}
- .us-top{grid-template-columns:auto 1fr auto;font-size:.66rem}.us-idx,.us-pid{display:none}.us-img{padding:4px 24px 4px 22px}.us-gain{margin-left:0;width:100%}.us-gain input{flex:1}.us-key{min-width:0;padding:8px 11px}}
 .lv{font-variant-numeric:tabular-nums}
 .vc-gap{fill:var(--vpan);animation:vcgap linear infinite}
 @keyframes vcgap{from{transform:translateX(0)}to{transform:translateX(var(--gx))}}
@@ -1350,12 +1303,116 @@ button[disabled],.opt[disabled]{cursor:default}
 @keyframes lub{0%,100%{transform:scale(1)}38%{transform:scale(1.07)}}
 @media (prefers-reduced-motion:reduce){.vc-gap,.lu-b.on{animation:none;display:none}.lu-b.on{display:inline}}
 @media (prefers-reduced-motion:reduce){.vm-al .r{animation:none}.vm-anim .vm-sweep{animation:none}}
+
+/* ==== Tema «app»: intestazione blu sfumata con ricerca, schede arrotondate, riquadri colorati con icone e contatori ==== */
+:root,:root[data-view]{
+  --va:#1f63d6;
+  --brand:#1f63d6; --brand-2:#2f8cf0; --navy:#0e1c3f;
+  --paper:#ffffff; --ink:#0e1c3f; --muted:#5b6782; --line:#e2e8f2;
+  --scrub:#1f63d6; --scrub-soft:#e8f0ff;
+  --bg:#edf1f7; --grid:transparent; --head:#12306b; --on-accent:#ffffff;
+  --shadow:0 1px 2px rgba(16,36,80,.05),0 14px 32px -20px rgba(16,36,80,.35);
+  --shadow-lg:0 2px 4px rgba(16,36,80,.05),0 24px 48px -24px rgba(16,36,80,.45);
+  --hot:#ef3b64;
+  --f-display:"Nunito","Segoe UI",system-ui,sans-serif;
+  --f-body:"Nunito Sans","Segoe UI",system-ui,sans-serif;
+  --r:20px;
+  --hdr-grad:linear-gradient(155deg,#0a1d4a 0%,#123a86 48%,#1d6ed0 100%);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]),:root[data-view]:not([data-theme="light"]){
+  --paper:#141d31; --ink:#e8eefb; --muted:#9aa8c4; --line:#25324d;
+  --scrub:#7aa8ff; --scrub-soft:#1b2b4f; --bg:#0a1120; --head:#0b1b44; --on-accent:#0a1120;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 14px 32px -20px rgba(0,0,0,.8); --shadow-lg:0 24px 48px -24px rgba(0,0,0,.9);
+  --hdr-grad:linear-gradient(155deg,#060f28 0%,#0c2660 52%,#1552a8 100%)}}
+:root[data-theme="dark"],:root[data-view][data-theme="dark"]{
+  --paper:#141d31; --ink:#e8eefb; --muted:#9aa8c4; --line:#25324d;
+  --scrub:#7aa8ff; --scrub-soft:#1b2b4f; --bg:#0a1120; --head:#0b1b44; --on-accent:#0a1120;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 14px 32px -20px rgba(0,0,0,.8); --shadow-lg:0 24px 48px -24px rgba(0,0,0,.9);
+  --hdr-grad:linear-gradient(155deg,#060f28 0%,#0c2660 52%,#1552a8 100%)}
+body{background:var(--bg)!important;background-image:radial-gradient(900px 420px at 85% 0%,color-mix(in srgb,var(--brand) 9%,transparent),transparent 70%)!important;font-family:var(--f-body)}
+body::after{display:none!important}
+body::before{background:#0a1d4a!important}
+h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-.015em}
+h2{font-weight:900;color:var(--ink)}
+.eyebrow{font-family:var(--f-body);font-weight:800;letter-spacing:.06em;color:var(--scrub)}
+
+/* intestazione */
+header.top.app-top{background:var(--hdr-grad)!important;border-radius:0 0 28px 28px;box-shadow:0 18px 40px -26px rgba(10,29,74,.85)!important;overflow:visible}
+header.top.app-top::after{display:none}
+header.top.app-top::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(520px 220px at 92% -10%,rgba(120,200,255,.28),transparent 70%),radial-gradient(380px 200px at 0% 120%,rgba(255,255,255,.08),transparent 70%)}
+header.top.app-top .top-in{padding-block:18px 14px!important;gap:14px!important;max-width:1100px}
+.app-top .brand{gap:12px;align-items:center}
+.app-ico{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(160deg,rgba(255,255,255,.28),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 8px 18px -10px rgba(0,0,0,.6)}
+.app-top .brand .txt{flex:1;min-width:0}
+.app-top .brand b{font-family:var(--f-display)!important;font-weight:900;font-size:1.45rem!important;letter-spacing:-.02em;text-shadow:none!important;line-height:1.1}
+.app-top .brand span{display:block!important;font-family:var(--f-display);font-weight:800;font-size:1rem!important;opacity:1!important;margin-top:2px!important;color:rgba(255,255,255,.82);text-shadow:none!important}
+.app-top .brand span em{font-style:normal;color:#8cc8ff}
+.app-theme{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;cursor:pointer}
+.app-theme:hover{background:rgba(255,255,255,.22)}
+.app-tools{display:flex;flex-direction:column;gap:10px}
+.app-chips{display:flex;flex-wrap:wrap;gap:6px}
+.app-chips span{font:800 .76rem/1 var(--f-display);color:#fff;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22)}
+.app-search{display:flex;align-items:center;gap:10px;background:#fff;color:#6b7690;border-radius:16px;padding:0 14px;height:50px;box-shadow:0 14px 28px -16px rgba(0,0,0,.55);margin:0}
+.app-search input{all:unset;flex:1;min-width:0;font:600 1rem var(--f-body);color:#0e1c3f}
+.app-search input::placeholder{color:#8b95ab}
+.app-search:focus-within{box-shadow:0 0 0 3px rgba(140,200,255,.55),0 14px 28px -16px rgba(0,0,0,.55)}
+@media (min-width:860px){.app-tools{flex-direction:row-reverse;align-items:center}.app-search{flex:1;max-width:560px}.app-chips{flex:none}}
+@media (max-width:600px){.app-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.app-chips::-webkit-scrollbar{display:none}.app-chips span{flex:none}.app-top .brand b{font-size:1.25rem!important}.app-top .brand span{font-size:.9rem!important}.app-search{height:46px}}
+nav.tabs{background:rgba(255,255,255,.1)!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:none!important;border-radius:16px!important;padding:4px!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+nav.tabs a{font-family:var(--f-display)!important;font-weight:800!important;font-size:.9rem!important;margin:0!important;padding:8px 14px!important;border-radius:12px!important;text-shadow:none!important;color:rgba(255,255,255,.9)!important}
+nav.tabs a::after{display:none!important}
+nav.tabs a[aria-current="page"]{color:var(--navy)!important}
+.tab-ind{border-radius:12px!important;box-shadow:0 6px 16px -8px rgba(0,0,0,.5)!important}
+.tab-ind .ico{display:none!important}
+nav.tabs .ts-rim{stroke:rgba(255,255,255,.9)!important}nav.tabs .ts-body{fill:#fff!important}nav.tabs .ts-out{display:none}
+nav.tabs{padding-left:4px!important;padding-right:4px!important}
+header.top.compact{transform:translateY(calc(-1 * var(--stage-h,0px)))}
+
+/* superfici */
+.sheet{border-radius:var(--r)!important;border:1px solid color-mix(in srgb,var(--line) 70%,transparent)!important;box-shadow:var(--shadow)!important}
+.btn{border-radius:12px;font-family:var(--f-display);font-weight:800}
+.btn.primary{background:var(--brand);border-color:var(--brand);box-shadow:0 10px 20px -12px var(--brand)}
+.chip{font-family:var(--f-display);font-weight:800}
+.search,input.search{border-radius:16px!important}
+.gym-cta{border-radius:var(--r)!important}
+
+/* blocco rapido in prima pagina */
+.qk{display:flex;flex-direction:column;gap:14px}
+.qk-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0}
+.qk-h h3{margin:0;font-size:1.2rem;font-weight:900}
+.qk-h span{font-size:.78rem;color:var(--muted);font-weight:700}
+.qk-emerg{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(168px,1fr);gap:12px;overflow-x:auto;padding:4px 2px 14px;margin:-4px -2px -10px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.qk-emerg::-webkit-scrollbar{display:none}
+.qk-em{position:relative;overflow:hidden;scroll-snap-align:start;display:flex;flex-direction:column;gap:6px;min-height:128px;padding:16px;border-radius:22px;color:#fff;text-decoration:none;background:linear-gradient(155deg,#4b5567,#272f3d);box-shadow:0 18px 30px -20px rgba(20,30,50,.9);transition:transform .2s var(--ease-out,ease)}
+.qk-em::before{content:"";position:absolute;width:120px;height:120px;right:-34px;top:-40px;border-radius:50%;background:rgba(255,255,255,.08)}
+.qk-em.hot{background:linear-gradient(155deg,#ff6f8f,#e3345d)}
+.qk-em i{font-style:normal;font-size:1.7rem;line-height:1;filter:drop-shadow(0 4px 6px rgba(0,0,0,.3))}
+.qk-em b{font-family:var(--f-display);font-weight:900;font-size:1.05rem;line-height:1.15;margin-top:auto}
+.qk-em small{font-size:.74rem;opacity:.8;font-weight:600}
+@media (hover:hover){.qk-em:hover{transform:translateY(-3px)}}
+.qk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:20px 8px;padding:22px 14px 18px;background:var(--paper);border-radius:26px;box-shadow:var(--shadow);border:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.qk-tile{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;color:var(--ink);text-decoration:none;font:800 .78rem/1.2 var(--f-display);min-width:0}
+.qk-tile b{font:inherit;overflow-wrap:anywhere}
+.qk-ic{position:relative;width:64px;height:64px;border-radius:20px;display:grid;place-items:center;font-size:30px;line-height:1;background:linear-gradient(160deg,color-mix(in srgb,var(--tc) 16%,#fff),color-mix(in srgb,var(--tc) 34%,#fff));box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 10px 18px -10px color-mix(in srgb,var(--tc) 75%,transparent);transition:transform .2s var(--ease-out,ease)}
+:root[data-theme="dark"] .qk-ic{background:linear-gradient(160deg,color-mix(in srgb,var(--tc) 30%,#1a2440),color-mix(in srgb,var(--tc) 48%,#141d31));box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 10px 18px -10px rgba(0,0,0,.8)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .qk-ic{background:linear-gradient(160deg,color-mix(in srgb,var(--tc) 30%,#1a2440),color-mix(in srgb,var(--tc) 48%,#141d31));box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 10px 18px -10px rgba(0,0,0,.8)}}
+.qk-badge{position:absolute;top:-7px;right:-7px;min-width:22px;height:22px;padding:0 6px;border-radius:11px;background:var(--hot);color:#fff;font:900 .7rem/22px var(--f-display);box-shadow:0 0 0 2px var(--paper);font-style:normal}
+@media (hover:hover){.qk-tile:hover .qk-ic{transform:translateY(-3px) scale(1.04)}}
+.qk-tile:focus-visible .qk-ic{outline:3px solid var(--brand);outline-offset:3px}
+.qk-tile[aria-pressed="true"] .qk-ic{box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--brand),0 10px 18px -10px color-mix(in srgb,var(--tc) 75%,transparent)}
+.qk-tile[aria-pressed="true"]{color:var(--brand)}
+.qk-tile.enc-area{padding:0!important;border:0!important;background:none!important;box-shadow:none!important;border-radius:0!important;transform:none}
+.qk-tile.enc-area b::before{display:none}
+.enc-areas.qk-grid{display:grid}
+@media (max-width:420px){.qk-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 4px;padding:18px 8px 14px}.qk-ic{width:56px;height:56px;border-radius:18px;font-size:26px}.qk-tile{font-size:.7rem}}
+@media (prefers-reduced-motion: reduce){.qk-em,.qk-ic{transition:none}}
 </style>
 </head>
 <body>
-<header class="top"><canvas class="hdr-fx" aria-hidden="true"></canvas><svg class="hdr-ecg" viewBox="0 0 2400 60" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><defs><linearGradient id="trail" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".8" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient><mask id="sweepmask" maskUnits="userSpaceOnUse" x="0" y="0" width="2400" height="60"><rect class="sweeprect" x="-700" y="0" width="700" height="60" fill="url(#trail)"/></mask></defs><path class="hdr-base" d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40"/><path class="hdr-sweep" d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40" mask="url(#sweepmask)"/></svg>
+<header class="top app-top">
   <div class="top-in">
-    <div class="brand"><svg width="44" height="28" viewBox="0 0 44 28" aria-hidden="true"><path class="ecg" d="M1 17 L7.6 17 C8.32 17 9.04 15.05 9.76 15.05 C10.48 15.05 11.2 17 11.92 17 L13.72 17 L14.44 18.04 L15.52 4.0 L16.6 20.25 L17.5 17 C19.12 16.74 20.56 16.61 21.64 16.35 C23.08 14.66 24.16 13.1 25.24 13.1 C26.68 13.1 27.4 16.74 28.84 17 L40.0 17 L43 17"/></svg><div class="txt"><b>Atlante di Infermieristica</b><span>Studiare l'infermieristica in ogni sua parte: teoria, clinica, emergenza, norme, deontologia e casi</span></div></div>
+    <div class="brand"><span class="app-ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M3 12.5h4l2-5 3.5 10 2.5-7 1.5 2H21" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="txt"><b>Atlante di Infermieristica</b><span>Trova un argomento <em>in pochi secondi.</em></span></div><button class="app-theme" type="button" aria-label="Tema chiaro o scuro" title="Tema chiaro o scuro"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg></button></div>
+    <div class="app-tools"><div class="app-chips" id="app-chips"></div><form class="app-search" role="search" onsubmit="return false"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><input id="app-q" type="search" placeholder="Patologia, farmaco, scala o legge…" aria-label="Cerca nell'enciclopedia" autocomplete="off"></form></div>
     <nav class="tabs" aria-label="Sezioni">
       <a href="#oggi">Oggi</a>
       <a href="#avanzamento">Progressi</a>
@@ -1388,7 +1445,6 @@ button[disabled],.opt[disabled]{cursor:default}
 <script src="enccases.js"></script>
 <script src="figure.js"></script>
 <script src="palestre.js"></script>
-<script src="eco.js"></script>
 <script>
 if(typeof PDFQ==="undefined"){window.PDFQ=[];window.PDF_TITLES=[]}
 /* ============ DATI ============ */
@@ -1960,6 +2016,8 @@ const SHAPES={
  metodo:{label:"Cerotto",l:26,r:26,d:(W,H)=>{const y=3,h=H-6,r=h/2;return `M${r} ${y}H${W-r}A${r} ${r} 0 0 1 ${W-r} ${y+h}H${r}A${r} ${r} 0 0 1 ${r} ${y}Z`},
    det:(W,H)=>{const m=H/2;let d="";for(const x of [8,13,W-13,W-8])for(const y of [m-5,m,m+5])d+=`<circle cx="${x}" cy="${y}" r=".95" class="f-dot"/>`;return `<rect x="0" y="0" width="${W}" height="${H}" class="f-skin"/><rect x="${W*.2}" y="5" width="${W*.6}" height="${H-10}" rx="5" class="f-pad"/>`+d}}
 };
+/* tema app: indicatore a pillola semplice al posto degli oggetti sanitari */
+for(const k in SHAPES){const o=SHAPES[k];SHAPES[k]={label:o.label,l:0,r:0,out:null,det:()=>"",d:(W,H)=>{const r=Math.min(12,H/2);return `M${r} 0H${W-r}Q${W} 0 ${W} ${r}V${H-r}Q${W} ${H} ${W-r} ${H}H${r}Q0 ${H} 0 ${H-r}V${r}Q0 0 ${r} 0Z`}}}
 let shapeOut=null,shapeSvg=null,shapePath=null,shapeDet=null,shapeAnim=null,curPts=null,curX=0;
 const NPTS=150;
 function ensureShape(nav){
@@ -3983,7 +4041,6 @@ function enciclopedia(v){
   if(v==="esami-esercizi"){labGym();return}
   if(v==="ega-esercizi"){egaGym();return}
   if(v==="vent-esercizi"){ventGym();return}
-  if(v==="eco-esercizi"){ecoGym();return}
   if(v==="casi-integrati"){integGym();return}
   if(v==="mnemoniche"){mnView();return}
   const focus=(v&&v.startsWith("voce-"))?v.slice(5):state.encOpen;state.encOpen=null;
@@ -4014,9 +4071,8 @@ function enciclopedia(v){
   <input class="search" id="enc-search" type="search" placeholder="Cerca una voce (es. sepsi, Braden, emogasanalisi, 219/2017, ECG)">
   <div id="enc-res" hidden></div>
   <div id="enc-main" style="display:flex;flex-direction:column;gap:16px">
-    <div class="enc-areas"><button class="enc-area" style="--c:var(--scrub)" data-area="tutte" aria-pressed="${area==="tutte"}"><b>Tutte le aree</b><span>${ENCY.length} voci</span></button>${Object.entries(EAREE).map(([k,a])=>`<button class="enc-area" style="--c:${a.c}" data-area="${k}" aria-pressed="${area===k}"><b>${esc(a.n)}</b><span>${counts[k]||0} voci</span></button>`).join("")}</div>
+    <div class="enc-areas qk-grid">${qkTile("tutte",ENCY.length,area==="tutte","area")}${Object.keys(EAREE).map(k=>qkTile(k,counts[k]||0,area===k,"area")).join("")}</div>
     ${area==="ecg"||area==="tutte"?`<a class="sheet gym-cta" href="#ecg-esercizi"><span class="eyebrow">Novità</span><b>Palestra ECG: esercizi di lettura</b><span class="small">Strisce sempre nuove da leggere con metodo (frequenza, ritmo, P, QRS, diagnosi) con compasso per misurare gli intervalli</span></a>`:""}
-    ${area==="eco"||area==="tutte"?`<a class="sheet gym-cta" href="#eco-esercizi"><span class="eyebrow">Novità</span><b>Palestra di ecografia ed eco-Doppler</b><span class="small">Un ecografo simulato da usare come quello vero: B-mode, color e Doppler pulsato, modo M, compressione con la sonda e misure</span></a>`:""}
     ${area==="emerg"||area==="tutte"?`<a class="sheet gym-cta" href="#vent-esercizi"><span class="eyebrow">Novità</span><b>Palestra ventilatore e capnografia</b><span class="small">Il monitor della terapia intensiva: PEEP, picco e plateau, driving pressure, curve, allarmi e capnogrammi</span></a><a class="sheet gym-cta" href="#casi-integrati"><span class="eyebrow">Novità</span><b>Casi integrati</b><span class="small">Emogas, esami del sangue, ECG, ventilatore e capnografia dello stesso paziente, in più parti</span></a>`:""}
     <a class="sheet gym-cta mn-cta" href="#mnemoniche"><b>Per ricordare: acronimi e frasi mnemoniche</b><span class="small">${Object.values(MN).reduce((a,l)=>a+l.length,0)} trucchi per memorizzare (regola delle 7 G, ABCDE, SBAR, regola del 15, del 9…), raccolti in un'unica pagina e dentro ogni voce</span></a>
     ${area==="diritto"?dirIdx():""}
@@ -4237,6 +4293,35 @@ function a11yLabels(){document.querySelectorAll("#app input:not([type=hidden]),#
   t=(t||i.placeholder||i.title||"").replace(/\s+/g," ").slice(0,90);if(t)i.setAttribute("aria-label",unit&&i.tagName==="SELECT"?t+" (unità)":t)})}
 new MutationObserver(()=>headFix(app)).observe(app,{childList:true,subtree:true});
 let a11yT=0;new MutationObserver(()=>{clearTimeout(a11yT);a11yT=setTimeout(a11yLabels,80)}).observe(app,{childList:true,subtree:true});window.addEventListener("resize",()=>{document.querySelectorAll(".pm-waves").forEach(w=>delete w.dataset.f);fitSoon()});
+/* ---- tema «app»: aree con icone, accesso rapido, ricerca nell'intestazione ---- */
+const AREA_UI={tutte:["📚","Tutte","#1f63d6"],fond:["📘","Fondamenti","#3b82f6"],rel:["💬","Relazione","#06b6d4"],etica:["🤝","Etica","#f59e0b"],legale:["⚖️","Medicina legale","#8b5cf6"],org:["🏥","Servizi sanitari","#0ea5e9"],igiene:["🧼","Igiene","#14b8a6"],ricerca:["📊","Ricerca ed EBN","#6366f1"],anat:["🦴","Anatomia","#64748b"],farm:["💊","Farmacologia","#ec4899"],ecg:["📈","ECG","#ef4444"],emerg:["🚑","Emergenza","#f43f5e"],med:["🩺","Medicina","#2563eb"],chir:["🩹","Chirurgia","#f97316"],infett:["🦠","Infettivologia","#22c55e"],onco:["🎗️","Oncologia e palliative","#eab308"],mat:["👶","Materno-infantile","#f472b6"],psi:["🧠","Salute mentale","#a855f7"],riab:["♿","Riabilitazione e geriatria","#0891b2"],nutr:["🥗","Nutrizione","#84cc16"],diagn:["🔬","Diagnostica","#0d9488"],codice:["📜","Codice 2025","#b45309"],lavoro:["👷","Medicina del lavoro","#f59e0b"],diritto:["🏛️","Diritto","#7c3aed"],esami:["🩸","Esami di laboratorio","#dc2626"],eco:["📡","Ecografia","#0284c7"]};
+const areaUI=k=>AREA_UI[k]||["📄",(EAREE[k]||{}).n||k,"#64748b"];
+const EMERG_QK=[["bls-acls","❤️‍🩹","Arresto cardiaco","BLS e ALS"],["stemi","🫀","STEMI","Sindrome coronarica",1],["sepsi","🦠","Shock settico","Sepsi e bundle"],["anafilassi","🐝","Anafilassi","Adrenalina IM"],["ictus","🧠","Ictus","Tempo è cervello"],["trauma","🚑","Trauma","ABCDE"],["ipoglicemia","🍬","Ipoglicemia","Regola del 15"],["chetoacidosi","🧪","Chetoacidosi","Liquidi e insulina"]];
+function qkTile(k,n,pressed,attr){const u=areaUI(k);return `<button class="qk-tile${attr==="area"?" enc-area":""}" type="button" ${attr==="area"?`data-area="${k}" aria-pressed="${pressed}"`:`data-qarea="${k}"`} title="${esc(k==="tutte"?"Tutte le aree":(EAREE[k]||{}).n||u[1])}"><span class="qk-ic" style="--tc:${u[2]}" aria-hidden="true">${u[0]}<em class="qk-badge">${n}</em></span><b>${esc(u[1])}</b></button>`}
+function quickHome(){
+  const counts={};ENCY.forEach(e=>counts[e.a]=(counts[e.a]||0)+1);
+  const em=EMERG_QK.filter(x=>ENC_BY[x[0]]);
+  return `<section class="qk" aria-label="Accesso rapido">
+    <div class="qk-h"><h3>Emergenze</h3><span>un tocco e sei alla voce</span></div>
+    <div class="qk-emerg">${em.map(x=>`<a class="qk-em${x[4]?" hot":""}" href="#voce-${x[0]}"><i aria-hidden="true">${x[1]}</i><b>${esc(x[2])}</b><small>${esc(x[3])}</small></a>`).join("")}</div>
+    <div class="qk-h"><h3>Aree di studio</h3><span>${Object.keys(EAREE).length} aree · ${ENCY.length} voci</span></div>
+    <div class="qk-grid">${Object.keys(EAREE).map(k=>qkTile(k,counts[k]||0,false,"q")).join("")}</div>
+  </section>`;
+}
+document.addEventListener("click",ev=>{const t=ev.target.closest&&ev.target.closest("[data-qarea]");if(!t)return;state.encArea=t.dataset.qarea;state.dirTipo="";state.esTipo="";try{LS.set("encArea",state.encArea)}catch(e){}
+  if((location.hash||"")!=="#enciclopedia")location.hash="enciclopedia";else{enciclopedia("enciclopedia");decorateHead("enciclopedia")}window.scrollTo({top:0})});
+(function appHeader(){
+  const root=document.documentElement,hd=document.querySelector("header.top");if(!hd)return;
+  try{const t=localStorage.getItem("theme");if(t==="dark"||t==="light")root.dataset.theme=t}catch(e){}
+  const tb=hd.querySelector(".app-theme");if(tb)tb.onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;root.dataset.theme=dark?"light":"dark";try{localStorage.setItem("theme",root.dataset.theme)}catch(e){}};
+  const ch=document.getElementById("app-chips");const chips=()=>{if(!ch)return;let nq=0;try{nq=QALL.length}catch(e){}ch.innerHTML=`<span>${ENCY.length} voci</span><span>${Object.keys(EAREE).length} aree</span><span>${GLOS.length} termini</span>${nq?`<span>${nq} domande</span>`:""}`};setTimeout(chips,0);addEventListener("hashchange",chips);
+  const q=document.getElementById("app-q");let tm=0;
+  const go=()=>{const v=q.value.trim();const fill=()=>{const s=document.getElementById("enc-search");if(!s)return false;s.value=v;s.dispatchEvent(new Event("input",{bubbles:true}));return true};
+    if((location.hash||"")!=="#enciclopedia"){if(!v)return;location.hash="enciclopedia";let n=0;const w=()=>{if(!fill()&&n++<20)setTimeout(w,50)};setTimeout(w,60)}else fill()};
+  if(q){q.addEventListener("input",()=>{clearTimeout(tm);tm=setTimeout(go,220)});q.addEventListener("keydown",e=>{if(e.key==="Enter"){clearTimeout(tm);go();q.blur()}})}
+  const size=()=>{const r=hd.getBoundingClientRect(),nv=hd.querySelector("nav.tabs");root.style.setProperty("--hdr-h",Math.round(r.height)+"px");if(nv)root.style.setProperty("--stage-h",Math.round(nv.getBoundingClientRect().top-r.top-8)+"px")};
+  size();addEventListener("resize",size);if(document.fonts)document.fonts.ready.then(size);
+})();
 const VIEWS={oggi,avanzamento,home,studio,enciclopedia,glossario,flashcard,quiz,calcoli,domande,casi,orale,metodo};
 function chips(cur,all,attr){return all.map(k=>`<button class="chip" data-${attr}="${k}" aria-pressed="${cur===k}">${k==="all"?"Tutte":SUBJ[k].short}</button>`).join("")}
 /* ---- Movimento: GSAP (entrate, conteggi, feedback), Lottie (traguardo), Three.js (cuore 3D) ---- */
@@ -4340,7 +4425,7 @@ document.addEventListener("click",e=>{const b=e.target.closest("[data-h3d-go]");
 
 function route(){
   const v=(location.hash||"#oggi").slice(1);
-  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"||v==="esami-esercizi"||v==="ega-esercizi"||v==="vent-esercizi"||v==="eco-esercizi"||v==="casi-integrati"||v==="mnemoniche"?"enciclopedia":"oggi");
+  const name=VIEWS[v]?v:(v.startsWith("caso-")?"casi":v.startsWith("voce-")||v==="ecg-esercizi"||v==="esami-esercizi"||v==="ega-esercizi"||v==="vent-esercizi"||v==="casi-integrati"||v==="mnemoniche"?"enciclopedia":"oggi");
   const changed=document.documentElement.dataset.view!==name;
   document.documentElement.dataset.view=name;
   document.querySelectorAll("nav.tabs a").forEach(a=>{const on=a.getAttribute("href")==="#"+name;a.setAttribute("aria-current",on?"page":"false");if(on&&changed)a.scrollIntoView({block:"nearest",inline:"center"})});
@@ -4963,7 +5048,7 @@ function quiz(){
   <div><span class="eyebrow">Autoverifica</span><h2>Allenamento</h2></div>
   <p class="lead">${QALL.length} domande a scelta multipla${DBQ.length?` (${DBQ.length} arrivate con gli aggiornamenti giornalieri)`:""}, ${PDFQ.length} domande aperte e ${CASES.length} casi clinici. La sessione mista li alterna come in un esame vero; le risposte scritte sono valutate in trentesimi con la griglia dei punti attesi.</p>
   <div class="row">${chips(f,["all",...SKEYS],"f")}</div>
-  <div class="gym-ctas"><a class="sheet gym-cta" href="#ecg-esercizi"><b>Palestra ECG</b><span class="small">Esercizi di lettura dell'elettrocardiogramma, a parte rispetto ai quiz</span></a><a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami</b><span class="small">Lettura di referti di laboratorio: valori alterati, quadro clinico, interventi</span></a><a class="sheet gym-cta" href="#ega-esercizi"><b>Palestra EGA</b><span class="small">Il referto dell'emogasanalizzatore da leggere passo per passo</span></a><a class="sheet gym-cta" href="#vent-esercizi"><b>Palestra ventilatore</b><span class="small">Monitor da terapia intensiva: PEEP, plateau, curve, allarmi e capnografia</span></a><a class="sheet gym-cta" href="#eco-esercizi"><b>Palestra di ecografia</b><span class="small">Ecografo simulato: B-mode, color e Doppler pulsato, modo M, accessi ecoguidati, polmone, vescica, eFAST</span></a><a class="sheet gym-cta" href="#casi-integrati"><b>Casi integrati</b><span class="small">Emogas, esami, ECG e ventilatore dello stesso paziente, da leggere in più parti</span></a></div>
+  <div class="gym-ctas"><a class="sheet gym-cta" href="#ecg-esercizi"><b>Palestra ECG</b><span class="small">Esercizi di lettura dell'elettrocardiogramma, a parte rispetto ai quiz</span></a><a class="sheet gym-cta" href="#esami-esercizi"><b>Palestra esami</b><span class="small">Lettura di referti di laboratorio: valori alterati, quadro clinico, interventi</span></a><a class="sheet gym-cta" href="#ega-esercizi"><b>Palestra EGA</b><span class="small">Il referto dell'emogasanalizzatore da leggere passo per passo</span></a><a class="sheet gym-cta" href="#vent-esercizi"><b>Palestra ventilatore</b><span class="small">Monitor da terapia intensiva: PEEP, plateau, curve, allarmi e capnografia</span></a><a class="sheet gym-cta" href="#casi-integrati"><b>Casi integrati</b><span class="small">Emogas, esami, ECG e ventilatore dello stesso paziente, da leggere in più parti</span></a></div>
   <div class="row">
     <label class="small" for="qmode">Tipo di sessione</label><select id="qmode" class="btn">
       <option value="misto" ${mode==="misto"?"selected":""}>Mista: quiz + domande aperte + casi</option>
@@ -5051,6 +5136,7 @@ function oggi(){
   const dateLbl=new Date().toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"});
   const rep=dayReport();
   app.innerHTML=`
+  ${quickHome()}
   <div><span class="eyebrow">${dateLbl}</span><h2>Allenamento di oggi</h2></div>
   <div class="statband">
     <div class="sb"><span class="eyebrow">Nuove oggi</span><span class="sb-v mono">${isToday?latest.items.length:0}</span><span class="small">${isToday?esc(latest.topic||""):dbState==="ok"?(latest?"Ultimo aggiornamento: "+latest.date:"Arrivano ogni mattina"):dbState==="assente"?"Le domande nuove arrivano ogni mattina":"Controllo gli aggiornamenti…"}</span></div>
