@@ -1348,26 +1348,31 @@ h2{font-weight:900}
 .enc-areas.qk-grid{display:grid}
 @media (max-width:420px){.qk-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 4px;padding:18px 8px 14px}.qk-ic{width:56px;height:56px;border-radius:18px;font-size:26px}.qk-tile{font-size:.7rem}}
 @media (prefers-reduced-motion: reduce){.qk-em,.qk-ic{transition:none}}
-/* pelle studio: inizio */
-/* ==== Pelle «studio»: carta chiara e inchiostro grafite, un solo rosso d'accento, Inter Tight stretto,
-   etichette in monospazio maiuscolo, note a penna. Ricavata da un sito di riferimento con design-dna.
+/* pelle veglia: inizio */
+/* ==== Pelle «veglia e sogno»: carta calda e inchiostro nero, titoli enormi in maiuscolo stretto,
+   una parola in corsivo con grazie, etichette piccole in maiuscolo, righe verticali sottili di griglia,
+   angoli vivi e pillole. Di notte il fondo diventa indaco con un accento lavanda.
+   Ricavata da un sito di riferimento con design-dna.
    Restano com'erano tracciati ECG, monitor, mappe e colori clinici (allarmi, giusto/sbagliato). ==== */
 @font-face{font-family:"Inter Tight";font-style:normal;font-weight:100 900;font-display:swap;src:url(vendor/fonts/inter-tight-latin-wght-normal.woff2) format("woff2")}
 @font-face{font-family:"Inter Tight";font-style:italic;font-weight:100 900;font-display:swap;src:url(vendor/fonts/inter-tight-latin-wght-italic.woff2) format("woff2")}
 @font-face{font-family:"Geist Mono";font-style:normal;font-weight:100 900;font-display:swap;src:url(vendor/fonts/geist-mono-latin-wght-normal.woff2) format("woff2")}
-@font-face{font-family:"Nanum Pen Script";font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/nanum-pen-script-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/instrument-serif-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(vendor/fonts/instrument-serif-latin-400-italic.woff2) format("woff2")}
 :root{
-  --f-display:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-body:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-display:"Inter Tight","Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+  --f-body:"Inter Tight","Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
   --f-mono:"Geist Mono",ui-monospace,Menlo,monospace;
-  --f-hand:"Nanum Pen Script","Bradley Hand",cursive;
-  --pen:#ff3232; --hot:#ff3232;
-  --paper:#ffffff; --ink:#262626; --muted:#6b6b6b; --line:#e6e6e6;
-  --scrub:#262626; --scrub-soft:#f2f2f2; --on-accent:#f9f9f9;
-  --bg:#f9f9f9; --grid:#f2f2f2; --head:#1c1c1c;
-  --r:18px;
-  --shadow:0 1px 2px rgb(38 38 38/.06),0 .5rem 1.5rem rgb(38 38 38/.06);
-  --hi:rgba(255,255,255,.75);
+  --f-serif:"Instrument Serif","Times New Roman",Georgia,serif;
+  --f-hand:var(--f-serif);
+  --pen:#121212; --hot:#ff3232;
+  --paper:#f4f2ee; --ink:#121212; --muted:#63625e; --line:#d2d0c9;
+  --scrub:#121212; --scrub-soft:#e0ded7; --on-accent:#eceae4;
+  --bg:#eceae4; --grid:#e0ded7; --head:#121212;
+  --sky-a:#d9d7e0; --sky-b:#e8ddd6; --rule:rgb(18 18 18/.07);
+  --r:6px; --m:40px; --cols:12;
+  --shadow:none;
+  --hi:rgba(255,255,255,.5);
 }
 /* un colore per sezione, dalla stessa tavolozza: resta come piccolo segno, non tinge più tutta la pagina */
 :root[data-view="oggi"]{--va:#1f9b78}:root[data-view="avanzamento"]{--va:#4556d9}:root[data-view="home"]{--va:#2b8fc4}
@@ -1375,73 +1380,92 @@ h2{font-weight:900}
 :root[data-view="calcoli"]{--va:#5f9a2a}:root[data-view="flashcard"]{--va:#e06a12}:root[data-view="quiz"]{--va:#d44a90}
 :root[data-view="domande"]{--va:#b08a00}:root[data-view="casi"]{--va:#e02b2b}:root[data-view="orale"]{--va:#1f9b78}:root[data-view="metodo"]{--va:#6b6b6b}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#1c1c1c; --ink:#e6e6e6; --muted:#a3a3a3; --line:#333333;
-  --scrub:#e6e6e6; --scrub-soft:#2a2a2a; --on-accent:#0f0f0f;
-  --bg:#0f0f0f; --grid:#161616; --head:#0a0a0a; --pen:#ff5a52; --hot:#ff4a44;
-  --shadow:0 1px 2px rgb(0 0 0/.4),0 .5rem 1.5rem rgb(0 0 0/.45); --hi:rgba(255,255,255,.05)}}
+  --paper:#17152f; --ink:#eceae4; --muted:#9d9fa6; --line:#2c2a45;
+  --scrub:#eceae4; --scrub-soft:#201e33; --on-accent:#0e0d24;
+  --bg:#0e0d24; --grid:#17152f; --head:#08071a; --pen:#8c7ff1; --hot:#ff4a44;
+  --sky-a:#0b0a1f; --sky-b:#15122e; --rule:rgb(236 234 228/.05);
+  --hi:rgba(255,255,255,.05)}}
 :root[data-theme="dark"]{
-  --paper:#1c1c1c; --ink:#e6e6e6; --muted:#a3a3a3; --line:#333333;
-  --scrub:#e6e6e6; --scrub-soft:#2a2a2a; --on-accent:#0f0f0f;
-  --bg:#0f0f0f; --grid:#161616; --head:#0a0a0a; --pen:#ff5a52; --hot:#ff4a44;
-  --shadow:0 1px 2px rgb(0 0 0/.4),0 .5rem 1.5rem rgb(0 0 0/.45); --hi:rgba(255,255,255,.05)}
+  --paper:#17152f; --ink:#eceae4; --muted:#9d9fa6; --line:#2c2a45;
+  --scrub:#eceae4; --scrub-soft:#201e33; --on-accent:#0e0d24;
+  --bg:#0e0d24; --grid:#17152f; --head:#08071a; --pen:#8c7ff1; --hot:#ff4a44;
+  --sky-a:#0b0a1f; --sky-b:#15122e; --rule:rgb(236 234 228/.05);
+  --hi:rgba(255,255,255,.05)}
+@media (max-width:700px){:root{--m:16px;--cols:6}}
 
-/* fondo: carta con una grana leggera al posto di aloni colorati e quadretti */
-body{background-color:var(--bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px;background-attachment:scroll;
-  font-size:16.5px;letter-spacing:.005em;font-feature-settings:"ss01","cv11"}
+/* fondo: cielo che sfuma nella carta, grana leggera, righe verticali della griglia ferme dietro ai contenuti */
+body{background-color:var(--bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E"),linear-gradient(180deg,var(--sky-a) 0,var(--sky-b) 480px,var(--bg) 960px);background-size:180px 180px,100% 960px;background-repeat:repeat,no-repeat;background-attachment:scroll;
+  font-size:16.5px;letter-spacing:0;font-feature-settings:"ss01","cv11";-webkit-font-smoothing:antialiased}
+body::after{content:"";display:block;position:fixed;inset:0;z-index:-1;pointer-events:none;-webkit-mask-image:none;mask-image:none;
+  background-image:linear-gradient(90deg,var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+  background-size:calc((100% - 2*var(--m))/var(--cols)) 100%,1px 100%;background-position:var(--m) 0,calc(100% - var(--m)) 0;background-repeat:repeat-x,no-repeat;
+  -webkit-clip-path:inset(0 calc(var(--m) - 1px) 0 var(--m));clip-path:inset(0 calc(var(--m) - 1px) 0 var(--m))}
+::selection{background:var(--ink);color:var(--bg)}
 
-/* caratteri: titoli leggeri e stretti, corsivo per l'enfasi */
-h1,h2,h3,h4{font-family:var(--f-display);font-weight:500;letter-spacing:-.028em;color:var(--ink)}
-h2{font-weight:500;font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1.02;letter-spacing:-.035em}
-h3{font-weight:550;letter-spacing:-.02em}
-h4{font-weight:600;letter-spacing:-.012em}
-h1 em,h2 em,h3 em{font-style:italic;font-weight:400}
-b,strong{font-weight:650}
-.eyebrow,.tag,.vitals .k,.msg .who,.wb-l,.toc-h,.dir-grp h4,th:not(.lab-t th),.mn-box h4,.enc-b h4{font-family:var(--f-mono)!important;text-transform:uppercase!important;letter-spacing:.04em!important}
-.eyebrow{font-size:.72rem;font-weight:500;color:var(--muted)}
-.tag{font-size:.68rem;font-weight:500;border-radius:4px}
+/* caratteri: titoli pesanti, maiuscoli e strettissimi; l'enfasi passa al corsivo con grazie */
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+h2{font-size:clamp(2.1rem,6.2vw,4.25rem);line-height:.88;letter-spacing:-.052em;text-transform:uppercase;text-wrap:balance}
+h3{letter-spacing:-.03em;line-height:1.05}
+h4{letter-spacing:-.015em}
+h1 em,h2 em,h3 em,.scrib{font-family:var(--f-serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.02em}
+b,strong{font-weight:600}
+.eyebrow,.tag,.vitals .k,.msg .who,.wb-l,.toc-h,.dir-grp h4,th:not(.lab-t th),.mn-box h4,.enc-b h4{font-family:var(--f-display)!important;font-weight:600!important;text-transform:uppercase!important;letter-spacing:.012em!important}
+.eyebrow{font-size:.6875rem;color:var(--ink)}
+.tag{font-size:.66rem;border-radius:999px}
 .small{color:var(--muted)}
-.hand{font-family:var(--f-hand);color:var(--pen);font-size:1.35em;line-height:1;letter-spacing:-.03em;font-weight:400}
+.hand{font-family:var(--f-serif);font-style:italic;color:var(--pen);font-size:1.3em;line-height:1;letter-spacing:-.02em;font-weight:400}
 
-/* superfici: bianche, bordo sottile, ombra appena accennata */
-.sheet{border-radius:var(--r)!important;border:1px solid var(--line)!important;box-shadow:var(--shadow)!important}
+/* superfici: piatte, bordo sottile, angoli vivi, nessuna ombra */
+.sheet{border-radius:var(--r)!important;border:1px solid var(--line)!important;box-shadow:none!important}
 .search,input.search{border-radius:999px!important}
 
-/* pulsanti e scelte: pillole */
-.btn{border-radius:999px;min-height:2.6rem;padding:0 1.05rem;display:inline-flex;align-items:center;justify-content:center;gap:.4em;font-family:var(--f-body);font-weight:500;font-size:.98rem;letter-spacing:-.01em;background:rgb(127 127 127/.08);border-color:transparent;color:var(--ink);text-decoration:none}
-.btn:hover{background:rgb(127 127 127/.16);border-color:transparent}
+.pagehead,.toolbar{border-radius:var(--r);box-shadow:none}
+.pagehead{background:transparent;border-width:0 0 1px;border-radius:0;padding-left:0;padding-right:0}
+.pagehead h2{font-size:clamp(2.4rem,7vw,5.2rem)}
+.ph-icon{border-radius:50%;box-shadow:none;transform:none}
+@media (max-width:640px){.ph-icon{border-radius:50%}}
+
+/* pulsanti e scelte: pillole con scritta piccola in maiuscolo; il principale è pieno d'inchiostro */
+.btn{border-radius:999px;min-height:2.6rem;padding:0 1.15rem;display:inline-flex;align-items:center;justify-content:center;gap:.5em;font-family:var(--f-body);font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.012em;background:transparent;border:1px solid color-mix(in srgb,var(--ink) 28%,transparent);color:var(--ink);text-decoration:none;box-shadow:none}
+.btn:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
 .btn.primary{background:var(--scrub);border-color:var(--scrub);color:var(--on-accent);box-shadow:none}
-.btn.primary:hover{filter:none;opacity:.88}
-.chip{font-family:var(--f-mono);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.03em;padding:6px 12px}
+.btn.primary:hover{filter:none;opacity:.86}
+.hero .btn.primary::after{content:"→";font-weight:400}
+.chip{font-family:var(--f-display);font-weight:600;font-size:.6875rem;text-transform:uppercase;letter-spacing:.012em;padding:7px 13px;border-radius:999px}
 .chip[aria-pressed="true"]{background:var(--scrub);border-color:var(--scrub);color:var(--on-accent)}
 
-/* testata: fascia grafite, voci in monospazio */
-header.top{background:var(--head);box-shadow:none;border-bottom:1px solid rgb(255 255 255/.08)}
-header.top h1{font-weight:500;letter-spacing:-.03em}
-nav.tabs{background:rgb(255 255 255/.06);box-shadow:none;border:1px solid rgb(255 255 255/.08)}
-nav.tabs a{font-family:var(--f-mono);font-weight:500;font-size:.74rem;text-transform:uppercase;letter-spacing:.04em;text-shadow:none}
+/* testata: fascia d'inchiostro, voci piccole in maiuscolo */
+header.top{background:var(--head);box-shadow:none;border-bottom:0}
+header.top h1,header.top .brand b{font-weight:600;letter-spacing:-.035em;text-transform:uppercase}
+nav.tabs{background:transparent;box-shadow:none;border:1px solid rgb(236 234 228/.14)}
+nav.tabs a{font-family:var(--f-display);font-weight:600;font-size:.6875rem;text-transform:uppercase;letter-spacing:.012em;text-shadow:none}
 
 /* numeri e fasce di riepilogo */
-.sb-v,.kpi-v{font-family:var(--f-display);font-weight:400;letter-spacing:-.04em}
+.sb-v,.kpi-v{font-family:var(--f-display);font-weight:600;letter-spacing:-.06em}
+
+.monitor,.statband{border-radius:var(--r)!important;box-shadow:none}
+.monitor .lbl{font-family:var(--f-display);font-weight:600;font-size:.6875rem;letter-spacing:.012em;opacity:.7}
+.monitor .val{font-family:var(--f-display);font-weight:600;font-size:1.9rem;letter-spacing:-.05em;line-height:1}
 
 /* blocco rapido: emergenze piatte, la più urgente in rosso */
-.qk-h h3{font-weight:500;font-size:1.5rem;letter-spacing:-.03em}
-.qk-h span{font-family:var(--f-hand);color:var(--pen);font-size:1.35rem;font-weight:400;line-height:1;transform:rotate(-2deg)}
-.qk-em{background:#262626;border-radius:var(--r);box-shadow:none}
-.qk-em.hot{background:var(--pen)}
-.qk-em b{font-weight:500;font-size:1.15rem;letter-spacing:-.02em}
-.qk-em small{font-family:var(--f-mono);text-transform:uppercase;font-size:.62rem;letter-spacing:.04em;font-weight:400}
+.qk-h h3{font-weight:600;font-size:clamp(2.1rem,6.2vw,4.25rem);line-height:.88;letter-spacing:-.052em;text-transform:uppercase}
+.qk-h span{font-family:var(--f-serif);font-style:italic;color:var(--ink);font-size:1.3rem;font-weight:400;line-height:1;transform:none}
+.qk-em{background:#121212;border-radius:var(--r);box-shadow:none}
+.qk-em.hot{background:var(--hot)}
+.qk-em b{font-weight:600;font-size:1.2rem;letter-spacing:-.035em;text-transform:uppercase}
+.qk-em small{font-family:var(--f-display);text-transform:uppercase;font-size:.625rem;letter-spacing:.012em;font-weight:600}
 .qk-grid{border-radius:var(--r);border-color:var(--line)}
-.qk-tile{font:500 .68rem/1.25 var(--f-mono);text-transform:uppercase;letter-spacing:.02em}
-.qk-ic{border-radius:14px;background:color-mix(in srgb,var(--tc) 14%,var(--paper));box-shadow:none}
-.qk-badge{font:500 .66rem/22px var(--f-mono)}
-:root[data-theme="dark"] .qk-em{background:#262626}
-body::after{display:none}
-/* prima pagina: titolo grande e leggero, due parole in corsivo sottolineate a penna */
-.hero h1{font-size:clamp(2.2rem,5.6vw,3.6rem);font-weight:450;letter-spacing:-.04em;line-height:1}
-.scrib{font-style:italic;font-weight:400;white-space:nowrap;padding-bottom:.08em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 8.5C40 3.5 92 2.6 150 5.2c18 .8 34 2 46 3.6-30-1.4-62-1-96 2.2' fill='none' stroke='%23ff3232' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat 0 100%/100% .32em}
+.qk-tile{font:600 .64rem/1.25 var(--f-display);text-transform:uppercase;letter-spacing:.012em}
+.qk-ic{border-radius:var(--r);background:color-mix(in srgb,var(--tc) 14%,var(--paper));box-shadow:none}
+.qk-badge{font:600 .66rem/22px var(--f-display)}
+:root[data-theme="dark"] .qk-em:not(.hot){background:#201e33}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .qk-em:not(.hot){background:#201e33}}
+/* prima pagina: titolo enorme in maiuscolo, due parole in corsivo con grazie */
+.hero h1{font-size:clamp(2.7rem,7.4vw,5.6rem);font-weight:600;letter-spacing:-.055em;line-height:.86;text-transform:uppercase;text-wrap:balance}
+.scrib{white-space:nowrap;font-size:1.1em;line-height:.8;background:none;padding:0}
 :root[data-theme="dark"] .qk-ic{background:color-mix(in srgb,var(--tc) 22%,var(--paper));box-shadow:none}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .qk-ic{background:color-mix(in srgb,var(--tc) 22%,var(--paper));box-shadow:none}}
-/* pelle studio: fine */
+/* pelle veglia: fine */
 </style>
 </head>
 <body>
