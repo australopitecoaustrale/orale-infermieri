@@ -265,6 +265,8 @@ const GLOSS=[
 ["Asse flebostatico","t","Punto di riferimento dell'atrio destro (IV spazio intercostale, linea ascellare media) a cui si allinea il trasduttore.","Phlebostatic axis","monitoraggio-avanzato"],
 ["Incisura dicrota","t","Piccola tacca nella discesa della curva arteriosa che corrisponde alla chiusura della valvola aortica.","Dicrotic notch","monitoraggio-avanzato"],
 ["Test dell'onda quadra","t","Lavaggio rapido del sistema di pressione invasiva per verificare se la curva è smorzata o sottosmorzata.","Square wave test","monitoraggio-avanzato"],
+["Pressione di picco","t","Pressione massima nelle vie aeree durante il flusso inspiratorio; somma le resistenze e la componente elastica. Se sale con plateau normale il problema è nelle vie aeree o nel tubo.","Peak inspiratory pressure","curve-ventilatore"],
+["Intrappolamento d'aria","t","Aria che resta nei polmoni perché l'espirazione non si completa prima dell'atto successivo; sulla curva di flusso l'espirazione non torna a zero.","Air trapping","curve-ventilatore"],
 ["Driving pressure","t","Pressione di plateau meno PEEP; nella ventilazione protettiva va tenuta sotto 15 cmH₂O.","Driving pressure","monitoraggio-avanzato"],
 ["Pressione di plateau","t","Pressione nelle vie aeree misurata con una pausa a fine inspirazione; riflette la compliance; va tenuta sotto 30 cmH₂O.","Plateau pressure","monitoraggio-avanzato"],
 ["Auto-PEEP","t","PEEP intrinseca dovuta allo svuotamento incompleto dei polmoni (tipica della BPCO); aumenta il lavoro respiratorio e può ridurre la pressione.","Intrinsic PEEP","monitoraggio-avanzato"],

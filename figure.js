@@ -42,6 +42,35 @@ const FIGURE=[
  <circle cx="90" cy="54" r="11" fill="#d93a32"/><circle cx="370" cy="54" r="11" fill="#e6b800"/><circle cx="150" cy="300" r="11" fill="#222" stroke="#999" stroke-width="1.5"/><circle cx="210" cy="300" r="11" fill="#2f9e44"/>
  <g class="ft fsm" text-anchor="middle"><text x="90" y="30">braccio destro</text><text x="370" y="30">braccio sinistro</text><text x="150" y="324">gamba dx</text><text x="214" y="324">gamba sx</text></g>
  <text class="ft fsm" x="6" y="20">Destra del paziente a sinistra dell'immagine</text></svg>`},
+{id:"vent-pressione",t:"Curva pressione-tempo: picco, plateau, PEEP",c:"Primo sguardo: la pressione. La linea di base è la PEEP. Il picco si legge durante il flusso; il plateau compare solo con una pausa a fine inspirazione, a flusso zero. La distanza picco − plateau dipende dalle resistenze (secrezioni, broncospasmo, tubo); la distanza plateau − PEEP è la driving pressure e dipende da quanto è rigido il polmone.",
+ enc:["curve-ventilatore","ventilazione","monitoraggio-avanzato"],gl:["Pressione di plateau","Driving pressure","PEEP"],st:/ventila/i,
+ svg:`<svg viewBox="0 0 440 226" role="img" aria-label="Curva pressione-tempo di un atto in ventilazione volumetrica con pausa inspiratoria: pressione di picco, plateau e PEEP">
+ <path class="lead" d="M40 20V200H300"/>
+ <path class="dash" fill="none" d="M40 170H312M150 45H312M240 100H312"/>
+ <path class="fl" stroke-width="2.4" style="stroke-width:2.4" d="M40 170H70L150 45L160 100H240C255 160 268 170 290 170H300"/>
+ <circle class="fv" cx="150" cy="45" r="4.5"/><circle class="fv" cx="200" cy="100" r="4.5"/>
+ <path class="fx" d="M312 45V100M306 45H318M306 100H318"/><path class="fs" d="M312 104V170M306 104H318M306 170H318"/>
+ <g class="ft" font-weight="700"><text x="150" y="34" text-anchor="middle">Ppicco</text><text x="200" y="90" text-anchor="middle">Pplateau</text><text x="46" y="186">PEEP</text>
+ <text x="324" y="68">picco − plateau</text><text x="324" y="132">plateau − PEEP</text></g>
+ <g class="ft fsm"><text x="200" y="120" text-anchor="middle">pausa inspiratoria</text><text x="324" y="83">= resistenze</text><text x="324" y="147">= driving pressure</text><text x="44" y="14">cmH₂O</text><text x="262" y="215">tempo</text></g></svg>`},
+{id:"vent-flusso",t:"Curva flusso-tempo: l'espirazione torna a zero?",c:"Secondo sguardo: il flusso. Sopra lo zero l'aria entra, sotto esce. A sinistra l'espirazione si esaurisce e la curva torna a zero prima dell'atto successivo. A destra l'atto successivo parte quando l'aria sta ancora uscendo: resta intrappolata (auto-PEEP). Serve più tempo per espirare.",
+ enc:["curve-ventilatore","ventilazione"],gl:["Auto-PEEP"],st:/ventila/i,
+ svg:`<svg viewBox="0 0 440 214" role="img" aria-label="Due curve flusso-tempo: a sinistra il flusso espiratorio torna a zero, a destra no (intrappolamento d'aria)">
+ <path class="dash" fill="none" d="M20 112H210M232 112H420"/>
+ <path class="fl" style="stroke-width:2.4" d="M24 112H38V64H74V170C84 130 100 113 124 112H140V64H176V170C186 130 198 115 208 113"/>
+ <path class="fl" style="stroke-width:2.4" d="M234 112H248V64H284V170C292 152 302 140 318 134V64H354V170C362 152 372 140 388 134V64H414"/>
+ <g class="fx"><circle cx="318" cy="134" r="7"/><circle cx="388" cy="134" r="7"/></g>
+ <g class="ft" font-weight="700" text-anchor="middle"><text x="115" y="22">Normale</text><text x="326" y="22">Intrappolamento d'aria</text></g>
+ <g class="ft fsm" text-anchor="middle"><text x="115" y="37">torna a zero</text><text x="326" y="37">non torna a zero</text><text x="56" y="56">inspirazione</text><text x="104" y="190">espirazione</text><text x="14" y="116">0</text><text x="226" y="116">0</text></g></svg>`},
+{id:"vent-volume",t:"Curva volume-tempo: il volume rientra tutto?",c:"Terzo sguardo: il volume. Sale in inspirazione e deve ridiscendere fino alla linea di base. Se la discesa si interrompe prima e la curva viene riportata a zero di scatto, una parte del volume inspirato non è tornata al ventilatore: è una perdita. Si cerca dalla cuffia al circuito e si confrontano volume inspirato ed espirato.",
+ enc:["curve-ventilatore","ventilazione"],gl:[],st:/ventila/i,
+ svg:`<svg viewBox="0 0 440 214" role="img" aria-label="Due curve volume-tempo: a sinistra il volume torna alla linea di base, a destra la discesa è incompleta (perdita)">
+ <path class="lead" d="M20 176H210M232 176H420"/>
+ <path class="fl" style="stroke-width:2.4" d="M24 176H40C52 112 64 74 80 72C92 124 104 172 124 176H140C152 112 164 74 180 72C192 124 200 164 208 172"/>
+ <path class="fl" style="stroke-width:2.4" d="M234 176H250C262 112 274 74 290 72C300 114 310 140 326 144M326 176C338 112 350 74 366 72C376 114 386 140 402 144M402 176H416"/>
+ <path class="fx" style="stroke-width:3.2" d="M326 144V176M402 144V176"/>
+ <g class="ft" font-weight="700" text-anchor="middle"><text x="115" y="22">Normale</text><text x="326" y="22">Perdita</text></g>
+ <g class="ft fsm" text-anchor="middle"><text x="115" y="37">torna alla linea di base</text><text x="326" y="37">la discesa è incompleta</text><text x="326" y="196">volume che non rientra</text></g></svg>`},
 {id:"regola9",t:"Regola del 9 di Wallace (adulto)",c:"Stima della superficie corporea ustionata nell'adulto. Davanti: testa 4,5%, ogni arto superiore 4,5%, tronco 18%, ogni arto inferiore 9%, genitali 1%; dietro lo stesso, senza i genitali. Il palmo della mano del paziente vale circa 1%. Nei bambini si usa la tabella di Lund-Browder, perché la testa pesa di più.",
  enc:["ustioni"],gl:["Regola del 9 di Wallace"],st:/ustion|cute/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Sagome anteriore e posteriore con le percentuali della regola del 9">
