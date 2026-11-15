@@ -671,6 +671,9 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ecg-bg:#1a1413;--ecg-g1:#33221f;--ecg-g5:#5a352f;--ecg-ink:#f4ede7;--ecg-lab:#f0998e;--ecg-edge:#3b2925}}
 :root[data-theme="dark"]{--ecg-bg:#1a1413;--ecg-g1:#33221f;--ecg-g5:#5a352f;--ecg-ink:#f4ede7;--ecg-lab:#f0998e;--ecg-edge:#3b2925}
 .pap{fill:var(--ecg-bg);stroke:var(--ecg-edge);stroke-width:1}.gp1{fill:none;stroke:var(--ecg-g1);stroke-width:.5}.gp5{fill:none;stroke:var(--ecg-g5);stroke-width:.9}
+.fig .ans{opacity:0}
+@media (prefers-reduced-motion: no-preference){.fig .anp{animation:anp 1.5s ease-in-out infinite}.fig .ans{animation:ans 7.5s linear infinite}.fig .ans.s2{animation-delay:2.5s}.fig .ans.s3{animation-delay:5s}}
+@keyframes anp{50%{opacity:.4}}@keyframes ans{0%{opacity:0}3%,30%{opacity:1}33.3%,100%{opacity:0}}
 .etr{fill:none;stroke:var(--ecg-ink);stroke-width:1.9;stroke-linejoin:round;stroke-linecap:round}.elab{fill:var(--ecg-ink)}.emk{stroke:var(--ecg-lab);fill:none}.emt{fill:var(--ecg-lab)}
 .ecg-strip svg{width:100%;height:auto;display:block;border-radius:8px;background:var(--ecg-bg);border:1px solid var(--ecg-edge)}
 .eg1{fill:none;stroke:var(--ecg-g1);stroke-width:.08}
@@ -3699,7 +3702,7 @@ function scenaSol(c){const sc=c.scena;if(!sc)return "";
   return `<div class="trace-sol"><span class="eyebrow">Cartellini di triage compilati</span><div class="tags">${sc.v.map(v=>`<div class="ttag done" style="--tc:${TAGCOL[v.c]||"#999"}"><span class="tt-hole"></span><span class="tt-k">TRIAGE</span><b class="tt-n">${esc(v.n)}</b><span class="tt-d">${esc(v.d)}</span><span class="tt-code">${v.c.toUpperCase()}</span>${v.nota?`<span class="tt-note">${esc(v.nota)}</span>`:""}</div>`).join("")}</div></div>`}
 /* ============ ENCICLOPEDIA E GLOSSARIO ============ */
 const FIGS=typeof FIGURE!=="undefined"?FIGURE:[];
-let FIG_N=0;function figHtml(f){const u="_"+(++FIG_N),svg=f.svg.replace(/id="([\w-]+)"/g,(m,a)=>`id="${a}${u}"`).replace(/url\(#([\w-]+)\)/g,(m,a)=>`url(#${a}${u})`);return `<figure class="fig"><div class="fig-svg">${svg}</div><figcaption><b>${esc(f.t)}.</b> ${esc(f.c)}</figcaption></figure>`}
+let FIG_N=0;const FIG_STILL=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;function figHtml(f){const u="_"+(++FIG_N),svg=(FIG_STILL?f.svg.replace(/<circle class="[^"]*anm"[^>]*>.*?<\/circle>/g,"").replace(/<animate\b[^>]*\/>/g,""):f.svg).replace(/id="([\w-]+)"/g,(m,a)=>`id="${a}${u}"`).replace(/url\(#([\w-]+)\)/g,(m,a)=>`url(#${a}${u})`);return `<figure class="fig"><div class="fig-svg">${svg}</div><figcaption><b>${esc(f.t)}.</b> ${esc(f.c)}</figcaption></figure>`}
 function figsEnc(id){const L=FIGS.filter(f=>f.enc.includes(id));return L.length?`<div class="figs">${L.map(figHtml).join("")}</div>`:""}
 function figsStudy(t){if(!t||/^Guida/.test(t.t))return "";const L=FIGS.filter(f=>f.st&&f.st.test(t.t));return L.length?`<div class="figs">${L.map(figHtml).join("")}</div>`:""}
 function figsGloss(term){const L=FIGS.filter(f=>f.gl.includes(term));return L.map(f=>`<details class="gl-fig"><summary>Figura: ${esc(f.t)}</summary>${figHtml(f)}</details>`).join("")}
