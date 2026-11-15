@@ -278,6 +278,8 @@ const GLOSS=[
 ["Diplopia","t","Visione doppia di un oggetto; se dipende dal disallineamento degli occhi scompare chiudendone uno.","Diplopia","paralisi-oculomotori"],
 ["Ptosi palpebrale","t","Abbassamento della palpebra superiore; compare nella paralisi del III nervo cranico.","Ptosis","paralisi-oculomotori"],
 ["Midriasi","t","Dilatazione della pupilla; se è da un solo lato e non reagisce alla luce va segnalata subito.","Mydriasis","paralisi-oculomotori"],
+["Emianopsia","t","Perdita di metà del campo visivo; è omonima se riguarda la stessa metà in entrambi gli occhi, bitemporale se riguarda le due metà esterne.","Hemianopia","campo-visivo-difetti"],
+["Quadrantopsia","t","Perdita di un quarto del campo visivo, superiore o inferiore, per lesione delle radiazioni ottiche.","Quadrantanopia","campo-visivo-difetti"],
 ["Driving pressure","t","Pressione di plateau meno PEEP; nella ventilazione protettiva va tenuta sotto 15 cmH₂O.","Driving pressure","monitoraggio-avanzato"],
 ["Pressione di plateau","t","Pressione nelle vie aeree misurata con una pausa a fine inspirazione; riflette la compliance; va tenuta sotto 30 cmH₂O.","Plateau pressure","monitoraggio-avanzato"],
 ["Auto-PEEP","t","PEEP intrinseca dovuta allo svuotamento incompleto dei polmoni (tipica della BPCO); aumenta il lavoro respiratorio e può ridurre la pressione.","Intrinsic PEEP","monitoraggio-avanzato"],
