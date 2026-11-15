@@ -671,6 +671,14 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ecg-bg:#1a1413;--ecg-g1:#33221f;--ecg-g5:#5a352f;--ecg-ink:#f4ede7;--ecg-lab:#f0998e;--ecg-edge:#3b2925}}
 :root[data-theme="dark"]{--ecg-bg:#1a1413;--ecg-g1:#33221f;--ecg-g5:#5a352f;--ecg-ink:#f4ede7;--ecg-lab:#f0998e;--ecg-edge:#3b2925}
 .pap{fill:var(--ecg-bg);stroke:var(--ecg-edge);stroke-width:1}.gp1{fill:none;stroke:var(--ecg-g1);stroke-width:.5}.gp5{fill:none;stroke:var(--ecg-g5);stroke-width:.9}
+.fig .eir{fill:#2f8f8a;stroke:#1d5f5c;stroke-width:1.2}.fig .eyrow{fill:color-mix(in srgb,var(--amber-soft) 55%,var(--paper));stroke:var(--line)}
+.fig .ey3{transform:translate(-7px,5px)}.fig .ey4{transform:translate(0,-3px)}.fig .ey6{transform:translate(5px,0)}
+@media (prefers-reduced-motion: no-preference){.fig .ey{animation:9s ease-in-out infinite}.fig .ey0{animation-name:ey0}.fig .ey3{animation-name:ey3}.fig .ey4{animation-name:ey4}.fig .ey6{animation-name:ey6}.fig .egz{animation-name:egz}}
+@keyframes ey0{0%,12%,50%,62%,100%{transform:translate(0,0)}22%,40%{transform:translate(-10px,0)}72%,90%{transform:translate(10px,0)}}
+@keyframes ey3{0%,12%,50%,100%{transform:translate(-7px,5px)}22%,40%{transform:translate(-11px,5px)}}
+@keyframes ey4{0%,12%,50%,62%,100%{transform:translate(0,-3px)}22%,40%{transform:translate(-10px,-1px)}72%,90%{transform:translate(10px,-7px)}}
+@keyframes ey6{0%,12%,50%,62%,100%{transform:translate(5px,0)}22%,40%{transform:translate(0,0)}72%,90%{transform:translate(10px,0)}}
+@keyframes egz{0%,12%,50%,62%,100%{transform:translate(0,0)}22%,40%{transform:translate(-84px,0)}72%,90%{transform:translate(84px,0)}}
 .fig .ans{opacity:0}
 @media (prefers-reduced-motion: no-preference){.fig .anp{animation:anp 1.5s ease-in-out infinite}.fig .ans{animation:ans 7.5s linear infinite}.fig .ans.s2{animation-delay:2.5s}.fig .ans.s3{animation-delay:5s}}
 @keyframes anp{50%{opacity:.4}}@keyframes ans{0%{opacity:0}3%,30%{opacity:1}33.3%,100%{opacity:0}}
