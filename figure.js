@@ -263,6 +263,47 @@ const FIGURE=[
  <g class="ft"><text x="108" y="293" font-weight="700" style="font-size:11px">Agonisti alfa-2 centrali</text><text class="fsm" x="108" y="306" style="font-size:10px">riducono il tono simpatico dal cervello</text><text class="fsm" x="108" y="318" style="font-size:9.6px" font-style="italic">clonidina, guanfacina</text></g>
  <circle cx="418" cy="299" r="5" fill="#3a9d6a"/>
  </svg>`},
+{id:"ipp-pompa",t:"IPP: come bloccano la pompa dell'acido",c:"A sinistra la cellula parietale dello stomaco pompa ioni idrogeno nel lume: è così che si forma l'acido. A destra l'IPP si lega alla pompa e la blocca, gli ioni restano nella cellula e il lume diventa meno acido. Sotto, le indicazioni principali. Non tutti gli IPP hanno le stesse indicazioni autorizzate.",
+ enc:["ipp","emorragia-digestiva"],gl:["IPP","Pompa protonica"],st:/stomaco|gastr|ulcer|reflusso|ipp|acid/i,
+ svg:`<svg viewBox="0 0 440 300" role="img" aria-label="Pompa protonica della cellula parietale: senza IPP gli ioni idrogeno passano nel lume gastrico, con IPP la pompa è bloccata; sotto le indicazioni principali">
+ <rect x="8" y="4" width="208" height="214" rx="10" class="eyrow"/>
+ <text x="20" y="22" class="ft" font-weight="700" style="font-size:10.5px">Senza IPP: l'acido esce</text>
+ <rect x="20" y="30" width="184" height="46" rx="5" fill="#d9902f" opacity="0.2"/>
+ <text x="28" y="46" class="ft fsm" style="font-size:9.6px">lume gastrico</text><text x="196" y="46" text-anchor="end" class="ft fsm" style="font-size:9.6px">molto acido</text>
+ <rect x="20" y="84" width="184" height="124" rx="5" class="ff fl" style="stroke-width:1.2"/>
+ <text x="28" y="200" class="ft fsm" style="font-size:9.6px">cellula parietale</text>
+ <rect x="20" y="76" width="184" height="8" fill="var(--muted)" opacity=".45"/>
+ <rect x="89" y="64" width="46" height="30" rx="7" fill="#2f8f8a" opacity=".28" stroke="#2f8f8a" stroke-width="1.8"/><text x="83" y="94" text-anchor="end" class="ft" font-weight="700" style="font-size:9.6px">pompa</text>
+ <path d="M112 150V44" stroke="#c0392b" stroke-width="2.4" opacity=".5" fill="none" stroke-linecap="round"/><path d="M112 38l-5 9h10z" fill="#c0392b" opacity=".7"/>
+ <circle class="fv anm" r="5"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" path="M112 160V34"/></circle>
+ <circle class="fv anm" r="5"><animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite" path="M112 160V34"/></circle>
+ <circle class="fv anm" r="5"><animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite" path="M112 160V34"/></circle>
+ <text x="28" y="168" class="ft fsm" style="font-size:9.6px">ioni H⁺ verso il lume</text>
+ <rect x="224" y="4" width="208" height="214" rx="10" class="eyrow"/>
+ <text x="236" y="22" class="ft" font-weight="700" style="font-size:10.5px">Con IPP: la pompa è bloccata</text>
+ <rect x="236" y="30" width="184" height="46" rx="5" fill="#d9902f" opacity="0.06"/>
+ <text x="244" y="46" class="ft fsm" style="font-size:9.6px">lume gastrico</text><text x="412" y="46" text-anchor="end" class="ft fsm" style="font-size:9.6px">meno acido</text>
+ <rect x="236" y="84" width="184" height="124" rx="5" class="ff fl" style="stroke-width:1.2"/>
+ <text x="244" y="200" class="ft fsm" style="font-size:9.6px">cellula parietale</text>
+ <rect x="236" y="76" width="184" height="8" fill="var(--muted)" opacity=".45"/>
+ <rect x="305" y="64" width="46" height="30" rx="7" fill="#2f8f8a" opacity=".28" stroke="#2f8f8a" stroke-width="1.8"/><text x="299" y="94" text-anchor="end" class="ft" font-weight="700" style="font-size:9.6px">pompa</text>
+ <path d="M313 68L343 90M343 68L313 90" stroke="#c0392b" stroke-width="3.4" stroke-linecap="round"/>
+ <circle cx="318" cy="106" r="4.6" class="fv" opacity=".75"/>
+ <circle cx="330" cy="112" r="4.6" class="fv" opacity=".75"/>
+ <circle cx="342" cy="106" r="4.6" class="fv" opacity=".75"/>
+ <circle cx="324" cy="124" r="4.6" class="fv" opacity=".75"/>
+ <circle cx="338" cy="122" r="4.6" class="fv" opacity=".75"/>
+ <circle cx="328" cy="103" r="4.6" class="fv anp"/>
+ <rect x="364" y="126" width="48" height="20" rx="10" fill="#d9902f" opacity=".3" stroke="#d9902f" stroke-width="1.6"/><text x="388" y="140" text-anchor="middle" class="ft" font-weight="700" style="font-size:10.5px">IPP</text>
+ <path d="M364 132C356 124 350 112 348 96" stroke="#d9902f" stroke-width="1.8" fill="none" stroke-dasharray="4 3"/>
+ <text x="244" y="168" class="ft fsm" style="font-size:9.6px">ioni H⁺ trattenuti nella cellula</text>
+ <text x="320" y="246" class="ft" font-weight="700" style="font-size:10.5px">Indicazioni principali</text>
+ <rect x="8" y="228" width="127" height="24" rx="12" fill="#2f8f8a" opacity=".16"/><rect x="8" y="228" width="127" height="24" rx="12" fill="none" stroke="#2f8f8a" stroke-width="1.4"/><text x="71.5" y="244" text-anchor="middle" class="ft" style="font-size:10px">reflusso ed esofagite</text>
+ <rect x="143" y="228" width="159" height="24" rx="12" fill="#2f8f8a" opacity=".16"/><rect x="143" y="228" width="159" height="24" rx="12" fill="none" stroke="#2f8f8a" stroke-width="1.4"/><text x="222.5" y="244" text-anchor="middle" class="ft" style="font-size:10px">ulcera gastrica e duodenale</text>
+ <rect x="8" y="258" width="138" height="24" rx="12" fill="#2f8f8a" opacity=".16"/><rect x="8" y="258" width="138" height="24" rx="12" fill="none" stroke="#2f8f8a" stroke-width="1.4"/><text x="77.0" y="274" text-anchor="middle" class="ft" style="font-size:10px">eradicazione di H. pylori</text>
+ <rect x="154" y="258" width="143" height="24" rx="12" fill="#2f8f8a" opacity=".16"/><rect x="154" y="258" width="143" height="24" rx="12" fill="none" stroke="#2f8f8a" stroke-width="1.4"/><text x="225.5" y="274" text-anchor="middle" class="ft" style="font-size:10px">gastroprotezione da FANS</text>
+ <rect x="305" y="258" width="106" height="24" rx="12" fill="#2f8f8a" opacity=".16"/><rect x="305" y="258" width="106" height="24" rx="12" fill="none" stroke="#2f8f8a" stroke-width="1.4"/><text x="358.0" y="274" text-anchor="middle" class="ft" style="font-size:10px">Zollinger-Ellison</text>
+ </svg>`},
 {id:"regola9",t:"Regola del 9 di Wallace (adulto)",c:"Stima della superficie corporea ustionata nell'adulto. Davanti: testa 4,5%, ogni arto superiore 4,5%, tronco 18%, ogni arto inferiore 9%, genitali 1%; dietro lo stesso, senza i genitali. Il palmo della mano del paziente vale circa 1%. Nei bambini si usa la tabella di Lund-Browder, perché la testa pesa di più.",
  enc:["ustioni"],gl:["Regola del 9 di Wallace"],st:/ustion|cute/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Sagome anteriore e posteriore con le percentuali della regola del 9">
