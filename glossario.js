@@ -280,6 +280,8 @@ const GLOSS=[
 ["Midriasi","t","Dilatazione della pupilla; se è da un solo lato e non reagisce alla luce va segnalata subito.","Mydriasis","paralisi-oculomotori"],
 ["Emianopsia","t","Perdita di metà del campo visivo; è omonima se riguarda la stessa metà in entrambi gli occhi, bitemporale se riguarda le due metà esterne.","Hemianopia","campo-visivo-difetti"],
 ["Quadrantopsia","t","Perdita di un quarto del campo visivo, superiore o inferiore, per lesione delle radiazioni ottiche.","Quadrantanopia","campo-visivo-difetti"],
+["Asse elettrico cardiaco","t","Direzione media della depolarizzazione dei ventricoli sul piano frontale, ricavata dal QRS delle derivazioni degli arti; normale tra −30° e +90°.","Cardiac electrical axis","ecg-asse"],
+["Sistema esassiale","t","Schema a raggiera delle sei derivazioni degli arti (DI 0°, DII +60°, aVF +90°, DIII +120°, aVL −30°, aVR −150°) usato per calcolare l'asse elettrico.","Hexaxial reference system","ecg-asse"],
 ["Driving pressure","t","Pressione di plateau meno PEEP; nella ventilazione protettiva va tenuta sotto 15 cmH₂O.","Driving pressure","monitoraggio-avanzato"],
 ["Pressione di plateau","t","Pressione nelle vie aeree misurata con una pausa a fine inspirazione; riflette la compliance; va tenuta sotto 30 cmH₂O.","Plateau pressure","monitoraggio-avanzato"],
 ["Auto-PEEP","t","PEEP intrinseca dovuta allo svuotamento incompleto dei polmoni (tipica della BPCO); aumenta il lavoro respiratorio e può ridurre la pressione.","Intrinsic PEEP","monitoraggio-avanzato"],

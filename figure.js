@@ -135,6 +135,66 @@ const FIGURE=[
  <g class="ft fsm"><text x="62" y="84" text-anchor="middle">glomerulo</text><text x="62" y="96" text-anchor="middle">(filtro)</text><text x="148" y="196" text-anchor="middle">ansa di Henle</text><text x="196" y="34" text-anchor="middle">tubulo distale</text><text x="232" y="216" text-anchor="middle">tratto finale</text></g>
  <rect x="262" y="18" width="172" height="54" rx="8" class="eyrow"/><rect x="262" y="18" width="6" height="54" rx="3" fill="#d9534f"/><rect class="ans" x="262" y="18" width="172" height="54" rx="8" fill="none" stroke="#d9534f" stroke-width="2.6"/><g class="ft"><text x="276" y="36" font-weight="700" font-size="11.5">Dell'ansa · furosemide</text><text class="fsm" x="276" y="51">ansa di Henle: i più potenti,</text><text class="fsm" x="276" y="64">tolgono liquidi nello scompenso</text></g><rect x="262" y="80" width="172" height="54" rx="8" class="eyrow"/><rect x="262" y="80" width="6" height="54" rx="3" fill="#2f8f8a"/><rect class="ans s2" x="262" y="80" width="172" height="54" rx="8" fill="none" stroke="#2f8f8a" stroke-width="2.6"/><g class="ft"><text x="276" y="98" font-weight="700" font-size="11.5">Tiazidici · indapamide</text><text class="fsm" x="276" y="113">tubulo distale: soprattutto</text><text class="fsm" x="276" y="126">per la pressione alta</text></g><rect x="262" y="142" width="172" height="54" rx="8" class="eyrow"/><rect x="262" y="142" width="6" height="54" rx="3" fill="#8a5cd6"/><rect class="ans s3" x="262" y="142" width="172" height="54" rx="8" fill="none" stroke="#8a5cd6" stroke-width="2.6"/><g class="ft"><text x="276" y="160" font-weight="700" font-size="11.5">Risparmiatori di potassio</text><text class="fsm" x="276" y="175">spironolattone, amiloride:</text><text class="fsm" x="276" y="188">tratto finale, trattengono K⁺</text></g>
  <rect x="8" y="226" width="424" height="30" rx="8" class="eyrow"/><g class="ft" font-size="10.4"><text x="18" y="245"><tspan font-weight="700">Potassio:</tspan> ansa e tiazidici lo abbassano ↓ · spironolattone e amiloride lo alzano ↑</text></g></svg>`},
+{id:"asse-cardiaco",t:"Asse elettrico: i quattro quadranti e i due metodi",c:"Le sei derivazioni degli arti formano una raggiera: DI a 0°, aVF a +90°. Con DI e aVF si trova il quadrante: tutte e due positive, asse normale; DI positiva e aVF negativa, si guarda DII (positiva: tra 0° e −30°, ancora normale; negativa: deviazione a sinistra); DI negativa e aVF positiva, deviazione a destra; tutte e due negative, deviazione estrema. Per stimare i gradi si cerca il QRS isodifasico: l'asse è perpendicolare a quella derivazione.",
+ enc:["ecg-asse","ecg-lettura","ecg-basi"],gl:["Asse elettrico cardiaco","Sistema esassiale"],st:/ecg|asse|derivazion/i,
+ svg:`<svg viewBox="0 0 440 318" role="img" aria-label="Sistema esassiale con i quattro quadranti dell'asse elettrico e i due metodi per calcolarlo: DI più aVF e derivazione isodifasica">
+ <rect x="8" y="4" width="232" height="310" rx="10" class="eyrow"/>
+ <path d="M124 150L214.0 150.0A90 90 0 0 1 124.0 240.0Z" fill="#2f8f8a" opacity=".16"/>
+ <path d="M124 150L124.0 60.0A90 90 0 0 1 214.0 150.0Z" fill="#d9902f" opacity=".16"/>
+ <path d="M124 150L124.0 240.0A90 90 0 0 1 34.0 150.0Z" fill="#d9534f" opacity=".16"/>
+ <path d="M124 150L34.0 150.0A90 90 0 0 1 124.0 60.0Z" fill="#8a5cd6" opacity=".16"/>
+ <circle cx="124" cy="150" r="90" class="lead"/>
+ <path d="M34.0 150.0L214.0 150.0" class="lead" stroke-dasharray="0"/>
+ <path d="M79.0 72.1L169.0 227.9" class="lead" stroke-dasharray="3 3"/>
+ <path d="M124.0 60.0L124.0 240.0" class="lead" stroke-dasharray="0"/>
+ <path d="M169.0 72.1L79.0 227.9" class="lead" stroke-dasharray="3 3"/>
+ <path d="M201.9 195.0L46.1 105.0" class="lead" stroke-dasharray="3 3"/>
+ <path d="M46.1 195.0L201.9 105.0" class="lead" stroke-dasharray="3 3"/>
+ <g class="ft" font-size="10" font-weight="700" text-anchor="middle">
+ <text x="229.0" y="153.5" style="font-size:10px">DI</text>
+ <text x="176.5" y="244.4" style="font-size:10px">DII</text>
+ <text x="124.0" y="258.5" style="font-size:10px">aVF</text>
+ <text x="71.5" y="244.4" style="font-size:10px">DIII</text>
+ <text x="33.1" y="101.0" style="font-size:10px">aVR</text>
+ <text x="214.9" y="101.0" style="font-size:10px">aVL</text>
+ </g>
+ <g class="ft fsm" text-anchor="middle">
+ <text x="21.0" y="153.5" style="font-size:9px">±180°</text>
+ <text x="124.0" y="50.5" style="font-size:9px">−90°</text>
+ </g>
+ <g class="ft" text-anchor="middle" style="font-size:9.6px" font-weight="700">
+ <text x="176.0" y="183.0" style="font-size:9.6px">NORMALE</text>
+ <text x="176.0" y="123.0" style="font-size:9.6px">SINISTRA</text>
+ <text x="72.0" y="183.0" style="font-size:9.6px">DESTRA</text>
+ <text x="72.0" y="123.0" style="font-size:9.6px">ESTREMA</text>
+ </g>
+ <g class="vf k1"><path d="M124 150L214.0 150.0A90 90 0 0 1 124.0 240.0Z" fill="#2f8f8a" opacity=".42"/><g class=""><path d="M124 150L143.9 224.4" stroke="#2f8f8a" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M146.3 233.1L151.7 218.6L134.3 223.3Z" fill="#2f8f8a"/></g></g>
+ <g class="vf k2"><path d="M124 150L124.0 60.0A90 90 0 0 1 214.0 150.0Z" fill="#d9902f" opacity=".42"/><g class=""><path d="M124 150L143.9 75.6" stroke="#d9902f" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M146.3 66.9L134.3 76.7L151.7 81.4Z" fill="#d9902f"/></g></g>
+ <g class="vf k3"><path d="M124 150L124.0 240.0A90 90 0 0 1 34.0 150.0Z" fill="#d9534f" opacity=".42"/><g class=""><path d="M124 150L104.1 224.4" stroke="#d9534f" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M101.7 233.1L113.7 223.3L96.3 218.6Z" fill="#d9534f"/></g></g>
+ <g class="vf k4"><path d="M124 150L34.0 150.0A90 90 0 0 1 124.0 60.0Z" fill="#8a5cd6" opacity=".42"/><g class=""><path d="M124 150L104.1 75.6" stroke="#8a5cd6" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M101.7 66.9L96.3 81.4L113.7 76.7Z" fill="#8a5cd6"/></g></g>
+ <g class="vf k5"><path d="M124 150L201.9 105.0A90 90 0 0 1 214.0 150.0Z" fill="#2f8f8a" opacity=".5"/><path d="M124 150L124.0 60.0A90 90 0 0 1 201.9 105.0Z" fill="#d9902f" opacity=".5"/><path d="M79.0 72.1L169.0 227.9" stroke="#2f8f8a" stroke-width="2.6" fill="none"/></g>
+ <g class="vf k6"><path d="M46.1 195.0L201.9 105.0" stroke="#d9902f" stroke-width="2.8" fill="none"/><path d="M79.0 72.1L124 150" stroke="#2f8f8a" stroke-width="1.6" stroke-dasharray="4 3" fill="none"/><g class=""><path d="M124 150L162.5 216.7" stroke="#2f8f8a" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M167.0 224.5L168.5 209.1L152.9 218.1Z" fill="#2f8f8a"/></g><path d="M136.1 143.0L143.1 155.1L131.0 162.1" fill="none" stroke="#2f8f8a" stroke-width="1.4"/></g>
+ <circle cx="124" cy="150" r="3.4" class="fv"/>
+ <g class="ft fsm"><text x="16" y="20">piano frontale · gradi positivi in senso orario</text><text x="124" y="290" text-anchor="middle">asse normale: da −30° a +90°</text><text x="124" y="304" text-anchor="middle">oltre −30° sinistra · oltre +90° destra</text></g>
+ <rect x="248" y="4.0" width="184" height="48" rx="8" class="eyrow"/><rect x="248" y="4.0" width="184" height="48" rx="8" class="fx vf k1" fill="none" stroke="#2f8f8a" style="stroke-width:2.6"/>
+ <path d="M256 30.0h6l2 2l3 -13l3 14l2 -3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M288 30.0h6l2 2l3 -13l3 14l2 -3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+ <g class="ft"><text class="fsm" x="267" y="16.0" text-anchor="middle" style="font-size:9px">DI</text><text class="fsm" x="299" y="16.0" text-anchor="middle" style="font-size:9px">aVF</text><text x="322" y="25.0" font-weight="700" style="font-size:10.5px">Asse normale</text><text class="fsm" x="322" y="39.0" style="font-size:9.6px">da 0° a +90°</text></g>
+ <rect x="248" y="56.4" width="184" height="48" rx="8" class="eyrow"/><rect x="248" y="56.4" width="184" height="48" rx="8" class="fx vf k2" fill="none" stroke="#d9902f" style="stroke-width:2.6"/>
+ <path d="M256 82.4h6l2 2l3 -13l3 14l2 -3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M288 82.4h6l2 -2l3 13l3 -14l2 3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+ <g class="ft"><text class="fsm" x="267" y="68.4" text-anchor="middle" style="font-size:9px">DI</text><text class="fsm" x="299" y="68.4" text-anchor="middle" style="font-size:9px">aVF</text><text x="322" y="77.4" font-weight="700" style="font-size:10.5px">Guardare DII</text><text class="fsm" x="322" y="91.4" style="font-size:9.6px">normale o sinistra</text></g>
+ <rect x="248" y="108.8" width="184" height="48" rx="8" class="eyrow"/><rect x="248" y="108.8" width="184" height="48" rx="8" class="fx vf k3" fill="none" stroke="#d9534f" style="stroke-width:2.6"/>
+ <path d="M256 134.8h6l2 -2l3 13l3 -14l2 3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M288 134.8h6l2 2l3 -13l3 14l2 -3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+ <g class="ft"><text class="fsm" x="267" y="120.8" text-anchor="middle" style="font-size:9px">DI</text><text class="fsm" x="299" y="120.8" text-anchor="middle" style="font-size:9px">aVF</text><text x="322" y="129.8" font-weight="700" style="font-size:10.5px">Deviazione destra</text><text class="fsm" x="322" y="143.8" style="font-size:9.6px">da +90° a 180°</text></g>
+ <rect x="248" y="161.2" width="184" height="48" rx="8" class="eyrow"/><rect x="248" y="161.2" width="184" height="48" rx="8" class="fx vf k4" fill="none" stroke="#8a5cd6" style="stroke-width:2.6"/>
+ <path d="M256 187.2h6l2 -2l3 13l3 -14l2 3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M288 187.2h6l2 -2l3 13l3 -14l2 3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+ <g class="ft"><text class="fsm" x="267" y="173.2" text-anchor="middle" style="font-size:9px">DI</text><text class="fsm" x="299" y="173.2" text-anchor="middle" style="font-size:9px">aVF</text><text x="322" y="182.2" font-weight="700" style="font-size:10.5px">Deviazione estrema</text><text class="fsm" x="322" y="196.2" style="font-size:9.6px">da −90° a 180°</text></g>
+ <rect x="248" y="213.6" width="184" height="48" rx="8" class="eyrow"/><rect x="248" y="213.6" width="184" height="48" rx="8" class="fx vf k5" fill="none" stroke="#2f8f8a" style="stroke-width:2.6"/>
+ <path d="M256 239.6h6l2 2l3 -13l3 14l2 -3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M288 239.6h6l2 -2l3 13l3 -14l2 3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+ <g class="ft"><text class="fsm" x="267" y="225.6" text-anchor="middle" style="font-size:9px">DII</text><text class="fsm" x="299" y="225.6" text-anchor="middle" style="font-size:9px"></text><text x="322" y="234.6" font-weight="700" style="font-size:9.6px">DII + : 0°/−30°, normale</text><text class="fsm" x="322" y="248.6" style="font-size:9.6px">DII − : deviazione sinistra</text></g>
+ <rect x="248" y="266.0" width="184" height="48" rx="8" class="eyrow"/><rect x="248" y="266.0" width="184" height="48" rx="8" class="fx vf k6" fill="none" stroke="#2f8f8a" style="stroke-width:2.6"/>
+ <path d="M256 292.0h6l2 -1l3 -8l4 16l3 -8l2 1h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+ <g class="ft"><text class="fsm" x="269" y="278.0" text-anchor="middle" style="font-size:9px">aVL</text><text x="290" y="287.0" font-weight="700" style="font-size:10.5px">QRS isodifasico</text><text class="fsm" x="290" y="301.0" style="font-size:9.6px">asse a 90° da lì: qui +60°</text></g>
+ </svg>`},
 {id:"regola9",t:"Regola del 9 di Wallace (adulto)",c:"Stima della superficie corporea ustionata nell'adulto. Davanti: testa 4,5%, ogni arto superiore 4,5%, tronco 18%, ogni arto inferiore 9%, genitali 1%; dietro lo stesso, senza i genitali. Il palmo della mano del paziente vale circa 1%. Nei bambini si usa la tabella di Lund-Browder, perché la testa pesa di più.",
  enc:["ustioni"],gl:["Regola del 9 di Wallace"],st:/ustion|cute/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Sagome anteriore e posteriore con le percentuali della regola del 9">
