@@ -47,3 +47,4 @@ Una voce si apre con `index.html#voce-<id>`. Guardare sempre tema chiaro e scuro
 - `nuova-voce`: aggiungere una voce completa (quiz, glossario, figura, cache, verifica).
 - `figura-animata`: classi e regole per le figure SVG.
 - `watch`: guardare un video; `design-dna`: analisi di stile.
+- Da `K-Dense-AI/scientific-agent-skills` (MIT, 13 su 177): `literature-review`, `citation-management`, `paper-lookup`, `research-lookup`, `scientific-critical-thinking`, `scholar-evaluation`, `clinical-decision-support`, `treatment-plans`, `clinical-reports`, `infographics`, `scientific-schematics`, `markdown-mermaid-writing`, `database-lookup`. Sono di supporto: i contenuti dell'Atlante seguono comunque le regole sopra.
