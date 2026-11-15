@@ -229,6 +229,40 @@ const FIGURE=[
  <path d="M160 299h6l12 5l18 -26l16 +34l10 -13h8q10 -9 20 0h8 M290 299h6l12 5l18 -26l16 +34l10 -13h8q10 -9 20 0h8" class="etr" style="stroke-width:1.7"/>
  <text class="ft fsm" x="418" y="268" text-anchor="end" style="font-size:9.6px">QRS largo, simile a una TV</text>
  </svg>`},
+{id:"antipertensivi-desinenze",t:"Antipertensivi: la desinenza dice la classe",c:"Sei classi evidenziate a turno. -pril e -sartan agiscono sul sistema renina-angiotensina (enzima e recettore), -olol frena il cuore, -dipina dilata le arterie, -azosina rilassa i vasi, gli agonisti alfa-2 centrali (clonidina, guanfacina) non hanno una desinenza comune. Attenzione: verapamil e diltiazem sono calcio-antagonisti ma non finiscono in -dipina.",
+ enc:["antipertensivi-desinenze","ipertensione","diuretici"],gl:["ACE-inibitori","Beta-bloccanti"],st:/ipertension|pressione|antipert|farmac/i,
+ svg:`<svg viewBox="0 0 440 326" role="img" aria-label="Sei classi di farmaci antipertensivi con la desinenza del nome, il meccanismo e gli esempi">
+ <rect x="8" y="4" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="4" width="424" height="50" rx="9" class="fx vf k1" fill="none" style="stroke-width:2.6"/>
+ <rect x="16" y="13" width="80" height="32" rx="16" fill="#4a90d9" opacity=".22"/><rect x="16" y="13" width="80" height="32" rx="16" fill="none" stroke="#4a90d9" stroke-width="1.6"/>
+ <text x="56" y="34" text-anchor="middle" class="ft" font-weight="700" style="font-size:14px">-pril</text>
+ <g class="ft"><text x="108" y="23" font-weight="700" style="font-size:11px">ACE-inibitori</text><text class="fsm" x="108" y="36" style="font-size:10px">bloccano la produzione di angiotensina II</text><text class="fsm" x="108" y="48" style="font-size:9.6px" font-style="italic">enalapril, ramipril, lisinopril</text></g>
+ <circle cx="418" cy="29" r="5" fill="#4a90d9"/>
+ <rect x="8" y="58" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="58" width="424" height="50" rx="9" class="fx vf k2" fill="none" style="stroke-width:2.6"/>
+ <rect x="16" y="67" width="80" height="32" rx="16" fill="#8a5cd6" opacity=".22"/><rect x="16" y="67" width="80" height="32" rx="16" fill="none" stroke="#8a5cd6" stroke-width="1.6"/>
+ <text x="56" y="88" text-anchor="middle" class="ft" font-weight="700" style="font-size:12.5px">-sartan</text>
+ <g class="ft"><text x="108" y="77" font-weight="700" style="font-size:11px">Sartani (antagonisti AT1)</text><text class="fsm" x="108" y="90" style="font-size:10px">bloccano il recettore dell'angiotensina II</text><text class="fsm" x="108" y="102" style="font-size:9.6px" font-style="italic">losartan, valsartan, candesartan</text></g>
+ <circle cx="418" cy="83" r="5" fill="#8a5cd6"/>
+ <rect x="8" y="112" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="112" width="424" height="50" rx="9" class="fx vf k3" fill="none" style="stroke-width:2.6"/>
+ <rect x="16" y="121" width="80" height="32" rx="16" fill="#d9902f" opacity=".22"/><rect x="16" y="121" width="80" height="32" rx="16" fill="none" stroke="#d9902f" stroke-width="1.6"/>
+ <text x="56" y="142" text-anchor="middle" class="ft" font-weight="700" style="font-size:14px">-olol</text>
+ <g class="ft"><text x="108" y="131" font-weight="700" style="font-size:11px">Beta-bloccanti</text><text class="fsm" x="108" y="144" style="font-size:10px">rallentano e riposano il cuore</text><text class="fsm" x="108" y="156" style="font-size:9.6px" font-style="italic">bisoprololo, metoprololo, atenololo</text></g>
+ <circle cx="418" cy="137" r="5" fill="#d9902f"/>
+ <rect x="8" y="166" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="166" width="424" height="50" rx="9" class="fx vf k4" fill="none" style="stroke-width:2.6"/>
+ <rect x="16" y="175" width="80" height="32" rx="16" fill="#2f8f8a" opacity=".22"/><rect x="16" y="175" width="80" height="32" rx="16" fill="none" stroke="#2f8f8a" stroke-width="1.6"/>
+ <text x="56" y="196" text-anchor="middle" class="ft" font-weight="700" style="font-size:12.5px">-dipina</text>
+ <g class="ft"><text x="108" y="185" font-weight="700" style="font-size:11px">Calcio-antagonisti diidropiridinici</text><text class="fsm" x="108" y="198" style="font-size:10px">dilatano le arterie</text><text class="fsm" x="108" y="210" style="font-size:9.6px" font-style="italic">amlodipina, nifedipina, felodipina</text></g>
+ <circle cx="418" cy="191" r="5" fill="#2f8f8a"/>
+ <rect x="8" y="220" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="220" width="424" height="50" rx="9" class="fx vf k5" fill="none" style="stroke-width:2.6"/>
+ <rect x="16" y="229" width="80" height="32" rx="16" fill="#b04fb5" opacity=".22"/><rect x="16" y="229" width="80" height="32" rx="16" fill="none" stroke="#b04fb5" stroke-width="1.6"/>
+ <text x="56" y="250" text-anchor="middle" class="ft" font-weight="700" style="font-size:12.5px">-azosina</text>
+ <g class="ft"><text x="108" y="239" font-weight="700" style="font-size:11px">Alfa-1 bloccanti</text><text class="fsm" x="108" y="252" style="font-size:10px">rilassano i vasi</text><text class="fsm" x="108" y="264" style="font-size:9.6px" font-style="italic">doxazosina, prazosina, terazosina</text></g>
+ <circle cx="418" cy="245" r="5" fill="#b04fb5"/>
+ <rect x="8" y="274" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="274" width="424" height="50" rx="9" class="fx vf k6" fill="none" style="stroke-width:2.6"/>
+ <rect x="16" y="283" width="80" height="32" rx="16" fill="#3a9d6a" opacity=".22"/><rect x="16" y="283" width="80" height="32" rx="16" fill="none" stroke="#3a9d6a" stroke-width="1.6"/>
+ <text x="56" y="304" text-anchor="middle" class="ft" font-weight="700" style="font-size:12.5px">nessuna</text>
+ <g class="ft"><text x="108" y="293" font-weight="700" style="font-size:11px">Agonisti alfa-2 centrali</text><text class="fsm" x="108" y="306" style="font-size:10px">riducono il tono simpatico dal cervello</text><text class="fsm" x="108" y="318" style="font-size:9.6px" font-style="italic">clonidina, guanfacina</text></g>
+ <circle cx="418" cy="299" r="5" fill="#3a9d6a"/>
+ </svg>`},
 {id:"regola9",t:"Regola del 9 di Wallace (adulto)",c:"Stima della superficie corporea ustionata nell'adulto. Davanti: testa 4,5%, ogni arto superiore 4,5%, tronco 18%, ogni arto inferiore 9%, genitali 1%; dietro lo stesso, senza i genitali. Il palmo della mano del paziente vale circa 1%. Nei bambini si usa la tabella di Lund-Browder, perché la testa pesa di più.",
  enc:["ustioni"],gl:["Regola del 9 di Wallace"],st:/ustion|cute/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Sagome anteriore e posteriore con le percentuali della regola del 9">
