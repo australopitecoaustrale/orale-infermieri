@@ -326,6 +326,40 @@ const FIGURE=[
  <rect x="154" y="258" width="143" height="24" rx="12" fill="#2f8f8a" opacity=".16"/><rect x="154" y="258" width="143" height="24" rx="12" fill="none" stroke="#2f8f8a" stroke-width="1.4"/><text x="225.5" y="274" text-anchor="middle" class="ft" style="font-size:10px">gastroprotezione da FANS</text>
  <rect x="305" y="258" width="106" height="24" rx="12" fill="#2f8f8a" opacity=".16"/><rect x="305" y="258" width="106" height="24" rx="12" fill="none" stroke="#2f8f8a" stroke-width="1.4"/><text x="358.0" y="274" text-anchor="middle" class="ft" style="font-size:10px">Zollinger-Ellison</text>
  </svg>`},
+{id:"vie-metaboliche",t:"Metabolismo: le tappe che si vedono in corsia",c:"Sei tappe evidenziate a turno. La glicolisi trasforma il glucosio in piruvato; con ossigeno il piruvato alimenta Krebs e catena respiratoria (circa 30 ATP per glucosio), senza ossigeno diventa lattato. Il fegato rifà glucosio dal lattato (ciclo di Cori), produce chetoni quando manca l'insulina e trasforma l'ammoniaca in urea. Ogni blocco ha un riscontro clinico: glicemia, lattato, chetoni, ammoniemia.",
+ enc:["vie-metaboliche","es-chetoni","es-ammoniemia"],gl:["Gluconeogenesi","Ciclo di Cori"],st:/metabol|glicemi|lattat|chetoni|ammoni|fegato/i,
+ svg:`<svg viewBox="0 0 440 326" role="img" aria-label="Sei tappe del metabolismo che si vedono in corsia: glicolisi, ciclo di Krebs, lattato, ciclo di Cori, chetoni e ciclo dell'urea">
+ <rect x="8" y="4" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="4" width="424" height="50" rx="9" class="fx vf k1" fill="none" style="stroke-width:2.6"/>
+ <rect x="16" y="13" width="80" height="32" rx="16" fill="#4a90d9" opacity=".22"/><rect x="16" y="13" width="80" height="32" rx="16" fill="none" stroke="#4a90d9" stroke-width="1.6"/>
+ <text x="56" y="34" text-anchor="middle" class="ft" font-weight="700" style="font-size:13px">Glicolisi</text>
+ <g class="ft"><text x="108" y="23" font-weight="700" style="font-size:11px">Glucosio → piruvato</text><text class="fsm" x="108" y="36" style="font-size:10px">citoplasma, senza ossigeno: 2 ATP netti</text><text class="fsm" x="108" y="48" style="font-size:9.6px" font-style="italic">è ciò che misura la glicemia</text></g>
+ <circle cx="418" cy="29" r="5" fill="#4a90d9"/>
+ <rect x="8" y="58" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="58" width="424" height="50" rx="9" class="fx vf k2" fill="none" style="stroke-width:2.6"/>
+ <rect x="16" y="67" width="80" height="32" rx="16" fill="#3a9d6a" opacity=".22"/><rect x="16" y="67" width="80" height="32" rx="16" fill="none" stroke="#3a9d6a" stroke-width="1.6"/>
+ <text x="56" y="88" text-anchor="middle" class="ft" font-weight="700" style="font-size:13px">Krebs</text>
+ <g class="ft"><text x="108" y="77" font-weight="700" style="font-size:11px">Con ossigeno: la centrale dell'ATP</text><text class="fsm" x="108" y="90" style="font-size:10px">mitocondri: ciclo di Krebs e catena respiratoria</text><text class="fsm" x="108" y="102" style="font-size:9.6px" font-style="italic">circa 30 ATP per glucosio</text></g>
+ <circle cx="418" cy="83" r="5" fill="#3a9d6a"/>
+ <rect x="8" y="112" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="112" width="424" height="50" rx="9" class="fx vf k3" fill="none" style="stroke-width:2.6"/>
+ <rect x="16" y="121" width="80" height="32" rx="16" fill="#d9902f" opacity=".22"/><rect x="16" y="121" width="80" height="32" rx="16" fill="none" stroke="#d9902f" stroke-width="1.6"/>
+ <text x="56" y="142" text-anchor="middle" class="ft" font-weight="700" style="font-size:12.5px">Lattato</text>
+ <g class="ft"><text x="108" y="131" font-weight="700" style="font-size:11px">Senza ossigeno il piruvato diventa lattato</text><text class="fsm" x="108" y="144" style="font-size:10px">shock, sepsi, ipoperfusione dei tessuti</text><text class="fsm" x="108" y="156" style="font-size:9.6px" font-style="italic">acidosi lattica</text></g>
+ <circle cx="418" cy="137" r="5" fill="#d9902f"/>
+ <rect x="8" y="166" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="166" width="424" height="50" rx="9" class="fx vf k4" fill="none" style="stroke-width:2.6"/>
+ <rect x="16" y="175" width="80" height="32" rx="16" fill="#8a5cd6" opacity=".22"/><rect x="16" y="175" width="80" height="32" rx="16" fill="none" stroke="#8a5cd6" stroke-width="1.6"/>
+ <text x="56" y="196" text-anchor="middle" class="ft" font-weight="700" style="font-size:14px">Cori</text>
+ <g class="ft"><text x="108" y="185" font-weight="700" style="font-size:11px">Il fegato rifà glucosio dal lattato</text><text class="fsm" x="108" y="198" style="font-size:10px">gluconeogenesi: anche da aminoacidi e glicerolo</text><text class="fsm" x="108" y="210" style="font-size:9.6px" font-style="italic">digiuno, epatopatia, alcol: ipoglicemia</text></g>
+ <circle cx="418" cy="191" r="5" fill="#8a5cd6"/>
+ <rect x="8" y="220" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="220" width="424" height="50" rx="9" class="fx vf k5" fill="none" style="stroke-width:2.6"/>
+ <rect x="16" y="229" width="80" height="32" rx="16" fill="#c0392b" opacity=".22"/><rect x="16" y="229" width="80" height="32" rx="16" fill="none" stroke="#c0392b" stroke-width="1.6"/>
+ <text x="56" y="250" text-anchor="middle" class="ft" font-weight="700" style="font-size:13px">Chetoni</text>
+ <g class="ft"><text x="108" y="239" font-weight="700" style="font-size:11px">Poca insulina: acidi grassi → chetoni</text><text class="fsm" x="108" y="252" style="font-size:10px">digiuno prolungato e diabete senza insulina</text><text class="fsm" x="108" y="264" style="font-size:9.6px" font-style="italic">chetoacidosi diabetica</text></g>
+ <circle cx="418" cy="245" r="5" fill="#c0392b"/>
+ <rect x="8" y="274" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="274" width="424" height="50" rx="9" class="fx vf k6" fill="none" style="stroke-width:2.6"/>
+ <rect x="16" y="283" width="80" height="32" rx="16" fill="#2f8f8a" opacity=".22"/><rect x="16" y="283" width="80" height="32" rx="16" fill="none" stroke="#2f8f8a" stroke-width="1.6"/>
+ <text x="56" y="304" text-anchor="middle" class="ft" font-weight="700" style="font-size:14px">Urea</text>
+ <g class="ft"><text x="108" y="293" font-weight="700" style="font-size:11px">Il fegato trasforma l'ammoniaca in urea</text><text class="fsm" x="108" y="306" style="font-size:10px">l'urea esce con le urine</text><text class="fsm" x="108" y="318" style="font-size:9.6px" font-style="italic">epatopatia: ammoniaca alta, encefalopatia</text></g>
+ <circle cx="418" cy="299" r="5" fill="#2f8f8a"/>
+ </svg>`},
 {id:"regola9",t:"Regola del 9 di Wallace (adulto)",c:"Stima della superficie corporea ustionata nell'adulto. Davanti: testa 4,5%, ogni arto superiore 4,5%, tronco 18%, ogni arto inferiore 9%, genitali 1%; dietro lo stesso, senza i genitali. Il palmo della mano del paziente vale circa 1%. Nei bambini si usa la tabella di Lund-Browder, perché la testa pesa di più.",
  enc:["ustioni"],gl:["Regola del 9 di Wallace"],st:/ustion|cute/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Sagome anteriore e posteriore con le percentuali della regola del 9">
