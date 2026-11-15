@@ -287,6 +287,8 @@ const GLOSS=[
 ["PJRT","t","Tachicardia giunzionale reciprocante permanente: AVRT ortodromica con via accessoria lenta, di solito posteroseptale, incessante, con RP lungo e P negativa in DII, DIII, aVF.","Permanent junctional reciprocating tachycardia","ecg-avrt"],
 ["ACE-inibitori","t","Farmaci con desinenza -pril che bloccano l'enzima di conversione dell'angiotensina; abbassano la pressione e proteggono cuore e reni. Effetti tipici: tosse secca, angioedema, iperkaliemia.","ACE inhibitors","antipertensivi-desinenze"],
 ["Beta-bloccanti","t","Farmaci con desinenza -olol che rallentano e riposano il cuore; usati per pressione, aritmie, scompenso e dopo l'infarto. Rischi: bradicardia, broncospasmo, mascheramento dell'ipoglicemia.","Beta blockers","antipertensivi-desinenze"],
+["IPP","g","Inibitori di pompa protonica: farmaci in -prazolo (omeprazolo, esomeprazolo, pantoprazolo, lansoprazolo, rabeprazolo) che riducono la produzione di acido gastrico.","Proton pump inhibitors","ipp"],
+["Pompa protonica","t","Enzima H⁺/K⁺-ATPasi della cellula parietale dello stomaco: porta ioni idrogeno nel lume ed è l'ultimo passaggio della secrezione di acido.","Proton pump (H⁺/K⁺-ATPase)","ipp"],
 ["Driving pressure","t","Pressione di plateau meno PEEP; nella ventilazione protettiva va tenuta sotto 15 cmH₂O.","Driving pressure","monitoraggio-avanzato"],
 ["Pressione di plateau","t","Pressione nelle vie aeree misurata con una pausa a fine inspirazione; riflette la compliance; va tenuta sotto 30 cmH₂O.","Plateau pressure","monitoraggio-avanzato"],
 ["Auto-PEEP","t","PEEP intrinseca dovuta allo svuotamento incompleto dei polmoni (tipica della BPCO); aumenta il lavoro respiratorio e può ridurre la pressione.","Intrinsic PEEP","monitoraggio-avanzato"],
