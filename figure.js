@@ -99,6 +99,14 @@ const FIGURE=[
  <g class="ft" font-weight="700" font-size="11.5"><text x="8" y="26">Discordanza attesa (normale)</text><text x="228" y="26">ST sopraslivellato concordante</text><text x="8" y="182">ST sottoslivellato concordante</text><text x="228" y="182">Discordanza eccessiva</text></g>
  <g class="emt" style="font-family:var(--f-mono)" font-size="10" font-weight="700"><text x="204" y="48" text-anchor="end">V1</text><text x="424" y="48" text-anchor="end">V6</text><text x="204" y="204" text-anchor="end">V2</text><text x="424" y="204" text-anchor="end">V2</text></g>
  <g class="ft fsm"><text x="8" y="146">ST e T opposti al QRS: normale nel blocco</text><text x="228" y="146">≥ 1 mm con QRS positivo: 5 punti</text><text x="8" y="302">≥ 1 mm in V1, V2 o V3: 3 punti</text><text x="228" y="302">≥ 5 mm (2 punti) o ≥ 25% dell'onda S (Smith)</text></g></svg>`},
+{id:"stato-di-male",t:"Stato di male epilettico: i tempi del trattamento",c:"Una crisi che dura più di 5 minuti va trattata. A 5 minuti benzodiazepina (lorazepam endovena, midazolam buccale o intranasale, diazepam rettale); a circa 20 minuti, se continua, levetiracetam, fosfenitoina o valproato endovena; a circa 40 minuti anestesia generale in terapia intensiva.",
+ enc:["antiepilettici","epilessia"],gl:["Stato di male epilettico"],st:/epile|convuls|crisi/i,
+ svg:`<svg viewBox="0 0 440 140" role="img" aria-label="Linea del tempo dello stato di male epilettico: 5, 20 e 40 minuti">
+ <path class="fl" style="stroke-width:2.2" d="M40 58H400"/><path class="fx" style="stroke-width:2.2" d="M394 52l8 6l-8 6"/>
+ <g class="fv"><circle cx="46" cy="58" r="7"/><circle cx="220" cy="58" r="7"/><circle cx="388" cy="58" r="7"/></g>
+ <g class="ft" font-weight="700"><text x="38" y="36">5 min</text><text x="220" y="36" text-anchor="middle">circa 20 min</text><text x="400" y="36" text-anchor="end">circa 40 min</text>
+ <text x="38" y="88">Benzodiazepina</text><text x="220" y="88" text-anchor="middle">Secondo farmaco</text><text x="400" y="88" text-anchor="end">Anestesia</text></g>
+ <g class="ft fsm"><text x="38" y="104">lorazepam, midazolam</text><text x="38" y="118">o diazepam</text><text x="220" y="104" text-anchor="middle">levetiracetam, fosfenitoina</text><text x="220" y="118" text-anchor="middle">o valproato EV</text><text x="400" y="104" text-anchor="end">terapia intensiva</text></g></svg>`},
 {id:"regola9",t:"Regola del 9 di Wallace (adulto)",c:"Stima della superficie corporea ustionata nell'adulto. Davanti: testa 4,5%, ogni arto superiore 4,5%, tronco 18%, ogni arto inferiore 9%, genitali 1%; dietro lo stesso, senza i genitali. Il palmo della mano del paziente vale circa 1%. Nei bambini si usa la tabella di Lund-Browder, perché la testa pesa di più.",
  enc:["ustioni"],gl:["Regola del 9 di Wallace"],st:/ustion|cute/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Sagome anteriore e posteriore con le percentuali della regola del 9">

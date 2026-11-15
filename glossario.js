@@ -273,6 +273,8 @@ const GLOSS=[
 ["Alternanza elettrica","t","Variazione dell'ampiezza del QRS a battiti alterni; suggerisce versamento pericardico abbondante con tamponamento.","Electrical alternans","ecg-quadri-tipici"],
 ["Criteri di Sgarbossa","t","Criteri ECG per riconoscere l'infarto acuto in presenza di blocco di branca sinistra o ritmo da pacemaker ventricolare: ST concordante con il QRS o discordanza eccessiva; punteggio ≥ 3 positivo.","Sgarbossa criteria","ecg-sgarbossa"],
 ["Discordanza appropriata","t","Nel blocco di branca sinistra, tratto ST e onda T rivolti dalla parte opposta alla componente principale del QRS; è il quadro atteso, non un segno di ischemia.","Appropriate discordance","ecg-sgarbossa"],
+["Stato di male epilettico","t","Crisi che dura più di 5 minuti o crisi ripetute senza recupero della coscienza tra l'una e l'altra; è un'emergenza che si tratta a tempi definiti, iniziando dalle benzodiazepine.","Status epilepticus","antiepilettici"],
+["Blocco uso-dipendente","t","Proprietà dei bloccanti dei canali del sodio di agire tanto più quanto più il neurone scarica rapidamente, perché si legano ai canali inattivati.","Use-dependent block","antiepilettici"],
 ["Driving pressure","t","Pressione di plateau meno PEEP; nella ventilazione protettiva va tenuta sotto 15 cmH₂O.","Driving pressure","monitoraggio-avanzato"],
 ["Pressione di plateau","t","Pressione nelle vie aeree misurata con una pausa a fine inspirazione; riflette la compliance; va tenuta sotto 30 cmH₂O.","Plateau pressure","monitoraggio-avanzato"],
 ["Auto-PEEP","t","PEEP intrinseca dovuta allo svuotamento incompleto dei polmoni (tipica della BPCO); aumenta il lavoro respiratorio e può ridurre la pressione.","Intrinsic PEEP","monitoraggio-avanzato"],
