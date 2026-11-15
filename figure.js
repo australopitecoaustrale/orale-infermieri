@@ -71,6 +71,16 @@ const FIGURE=[
  <path class="fx" style="stroke-width:3.2" d="M326 144V176M402 144V176"/>
  <g class="ft" font-weight="700" text-anchor="middle"><text x="115" y="22">Normale</text><text x="326" y="22">Perdita</text></g>
  <g class="ft fsm" text-anchor="middle"><text x="115" y="37">torna alla linea di base</text><text x="326" y="37">la discesa è incompleta</text><text x="326" y="196">volume che non rientra</text></g></svg>`},
+{id:"ecg-quadri",t:"Quattro quadri ECG che non vanno mancati",c:"De Winter: ST sottoslivellato che risale in un'onda T alta, equivalente di infarto. Wellens: onde T profondamente invertite in V2-V3 a dolore passato, stenosi critica dell'interventricolare anteriore. Onda epsilon: piccole oscillazioni alla fine del QRS, cardiomiopatia aritmogena del ventricolo destro. Alternanza elettrica: QRS alti e bassi a battiti alterni, tamponamento cardiaco.",
+ enc:["ecg-quadri-tipici","stemi"],gl:["Pattern di De Winter","Pattern di Wellens","Onda epsilon","Alternanza elettrica"],st:/ecg|cuore|torace/i,
+ svg:`<svg viewBox="0 0 440 292" role="img" aria-label="Quattro tracciati ECG schematici: pattern di De Winter, pattern di Wellens, onda epsilon, alternanza elettrica">
+ <path class="fl" style="stroke-width:1.8" d="M14 90h6h10q6 -8 12 0h8l3 4l5 -44l5 52q14 -4 22 -52q10 50 26 40h10q6 -8 12 0h8l3 4l5 -44l5 52q14 -4 22 -52q10 50 26 40"/>
+ <path class="fl" style="stroke-width:1.8" d="M234 90h4h10q6 -8 12 0h8l3 4l5 -44l5 44l3 -4h10q10 2 16 32q6 -30 16 -32h4h10q6 -8 12 0h8l3 4l5 -44l5 44l3 -4h10q10 2 16 32q6 -30 16 -32h4"/>
+ <path class="fl" style="stroke-width:1.8" d="M12 240h4h10q6 -8 12 0h8l3 4l5 -44l5 44l3 -4l2 -6l2 6l2 -5l2 5h12q10 12 20 0h8h10q6 -8 12 0h8l3 4l5 -44l5 44l3 -4l2 -6l2 6l2 -5l2 5h12q10 12 20 0h8"/>
+ <path class="fl" style="stroke-width:1.8" d="M236 240h8q5 -7 10 0h6l3 4l4 -54l4 54l3 -4h8q9 -12 18 0h8q5 -7 10 0h6l3 4l4 -28l4 28l3 -4h8q9 -12 18 0h8q5 -7 10 0h6l3 4l4 -54l4 54l3 -4h8q9 -12 18 0"/>
+ <g class="fx" style="stroke-width:2.8;stroke-linecap:round"><path d="M63 102q14 -4 22 -52M154 102q14 -4 22 -52"/><path d="M294 90q10 2 16 32q6 -30 16 -32M386 90q10 2 16 32q6 -30 16 -32"/><path d="M62 240l2 -6l2 6l2 -5l2 5M156 240l2 -6l2 6l2 -5l2 5"/><path style="stroke-width:1.4;stroke-dasharray:4 3" d="M267 186L331 212L395 186"/></g>
+ <g class="ft" font-weight="700"><text x="14" y="24">Pattern di De Winter</text><text x="234" y="24">Pattern di Wellens</text><text x="14" y="176">Onda epsilon</text><text x="234" y="176">Alternanza elettrica</text></g>
+ <g class="ft fsm"><text x="14" y="136">occlusione coronarica acuta (IVA)</text><text x="234" y="140">stenosi critica dell'IVA prossimale</text><text x="14" y="282">cardiomiopatia aritmogena (ARVC)</text><text x="234" y="282">tamponamento cardiaco</text></g></svg>`},
 {id:"regola9",t:"Regola del 9 di Wallace (adulto)",c:"Stima della superficie corporea ustionata nell'adulto. Davanti: testa 4,5%, ogni arto superiore 4,5%, tronco 18%, ogni arto inferiore 9%, genitali 1%; dietro lo stesso, senza i genitali. Il palmo della mano del paziente vale circa 1%. Nei bambini si usa la tabella di Lund-Browder, perché la testa pesa di più.",
  enc:["ustioni"],gl:["Regola del 9 di Wallace"],st:/ustion|cute/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Sagome anteriore e posteriore con le percentuali della regola del 9">
