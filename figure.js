@@ -195,6 +195,40 @@ const FIGURE=[
  <path d="M256 292.0h6l2 -1l3 -8l4 16l3 -8l2 1h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
  <g class="ft"><text class="fsm" x="269" y="278.0" text-anchor="middle" style="font-size:9px">aVL</text><text x="290" y="287.0" font-weight="700" style="font-size:10.5px">QRS isodifasico</text><text class="fsm" x="290" y="301.0" style="font-size:9.6px">asse a 90° da lì: qui +60°</text></g>
  </svg>`},
+{id:"avrt-circuiti",t:"WPW e AVRT: il circuito decide il QRS",c:"Tre circuiti a confronto, evidenziati a turno. Con ritmo sinusale l'impulso passa insieme dal nodo AV e dal Kent: PR corto, onda delta, QRS largo. Nell'AVRT ortodromica scende dal nodo AV e risale dal Kent: QRS stretto, con la P retrograda nell'ST. Nell'antidromica scende dal Kent: QRS largo, simile a una TV. Trappola: nell'antidromica niente farmaci che bloccano il nodo AV.",
+ enc:["ecg-avrt","ecg-preeccitazione"],gl:["AVRT","Intervallo RP"],st:/ecg|tachicardi|wpw|pre-eccit/i,
+ svg:`<svg viewBox="0 0 440 326" role="img" aria-label="Tre circuiti tra atri e ventricoli: ritmo sinusale con pre-eccitazione, AVRT ortodromica con QRS stretto, AVRT antidromica con QRS largo">
+ <rect x="8" y="4" width="424" height="100" rx="10" class="eyrow"/><rect x="8" y="4" width="424" height="100" rx="10" class="fx ans" fill="none" style="stroke-width:2.6"/>
+ <rect x="20" y="18" width="104" height="24" rx="5" class="ff fl" style="stroke-width:1.4"/><rect x="20" y="66" width="104" height="26" rx="5" class="ff fl" style="stroke-width:1.4"/>
+ <g class="ft fsm" style="font-size:9.6px"><text x="26" y="34">atri</text><text x="26" y="83">ventricoli</text><text x="38" y="57" fill="#c0392b">Kent</text><text x="104" y="57">AV</text></g>
+ <path d="M34 42V66" stroke="#c0392b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M96 42V66" stroke="var(--muted)" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="96" cy="51" r="4" class="ff fl" style="stroke-width:1.4"/>
+ <path d="M34 62l-4 -7h8z M96 64l-4 -6h8z" fill="#2f8f8a"/>
+ <circle class="fv anm" r="4.5"><animateMotion dur="2.4s" repeatCount="indefinite" calcMode="linear" keyTimes="0;.3;1" keyPoints="0;1;1" path="M34 42V66"/></circle><circle class="fv anm" r="4.5"><animateMotion dur="2.4s" repeatCount="indefinite" calcMode="linear" keyTimes="0;.7;1" keyPoints="0;1;1" path="M96 42V66"/></circle>
+ <g class="ft"><text x="150" y="21" font-weight="700" style="font-size:10.5px">1 · Ritmo sinusale con pre-eccitazione</text><text class="fsm" x="150" y="35" style="font-size:9.6px">nodo AV e Kent conducono insieme</text></g>
+ <rect x="150" y="42" width="274" height="54" rx="6" style="fill:var(--ecg-bg);stroke:var(--ecg-edge)"/>
+ <path d="M160 83h8q4 -6 8 0h6l10 -3l10 -10l8 -13l10 +30l10 -4h14q8 -10 16 0h12 M290 83h8q4 -6 8 0h6l10 -3l10 -10l8 -13l10 +30l10 -4h14q8 -10 16 0h12" class="etr" style="stroke-width:1.7"/>
+ <text class="ft fsm" x="418" y="52" text-anchor="end" style="font-size:9.6px">PR corto, onda delta, QRS largo</text>
+ <rect x="8" y="112" width="424" height="100" rx="10" class="eyrow"/><rect x="8" y="112" width="424" height="100" rx="10" class="fx ans s2" fill="none" style="stroke-width:2.6"/>
+ <rect x="20" y="126" width="104" height="24" rx="5" class="ff fl" style="stroke-width:1.4"/><rect x="20" y="174" width="104" height="26" rx="5" class="ff fl" style="stroke-width:1.4"/>
+ <g class="ft fsm" style="font-size:9.6px"><text x="26" y="142">atri</text><text x="26" y="191">ventricoli</text><text x="38" y="165" fill="#c0392b">Kent</text><text x="104" y="165">AV</text></g>
+ <path d="M34 150V174" stroke="#c0392b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M96 150V174" stroke="var(--muted)" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="96" cy="159" r="4" class="ff fl" style="stroke-width:1.4"/>
+ <path d="M96 150H34M96 174H34" stroke="#3b7dd8" stroke-width="2.4" opacity=".55" fill="none"/><path d="M34 158l-4 8h8z" fill="#3b7dd8"/><path d="M96 172l-4 -6h8z" fill="#3b7dd8"/>
+ <circle class="fv anm" r="4.5"><animateMotion dur="2.4s" repeatCount="indefinite" path="M96 150V174H34V150Z"/></circle>
+ <g class="ft"><text x="150" y="129" font-weight="700" style="font-size:10.5px">2 · AVRT ortodromica</text><text class="fsm" x="150" y="143" style="font-size:9.6px">scende dal nodo AV, risale dal Kent</text></g>
+ <rect x="150" y="150" width="274" height="54" rx="6" style="fill:var(--ecg-bg);stroke:var(--ecg-edge)"/>
+ <path d="M160 191h8l4 3l4 -22l4 +28l4 -9h6q3 -6 6 0h4q6 -7 12 0h6 M222 191h8l4 3l4 -22l4 +28l4 -9h6q3 -6 6 0h4q6 -7 12 0h6 M284 191h8l4 3l4 -22l4 +28l4 -9h6q3 -6 6 0h4q6 -7 12 0h6 M346 191h8l4 3l4 -22l4 +28l4 -9h6q3 -6 6 0h4q6 -7 12 0h6" class="etr" style="stroke-width:1.7"/>
+ <text class="ft fsm" x="418" y="160" text-anchor="end" style="font-size:9.6px">QRS stretto, P retrograda nell'ST</text>
+ <rect x="8" y="220" width="424" height="100" rx="10" class="eyrow"/><rect x="8" y="220" width="424" height="100" rx="10" class="fx ans s3" fill="none" style="stroke-width:2.6"/>
+ <rect x="20" y="234" width="104" height="24" rx="5" class="ff fl" style="stroke-width:1.4"/><rect x="20" y="282" width="104" height="26" rx="5" class="ff fl" style="stroke-width:1.4"/>
+ <g class="ft fsm" style="font-size:9.6px"><text x="26" y="250">atri</text><text x="26" y="299">ventricoli</text><text x="38" y="273" fill="#c0392b">Kent</text><text x="104" y="273">AV</text></g>
+ <path d="M34 258V282" stroke="#c0392b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M96 258V282" stroke="var(--muted)" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="96" cy="267" r="4" class="ff fl" style="stroke-width:1.4"/>
+ <path d="M96 258H34M96 282H34" stroke="#c0392b" stroke-width="2.4" opacity=".55" fill="none"/><path d="M34 278l-4 -8h8z" fill="#c0392b"/><path d="M96 261l-4 6h8z" fill="#c0392b"/>
+ <circle class="fv anm" r="4.5"><animateMotion dur="2.4s" repeatCount="indefinite" path="M34 258V282H96V258Z"/></circle>
+ <g class="ft"><text x="150" y="237" font-weight="700" style="font-size:10.5px">3 · AVRT antidromica</text><text class="fsm" x="150" y="251" style="font-size:9.6px">scende dal Kent, risale dal nodo AV</text></g>
+ <rect x="150" y="258" width="274" height="54" rx="6" style="fill:var(--ecg-bg);stroke:var(--ecg-edge)"/>
+ <path d="M160 299h6l12 5l18 -26l16 +34l10 -13h8q10 -9 20 0h8 M290 299h6l12 5l18 -26l16 +34l10 -13h8q10 -9 20 0h8" class="etr" style="stroke-width:1.7"/>
+ <text class="ft fsm" x="418" y="268" text-anchor="end" style="font-size:9.6px">QRS largo, simile a una TV</text>
+ </svg>`},
 {id:"regola9",t:"Regola del 9 di Wallace (adulto)",c:"Stima della superficie corporea ustionata nell'adulto. Davanti: testa 4,5%, ogni arto superiore 4,5%, tronco 18%, ogni arto inferiore 9%, genitali 1%; dietro lo stesso, senza i genitali. Il palmo della mano del paziente vale circa 1%. Nei bambini si usa la tabella di Lund-Browder, perché la testa pesa di più.",
  enc:["ustioni"],gl:["Regola del 9 di Wallace"],st:/ustion|cute/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Sagome anteriore e posteriore con le percentuali della regola del 9">
