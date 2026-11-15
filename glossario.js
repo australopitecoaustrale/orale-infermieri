@@ -271,6 +271,8 @@ const GLOSS=[
 ["Pattern di Wellens","t","Onde T bifasiche o profondamente invertite in V2-V3 a dolore passato; indica una stenosi critica dell'interventricolare anteriore prossimale.","Wellens syndrome","ecg-quadri-tipici"],
 ["Onda epsilon","t","Piccola deflessione alla fine del QRS in V1-V3, tipica della cardiomiopatia aritmogena del ventricolo destro.","Epsilon wave","ecg-quadri-tipici"],
 ["Alternanza elettrica","t","Variazione dell'ampiezza del QRS a battiti alterni; suggerisce versamento pericardico abbondante con tamponamento.","Electrical alternans","ecg-quadri-tipici"],
+["Criteri di Sgarbossa","t","Criteri ECG per riconoscere l'infarto acuto in presenza di blocco di branca sinistra o ritmo da pacemaker ventricolare: ST concordante con il QRS o discordanza eccessiva; punteggio ≥ 3 positivo.","Sgarbossa criteria","ecg-sgarbossa"],
+["Discordanza appropriata","t","Nel blocco di branca sinistra, tratto ST e onda T rivolti dalla parte opposta alla componente principale del QRS; è il quadro atteso, non un segno di ischemia.","Appropriate discordance","ecg-sgarbossa"],
 ["Driving pressure","t","Pressione di plateau meno PEEP; nella ventilazione protettiva va tenuta sotto 15 cmH₂O.","Driving pressure","monitoraggio-avanzato"],
 ["Pressione di plateau","t","Pressione nelle vie aeree misurata con una pausa a fine inspirazione; riflette la compliance; va tenuta sotto 30 cmH₂O.","Plateau pressure","monitoraggio-avanzato"],
 ["Auto-PEEP","t","PEEP intrinseca dovuta allo svuotamento incompleto dei polmoni (tipica della BPCO); aumenta il lavoro respiratorio e può ridurre la pressione.","Intrinsic PEEP","monitoraggio-avanzato"],
