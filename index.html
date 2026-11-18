@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Atlante di Infermieristica</title>
 <meta name="description" content="Atlante di Infermieristica: enciclopedia, glossario, flashcard, quiz, casi clinici con monitor realistici e nuove domande ogni giorno, anche per la prova orale del concorso Infermieri Regione Puglia 2026.">
-<meta name="theme-color" content="#1c1c1c">
+<meta name="theme-color" content="#07100f">
+<script>(function(){var t="dark";try{var v=localStorage.getItem("orinf_tema");if(v)t=JSON.parse(v)==="light"?"light":"dark"}catch(e){}document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==="light"?"#0d7a6f":"#07100f"})()</script>
 <meta property="og:title" content="Atlante di Infermieristica">
 <meta property="og:description" content="Impara l'infermieristica in ogni sua parte: enciclopedia, quiz, casi clinici e domande nuove ogni giorno.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232dd4bf'/%3E%3Cstop offset='.45' stop-color='%230f9488'/%3E%3Cstop offset='1' stop-color='%231d4ed8'/%3E%3C/linearGradient%3E%3CradialGradient id='gl' cx='.28' cy='.18' r='.7'%3E%3Cstop offset='0' stop-color='%23fff' stop-opacity='.45'/%3E%3Cstop offset='1' stop-color='%23fff' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ht' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%23e8f4ff'/%3E%3C/linearGradient%3E%3ClinearGradient id='pl' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%230f9488'/%3E%3Cstop offset='1' stop-color='%231d4ed8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='116' fill='url(%23bg)'/%3E%3Crect width='512' height='512' rx='116' fill='url(%23gl)'/%3E%3Ccircle cx='430' cy='440' r='150' fill='%23fff' opacity='.06'/%3E%3Cg transform='translate(256 262) scale(1.0) translate(-256 -262)'%3E%3Cpath fill='url(%23ht)' d='M256 418C236 402 92 312 92 202c0-56 42-98 96-98 30 0 54 14 68 38 14-24 38-38 68-38 54 0 96 42 96 98 0 110-144 200-164 216z'/%3E%3Cpath d='M118 250h66l22-44 32 98 30-150 26 116 18-20h82' fill='none' stroke='url(%23pl)' stroke-width='22' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='372' cy='138' r='46' fill='%23ef3b64' stroke='%23fff' stroke-width='12'/%3E%3Cpath d='M372 116v44M350 138h44' stroke='%23fff' stroke-width='13' stroke-linecap='round'/%3E%3Cellipse cx='174' cy='166' rx='30' ry='16' fill='%23fff' opacity='.9' transform='rotate(-35 174 166)'/%3E%3C/g%3E%3C/svg%3E">
@@ -1461,13 +1462,49 @@ body::after{display:none}
 .scrib{font-style:italic;font-weight:400;white-space:nowrap;padding-bottom:.08em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 8.5C40 3.5 92 2.6 150 5.2c18 .8 34 2 46 3.6-30-1.4-62-1-96 2.2' fill='none' stroke='%23ff3232' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat 0 100%/100% .32em}
 :root[data-theme="dark"] .qk-ic{background:color-mix(in srgb,var(--tc) 22%,var(--paper));box-shadow:none}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .qk-ic{background:color-mix(in srgb,var(--tc) 22%,var(--paper));box-shadow:none}}
+/* ==== Area critica: tema scuro predefinito, accenti neon e animazioni sobrie ==== */
+.tema-btn{margin-left:auto;flex:none;width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;padding:0}
+.tema-btn svg{fill:currentColor;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.tema-btn .t-sole{fill:none}.tema-btn .t-sole circle{fill:currentColor}
+:root[data-theme="light"] .tema-btn .t-luna,:root:not([data-theme="light"]) .tema-btn .t-sole{display:none}
+.tema-btn:hover{background:rgba(255,255,255,.16)}
+:root[data-theme="dark"]{
+  --neon:#2cf5b0;
+  --paper:#0f1b1a; --ink:#e8fff8; --muted:#9db8b2; --line:#1f3532;
+  --bg:#07100f; --grid:#0d1a19; --head:#050c0b;
+  --scrub:#2cf5b0; --scrub-soft:color-mix(in srgb,var(--va) 24%,#0a1413);
+  --on-accent:#04130f;
+  --vital:#ff6b6b; --vital-soft:#3a1517; --ok:#2cf5b0; --ok-soft:#0e2a24;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 32px -20px rgba(0,0,0,.9);
+}
+:root[data-theme="dark"] header.top{background:linear-gradient(180deg,#0a1615,#050c0b);box-shadow:0 1px 0 rgba(44,245,176,.28),0 8px 24px -14px rgba(0,0,0,.9)}
+:root[data-theme="dark"] .brand .ecg{stroke:var(--neon);filter:drop-shadow(0 0 4px rgba(44,245,176,.7))}
+:root[data-theme="dark"] .hdr-dot{fill:var(--neon);filter:drop-shadow(0 0 5px var(--neon))}
+:root[data-theme="dark"] .hdr-halo{fill:rgba(44,245,176,.2)}
+:root[data-theme="dark"] .hdr-base{stroke:rgba(44,245,176,.1)}
+:root[data-theme="dark"] .hdr-sweep{stroke:rgba(44,245,176,.55)}
+:root[data-theme="dark"] .statband{background:#050c0b;box-shadow:inset 0 0 0 1px rgba(44,245,176,.22),var(--shadow)}
+:root[data-theme="dark"] .sb-v,:root[data-theme="dark"] .kpi-v{font-family:var(--f-mono);font-weight:600;letter-spacing:-.02em;color:var(--neon)}
+:root[data-theme="dark"] .sb-v{text-shadow:0 0 14px rgba(44,245,176,.35)}
+.opt.right::after{content:"\2605";color:#ffd166}
+:root[data-theme="light"] .opt.right::after{color:#b07a00}
+@media (prefers-reduced-motion: no-preference){
+  @keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  #app>*{animation:entra .35s ease both}
+  @keyframes stella{0%{transform:translateY(-50%) scale(.2) rotate(-40deg);opacity:0}55%{transform:translateY(-50%) scale(1.5) rotate(10deg);opacity:1}100%{transform:translateY(-50%) scale(1) rotate(0)}}
+  .opt.right::after{animation:stella .6s cubic-bezier(.2,.9,.3,1.2) both;text-shadow:0 0 10px rgba(255,209,102,.7)}
+  @keyframes allarme{0%,100%{box-shadow:0 0 0 0 rgba(255,107,107,0)}35%{box-shadow:0 0 0 4px rgba(255,107,107,.35),0 0 18px rgba(255,107,107,.45)}}
+  .opt.wrong{animation:flash .5s ease,allarme .9s ease-out 1}
+  @keyframes battito{0%,60%,100%{transform:scale(1)}12%{transform:scale(1.16)}24%{transform:scale(1)}36%{transform:scale(1.1)}}
+  .sb-beat{animation:battito 1.4s ease-in-out infinite;transform-origin:left center}
+}
 /* pelle studio: fine */
 </style>
 </head>
 <body>
 <header class="top"><canvas class="hdr-fx" aria-hidden="true"></canvas><svg class="hdr-ecg" viewBox="0 0 2400 60" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><defs><linearGradient id="trail" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".8" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient><mask id="sweepmask" maskUnits="userSpaceOnUse" x="0" y="0" width="2400" height="60"><rect class="sweeprect" x="-700" y="0" width="700" height="60" fill="url(#trail)"/></mask></defs><path class="hdr-base" d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40"/><path class="hdr-sweep" d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40" mask="url(#sweepmask)"/></svg>
   <div class="top-in">
-    <div class="brand"><svg width="44" height="28" viewBox="0 0 44 28" aria-hidden="true"><path class="ecg" d="M1 17 L7.6 17 C8.32 17 9.04 15.05 9.76 15.05 C10.48 15.05 11.2 17 11.92 17 L13.72 17 L14.44 18.04 L15.52 4.0 L16.6 20.25 L17.5 17 C19.12 16.74 20.56 16.61 21.64 16.35 C23.08 14.66 24.16 13.1 25.24 13.1 C26.68 13.1 27.4 16.74 28.84 17 L40.0 17 L43 17"/></svg><div class="txt"><b>Atlante di Infermieristica</b><span>Studiare l'infermieristica in ogni sua parte: teoria, clinica, emergenza, norme, deontologia e casi</span></div></div>
+    <div class="brand"><svg width="44" height="28" viewBox="0 0 44 28" aria-hidden="true"><path class="ecg" d="M1 17 L7.6 17 C8.32 17 9.04 15.05 9.76 15.05 C10.48 15.05 11.2 17 11.92 17 L13.72 17 L14.44 18.04 L15.52 4.0 L16.6 20.25 L17.5 17 C19.12 16.74 20.56 16.61 21.64 16.35 C23.08 14.66 24.16 13.1 25.24 13.1 C26.68 13.1 27.4 16.74 28.84 17 L40.0 17 L43 17"/></svg><div class="txt"><b>Atlante di Infermieristica</b><span>Studiare l'infermieristica in ogni sua parte: teoria, clinica, emergenza, norme, deontologia e casi</span></div><button type="button" class="tema-btn" id="tema-btn" aria-label="Cambia tema, scuro o chiaro"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path class="t-luna" d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/><g class="t-sole"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></g></svg></button></div>
     <nav class="tabs" aria-label="Sezioni">
       <a href="#oggi">Oggi</a>
       <a href="#avanzamento">Progressi</a>
@@ -1956,6 +1993,8 @@ const LS = {
   get(k,d){try{const v=localStorage.getItem("orinf_"+k);return v?JSON.parse(v):d}catch(e){return d}},
   set(k,v){try{localStorage.setItem("orinf_"+k,JSON.stringify(v))}catch(e){}}
 };
+function setTema(t){t=t==="light"?"light":"dark";document.documentElement.dataset.theme=t;const m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==="light"?"#0d7a6f":"#07100f";LS.set("tema",t)}
+(function(){const b=document.getElementById("tema-btn");if(b)b.addEventListener("click",()=>setTema(document.documentElement.dataset.theme==="light"?"dark":"light"))})();
 const state = {
   encArea: LS.get("encArea","tutte"), glCat: LS.get("glCat","tutte"),
   leit: LS.get("leit",{}),   // id -> {b:1..5, due:timestamp}
@@ -5193,7 +5232,7 @@ function oggi(){
   <div class="statband">
     <div class="sb"><span class="eyebrow">Nuove oggi</span><span class="sb-v mono">${isToday?latest.items.length:0}</span><span class="small">${isToday?esc(latest.topic||""):dbState==="ok"?(latest?"Ultimo aggiornamento: "+latest.date:"Arrivano ogni mattina"):dbState==="assente"?"Le domande nuove arrivano ogni mattina":"Controllo gli aggiornamenti…"}</span></div>
     <div class="sb"><span class="eyebrow">Ieri → oggi</span><span class="sb-v mono">${rep.text}</span><span class="small">${rep.sub}</span></div>
-    <div class="sb"><span class="eyebrow">Giorni di fila</span><span class="sb-v mono">${streak}</span><span class="small">${set.done?"Sessione completata: "+set.done:"Completa la sessione di oggi"}</span></div>
+    <div class="sb"><span class="eyebrow">Giorni di fila</span><span class="sb-v mono sb-beat">${streak}</span><span class="small">${set.done?"Sessione completata: "+set.done:"Completa la sessione di oggi"}</span></div>
   </div>
   <div class="oggi-grid">
     <section class="og-main">
