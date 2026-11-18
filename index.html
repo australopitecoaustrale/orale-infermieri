@@ -1499,13 +1499,36 @@ body::after{display:none}
   .sb-beat{animation:battito 1.4s ease-in-out infinite;transform-origin:left center}
 }
 :root[data-theme="dark"] .qk-em{background:#102220;box-shadow:inset 0 0 0 1px rgba(44,245,176,.16)}
+.stelle-chip{margin-left:auto;flex:none;position:relative;display:inline-flex;align-items:center;gap:6px;min-width:44px;height:44px;padding:0 12px;border-radius:12px;border:1px solid rgba(255,209,102,.4);background:rgba(255,209,102,.1);color:#ffd166;text-decoration:none;font-weight:700}
+.stelle-chip[hidden]{display:none}
+.brand .stelle-chip>span{display:inline;opacity:1;margin:0;font-size:inherit}
+.brand .stelle-chip>.stelle-plus{display:block;margin-top:4px;font-size:.78rem}
+@media (max-width:430px){.brand{gap:10px}.brand svg{width:32px}.brand b{font-size:1rem}.stelle-chip{padding:0 10px}}
+.stelle-chip:not([hidden])+.tema-btn{margin-left:0}
+.stelle-chip .st{font-size:1.1rem;line-height:1}
+.stelle-plus{position:absolute;right:0;top:100%;margin-top:4px;padding:3px 8px;border-radius:99px;background:#ffd166;color:#241a00;font:700 .78rem/1.2 var(--f-mono);white-space:nowrap;z-index:12;pointer-events:none}
+.star-card{display:flex;flex-direction:column;gap:10px}
+.star-tot{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.star-tot .mono{font-size:2rem;font-weight:600;color:#ffd166}
+:root[data-theme="light"] .star-tot .mono{color:#b07a00}
+.lv-row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:2px 10px;align-items:center}
+.lv-n{font-weight:700}.lv-l{color:var(--muted)}.lv-s{justify-self:end;color:#ffd166}
+:root[data-theme="light"] .lv-s{color:#b07a00}
+.lv-bar{grid-column:1/3;height:8px;border-radius:99px;background:var(--line);overflow:hidden;display:block}.lv-bar i{display:block;height:100%;border-radius:99px}
+.lv-nx{justify-self:end}
+@media (prefers-reduced-motion: no-preference){
+  @keyframes chipPop{0%{transform:scale(1)}30%{transform:scale(1.25) rotate(-6deg)}100%{transform:scale(1)}}
+  .stelle-chip.gain{animation:chipPop .7s cubic-bezier(.2,.9,.3,1.2)}
+  @keyframes plusSu{0%{opacity:0;transform:translateY(6px)}20%{opacity:1;transform:none}80%{opacity:1}100%{opacity:0;transform:translateY(-6px)}}
+  .stelle-plus{animation:plusSu 1.6s ease both}
+  .lv-bar i{transition:width .8s cubic-bezier(.2,.8,.2,1)}
+}
 /* pelle studio: fine */
 </style>
 </head>
 <body>
 <header class="top"><canvas class="hdr-fx" aria-hidden="true"></canvas><svg class="hdr-ecg" viewBox="0 0 2400 60" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><defs><linearGradient id="trail" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".8" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient><mask id="sweepmask" maskUnits="userSpaceOnUse" x="0" y="0" width="2400" height="60"><rect class="sweeprect" x="-700" y="0" width="700" height="60" fill="url(#trail)"/></mask></defs><path class="hdr-base" d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40"/><path class="hdr-sweep" d="M0 40 L27.15 40 C32.58 40 38.01 36.43 43.44 36.43 C48.87 36.43 54.3 40 59.73 40 L73.3 40 L78.73 41.9 L86.88 16.22 L95.02 45.94 L101.81 40 C114.03 39.52 124.89 39.29 133.03 38.81 C143.89 35.69 152.04 32.82 160.18 32.82 C171.04 32.82 176.47 39.52 187.33 40 L271.5 40 L297.73 40 C302.98 40 308.23 36.44 313.48 36.44 C318.72 36.44 323.97 40 329.22 40 L342.34 40 L347.58 41.9 L355.45 16.3 L363.33 45.93 L369.88 40 C381.69 39.53 392.19 39.29 400.06 38.81 C410.55 35.73 418.42 32.88 426.29 32.88 C436.79 32.88 442.04 39.53 452.53 40 L533.87 40 L559.05 40 C564.09 40 569.13 36.15 574.16 36.15 C579.2 36.15 584.24 40 589.28 40 L601.87 40 L606.91 42.05 L614.46 14.35 L622.02 46.41 L628.32 40 C639.65 39.49 649.72 39.23 657.28 38.72 C667.35 35.78 674.91 32.97 682.47 32.97 C692.54 32.97 697.58 39.49 707.65 40 L785.73 40 L811.09 40 C816.16 40 821.23 36.16 826.3 36.16 C831.37 36.16 836.45 40 841.52 40 L854.2 40 L859.27 42.05 L866.87 14.39 L874.48 46.4 L880.82 40 C892.23 39.49 902.37 39.23 909.98 38.72 C920.12 35.09 927.73 31.82 935.34 31.82 C945.48 31.82 950.55 39.49 960.69 40 L1039.3 40 L1064.76 40 C1069.86 40 1074.95 36.32 1080.04 36.32 C1085.13 36.32 1090.23 40 1095.32 40 L1108.05 40 L1113.14 41.96 L1120.78 15.44 L1128.42 46.14 L1134.79 40 C1146.25 39.51 1156.43 39.26 1164.07 38.77 C1174.25 35.47 1181.89 32.44 1189.53 32.44 C1199.72 32.44 1204.81 39.51 1214.99 40 L1293.93 40 L1322.03 40 C1327.65 40 1333.27 36.04 1338.89 36.04 C1344.51 36.04 1350.13 40 1355.75 40 L1369.8 40 L1375.42 42.11 L1383.85 13.6 L1392.28 46.6 L1399.3 40 C1411.95 39.47 1423.19 39.21 1431.62 38.68 C1442.86 35.35 1451.29 32.24 1459.72 32.24 C1470.96 32.24 1476.58 39.47 1487.82 40 L1574.92 40 L1603.11 40 C1608.75 40 1614.39 36.45 1620.03 36.45 C1625.67 36.45 1631.3 40 1636.94 40 L1651.04 40 L1656.68 41.89 L1665.13 16.36 L1673.59 45.91 L1680.64 40 C1693.32 39.53 1704.6 39.29 1713.06 38.82 C1724.33 35.44 1732.79 32.4 1741.25 32.4 C1752.52 32.4 1758.16 39.53 1769.44 40 L1856.83 40 L1882.82 40 C1888.02 40 1893.22 36.38 1898.42 36.38 C1903.62 36.38 1908.82 40 1914.02 40 L1927.01 40 L1932.21 41.93 L1940.01 15.85 L1947.81 46.04 L1954.31 40 C1966.0 39.52 1976.4 39.28 1984.2 38.79 C1994.59 35.99 2002.39 33.31 2010.19 33.31 C2020.59 33.31 2025.79 39.52 2036.18 40 L2116.76 40 L2142.82 40 C2148.03 40 2153.24 35.85 2158.45 35.85 C2163.66 35.85 2168.87 40 2174.08 40 L2187.11 40 L2192.32 42.21 L2200.14 12.36 L2207.95 46.91 L2214.47 40 C2226.19 39.45 2236.61 39.17 2244.43 38.62 C2254.85 35.34 2262.67 32.24 2270.48 32.24 C2280.9 32.24 2286.11 39.45 2296.54 40 L2377.3 40" mask="url(#sweepmask)"/></svg>
   <div class="top-in">
-    <div class="brand"><svg width="44" height="28" viewBox="0 0 44 28" aria-hidden="true"><path class="ecg" d="M1 17 L7.6 17 C8.32 17 9.04 15.05 9.76 15.05 C10.48 15.05 11.2 17 11.92 17 L13.72 17 L14.44 18.04 L15.52 4.0 L16.6 20.25 L17.5 17 C19.12 16.74 20.56 16.61 21.64 16.35 C23.08 14.66 24.16 13.1 25.24 13.1 C26.68 13.1 27.4 16.74 28.84 17 L40.0 17 L43 17"/></svg><div class="txt"><b>Atlante di Infermieristica</b><span>Studiare l'infermieristica in ogni sua parte: teoria, clinica, emergenza, norme, deontologia e casi</span></div><button type="button" class="tema-btn" id="tema-btn" aria-label="Cambia tema, scuro o chiaro"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path class="t-luna" d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/><g class="t-sole"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></g></svg></button></div>
+    <div class="brand"><svg width="44" height="28" viewBox="0 0 44 28" aria-hidden="true"><path class="ecg" d="M1 17 L7.6 17 C8.32 17 9.04 15.05 9.76 15.05 C10.48 15.05 11.2 17 11.92 17 L13.72 17 L14.44 18.04 L15.52 4.0 L16.6 20.25 L17.5 17 C19.12 16.74 20.56 16.61 21.64 16.35 C23.08 14.66 24.16 13.1 25.24 13.1 C26.68 13.1 27.4 16.74 28.84 17 L40.0 17 L43 17"/></svg><div class="txt"><b>Atlante di Infermieristica</b><span>Studiare l'infermieristica in ogni sua parte: teoria, clinica, emergenza, norme, deontologia e casi</span></div><a class="stelle-chip" id="stelle-chip" href="#avanzamento" hidden aria-label="Stelle: apri i progressi"><span class="st">★</span><span class="n mono">0</span></a><button type="button" class="tema-btn" id="tema-btn" aria-label="Cambia tema, scuro o chiaro"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path class="t-luna" d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/><g class="t-sole"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></g></svg></button></div>
     <nav class="tabs" aria-label="Sezioni">
       <a href="#oggi">Oggi</a>
       <a href="#avanzamento">Progressi</a>
@@ -4741,7 +4764,29 @@ function logEv(type,m,sec,score,id,extra){
   LOG.push({t:Date.now(),d:todayStr(),type,m,sec:sec||0,s:Math.max(0,Math.min(1,score)),id:id||"",x:extra||null});
   if(LOG.length>6000)LOG=LOG.slice(-6000);
   LS.set("log",LOG);
+  try{starAnswer(type,m,score,id)}catch(e){}
 }
+
+/* ---- Stelle, giorni di fila e livelli: tutto salvato sul telefono (chiave orinf_stelle) ---- */
+const STAR_LV=[["Studente",0],["Tirocinante",5],["In turno",15],["Esperto",30]],STAR_MS=[3,7,14,30];
+let STAR_OK=true;try{localStorage.setItem("orinf__p","1");localStorage.removeItem("orinf__p")}catch(e){STAR_OK=false}
+let STAR=LS.get("stelle",null)||{a:{},sd:{},ms:[],seen:{}};
+{const t=todayStr();Object.keys(STAR.seen).forEach(k=>{if(k.slice(0,10)!==t)delete STAR.seen[k]})}
+function streakNow(){let n=0;const t=new Date();for(;;){const v=LS.get("daily2-"+todayStr(t),null);if(v&&v.done){n++;t.setDate(t.getDate()-1)}else break}return n}
+function starArea(m){return Math.floor((STAR.a[m]||0)/10)}
+function starTotal(){return Object.keys(STAR.a).reduce((n,m)=>n+Math.floor(STAR.a[m]/10),0)+Object.keys(STAR.sd).length+STAR.ms.length}
+function starLevel(st){let i=0;STAR_LV.forEach((l,k)=>{if(st>=l[1])i=k});return i}
+function starChip(gain){const c=document.getElementById("stelle-chip");if(!c)return;if(!STAR_OK){c.hidden=true;return}c.hidden=false;const n=starTotal();c.querySelector(".n").textContent=n;c.setAttribute("aria-label",n+" stelle: apri i progressi");
+  if(gain){c.classList.remove("gain");void c.offsetWidth;c.classList.add("gain");const p=document.createElement("span");p.className="stelle-plus";p.textContent="+"+gain+" ★";c.appendChild(p);setTimeout(()=>p.remove(),1700)}}
+/* una risposta giusta (punteggio almeno 0,6) vale per la materia; la stessa domanda conta una volta al giorno; 10 giuste = 1 stella */
+function starAnswer(type,m,score,id){if(!STAR_OK||type==="card"||score<.6||!SUBJ[m]||!id)return;const k=todayStr()+"|"+id;if(STAR.seen[k])return;STAR.seen[k]=1;STAR.a[m]=(STAR.a[m]||0)+1;LS.set("stelle",STAR);if(STAR.a[m]%10===0)starChip(1)}
+/* sessione di «Oggi» completata: 1 stella al giorno, più una a ogni traguardo di giorni di fila */
+function starSession(d){if(!STAR_OK)return;let g=0;if(!STAR.sd[d]){STAR.sd[d]=1;g++}const s=streakNow();STAR_MS.forEach(m=>{if(s>=m&&!STAR.ms.includes(m)){STAR.ms.push(m);g++}});LS.set("stelle",STAR);if(g)starChip(g)}
+function starCard(){if(!STAR_OK)return"";const tot=starTotal(),nS=Object.keys(STAR.sd).length;
+  const rows=SKEYS.map(m=>{const st=starArea(m),li=starLevel(st),nx=STAR_LV[li+1],pct=nx?Math.round((st-STAR_LV[li][1])/(nx[1]-STAR_LV[li][1])*100):100;
+    return `<div class="lv-row"><span class="lv-n">${esc(SUBJ[m].short)}</span><span class="lv-l">${STAR_LV[li][0]}</span><span class="lv-s mono">★ ${st}</span><span class="lv-bar" role="img" aria-label="${esc(SUBJ[m].short)}: ${pct}% verso il livello successivo"><i style="width:${pct}%;background:${SUBJ[m].c}"></i></span><span class="small lv-nx">${nx?(nx[1]-st)+" ★ a «"+nx[0]+"»":"Livello massimo"}</span></div>`}).join("");
+  return `<div class="sheet star-card"><span class="eyebrow">Stelle e livelli</span><div class="star-tot"><span class="mono">★ ${tot}</span><span class="small">${nS} ${nS===1?"sessione":"sessioni"} · ${STAR.ms.length} ${STAR.ms.length===1?"traguardo":"traguardi"} · ${tot-nS-STAR.ms.length} dalle risposte giuste</span></div>${rows}<p class="small">1 stella a ogni sessione di «Oggi» completata, 1 ogni 10 risposte giuste in una materia (la stessa domanda conta una volta al giorno), 1 ai traguardi di 3, 7, 14 e 30 giorni di fila.</p></div>`}
+starChip(0);
 let sampleReady=null;
 async function getSampleSafe(){if(sampleReady!==null)return sampleReady;try{sampleReady=window.claude?.use?await window.claude.use("sample"):null}catch(e){sampleReady=null}return sampleReady}
 
@@ -5224,7 +5269,7 @@ function oggi(){
   const dayN=Math.floor(Date.now()/86400000);
   const oq=PDFQ.length?PDFQ[(dayN*37)%PDFQ.length]:null;
   const due=CARDS.filter(cardDue).length;
-  const streak=(()=>{let n=0;const t=new Date();for(;;){const v=LS.get("daily2-"+todayStr(t),null);if(v&&v.done){n++;t.setDate(t.getDate()-1)}else break}return n})();
+  const streak=streakNow();
   const dateLbl=new Date().toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"});
   const rep=dayReport();
   app.innerHTML=`
@@ -5253,7 +5298,7 @@ function oggi(){
   if(oq)$("#oq-train").onclick=()=>{oralPreset={q:oq};location.hash="orale"};
   if($("#rip-go"))$("#rip-go").onclick=()=>{const l=shuffle(ripDue());if(!l.length)return;startQuiz(l,"mix-ripasso");$("#qbox").scrollIntoView({block:"start"})};
   if($("#allnew"))$("#allnew").onclick=()=>{startQuiz(DBQ.filter(q=>q.date===d),"mix-nuove");$("#qbox").scrollIntoView({block:"start"})};
-  const fin=(pct)=>LS.set("daily2-"+d,{ids:set.ids,done:pct+"%",fresh:set.fresh,started:true});
+  const fin=(pct)=>{LS.set("daily2-"+d,{ids:set.ids,done:pct+"%",fresh:set.fresh,started:true});try{starSession(d)}catch(e){}};
   if(set.done){$("#qbox").innerHTML=`<p>Hai già completato la sessione di oggi (${set.done}). Domani trovi una nuova serie.</p><div class="row"><button class="btn" id="redo">Rifalla</button><a class="btn primary" href="#avanzamento" style="text-decoration:none">Vedi l'avanzamento</a></div>`;$("#redo").onclick=()=>startQuiz(list,"oggi",fin);return}
   if(innerWidth>=1000){const qm=$("#qmap"),side=app.querySelector(".og-side");if(qm&&side){side.prepend(qm);side.classList.add("has-map")}}
   startQuiz(list,"oggi",fin);
@@ -5324,6 +5369,7 @@ function avanzamento(){
   app.innerHTML=`
   <div><span class="eyebrow">Avanzamento</span><h2>Come stai procedendo</h2></div>
   <p class="lead">I numeri vengono dalle tue risposte: quiz corretti o sbagliati, voti in trentesimi delle risposte scritte e dei casi, flashcard ricordate, voti del simulatore orale. Le risposte scritte valutate da Claude con la griglia contano per intero; quelle valutate da te con la griglia contano meno.</p>
+  ${starCard()}
   ${!LOG.length?`<div class="sheet" style="display:flex;flex-direction:column;gap:10px;align-items:flex-start"><h3>Ancora nessun dato</h3><p class="small">Fai la sessione di oggi: da domani qui trovi il confronto giorno per giorno e cosa rivedere.</p><a class="btn primary" href="#oggi" style="text-decoration:none">Vai alla sessione di oggi</a></div>`:`
   <div class="grid">
     <div class="sheet" style="display:flex;flex-direction:column;gap:6px"><span class="eyebrow">Indice di preparazione</span><div class="gauge"><svg viewBox="0 0 120 70" aria-hidden="true"><path d="M10 64A50 50 0 0 1 110 64" class="g-bg"/><path d="M10 64A50 50 0 0 1 110 64" class="g-fg" style="stroke-dasharray:157;stroke-dashoffset:${157*(1-(ready||0)/100)}"/></svg><span class="mono g-v">${ready==null?"—":ready}<small>/100</small></span></div><span class="small">${ready==null?"Servono almeno qualche quiz e qualche risposta scritta negli ultimi 14 giorni.":"Risposte scritte e casi 50%, quiz 35%, copertura della banca 15%."}</span></div>
