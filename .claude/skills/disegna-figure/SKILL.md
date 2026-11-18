@@ -58,6 +58,17 @@ Poi uno scatto di ogni figura nuova a 430 px di larghezza, tema scuro e chiaro, 
 
 Per ogni lotto di figure con contenuto clinico, **far rivedere i numeri e le frasi al `revisore-clinico`** (PubMed per primo, siti ufficiali dopo) e correggere prima di unire.
 
+## Partire da un video
+
+Se l'utente manda un video da cui trarre spunto, l'obiettivo è una figura (e un'animazione, se il video ne ha una) **il più simile possibile nell'idea**, ma disegnata da zero.
+
+1. Con `watch` guarda i fotogrammi, non solo la trascrizione: per un video con parti visive usa più fotogrammi (`--max-frames 20` o più, risoluzione 640 o più) e leggili tutti. Per i punti chiave aggiungi `--timestamps` con i minuti in cui compaiono gli schemi.
+2. Per ogni immagine o animazione utile annota: che cosa mostra, i componenti e la loro disposizione, i colori con il loro significato, la sequenza dei passi (che cosa compare prima, che cosa dopo), le didascalie e i numeri scritti.
+3. Ricostruisci la composizione con `figtpl.js` e forme a mano. Se il video è animato, riproduci la sequenza con le classi di `figura-animata` (`ans` a tre passi, `vf` a sei passi, `anm` per un pallino lungo un tracciato, `clipPath` per un tracciato che si disegna), tenendo sempre lo strato fisso completo per «riduci movimento».
+4. Dove il video e la voce dell'Atlante dicono cose diverse, vale la voce verificata: segnala la differenza all'utente invece di copiare l'errore.
+5. Mai copiare fotogrammi, loghi, nomi di marchio, filigrane o grafica altrui: stessa struttura e stessi passi, tratto e colori del tema dell'Atlante.
+6. Inserisci la figura nella voce o nella sezione dedicata (`enc`, `gl`, `st`), controlla in scuro e chiaro, rilettura del `revisore-clinico` per i numeri.
+
 ## 6. Migliorare sempre
 
 - A ogni sessione di studio (voce, video, trascrizione) lancia `node tools/copertura-figure.js` e aggiungi **almeno una figura** dalla cima dell'elenco, se il tempo lo consente.
