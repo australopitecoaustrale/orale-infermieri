@@ -33,6 +33,7 @@ Una voce nuova va accanto a quelle dello stesso argomento, non in fondo al file.
 - Le figure sono disegni originali: non copiare immagini, loghi o grafica altrui.
 - Dopo ogni video (`/watch`, con trascrizione dell'audio quando c'è) e dopo ogni trascrizione: scritti voce, quiz e glossario, far rivedere sempre il lavoro all'agente `revisore-clinico`, con controllo su PubMed, e applicare le correzioni prima di unire in `main`.
 - Alla fine di ogni video, dopo l'unione in `main`, chiudere la risposta ricordando all'utente di eseguire `/compact` (è un comando che può lanciare solo l'utente).
+- **Casi clinici nuovi** (anche quelli della routine «Domande della settimana»): in ogni gruppo di casi creati insieme devono esserci almeno un caso con ventilatore (`vent` con `etco2`, ed eventualmente `abp` o `resp`), almeno un caso con emogasanalisi arteriosa nei dati `esami` (pH, PaCO₂, HCO₃⁻, PaO₂, lattati e FiO₂, coerenti tra loro e col quadro) e almeno un caso integrato: lo stesso paziente letto con più strumenti (monitor con ECG, ventilatore e capnografia, EGA, esami di laboratorio), con passaggi che chiedono di interpretare ciascuno e di decidere cosa fare. Un solo caso può soddisfare più requisiti. La storia non nomina il ritmo o il pattern che il monitor mostra, e i numeri devono essere coerenti (picco − plateau, driving pressure, EtCO₂, pH con Henderson-Hasselbalch).
 - Niente pull request se non richiesta in modo esplicito.
 
 ## Verifica nel browser
