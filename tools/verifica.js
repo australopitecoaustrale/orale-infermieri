@@ -5,7 +5,7 @@
    Esce con codice 1 se qualcosa va corretto. */
 const fs=require("fs"),vm=require("vm"),path=require("path"),cp=require("child_process");
 const root=path.join(__dirname,"..");
-const FILES=["enciclopedia.js","glossario.js","encquiz.js","figure.js"];
+const FILES=["enciclopedia.js","glossario.js","encquiz.js","figtpl.js","figure.js"];
 const err=[];
 const ctx={console};ctx.globalThis=ctx;vm.createContext(ctx);
 for(const f of FILES){
