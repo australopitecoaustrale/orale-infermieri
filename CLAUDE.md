@@ -32,6 +32,7 @@ Una voce nuova va accanto a quelle dello stesso argomento, non in fondo al file.
 - I contenuti clinici (dosi, soglie, valori) vanno scritti con parole proprie e verificati; indicare la fonte nel campo `n`. Video e post sono spunti, non fonti.
 - Le figure sono disegni originali: non copiare immagini, loghi o grafica altrui.
 - Dopo ogni video (`/watch`, con trascrizione dell'audio quando c'è) e dopo ogni trascrizione: scritti voce, quiz e glossario, far rivedere sempre il lavoro all'agente `revisore-clinico`, con controllo su PubMed, e applicare le correzioni prima di unire in `main`.
+- Alla fine di ogni video, dopo l'unione in `main`, chiudere la risposta ricordando all'utente di eseguire `/compact` (è un comando che può lanciare solo l'utente).
 - Niente pull request se non richiesta in modo esplicito.
 
 ## Verifica nel browser
