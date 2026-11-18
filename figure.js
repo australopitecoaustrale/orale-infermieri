@@ -125,12 +125,12 @@ const FIGURE=[
  <g class="ft fsm"><text x="8" y="146">ST e T opposti al QRS: normale nel blocco</text><text x="228" y="146">≥ 1 mm con QRS positivo: 5 punti</text><text x="8" y="302">≥ 1 mm in V1, V2 o V3: 3 punti</text><text x="228" y="302">≥ 5 mm (2 punti) o ≥ 25% dell'onda S (Smith)</text></g></svg>`},
 {id:"stato-di-male",t:"Stato di male epilettico: i tempi del trattamento",c:"Una crisi che dura più di 5 minuti va trattata. A 5 minuti benzodiazepina (lorazepam endovena, midazolam buccale o intranasale, diazepam rettale); a circa 20 minuti, se continua, levetiracetam, fosfenitoina o valproato endovena; a circa 40 minuti anestesia generale in terapia intensiva.",
  enc:["antiepilettici","epilessia"],gl:["Stato di male epilettico"],st:/epile|convuls|crisi/i,
- svg:`<svg viewBox="0 0 440 140" role="img" aria-label="Linea del tempo dello stato di male epilettico: 5, 20 e 40 minuti">
+ svg:`<svg viewBox="0 0 440 156" role="img" aria-label="Linea del tempo dello stato di male epilettico: 5, 20 e 40 minuti">
  <path class="fl" style="stroke-width:2.2" d="M40 58H400"/><path class="fx" style="stroke-width:2.2" d="M394 52l8 6l-8 6"/>
  <circle class="fx anm" r="11" style="stroke-width:2.2"><animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;.509;.509;1;1" keyTimes="0;.18;.4;.6;.82;1" path="M46 58H388"/></circle><g class="fv"><circle cx="46" cy="58" r="7"/><circle cx="220" cy="58" r="7"/><circle cx="388" cy="58" r="7"/></g>
- <g class="ft" font-weight="700"><text x="38" y="36">5 min</text><text x="220" y="36" text-anchor="middle">circa 20 min</text><text x="400" y="36" text-anchor="end">circa 40 min</text>
- <text x="38" y="88">Benzodiazepina</text><text x="220" y="88" text-anchor="middle">Secondo farmaco</text><text x="400" y="88" text-anchor="end">Anestesia</text></g>
- <g class="ft fsm"><text x="38" y="104">lorazepam, midazolam</text><text x="38" y="118">o diazepam</text><text x="220" y="104" text-anchor="middle">levetiracetam, fosfenitoina</text><text x="220" y="118" text-anchor="middle">o valproato EV</text><text x="400" y="104" text-anchor="end">terapia intensiva</text></g></svg>`},
+ <g class="ft" font-weight="700" style="font-size:14px"><text x="38" y="34">5 min</text><text x="220" y="34" text-anchor="middle">circa 20 min</text><text x="400" y="34" text-anchor="end">circa 40 min</text>
+ <text x="38" y="92">Benzodiazepina</text><text x="220" y="92" text-anchor="middle">Secondo farmaco</text><text x="400" y="92" text-anchor="end">Anestesia</text></g>
+ <g class="ft fsm" style="font-size:11.5px;fill:var(--ink)"><text x="38" y="110">lorazepam, midazolam</text><text x="38" y="125">o diazepam</text><text x="220" y="110" text-anchor="middle">levetiracetam,</text><text x="220" y="125" text-anchor="middle">fosfenitoina o valproato EV</text><text x="400" y="110" text-anchor="end">terapia intensiva</text></g></svg>`},
 {id:"paralisi-oculomotori",t:"Paralisi dei nervi III, IV e VI: come si muovono gli occhi",c:"Paziente visto di fronte: il suo occhio destro è alla nostra sinistra. Il punto in alto indica dove guarda. III nervo (oculomotore): occhio giù e in fuori, palpebra abbassata, pupilla dilatata; non riesce a portarsi verso il naso. IV nervo (trocleare): occhio più alto dell'altro, peggio guardando verso il lato opposto; il paziente inclina la testa dalla parte sana. VI nervo (abducente): occhio girato verso il naso, non riesce a guardare in fuori.",
  enc:["paralisi-oculomotori","sistema-nervoso","occhio"],gl:["Diplopia","Ptosi palpebrale","Midriasi"],st:/occhi|nervi cranici|neurolog|pupill/i,
  svg:`<svg viewBox="0 0 440 326" role="img" aria-label="Movimenti degli occhi nello sguardo al centro, a destra e a sinistra: normale e paralisi destra del terzo, quarto e sesto nervo cranico">
@@ -400,7 +400,7 @@ const FIGURE=[
  enc:["ustioni"],gl:["Regola del 9 di Wallace"],st:/ustion|cute/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Sagome anteriore e posteriore con le percentuali della regola del 9">
  <g transform="translate(110 0)"><circle class="fa fl" cx="0" cy="36" r="20"/><rect class="fa fl" x="-34" y="60" width="68" height="96" rx="14"/><rect class="fa fl" x="-58" y="62" width="20" height="96" rx="9"/><rect class="fa fl" x="38" y="62" width="20" height="96" rx="9"/><rect class="fa fl" x="-32" y="160" width="28" height="118" rx="11"/><rect class="fa fl" x="4" y="160" width="28" height="118" rx="11"/></g><g transform="translate(310 0)"><circle class="fa fl" cx="0" cy="36" r="20"/><rect class="fa fl" x="-34" y="60" width="68" height="96" rx="14"/><rect class="fa fl" x="-58" y="62" width="20" height="96" rx="9"/><rect class="fa fl" x="38" y="62" width="20" height="96" rx="9"/><rect class="fa fl" x="-32" y="160" width="28" height="118" rx="11"/><rect class="fa fl" x="4" y="160" width="28" height="118" rx="11"/></g>
- <g class="ft" text-anchor="middle" font-weight="700"><text x="110" y="40">4,5</text><text x="110" y="112">18</text><text x="62" y="112" font-size="11">4,5</text><text x="158" y="112" font-size="11">4,5</text><text x="96" y="222">9</text><text x="124" y="222">9</text><rect x="102" y="152" width="16" height="12" rx="3" class="fv"/><text x="110" y="162" font-size="9" fill="#fff">1</text>
+ <g class="ft" text-anchor="middle" font-weight="700"><text x="110" y="40">4,5</text><text x="110" y="112">18</text><text x="62" y="112" font-size="11">4,5</text><text x="158" y="112" font-size="11">4,5</text><text x="96" y="222">9</text><text x="124" y="222">9</text><path class="lead" d="M110 158L154 184"/><circle cx="110" cy="158" r="2.5" class="fv"/><rect x="152" y="176" width="16" height="12" rx="3" class="fv"/><text x="160" y="186" font-size="9.5" fill="#fff">1</text>
  <text x="310" y="40">4,5</text><text x="310" y="112">18</text><text x="262" y="112" font-size="11">4,5</text><text x="358" y="112" font-size="11">4,5</text><text x="296" y="222">9</text><text x="324" y="222">9</text></g>
  <g class="ft fsm" text-anchor="middle"><text x="110" y="296">Davanti</text><text x="310" y="296">Dietro</text></g></svg>`},
 {id:"lpp",t:"Stadi delle lesioni da pressione (NPIAP/EPUAP)",c:"Stadio 1: eritema che non sbianca alla pressione, cute integra. Stadio 2: perdita parziale dello spessore con derma esposto (anche flittena). Stadio 3: perdita a tutto spessore della cute, adipe visibile. Stadio 4: perdita a tutto spessore dei tessuti con muscolo, tendine o osso esposti.",
@@ -417,7 +417,7 @@ const FIGURE=[
  enc:["vie-somministrazione"],gl:[],st:/terapia|farmac/i,
  svg:`<svg viewBox="0 0 420 210" role="img" aria-label="Aghi per iniezione intradermica, sottocutanea e intramuscolare">
  <rect x="0" y="60" width="420" height="10" fill="#e3a98c"/><rect x="0" y="70" width="420" height="22" fill="#f3cdb7"/><rect x="0" y="92" width="420" height="46" fill="#f6e1a0"/><rect x="0" y="138" width="420" height="60" fill="#d77a70"/>
- <g class="ft fsm"><text x="6" y="56">epidermide</text><text x="6" y="86">derma</text><text x="6" y="120">sottocute</text><text x="6" y="176">muscolo</text></g>
+ <g class="ft halo" font-weight="700" style="font-size:11px"><text x="6" y="55">epidermide</text><text x="6" y="86">derma</text><text x="6" y="120">sottocute</text><text x="6" y="176">muscolo</text></g>
  <g stroke-linecap="round"><path d="M70 30L128 74" stroke="#7a8a90" stroke-width="3"/><path d="M200 22L250 112" stroke="#7a8a90" stroke-width="3"/><path d="M340 14V170" stroke="#7a8a90" stroke-width="3"/></g>
  <g fill="var(--scrub)"><rect x="54" y="18" width="24" height="12" rx="3" transform="rotate(37 66 24)"/><rect x="186" y="8" width="24" height="12" rx="3" transform="rotate(60 198 14)"/><rect x="328" y="2" width="24" height="12" rx="3"/></g>
  <g class="ft" font-weight="700"><text x="96" y="206" text-anchor="middle">ID 10-15°</text><text x="226" y="206" text-anchor="middle">SC 45-90°</text><text x="340" y="206" text-anchor="middle">IM 90°</text></g></svg>`},
@@ -540,14 +540,14 @@ const FIGURE=[
    ["C","Circulation · circolo",["Polso, pressione, refill (normale < 2 s), cute, diuresi","Accessi venosi e liquidi"]],
    ["D","Disability · coscienza",["AVPU o GCS, pupille","Glicemia"]],
    ["E","Exposure · esposizione",["Esame completo, temperatura, lesioni","Proteggere da ipotermia e privacy"]]
-  ].map((r,i)=>{const y=8+i*58;return FT.dot(30,y+25,r[0],{r:18})+FT.box(62,y,370,50,r[1],r[2],"info")+(i<4?FT.arrow(30,y+44,30,y+64):"")}).join("")
+  ].map((r,i)=>{const y=8+i*58;return FT.dot(30,y+25,r[0],{r:18})+FT.box(62,y,370,50,r[1],r[2],"ok")+(i<4?FT.arrow(30,y+44,30,y+64):"")}).join("")
   +FT.text(8,312,"Nel trauma si parte da x: emorragie massive esterne (compressione, tourniquet).",{sm:true}))},
 {id:"rcp-algoritmo",t:"Arresto cardiaco: sequenza BLS e ALS",c:"Dopo l'analisi del ritmo la strada si divide: ritmi defibrillabili (shock subito) e non defibrillabili (adrenalina il prima possibile). In entrambi i casi la RCP riparte per 2 minuti e si cercano le cause reversibili. Linee guida ERC 2025.",
  enc:["bls-acls"],gl:[],st:/rcp|bls|arresto|rianimazione/i,
  svg:FT.svg(440,424,"Algoritmo dell'arresto cardiaco: chiamata, compressioni, analisi del ritmo, ramo defibrillabile e non defibrillabile, cause reversibili",
   FT.box(70,6,300,34,"Non risponde e non respira normalmente","","alarm")+FT.arrow(220,40,220,56)
   +FT.box(60,56,320,46,"Chiama il 112 e chiedi un DAE",["Compressioni 100-120/min, 5-6 cm · adulto 30:2"],"info")+FT.arrow(220,102,220,118)
-  +FT.box(100,118,240,32,"Collega il DAE e analizza il ritmo","","info")
+  +FT.box(100,118,240,32,"Collega il DAE e analizza il ritmo","","ok")
   +FT.elbow([[220,150],[220,162],[111,162],[111,178]])+FT.elbow([[220,150],[220,162],[329,162],[329,178]])
   +FT.box(12,178,198,40,"Defibrillabile","FV · TV senza polso","alarm")+FT.box(230,178,198,40,"Non defibrillabile","Asistolia · PEA","warn")
   +FT.arrow(111,218,111,234)+FT.arrow(329,218,329,234)
@@ -666,9 +666,9 @@ const FIGURE=[
 {id:"eco-sonde",t:"Le tre sonde e che cosa mostrano",c:"La forma dell'immagine dipende dalla sonda: lineare rettangolare, convex a ventaglio, settoriale a cono. Alta frequenza dà più dettaglio ma meno profondità; bassa frequenza scende più in profondità.",
  enc:["eco-sonde"],gl:[],st:/ecograf|sonda|vasi/i,
  svg:FT.svg(440,252,"Tre sonde ecografiche con la forma dell'immagine: lineare rettangolare per vasi e superficie, convex a ventaglio per addome e polmone, settoriale per il cuore",
-  `<rect class="fbx k-info" x="22" y="12" width="108" height="14" rx="4"/><rect class="fbx" x="22" y="30" width="108" height="84" rx="4"/>`
-  +`<rect class="fbx k-info" x="190" y="12" width="60" height="14" rx="6"/><path class="fbx" d="M190 30L158 108Q220 126 282 108L250 30Q220 36 190 30Z"/>`
-  +`<rect class="fbx k-info" x="346" y="12" width="36" height="14" rx="6"/><path class="fbx" d="M364 30L304 108Q364 126 424 108Z"/>`
+  `<rect class="fbx k-info" x="22" y="12" width="108" height="14" rx="4"/><rect class="fbx k-ok" x="22" y="30" width="108" height="84" rx="4"/>`
+  +`<rect class="fbx k-info" x="190" y="12" width="60" height="14" rx="6"/><path class="fbx k-ok" d="M190 30L158 108Q220 126 282 108L250 30Q220 36 190 30Z"/>`
+  +`<rect class="fbx k-info" x="346" y="12" width="36" height="14" rx="6"/><path class="fbx k-ok" d="M364 30L304 108Q364 126 424 108Z"/>`
   +FT.text(76,134,"Lineare",{a:"middle",b:true})+FT.text(220,134,"Convex",{a:"middle",b:true})+FT.text(364,134,"Settoriale",{a:"middle",b:true})
   +FT.text(76,148,["alta frequenza","(7-15 MHz)","vasi, accessi venosi,","pleura, nervi"],{a:"middle",sm:true})
   +FT.text(220,148,["bassa frequenza","addome, vescica, eFAST,","polmone in profondità"],{a:"middle",sm:true})

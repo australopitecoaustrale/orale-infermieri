@@ -15,10 +15,14 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Atlante Inf.">
-<script>window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();window.__pwaPrompt=e;var b=document.getElementById("pwa-inst");if(b)b.hidden=false});if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});</script>
+<script>window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();window.__pwaPrompt=e;var b=document.getElementById("pwa-inst");if(b)b.hidden=false});if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});
+/* avviso aggiornamento: solo se la pagina era già controllata da un service worker (non alla prima installazione), una volta sola */
+if("serviceWorker" in navigator){var hadSW=!!navigator.serviceWorker.controller,shown=false;navigator.serviceWorker.addEventListener("controllerchange",function(){if(!hadSW){hadSW=true;return}if(shown)return;shown=true;var b=document.createElement("div");b.id="upd-bar";b.setAttribute("role","status");b.innerHTML='<span>Nuova versione disponibile</span><button type="button">Aggiorna</button>';b.querySelector("button").onclick=function(){location.reload()};(document.body||document.documentElement).appendChild(b)})}</script>
 <link rel="stylesheet" href="vendor/lenis.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap"></noscript>
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html,body{height:auto}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
 /* Layout: cartella infermieristica — fascia di reparto in alto con traccia ECG, contenuto su carta millimetrata tinta dal colore della sezione; ogni sezione ha il suo colore, che sfuma nel passaggio da una all'altra */
@@ -123,7 +127,12 @@ main{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-le
 .btn.warn{border-color:var(--amber);color:var(--amber)}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px 11px;font-size:.84rem;font-weight:700;background:var(--paper);color:var(--ink)}
-.chip{transition:background .15s,border-color .15s}.chip:hover{border-color:var(--scrub)}
+.chip{transition:background .15s,border-color .15s}
+.row.hscroll{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent);padding-right:18px}
+.row.hscroll::-webkit-scrollbar{display:none}.row.hscroll>.chip{flex:0 0 auto;white-space:nowrap}
+#upd-bar{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;max-width:calc(100vw - 24px);padding:8px 8px 8px 16px;border-radius:14px;background:#0b1a18;color:#e9fffa;border:1px solid #2cf5b0;box-shadow:0 8px 24px -8px rgba(0,0,0,.6);font-weight:700;font-size:.92rem}
+#upd-bar button{min-height:44px;min-width:44px;padding:0 16px;border-radius:10px;border:1px solid #2cf5b0;background:#2cf5b0;color:#04110e;font-weight:800;cursor:pointer}
+.bk .row .btn{min-height:44px}.chip:hover{border-color:var(--scrub)}
 .chip[aria-pressed="true"]{background:var(--scrub);color:var(--on-accent);border-color:var(--scrub)}
 .tag{font-family:var(--f-mono);font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:5px;letter-spacing:.03em;text-transform:uppercase}
 .t-dx{background:color-mix(in srgb,var(--dx) 16%,transparent);color:var(--dx)}
@@ -3733,7 +3742,7 @@ function vitalsMonitor(vit,c){
   size();
   new ResizeObserver(()=>{size();setView(curView);if(RMq)still()}).observe(hd);
   new MutationObserver(()=>setView(document.documentElement.dataset.view)).observe(document.documentElement,{attributes:true,attributeFilter:["data-view"]});
-  document.addEventListener("visibilitychange",()=>{if(!document.hidden)kick()});
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden&&!RMq)kick()});
   setView(document.documentElement.dataset.view||"oggi");
 })();
 
@@ -4246,7 +4255,7 @@ function glossario(){
   app.innerHTML=`
   <div><span class="eyebrow">Termini, persone, scale, strumenti, sigle e norme</span><h2>Glossario</h2></div>
   <p class="lead">${GLOS.length} voci con una definizione breve, il termine inglese quando utile e il collegamento alla voce dell'enciclopedia.</p>
-  <div class="row"><button class="chip" data-gc="tutte" aria-pressed="${cat==="tutte"}">Tutte</button>${Object.entries(GCAT).map(([k,n])=>`<button class="chip" data-gc="${k}" aria-pressed="${cat===k}">${n} (${GLOS.filter(g=>g[1]===k).length})</button>`).join("")}</div>
+  <div class="row hscroll"><button class="chip" data-gc="tutte" aria-pressed="${cat==="tutte"}">Tutte</button>${Object.entries(GCAT).map(([k,n])=>`<button class="chip" data-gc="${k}" aria-pressed="${cat===k}">${n} (${GLOS.filter(g=>g[1]===k).length})</button>`).join("")}</div>
   <input class="search" id="gl-search" type="search" placeholder="Cerca un termine (anche in inglese)" value="${esc(pre)}">
   <div class="az" id="gl-az"></div>
   <div id="gl-out"></div>`;
@@ -4460,6 +4469,8 @@ const MOTION=(()=>{
     /* un clic o un cambio pagina fermano l'inerzia: gli scorrimenti decisi dall'app non vengono contesi */
     addEventListener("click",settle,true);addEventListener("hashchange",settle,true)}
   document.addEventListener("DOMContentLoaded",smooth);
+  /* pagina nascosta: il ticker di GSAP (e Lenis con lui) dorme, al ritorno riparte */
+  document.addEventListener("visibilitychange",()=>{if(typeof gsap==="undefined"||!gsap.ticker||!gsap.ticker.sleep)return;if(document.hidden)gsap.ticker.sleep();else gsap.ticker.wake()});
   /* conteggio dei numeri: dà il senso del cambiamento senza distrarre */
   function countUp(root){root.querySelectorAll(".sb-v,.kpi-v,[data-count]").forEach(el=>{const t=el.textContent.trim();if(!/^\d{1,5}$/.test(t)||t==="0")return;const n=+t,o={v:0};gsap.to(o,{v:n,duration:Math.min(1.1,.35+n/400),ease:"power2.out",onUpdate:()=>{el.textContent=Math.round(o.v)}})})}
   function enter(changed){if(!ok())return;const h=location.hash;const isNew=changed||h!==lastHash;lastHash=h;if(!isNew)return;
@@ -4479,7 +4490,7 @@ const MOTION=(()=>{
     shapes:[{ty:"gr",nm:"c",it:[{ty:"el",p:{a:0,k:[0,0]},s:{a:0,k:[92,92]}},{ty:"st",c:{a:0,k:[.06,.48,.43,1]},o:{a:0,k:100},w:{a:0,k:7},lc:2,lj:2},{ty:"tm",s:{a:0,k:0},e:{a:1,k:[{t:0,s:[0],o:{x:[.4],y:[0]},i:{x:[.2],y:[1]}},{t:26,s:[100]}]},o:{a:0,k:0},m:1},{ty:"tr",p:{a:0,k:[0,0]},a:{a:0,k:[0,0]},s:{a:0,k:[100,100]},r:{a:0,k:-90},o:{a:0,k:100}}]},
             {ty:"gr",nm:"k",it:[{ty:"sh",ks:{a:0,k:{i:[[0,0],[0,0],[0,0]],o:[[0,0],[0,0],[0,0]],v:[[-20,2],[-6,16],[22,-14]],c:false}}},{ty:"st",c:{a:0,k:[.06,.48,.43,1]},o:{a:0,k:100},w:{a:0,k:8},lc:2,lj:2},{ty:"tm",s:{a:0,k:0},e:{a:1,k:[{t:18,s:[0],o:{x:[.5],y:[0]},i:{x:[.2],y:[1]}},{t:40,s:[100]}]},o:{a:0,k:0},m:1},{ty:"tr",p:{a:0,k:[0,0]},a:{a:0,k:[0,0]},s:{a:0,k:[100,100]},r:{a:0,k:0},o:{a:0,k:100}}]}],ip:0,op:60,st:0,bm:0}]};
   function celebrate(host){if(!host)return;const d=document.createElement("div");d.className="lottie-ok";d.setAttribute("aria-hidden","true");host.prepend(d);
-    if(typeof lottie==="undefined"||rm()){d.innerHTML="✓";return}lottie.loadAnimation({container:d,renderer:"svg",loop:false,autoplay:true,animationData:DONE})}
+    if(typeof lottie==="undefined"||rm()){d.innerHTML="✓";return}try{lottie.loadAnimation({container:d,renderer:"svg",loop:false,autoplay:true,animationData:DONE})}catch(e){d.innerHTML="✓"}}
   return {enter,celebrate,feedback,ok};
 })();
 
@@ -4677,7 +4688,7 @@ function flashcard(){
   app.innerHTML=`
   <div><span class="eyebrow">Ripasso dilazionato (sistema Leitner)</span><h2>Flashcard</h2></div>
   <p class="lead">Leggi la domanda e rispondi <b>ad alta voce</b> prima di girare la carta. Se la sapevi sale di livello e torna fra più giorni; se no, ricomincia da capo domani.</p>
-  <div class="row">${chips(f,["all",...SKEYS],"f")}</div>
+  <div class="row hscroll">${chips(f,["all",...SKEYS],"f")}</div>
   <div class="row">
     <label class="small" for="fc-src">Fonte</label>
     <select id="fc-src" class="btn"><option value="tutte" ${src==="tutte"?"selected":""}>Tutte (${CARDS.length})</option><option value="puglia" ${src==="puglia"?"selected":""}>Guida concorso Puglia 2026</option><option value="base" ${src==="base"?"selected":""}>Schede di base</option><option value="enc" ${src==="enc"?"selected":""}>Enciclopedia e glossario</option><option value="giorno" ${src==="giorno"?"selected":""}>Nuove giornaliere</option></select>
@@ -5407,7 +5418,24 @@ function avanzamento(){
   </section>
   <section class="sheet" style="display:flex;flex-direction:column;gap:8px"><h3>Diario</h3><div class="tbl-wrap"><table><tr><th>Giorno</th><th>Risposte</th><th>Media</th><th>Variazione</th></tr>
     ${days.slice().reverse().filter(x=>x.n).map((x,i,arr)=>{const p=arr[i+1];return `<tr><td class="mono">${x.k}</td><td class="mono">${x.n}</td><td class="mono">${pct(x.avg)}</td><td class="mono">${p?deltaTxt(Math.round((x.avg-p.avg)*100)):"—"}</td></tr>`}).join("")}</table></div>
-    <div class="row"><button class="btn danger" id="reslog">Azzera i dati di avanzamento</button><span class="small" id="resmsg"></span></div></section>`}`;
+    <div class="row"><button class="btn danger" id="reslog">Azzera i dati di avanzamento</button><span class="small" id="resmsg"></span></div></section>`}
+  <section class="sheet bk" style="display:flex;flex-direction:column;gap:8px"><h3>Copia di sicurezza</h3><p class="small">Salva i tuoi progressi in un file sul dispositivo, per esempio prima di cambiare telefono o browser, e ripristinali da lì.</p>
+    <div class="row"><button class="btn" id="bk-save">Salva i progressi</button><button class="btn" id="bk-load">Ripristina da file</button><input type="file" id="bk-file" accept="application/json,.json" hidden><span class="small" id="bk-msg" role="status"></span></div></section>`;
+  {const msg=t=>{const m=$("#bk-msg");if(m)m.textContent=t};
+  if($("#bk-save"))$("#bk-save").onclick=()=>{try{const o={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.indexOf("orinf_")===0)o[k]=localStorage.getItem(k)}
+    if(!Object.keys(o).length){msg("Non c'è ancora nulla da salvare.");return}
+    const u=URL.createObjectURL(new Blob([JSON.stringify(o)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="atlante-progressi-"+new Date().toISOString().slice(0,10)+".json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000);msg("File salvato.")}catch(e){msg("Il salvataggio non è possibile in questo browser.")}};
+  if($("#bk-load"))$("#bk-load").onclick=()=>{const f=$("#bk-file");if(f)f.click()};
+  if($("#bk-file"))$("#bk-file").onchange=e=>{const file=e.target.files&&e.target.files[0];if(!file)return;const rd=new FileReader();
+    rd.onerror=()=>msg("Non riesco a leggere il file.");
+    rd.onload=()=>{let o;try{o=JSON.parse(rd.result)}catch(x){msg("Il file non è valido.");return}
+      if(!o||typeof o!=="object"||Array.isArray(o)){msg("Il file non è una copia dei progressi.");return}
+      const ks=Object.keys(o).filter(k=>k.indexOf("orinf_")===0&&typeof o[k]==="string");
+      if(!ks.length){msg("Il file non contiene progressi dell'Atlante.");return}
+      if(!confirm("Ripristinare "+ks.length+" voci? I progressi attuali di questo browser verranno sostituiti."))return;
+      try{ks.forEach(k=>localStorage.setItem(k,o[k]))}catch(x){msg("Non posso scrivere i dati in questo browser.");return}
+      location.reload()};
+    rd.readAsText(file);e.target.value=""}}
   app.querySelectorAll("[data-rip]").forEach(b=>b.onclick=()=>{const sec=+b.dataset.rip;location.hash="quiz";setTimeout(()=>{const pool=QALL.filter(q=>q.sec===sec);const op=PDFQ.filter(o=>o.s===sec&&o.n<140);const list=shuffle(pool).slice(0,8).concat(shuffle(op).slice(0,2).map(openItem));startQuiz(shuffle(list),"mix-sez")},50)});
   app.querySelectorAll("[data-sch]").forEach(b=>b.onclick=()=>{const sec=+b.dataset.sch;const o=PDFQ.find(x=>x.s===sec);state.studyTab=o?o.m:"leg";state.openSec=sec;location.hash="studio"});
   if($("#reslog")){let armed=false;$("#reslog").onclick=()=>{if(!armed){armed=true;$("#resmsg").textContent="Premi di nuovo per confermare: i dati di avanzamento verranno cancellati da questo browser.";return}LOG=[];LS.set("log",[]);avanzamento()}}
