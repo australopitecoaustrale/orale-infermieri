@@ -11,10 +11,12 @@ App web statica installabile per la prova orale del concorso Infermieri Puglia 2
 | `encquiz.js` | Quiz sulle voci (`QUIZ3` e blocchi `QUIZ_*`) |
 | `glossario.js` | `GLOSS` |
 | `figure.js` | `FIGURE`: illustrazioni SVG originali |
+| `figtpl.js` | `FT`: modelli per le figure (riquadri, frecce, assi, curve) |
 | `ecg12.js`, `palestre.js` | ECG a 12 derivazioni e palestre |
 | `sw.js` | Service worker con il nome della cache |
 | `giorni.json`, `giorni/` | Domande del giorno |
 | `tools/verifica.js` | Controllo dei contenuti |
+| `tools/copertura-figure.js` | Dove mancano figure, con le priorità |
 
 ## Formati
 
@@ -34,6 +36,8 @@ Una voce nuova va accanto a quelle dello stesso argomento, non in fondo al file.
 - Dopo ogni video (`/watch`, con trascrizione dell'audio quando c'è) e dopo ogni trascrizione: scritti voce, quiz e glossario, far rivedere sempre il lavoro all'agente `revisore-clinico`, con controllo su PubMed, e applicare le correzioni prima di unire in `main`.
 - Alla fine di ogni video, dopo l'unione in `main`, chiudere la risposta ricordando all'utente di eseguire `/compact` (è un comando che può lanciare solo l'utente).
 - **Casi clinici nuovi** (anche quelli della routine «Domande della settimana»): in ogni gruppo di casi creati insieme devono esserci almeno un caso con ventilatore (`vent` con `etco2`, ed eventualmente `abp` o `resp`), almeno un caso con emogasanalisi arteriosa nei dati `esami` (pH, PaCO₂, HCO₃⁻, PaO₂, lattati e FiO₂, coerenti tra loro e col quadro) e almeno un caso integrato: lo stesso paziente letto con più strumenti (monitor con ECG, ventilatore e capnografia, EGA, esami di laboratorio), con passaggi che chiedono di interpretare ciascuno e di decidere cosa fare. Un solo caso può soddisfare più requisiti. La storia non nomina il ritmo o il pattern che il monitor mostra, e i numeri devono essere coerenti (picco − plateau, driving pressure, EtCO₂, pH con Henderson-Hasselbalch).
+- **Figure da un video**: quando un video ha parti visive (disegni, schemi, animazioni, tracciati), guardarne i fotogrammi (non solo la trascrizione) e ricreare nell'Atlante, nella voce o nella sezione dedicata, un'immagine e, se il video la usa, un'animazione che ne riprendano idea, struttura, sequenza dei passi e didascalie il più fedelmente possibile, ma **disegnate da zero in SVG** (skill `disegna-figure`, sezione «Partire da un video»): mai copiare fotogrammi, loghi, marchi o grafica altrui.
+- **Figure**: a ogni voce, video o trascrizione studiata, dopo l'unione in `main`, eseguire `node tools/copertura-figure.js` e aggiungere almeno una figura dalla cima dell'elenco (skill `disegna-figure`), con rilettura del `revisore-clinico` per i numeri. Priorità dell'utente: farmacologia e anestesia, anatomia, ecografia, area critica, poi le materie più complesse.
 - Niente pull request se non richiesta in modo esplicito.
 
 ## Verifica nel browser
@@ -49,5 +53,6 @@ Una voce si apre con `index.html#voce-<id>`. Guardare sempre tema chiaro e scuro
 
 - `nuova-voce`: aggiungere una voce completa (quiz, glossario, figura, cache, verifica).
 - `figura-animata`: classi e regole per le figure SVG.
+- `disegna-figure`: che cosa illustrare, scelta del modello (`figtpl.js`), controlli e ciclo per migliorare sempre; fonti di tecniche su GitHub in `references/fonti.md`.
 - `watch`: guardare un video; `design-dna`: analisi di stile.
 - Da `K-Dense-AI/scientific-agent-skills` (MIT, 13 su 177): `literature-review`, `citation-management`, `paper-lookup`, `research-lookup`, `scientific-critical-thinking`, `scholar-evaluation`, `clinical-decision-support`, `treatment-plans`, `clinical-reports`, `infographics`, `scientific-schematics`, `markdown-mermaid-writing`, `database-lookup`. Sono di supporto: i contenuti dell'Atlante seguono comunque le regole sopra.

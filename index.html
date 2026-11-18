@@ -1522,6 +1522,21 @@ body::after{display:none}
   .stelle-plus{animation:plusSu 1.6s ease both}
   .lv-bar i{transition:width .8s cubic-bezier(.2,.8,.2,1)}
 }
+/* modelli delle figure (figtpl.js) */
+.fig .fbx{fill:var(--paper);stroke:var(--scrub);stroke-width:1.6}
+.fig .halo{paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}
+.fig .k-info{fill:color-mix(in srgb,var(--scrub) 14%,var(--paper))}
+.fig .k-ok{fill:var(--ok-soft);stroke:var(--ok)}
+.fig .k-warn{fill:var(--amber-soft);stroke:var(--amber)}
+.fig .k-alarm{fill:var(--vital-soft);stroke:var(--vital)}
+.fig .fh{fill:var(--ink)}.fig .fb{font-weight:700}
+.fig .fo{fill:none;stroke:var(--ok);stroke-width:2.4;stroke-linecap:round}
+.fig .fw{fill:none;stroke:var(--amber);stroke-width:2.4;stroke-linecap:round}
+.fig .fz{fill:none;stroke:var(--vital);stroke-width:2.4;stroke-linecap:round}
+.fig .band{fill:color-mix(in srgb,var(--ok) 16%,transparent)}
+.fig .dashbox{fill:none;stroke:var(--muted);stroke-dasharray:5 5;stroke-width:1.4}
+.fig .shd{fill:var(--ink);fill-opacity:.26;stroke:var(--muted);stroke-dasharray:4 4}
+.fig .tis{fill:#39434a}.fig .scr{fill:#080b0d}.fig .ec{fill:#e8eef0}.fig .ecl{fill:#6c787e}.fig .ecs{fill:none;stroke:#e8eef0}.fig .egr{fill:none;stroke:#7d898f;stroke-width:1.6}
 /* pelle studio: fine */
 </style>
 </head>
@@ -1560,6 +1575,7 @@ body::after{display:none}
 <script src="glossario.js"></script>
 <script src="encquiz.js"></script>
 <script src="enccases.js"></script>
+<script src="figtpl.js"></script>
 <script src="figure.js"></script>
 <script src="palestre.js"></script>
 <script src="ecg12.js"></script>

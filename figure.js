@@ -530,5 +530,170 @@ const FIGURE=[
  <g class="fs"><path d="M200 26L214 10M262 96L282 90M250 196L266 212M44 150L24 158"/></g>
  <g class="ft" font-size="12"><text x="310" y="60" font-weight="700">Le «5 P»</text><text x="310" y="84">Pain · dolore</text><text x="310" y="104">Pallore</text><text x="310" y="124">Parestesie</text><text x="310" y="144">Pulseless · polso assente</text><text x="310" y="164">Paralisi</text></g>
  <text class="ft fsm" x="310" y="190">Primo segno: dolore</text><text class="ft fsm" x="310" y="203">sproporzionato</text><text class="ft fsm" x="310" y="220">Polso e paralisi:</text><text class="ft fsm" x="310" y="233">segni tardivi</text>
- <text class="ft fsm" x="20" y="252">La fascia rigida non si espande: la pressione sale (frecce)</text></svg>`}
+ <text class="ft fsm" x="20" y="252">La fascia rigida non si espande: la pressione sale (frecce)</text></svg>`},
+/* ---- Area critica ---- */
+{id:"abcde",t:"Valutazione ABCDE",c:"Si valuta e si tratta ogni problema prima di passare al successivo. Nel trauma si parte da x: il controllo delle emorragie massive esterne (compressione, tourniquet).",
+ enc:["abcde"],gl:[],st:/abcde|valutazione|paziente critico|emergenza/i,
+ svg:FT.svg(440,322,"Le cinque lettere dell'ABCDE in sequenza, con che cosa si controlla in ciascuna",
+  [["A","Airway · vie aeree",["Parla? Rumori (gorgoglio, stridore)? Aspirazione, cannula","Iperestensione e mento sollevato (trauma: sublussazione)"]],
+   ["B","Breathing · respiro",["Frequenza, SpO₂, movimenti del torace, auscultazione","Ossigeno"]],
+   ["C","Circulation · circolo",["Polso, pressione, refill (normale < 2 s), cute, diuresi","Accessi venosi e liquidi"]],
+   ["D","Disability · coscienza",["AVPU o GCS, pupille","Glicemia"]],
+   ["E","Exposure · esposizione",["Esame completo, temperatura, lesioni","Proteggere da ipotermia e privacy"]]
+  ].map((r,i)=>{const y=8+i*58;return FT.dot(30,y+25,r[0],{r:18})+FT.box(62,y,370,50,r[1],r[2],"info")+(i<4?FT.arrow(30,y+44,30,y+64):"")}).join("")
+  +FT.text(8,312,"Nel trauma si parte da x: emorragie massive esterne (compressione, tourniquet).",{sm:true}))},
+{id:"rcp-algoritmo",t:"Arresto cardiaco: sequenza BLS e ALS",c:"Dopo l'analisi del ritmo la strada si divide: ritmi defibrillabili (shock subito) e non defibrillabili (adrenalina il prima possibile). In entrambi i casi la RCP riparte per 2 minuti e si cercano le cause reversibili. Linee guida ERC 2025.",
+ enc:["bls-acls"],gl:[],st:/rcp|bls|arresto|rianimazione/i,
+ svg:FT.svg(440,424,"Algoritmo dell'arresto cardiaco: chiamata, compressioni, analisi del ritmo, ramo defibrillabile e non defibrillabile, cause reversibili",
+  FT.box(70,6,300,34,"Non risponde e non respira normalmente","","alarm")+FT.arrow(220,40,220,56)
+  +FT.box(60,56,320,46,"Chiama il 112 e chiedi un DAE",["Compressioni 100-120/min, 5-6 cm · adulto 30:2"],"info")+FT.arrow(220,102,220,118)
+  +FT.box(100,118,240,32,"Collega il DAE e analizza il ritmo","","info")
+  +FT.elbow([[220,150],[220,162],[111,162],[111,178]])+FT.elbow([[220,150],[220,162],[329,162],[329,178]])
+  +FT.box(12,178,198,40,"Defibrillabile","FV · TV senza polso","alarm")+FT.box(230,178,198,40,"Non defibrillabile","Asistolia · PEA","warn")
+  +FT.arrow(111,218,111,234)+FT.arrow(329,218,329,234)
+  +FT.box(12,234,198,96,"Shock, poi RCP subito",["per 2 minuti","Adrenalina 1 mg dopo il 3° shock,","poi ogni 3-5 min","Amiodarone 300 mg dopo il 3° shock","(150 mg dopo il 5°)"],"alarm")
+  +FT.box(230,234,198,96,"RCP subito per 2 minuti",["Adrenalina 1 mg il prima possibile,","poi ogni 3-5 min","Nessuno shock"],"warn")
+  +FT.box(12,338,416,24,"Ogni 2 minuti: rivaluta il ritmo e ripeti","","info")
+  +FT.box(12,370,416,48,"Cerca e tratta le cause reversibili: 4 I e 4 T",["4 I: ipossia, ipovolemia, ipo/iperkaliemia e metaboliche, ipotermia","4 T: trombosi, tamponamento, tossici, pneumotorace iperteso"],"ok"))},
+{id:"shock-tipi",t:"I quattro tipi di shock",c:"Lo shock è una perfusione dei tessuti inadeguata: cambia la causa, il trattamento parte da ciò che manca (volume, pompa, tono dei vasi, via libera al flusso).",
+ enc:["shock"],gl:[],st:/shock|emorragia|sepsi/i,
+ svg:FT.svg(440,340,"Quattro riquadri con i tipi di shock e le cause, poi i segni comuni e l'indice di shock",
+  FT.box(8,8,208,96,"Ipovolemico",["manca volume","emorragia · disidratazione","ustioni"],"info")
+  +FT.box(224,8,208,96,"Cardiogeno",["la pompa non spinge","infarto esteso · aritmie","insufficienza di pompa"],"info")
+  +FT.box(8,112,208,96,"Distributivo",["vasi dilatati","settico · anafilattico","neurogeno (bradicardia)"],"info")
+  +FT.box(224,112,208,96,"Ostruttivo",["ostacolo al flusso","embolia polmonare · tamponamento","pneumotorace iperteso"],"info")
+  +FT.box(8,216,424,62,"Segni comuni",["Tachicardia (tranne nel neurogeno), ipotensione (tardiva),","oliguria, lattati alti, coscienza alterata ·","cute fredda e marezzata (calda all'inizio nel distributivo)"],"warn")
+  +FT.box(8,286,424,46,"Indice di shock = FC ÷ PAS: oltre 1 suggerisce shock","può restare basso con beta-bloccanti, bradicardia o shock neurogeno","alarm"))},
+{id:"ega-acido-base",t:"Emogasanalisi: leggere l'equilibrio acido-base",c:"Si guarda prima il pH, poi PaCO₂ (componente respiratoria) e HCO₃⁻ (componente metabolica). Il disturbo primario è quello che spiega la direzione del pH: PaCO₂ in senso opposto al pH, HCO₃⁻ nello stesso senso; l'altro valore è il compenso.",
+ enc:["emogasanalisi"],gl:[],st:/emogas|acido|ega|respir/i,
+ svg:FT.svg(440,274,"Tabella dei quattro disturbi acido-base con pH, PaCO₂ e HCO₃⁻ e i quattro passi di lettura",
+  FT.box(112,8,156,34,"Acidosi","pH < 7,35","alarm")+FT.box(276,8,156,34,"Alcalosi","pH > 7,45","warn")
+  +FT.box(8,48,96,66,"Respiratoria","PaCO₂","info")+FT.box(8,120,96,66,"Metabolica","HCO₃⁻","info")
+  +FT.box(112,48,156,66,"Acidosi respiratoria",["PaCO₂ alta","BPCO, ipoventilazione"],"alarm")
+  +FT.box(276,48,156,66,"Alcalosi respiratoria",["PaCO₂ bassa","iperventilazione"],"warn")
+  +FT.box(112,120,156,66,"Acidosi metabolica",["HCO₃⁻ basso","chetoacidosi, shock,","insufficienza renale"],"alarm")
+  +FT.box(276,120,156,66,"Alcalosi metabolica",["HCO₃⁻ alto","vomito, diuretici"],"warn")
+  +FT.box(8,198,100,48,"1 · pH",["< 7,35 acidosi","> 7,45 alcalosi"],"ok")+FT.box(116,198,100,48,"2 · PaCO₂",["componente","respiratoria"],"ok")
+  +FT.box(224,198,100,48,"3 · HCO₃⁻",["componente","metabolica"],"ok")+FT.box(332,198,100,48,"4 · Compenso",["l'altro sistema","tenta di correggere"],"ok")
+  +FT.text(8,264,"Lattati normali < 2 mmol/L · prelievo arterioso radiale dopo il test di Allen",{sm:true}))},
+{id:"ossigeno-dispositivi",t:"Ossigeno: dispositivi, flussi e FiO₂",c:"Ogni dispositivo copre un intervallo diverso di FiO₂: si sceglie in base al bisogno e si titola sul bersaglio di SpO₂. La maschera di Venturi dà una FiO₂ precisa.",
+ enc:["ossigenoterapia"],gl:[],st:/ossigen|respir|ipossi/i,
+ svg:(()=>{const X=p=>140+(p-20)*3.55,row=(i,n,f,a,b,k)=>{const y=34+i*50;return FT.text(8,y+11,n,{b:true})+FT.text(8,y+24,f,{sm:true})+`<rect class="fbx k-${k}" x="${X(a)}" y="${y}" width="${X(b)-X(a)}" height="22" rx="5"/>`+(k==="ok"?FT.text(X(a)-6,y+15,"circa "+a+"-"+b+"%",{a:"end",sm:true,c:"halo"}):FT.text(X(b)+6,y+15,a+"-"+b+"%",{sm:true}))};
+  return FT.svg(440,340,"Barre della FiO₂ ottenibile con cannule nasali, maschera semplice, Venturi, reservoir e alti flussi, e il bersaglio di SpO₂",
+   [20,40,60,80,100].map(p=>`<path class="dash" d="M${X(p)} 22V228"/>`+FT.text(X(p),16,p+"%",{a:"middle",sm:true})).join("")
+   +row(0,"Cannule nasali","1-6 L/min",24,44,"info")+row(1,"Maschera semplice","5-10 L/min",40,60,"info")+row(2,"Maschera di Venturi","FiO₂ precisa",24,60,"warn")
+   +row(3,"Reservoir","10-15 L/min",60,90,"ok")
+   +FT.text(8,34+4*50+11,"Alti flussi nasali",{b:true})+FT.text(8,34+4*50+24,"fino a 60 L/min",{sm:true})
+   +`<rect class="dashbox" x="${X(21)}" y="${34+4*50}" width="${X(100)-X(21)}" height="22" rx="5"/>`+FT.text((X(21)+X(100))/2,34+4*50+15,"FiO₂ regolabile · umidificati e riscaldati",{a:"middle",sm:true})
+   +FT.box(8,290,424,40,"Target SpO₂ 94-98%","88-92% nei pazienti a rischio di ipercapnia","ok"));
+  })()},
+/* ---- Farmacologia e anestesia ---- */
+{id:"pk-curve",t:"Concentrazione nel tempo e stato stazionario",c:"Dopo una dose la concentrazione sale, raggiunge un picco e scende; il farmaco funziona se resta nella finestra tra la soglia efficace e quella tossica. Con dosi ripetute si arriva allo stato stazionario in circa 4-5 emivite.",
+ enc:["farmacocinetica"],gl:[],st:/farmac|dose|emivita|terapeutic/i,
+ svg:(()=>{const A=(t,c)=>[28+160*t,214-150*c],B=(k)=>268+15+(k-1)*30,fr=[.5,.75,.875,.9375,.969];
+  return FT.svg(440,300,"A sinistra la curva concentrazione-tempo di una dose orale ed endovenosa con la finestra terapeutica; a destra l'avvicinarsi allo stato stazionario in 5 emivite",
+   FT.text(28,14,"Una dose",{b:true})+FT.text(268,14,"Dosi ripetute",{b:true})
+   +`<path class="fs" d="M28 32h16"/>`+FT.text(48,36,"orale",{sm:true})+`<path class="fw" d="M92 32h16"/>`+FT.text(112,36,"endovenosa",{sm:true})
+   +FT.axes(28,214,160,150,"tempo","concentrazione")
+   +`<rect class="band" x="28" y="91" width="160" height="78"/><path class="dash" d="M28 91H188M28 169H188"/>`
+   +FT.text(192,94,"tossica",{sm:true})+FT.text(192,172,"efficace",{sm:true})+FT.text(192,130,["finestra","terapeutica"],{sm:true})
+   +FT.curve([[0,0],[.1,.22],[.22,.5],[.35,.6],[.5,.54],[.7,.34],[.85,.22],[1,.14]].map(p=>A(p[0],p[1])),"fs")
+   +FT.curve([[0,.74],[.12,.64],[.3,.48],[.5,.34],[.75,.22],[1,.14]].map(p=>A(p[0],p[1])),"fw")
+   +FT.axes(268,214,150,150,"","")+`<path class="dash" d="M268 64H418"/>`+FT.text(418,58,"stato stazionario",{a:"end",sm:true})
+   +fr.map((f,i)=>{const h=150*f,x=B(i+1)-13;return `<rect class="fbx k-info" x="${x}" y="${214-h}" width="26" height="${h}"/>`+FT.text(x+13,214-h+13,Math.round(f*100)+"%",{a:"middle",sm:true})+FT.text(x+13,228,String(i+1),{a:"middle",sm:true})}).join("")
+   +FT.text(418,244,"numero di emivite",{a:"end",sm:true})
+   +FT.text(8,264,["Emivita: tempo per dimezzare la concentrazione plasmatica.","Stato stazionario dopo circa 4-5 emivite.","Via endovenosa: biodisponibilità 100%."],{sm:true}))})()},
+{id:"insuline-profili",t:"Profili d'azione delle insuline",c:"Le ultrarapide agiscono presto e per poco (si danno ai pasti), la regolare più lentamente, le basali restano quasi costanti per circa un giorno. I profili sono indicativi: dipendono da prodotto, dose, sede e persona.",
+ enc:["insuline"],gl:[],st:/insulin|diabet|glicem/i,
+ svg:(()=>{const P=(h,v)=>[40+385*h/24,200-150*v];
+  return FT.svg(440,288,"Tre curve di attività nelle 24 ore: insulina ultrarapida con picco precoce, regolare con picco più tardivo, basale piatta",
+   FT.axes(40,200,385,150,"","attività")+FT.text(425,232,"ore dall'iniezione",{a:"end",sm:true})
+   +[0,4,8,12,16,20,24].map(h=>`<path class="fl" d="M${P(h,0)[0]} 200v4"/>`+FT.text(P(h,0)[0],214,String(h),{a:"middle",sm:true})).join("")
+   +`<path class="fs" d="M40 32h16"/>`+FT.text(60,36,"ultrarapida",{sm:true})+`<path class="fw" d="M150 32h16"/>`+FT.text(170,36,"regolare",{sm:true})+`<path class="fo" d="M250 32h16"/>`+FT.text(270,36,"basale",{sm:true})
+   +FT.curve([[0,0],[.25,.05],[.8,.5],[1.5,.85],[2.5,.6],[3.5,.25],[5,0]].map(p=>P(p[0],p[1])),"fs")
+   +FT.curve([[0,0],[.5,.04],[1.5,.3],[3,.62],[4.5,.45],[6,.18],[8,0]].map(p=>P(p[0],p[1])),"fw")
+   +FT.curve([[0,0],[2,.15],[5,.24],[12,.24],[22,.22],[24,.15]].map(p=>P(p[0],p[1])),"fo")
+   +FT.text(8,236,["Ultrarapide (lispro, aspart, glulisina): inizio in 10-15 min, ai pasti","Regolare: la usuale per infusione endovenosa","Basali (glargine, degludec, detemir): profilo quasi piatto, di solito una volta al giorno","Profili indicativi: variano con prodotto, dose, sede di iniezione e persona"],{sm:true}))})()},
+{id:"coagulazione-farmaci",t:"Dove agiscono gli anticoagulanti",c:"Warfarin riduce la sintesi dei fattori vitamina K-dipendenti, l'eparina potenzia l'antitrombina, gli anticoagulanti orali diretti (DOAC) bloccano direttamente il fattore Xa o la trombina. Ognuno ha il suo controllo e il suo antidoto.",
+ enc:["anticoagulanti"],gl:[],st:/anticoag|eparina|warfarin|coagul/i,
+ svg:FT.svg(440,392,"Cascata della coagulazione semplificata con i punti d'azione di warfarin, eparina, anticoagulanti orali diretti e la tabella di antidoti e controlli",
+  FT.box(96,6,118,34,"Via intrinseca","si controlla con aPTT","info")+FT.box(226,6,118,34,"Via estrinseca","si controlla con INR","info")
+  +FT.arrow(155,40,190,58)+FT.arrow(285,40,250,58)
+  +FT.box(145,58,150,34,"Fattore X → Xa","","warn")+FT.arrow(220,92,220,108)
+  +FT.box(145,108,150,34,"Protrombina → trombina","","warn")+FT.arrow(220,142,220,158)
+  +FT.box(145,158,150,34,"Fibrinogeno → fibrina","","warn")+FT.arrow(220,192,220,208)
+  +FT.box(145,208,150,30,"Coagulo stabile","","alarm")
+  +FT.box(8,50,104,66,"Warfarin",["riduce i fattori","II, VII, IX, X","(vitamina K)"],"ok")+FT.arrow(112,76,145,72,{dash:true})
+  +FT.box(316,42,116,50,"Anti-Xa orali",["rivaroxaban,","apixaban, edoxaban"],"ok")+FT.elbow([[316,82],[306,82],[306,100],[262,100],[262,108]],{dash:true})
+  +FT.box(316,100,116,74,["Eparina","non frazionata"],["potenzia","l'antitrombina:","Xa e trombina"],"ok")+FT.arrow(316,137,295,134,{dash:true})
+  +FT.box(316,182,116,44,"Dabigatran",["blocca la trombina"],"ok")+FT.arrow(316,204,295,180,{dash:true})
+  +FT.text(8,262,"Antidoto e controllo",{b:true})
+  +[["Eparina non frazionata","protamina","aPTT"],["Warfarin","vitamina K + PCC","INR"],["Dabigatran","idarucizumab","senza INR"],["Anti-Xa orali","andexanet alfa (emorragia grave)","senza INR"]].map((r,i)=>{const y=270+i*26;return `<rect class="fbx" x="8" y="${y}" width="424" height="22" rx="6"/>`+FT.text(16,y+15,r[0],{b:true})+FT.text(160,y+15,r[1])+FT.text(424,y+15,r[2],{a:"end",sm:true})}).join("")
+  +FT.text(8,384,"PCC: concentrato di complesso protrombinico",{sm:true}))},
+{id:"giunzione-neuromuscolare",t:"Giunzione neuromuscolare e miorilassanti",c:"L'acetilcolina rilasciata dal nervo attiva i recettori del muscolo e provoca la contrazione. Il blocco si può produrre agendo sul recettore e si inverte aumentando l'acetilcolina (neostigmina) o inattivando il farmaco (sugammadex).",
+ enc:["anest-miorilassanti"],gl:[],st:/miorilass|anestes|giunzione|curar/i,
+ svg:FT.svg(440,340,"Terminale nervoso che libera acetilcolina sui recettori della fibra muscolare, con i punti d'azione di succinilcolina, miorilassanti non depolarizzanti, neostigmina e sugammadex",
+  `<rect class="fbx k-info" x="20" y="12" width="400" height="64" rx="26"/>`+FT.text(38,32,"Terminale del nervo",{b:true})
+  +[80,160,235,345].map(x=>`<circle class="fbx k-ok" cx="${x}" cy="56" r="6"/>`).join("")
+  +[100,180,235,345].map(x=>FT.arrow(x,68,x,104,{h:6})).join("")
+  +[[92,92],[108,96],[172,94],[188,92],[227,96],[243,92],[337,94],[353,96]].map(p=>`<circle class="fh" cx="${p[0]}" cy="${p[1]}" r="2.6"/>`).join("")
+  +FT.text(372,100,"acetilcolina",{sm:true})
+  +`<rect class="fbx" x="20" y="116" width="400" height="48" rx="8"/>`
+  +[60,168].map(x=>`<rect class="fbx k-ok" x="${x-11}" y="110" width="22" height="14" rx="3"/>`).join("")
+  +`<rect class="fbx k-warn" x="265" y="92" width="22" height="12" rx="3"/>`
+  +FT.text(410,144,"Fibra muscolare",{a:"end",b:true})+FT.text(84,148,"recettori",{sm:true})+FT.text(292,101,"enzima",{sm:true})
+  +FT.box(8,186,104,84,["Succinilcolina"],["depolarizzante:","lo attiva in modo","prolungato"],"alarm")+FT.arrow(60,186,60,127,{dash:true,h:6})
+  +FT.box(116,186,104,84,["Non","depolarizzanti"],["bloccano il","recettore","(rocuronio…)"],"alarm")+FT.arrow(168,186,168,127,{dash:true,h:6})
+  +FT.box(224,186,104,84,"Neostigmina",["blocca l'enzima","dell'ACh: inverte i","non depolarizzanti","(con atropina)"],"ok")+FT.arrow(276,186,276,106,{dash:true,h:6})
+  +FT.box(332,186,104,84,"Sugammadex",["avvolge","rocuronio e","vecuronio e li","inattiva"],"ok")
+  +FT.box(8,280,428,50,"Prima dell'estubazione",["TOF ratio di almeno 0,9,","misurato con monitor quantitativo"],"info"))},
+/* ---- Ecografia ---- */
+{id:"eco-formazione-immagine",t:"Come nasce un'immagine ecografica",c:"Gli ultrasuoni attraversano i tessuti e si riflettono dove cambia l'impedenza acustica: più forte la riflessione, più chiaro il punto sullo schermo. L'osso riflette quasi tutto e lascia un'ombra dietro di sé; l'aria blocca il fascio, per questo serve il gel.",
+ enc:["eco-principi","eco-artefatti"],gl:[],st:/ecograf|ultrasuon|sonda/i,
+ svg:FT.svg(440,296,"Sonda con gel che invia ultrasuoni nei tessuti, echi più deboli dalle interfacce e forti dall'osso con ombra posteriore, e la scala delle luminosità: anecogeno, ipoecogeno, isoecogeno, iperecogeno",
+  `<rect class="fbx k-info" x="76" y="8" width="64" height="24" rx="6"/>`+FT.text(108,24,"Sonda",{a:"middle",b:true})
+  +`<rect class="fa" x="68" y="34" width="80" height="6"/>`+FT.text(154,40,"gel",{sm:true})
+  +`<rect class="ff fl" x="20" y="44" width="200" height="176"/>`
+  +`<rect class="fa" x="21" y="96" width="198" height="54"/><path class="dash" d="M21 96H219"/>`
+  +FT.text(26,64,"tessuto molle",{sm:true})+FT.text(26,114,"liquido",{sm:true})+FT.text(26,128,"(vescica)",{sm:true})
+  +`<rect class="fbx k-warn" x="70" y="150" width="100" height="16" rx="3"/>`+FT.text(120,162,"osso o calcolo",{a:"middle",sm:true})
+  +`<rect class="shd" x="70" y="166" width="100" height="52"/>`+FT.text(120,196,"ombra",{a:"middle",sm:true})
+  +FT.arrow(100,42,100,146)+FT.arrow(150,98,150,48,{dash:true,h:6})+FT.arrow(122,148,122,48,{dash:true,h:9})
+  +FT.text(158,70,"eco debole",{sm:true})+FT.text(166,128,"eco forte",{sm:true})+FT.text(8,236,["L'aria riflette quasi tutto il fascio:","il gel elimina l'aria tra sonda e pelle."],{sm:true})
+  +FT.text(252,16,"Come appaiono gli echi",{b:true})
+  +[["#050607","Anecogeno",["liquidi, sangue,","urina, cisti"]],["#4a5258","Ipoecogeno",["muscolo, linfonodi"]],["#8b959b","Isoecogeno",["stessa luminosità","del tessuto vicino"]],["#f2f5f6","Iperecogeno",["osso, calcoli, aria,","pleura, aghi"]]].map((r,i)=>{const y=28+i*50;return `<rect class="fl" x="252" y="${y}" width="40" height="38" rx="4" style="fill:${r[0]}"/>`+FT.text(302,y+14,r[1],{b:true})+FT.text(302,y+28,r[2],{sm:true})}).join("")
+  +FT.text(8,272,["Frequenze cliniche: da circa 2 a 15 MHz. Più alta la frequenza,","più nitida e meno profonda è l'immagine."],{sm:true}))},
+{id:"eco-sonde",t:"Le tre sonde e che cosa mostrano",c:"La forma dell'immagine dipende dalla sonda: lineare rettangolare, convex a ventaglio, settoriale a cono. Alta frequenza dà più dettaglio ma meno profondità; bassa frequenza scende più in profondità.",
+ enc:["eco-sonde"],gl:[],st:/ecograf|sonda|vasi/i,
+ svg:FT.svg(440,252,"Tre sonde ecografiche con la forma dell'immagine: lineare rettangolare per vasi e superficie, convex a ventaglio per addome e polmone, settoriale per il cuore",
+  `<rect class="fbx k-info" x="22" y="12" width="108" height="14" rx="4"/><rect class="fbx" x="22" y="30" width="108" height="84" rx="4"/>`
+  +`<rect class="fbx k-info" x="190" y="12" width="60" height="14" rx="6"/><path class="fbx" d="M190 30L158 108Q220 126 282 108L250 30Q220 36 190 30Z"/>`
+  +`<rect class="fbx k-info" x="346" y="12" width="36" height="14" rx="6"/><path class="fbx" d="M364 30L304 108Q364 126 424 108Z"/>`
+  +FT.text(76,134,"Lineare",{a:"middle",b:true})+FT.text(220,134,"Convex",{a:"middle",b:true})+FT.text(364,134,"Settoriale",{a:"middle",b:true})
+  +FT.text(76,148,["alta frequenza","(7-15 MHz)","vasi, accessi venosi,","pleura, nervi"],{a:"middle",sm:true})
+  +FT.text(220,148,["bassa frequenza","addome, vescica, eFAST,","polmone in profondità"],{a:"middle",sm:true})
+  +FT.text(364,148,["bassa frequenza,","piccolo appoggio:","cuore tra le coste"],{a:"middle",sm:true})
+  +FT.box(8,210,424,32,"Più alta la frequenza: più dettaglio, meno profondità","","info"))},
+{id:"eco-vci",t:"Vena cava inferiore: diametro e collasso",c:"Nel respiro spontaneo la cava si restringe in inspirazione (il collasso si valuta con una inspirazione rapida, lo «sniff»): una cava ≤ 2,1 cm che collassa molto indica pressione dell'atrio destro bassa, una cava larga e fissa pressione alta. Da leggere insieme al quadro clinico.",
+ enc:["eco-vci"],gl:[],st:/ecograf|cava|volemi|liquidi/i,
+ svg:FT.svg(440,346,"Tre righe di cava inferiore in espirazione e inspirazione: piccola e molto collassabile, intermedia, dilatata e fissa, con la pressione stimata dell'atrio destro",
+  FT.text(186,18,"espirazione",{a:"middle",sm:true})+FT.text(276,18,"inspirazione",{a:"middle",sm:true})
+  +[[62,["Cava ≤ 2,1 cm",["collasso > 50%","con inspirazione","profonda (sniff)"]],[22,8],[["PAD","circa 3 mmHg"],"(0-5)","info"]],
+    [166,["Intermedia",["tra i due casi"]],[28,16],[["PAD","circa 8 mmHg"],"(5-10)","warn"]],
+    [270,["Cava > 2,1 cm",["collasso < 50%","con inspirazione","profonda (sniff)"]],[36,33],[["PAD","circa 15 mmHg"],"(10-20)","alarm"]]
+  ].map(r=>{const cy=r[0];return FT.text(8,cy-8,r[1][0],{b:true})+FT.text(8,cy+7,r[1][1],{sm:true})
+    +`<rect class="fbx k-info" x="150" y="${cy-r[2][0]/2}" width="72" height="${r[2][0]}" rx="${r[2][0]/2}"/><rect class="fbx k-info" x="240" y="${cy-r[2][1]/2}" width="72" height="${r[2][1]}" rx="${r[2][1]/2}"/>`
+    +FT.box(326,cy-34,106,68,r[3][0],r[3][1],r[3][2])}).join("")
+  +FT.text(8,322,["PAD = pressione dell'atrio destro. Misura sottocostale in asse lungo,","1-2 cm prima dell'atrio. Non vale in ventilazione a pressione positiva."],{sm:true}))},
+{id:"eco-artefatti-figura",t:"Quattro artefatti utili",c:"Le immagini «sbagliate» aiutano la diagnosi: l'ombra indica un calcolo o un osso, il rinforzo posteriore un liquido, le linee A un polmone aerato (o un pneumotorace: serve lo scivolamento pleurico), le linee B numerose una sindrome interstiziale.",
+ enc:["eco-artefatti"],gl:[],st:/ecograf|artefatt|polmone/i,
+ svg:FT.svg(440,302,"Quattro schermi ecografici: cono d'ombra dietro un calcolo, rinforzo posteriore dietro una cisti, linee A e linee B nel polmone",
+  `<rect class="tis" x="8" y="8" width="208" height="84"/><ellipse class="ec" cx="112" cy="30" rx="24" ry="7"/><path class="scr" d="M90 34H134L150 92H74Z"/>`
+  +FT.text(8,108,"Cono d'ombra",{b:true})+FT.text(8,122,["Banda nera dietro calcoli e ossa:","riflettono quasi tutto il fascio"],{sm:true})
+  +`<rect class="tis" x="224" y="8" width="208" height="84"/><ellipse class="scr" cx="328" cy="36" rx="26" ry="16"/><path class="ecl" d="M302 36H354L366 92H290Z"/>`
+  +FT.text(224,108,"Rinforzo posteriore",{b:true})+FT.text(224,122,["Zona più luminosa dietro un liquido","(vescica, cisti): attenua poco"],{sm:true})
+  +`<rect class="scr" x="8" y="150" width="208" height="84"/><rect class="tis" x="8" y="150" width="208" height="26"/><path class="ecs" d="M8 176H216" style="stroke-width:3"/><path class="egr" d="M8 200H216M8 224H216"/>`
+  +FT.text(8,250,"Linee A",{b:true})+FT.text(8,264,["Linee orizzontali dietro la pleura:","polmone aerato o pneumotorace;","serve lo scivolamento pleurico"],{sm:true})
+  +`<rect class="scr" x="224" y="150" width="208" height="84"/><rect class="tis" x="224" y="150" width="208" height="26"/><path class="ecs" d="M224 176H432" style="stroke-width:3"/><path class="ecs" d="M262 176V234M310 176V234M358 176V234M406 176V234" style="stroke-width:2.2"/>`
+  +FT.text(224,250,"Linee B",{b:true})+FT.text(224,264,["Linee verticali dalla pleura:","numerose = sindrome interstiziale"],{sm:true}))}
 ];

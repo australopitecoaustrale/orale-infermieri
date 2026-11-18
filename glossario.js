@@ -110,7 +110,7 @@ const GLOSS=[
 ["Elettrocardiografo","d","Registra l'ECG a 12 derivazioni con 10 elettrodi.","","ecg-basi"],
 ["Defibrillatore (DAE)","d","Defibrillatore automatico esterno: analizza il ritmo ed eroga lo shock se indicato; uso consentito anche ai non sanitari (L. 116/2021).","AED","bls-acls"],
 ["Maschera di Venturi","d","Maschera per ossigeno con FiO2 precisa tramite ugelli colorati.","Venturi mask","ossigenoterapia"],
-["Maschera con reservoir","d","Maschera con sacca che permette FiO2 elevate (fino all'80-90%) a 10-15 L/min.","Non-rebreather mask","ossigenoterapia"],
+["Maschera con reservoir","d","Maschera con sacca che permette FiO2 elevate (circa 60-90% secondo la tenuta) a 10-15 L/min.","Non-rebreather mask","ossigenoterapia"],
 ["Pallone autoespandibile (AMBU)","d","Dispositivo per la ventilazione manuale con maschera o tubo, collegabile all'ossigeno.","Bag-valve mask","bls-acls"],
 ["Cannula di Guedel","d","Cannula orofaringea per mantenere pervie le vie aeree nel paziente incosciente; misura dall'angolo della bocca al lobo dell'orecchio.","Oropharyngeal airway","abcde"],
 ["Cannula nasofaringea","d","Dispositivo morbido inserito dal naso per mantenere pervie le vie aeree; tollerata anche da pazienti semicoscienti.","Nasopharyngeal airway","abcde"],
