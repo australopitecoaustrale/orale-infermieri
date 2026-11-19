@@ -1258,5 +1258,71 @@ const FIGURE=[
   /* indicazione QT */
   o+='<path class="fl dash" d="M257 240V246M318 240V246M257 244H318"/>'+FT.text(288,258,"QT",{a:"middle",sm:true});
   o+=FT.text(220,298,"schemi illustrativi, non registrazioni",{a:"middle",sm:true});
-  return FT.svg(440,306,"Quattro reperti ECG da cercare nella persona con diabete: tachicardia sinusale, ischemia, ipertrofia ventricolare sinistra, QTc prolungato",o)})()}
+  return FT.svg(440,306,"Quattro reperti ECG da cercare nella persona con diabete: tachicardia sinusale, ischemia, ipertrofia ventricolare sinistra, QTc prolungato",o)})()},
+/* lotto: due manuali ECG */
+{id:"ecg-derivazioni-torace",t:"Derivazioni aggiuntive: destre e posteriori",c:"Davanti le precordiali standard: V1 e V2 nel IV spazio intercostale ai lati dello sterno, V4 nel V spazio sulla emiclaveare sinistra, V3 a metà tra V2 e V4, V5 sull'ascellare anteriore e V6 sull'ascellare media allo stesso livello di V4. Le destre V3R-V6R sono lo specchio delle sinistre: V4R nel V spazio sulla emiclaveare destra. Dietro, sullo stesso piano orizzontale di V6: V7 ascellare posteriore, V8 angolo inferiore della scapola, V9 paravertebrale sinistra.",
+ enc:["ecg-derivazioni-aggiuntive","ecg-basi"],gl:["Elettrocardiografo"],st:/derivazion[ei] (destr|posterior|aggiuntiv)|v4r|v7|v8|v9|precordiali destre/i,
+ svg:(()=>{
+  const C=140,Y4=158,Y5=184,B=362;
+  /* cerchio con etichetta: k = s (standard, pieno), r (destre, anello ambra), p (posteriori, anello tratteggiato) */
+  const el=(x,y,s,k,r)=>{r=r||10;
+   const c=k==="s"?'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="var(--scrub)"/>':'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="var(--paper)" stroke="var(--'+(k==="r"?"amber":"ink")+')" stroke-width="'+(k==="r"?2.6:1.8)+'"'+(k==="p"?' stroke-dasharray="3 2"':'')+'/>';
+   return c+'<text x="'+x+'" y="'+(y+3.2)+'" text-anchor="middle" font-family="var(--f-mono)" font-size="9" font-weight="700" fill="var('+(k==="s"?"--paper":"--ink")+')">'+s+'</text>'};
+  let o="";
+  /* legenda */
+  o+=el(14,12,"","s",6)+FT.text(24,16,"V1-V6 standard",{sm:true});
+  o+=el(122,12,"","r",6)+FT.text(132,16,"V3R-V6R destre",{sm:true});
+  o+=el(230,12,"","p",6)+FT.text(240,16,"V7-V9 posteriori",{sm:true});
+  /* intestazioni */
+  o+=FT.text(C,40,"Davanti",{a:"middle",b:true})+FT.text(10,40,"dx",{sm:true})+FT.text(270,40,"sin",{a:"end",sm:true});
+  o+=FT.text(B,40,"Da dietro",{a:"middle",b:true})+FT.text(298,40,"sin",{sm:true})+FT.text(430,40,"dx",{a:"end",sm:true});
+  /* torace davanti */
+  o+='<path class="ff fl" d="M80 56Q140 44 200 56L256 80Q276 160 260 244Q228 278 140 282Q52 278 20 244Q4 160 24 80Z"/>';
+  o+='<path class="fl" d="M80 66Q108 74 132 72M148 72Q172 74 200 66"/><rect class="fa fl" x="132" y="74" width="16" height="118" rx="6"/>';
+  o+='<path class="fl dash" d="M14 '+Y4+'H266M10 '+Y5+'H270"/>';
+  o+='<path class="fl dash" d="M78 92V262M202 92V262M50 100V258M230 100V258M26 116V244M254 116V244"/>';
+  o+=FT.text(274,Y4+4,"IV",{sm:true})+FT.text(274,Y5+4,"V",{sm:true});
+  /* etichette delle linee (sotto il torace) */
+  o+='<path class="lead" d="M202 264V288M230 260V302M254 246V316M78 264V288"/>';
+  o+=FT.text(199,290,"emiclaveare sin.",{a:"end",sm:true})+FT.text(227,304,"ascellare anteriore",{a:"end",sm:true})+FT.text(251,318,"ascellare media",{a:"end",sm:true});
+  o+=FT.text(75,290,"emiclav. dx",{a:"end",sm:true});
+  /* destre */
+  o+=el(100,171,"V3R","r")+el(78,Y5,"V4R","r")+el(50,Y5,"V5R","r")+el(26,Y5,"V6R","r");
+  /* standard */
+  o+=el(122,Y4,"V1","s")+el(158,Y4,"V2","s")+el(180,171,"V3","s")+el(202,Y5,"V4","s")+el(230,Y5,"V5","s")+el(254,Y5,"V6","s");
+  /* schiena */
+  o+='<path class="ff fl" d="M332 56Q362 48 392 56L424 78Q434 160 426 244Q406 278 362 282Q318 278 298 244Q290 160 300 78Z"/>';
+  o+='<path class="fa fl" d="M314 82L350 78L329 178Z"/><path class="fa fl" d="M410 82L374 78L395 178Z"/>';
+  o+='<path class="fl" d="M362 52V280"/><path class="fl dash" d="M296 '+Y5+'H428"/>';
+  o+='<path class="fl dash" d="M305 104V256M328 196V256M350 196V256"/>';
+  o+=el(305,Y5,"V7","p",9.5)+el(328,Y5,"V8","p",9.5)+el(350,Y5,"V9","p",9.5);
+  o+=FT.text(296,290,"V7 ascellare posteriore",{sm:true})+FT.text(296,304,"V8 angolo della scapola",{sm:true})+FT.text(296,318,"V9 paravertebrale sin.",{sm:true});
+  o+=FT.text(220,340,"IV e V: spazi intercostali; V7-V9 sul piano di V6",{a:"middle",sm:true});
+  return FT.svg(440,348,"Torace visto di fronte con le precordiali V1-V6 e le destre V3R-V6R, e schiena con le posteriori V7, V8 e V9 sullo stesso piano di V6",o)})()},
+{id:"ecg-flutter-conduzione",t:"Flutter atriale: stesse onde F, conduzione diversa",c:"Le onde F a dente di sega hanno sempre circa 300/min: cambia quante ne passano ai ventricoli. Con conduzione 2:1 la frequenza ventricolare è circa 150/min, con 3:1 circa 100/min, con 4:1 circa 75/min. I tre rapporti si evidenziano a turno con il conteggio delle onde F. Schema illustrativo, non una registrazione.",
+ enc:["ecg-flutter","ritmi"],gl:["Flutter atriale"],st:/flutter|onde f\b|dente di sega/i,
+ svg:(()=>{
+  const R=v=>Math.round(v*10)/10;
+  /* una striscia: y = bordo alto della carta, n = rapporto di conduzione */
+  const strip=(y,n)=>{
+   const b=y+40;let d="M10 "+b+"H20";
+   for(let k=0;k<20;k++){const x=20+k*20;
+    if(k%n===0)d+="L"+R(x+1.5)+" "+(b+2)+"L"+R(x+3.5)+" "+(b-34)+"L"+R(x+5.5)+" "+(b+7)+"L"+(x+8)+" "+R(b+5.5);
+    d+="L"+(x+13)+" "+(b+9)+"L"+(x+17)+" "+(b-3)+"L"+(x+20)+" "+b}
+   d+="H430";
+   return '<rect class="pap" x="10" y="'+y+'" width="420" height="64"/><rect x="10" y="'+y+'" width="420" height="64" fill="url(#fl5)"/><path class="etr" d="'+d+'"/>'};
+  /* conteggio delle onde F (strato animato) */
+  const count=(y,n)=>{let t="";for(let k=0;k<20;k++){const x=20+k*20;t+='<text class="ft fsm halo" x="'+(x+10)+'" y="'+(y+60)+'" text-anchor="middle" style="font-size:9px'+(k%n===0?";font-weight:700":"")+'">'+(k%n+1)+'</text>'}return t};
+  const S=[[30,2,"150"],[122,3,"100"],[214,4,"75"]];
+  let o='<defs><pattern id="fl1" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M4 0V4H0" class="gp1"/></pattern><pattern id="fl5" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="url(#fl1)"/><path d="M20 0V20H0" class="gp5"/></pattern></defs>';
+  o+=FT.text(10,14,"Onde F a circa 300/min in tutte e tre le strisce",{sm:true});
+  S.forEach(s=>{const y=s[0]+16;
+   o+=FT.text(10,s[0]+10,"Conduzione "+s[1]+":1 → circa "+s[2]+"/min",{b:true});
+   o+=FT.text(430,s[0]+10,"1 QRS ogni "+s[1]+" onde F",{a:"end",sm:true});
+   o+=strip(y,s[1])});
+  /* strato animato: cornice e conteggio, un rapporto per volta */
+  S.forEach((s,i)=>{const y=s[0]+16;
+   o+='<g class="ans'+(i?" s"+(i+1):"")+'"><rect x="8" y="'+(y-2)+'" width="424" height="68" rx="4" fill="none" stroke="var(--scrub)" stroke-width="2.6"/>'+count(y,s[1])+'</g>'});
+  o+=FT.text(220,312,"schema illustrativo · a 25 mm/s un'onda F per quadrato grande",{a:"middle",sm:true});
+  return FT.svg(440,320,"Tre strisce ECG schematiche di flutter atriale con onde F a circa 300 al minuto e QRS stretti: conduzione 2 a 1 a circa 150 al minuto, 3 a 1 a circa 100, 4 a 1 a circa 75",o)})()}
 ];

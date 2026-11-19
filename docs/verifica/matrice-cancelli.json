@@ -1,0 +1,187 @@
+{
+ "schema_version": "1.0",
+ "metadata": {
+  "logic_id": "ATLANTE-VERIFICA-CANCELLI-001",
+  "title": "Verifica a cancelli dei dati clinici dell'Atlante",
+  "version": "1.0",
+  "status": "draft",
+  "owner": "coordinatore dell'Atlante (sessione Claude)",
+  "purpose": "Documentare i controlli che ogni dato numerico di una voce didattica deve superare prima di essere pubblicato.",
+  "decision_role": "research_governance_only",
+  "data_level": "metadata_only",
+  "patient_care_use": false,
+  "executable_logic": false,
+  "change_summary": "Prima versione, applicata alle voci ECG tratte da due manuali.",
+  "monitoring_plan": "Rieseguire estrazione e coerenza a ogni nuova voce; rivedere i dati «da verificare» quando una fonte diventa leggibile.",
+  "retirement_criteria": "Ritirare o rivedere se cambiano le regole del progetto in CLAUDE.md o la skill di revisione."
+ },
+ "intended_use": "Solo controllo di qualità di contenuti didattici (studio per concorso); non per la cura dei pazienti né per uso clinico.",
+ "prohibited_uses": [
+  "No diagnosis, treatment recommendation, dosing, triage, urgency, alarm, or autonomous decision.",
+  "No care pathway, EHR rule, or executable clinical logic.",
+  "No claim of authorization or compliance."
+ ],
+ "limitations": [
+  "La matrice descrive il controllo dei contenuti e non esegue logica.",
+  "La presenza di una fonte non prova la qualità del dato.",
+  "I giudizi sono di un agente revisore, non di un panel umano qualificato."
+ ],
+ "sources": [
+  {
+   "id": "SRC-CLAUDE-MD",
+   "citation": "CLAUDE.md del progetto orale-infermieri, sezione Regole (fonti: PubMed, poi siti ufficiali ed eBioMedicine).",
+   "url": "not_applicable_for_local_synthetic_source",
+   "accessed": "2026-11-19"
+  },
+  {
+   "id": "SRC-REVISORE",
+   "citation": ".claude/agents/revisore-clinico.md (istruzioni del revisore).",
+   "url": "not_applicable_for_local_synthetic_source",
+   "accessed": "2026-11-19"
+  },
+  {
+   "id": "SRC-CDS-EVID",
+   "citation": "clinical-decision-support, references/evidence_profiles.md: la presenza di una fonte non stabilisce la qualità; un singolo studio non fissa un valore.",
+   "url": "not_applicable_for_local_synthetic_source",
+   "accessed": "2026-11-19"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "estrazione",
+   "type": "input_check",
+   "dependency_ids": [],
+   "precondition": "Una voce nuova o modificata è pronta.",
+   "logic_statement": "Estrarre ogni frase con un numero da voce, quiz e glossario con tools/tracciabilita.js estrai.",
+   "output_kind": "flag_for_review",
+   "output_value": "elenco dei dati da giudicare",
+   "source_ids": [
+    "SRC-CLAUDE-MD"
+   ],
+   "rationale": "Nessun numero deve sfuggire alla revisione.",
+   "validation_tests": [
+    "Una voce senza numeri produce un elenco vuoto.",
+    "Un quiz con un numero compare nell'elenco."
+   ],
+   "owner": "coordinatore",
+   "reviewer_role": "revisore-clinico",
+   "status": "draft"
+  },
+  {
+   "id": "fonte",
+   "type": "evidence_rule",
+   "dependency_ids": [
+    "estrazione"
+   ],
+   "precondition": "Il dato è nell'elenco.",
+   "logic_statement": "Ogni dato ha PMID/DOI o ente ufficiale e un tipo di fonte.",
+   "output_kind": "flag_for_review",
+   "output_value": "fonte_mancante se manca la fonte o il tipo",
+   "source_ids": [
+    "SRC-CLAUDE-MD",
+    "SRC-REVISORE"
+   ],
+   "rationale": "La fonte va citata nel campo n.",
+   "validation_tests": [
+    "Un confermato senza fonte blocca il cancello.",
+    "Un confermato senza tipo blocca il cancello."
+   ],
+   "owner": "revisore-clinico",
+   "reviewer_role": "coordinatore",
+   "status": "draft"
+  },
+  {
+   "id": "triangolazione",
+   "type": "evidence_rule",
+   "dependency_ids": [
+    "fonte"
+   ],
+   "precondition": "Il dato è una soglia o un criterio da linea guida.",
+   "logic_statement": "Confermare solo se letto nel testo della linea guida o in due fonti indipendenti; altrimenti da verificare.",
+   "output_kind": "flag_for_review",
+   "output_value": "da_verificare se manca la seconda conferma",
+   "source_ids": [
+    "SRC-CDS-EVID"
+   ],
+   "rationale": "Un dato bibliografico senza testo non conferma il valore.",
+   "validation_tests": [
+    "Un dato confermato da un solo studio genera un avviso.",
+    "Un dato da manuale genera un avviso."
+   ],
+   "owner": "revisore-clinico",
+   "reviewer_role": "coordinatore",
+   "status": "draft"
+  },
+  {
+   "id": "coerenza",
+   "type": "data_quality_gate",
+   "dependency_ids": [
+    "estrazione"
+   ],
+   "precondition": "Il dato compare anche in altre voci, quiz o glossario.",
+   "logic_statement": "Confrontare lo stesso termine in tutta l'app con tools/tracciabilita.js coerenza.",
+   "output_kind": "flag_for_review",
+   "output_value": "incoerenza se i valori differiscono",
+   "source_ids": [
+    "SRC-REVISORE"
+   ],
+   "rationale": "La stessa soglia non può avere due valori nell'app.",
+   "validation_tests": [
+    "QTc con valori diversi in due voci produce un'incoerenza."
+   ],
+   "owner": "coordinatore",
+   "reviewer_role": "revisore-clinico",
+   "status": "draft"
+  },
+  {
+   "id": "giudizio",
+   "type": "human_review",
+   "dependency_ids": [
+    "fonte",
+    "triangolazione",
+    "coerenza"
+   ],
+   "precondition": "Fonte, triangolazione e coerenza sono state controllate.",
+   "logic_statement": "Il revisore-clinico assegna a ogni dato: confermato, da verificare, errore con correzione.",
+   "output_kind": "documentation_status",
+   "output_value": "in attesa finché ogni dato non ha un giudizio",
+   "source_ids": [
+    "SRC-REVISORE"
+   ],
+   "rationale": "I controlli automatici non approvano un contenuto.",
+   "validation_tests": [
+    "Un dato senza giudizio blocca il cancello."
+   ],
+   "owner": "revisore-clinico",
+   "reviewer_role": "utente",
+   "status": "draft"
+  },
+  {
+   "id": "rilascio",
+   "type": "release_gate",
+   "dependency_ids": [
+    "giudizio"
+   ],
+   "precondition": "Tutti i dati hanno un giudizio.",
+   "logic_statement": "Unire in main solo se nessun errore resta aperto (tools/tracciabilita.js cancello).",
+   "output_kind": "release_hold",
+   "output_value": "blocco se resta almeno un errore",
+   "source_ids": [
+    "SRC-CLAUDE-MD"
+   ],
+   "rationale": "Gli errori vanno corretti prima della pubblicazione.",
+   "validation_tests": [
+    "Un errore non corretto chiude il cancello.",
+    "Solo confermati e da verificare annotati aprono il cancello."
+   ],
+   "owner": "coordinatore",
+   "reviewer_role": "utente",
+   "status": "draft"
+  }
+ ],
+ "human_review": {
+  "required": true,
+  "completed": false,
+  "approval_boundary": "Solo l'utente approva l'unione in main; la matrice non autorizza alcun uso clinico."
+ }
+}
