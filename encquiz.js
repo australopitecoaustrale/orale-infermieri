@@ -941,7 +941,7 @@ if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_INS);
 var QUIZ_RESP=[
 ["pattern-respiratori","Respiro profondo, regolare e rapido in una persona con chetoacidosi diabetica: come si chiama?",["Cheyne-Stokes","Biot","Kussmaul","Bradipnea"],2,"Il respiro di Kussmaul compensa l'acidosi metabolica."],
 ["pattern-respiratori","Respiri sempre più profondi, poi più superficiali, poi una pausa, a cicli: quale pattern?",["Cheyne-Stokes","Kussmaul","Biot","Tachipnea"],0,"È il respiro di Cheyne-Stokes, tipico per esempio dello scompenso cardiaco avanzato."],
-["pattern-respiratori","Gruppi di respiri simili interrotti all'improvviso da pause irregolari: quale pattern?",["Kussmaul","Biot","Cheyne-Stokes","Respiro normale"],1,"È il respiro di Biot, associato a lesioni del tronco encefalico, meningite o ipertensione endocranica."],
+["pattern-respiratori","Gruppi di respiri simili interrotti all'improvviso da pause irregolari: quale pattern?",["Kussmaul","Biot","Cheyne-Stokes","Respiro normale"],1,"È il respiro di Biot, descritto nelle lesioni del tronco encefalico e nell'aumento della pressione intracranica."],
 ["pattern-respiratori","Qual è la frequenza respiratoria normale dell'adulto a riposo?",["8-10 atti/min","12-20 atti/min","25-30 atti/min","30-40 atti/min"],1,"Nell'adulto la frequenza di riferimento è 12-20 atti al minuto; sopra 20 si parla di tachipnea, sotto 12 di bradipnea."],
 ["pattern-respiratori","Come si conta la frequenza respiratoria quando il respiro è irregolare?",["Per 15 secondi per 4","Per 5 secondi per 12","Per un minuto intero","Non serve contarla"],2,"Con ritmo irregolare e pause, solo il minuto intero non perde gli atti."]
 ];

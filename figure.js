@@ -1223,18 +1223,18 @@ const FIGURE=[
   o+=FT.text(8,236,"Le sulfoniluree agiscono al passo 3: chiudono il canale KATP.",{sm:true});
   return FT.svg(440,244,"Sei passi: glicemia alta, ATP nella cellula beta, chiusura dei canali KATP, ingresso di calcio e rilascio di insulina, GLUT4 in membrana nel muscolo, glucosio dentro e glicemia che scende",o)})()},
 /* lotto: video pattern respiratori */
-{id:"pattern-respiratori-tracciati",t:"Sette pattern respiratori a confronto",c:"Tracciati schematici di un minuto: respiro normale, tachipnea, bradipnea, Kussmaul, Cheyne-Stokes, Biot e apnea. Sono disegni illustrativi, non registrazioni.",
+{id:"pattern-respiratori-tracciati",t:"Sette pattern respiratori a confronto",c:"Tracciati schematici, frequenze non in scala: respiro normale, tachipnea, bradipnea, Kussmaul, Cheyne-Stokes, Biot e apnea. Sono disegni illustrativi, non registrazioni.",
  enc:["pattern-respiratori"],gl:["Respiro di Kussmaul","Respiro di Cheyne-Stokes","Respiro di Biot","Apnea","Tachipnea","Bradipnea"],st:/kussmaul|cheyne|biot|apnea|tachipnea|bradipnea/i,
  svg:(()=>{const W=250,X0=190;
   const wave=(f)=>{const p=[];for(let i=0;i<=240;i++){p.push([X0+i*W/240,f(i/240)])}return p};
   const sin=(n,a,y)=>t=>y-a*Math.sin(2*Math.PI*n*t);
-  const R=[["Normale","12-20/min",sin(5,6,0),"ok"],["Tachipnea","> 20/min",sin(10,5,0),"warn"],["Bradipnea","< 12/min",sin(3,6,0),"warn"],["Kussmaul","profondo, regolare",sin(7,11,0),"alarm"],
-   ["Cheyne-Stokes","cicli e pausa",t=>{const c=(t*2)%1;if(c>0.75)return 0;const env=Math.sin(Math.PI*c/0.75);return -12*env*Math.sin(2*Math.PI*14*t)},"alarm"],
-   ["Biot","gruppi e pause",t=>{const c=(t*3.2)%1;if(c>0.45)return 0;return -9*Math.sin(2*Math.PI*10*t)},"alarm"],
-   ["Apnea","nessun respiro",t=>t<0.12?-7*Math.sin(2*Math.PI*8*t):0,"alarm"]];
+  const R=[["Normale","12-20/min",sin(5,6,0),"ok"],["Tachipnea","> 20/min",sin(10,5,0),"warn"],["Bradipnea","< 12/min",sin(3,6,0),"warn"],["Kussmaul","profondo, regolare",sin(7,14,0),"alarm"],
+   ["Cheyne-Stokes","cicli e pausa",t=>{const c=(t*2)%1;if(c>0.75)return 0;const env=Math.sin(Math.PI*c/0.75);return -11*env*Math.sin(2*Math.PI*14*t)},"alarm"],
+   ["Biot","gruppi e pause",t=>{const G=[[0.02,0.18],[0.3,0.38],[0.5,0.7],[0.78,0.9]];return G.some(g=>t>=g[0]&&t<g[1])?-9*Math.sin(2*Math.PI*10*t):0},"alarm"],
+   ["Apnea","arresto dopo pochi atti",t=>t<0.12?-7*Math.sin(2*Math.PI*8*t):0,"alarm"]];
   let o="";R.forEach((r,i)=>{const y=34+i*40;const pts=wave(t=>y+r[2](t)).map(p=>[p[0],Math.round(p[1]*10)/10]);
    o+=FT.text(6,y-2,r[0],{b:true,sm:true})+FT.text(6,y+11,r[1],{sm:true});
    o+=FT.curve(pts,"fs");});
-  o+=FT.text(X0,10,"1 minuto, schema illustrativo",{sm:true});
+  o+=FT.text(X0,10,"schema illustrativo, frequenze non in scala",{sm:true});
   return FT.svg(450,310,"Sette tracciati schematici del respiro: normale, tachipnea, bradipnea, Kussmaul, Cheyne-Stokes, Biot, apnea",o)})()}
 ];
