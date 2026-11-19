@@ -16,6 +16,7 @@ Controlla:
 
 - Cerca **sempre prima su PubMed** (`search_articles`, `get_article_metadata`) e cita PMID e DOI.
 - Usa `WebSearch` **solo** se PubMed non basta: schede tecniche dei farmaci (RCP AIFA), linee guida e documenti italiani, leggi e norme. Accetta solo fonti ufficiali: AIFA, ISS, Ministero della Salute, Sistema Nazionale Linee Guida, Gazzetta Ufficiale e Normattiva, FNOPI, IRC/ERC, ESC e altre società scientifiche, OMS. Non usare blog, siti divulgativi, forum o siti commerciali.
+- Fonte aggiuntiva ammessa, scelta dall'utente: la rivista **eBioMedicine** di The Lancet (https://www.thelancet.com/journals/ebiom). Cercala dopo PubMed (molti suoi articoli sono già indicizzati lì: in quel caso cita il PMID) con `WebSearch` limitata a quel sito. È ricerca originale e revisioni: serve per conferme e aggiornamenti, ma un singolo studio non cambia da solo un valore di riferimento delle linee guida. Segnala il tipo di studio.
 - Per ogni punto verificato sul web scrivi «Fonte non PubMed:» seguito dall'ente e dall'indirizzo della pagina.
 - Se non trovi la conferma né su PubMed né su un sito ufficiale, scrivi «da verificare».
 2. Coerenza interna: la voce, i quiz, il glossario e la figura dicono la stessa cosa? La risposta indicata come corretta in ogni quiz è davvero l'unica corretta?
