@@ -413,6 +413,20 @@ nav.tabs{padding-left:30px;padding-right:30px}
 @media (max-width:900px){.og-side{position:static}}
 .side-card{display:flex;flex-direction:column;gap:8px;padding:16px}
 .side-card h3{font-size:1rem}
+/* ---- Ripasso verso la prova ---- */
+.prova{display:flex;flex-direction:column;gap:10px;padding:16px}
+.prova-head{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.prova-days{display:flex;align-items:baseline;gap:8px}
+.prova .kpi-v{font-size:2.1rem;line-height:1.1}
+.prova-set{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.prova-set input[type=date]{min-height:44px;padding:0 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;color-scheme:light dark}
+.prova-set .btn,.prova-plan a.btn,.prova-plan button.btn{min-height:44px}
+.prova-plan{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.prova-plan li{display:flex;gap:8px 12px;align-items:center;flex-wrap:wrap;justify-content:space-between;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.prova-plan .pp-t{display:flex;flex-direction:column;min-width:0;flex:1 1 180px}
+.prova-plan .pp-t small{color:var(--muted)}
+.prova-plan .pp-a{display:flex;gap:8px;flex-wrap:wrap}
+.prova-plan a.btn{text-decoration:none;display:inline-flex;align-items:center}
 .side-link{text-decoration:none;color:var(--ink);background:var(--scrub-soft);border-color:transparent;transition:transform .15s}
 .side-link:hover{transform:translateY(-2px)}
 .leitner{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
@@ -5289,6 +5303,42 @@ function dailySet(){
   return {ids:out.map(idOf),done:null,fresh:fresh.length>0,started:false};
 }
 function shuffleSeeded(a,rnd){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+/* ---- Ripasso verso la prova: la data è scelta dall'utente (orinf_dataprova), mai nei dati del repo ---- */
+let PROVA_MEM=null;
+function provaGet(){const v=LS.get("dataprova",null)||PROVA_MEM;return typeof v==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(v)?v:null}
+function provaSet(v){PROVA_MEM=v||null;LS.set("dataprova",v||null)}
+function provaDays(v){const [y,m,d]=v.split("-").map(Number),t=new Date(y,m-1,d),n=new Date();n.setHours(0,0,0,0);return Math.round((t-n)/DAY)}
+/* pesa le aree (peso di ENC_AREE, 1 se assente) per gli errori ancora da ripassare e recenti; sceglie 2-3 voci */
+function provaPlan(){
+  const now=Date.now(),perArea={},perVoce={};
+  for(const q of QALL){if(!q.enc||!ENC_BY[q.enc])continue;const st=STATS[q.id];let w=0;
+    if(RIP[q.id])w+=3;if(st&&st.w&&now-(st.t||0)<14*DAY)w+=2;
+    if(w){perVoce[q.enc]=(perVoce[q.enc]||0)+w;const a=ENC_BY[q.enc].a;perArea[a]=(perArea[a]||0)+w}}
+  const rnd=seeded("prova"+todayStr());
+  const areas=Object.keys(EAREE).map(a=>({a,sc:(EAREE[a].peso>0?EAREE[a].peso:1)*(1+(perArea[a]||0))+rnd()*.5})).sort((x,y)=>y.sc-x.sc).slice(0,3);
+  const out=[];
+  for(const {a} of areas){
+    const L=ENCY.filter(e=>e.a===a&&!e.x);if(!L.length)continue;
+    const seen=e=>Q3.some(q=>q.enc===e.id&&STATS[q.id]);
+    const best=L.map(e=>({e,sc:(perVoce[e.id]||0)*2+(seen(e)?0:1)+rnd()*.9})).sort((x,y)=>y.sc-x.sc)[0].e;
+    out.push({a,e:best,hot:!!perVoce[best.id],nq:Q3.filter(q=>q.enc===best.id).length})}
+  return out}
+function provaCard(){
+  const v=provaGet(),n=v?provaDays(v):null,f=`<div class="prova-set"><label class="small" for="prova-d">Data della prova</label><input type="date" id="prova-d" value="${v||""}"><button class="btn" id="prova-ok">Salva</button>${v?`<button class="btn" id="prova-x">Cancella</button>`:""}</div>`;
+  if(n==null||n<0)return `<div class="prova-head"><div><span class="eyebrow">Ripasso verso la prova</span><p class="small" style="margin:2px 0 0">${n<0?"La data impostata è già passata: scegline un'altra.":"Imposta la data della prova per avere ogni giorno un piano da 15 minuti."}</p></div>${f}</div>`;
+  const plan=provaPlan(),rd=ripDue().length;
+  return `<div class="prova-head"><div><span class="eyebrow">Ripasso verso la prova</span><div class="prova-days"><span class="kpi-v mono">${n===0?"Oggi":n}</span><span>${n===0?"è il giorno della prova":n===1?"giorno alla prova":"giorni alla prova"}</span></div><span class="small">${n===0?"In bocca al lupo":"Mancano "+n+(n===1?" giorno":" giorni")}. Piano di oggi: 15 minuti.</span></div>${f}</div>
+  <ol class="prova-plan">${plan.map(p=>`<li><span class="pp-t"><b>${esc(p.e.t)}</b><small>${esc(EAREE[p.a].n)}${p.hot?" · con errori recenti":""}</small></span><span class="pp-a"><a class="btn" href="#voce-${p.e.id}">Leggi la voce</a>${p.nq?`<button class="btn primary" data-pq="${p.e.id}">Quiz (${p.nq})</button>`:""}</span></li>`).join("")}${rd?`<li><span class="pp-t"><b>Ripasso errori</b><small>${rd} da rivedere oggi</small></span><span class="pp-a"><button class="btn primary" data-pq="@rip">Ripassa ora</button></span></li>`:""}</ol>`}
+function provaWire(){
+  const box=$("#prova-box");if(!box)return;
+  const redraw=()=>{box.innerHTML=provaCard();provaWire()};
+  const ok=$("#prova-ok"),x=$("#prova-x");
+  if(ok)ok.onclick=()=>{const v=$("#prova-d").value;if(/^\d{4}-\d{2}-\d{2}$/.test(v)){provaSet(v);redraw()}};
+  if(x)x.onclick=()=>{provaSet(null);redraw()};
+  box.querySelectorAll("[data-pq]").forEach(b=>b.onclick=()=>{const id=b.dataset.pq;
+    if(id==="@rip"){const g=$("#rip-go");if(g&&!g.disabled)g.click();return}
+    const pool=shuffle(Q3.filter(q=>q.enc===id)),rel=(ENC_BY[id].r||[]).flatMap(r=>Q3.filter(q=>q.enc===r));
+    location.hash="quiz";setTimeout(()=>startQuiz(pool.concat(shuffle(rel).slice(0,Math.max(0,6-pool.length))),"enc-"+id),50)})}
 function oggi(){
   const d=todayStr(), set=dailySet(), byId=Object.fromEntries(QALL.map(q=>[q.id,q]));
   const list=set.ids.map(id=>itemFromId(id,byId)).filter(Boolean);
@@ -5307,6 +5357,7 @@ function oggi(){
     <div class="sb"><span class="eyebrow">Ieri → oggi</span><span class="sb-v mono">${rep.text}</span><span class="small">${rep.sub}</span></div>
     <div class="sb"><span class="eyebrow">Giorni di fila</span><span class="sb-v mono sb-beat">${streak}</span><span class="small">${set.done?"Sessione completata: "+set.done:"Completa la sessione di oggi"}</span></div>
   </div>
+  <div class="sheet prova" id="prova-box">${provaCard()}</div>
   <div class="oggi-grid">
     <section class="og-main">
       <div class="og-title"><h3>Sessione mista del giorno</h3><span class="small">${list.filter(x=>kindOf(x)==="mcq").length} quiz · ${list.filter(x=>x.kind==="open").length} aperte · ${list.filter(x=>x.kind==="case").length} caso</span></div>
@@ -5322,6 +5373,7 @@ function oggi(){
       <a class="sheet side-card side-link" href="#avanzamento"><span class="eyebrow">Progressi</span><span>Vedi come stai andando e cosa rivedere</span></a>
     </aside>
   </div>`;
+  provaWire();
   if(oq)$("#oq-train").onclick=()=>{oralPreset={q:oq};location.hash="orale"};
   if($("#rip-go"))$("#rip-go").onclick=()=>{const l=shuffle(ripDue());if(!l.length)return;startQuiz(l,"mix-ripasso");$("#qbox").scrollIntoView({block:"start"})};
   if($("#allnew"))$("#allnew").onclick=()=>{startQuiz(DBQ.filter(q=>q.date===d),"mix-nuove");$("#qbox").scrollIntoView({block:"start"})};
