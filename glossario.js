@@ -772,5 +772,9 @@ GLOSS.push(
 ["Canale KATP","t","Canale del potassio sensibile all'ATP della cellula beta: si chiude quando l'ATP sale e avvia la depolarizzazione che porta alla secrezione di insulina; è il bersaglio delle sulfoniluree.","ATP-sensitive potassium channel","fisio-insulina"],
 ["GLUT4","t","Trasportatore del glucosio di muscolo e tessuto adiposo: su stimolo dell'insulina passa dalle vescicole interne alla membrana e permette l'ingresso del glucosio.","Glucose transporter type 4","fisio-insulina"],
 ["Esocitosi","t","Rilascio del contenuto di una vescicola all'esterno della cellula, per fusione con la membrana; così la cellula beta secerne l'insulina.","Exocytosis","fisio-insulina"],
-["Depolarizzazione","t","Riduzione della negatività del potenziale di membrana; nella cellula beta apre i canali del calcio e innesca il rilascio di insulina.","Depolarization","fisio-insulina"]
+["Depolarizzazione","t","Riduzione della negatività del potenziale di membrana; nella cellula beta apre i canali del calcio e innesca il rilascio di insulina.","Depolarization","fisio-insulina"],
+/* da video: pattern respiratori */
+["Respiro di Kussmaul","s","Respiro profondo, regolare e di solito rapido, tipico dell'acidosi metabolica (chetoacidosi diabetica, insufficienza renale).","Kussmaul breathing","pattern-respiratori"],
+["Respiro di Cheyne-Stokes","s","Respiro a cicli: atti sempre più profondi, poi più superficiali, poi una pausa; si osserva per esempio nello scompenso cardiaco e dopo lesioni cerebrali.","Cheyne-Stokes respiration","pattern-respiratori"],
+["Respiro di Biot","s","Gruppi di respiri simili tra loro interrotti all'improvviso da pause di durata irregolare; è associato a lesioni del tronco encefalico, meningite e ipertensione endocranica.","Biot's respiration","pattern-respiratori"]
 );
