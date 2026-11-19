@@ -1236,5 +1236,27 @@ const FIGURE=[
    o+=FT.text(6,y-2,r[0],{b:true,sm:true})+FT.text(6,y+11,r[1],{sm:true});
    o+=FT.curve(pts,"fs");});
   o+=FT.text(X0,10,"schema illustrativo, frequenze non in scala",{sm:true});
-  return FT.svg(450,310,"Sette tracciati schematici del respiro: normale, tachipnea, bradipnea, Kussmaul, Cheyne-Stokes, Biot, apnea",o)})()}
+  return FT.svg(450,310,"Sette tracciati schematici del respiro: normale, tachipnea, bradipnea, Kussmaul, Cheyne-Stokes, Biot, apnea",o)})()},
+/* lotto: carosello ECG e diabete */
+{id:"ecg-diabete-quattro-reperti",t:"ECG e diabete: quattro reperti da cercare",c:"Schemi illustrativi, non registrazioni: tachicardia sinusale a riposo, ischemia (ST sottoslivellato), ipertrofia ventricolare sinistra (QRS alto con ST-T da sovraccarico), QTc prolungato. Un ECG normale non esclude la cardiopatia.",
+ enc:["ecg-diabete"],gl:["Neuropatia autonomica cardiaca","Ischemia silente","QTc"],st:/diabet|ecg.*(tachicardia|ischemia|ipertrofia|qtc)/i,
+ svg:(()=>{
+  const P=(pts)=>'<path class="fs" d="'+pts.map((p,i)=>(i?"L":"M")+Math.round(p[0]*10)/10+" "+Math.round(p[1]*10)/10).join("")+'"/>';
+  /* un battito: elenco di [dx,dy] relativi alla linea di base (su = negativo) */
+  const trace=(x0,y0,beat,w,n)=>{let pts=[];for(let k=0;k<n;k++)beat.forEach(b=>pts.push([x0+k*w+b[0],y0+b[1]]));return P(pts)};
+  const tachy=[[0,0],[4,0],[6,-4],[8,0],[11,0],[12,3],[14,-22],[16,5],[18,0],[22,0],[25,-6],[28,0],[30,0]];
+  const isch=[[0,0],[6,0],[9,-4],[12,0],[17,0],[18,3],[20,-24],[22,6],[25,5],[40,10],[50,0],[54,0],[60,0]];
+  const lvh=[[0,0],[6,0],[9,-4],[12,0],[17,0],[18,4],[20,-46],[23,24],[26,4],[30,5],[44,10],[52,2],[56,0],[64,0]];
+  const lqt=[[0,0],[8,0],[11,-4],[14,0],[20,0],[21,3],[23,-24],[25,4],[28,0],[62,0],[72,-9],[82,0],[88,0],[96,0]];
+  const Q=[[8,28,"Tachicardia sinusale","frequenza alta a riposo","warn"],[226,28,"Ischemia","ST sottoslivellato","alarm"],[8,166,"Ipertrofia ventricolare sin.","QRS alto, ST-T da sovraccarico","info"],[226,166,"QTc prolungato","> 500 ms: rischio di torsione","alarm"]];
+  let o="";
+  Q.forEach(q=>{o+='<rect class="fbx k-'+q[4]+'" x="'+q[0]+'" y="'+(q[1]-20)+'" width="206" height="124" rx="8"/>'+FT.text(q[0]+10,q[1]-4,q[2],{b:true})+FT.text(q[0]+10,q[1]+9,q[3],{sm:true})});
+  o+=trace(18,96,tachy,30,6);
+  o+=trace(236,96,isch,64,3);
+  o+=trace(18,232,lvh,64,3);
+  o+=trace(236,232,lqt,96,2);
+  /* indicazione QT */
+  o+='<path class="fl dash" d="M257 240V246M318 240V246M257 244H318"/>'+FT.text(288,258,"QT",{a:"middle",sm:true});
+  o+=FT.text(220,298,"schemi illustrativi, non registrazioni",{a:"middle",sm:true});
+  return FT.svg(440,306,"Quattro reperti ECG da cercare nella persona con diabete: tachicardia sinusale, ischemia, ipertrofia ventricolare sinistra, QTc prolungato",o)})()}
 ];
