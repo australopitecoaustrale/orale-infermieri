@@ -776,5 +776,7 @@ GLOSS.push(
 /* da video: pattern respiratori */
 ["Respiro di Kussmaul","s","Respiro profondo, regolare e di solito rapido, tipico dell'acidosi metabolica (chetoacidosi diabetica, insufficienza renale).","Kussmaul breathing","pattern-respiratori"],
 ["Respiro di Cheyne-Stokes","s","Respiro a cicli: atti sempre più profondi, poi più superficiali, poi una pausa; si osserva per esempio nello scompenso cardiaco e dopo lesioni cerebrali.","Cheyne-Stokes respiration","pattern-respiratori"],
-["Respiro di Biot","s","Gruppi di respiri simili tra loro interrotti all'improvviso da pause di durata irregolare; è descritto nelle lesioni del tronco encefalico e in condizioni con aumento della pressione intracranica.","Biot's respiration","pattern-respiratori"]
+["Respiro di Biot","s","Gruppi di respiri simili tra loro interrotti all'improvviso da pause di durata irregolare; è descritto nelle lesioni del tronco encefalico e in condizioni con aumento della pressione intracranica.","Biot's respiration","pattern-respiratori"],
+["Neuropatia autonomica cardiaca","t","Danno dei nervi del sistema autonomo che regolano cuore e vasi, complicanza del diabete: frequenza a riposo alta e poco variabile, ipotensione ortostatica.","Cardiovascular autonomic neuropathy","ecg-diabete"],
+["Ischemia silente","t","Apporto di sangue al miocardio insufficiente senza dolore o con sintomi atipici; è più frequente nella persona con diabete.","Silent ischemia","ecg-diabete"]
 );
