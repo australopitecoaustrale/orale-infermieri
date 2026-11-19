@@ -1,0 +1,1241 @@
+[
+ {
+  "id": "ecg-monitor-elettrodi#d",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 15505110; 28974521",
+  "nota": ""
+ },
+ {
+  "id": "ecg-monitor-elettrodi#p0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 15505110",
+  "nota": ""
+ },
+ {
+  "id": "ecg-monitor-elettrodi#p1",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 15505110; 28974521",
+  "nota": ""
+ },
+ {
+  "id": "ecg-monitor-elettrodi#p3",
+  "stato": "corretto",
+  "tipo": "studio",
+  "fonte": "PMID 1894848; 15505110",
+  "nota": "V1 (o V6); V1+D2 come abitudine"
+ },
+ {
+  "id": "ecg-monitor-elettrodi#p4",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 17322457",
+  "nota": ""
+ },
+ {
+  "id": "ecg-monitor-elettrodi#p5",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30571511",
+  "nota": "definizione di contigue corretta"
+ },
+ {
+  "id": "ecg-monitor-elettrodi#p6",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 15505110; 17322457",
+  "nota": ""
+ },
+ {
+  "id": "ecg-monitor-elettrodi#v0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 15505110",
+  "nota": ""
+ },
+ {
+  "id": "ecg-monitor-elettrodi#v1",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 15505110",
+  "nota": ""
+ },
+ {
+  "id": "ecg-monitor-elettrodi#v2",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 17322457",
+  "nota": ""
+ },
+ {
+  "id": "ecg-monitor-elettrodi#i5",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 28974521",
+  "nota": ""
+ },
+ {
+  "id": "ecg-monitor-elettrodi#q0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 15505110",
+  "nota": ""
+ },
+ {
+  "id": "ecg-monitor-elettrodi#q1",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 17322457",
+  "nota": ""
+ },
+ {
+  "id": "ecg-monitor-elettrodi#q2",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 1894848; 15505110",
+  "nota": ""
+ },
+ {
+  "id": "ecg-monitor-elettrodi#q3",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30571511",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#d",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 6299315; 34744113; 20844612",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#p0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 6299315; 8450875; 17322457",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#p1",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 8450875",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#p2",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 6299315",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#p3",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30571511",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#p4",
+  "stato": "da-verificare",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30571511; 37622654",
+  "nota": "testo corretto; soglia del sottoslivellamento da verificare"
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#p5",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 34744113; 20022196",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#p6",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 22993010; 20844612",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#v0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30571511 (Quarta); Quinta 42661421 da verificare",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#v1",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30571511 (Quarta); Quinta da verificare",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#v2",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 8450875",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#v3",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 8450875",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#v4",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 20844612",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#i0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30571511; 8450875",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#i1",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30571511",
+  "nota": "registrare a paziente supino"
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#i2",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "buona pratica",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#q0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 17322457; 6299315",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#q1",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30571511",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#q2",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 6299315",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#q3",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 34744113",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#gl:V4R",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 8450875; 6299315",
+  "nota": ""
+ },
+ {
+  "id": "ecg-derivazioni-aggiuntive#gl:Derivazione di Lewis",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 34744113",
+  "nota": ""
+ },
+ {
+  "id": "ecg-artefatti#p2",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "norma tecnica 50 Hz",
+  "nota": ""
+ },
+ {
+  "id": "ecg-artefatti#p4",
+  "stato": "corretto",
+  "tipo": "revisione",
+  "fonte": "PMID 17932025",
+  "nota": "colore del neutro corretto"
+ },
+ {
+  "id": "ecg-artefatti#v0",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "norma tecnica",
+  "nota": ""
+ },
+ {
+  "id": "ecg-artefatti#v1",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 17932025",
+  "nota": ""
+ },
+ {
+  "id": "ecg-artefatti#q1",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 17932025",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#p0",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale; PMID 19228820 non letto",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#p1",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 36435351",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#p2",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 12907543; 33497882",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#p3",
+  "stato": "da-verificare",
+  "tipo": "studio",
+  "fonte": "PMID 33497882",
+  "nota": "≥ o > 120 ms: AHA 2009 parte V non letta"
+ },
+ {
+  "id": "ecg-onda-p#p4",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 12907543",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#p5",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 36435351; 29593797",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#p6",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#p7",
+  "stato": "corretto",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": "tre forme di P; criterio da manuale"
+ },
+ {
+  "id": "ecg-onda-p#v0",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 12907543; 33497882",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#v1",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 12907543",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#v2",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#v3",
+  "stato": "da-verificare",
+  "tipo": "studio",
+  "fonte": "PMID 33497882",
+  "nota": "come p3"
+ },
+ {
+  "id": "ecg-onda-p#v4",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 12907543",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#v5",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 36435351; 29593797",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#i0",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#i1",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#q0",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#q1",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 33497882",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#q2",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 12907543",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#q3",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-p#gl:P mitrale",
+  "stato": "da-verificare",
+  "tipo": "studio",
+  "fonte": "PMID 33497882",
+  "nota": "come p3"
+ },
+ {
+  "id": "ecg-onda-p#gl:P polmonare",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 12907543",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#p1",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 2949887; 6230928",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#p2",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 2949887; 24513471",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#p3",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 33459031; 12392827",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#p4",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 32608577; 33513186",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#p5",
+  "stato": "da-verificare",
+  "tipo": "studio",
+  "fonte": "PMID 6230928",
+  "nota": "una sola fonte; R alta in V1 senza valore"
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#p6",
+  "stato": "corretto",
+  "tipo": "studio",
+  "fonte": "PMID 24630386; 34948477",
+  "nota": "ampiezza picco-picco"
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#v0",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 2949887; 6230928",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#v1",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 2949887; 24513471",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#v2",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 33459031",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#v3",
+  "stato": "da-verificare",
+  "tipo": "studio",
+  "fonte": "PMID 6230928",
+  "nota": "una sola fonte"
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#v4",
+  "stato": "corretto",
+  "tipo": "studio",
+  "fonte": "PMID 24630386; 34948477",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#v5",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 32608577; 33513186; 2949887",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#i0",
+  "stato": "corretto",
+  "tipo": "aritmetica",
+  "fonte": "taratura",
+  "nota": "tolta la velocità"
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#q0",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 2949887",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#q3",
+  "stato": "confermato",
+  "tipo": "aritmetica",
+  "fonte": "aritmetica",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#gl:Indice di Sokolow-Lyon",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 2949887",
+  "nota": ""
+ },
+ {
+  "id": "ecg-ipertrofie-voltaggi#gl:Basso voltaggio",
+  "stato": "corretto",
+  "tipo": "studio",
+  "fonte": "PMID 24630386; 41522960",
+  "nota": "enfisema da verificare nella nota"
+ },
+ {
+  "id": "ecg-onda-t#p0",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 21632912",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-t#p2",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 29997012",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-t#p3",
+  "stato": "corretto",
+  "tipo": "revisione",
+  "fonte": "PMID 23879271; 26394330; 26365482; 25655685",
+  "nota": "cardiomiopatia ipertrofica apicale"
+ },
+ {
+  "id": "ecg-onda-t#p7",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 20142454",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-t#v1",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 21632912",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-t#i0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 37622654",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-t#i4",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 26394330",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-t#q0",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 21632912",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-t#q2",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 20142454",
+  "nota": ""
+ },
+ {
+  "id": "ecg-onda-t#q3",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 26394330",
+  "nota": ""
+ },
+ {
+  "id": "ecg-qt-misura#p0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 20142454",
+  "nota": ""
+ },
+ {
+  "id": "ecg-qt-misura#p3",
+  "stato": "confermato",
+  "tipo": "aritmetica",
+  "fonte": "aritmetica (516,4 ms)",
+  "nota": ""
+ },
+ {
+  "id": "ecg-qt-misura#p4",
+  "stato": "confermato",
+  "tipo": "aritmetica",
+  "fonte": "aritmetica (474,3 ms); PMID 20142454; 34253795",
+  "nota": ""
+ },
+ {
+  "id": "ecg-qt-misura#p7",
+  "stato": "da-verificare",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": "regola della metà dell'R-R, orientativa"
+ },
+ {
+  "id": "ecg-qt-misura#p8",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 36017572; 37102266; 42123196",
+  "nota": "elementi di supporto ESC 2022"
+ },
+ {
+  "id": "ecg-qt-misura#v2",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 19281931 (testo jacc.org); 20142454",
+  "nota": ""
+ },
+ {
+  "id": "ecg-qt-misura#v3",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 20142454",
+  "nota": ""
+ },
+ {
+  "id": "ecg-qt-misura#v4",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 20142454",
+  "nota": ""
+ },
+ {
+  "id": "ecg-qt-misura#v5",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 36017572; 37102266",
+  "nota": ""
+ },
+ {
+  "id": "ecg-qt-misura#i0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 20142454",
+  "nota": ""
+ },
+ {
+  "id": "ecg-qt-misura#i3",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 20142454",
+  "nota": ""
+ },
+ {
+  "id": "ecg-qt-misura#i4",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 20142454",
+  "nota": "trasferimenti solo se indispensabili"
+ },
+ {
+  "id": "ecg-qt-misura#q1",
+  "stato": "confermato",
+  "tipo": "aritmetica",
+  "fonte": "aritmetica",
+  "nota": ""
+ },
+ {
+  "id": "ecg-qt-misura#q2",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 20142454; 34253795",
+  "nota": ""
+ },
+ {
+  "id": "ecg-qt-misura#q3",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 20142454",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#d",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale; voce ritmi",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#p0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30586772 (testo ahajournals)",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#p1",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 21411136",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#p6",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 41117571; algoritmo ERC",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#v0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30586772",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#v1",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale; PMID 31504425",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#v2",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 21411136",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#v3",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 21411136",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#v4",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 41117571",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#i3",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 41117572",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#i4",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 41117571",
+  "nota": "nonostante la ventilazione"
+ },
+ {
+  "id": "ecg-sinusali#q0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 41117572",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#q1",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#q2",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 41117571",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sinusali#gl:Tachicardia sinusale inappropriata",
+  "stato": "da-verificare",
+  "tipo": "linea-guida",
+  "fonte": "PMID 25980576",
+  "nota": "aggiunti i sintomi; soglia di 90/min non inserita"
+ },
+ {
+  "id": "ecg-flutter#d",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 36153119",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#p0",
+  "stato": "corretto",
+  "tipo": "revisione",
+  "fonte": "PMID 36153119",
+  "nota": "250-300"
+ },
+ {
+  "id": "ecg-flutter#p1",
+  "stato": "confermato",
+  "tipo": "aritmetica",
+  "fonte": "aritmetica",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#p2",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 36153119",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#p3",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale; voce ritmi",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#p5",
+  "stato": "corretto",
+  "tipo": "studio",
+  "fonte": "PMID 11239374; 34703982; 30033133",
+  "nota": "classe IC rallenta le onde F"
+ },
+ {
+  "id": "ecg-flutter#v0",
+  "stato": "corretto",
+  "tipo": "revisione",
+  "fonte": "PMID 36153119",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#v1",
+  "stato": "confermato",
+  "tipo": "aritmetica",
+  "fonte": "aritmetica",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#v2",
+  "stato": "confermato",
+  "tipo": "aritmetica",
+  "fonte": "aritmetica",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#v3",
+  "stato": "confermato",
+  "tipo": "aritmetica",
+  "fonte": "aritmetica",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#v4",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 36153119; 31504425",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#i0",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#q0",
+  "stato": "confermato",
+  "tipo": "aritmetica",
+  "fonte": "aritmetica",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#q1",
+  "stato": "confermato",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#q2",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 36153119",
+  "nota": ""
+ },
+ {
+  "id": "ecg-flutter#gl:Onde F",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 36153119",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tv#d",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 36017572 (estratto)",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tv#p1",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 14557344; 623134; 3376886",
+  "nota": "140/160 ms secondo la morfologia"
+ },
+ {
+  "id": "ecg-tv#p3",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 2022022; 37487685",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tv#p4",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 36017572",
+  "nota": "richiede un intervento"
+ },
+ {
+  "id": "ecg-tv#v0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 36017572",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tv#v1",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 36017572",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tv#v2",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 14557344",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tv#v3",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 2022022",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tv#i2",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 41117572",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tv#q0",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 24656320",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tv#q2",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 36017572",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tv#q3",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 41117572; 36017572",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tv#gl:Concordanza precordiale",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 2022022",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tossici#p1",
+  "stato": "corretto",
+  "tipo": "revisione",
+  "fonte": "PMID 7618783; 2650587; 16390222",
+  "nota": "≥ 100 ms ovunque"
+ },
+ {
+  "id": "ecg-tossici#p2",
+  "stato": "corretto",
+  "tipo": "studio",
+  "fonte": "PMID 4022081; 16390222",
+  "nota": "aritmie solo con QRS ≥ 160 ms"
+ },
+ {
+  "id": "ecg-tossici#v0",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 4022081",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tossici#v1",
+  "stato": "corretto",
+  "tipo": "studio",
+  "fonte": "PMID 7618783",
+  "nota": "non più «miglior indice»"
+ },
+ {
+  "id": "ecg-tossici#i0",
+  "stato": "da-verificare",
+  "tipo": "revisione",
+  "fonte": "PMID 16390222",
+  "nota": "ECG in ogni intossicazione: buona pratica, senza linea guida"
+ },
+ {
+  "id": "ecg-tossici#q0",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 7618783",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tossici#q1",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 16390221",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tossici#q3",
+  "stato": "confermato",
+  "tipo": "revisione",
+  "fonte": "PMID 28306693; 18347214",
+  "nota": ""
+ },
+ {
+  "id": "ecg-tossici#gl:Onda R terminale in aVR",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 7618783; 16390222",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sede-infarto#p0",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967; 42663357",
+  "nota": "aggiunta la condizione su BBS e IVS"
+ },
+ {
+  "id": "ecg-sede-infarto#p1",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sede-infarto#p2",
+  "stato": "da-verificare",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": "corrispondenza derivazioni-coronaria"
+ },
+ {
+  "id": "ecg-sede-infarto#p3",
+  "stato": "da-verificare",
+  "tipo": "manuale",
+  "fonte": "manuale",
+  "nota": "corrispondenza derivazioni-coronaria"
+ },
+ {
+  "id": "ecg-sede-infarto#p4",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967; 42661421",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sede-infarto#p5",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 37622654",
+  "nota": "sei derivazioni, non otto"
+ },
+ {
+  "id": "ecg-sede-infarto#v0",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967; 42663357",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sede-infarto#v1",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967; 42663357",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sede-infarto#v2",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967 (Quarta)",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sede-infarto#v3",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967 (Quarta)",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sede-infarto#v4",
+  "stato": "da-verificare",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967; 42661425",
+  "nota": "Quarta riportata; Quinta 2026 da verificare sul testo"
+ },
+ {
+  "id": "ecg-sede-infarto#v5",
+  "stato": "da-verificare",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967",
+  "nota": "R ≥ 0,04 s da verificare"
+ },
+ {
+  "id": "ecg-sede-infarto#i0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 37622654",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sede-infarto#i1",
+  "stato": "corretto",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967",
+  "nota": "su indicazione o protocollo"
+ },
+ {
+  "id": "ecg-sede-infarto#q0",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sede-infarto#q1",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967; 42661421",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sede-infarto#q2",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967; 42663357",
+  "nota": ""
+ },
+ {
+  "id": "ecg-sede-infarto#gl:Derivazioni posteriori",
+  "stato": "confermato",
+  "tipo": "linea-guida",
+  "fonte": "PMID 30153967",
+  "nota": ""
+ }
+]
