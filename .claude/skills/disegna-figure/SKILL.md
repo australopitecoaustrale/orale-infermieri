@@ -54,7 +54,7 @@ node tools/verifica.js
 python3 -m http.server 8765 &
 ```
 
-Poi uno scatto di ogni figura nuova a 430 px di larghezza, tema scuro e chiaro, e guardarlo per intero (sovrapposizioni, tagli, contrasto). Un modo rapido: aprire l'app, chiamare `figHtml(FIGURE.find(f=>f.id==="…"))` in un contenitore a tutto schermo e fotografarlo con Playwright. Cambiare la versione in `sw.js` nei due punti.
+Poi uno scatto di ogni figura nuova a 430 px di larghezza, tema scuro e chiaro, e guardarlo per intero (sovrapposizioni, tagli, contrasto): scrivi le figure in un file di lotto (oggetti separati da virgole, come il contenuto di `FIGURE`) e lancia `NODE_PATH=$(npm root -g) node tools/anteprima-figure.js <lotto.js> <cartella>`, senza toccare `figure.js`; a figure approvate si incollano in `figure.js`. Cambiare la versione in `sw.js` nei due punti.
 
 Per ogni lotto di figure con contenuto clinico, **far rivedere i numeri e le frasi al `revisore-clinico`** (PubMed per primo, siti ufficiali dopo) e correggere prima di unire.
 
@@ -68,6 +68,10 @@ Se l'utente manda un video da cui trarre spunto, l'obiettivo è una figura (e un
 4. Dove il video e la voce dell'Atlante dicono cose diverse, vale la voce verificata: segnala la differenza all'utente invece di copiare l'errore.
 5. Mai copiare fotogrammi, loghi, nomi di marchio, filigrane o grafica altrui: stessa struttura e stessi passi, tratto e colori del tema dell'Atlante.
 6. Inserisci la figura nella voce o nella sezione dedicata (`enc`, `gl`, `st`), controlla in scuro e chiaro, rilettura del `revisore-clinico` per i numeri.
+
+## Più agenti in parallelo
+
+Per un lotto grande (decine di figure) si possono lanciare più subagenti, uno per area, ciascuno con il suo file di lotto in una cartella di lavoro e **senza toccare `figure.js`**: due agenti che modificano lo stesso file si pestano i piedi. Chi coordina incolla i lotti in `figure.js`, controlla gli scatti, fa rileggere i numeri ai `revisore-clinico` (anche in parallelo, uno per lotto), applica le correzioni, cambia la cache e unisce.
 
 ## 6. Migliorare sempre
 

@@ -125,12 +125,12 @@ const FIGURE=[
  <g class="ft fsm"><text x="8" y="146">ST e T opposti al QRS: normale nel blocco</text><text x="228" y="146">≥ 1 mm con QRS positivo: 5 punti</text><text x="8" y="302">≥ 1 mm in V1, V2 o V3: 3 punti</text><text x="228" y="302">≥ 5 mm (2 punti) o ≥ 25% dell'onda S (Smith)</text></g></svg>`},
 {id:"stato-di-male",t:"Stato di male epilettico: i tempi del trattamento",c:"Una crisi che dura più di 5 minuti va trattata. A 5 minuti benzodiazepina (lorazepam endovena, midazolam buccale o intranasale, diazepam rettale); a circa 20 minuti, se continua, levetiracetam, fosfenitoina o valproato endovena; a circa 40 minuti anestesia generale in terapia intensiva.",
  enc:["antiepilettici","epilessia"],gl:["Stato di male epilettico"],st:/epile|convuls|crisi/i,
- svg:`<svg viewBox="0 0 440 140" role="img" aria-label="Linea del tempo dello stato di male epilettico: 5, 20 e 40 minuti">
+ svg:`<svg viewBox="0 0 440 156" role="img" aria-label="Linea del tempo dello stato di male epilettico: 5, 20 e 40 minuti">
  <path class="fl" style="stroke-width:2.2" d="M40 58H400"/><path class="fx" style="stroke-width:2.2" d="M394 52l8 6l-8 6"/>
  <circle class="fx anm" r="11" style="stroke-width:2.2"><animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;.509;.509;1;1" keyTimes="0;.18;.4;.6;.82;1" path="M46 58H388"/></circle><g class="fv"><circle cx="46" cy="58" r="7"/><circle cx="220" cy="58" r="7"/><circle cx="388" cy="58" r="7"/></g>
- <g class="ft" font-weight="700"><text x="38" y="36">5 min</text><text x="220" y="36" text-anchor="middle">circa 20 min</text><text x="400" y="36" text-anchor="end">circa 40 min</text>
- <text x="38" y="88">Benzodiazepina</text><text x="220" y="88" text-anchor="middle">Secondo farmaco</text><text x="400" y="88" text-anchor="end">Anestesia</text></g>
- <g class="ft fsm"><text x="38" y="104">lorazepam, midazolam</text><text x="38" y="118">o diazepam</text><text x="220" y="104" text-anchor="middle">levetiracetam, fosfenitoina</text><text x="220" y="118" text-anchor="middle">o valproato EV</text><text x="400" y="104" text-anchor="end">terapia intensiva</text></g></svg>`},
+ <g class="ft" font-weight="700" style="font-size:14px"><text x="38" y="34">5 min</text><text x="220" y="34" text-anchor="middle">circa 20 min</text><text x="400" y="34" text-anchor="end">circa 40 min</text>
+ <text x="38" y="92">Benzodiazepina</text><text x="220" y="92" text-anchor="middle">Secondo farmaco</text><text x="400" y="92" text-anchor="end">Anestesia</text></g>
+ <g class="ft fsm" style="font-size:11.5px;fill:var(--ink)"><text x="38" y="110">lorazepam, midazolam</text><text x="38" y="125">o diazepam</text><text x="220" y="110" text-anchor="middle">levetiracetam,</text><text x="220" y="125" text-anchor="middle">fosfenitoina o valproato EV</text><text x="400" y="110" text-anchor="end">terapia intensiva</text></g></svg>`},
 {id:"paralisi-oculomotori",t:"Paralisi dei nervi III, IV e VI: come si muovono gli occhi",c:"Paziente visto di fronte: il suo occhio destro è alla nostra sinistra. Il punto in alto indica dove guarda. III nervo (oculomotore): occhio giù e in fuori, palpebra abbassata, pupilla dilatata; non riesce a portarsi verso il naso. IV nervo (trocleare): occhio più alto dell'altro, peggio guardando verso il lato opposto; il paziente inclina la testa dalla parte sana. VI nervo (abducente): occhio girato verso il naso, non riesce a guardare in fuori.",
  enc:["paralisi-oculomotori","sistema-nervoso","occhio"],gl:["Diplopia","Ptosi palpebrale","Midriasi"],st:/occhi|nervi cranici|neurolog|pupill/i,
  svg:`<svg viewBox="0 0 440 326" role="img" aria-label="Movimenti degli occhi nello sguardo al centro, a destra e a sinistra: normale e paralisi destra del terzo, quarto e sesto nervo cranico">
@@ -400,7 +400,7 @@ const FIGURE=[
  enc:["ustioni"],gl:["Regola del 9 di Wallace"],st:/ustion|cute/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Sagome anteriore e posteriore con le percentuali della regola del 9">
  <g transform="translate(110 0)"><circle class="fa fl" cx="0" cy="36" r="20"/><rect class="fa fl" x="-34" y="60" width="68" height="96" rx="14"/><rect class="fa fl" x="-58" y="62" width="20" height="96" rx="9"/><rect class="fa fl" x="38" y="62" width="20" height="96" rx="9"/><rect class="fa fl" x="-32" y="160" width="28" height="118" rx="11"/><rect class="fa fl" x="4" y="160" width="28" height="118" rx="11"/></g><g transform="translate(310 0)"><circle class="fa fl" cx="0" cy="36" r="20"/><rect class="fa fl" x="-34" y="60" width="68" height="96" rx="14"/><rect class="fa fl" x="-58" y="62" width="20" height="96" rx="9"/><rect class="fa fl" x="38" y="62" width="20" height="96" rx="9"/><rect class="fa fl" x="-32" y="160" width="28" height="118" rx="11"/><rect class="fa fl" x="4" y="160" width="28" height="118" rx="11"/></g>
- <g class="ft" text-anchor="middle" font-weight="700"><text x="110" y="40">4,5</text><text x="110" y="112">18</text><text x="62" y="112" font-size="11">4,5</text><text x="158" y="112" font-size="11">4,5</text><text x="96" y="222">9</text><text x="124" y="222">9</text><rect x="102" y="152" width="16" height="12" rx="3" class="fv"/><text x="110" y="162" font-size="9" fill="#fff">1</text>
+ <g class="ft" text-anchor="middle" font-weight="700"><text x="110" y="40">4,5</text><text x="110" y="112">18</text><text x="62" y="112" font-size="11">4,5</text><text x="158" y="112" font-size="11">4,5</text><text x="96" y="222">9</text><text x="124" y="222">9</text><path class="lead" d="M110 158L154 184"/><circle cx="110" cy="158" r="2.5" class="fv"/><rect x="152" y="176" width="16" height="12" rx="3" class="fv"/><text x="160" y="186" font-size="9.5" fill="#fff">1</text>
  <text x="310" y="40">4,5</text><text x="310" y="112">18</text><text x="262" y="112" font-size="11">4,5</text><text x="358" y="112" font-size="11">4,5</text><text x="296" y="222">9</text><text x="324" y="222">9</text></g>
  <g class="ft fsm" text-anchor="middle"><text x="110" y="296">Davanti</text><text x="310" y="296">Dietro</text></g></svg>`},
 {id:"lpp",t:"Stadi delle lesioni da pressione (NPIAP/EPUAP)",c:"Stadio 1: eritema che non sbianca alla pressione, cute integra. Stadio 2: perdita parziale dello spessore con derma esposto (anche flittena). Stadio 3: perdita a tutto spessore della cute, adipe visibile. Stadio 4: perdita a tutto spessore dei tessuti con muscolo, tendine o osso esposti.",
@@ -417,7 +417,7 @@ const FIGURE=[
  enc:["vie-somministrazione"],gl:[],st:/terapia|farmac/i,
  svg:`<svg viewBox="0 0 420 210" role="img" aria-label="Aghi per iniezione intradermica, sottocutanea e intramuscolare">
  <rect x="0" y="60" width="420" height="10" fill="#e3a98c"/><rect x="0" y="70" width="420" height="22" fill="#f3cdb7"/><rect x="0" y="92" width="420" height="46" fill="#f6e1a0"/><rect x="0" y="138" width="420" height="60" fill="#d77a70"/>
- <g class="ft fsm"><text x="6" y="56">epidermide</text><text x="6" y="86">derma</text><text x="6" y="120">sottocute</text><text x="6" y="176">muscolo</text></g>
+ <g class="ft halo" font-weight="700" style="font-size:11px"><text x="6" y="55">epidermide</text><text x="6" y="86">derma</text><text x="6" y="120">sottocute</text><text x="6" y="176">muscolo</text></g>
  <g stroke-linecap="round"><path d="M70 30L128 74" stroke="#7a8a90" stroke-width="3"/><path d="M200 22L250 112" stroke="#7a8a90" stroke-width="3"/><path d="M340 14V170" stroke="#7a8a90" stroke-width="3"/></g>
  <g fill="var(--scrub)"><rect x="54" y="18" width="24" height="12" rx="3" transform="rotate(37 66 24)"/><rect x="186" y="8" width="24" height="12" rx="3" transform="rotate(60 198 14)"/><rect x="328" y="2" width="24" height="12" rx="3"/></g>
  <g class="ft" font-weight="700"><text x="96" y="206" text-anchor="middle">ID 10-15°</text><text x="226" y="206" text-anchor="middle">SC 45-90°</text><text x="340" y="206" text-anchor="middle">IM 90°</text></g></svg>`},
@@ -540,14 +540,14 @@ const FIGURE=[
    ["C","Circulation · circolo",["Polso, pressione, refill (normale < 2 s), cute, diuresi","Accessi venosi e liquidi"]],
    ["D","Disability · coscienza",["AVPU o GCS, pupille","Glicemia"]],
    ["E","Exposure · esposizione",["Esame completo, temperatura, lesioni","Proteggere da ipotermia e privacy"]]
-  ].map((r,i)=>{const y=8+i*58;return FT.dot(30,y+25,r[0],{r:18})+FT.box(62,y,370,50,r[1],r[2],"info")+(i<4?FT.arrow(30,y+44,30,y+64):"")}).join("")
+  ].map((r,i)=>{const y=8+i*58;return FT.dot(30,y+25,r[0],{r:18})+FT.box(62,y,370,50,r[1],r[2],"ok")+(i<4?FT.arrow(30,y+44,30,y+64):"")}).join("")
   +FT.text(8,312,"Nel trauma si parte da x: emorragie massive esterne (compressione, tourniquet).",{sm:true}))},
 {id:"rcp-algoritmo",t:"Arresto cardiaco: sequenza BLS e ALS",c:"Dopo l'analisi del ritmo la strada si divide: ritmi defibrillabili (shock subito) e non defibrillabili (adrenalina il prima possibile). In entrambi i casi la RCP riparte per 2 minuti e si cercano le cause reversibili. Linee guida ERC 2025.",
  enc:["bls-acls"],gl:[],st:/rcp|bls|arresto|rianimazione/i,
  svg:FT.svg(440,424,"Algoritmo dell'arresto cardiaco: chiamata, compressioni, analisi del ritmo, ramo defibrillabile e non defibrillabile, cause reversibili",
   FT.box(70,6,300,34,"Non risponde e non respira normalmente","","alarm")+FT.arrow(220,40,220,56)
   +FT.box(60,56,320,46,"Chiama il 112 e chiedi un DAE",["Compressioni 100-120/min, 5-6 cm · adulto 30:2"],"info")+FT.arrow(220,102,220,118)
-  +FT.box(100,118,240,32,"Collega il DAE e analizza il ritmo","","info")
+  +FT.box(100,118,240,32,"Collega il DAE e analizza il ritmo","","ok")
   +FT.elbow([[220,150],[220,162],[111,162],[111,178]])+FT.elbow([[220,150],[220,162],[329,162],[329,178]])
   +FT.box(12,178,198,40,"Defibrillabile","FV · TV senza polso","alarm")+FT.box(230,178,198,40,"Non defibrillabile","Asistolia · PEA","warn")
   +FT.arrow(111,218,111,234)+FT.arrow(329,218,329,234)
@@ -666,9 +666,9 @@ const FIGURE=[
 {id:"eco-sonde",t:"Le tre sonde e che cosa mostrano",c:"La forma dell'immagine dipende dalla sonda: lineare rettangolare, convex a ventaglio, settoriale a cono. Alta frequenza dà più dettaglio ma meno profondità; bassa frequenza scende più in profondità.",
  enc:["eco-sonde"],gl:[],st:/ecograf|sonda|vasi/i,
  svg:FT.svg(440,252,"Tre sonde ecografiche con la forma dell'immagine: lineare rettangolare per vasi e superficie, convex a ventaglio per addome e polmone, settoriale per il cuore",
-  `<rect class="fbx k-info" x="22" y="12" width="108" height="14" rx="4"/><rect class="fbx" x="22" y="30" width="108" height="84" rx="4"/>`
-  +`<rect class="fbx k-info" x="190" y="12" width="60" height="14" rx="6"/><path class="fbx" d="M190 30L158 108Q220 126 282 108L250 30Q220 36 190 30Z"/>`
-  +`<rect class="fbx k-info" x="346" y="12" width="36" height="14" rx="6"/><path class="fbx" d="M364 30L304 108Q364 126 424 108Z"/>`
+  `<rect class="fbx k-info" x="22" y="12" width="108" height="14" rx="4"/><rect class="fbx k-ok" x="22" y="30" width="108" height="84" rx="4"/>`
+  +`<rect class="fbx k-info" x="190" y="12" width="60" height="14" rx="6"/><path class="fbx k-ok" d="M190 30L158 108Q220 126 282 108L250 30Q220 36 190 30Z"/>`
+  +`<rect class="fbx k-info" x="346" y="12" width="36" height="14" rx="6"/><path class="fbx k-ok" d="M364 30L304 108Q364 126 424 108Z"/>`
   +FT.text(76,134,"Lineare",{a:"middle",b:true})+FT.text(220,134,"Convex",{a:"middle",b:true})+FT.text(364,134,"Settoriale",{a:"middle",b:true})
   +FT.text(76,148,["alta frequenza","(7-15 MHz)","vasi, accessi venosi,","pleura, nervi"],{a:"middle",sm:true})
   +FT.text(220,148,["bassa frequenza","addome, vescica, eFAST,","polmone in profondità"],{a:"middle",sm:true})
@@ -695,5 +695,522 @@ const FIGURE=[
   +`<rect class="scr" x="8" y="150" width="208" height="84"/><rect class="tis" x="8" y="150" width="208" height="26"/><path class="ecs" d="M8 176H216" style="stroke-width:3"/><path class="egr" d="M8 200H216M8 224H216"/>`
   +FT.text(8,250,"Linee A",{b:true})+FT.text(8,264,["Linee orizzontali dietro la pleura:","polmone aerato o pneumotorace;","serve lo scivolamento pleurico"],{sm:true})
   +`<rect class="scr" x="224" y="150" width="208" height="84"/><rect class="tis" x="224" y="150" width="208" height="26"/><path class="ecs" d="M224 176H432" style="stroke-width:3"/><path class="ecs" d="M262 176V234M310 176V234M358 176V234M406 176V234" style="stroke-width:2.2"/>`
-  +FT.text(224,250,"Linee B",{b:true})+FT.text(224,264,["Linee verticali dalla pleura:","numerose = sindrome interstiziale"],{sm:true}))}
+  +FT.text(224,250,"Linee B",{b:true})+FT.text(224,264,["Linee verticali dalla pleura:","numerose = sindrome interstiziale"],{sm:true}))},
+/* lotto: farmacologia */
+{id:"calcolo-infusioni",t:"Dal volume alle gocce: calcolo delle infusioni",c:"Si calcola prima il flusso in ml/h (volume ÷ ore), poi lo si traduce in gocce al minuto in base al set: con il deflussore standard da 20 gtt/ml bastano i ml/h divisi per 3, con il microgocciolatore le gocce al minuto sono uguali ai ml/h. La dose da prelevare e le conversioni vanno controllate con la stessa cura.",
+ enc:["calcolo-dosaggi"],gl:["Deflussore"],st:/calcol|dosagg|infusion|gocce|pompa/i,
+ svg:FT.svg(440,334,"Schema del calcolo di un'infusione: dal volume e dalle ore ai ml/h, poi alle gocce al minuto con deflussore da 20 gtt/ml o microgocciolatore da 60 gtt/ml; formula della dose da prelevare, conversioni ed errori frequenti",
+  FT.box(8,6,424,44,"Prima il flusso: ml/h = volume ÷ ore",["Esempio: 1000 ml in 8 ore = 125 ml/h"],"info")
+  +FT.arrow(110,50,110,70)+FT.arrow(330,50,330,70)
+  +FT.box(8,70,212,92,["Deflussore standard","20 gtt/ml"],["gtt/min = ml × 20 ÷ minuti","regola pratica: ml/h ÷ 3","125 ÷ 3 ≈ 42 gtt/min"],"ok")
+  +FT.box(224,70,208,92,["Microgocciolatore","60 gtt/ml"],["gtt/min = ml/h","125 ml/h = 125 gtt/min"],"ok")
+  +FT.box(8,172,424,66,"Dose da prelevare",["dose prescritta ÷ concentrazione disponibile × volume","Dose per peso: mg/kg × peso (mcg/kg/min: serve la diluizione)"],"info")
+  +FT.box(8,248,208,76,"Conversioni",["1 g = 1000 mg","1 mg = 1000 mcg","1 L = 1000 ml"],"info")
+  +FT.box(224,248,208,76,"Errori frequenti",["confondere mg e mcg","errori di virgola:","0,5 non è 5"],"warn"))},
+{id:"digossina-controllo",t:"Digossina: frequenza prima della dose e margine stretto",c:"Prima di ogni somministrazione si conta la frequenza cardiaca. Il margine tra dose efficace e tossica è stretto, e l'ipopotassiemia aumenta il rischio di tossicità. Lo schema del margine è qualitativo, senza valori.",
+ enc:["digossina"],gl:[],st:/digossin|glicosid|antidot/i,
+ svg:FT.svg(440,350,"Prima della dose si controlla la frequenza cardiaca: sotto 60 battiti al minuto in genere non si somministra senza indicazione medica. Confronto schematico tra un farmaco con margine ampio e la digossina con margine stretto, segni di tossicità, ipopotassiemia e antidoto",
+  FT.box(50,6,340,34,"Prima della dose: misura la frequenza cardiaca","","info")
+  +FT.elbow([[220,40],[220,54],[111,54],[111,70]])+FT.elbow([[220,40],[220,54],[329,54],[329,70]])
+  +FT.box(12,70,198,58,"Sotto 60 battiti/min",["in genere non si somministra","senza indicazione medica"],"alarm")
+  +FT.box(230,70,198,58,"60 battiti/min o più",["si procede come prescritto"],"ok")
+  +FT.text(8,150,"Indice terapeutico stretto",{b:true})
+  +`<rect class="fbx" x="120" y="160" width="312" height="18" rx="5"/><rect class="band" x="150" y="160" width="220" height="18"/>`
+  +FT.text(8,173,"Margine ampio",{sm:true})+FT.text(260,173,"efficace",{a:"middle",sm:true})
+  +`<rect class="fbx" x="120" y="188" width="312" height="18" rx="5"/><rect class="band" x="260" y="188" width="36" height="18"/>`
+  +FT.text(8,201,"Digossina",{sm:true,b:true})+FT.text(304,201,"margine ristretto",{sm:true})
+  +FT.text(120,222,"dose bassa",{sm:true})+FT.text(432,222,"tossicità",{a:"end",sm:true})
+  +FT.box(8,236,208,106,"Segni di tossicità",["nausea, vomito","bradicardia, aritmie","disturbi visivi","(visione gialla-verde)"],"alarm")
+  +FT.box(224,236,208,44,"Ipopotassiemia",["aumenta il rischio di tossicità"],"warn")
+  +FT.box(224,286,208,56,"Antidoto",["frammenti anticorpali","anti-digossina"],"ok"))},
+{id:"giusti-somministrazione",t:"I controlli prima di somministrare: chi, che cosa, come, dopo",c:"I «giusti» della somministrazione si raggruppano per domanda: a chi, che cosa, come, che cosa fare dopo. Per i farmaci ad alto livello di attenzione serve un doppio controllo indipendente, e chi prepara il farmaco lo somministra e firma.",
+ enc:["regole-somministrazione","sicurezza-farmaci"],gl:["LASA"],st:/somministraz|errori di terapia|giusti|alto livello/i,
+ svg:FT.svg(440,364,"Quattro gruppi di controlli: giusto paziente, farmaco e dose, via e orario, registrazione e monitoraggio; sotto il doppio controllo per i farmaci ad alto livello di attenzione e la regola che chi prepara somministra e firma",
+  [["Chi","Giusto paziente",["almeno due identificatori;","allergie verificate prima della prima dose"],"info"],
+   ["Cosa","Giusto farmaco e giusta dose",["giusta forma farmaceutica,","giusta preparazione"],"info"],
+   ["Come","Giusta via, giusto orario",["via e orario previsti dalla prescrizione"],"info"],
+   ["Dopo","Giusta registrazione, giusto monitoraggio",["e diritto al rifiuto della persona"],"info"]
+  ].map((r,i)=>{const y=6+i*60;return FT.box(8,y,70,50,r[0],"","ok")+FT.box(86,y,346,50,r[1],r[2],r[3])}).join("")
+  +FT.box(8,246,424,52,"Alto livello di attenzione: doppio controllo indipendente",["insulina, eparina, oppioidi, KCl, chemioterapici"],"warn")
+  +FT.box(8,306,424,52,"Chi prepara somministra e firma",["non preparare in anticipo farmaci per i turni successivi"],"ok"))},
+{id:"interazioni-esempi",t:"Interazioni: chi altera l'effetto di chi",c:"Alcuni farmaci e alimenti cambiano l'effetto di altri: con il warfarin, alcuni antibiotici e amiodarone fanno salire l'INR e i FANS aumentano il rischio di sanguinamento. Più farmaci si assumono, più cresce il rischio, soprattutto negli anziani: per questo si usano criteri di appropriatezza e la riconciliazione.",
+ enc:["interazioni","anticoagulanti"],gl:["INR"],st:/interazion|politerapia|warfarin|riconcili/i,
+ svg:FT.svg(440,372,"Tre fonti di interazione (FANS, alcuni antibiotici, amiodarone) aumentano il rischio per chi assume warfarin: antibiotici e amiodarone alzano l'INR, i FANS aumentano il sanguinamento; altri esempi: succo di pompelmo e iperico; la polifarmacoterapia aumenta il rischio e si contrasta con criteri di Beers, STOPP/START e riconciliazione",
+  FT.text(8,14,"Con il warfarin il rischio aumenta se si associa",{b:true})
+  +FT.box(8,24,136,44,"FANS","","warn")+FT.box(152,24,136,44,"Alcuni antibiotici","","warn")+FT.box(296,24,136,44,"Amiodarone","","warn")
+  +FT.arrow(76,68,160,98)+FT.arrow(220,68,220,98)+FT.arrow(364,68,280,98)
+  +FT.box(110,98,220,50,"Warfarin: più rischio",["INR e sanguinamento da controllare"],"alarm")
+  +FT.text(8,172,"Altri esempi",{b:true})
+  +FT.box(8,180,212,58,"Succo di pompelmo",["inibisce il CYP3A4:","interagisce con alcuni farmaci"],"info")
+  +FT.box(228,180,204,58,"Iperico",["interagisce con","molti farmaci"],"info")
+  +FT.box(8,248,424,56,"Polifarmacoterapia: 5 o più farmaci",["più farmaci, più rischio di interazioni, soprattutto negli anziani"],"warn")
+  +FT.box(8,312,424,52,"Per ridurre il rischio",["Criteri di Beers e STOPP/START · riconciliazione farmacologica"],"ok"))},
+{id:"antidoti-coppie",t:"Tossico e antidoto: le coppie da ricordare",c:"Per ogni sostanza o farmaco il suo antidoto, raggruppati per tipo di problema. Il naloxone ha un effetto più breve di molti oppioidi: si osserva la persona, perché la depressione respiratoria può ripresentarsi.",
+ enc:["antidoti","oppioidi","anticoagulanti"],gl:[],st:/antidot|intossicaz|naloxone|protamina/i,
+ svg:(()=>{
+  const G=[["Sedativi",[["Oppioidi",["naloxone"]],["Benzodiazepine",["flumazenil"]]]],
+   ["Anticoagulanti",[["Eparina",["protamina solfato"]],["Warfarin",["vitamina K","complesso protrombinico"]],["Dabigatran",["idarucizumab"]]]],
+   ["Cuore",[["Digossina",["frammenti Fab","antidigossina"]]]],
+   ["Intossicazioni e metabolismo",[["Paracetamolo",["N-acetilcisteina"]],["Organofosfati",["atropina, pralidossima"]],["Monossido di carbonio",["ossigeno al 100%"],["anche iperbarico"]],["Ipoglicemia da insulina",["glucosio, glucagone"]],["Metanolo, glicole etilenico",["fomepizolo (o etanolo)"]],["Cianuro",["idrossocobalamina"]]]]];
+  let y=6,o="";
+  G.forEach(g=>{o+=FT.text(8,y+11,g[0],{b:true});y+=18;
+   g[1].forEach(r=>{const h=(r[1].length>1||r[2])?38:26;
+    o+=FT.box(8,y,200,h,r[0],"","info")+FT.arrow(212,y+h/2,244,y+h/2,{h:6})+FT.box(248,y,184,h,r[1],r[2]||"","ok");y+=h+4});y+=4});
+  o+=FT.text(8,y+10,["Naloxone: effetto più breve di molti oppioidi,","possibile ripresa della depressione respiratoria."],{sm:true});
+  return FT.svg(440,y+40,"Coppie di tossico o farmaco e relativo antidoto, in quattro gruppi: sedativi, anticoagulanti, cuore, intossicazioni e metabolismo",o)})()},
+/* lotto: area-critica */
+{id:"glasgow-scala",t:"Glasgow Coma Scale: tre risposte, un totale",c:"Si valutano separatamente occhi (E), parola (V) e movimento (M) e si sommano: da 3 a 15, con 8 o meno che indica coma. Si riportano sempre i tre componenti, non solo il totale.",
+ enc:["glasgow"],gl:["Glasgow Coma Scale","GCS"],st:/glasgow|gcs|coscienza|coma|neurolog/i,
+ svg:(()=>{
+  const X=[36,168,300],W=128,y0=34,rh=30,cols=[["Occhi (E)",{4:"spontanea",3:"alla voce",2:"al dolore",1:"nessuna"}],["Verbale (V)",{5:"orientata",4:"confusa",3:"parole inappropriate",2:"suoni incomprensibili",1:"nessuna"}],["Motoria (M)",{6:"esegue ordini",5:"localizza il dolore",4:"retrae",3:["flessione anomala","(decorticazione)"],2:["estensione","(decerebrazione)"],1:"nessuna"}]];
+  let s="";
+  cols.forEach((c,i)=>{s+=FT.box(X[i],8,W,24,c[0],null,"info")});
+  for(let n=6;n>=1;n--){const y=y0+(6-n)*(rh+2);
+   s+=FT.text(26,y+rh/2+4,String(n),{a:"end",b:true});
+   cols.forEach((c,i)=>{const v=c[1][n];if(v===undefined)return;
+    const two=Array.isArray(v),k=(i===2&&(n===3||n===2))?"warn":(n===1?"alarm":"");
+    s+=`<rect class="fbx${k?" k-"+k:""}" x="${X[i]}" y="${y}" width="${W}" height="${rh}" rx="6"/>`+FT.text(X[i]+W/2,two?y+rh/2-2:y+rh/2+4,v,{a:"middle",sm:true});
+   });
+  }
+  s+=FT.box(8,236,424,62,"Totale = E + V + M: da 3 a 15, ≤ 8 coma",["Si riportano sempre i tre componenti (es. E3 V4 M6)","Nel paziente intubato la V si annota come T"],"warn");
+  return FT.svg(440,306,"Tabella della Glasgow Coma Scale: apertura degli occhi da 4 a 1, risposta verbale da 5 a 1, risposta motoria da 6 a 1, totale da 3 a 15",s);
+ })()},
+{id:"triage-5-codici",t:"Triage a 5 codici: colore, urgenza e attesa massima",c:"I codici italiani (Accordo Stato-Regioni 2019) vanno da 1, rosso, a 5, bianco: più il numero sale, più l'attesa massima raccomandata si allunga. Il codice non è definitivo e chi attende va rivalutato.",
+ enc:["tri-livelli"],gl:["Triage"],st:/triage|codic|pronto soccorso/i,
+ svg:(()=>{
+  const rows=[["1","#c62828","#fff","Emergenza · accesso immediato","Funzioni vitali compromesse o a rischio immediato"],
+   ["2","#e65100","#fff","Urgenza · entro 15 minuti","Rischio di compromissione delle funzioni vitali o dolore severo"],
+   ["3","#0277bd","#fff","Urgenza differibile · entro 60 minuti","Stabile ma con sofferenza o rischio evolutivo, più risorse"],
+   ["4","#2e7d32","#fff","Urgenza minore · entro 120 minuti","Stabile, senza rischio evolutivo; in genere una sola risorsa"],
+   ["5","#ffffff","#222","Non urgenza · entro 240 minuti","Problema non urgente o di minima rilevanza clinica"]];
+  let s="";
+  rows.forEach((r,i)=>{const y=8+i*48;
+   s+=`<rect x="8" y="${y}" width="44" height="44" rx="8" style="fill:${r[1]};stroke:#888;stroke-width:1.2"/><text x="30" y="${y+30}" text-anchor="middle" style="fill:${r[2]};font-size:20px;font-weight:700;font-family:var(--f-body)">${r[0]}</text>`
+   +`<rect class="fbx" x="58" y="${y}" width="374" height="44" rx="8"/>`+FT.text(70,y+19,r[3],{b:true})+FT.text(70,y+34,r[4],{sm:true});
+  });
+  s+=FT.box(8,254,424,50,"Il codice non è definitivo",["I tempi sono massimi di attesa raccomandati, non obiettivi.","Chi attende va rivalutato: il codice cambia se cambiano le condizioni."],"info");
+  return FT.svg(440,312,"Cinque riquadri colorati con i codici di triage: 1 rosso accesso immediato, 2 arancione entro 15 minuti, 3 azzurro entro 60, 4 verde entro 120, 5 bianco entro 240",s);
+ })()},
+{id:"sepsi-percorso",t:"Sepsi: dallo screening al bundle della prima ora",c:"Il qSOFA (2 criteri su 3) segnala un rischio maggiore di esito sfavorevole ma non basta da solo come screening; il bundle raggruppa gli interventi da fare insieme; lo shock settico è definito da vasopressori e lattati nonostante i liquidi. Il NEWS2 è spesso preferito al qSOFA come allerta.",
+ enc:["sepsi","bundle"],gl:["qSOFA","Lattati","NEWS2"],st:/sepsi|settic|qsofa|bundle/i,
+ svg:(()=>{
+  let s=`<rect class="fbx" x="8" y="8" width="424" height="80" rx="8"/>`+FT.text(220,26,"Screening qSOFA: 2 criteri su 3 = rischio elevato",{a:"middle",b:true});
+  [["Frequenza","respiratoria ≥ 22"],["Alterazione","mentale"],["Pressione sistolica","≤ 100 mmHg"]].forEach((c,i)=>{s+=FT.box(16+i*138,36,132,44,c,null,"warn")});
+  s+=FT.arrow(220,88,220,106);
+  s+=`<rect class="fbx" x="8" y="106" width="424" height="166" rx="8"/>`+FT.text(220,124,"Bundle della prima ora",{a:"middle",b:true});
+  ["Lattati","Emocolture prima degli antibiotici","Antibiotici ad ampio spettro","30 ml/kg di cristalloidi se ipotensione o lattati ≥ 4","Vasopressori (noradrenalina) se l'ipotensione persiste"].forEach((t,i)=>{
+   const y=132+i*27;s+=`<rect class="fbx k-ok" x="16" y="${y}" width="408" height="23" rx="6"/>`+FT.text(28,y+16,t);});
+  s+=FT.arrow(220,272,220,290);
+  s+=FT.box(8,290,424,58,"Shock settico",["Vasopressori per PAM ≥ 65 mmHg e lattati > 2 mmol/L","nonostante liquidi adeguati"],"alarm");
+  s+=FT.text(8,366,"Il NEWS2 è spesso preferito al qSOFA come strumento di allerta.",{sm:true});
+  return FT.svg(440,376,"Percorso della sepsi: screening con i tre criteri del qSOFA, bundle della prima ora in cinque punti, shock settico con vasopressori e lattati",s);
+ })()},
+{id:"anafilassi-algoritmo",t:"Anafilassi: l'adrenalina viene per prima",c:"Dopo i segni si chiama subito aiuto (118/emergenza) e compare l'adrenalina intramuscolo, secondo protocollo o prescrizione; ossigeno, liquidi e posizione la affiancano. Antistaminici e cortisonici sono di seconda linea e il paziente resta in osservazione per la reazione bifasica.",
+ enc:["anafilassi"],gl:[],st:/anafilass|allergi|adrenalina/i,
+ svg:FT.svg(440,286,"Algoritmo dell'anafilassi: segni, adrenalina intramuscolo ripetibile dopo 5 minuti, ossigeno liquidi e posizione, poi seconda linea e osservazione",
+  FT.box(8,8,424,52,"Segni dopo l'esposizione",["Orticaria, angioedema, broncospasmo, stridore, ipotensione,","sintomi gastrointestinali"],"info")
+  +FT.arrow(220,60,220,76)
+  +FT.box(8,76,250,62,"Adrenalina intramuscolo",["faccia antero-laterale della coscia","0,5 mg nell'adulto (0,5 ml di 1 mg/ml)"],"alarm")
+  +FT.arrow(258,107,282,107)
+  +FT.box(282,76,150,62,["Ripetibile","dopo 5 minuti"],null,"warn")
+  +FT.arrow(58,138,58,154)+FT.arrow(162,138,162,154)+FT.arrow(240,138,240,154)
+  +FT.box(8,154,100,58,"Ossigeno",null,"ok")+FT.box(112,154,100,58,"Liquidi",null,"ok")
+  +FT.box(216,154,216,58,"Posizione",["supina con gambe sollevate","(seduta se difficoltà respiratoria)"],"ok")
+  +FT.arrow(214,212,214,228)
+  +FT.box(8,228,424,50,"Poi: seconda linea e osservazione",["Antistaminici e cortisonici sono di seconda linea;","osservazione per il rischio di reazione bifasica"],"info"))},
+{id:"parametri-news2",t:"Parametri vitali: valori normali e fasce NEWS2",c:"Il NEWS2 combina sette parametri in un punteggio che dice quanto è urgente la risposta. La frequenza respiratoria è tra i segni più sensibili di peggioramento e spesso trascurata.",
+ enc:["parametri-vitali"],gl:["NEWS2"],st:/parametri|news2|vitali/i,
+ svg:(()=>{
+  const R=[["Frequenza cardiaca",["60-100 battiti/min"],26],["Frequenza respiratoria",["12-20 atti/min"],26],["Pressione arteriosa",["ottimale < 120/80 mmHg","ipertensione ≥ 140/90"],40],["SpO₂",["94-98%","88-92% se prescritto (ipercapnia)"],40],["Temperatura",["36-37,5 °C (ascellare)"],26]];
+  let s="",y=8;
+  R.forEach(r=>{s+=FT.text(8,y+r[2]/2+4,r[0],{b:true})+`<rect class="fbx k-ok" x="190" y="${y}" width="242" height="${r[2]}" rx="6"/>`+FT.text(311,r[1].length>1?y+r[2]/2-2:y+r[2]/2+4,r[1],{a:"middle",sm:true});y+=r[2]+4});
+  s+=FT.box(8,192,424,56,"NEWS2 combina sette parametri",["frequenza respiratoria, SpO₂, ossigeno sì/no, pressione","sistolica, frequenza cardiaca, coscienza (ACVPU), temperatura"],"info");
+  s+=FT.arrow(220,248,220,268);
+  s+=FT.box(8,268,136,84,"0-4",["rischio basso","(salvo 3 in un parametro)"],"ok")+FT.box(152,268,136,84,"5-6",["oppure 3 in un","singolo parametro","medio: valutazione","urgente"],"warn")+FT.box(296,268,136,84,"≥ 7",["alto: risposta di","emergenza"],"alarm");
+  s+=FT.box(8,360,424,46,"La frequenza respiratoria","è tra i segni più sensibili di peggioramento e spesso trascurata","warn");
+  return FT.svg(440,414,"Valori normali dei parametri vitali nell'adulto, i sette parametri del NEWS2 e le tre fasce di punteggio: 0-4 basso, 5-6 medio, 7 o più alto",s);
+ })()},
+/* lotto: anatomia */
+{id:"endocrino-assi",t:"Asse ipotalamo-ipofisi-ghiandole e feedback",c:"L'ipotalamo comanda l'ipofisi, e l'ipofisi comanda con i suoi ormoni tiroide e corticale del surrene. L'ormone prodotto dalla ghiandola periferica, quando è in eccesso, frena a monte la propria produzione (feedback negativo). Paratiroidi, midollare del surrene e pancreas completano il quadro.",
+ enc:["sistema-endocrino"],gl:[],st:/endocrin|ormon|tiroid|ipofis/i,
+ svg:FT.svg(440,392,"Schema dell'asse ipotalamo, ipofisi, tiroide e corticale del surrene con feedback negativo, e delle altre ghiandole: paratiroidi, midollare del surrene, pancreas",
+  FT.box(120,8,200,30,"Ipotalamo","","info")
+  +FT.arrow(220,38,220,60)
+  +FT.box(70,60,300,66,"Ipofisi",["TSH · ACTH · GH · prolattina","ADH · ossitocina (neuroipofisi)"],"info")
+  +FT.arrow(110,126,110,168)+FT.text(118,152,"TSH",{sm:true})
+  +FT.arrow(330,126,330,168)+FT.text(322,152,"ACTH",{sm:true,a:"end"})
+  +FT.box(20,168,180,56,"Tiroide","T3 e T4: metabolismo","ok")
+  +FT.box(240,168,180,56,"Surrene corticale","cortisolo (ACTH), aldosterone","ok")
+  +FT.elbow([[20,196],[10,196],[10,23],[120,23]],{dash:true})
+  +FT.elbow([[420,196],[432,196],[432,23],[320,23]],{dash:true})
+  +FT.text(20,254,"Altre ghiandole",{b:true})
+  +FT.box(20,264,130,70,"Paratiroidi",["paratormone:","regola il calcio"],"info")
+  +FT.box(155,264,130,70,["Surrene","midollare"],["adrenalina,","noradrenalina"],"info")
+  +FT.box(290,264,130,70,"Pancreas",["insulina abbassa","glucagone alza","la glicemia"],"info")
+  +`<path class="fl dash" d="M20 366H44"/>`+FT.text(52,370,"feedback negativo: l'eccesso di ormone inibisce la sua produzione",{sm:true}))},
+{id:"glicolisi-passi",t:"Glicolisi: investimento e recupero di ATP",c:"Nel citoplasma il glucosio spende 2 ATP (investimento), si scinde in due molecole a 3 atomi di carbonio e queste rendono 4 ATP e 2 NADH (recupero): netto 2 ATP, 2 NADH, 2 piruvato. Tre passaggi irreversibili e regolati, con la PFK-1 come controllo principale. Il destino del piruvato dipende dall'ossigeno.",
+ enc:["bc-glicolisi"],gl:[],st:/glicol|glucosio|metabol|biochim/i,
+ svg:FT.svg(440,448,"Passi della glicolisi dal glucosio al piruvato con gli enzimi regolati, la fase di investimento di 2 ATP e di recupero di 4 ATP e 2 NADH, e il destino del piruvato con o senza ossigeno",
+  `<rect class="fbx k-warn" x="6" y="6" width="428" height="268" rx="12"/><rect class="fbx k-ok" x="6" y="278" width="428" height="72" rx="12"/>`
+  +FT.text(246,24,["Investimento (passi 1-5)","spende 2 ATP"],{b:false,sm:true})
+  +FT.box(30,14,200,30,"Glucosio","","info")
+  +FT.arrow(130,44,130,70)+FT.text(246,56,["esochinasi: −1 ATP"],{sm:true})
+  +FT.box(30,70,200,30,"Glucosio-6-fosfato","","info")
+  +FT.arrow(130,100,130,126)
+  +FT.box(30,126,200,30,"Fruttosio-6-fosfato","","info")
+  +FT.arrow(130,156,130,182)+FT.text(246,168,["PFK-1: −1 ATP","(punto di controllo)"],{sm:true,lh:12.5}).replace('y="168"','y="164"')
+  +FT.box(30,182,200,30,"Fruttosio-1,6-bisfosfato","","info")
+  +FT.arrow(130,212,130,238)+FT.text(246,228,"si scinde in due triosi fosfato",{sm:true})
+  +FT.box(30,238,200,30,"2 Gliceraldeide-3-fosfato","","info")
+  +FT.arrow(130,268,130,312)+FT.text(246,293,["Recupero (passi 6-10)","due molecole: in totale","+4 ATP, +2 NADH","ultimo: piruvato chinasi","Netto: 2 ATP, 2 NADH"],{sm:true})
+  +FT.box(30,312,200,30,"2 Piruvato","","ok")
+  +FT.arrow(120,342,120,368)+FT.elbow([[200,342],[200,356],[322,356],[322,368]])
+  +FT.box(20,368,200,44,"Con ossigeno","acetil-CoA nei mitocondri","info")
+  +FT.box(230,368,190,44,"Senza ossigeno","lattato: riossida il NADH","warn")
+  +FT.text(220,432,"Sede: citoplasma · non serve ossigeno",{sm:true,a:"middle"}))},
+{id:"krebs-ciclo",t:"Ciclo di Krebs: otto intermedi, tre NADH",c:"L'acetil-CoA (2 C) si lega all'ossalacetato (4 C) e forma citrato (6 C). Girando il ciclo si perdono due CO2 e si raccolgono, per ogni acetil-CoA, 3 NADH, 1 FADH2 e 1 GTP. L'ATP si ricava soprattutto dalla catena respiratoria, che riossida NADH e FADH2: senza ossigeno il ciclo si ferma.",
+ enc:["bc-krebs"],gl:[],st:/krebs|ciclo|mitocond|biochim|metabol/i,
+ svg:(()=>{
+  const N=[["Citrato (6 C)",220,85,100],["Isocitrato",350,123,88],["α-chetoglutarato",370,215,124],["Succinil-CoA",326,307,100],["Succinato",220,345,86],["Fumarato",114,307,86],["Malato",70,215,76],["Ossalacetato (4 C)",90,123,130]];
+  const H=13,edge=(a,b)=>{const dx=b[1]-a[1],dy=b[2]-a[2],hw=a[3]/2+4,hh=H+4,t=Math.min(hw/Math.abs(dx||1e-9),hh/Math.abs(dy||1e-9));return [a[1]+dx*t,a[2]+dy*t]};
+  let s="";
+  N.forEach((n,i)=>{s+=`<rect class="fbx k-info" x="${n[1]-n[3]/2}" y="${n[2]-H}" width="${n[3]}" height="${2*H}" rx="8"/>`+FT.text(n[1],n[2]+4.5,n[0],{a:"middle",b:true})});
+  N.forEach((n,i)=>{const m=N[(i+1)%8];const p=edge(n,m),q=edge(m,n);s+=FT.arrow(p[0],p[1],q[0],q[1])});
+  s+=FT.box(20,10,110,26,"Acetil-CoA (2 C)","","ok")+FT.elbow([[130,23],[220,23],[220,70]])+FT.text(228,48,"citrato sintasi",{sm:true});
+  s+=FT.text(362,164,["NADH","+ CO2"],{sm:true})+FT.text(362,262,["NADH","+ CO2"],{sm:true});
+  s+=FT.text(282,343,["GTP"],{sm:true});
+  s+=FT.text(168,342,["FADH2","(complesso II)"],{sm:true,a:"end"});
+  s+=FT.text(58,172,"NADH",{sm:true,a:"end"});
+  s+=FT.text(220,198,"Per ogni acetil-CoA",{a:"middle",b:true})+FT.text(220,214,"3 NADH · 1 FADH2",{a:"middle",sm:true})+FT.text(220,227,"1 GTP · 2 CO2",{a:"middle",sm:true})+FT.text(220,240,"circa 10 ATP",{a:"middle",sm:true})+FT.text(220,253,"matrice mitocondriale",{a:"middle",sm:true});
+  s+=FT.text(220,404,"Senza ossigeno NADH e FADH2 non si riossidano:",{sm:true,a:"middle"})+FT.text(220,417,"il ciclo si ferma e il lattato sale",{sm:true,a:"middle"});
+  return FT.svg(440,428,"Ciclo di Krebs: acetil-CoA entra come citrato e il ciclo attraversa isocitrato, alfa-chetoglutarato, succinil-CoA, succinato, fumarato, malato e ossalacetato, producendo NADH, FADH2, GTP e CO2",s)})()},
+{id:"urea-ciclo",t:"Ciclo dell'urea: dove avviene ogni passo",c:"Il fegato trasforma l'ammoniaca in urea: i primi due passi sono nel mitocondrio (CPS I e OTC), gli altri nel citosol. L'aspartato dà il secondo azoto, il fumarato va al ciclo di Krebs e l'ornitina rientra nel mitocondrio. La CPS I è il passo limitante e serve N-acetilglutammato.",
+ enc:["bc-ciclo-urea"],gl:["Ciclo dell'urea"],st:/urea|ammoni|encefalopatia|epatic|biochim/i,
+ svg:FT.svg(440,456,"Ciclo dell'urea: nel mitocondrio ammoniaca e CO2 formano carbamoil-fosfato e poi citrullina, che passa nel citosol dove, con aspartato, diventa argininosuccinato, arginina e infine urea con rilascio di ornitina che rientra nel mitocondrio",
+  `<rect class="fbx k-info" x="6" y="24" width="220" height="268" rx="18"/>`+FT.text(18,42,"Mitocondrio",{b:true})+FT.text(430,42,"Citosol",{b:true,a:"end"})
+  +FT.box(40,54,120,32,"NH3 + CO2","","")
+  +FT.arrow(100,86,100,132)+FT.text(112,102,["CPS I: 2 ATP","attivata da","N-acetilglutammato"],{sm:true,lh:12})
+  +FT.box(30,132,140,32,"Carbamoil-fosfato","","")
+  +FT.arrow(100,164,100,214)+FT.text(112,182,"OTC",{sm:true})
+  +FT.box(40,214,120,32,"Citrullina","","")
+  +FT.arrow(100,246,100,348)+FT.text(112,314,["argininosuccinato","sintetasi: + aspartato,","1 ATP"],{sm:true,lh:12})
+  +FT.box(33,348,134,32,"Argininosuccinato","","")
+  +FT.arrow(167,364,280,364)+FT.text(224,398,["liasi: libera fumarato","(va nel ciclo di Krebs)"],{sm:true,a:"middle"})
+  +FT.box(280,348,100,32,"Arginina","","")
+  +FT.arrow(330,348,330,222)+FT.text(338,284,["arginasi:","arginina →","urea + ornitina"],{sm:true,lh:12})
+  +FT.box(265,190,130,32,"Urea + ornitina","","ok")
+  +FT.arrow(265,206,104,206)+FT.text(170,224,"ornitina",{sm:true})
+  +FT.arrow(330,190,330,164)+FT.text(330,148,["urea eliminata","dal rene"],{sm:true,a:"middle",lh:12})
+  +FT.text(220,430,"Un'urea contiene due azoti: uno dall'ammoniaca, uno dall'aspartato",{sm:true,a:"middle"})
+  +FT.text(220,444,"Costo: 3 ATP (4 legami ad alta energia) per urea",{sm:true,a:"middle"}))},
+{id:"chetogenesi-percorso",t:"Chetogenesi: dal fegato ai tessuti che usano i chetoni",c:"Nei mitocondri del fegato l'acetil-CoA in eccesso diventa acetoacetato, poi beta-idrossibutirrato o acetone. Cervello, cuore e muscolo bruciano i chetoni, il fegato no. Glucagone e digiuno la attivano, l'insulina la frena: senza insulina la produzione supera l'uso e si arriva alla chetoacidosi.",
+ enc:["bc-chetogenesi"],gl:[],st:/chet|digiuno|diabet|biochim|metabol/i,
+ svg:FT.svg(440,458,"Via della chetogenesi nei mitocondri del fegato: acetil-CoA, acetoacetil-CoA, HMG-CoA, acetoacetato, beta-idrossibutirrato e acetone; i chetoni sono usati da cervello, cuore e muscolo ma non dal fegato",
+  `<rect class="fbx k-info" x="6" y="22" width="298" height="322" rx="16"/>`+FT.text(200,42,"Mitocondri epatici",{sm:true})
+  +FT.box(20,40,170,30,"Acetil-CoA","","ok")+FT.arrow(105,70,105,100)
+  +FT.box(20,100,170,30,"Acetoacetil-CoA","","")+FT.arrow(105,130,105,160)+FT.text(200,141,["HMG-CoA sintasi","mitocondriale","(+ acetil-CoA)"],{sm:true,lh:12})
+  +FT.box(20,160,170,30,"HMG-CoA","","")+FT.arrow(105,190,105,220)+FT.text(200,205,["liberato:","acetil-CoA"],{sm:true,lh:12})
+  +FT.box(20,220,170,30,"Acetoacetato","","")
+  +FT.arrow(190,235,220,235)+FT.box(220,220,76,30,"Acetone","","")
+  +FT.text(258,266,["spontaneo,","eliminato","col respiro"],{sm:true,a:"middle",lh:12})
+  +FT.arrow(105,250,105,290)+FT.box(20,290,170,40,"Beta-idrossibutirrato",["il più abbondante nel sangue"],"")
+  +FT.arrow(190,310,312,310)
+  +FT.box(312,278,122,64,["Cervello,","cuore, muscolo"],"usano i chetoni","ok")
+  +FT.box(312,40,122,54,"Attivata da",["glucagone,","digiuno"],"ok")
+  +FT.box(312,106,122,54,"Inibita da","insulina","warn")
+  +FT.box(12,360,416,36,"Il fegato non può usare i chetoni","manca la succinil-CoA transferasi","warn")
+  +FT.box(12,404,416,48,"Chetoacidosi",["senza insulina la produzione supera l'uso:","glicemia alta e bicarbonati bassi"],"alarm"))},
+/* lotto: eco-esami */
+{id:"eco-fast-finestre",t:"eFAST: le cinque finestre in cui appoggiare la sonda",c:"Si cerca liquido libero (striscia anecogena nelle zone declivi) in tre finestre addominali e in quella pericardica, più il torace anteriore per lo scivolamento pleurico. Si parte di solito da Morison o dal pericardio, secondo il protocollo locale. Disegno schematico, non in scala.",
+ enc:["eco-fast"],gl:[],st:/efast|fast|ecograf|traum/i,
+ svg:FT.svg(440,354,"Sagoma del tronco con i cinque punti di appoggio della sonda numerati: spazio di Morison, spleno-renale, pelvica, sottoxifoidea e torace anteriore, con legenda e nota sul liquido libero",
+  FT.text(8,11,"destra del paziente",{sm:true})+FT.text(200,11,"sinistra",{a:"end",sm:true})
+  +`<path class="fbx" d="M42 30Q105 16 168 30L186 68L178 284H32L24 68Z"/>`
+  +`<ellipse class="fa fl" cx="62" cy="158" rx="36" ry="22"/>`+FT.text(62,162,"fegato",{a:"middle",sm:true})
+  +`<ellipse class="fa fl" cx="148" cy="150" rx="16" ry="22"/>`+FT.text(148,154,"milza",{a:"middle",sm:true})
+  +`<ellipse class="fa fl" cx="108" cy="92" rx="22" ry="16"/>`+FT.text(108,96,"cuore",{a:"middle",sm:true})
+  +`<ellipse class="fa fl" cx="105" cy="254" rx="24" ry="14"/>`+FT.text(105,258,"vescica",{a:"middle",sm:true})
+  +FT.dot(50,198,"1",{r:11})+FT.dot(152,194,"2",{r:11})+FT.dot(105,228,"3",{r:11})+FT.dot(108,128,"4",{r:11})+FT.dot(60,60,"5",{r:11})+FT.dot(156,60,"5",{r:11})
+  +[["1","Spazio di Morison",["tra fegato e rene destro:","il punto da guardare per primo"]],
+    ["2","Finestra spleno-renale",["tra milza e rene sinistro"]],
+    ["3","Finestra pelvica",["dietro la vescica (cavo del","Douglas nella donna)"]],
+    ["4","Finestra sottoxifoidea",["versamento pericardico"]],
+    ["5","Torace anteriore",["scivolamento pleurico:","pneumotorace"]]
+  ].map((r,k)=>{const y=22+k*54;return FT.dot(232,y+11,r[0],{r:11})+FT.text(252,y+15,r[1],{b:true})+FT.text(252,y+29,r[2],{sm:true})}).join("")
+  +FT.box(8,294,424,52,"Liquido libero: striscia anecogena nelle zone declivi",["Positiva in un paziente instabile: di solito sala operatoria.","Negativa: non esclude lesioni, si ripete."],"info"))},
+{id:"eco-polmone-segni",t:"Polmone: il modo M e i segni da riconoscere",c:"In modo M il polmone normale ha l'aspetto della «riva del mare» (righe sopra la pleura, granulare sotto); nel pneumotorace le righe continuano anche sotto la pleura («codice a barre»). Consolidamento e versamento si riconoscono dall'aspetto del polmone e dalla raccolta anecogena sopra il diaframma. La linea chiara è la pleura. Disegni schematici.",
+ enc:["eco-polmone"],gl:[],st:/ecograf|polmon|pleur|pneumotorace/i,
+ svg:(()=>{
+  const mm=(x,y,pn)=>{let s=`<rect class="scr" x="${x}" y="${y}" width="208" height="96"/>`;
+   [12,24,36].forEach(d=>{s+=`<path class="egr" d="M${x} ${y+d}H${x+208}"/>`});
+   s+=`<path class="ecs" d="M${x} ${y+46}H${x+208}" style="stroke-width:3"/>`;
+   [58,67,76,85].forEach((d,i)=>{s+=pn?`<path class="egr" d="M${x} ${y+d}H${x+208}"/>`:`<path class="egr" d="M${x} ${y+d}H${x+208}" style="stroke-dasharray:1.5 2.5;stroke-dashoffset:${i*1.3};stroke-width:2.2"/>`});
+   return s};
+  return FT.svg(440,382,"Due tracciati in modo M, riva del mare nel polmone normale e codice a barre nel pneumotorace, poi schemi di consolidamento con broncogramma aereo e di versamento sopra il diaframma, e nota sulle linee B",
+   mm(8,8,false)+mm(224,8,true)
+   +FT.text(8,122,"Normale: «riva del mare»",{b:true})+FT.text(8,136,["righe orizzontali sopra la pleura,","aspetto granulare sotto"],{sm:true})
+   +FT.text(224,122,"Pneumotorace: «codice a barre»",{b:true})+FT.text(224,136,["assenza di scivolamento e di","linee B; il «punto polmone»","lo conferma"],{sm:true})
+   +`<rect class="tis" x="8" y="176" width="208" height="84"/><path class="ecs" d="M8 196H216" style="stroke-width:3"/><rect class="ecl" x="8" y="200" width="208" height="60"/><path class="ecs" d="M40 208L70 232L110 240M70 232L82 252M130 206L150 230L196 236M150 230L158 254" style="stroke-width:1.6"/>`
+   +`<rect class="tis" x="224" y="176" width="208" height="84"/><path class="ecs" d="M224 196H432" style="stroke-width:3"/><rect class="scr" x="224" y="200" width="208" height="42"/><path class="ecl" d="M224 242Q328 222 432 242V260H224Z"/><path class="ecs" d="M224 242Q328 222 432 242" style="stroke-width:3"/>`
+   +FT.text(8,278,"Consolidamento",{b:true})+FT.text(8,292,["polmone simile al fegato","(epatizzazione), a volte con","broncogramma aereo"],{sm:true})
+   +FT.text(224,278,"Versamento",{b:true})+FT.text(224,292,["raccolta anecogena sopra il","diaframma; la colonna si vede","anche sopra il diaframma"],{sm:true})
+   +FT.box(8,332,424,44,"Linee B: 3 o più per scansione = zona positiva","≥ 2 zone per lato, bilaterali: sindrome interstiziale (edema, polmonite, ARDS)","info"));
+  })()},
+{id:"eco-accessi-assi",t:"Accessi ecoguidati: vena o arteria, asse corto o lungo",c:"Prima di pungere si distingue la vena (ovale, si schiaccia) dall'arteria (rotonda, pulsante, non si schiaccia). Poi si sceglie l'asse: in asse corto il vaso è un cerchio e dell'ago si vede una sezione, in asse lungo si vede tutto l'ago. Schermi schematici.",
+ enc:["eco-accessi"],gl:[],st:/accessi|ecograf|vene|vasi|venos/i,
+ svg:(()=>{
+  const sc=(x,y,w,h)=>`<rect class="tis" x="${x}" y="${y}" width="${w}" height="${h}"/>`;
+  const chev=(cx,y)=>`<path class="ecs" d="M${cx-7} ${y+3}L${cx} ${y+10}L${cx+7} ${y+3}" style="stroke-width:2"/>`;
+  const ves=(cx,cy,rx,ry,sw)=>`<ellipse class="scr" cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" style="stroke:#e8eef0;stroke-width:${sw}"/>`;
+  return FT.svg(440,442,"Quattro schermi ecografici: vena ovale che si schiaccia con la sonda e arteria rotonda che non si schiaccia; poi schermo in asse corto con vaso circolare e punta dell'ago come punto, e schermo in asse lungo con ago come linea obliqua; riquadri sulla tecnica dinamica della punta e sulla parete posteriore",
+   FT.text(112,16,"Vena",{a:"middle",b:true})+FT.text(328,16,"Arteria",{a:"middle",b:true})
+   +sc(8,24,100,70)+ves(58,59,24,14,1)+sc(116,24,100,70)+ves(166,59,24,2,1)+chev(166,24)
+   +sc(224,24,100,70)+ves(274,59,15,15,3)+sc(332,24,100,70)+ves(382,59,15,15,3)+chev(382,24)
+   +[58,166,274,382].map((cx,i)=>FT.text(cx,108,i%2?"premuta":"a riposo",{a:"middle",sm:true})).join("")
+   +FT.text(8,128,["ovale, parete sottile, si schiaccia","con lieve pressione, non pulsa"],{sm:true})
+   +FT.text(224,128,["rotonda, parete spessa, pulsante,","non si schiaccia"],{sm:true})
+   +sc(8,168,208,92)+ves(112,218,18,18,1)+`<circle class="ec" cx="112" cy="186" r="3"/>`
+   +sc(224,168,208,92)+`<rect class="scr" x="224" y="206" width="208" height="28" style="stroke:#e8eef0;stroke-width:1"/><path class="ecs" d="M250 176L318 220" style="stroke-width:2.5"/>`
+   +FT.text(8,278,"Asse corto (out-of-plane)",{b:true})+FT.text(8,292,["vaso come un cerchio; si vede solo","una sezione dell'ago: si segue la","punta a piccoli passi"],{sm:true})
+   +FT.text(224,278,"Asse lungo (in-plane)",{b:true})+FT.text(224,292,["si vede tutto l'ago, ma è più","difficile mantenere il vaso","nel fascio"],{sm:true})
+   +FT.box(8,332,424,54,"Posizionamento dinamico della punta",["sposta la sonda in avanti finché la punta scompare,","poi avanza l'ago finché ricompare, e così via"],"ok")
+   +FT.box(8,394,424,42,"Punta sotto la vena: parete posteriore passata","ritira lentamente finché torna nel lume","warn"));
+  })()},
+{id:"eco-tvp-compressione",t:"Compressione: la vena normale si chiude, quella con trombo no",c:"Con una lieve pressione della sonda la vena normale si chiude del tutto; se non si comprime completamente, di solito contiene un trombo. Si comprime su due punti, inguine e cavo popliteo. Schermi schematici, in asse corto, con l'arteria rotonda accanto alla vena.",
+ enc:["eco-tvp"],gl:[],st:/trombosi|tvp|trombo|ecograf|compression/i,
+ svg:(()=>{
+  const sc=(x,y,w,h)=>`<rect class="tis" x="${x}" y="${y}" width="${w}" height="${h}"/>`;
+  const chev=(cx,y)=>`<path class="ecs" d="M${cx-7} ${y+10}L${cx} ${y+17}L${cx+7} ${y+10}" style="stroke-width:2"/>`;
+  const art=(x,ry)=>`<ellipse class="scr" cx="${x+30}" cy="76" rx="11" ry="${ry}" style="stroke:#e8eef0;stroke-width:3"/>`;
+  const vein=(x,ry,th)=>`<ellipse class="${th?"ecl":"scr"}" cx="${x+68}" cy="76" rx="14" ry="${ry}" style="stroke:#e8eef0;stroke-width:1.2"/>`;
+  return FT.svg(440,390,"Quattro schermi: vena normale a riposo e chiusa dalla compressione; vena con trombo che resta aperta anche comprimendo. Sotto, la gamba con i due punti di compressione, inguine e cavo popliteo, e tre riquadri su trombo recente, Doppler ed esame negativo",
+   FT.text(112,18,"Vena normale",{a:"middle",b:true})+FT.text(328,18,"Vena con trombo",{a:"middle",b:true})
+   +sc(8,32,100,84)+art(8,11)+vein(8,11,false)
+   +sc(116,32,100,84)+art(116,9)+vein(116,1.5,false)+chev(166,32)
+   +sc(224,32,100,84)+art(224,11)+vein(224,11,true)
+   +sc(332,32,100,84)+art(332,9)+vein(332,11,true)+chev(382,32)
+   +[58,166,274,382].map((cx,i)=>FT.text(cx,132,i%2?"con compressione":"a riposo",{a:"middle",sm:true})).join("")
+   +FT.box(8,142,208,44,"Si chiude completamente","sotto una lieve pressione","ok")
+   +FT.box(224,142,208,44,"Non si comprime","di solito la vena contiene un trombo","alarm")
+   +FT.text(8,216,"Due punti di compressione",{b:true})
+   +`<path class="fbx" d="M34 224L102 224Q100 270 94 296Q92 330 86 352H50Q44 330 42 296Q36 270 34 224Z"/>`
+   +FT.dot(68,240,"1",{r:11})+FT.dot(68,300,"2",{r:11})
+   +FT.text(112,244,"Inguine",{b:true})+FT.text(112,304,"Cavo popliteo",{b:true})
+   +FT.box(224,204,208,62,"Trombo recente",["quasi anecogeno: si usa la","compressione, non l'aspetto"],"info")
+   +FT.box(224,272,208,52,"Al Doppler",["nessun flusso, e non aumenta","comprimendo il polpaccio"],"info")
+   +FT.box(224,330,208,52,"Esame negativo",["con alto sospetto clinico: si","ripete o si completa"],"warn"));
+  })()},
+{id:"es-coagulazione-vie",t:"PT e aPTT: quale via guardano e quali valori hanno",c:"Il PT vede la via estrinseca (VII) e la via comune; l'aPTT vede la via intrinseca e la comune. In terapia con warfarin si segue l'INR: bersaglio di solito 2-3, più alto per alcune protesi valvolari meccaniche. Barre indicative.",
+ enc:["es-coagulazione"],gl:[],st:/coagul|inr|aptt|warfarin|anticoag/i,
+ svg:(()=>{
+  const X=v=>20+(v-0.5)*(400/3.5),bar=(y,a,b,k)=>`<rect class="fbx k-${k}" x="${X(a)}" y="${y}" width="${X(b)-X(a)}" height="18" rx="4"/>`;
+  return FT.svg(440,408,"Schema della coagulazione con via intrinseca (XII, XI, IX, VIII), via estrinseca (VII) e via comune (X, V, II, I); riquadri su che cosa vedono PT e aPTT; asse dell'INR con gli intervalli senza terapia, con warfarin e per alcune protesi valvolari meccaniche; aPTT in secondi",
+   FT.text(8,20,"Via intrinseca",{b:true})
+   +["XII","XI","IX","VIII"].map((n,i)=>FT.box(8+i*56,28,44,26,n,"","warn",{rx:5})).join("")
+   +[0,1,2].map(i=>FT.arrow(52+i*56,41,64+i*56,41,{h:6})).join("")
+   +FT.text(8,78,"Via estrinseca",{b:true})+FT.box(8,84,44,26,"VII","","info",{rx:5})
+   +FT.text(242,22,"Via comune",{b:true})
+   +["X","V","II","I"].map((n,i)=>FT.box(242+i*50,56,40,26,n,"","",{rx:5})).join("")
+   +[0,1,2].map(i=>FT.arrow(282+i*50,69,292+i*50,69,{h:6})).join("")
+   +FT.elbow([[220,41],[262,41],[262,56]],{h:6})+FT.elbow([[52,97],[262,97],[262,82]],{h:6})
+   +FT.text(242,112,"II = protrombina · I = fibrinogeno",{sm:true})
+   +FT.box(8,126,208,62,"PT (espresso come INR)",["via estrinseca (VII) e via","comune (X, V, II, I)"],"info")
+   +FT.box(224,126,208,62,"aPTT",["via intrinseca (XII, XI, IX,","VIII) e via comune"],"warn")
+   +FT.text(8,214,"INR: intervalli indicativi",{b:true})
+   +bar(228,0.8,1.2,"ok")+FT.text(X(1.2)+6,241,"senza terapia (0,8-1,2)",{sm:true})
+   +bar(258,2,3,"info")+FT.text(X(2)-6,271,"warfarin (2-3)",{a:"end",sm:true})
+   +bar(288,2.5,3.5,"warn")+FT.text(X(2.5)-6,297,["alcune protesi valvolari","meccaniche (2,5-3,5)"],{a:"end",sm:true,lh:11})
+   +`<path class="fl" d="M${X(0.5)} 322H${X(4)}"/>`+[1,2,3,4].map(v=>`<path class="fl" d="M${X(v)} 322v5"/>`+FT.text(X(v),340,String(v),{a:"middle",sm:true})).join("")
+   +FT.box(8,350,424,50,"aPTT circa 25-35 secondi (o ratio 0,8-1,2)",["con eparina non frazionata di solito 1,5-2,5 volte","il valore di controllo, secondo protocollo"],"info"));
+  })()},
+{id:"es-sodio-potassio-intervalli",t:"Sodio, potassio e cloro: dove cade il valore normale",c:"Ogni riga ha una scala propria: la banda verde è l'intervallo normale, le zone ambra sono i valori bassi e alti. Per il potassio, sotto 2,5-3 o sopra 6 mmol/l serve il monitoraggio ECG continuo. Il sodio si corregge piano.",
+ enc:["es-sodio-potassio"],gl:[],st:/sodio|potassio|elettrol|natriemia|kaliemia/i,
+ svg:(()=>{
+  const row=(y,nome,lo,hi,mn,mx,zl,zh,nl,nh)=>{const X=v=>24+(v-mn)/(mx-mn)*392,a=X(lo),b=X(hi);
+   return FT.text(8,y,nome,{b:true})
+   +`<rect class="fbx k-warn" x="24" y="${y+8}" width="392" height="22" rx="5"/><rect class="fbx k-ok" x="${a}" y="${y+8}" width="${b-a}" height="22"/>`
+   +FT.text(24+(a-24)/2,y+23,zl,{a:"middle",sm:true})+FT.text((a+b)/2,y+23,nl+"-"+nh,{a:"middle",sm:true})+FT.text((b+416)/2,y+23,zh,{a:"middle",sm:true})
+   +FT.text(a,y+44,nl,{a:"middle",sm:true})+FT.text(b,y+44,nh,{a:"middle",sm:true})};
+  const Xk=v=>24+(v-2)/5*392;
+  return FT.svg(440,322,"Tre barre con la banda normale di sodio 135-145, potassio 3,5-5,0 e cloro circa 98-107 mmol/l, con le zone sotto e sopra; sul potassio i tratti sotto 2,5-3 e sopra 6 con monitoraggio ECG; riquadri su osmolalità e correzione del sodio",
+   row(18,"Sodio (Na+), mmol/l",135,145,120,160,"iponatriemia","ipernatriemia","135","145")
+   +row(88,"Potassio (K+), mmol/l",3.5,5,2,7,"ipopotassiemia","iperpotassiemia","3,5","5,0")
+   +`<path class="fz" d="M24 156H${Xk(3)}M${Xk(6)} 156H416"/>`+FT.text(220,160,"monitoraggio ECG continuo",{a:"middle",sm:true})
+   +FT.text(24+(Xk(3)-24)/2,174,"< 2,5-3",{a:"middle",sm:true})+FT.text((Xk(6)+416)/2,174,"> 6",{a:"middle",sm:true})
+   +row(196,"Cloro (Cl-), mmol/l",98,107,90,115,"cloro basso","cloro alto","98","107")
+   +FT.box(8,250,208,66,"Osmolalità plasmatica",["circa 275-295 mOsm/kg","(glicemia e BUN in mg/dl)","2 × Na + glicemia/18 + BUN/2,8"],"info")
+   +FT.box(224,250,208,66,"Correzione del sodio",["iponatriemia cronica: non oltre","8-10 mmol/l nelle 24 ore"],"warn"));
+  })()},
+/* lotto: senza-figure */
+{id:"dir-gerarchia-fonti",t:"La piramide delle fonti del diritto",c:"Una fonte di grado inferiore non può contraddire quella superiore. Salendo verso il vertice la norma prevale; in basso circolari e linee guida danno indicazioni operative ma non sono leggi.",
+ enc:["dir-fonti"],gl:[],st:/fonti|gerarchia|diritto|norma/i,
+ svg:FT.svg(440,384,"Piramide a cinque livelli: Costituzione, diritto dell'Unione europea, fonti primarie, fonti secondarie, circolari e linee guida; sotto, i criteri per risolvere i conflitti tra norme",
+  FT.box(140,8,160,54,"Costituzione",["e leggi costituzionali"],"alarm")
+  +FT.box(115,68,210,54,"Diritto dell'UE",["regolamenti e direttive:","prevalgono nelle materie UE"],"warn")
+  +FT.box(90,128,260,54,"Fonti primarie",["legge, decreto legislativo, decreto-legge,","leggi regionali (materie delle Regioni)"],"info")
+  +FT.box(65,188,310,54,"Fonti secondarie",["regolamenti: DPR, decreti ministeriali","non possono andare contro una legge"],"info")
+  +FT.box(40,248,360,54,"Circolari, linee guida, atti aziendali",["indicazioni operative: non sono leggi"],"")
+  +FT.arrow(20,20,20,290)
+  +FT.box(8,312,424,64,"Conflitto tra norme: tre criteri",["gerarchico: prevale la fonte superiore · cronologico: la più recente","specialità: la norma speciale prevale su quella generale"],""))},
+{id:"ml-infortunio-flusso",t:"Infortunio sul lavoro: che cosa si segnala e quando",c:"Il lavoratore avvisa subito; poi la scadenza dipende dalla gravità. Denuncia (prognosi oltre 3 giorni) e semplice comunicazione non sono la stessa cosa. Una puntura accidentale con ago è sempre un infortunio da segnalare.",
+ enc:["ml-infortuni","ml-biologico"],gl:[],st:/infortun|inail|lavoro/i,
+ svg:FT.svg(440,352,"Flusso dell'infortunio sul lavoro: avviso al datore di lavoro e certificato, poi tre strade con scadenze diverse (comunicazione, denuncia, morte o pericolo di morte), infine l'indennità INAIL",
+  FT.box(8,8,424,50,"Infortunio sul lavoro",["causa violenta in occasione di lavoro (es. puntura d'ago)"],"info")
+  +FT.arrow(220,58,220,74)
+  +FT.box(8,74,424,50,"Il lavoratore avvisa subito il datore di lavoro",["anche se lieve; si fa rilasciare il certificato medico"],"info")
+  +FT.elbow([[220,124],[220,135],[76,135],[76,146]])
+  +FT.arrow(220,124,220,146)
+  +FT.elbow([[220,135],[364,135],[364,146]])
+  +FT.box(8,146,136,86,["Assenza","1-3 giorni"],["comunicazione","entro 48 ore,","a fini statistici"],"ok")
+  +FT.box(152,146,136,86,["Prognosi","oltre 3 giorni"],["denuncia telematica","entro 2 giorni dalla","ricezione del certificato"],"warn")
+  +FT.box(296,146,136,86,["Morte o pericolo","di morte"],["entro 24 ore"],"alarm")
+  +FT.box(8,244,424,52,"Indennità INAIL dal 4° giorno",["60% della retribuzione fino al 90° giorno, 75% dal 91°"],"info")
+  +FT.box(8,304,424,40,"Puntura accidentale con ago: sempre da segnalare, anche senza assenza","","warn",{}))},
+{id:"consenso-chi-decide",t:"Consenso informato: requisiti e chi decide",c:"Il consenso è valido solo se ha tutti i requisiti ed è revocabile in ogni momento. Chi decide dipende dalla situazione: la persona, i genitori o il tutore, l'amministratore di sostegno; in emergenza si interviene per stato di necessità.",
+ enc:["consenso-informato","dat"],gl:[],st:/consenso|etica|deontolog/i,
+ svg:FT.svg(440,376,"Il consenso informato: sei requisiti in alto e quattro situazioni in basso (persona capace, minore, persona incapace o con amministratore di sostegno, emergenza)",
+  FT.box(8,8,424,62,"Consenso informato (L. 219/2017)",["accettare o rifiutare un trattamento, anche salvavita,","dopo informazioni comprensibili"],"info")
+  +FT.text(8,90,"Sei requisiti",{sm:true,b:true})
+  +FT.box(8,98,136,30,"Personale","","ok")+FT.box(152,98,136,30,"Libero","","ok")+FT.box(296,98,136,30,"Informato","","ok")
+  +FT.box(8,134,136,30,"Consapevole","","ok")+FT.box(152,134,136,30,"Attuale","","ok")+FT.box(296,134,136,30,"Revocabile","","ok")
+  +FT.text(8,186,"Chi decide",{sm:true,b:true})
+  +FT.box(8,194,208,82,"Persona capace",["decide la persona stessa;","forma scritta o videoregistrata,","o con dispositivi adatti; in cartella"],"info")
+  +FT.box(224,194,208,82,"Minore",["decidono genitori o tutore,","tenendo conto della volontà","del minore (età e maturità)"],"info")
+  +FT.box(8,284,208,82,["Incapace o con","amministratore di sostegno"],["decide il tutore o","l'amministratore, secondo","il decreto di nomina"],"info")
+  +FT.box(224,284,208,82,"Emergenza",["si interviene per lo stato","di necessità, salvo un rifiuto","valido già espresso"],"warn"))},
+{id:"referto-denuncia-confronto",t:"Referto e denuncia: chi, quando, entro quando",c:"Due obblighi verso l'autorità giudiziaria che non vanno confusi: il referto riguarda chi presta assistenza e ha un termine e un limite precisi; la denuncia riguarda chi è pubblico ufficiale o incaricato di pubblico servizio.",
+ enc:["referto-denuncia","segreto-professionale"],gl:[],st:/referto|denuncia|legale|reato/i,
+ svg:FT.svg(440,434,"Confronto tra referto e denuncia di reato: chi è obbligato, quando, termine ed eccezione; sotto esempi di delitti procedibili d'ufficio, la qualifica dell'infermiere del SSN e il falso nelle certificazioni",
+  FT.box(8,8,208,46,["Referto","art. 365 c.p."],"","info")
+  +FT.box(224,8,208,46,["Denuncia","artt. 361-362 c.p."],"","info")
+  +FT.box(8,62,208,66,"Chi",["chi presta assistenza in casi che","possono avere i caratteri di un","delitto procedibile d'ufficio"],"")
+  +FT.box(224,62,208,66,"Chi",["pubblico ufficiale o incaricato","di pubblico servizio"],"")
+  +FT.box(8,136,208,52,"Termine",["entro 48 ore (art. 334 c.p.p.),","o subito se c'è pericolo"],"warn")
+  +FT.box(8,196,208,52,"Eccezione",["non è dovuto se espone la persona","assistita a procedimento penale"],"ok")
+  +FT.box(224,136,208,112,"Quando",["apprende un delitto d'ufficio","nell'esercizio delle funzioni"],"")
+  +FT.box(8,258,424,58,"Delitti procedibili d'ufficio: esempi",["lesioni gravi o gravissime, maltrattamenti in famiglia,","violenza sessuale su minori, omicidio"],"info")
+  +FT.box(8,324,424,46,"L'infermiere del SSN è almeno incaricato di pubblico servizio",["art. 358 c.p."],"")
+  +FT.box(8,378,424,46,"Il falso nelle certificazioni è reato",["artt. 476-481 c.p."],"alarm"))},
+{id:"tbc-percorso",t:"Tubercolosi: dall'infezione alla malattia, diagnosi e misure",c:"Solo la malattia attiva è contagiosa. Per sospetto o conferma si usano test mirati, isolamento respiratorio con protezioni adeguate e una terapia di almeno 6 mesi con più farmaci.",
+ enc:["tbc","precauzioni"],gl:[],st:/tubercol|tbc|infezion|isolamento/i,
+ svg:FT.svg(440,354,"Percorso della tubercolosi: infezione latente e malattia attiva, test diagnostici, isolamento respiratorio, terapia di almeno 6 mesi, rifampicina e notifica obbligatoria",
+  FT.box(8,8,150,66,"Infezione latente",["non contagiosa,","asintomatica"],"ok")
+  +FT.arrow(158,41,186,41)
+  +FT.box(186,8,246,66,"Malattia attiva",["tosse da più di 2-3 settimane, febbricola","serale, sudorazioni notturne,","calo di peso, emottisi"],"alarm")
+  +FT.arrow(220,74,220,88)
+  +FT.box(8,88,136,66,"Mantoux",["lettura dopo 48-72 ore:","si misura l'indurimento,","non l'arrossamento"],"info")
+  +FT.box(152,88,136,66,"IGRA",["esame del sangue","segnala l'infezione,","non la malattia attiva"],"info")
+  +FT.box(296,88,136,66,"Espettorato e RX",["esame dell'espettorato","e RX del torace"],"info")
+  +FT.arrow(220,154,220,168)
+  +FT.box(8,168,424,52,"Isolamento respiratorio",["stanza singola a pressione negativa · FFP2/FFP3 per gli operatori","mascherina chirurgica al paziente nei trasferimenti"],"warn")
+  +FT.arrow(220,220,220,234)
+  +FT.box(8,234,424,52,"Terapia",["almeno 6 mesi, più farmaci: isoniazide, rifampicina,","pirazinamide, etambutolo"],"ok")
+  +FT.box(8,300,208,46,"Rifampicina",["colora di arancione urine e lacrime"],"")
+  +FT.box(224,300,208,46,"Notifica obbligatoria",["malattia a notifica obbligatoria"],"info"))},
+{id:"preeclampsia-schema",t:"Preeclampsia: segni, HELLP e magnesio solfato",c:"Ipertensione dopo 20 settimane con proteinuria o danno d'organo; se compaiono convulsioni è eclampsia. Con il magnesio solfato si controllano riflessi, respiro e diuresi, e si tiene pronto l'antidoto. La cura definitiva è il parto.",
+ enc:["preeclampsia","gravidanza"],gl:[],st:/preeclampsia|eclampsia|gravidanza|magnesio/i,
+ svg:FT.svg(440,312,"Preeclampsia che può evolvere in eclampsia; segni da riconoscere e sindrome HELLP; magnesio solfato con monitoraggio e antidoto; la cura definitiva è il parto",
+  FT.box(8,8,200,66,"Preeclampsia",["ipertensione dopo 20 settimane","con proteinuria o danno d'organo"],"warn")
+  +FT.arrow(208,41,236,41)
+  +FT.box(236,8,196,66,"Eclampsia",["si aggiungono","le convulsioni"],"alarm")
+  +FT.arrow(140,74,140,92)
+  +FT.box(8,92,264,70,"Segni da riconoscere",["pressione ≥ 140/90, proteinuria, cefalea,","disturbi visivi, dolore epigastrico,","edemi, iperreflessia"],"info")
+  +FT.box(280,92,152,70,"Sindrome HELLP",["emolisi, enzimi","epatici elevati,","piastrine basse"],"alarm")
+  +FT.arrow(140,162,140,180)
+  +FT.arrow(356,162,356,180)
+  +FT.box(8,180,424,64,"Magnesio solfato: previene e tratta le convulsioni",["monitorare: riflessi rotulei, frequenza respiratoria, diuresi","antidoto: calcio gluconato"],"ok")
+  +FT.arrow(220,244,220,258)
+  +FT.box(8,258,424,46,"La cura definitiva è il parto","","info"))},
+/* lotto: farmacologia e sicurezza dei farmaci */
+{id:"farmacovigilanza-percorso",t:"Dalla reazione avversa alla segnalazione",c:"Una reazione avversa può essere prevedibile (tipo A, legata alla dose) o imprevedibile (tipo B, per esempio un'allergia). In entrambi i casi chi la sospetta, operatore o cittadino, la segnala all'AIFA tramite la Rete nazionale di farmacovigilanza, anche online. Il triangolo nero rovesciato indica un farmaco sotto monitoraggio addizionale.",
+ enc:["farmacovigilanza"],gl:[],st:/farmacovigilanza|reazion\w* avvers|segnal/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow;
+  return FT.svg(440,290,"Tipo A e tipo B convergono nella segnalazione all'AIFA; in basso il simbolo del triangolo nero rovesciato",
+   B(8,8,208,50,"Tipo A","prevedibile, dose-dipendente","info")+B(224,8,208,50,"Tipo B","imprevedibile (es. allergie)","warn")
+   +A(112,58,170,92)+A(328,58,270,92)
+   +B(60,94,320,52,"Segnalazione","operatori sanitari e cittadini, anche online","ok")
+   +A(220,146,220,176)
+   +B(60,178,320,52,"AIFA","Rete nazionale di farmacovigilanza","info")
+   +`<path class="fh" d="M14 244H46L30 274Z"/>`
+   +FT.text(58,254,["Triangolo nero rovesciato: farmaco sottoposto","a monitoraggio addizionale"],{sm:true}))})()},
+{id:"stupefacenti-registro",t:"Stupefacenti: registro e giacenza devono coincidere",c:"Il registro di carico e scarico, vidimato dalla direzione sanitaria e conservato dal coordinatore per 2 anni, deve corrispondere alla giacenza reale nell'armadio chiuso a chiave. Ogni somministrazione si registra; residui e rotture si documentano. Il dirigente medico dell'unità operativa risponde della corrispondenza.",
+ enc:["stupefacenti"],gl:[],st:/stupefacent|registro di carico/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow;
+  return FT.svg(440,300,"Il registro di carico e scarico e la giacenza nell'armadio chiuso devono corrispondere; sotto i tre passi di ogni somministrazione",
+   B(8,8,170,70,["Registro di","carico e scarico"],["vidimato dalla direzione","sanitaria; 2 anni"],"info")
+   +FT.text(220,48,"=",{a:"middle",b:true,c:"fb"})+FT.text(220,66,"deve",{a:"middle",sm:true})
+   +B(262,8,170,70,["Giacenza reale","in armadio"],["chiuso a chiave"],"info")
+   +FT.text(220,102,"Ne risponde il dirigente medico dell'unità operativa",{a:"middle",sm:true})
+   +B(8,124,128,64,"1 Armadio","chiuso a chiave","")+A(136,156,156,156)
+   +B(156,124,128,64,"2 Somministra","e registra","ok")+A(284,156,304,156)
+   +B(304,124,128,64,"3 Residui","e rotture","warn")
+   +FT.text(220,212,"Residui e rotture vanno documentati.",{a:"middle",sm:true})
+   +B(8,230,424,50,"Oppioidi per il dolore","la L. 38/2010 ne ha semplificato la prescrizione","info"))})()},
+{id:"antibiotici-prima-dose",t:"Antibiotici: i controlli prima e durante la terapia",c:"Prima della prima dose si verifica l'allergia alla penicillina e, quando possibile, si prelevano le emocolture senza ritardare la terapia nella sepsi; poi si rispettano orari e intervalli. Due farmaci hanno un rischio specifico da ricordare: la vancomicina (infusione lenta) e gli aminoglicosidi (reni e orecchio).",
+ enc:["antibiotici"],gl:[],st:/antibiotic|vancomicina|aminoglicosid/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow;
+  return FT.svg(440,310,"Quattro passi in colonna: allergia, emocolture, prima dose, orari rispettati; a destra due rischi specifici",
+   B(8,8,230,56,"1 Allergia alla penicillina?","verificarla prima della prima dose","warn")+A(123,64,123,84)
+   +B(8,84,230,56,"2 Emocolture","prima della dose, se possibile","info")+A(123,140,123,160)
+   +B(8,160,230,56,"3 Prima dose","senza ritardare nella sepsi","ok")+A(123,216,123,236)
+   +B(8,236,230,56,"4 Orari e intervalli","rispettati per livelli efficaci","ok")
+   +B(254,8,178,86,"Vancomicina",["infondere lentamente:","sindrome dell'uomo","rosso; livelli monitorati"],"alarm")
+   +B(254,110,178,86,"Aminoglicosidi",["nefrotossicità e","ototossicità"],"warn")
+   +FT.text(254,226,["Uso corretto = meno","resistenza ai batteri."],{sm:true}))})()},
+{id:"riconciliazione-passaggi",t:"Riconciliazione: in tre passaggi di cura, due tempi",c:"A ogni passaggio di cura (ingresso, trasferimento, dimissione) si raccoglie la terapia realmente assunta (ricognizione) e la si confronta con quella prescritta decidendo che cosa continuare, sospendere o modificare (riconciliazione).",
+ enc:["riconciliazione"],gl:[],st:/riconcil|ricognizione/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow;
+  return FT.svg(440,290,"Ingresso, trasferimento e dimissione; per ognuno prima la ricognizione e poi la riconciliazione",
+   FT.text(8,14,"A ogni passaggio di cura",{b:true})
+   +B(8,24,128,40,"Ingresso","","info")+A(136,44,156,44)+B(156,24,128,40,"Trasferimento","","info")+A(284,44,304,44)+B(304,24,128,40,"Dimissione","","info")
+   +A(220,64,220,90)
+   +B(8,92,424,70,"1 Ricognizione: che cosa assume davvero",["tutti i farmaci in uso, anche da banco, integratori e fitoterapici;","dosi, orari e allergie"],"info")
+   +A(220,162,220,188)
+   +B(8,190,424,70,"2 Riconciliazione: che cosa fare",["confronto con la terapia prescritta e decisione:","continuare, sospendere o modificare"],"ok")
+   +FT.text(8,280,"Raccomandazione ministeriale n. 17 (2014).",{sm:true}))})()},
+{id:"last-sintomi-risposta",t:"Tossicità sistemica da anestetico locale (LAST)",c:"Di solito i sintomi neurologici compaiono prima di quelli cardiaci, ma la presentazione può essere atipica o ritardata. Alla comparsa si sospende l'iniezione, si chiama aiuto, si proteggono vie aeree e ossigenazione, si trattano le convulsioni e si prepara l'emulsione lipidica al 20% che l'anestesista somministra secondo protocollo.",
+ enc:["anest-locali"],gl:[],st:/LAST|anestetic\w* local|bupivacaina|lipidic/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow;
+  return FT.svg(440,330,"Prima i sintomi neurologici, poi quelli cardiaci; sotto le cinque azioni da fare",
+   FT.text(8,14,"Come si manifesta",{b:true})
+   +B(8,22,204,92,"Neurologici (prima)",["formicolio intorno alla bocca,","sapore metallico, ronzio","alle orecchie, agitazione,","convulsioni"],"warn")
+   +A(212,68,228,68)
+   +B(228,22,204,92,"Cardiaci (poi)",["aritmie,","arresto cardiaco"],"alarm")
+   +FT.text(8,142,"Che cosa fare",{b:true})
+   +B(8,150,204,40,"Sospendere l'iniezione","e chiamare aiuto","alarm")
+   +B(228,150,204,40,"Vie aeree e ossigeno","","info")
+   +B(8,198,204,40,"Convulsioni","benzodiazepine","info")
+   +B(228,198,204,40,"Emulsione lipidica 20%","la somministra l'anestesista","ok")
+   +B(8,252,424,64,"Prevenzione",["iniezione lenta e frazionata con aspirazione periodica;","dose massima calcolata sul peso; monitoraggio durante e dopo"],"ok"))})()},
+{id:"ponv-apfel-farmaci",t:"PONV: contare i fattori, combinare farmaci diversi",c:"La scala di Apfel conta quattro fattori di rischio; più sono, più sale il rischio di nausea e vomito post-operatori (da circa il 10% con zero fattori a circa l'80% con quattro). Si previene combinando farmaci che agiscono su recettori diversi. Gli anti-acidi non sono antiemetici.",
+ enc:["ponv"],gl:[],st:/PONV|apfel|antiemetic|nausea e vomito/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow,x0=24,w=34,g=8;let bars="";
+  for(let i=0;i<5;i++){const h=18+i*13,x=x0+i*(w+g);bars+=`<rect class="fbx k-${i<2?"ok":i<4?"warn":"alarm"}" x="${x}" y="${176-h}" width="${w}" height="${h}"/>`+FT.text(x+w/2,192,String(i),{a:"middle",sm:true})}
+  return FT.svg(440,370,"Quattro fattori di Apfel, istogramma indicativo del rischio da zero a quattro fattori e farmaci da combinare",
+   FT.text(8,14,"I 4 fattori di Apfel",{b:true})
+   +B(8,22,100,40,"Sesso","femminile","info")+B(112,22,100,40,"Non","fumatore","info")+B(216,22,108,40,"PONV o","cinetosi","info")+B(328,22,104,40,"Oppioidi","post-operatori","info")
+   +FT.text(8,92,"Rischio indicativo secondo i fattori presenti",{b:true})
+   +FT.axes(14,176,220,70,"","")+bars
+   +FT.text(24,192+14,"numero di fattori",{sm:true})
+   +FT.text(250,164,"circa 10% con 0 fattori",{sm:true})+FT.text(250,118,"circa 80% con 4 fattori",{sm:true})
+   +FT.text(8,232,"Farmaci su recettori diversi",{b:true})
+   +B(8,240,100,40,"5-HT3","ondansetron","info")+B(112,240,100,40,"Steroide","desametasone","info")+B(216,240,108,40,"NK1","aprepitant","info")+B(328,240,104,40,"Dopamina","droperidolo","info")
+   +B(8,296,424,56,"NON sono antiemetici",["famotidina e pantoprazolo: riducono l'acido e servono","per la profilassi dell'aspirazione, non per la nausea"],"warn"))})()},
+{id:"trasfusione-tempi",t:"Trasfusione: i tempi da rispettare",c:"Prima si controlla tutto al letto con due operatori; i primi 15 minuti la trasfusione va lenta e il paziente è osservato; i globuli rossi vanno completati entro 4 ore dall'uscita dal frigorifero. Alla minima reazione si ferma e si segue la sequenza in basso. Scala non proporzionale.",
+ enc:["trasfusione"],gl:[],st:/trasfusion|emocompon/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow;
+  return FT.svg(440,340,"Linea del tempo non in scala: controllo al letto, primi 15 minuti lenti, fine entro 4 ore; sotto la sequenza in caso di reazione",
+   FT.text(8,14,"Linea del tempo (non in scala)",{b:true})
+   +`<path class="fl" d="M20 70H420"/>`
+   +[[20,"prima"],[120,"inizio"],[230,"15 min"],[400,"4 ore"]].map(p=>`<circle class="fbx k-info" cx="${p[0]}" cy="70" r="6"/>`+FT.text(p[0],92,p[1],{a:p[0]<30?"start":p[0]>390?"end":"middle",sm:true})).join("")
+   +B(8,108,138,86,"Prima",["consenso, prove di","compatibilità, controllo","a due: paziente, unità,","gruppo, scadenza"],"info")
+   +B(151,108,138,86,"Primi 15 min",["velocità lenta,","osservare il paziente;","parametri vitali","prima, a 15 min e alla fine"],"ok")
+   +B(294,108,138,86,"Entro 4 ore",["globuli rossi da","completare dall'uscita","dal frigorifero","emoteca"],"info")
+   +B(8,214,424,112,"Reazione: ferma la trasfusione",["mantieni l'accesso con sola fisiologica,","avvisa il medico e il centro trasfusionale,","conserva la sacca.","Emolitica acuta: febbre, brividi, dolore lombare, ipotensione.","TACO: dispnea, ipertensione, edema polmonare."],"alarm"))})()},
+{id:"iniettabili-vie",t:"Dieci iniettabili: per quale via e che cosa ricordare",c:"Matrice delle vie indicate nella voce per ciascun farmaco (EV endovenosa, IM intramuscolare, SC sottocutanea) con il punto di attenzione principale. Le vie valgono per le forme descritte: segui sempre scheda tecnica e prescrizione.",
+ enc:["farmaci-iniettabili"],gl:[],st:/iniettabil|adrenalina|ceftriaxone|ondansetron/i,
+ svg:(()=>{const R=[["Adrenalina","EV IM SC","anafilassi: IM in coscia"],["Idrocortisone","EV IM","può alzare la glicemia"],["Desametasone","EV IM","più potente, alza la glicemia"],["Diclofenac","IM","FANS: IM profonda"],["Atropina","EV IM","bocca secca, tachicardia"],["Ondansetron","EV IM","QT; EV lenta"],["Pantoprazolo","EV","da solo, niente miscele"],["Ceftriaxone","EV IM","allergie; non mescolare con calcio"],["Vitamina B12","IM","carenza di B12"],["Glucosio 33%","EV","ipoglicemia grave"]];
+  const cx={EV:136,IM:166,SC:196};let o=FT.text(8,14,"Farmaco",{b:true,sm:true})+["EV","IM","SC"].map(k=>FT.text(cx[k],14,k,{a:"middle",b:true,sm:true})).join("")+FT.text(226,14,"Attenzione",{b:true,sm:true});
+  R.forEach((r,i)=>{const y=24+i*27;o+=`<rect class="fbx" x="4" y="${y}" width="432" height="25" rx="5"/>`+FT.text(10,y+16,r[0],{sm:true})+r[1].split(" ").map(k=>`<circle class="fbx k-ok" cx="${cx[k]}" cy="${y+12.5}" r="7"/>`).join("")+FT.text(226,y+16,r[2],{sm:true})});
+  return FT.svg(440,300,"Tabella di dieci farmaci iniettabili con le vie EV, IM, SC e il punto di attenzione",o)})()}
 ];
