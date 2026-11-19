@@ -1296,10 +1296,10 @@ const FIGURE=[
   o+='<path class="fl" d="M362 52V280"/><path class="fl dash" d="M296 '+Y5+'H428"/>';
   o+='<path class="fl dash" d="M305 104V256M328 196V256M350 196V256"/>';
   o+=el(305,Y5,"V7","p",9.5)+el(328,Y5,"V8","p",9.5)+el(350,Y5,"V9","p",9.5);
-  o+=FT.text(296,290,"V7 ascellare posteriore",{sm:true})+FT.text(296,304,"V8 angolo della scapola",{sm:true})+FT.text(296,318,"V9 paravertebrale sin.",{sm:true});
+  o+=FT.text(296,290,"V7 ascellare posteriore",{sm:true})+FT.text(296,304,"V8 angolo inf. scapola",{sm:true})+FT.text(296,318,"V9 paravertebrale sin.",{sm:true});
   o+=FT.text(220,340,"IV e V: spazi intercostali; V7-V9 sul piano di V6",{a:"middle",sm:true});
   return FT.svg(440,348,"Torace visto di fronte con le precordiali V1-V6 e le destre V3R-V6R, e schiena con le posteriori V7, V8 e V9 sullo stesso piano di V6",o)})()},
-{id:"ecg-flutter-conduzione",t:"Flutter atriale: stesse onde F, conduzione diversa",c:"Le onde F a dente di sega hanno sempre circa 300/min: cambia quante ne passano ai ventricoli. Con conduzione 2:1 la frequenza ventricolare è circa 150/min, con 3:1 circa 100/min, con 4:1 circa 75/min. I tre rapporti si evidenziano a turno con il conteggio delle onde F. Schema illustrativo, non una registrazione.",
+{id:"ecg-flutter-conduzione",t:"Flutter atriale: stesse onde F, conduzione diversa",c:"Le onde F a dente di sega in queste strisce hanno circa 300/min: cambia quante ne passano ai ventricoli. Con conduzione 2:1 la frequenza ventricolare è circa 150/min, con 3:1 circa 100/min, con 4:1 circa 75/min. I tre rapporti si evidenziano a turno con il conteggio delle onde F. Schema illustrativo, non una registrazione.",
  enc:["ecg-flutter","ritmi"],gl:["Flutter atriale"],st:/flutter|onde f\b|dente di sega/i,
  svg:(()=>{
   const R=v=>Math.round(v*10)/10;

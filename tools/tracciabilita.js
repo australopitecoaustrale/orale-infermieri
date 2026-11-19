@@ -2,7 +2,8 @@
    Uso:
      node tools/tracciabilita.js estrai <id-voce> [...]            -> elenco dei dati con un numero (JSON) su stdout
      node tools/tracciabilita.js coerenza <termine> [...]          -> tutte le frasi dell'app con il termine e un numero
-     node tools/tracciabilita.js cancello <giudizi.json>           -> controlla i giudizi del revisore e dice se si può unire
+     node tools/tracciabilita.js cancello <giudizi.json> [id…]     -> controlla i giudizi del revisore e dice se si può unire;
+                                                                     con gli id delle voci blocca anche i dati rimasti senza giudizio
    Il file dei giudizi è un elenco di {id, testo, fonte, tipo, stato, nota}:
      tipo  = linea-guida | revisione | studio | manuale | aritmetica
      stato = confermato | da-verificare | errore | corretto
@@ -33,8 +34,10 @@ function coerenza(termini){
   QUIZ.forEach(q=>scan(q[0]+"#quiz",q[1]+" "+q[4]));GLOSS.forEach(g=>scan("glossario:"+g[0],g[2]));
   return righe;
 }
-function cancello(file){
+function cancello(file,ids){
   const G=JSON.parse(fs.readFileSync(file,"utf8"));const err=[],warn=[];
+  /* con gli id delle voci: ogni dato estratto oggi deve avere un giudizio */
+  if(ids&&ids.length){const giud=new Set(G.map(g=>g.id));for(const d of estrai(ids))if(!giud.has(d.id))err.push(`${d.id}: dato senza giudizio («${d.testo.slice(0,60)}…»)`)}
   const TIPI=["linea-guida","revisione","studio","manuale","aritmetica"],STATI=["confermato","da-verificare","errore","corretto"];
   for(const g of G){
     if(!STATI.includes(g.stato))err.push(`${g.id}: giudizio mancante o non valido (${g.stato||"vuoto"})`);
@@ -54,5 +57,5 @@ function cancello(file){
 const [cmd,...arg]=process.argv.slice(2);
 if(cmd==="estrai")console.log(JSON.stringify(estrai(arg),null,1));
 else if(cmd==="coerenza")for(const r of coerenza(arg))console.log(r.join(" | "));
-else if(cmd==="cancello")cancello(arg[0]);
+else if(cmd==="cancello")cancello(arg[0],arg.slice(1));
 else{console.error("Uso: estrai <id…> | coerenza <termine…> | cancello <giudizi.json>");process.exitCode=2}

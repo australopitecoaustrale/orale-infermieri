@@ -783,7 +783,7 @@ GLOSS.push(
 ["Derivazione di Lewis","t","Configurazione con due elettrodi a destra dello sterno letta in D1, che rende più visibili le onde atriali (flutter, dissociazione atrioventricolare).","Lewis lead","ecg-derivazioni-aggiuntive"],
 ["Artefatto ECG","t","Segnale registrato che non nasce dal cuore (tremore, movimento, rete elettrica, elettrodo staccato) e può imitare un'aritmia.","ECG artifact","ecg-artefatti"],
 ["Pseudo-flutter","t","Artefatto da tremore, tipico della malattia di Parkinson, con oscillazioni regolari che somigliano alle onde F del flutter atriale.","Pseudo-atrial flutter","ecg-artefatti"],
-["Tachicardia sinusale inappropriata","t","Ritmo sinusale oltre 100/min a riposo, sproporzionato rispetto allo sforzo o allo stress, senza una causa trovata; si diagnostica dopo aver escluso febbre, anemia, ipertiroidismo, farmaci e le altre cause.","Inappropriate sinus tachycardia","ecg-sinusali"],
+["Tachicardia sinusale inappropriata","t","Ritmo sinusale oltre 100/min a riposo, con sintomi come palpitazioni, sproporzionato rispetto allo sforzo o allo stress, senza una causa trovata; si diagnostica dopo aver escluso febbre, anemia, ipertiroidismo, farmaci e le altre cause.","Inappropriate sinus tachycardia","ecg-sinusali"],
 ["Riflesso di Cushing","t","Ipertensione con bradicardia e respiro irregolare quando la pressione dentro il cranio sale molto: segno tardivo e grave di erniazione cerebrale.","Cushing reflex","ecg-sinusali"],
 ["Istmo cavo-tricuspidale","t","Striscia di tessuto dell'atrio destro tra la vena cava inferiore e la valvola tricuspide: è il passaggio obbligato del circuito del flutter tipico e il bersaglio dell'ablazione.","Cavotricuspid isthmus","ecg-flutter"],
 ["Onde F","t","Onde atriali regolari a dente di sega, intorno a 300/min, che nel flutter sostituiscono le onde P.","Flutter waves","ecg-flutter"],
@@ -799,7 +799,7 @@ GLOSS.push(
 ["P polmonare","t","Onda P alta e appuntita (2,5 mm o più) in D2, D3 e aVF: segno di sovraccarico dell'atrio destro, per esempio nella BPCO.","P pulmonale","ecg-onda-p"],
 ["Indice di Sokolow-Lyon","t","Somma dell'onda S in V1 e dell'onda R in V5 o V6: oltre 35 mm suggerisce ipertrofia ventricolare sinistra.","Sokolow-Lyon index","ecg-ipertrofie-voltaggi"],
 ["Pattern di strain","t","Tratto ST discendente e onda T negativa asimmetrica nelle derivazioni che guardano un ventricolo ipertrofico; indica sovraccarico.","Strain pattern","ecg-ipertrofie-voltaggi"],
-["Basso voltaggio","t","QRS sotto 5 mm in tutte le derivazioni degli arti e/o sotto 10 mm in tutte le precordiali; fa cercare versamento pericardico, obesità, enfisema, ipotiroidismo.","Low QRS voltage","ecg-ipertrofie-voltaggi"],
+["Basso voltaggio","t","Ampiezza totale del QRS sotto 5 mm in tutte le derivazioni degli arti e/o sotto 10 mm in tutte le precordiali; fa cercare versamento pericardico, obesità, enfisema, ipotiroidismo.","Low QRS voltage","ecg-ipertrofie-voltaggi"],
 ["Metodo della tangente","t","Modo di trovare la fine dell'onda T: si prolunga il tratto più ripido della sua discesa fino alla linea di base.","Tangent method","ecg-qt-misura"],
 ["Formula di Fridericia","t","Correzione del QT per la frequenza: QT diviso la radice cubica dell'intervallo R-R; più stabile di Bazett a frequenze alte.","Fridericia formula","ecg-qt-misura"]
 );

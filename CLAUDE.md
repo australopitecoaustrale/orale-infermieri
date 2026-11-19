@@ -17,6 +17,8 @@ App web statica installabile per la prova orale del concorso Infermieri Puglia 2
 | `giorni.json`, `giorni/` | Domande del giorno |
 | `tools/verifica.js` | Controllo dei contenuti |
 | `tools/copertura-figure.js` | Dove mancano figure, con le priorità |
+| `tools/tracciabilita.js` | Verifica a cancelli: estrae i dati con numeri, controlla la coerenza, apre o chiude il cancello |
+| `docs/verifica/` | Matrice dei cancelli (formato `clinical-decision-support`) e giudizi del revisore |
 
 ## Formati
 
@@ -32,6 +34,7 @@ Una voce nuova va accanto a quelle dello stesso argomento, non in fondo al file.
 - Dopo ogni modifica ai contenuti cambiare la versione in `sw.js` **in due punti**: nel commento della prima riga e in `const C="atlante-…"`. Senza questo chi ha l'app installata non vede l'aggiornamento.
 - Eseguire `node tools/verifica.js` prima di ogni commit (lo fanno anche gli agganci in `.claude/settings.json`).
 - I contenuti clinici (dosi, soglie, valori) vanno scritti con parole proprie e verificati; indicare la fonte nel campo `n`. Video e post sono spunti, non fonti.
+- **Verifica a cancelli** (scelta dell'utente, con la skill `clinical-decision-support`): per le voci nuove o modificate con numeri, `node tools/tracciabilita.js estrai <id…>` → il `revisore-clinico` giudica ogni dato (confermato, da verificare, errore; fonte e tipo di fonte; una soglia da linea guida è confermata solo se letta nel testo o in due fonti indipendenti) → `node tools/tracciabilita.js coerenza <termine…>` → si salvano i giudizi in `docs/verifica/` → `node tools/tracciabilita.js cancello <giudizi.json> <id…>`. Si unisce in `main` solo con il cancello aperto; ogni «da verificare» va scritto nella nota `n`. Metodo in `docs/superpowers/specs/2026-11-19-verifica-a-cancelli-design.md`.
 - Le figure sono disegni originali: non copiare immagini, loghi o grafica altrui.
 - Dopo ogni video (`/watch`, con trascrizione dell'audio quando c'è) e dopo ogni trascrizione: scritti voce, quiz e glossario, far rivedere sempre il lavoro all'agente `revisore-clinico`, con controllo su PubMed (poi siti ufficiali e la rivista eBioMedicine di The Lancet, https://www.thelancet.com/journals/ebiom), e applicare le correzioni prima di unire in `main`.
 - Alla fine di ogni video, dopo l'unione in `main`, chiudere la risposta ricordando all'utente di eseguire `/compact` (è un comando che può lanciare solo l'utente).
