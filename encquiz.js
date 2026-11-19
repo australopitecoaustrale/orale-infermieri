@@ -430,7 +430,7 @@ var QUIZ_ECG2=[
 ["ecg-ipotermia","L'onda J di Osborn è tipica di…",["Ipercalcemia","Ipotermia","Pericardite","Embolia polmonare"],1,"È una gobba alla fine del QRS, più ampia quanto più bassa è la temperatura."],
 ["ecg-ipotermia","Nel paziente ipotermico è importante…",["Mobilizzarlo rapidamente","Mobilizzarlo con delicatezza per il rischio di FV","Somministrare liquidi freddi","Evitare il monitoraggio"],1,"Il cuore ipotermico è irritabile; il riscaldamento è graduale."],
 ["ecg-torsione","Il trattamento farmacologico di prima scelta della torsione di punta è…",["Amiodarone","Magnesio solfato endovena","Adenosina","Digossina"],1,"Se il paziente è senza polso: RCP e defibrillazione."],
-["ecg-torsione","Oltre quale valore di QTc il rischio di torsione di punta è considerato alto?",["300 ms","400 ms","500 ms","350 ms"],2,"Il QT va sempre corretto per la frequenza (QTc)."],
+["ecg-torsione","Oltre quale valore di QTc il rischio di torsione di punta è considerato alto?",["300 ms","400 ms","500 ms","350 ms"],2,"Il QT va corretto per la frequenza (QTc)."],
 ["ecg-torsione","Quale di questi squilibri favorisce il QT lungo?",["Ipermagnesiemia","Ipokaliemia","Ipercalcemia","Iperkaliemia"],1,"Anche ipomagnesiemia e ipocalcemia allungano il QT."],
 ["ecg-extrasistoli","Un'extrasistole ventricolare ha…",["QRS stretto preceduto da P diversa","QRS largo e bizzarro senza P, con pausa compensatoria","Onde F","PR lungo e costante"],1,"La T è opposta al QRS; il polso di quel battito è spesso debole."],
 ["ecg-extrasistoli","Il bigeminismo ventricolare è…",["Due QRS uniti","Un'extrasistole ventricolare dopo ogni battito normale","Un blocco 2:1","Una fibrillazione atriale"],1,"Se ce n'è una ogni due battiti normali si parla di trigeminismo."],
