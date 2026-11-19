@@ -1212,5 +1212,14 @@ const FIGURE=[
  svg:(()=>{const R=[["Adrenalina","EV IM SC","anafilassi: IM in coscia"],["Idrocortisone","EV IM","può alzare la glicemia"],["Desametasone","EV IM","più potente, alza la glicemia"],["Diclofenac","IM","FANS: IM profonda"],["Atropina","EV IM","bocca secca, tachicardia"],["Ondansetron","EV IM","QT; EV lenta"],["Pantoprazolo","EV","da solo, niente miscele"],["Ceftriaxone","EV IM","allergie; non mescolare con calcio"],["Vitamina B12","IM","carenza di B12"],["Glucosio 33%","EV","ipoglicemia grave"]];
   const cx={EV:136,IM:166,SC:196};let o=FT.text(8,14,"Farmaco",{b:true,sm:true})+["EV","IM","SC"].map(k=>FT.text(cx[k],14,k,{a:"middle",b:true,sm:true})).join("")+FT.text(226,14,"Attenzione",{b:true,sm:true});
   R.forEach((r,i)=>{const y=24+i*27;o+=`<rect class="fbx" x="4" y="${y}" width="432" height="25" rx="5"/>`+FT.text(10,y+16,r[0],{sm:true})+r[1].split(" ").map(k=>`<circle class="fbx k-ok" cx="${cx[k]}" cy="${y+12.5}" r="7"/>`).join("")+FT.text(226,y+16,r[2],{sm:true})});
-  return FT.svg(440,300,"Tabella di dieci farmaci iniettabili con le vie EV, IM, SC e il punto di attenzione",o)})()}
+  return FT.svg(440,300,"Tabella di dieci farmaci iniettabili con le vie EV, IM, SC e il punto di attenzione",o)})()},
+/* lotto: video insulina */
+{id:"insulina-dal-pancreas-al-muscolo",t:"Insulina: dalla cellula beta al muscolo in sei passi",c:"Sequenza: glicemia alta, ATP nella cellula beta, chiusura dei canali KATP, ingresso di calcio e rilascio di insulina, legame al recettore con GLUT4 in membrana, ingresso del glucosio e calo della glicemia.",
+ enc:["fisio-insulina"],gl:["Canale KATP","GLUT4","Esocitosi","Depolarizzazione"],st:/insulina|glut4|cellula beta|katp/i,
+ svg:(()=>{const S=[["1 Dopo il pasto",["La glicemia sale"],""],["2 Cellula beta",["Entra glucosio,","l'ATP sale"],"info"],["3 Canali KATP",["Si chiudono: il K⁺","non esce, depolarizza"],"info"],["4 Rilascio",["Entra Ca²⁺,","esce insulina"],"warn"],["5 Muscolo",["Insulina sul recettore:","GLUT4 in membrana"],"ok"],["6 Glucosio dentro",["La glicemia scende;","insulina eliminata in minuti"],"ok"]];
+  let o="";S.forEach((s,i)=>{const x=6+(i%3)*146,y=8+Math.floor(i/3)*112;o+=FT.box(x,y,128,92,s[0],s[1],s[2]);
+   if(i%3<2)o+=FT.arrow(x+129,y+46,x+145,y+46);});
+  o+=FT.elbow([[370,100],[370,110],[70,110],[70,120]],{dash:true});
+  o+=FT.text(8,236,"Le sulfoniluree agiscono al passo 3: chiudono il canale KATP.",{sm:true});
+  return FT.svg(440,244,"Sei passi: glicemia alta, ATP nella cellula beta, chiusura dei canali KATP, ingresso di calcio e rilascio di insulina, GLUT4 in membrana nel muscolo, glucosio dentro e glicemia che scende",o)})()}
 ];

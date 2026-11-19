@@ -767,5 +767,10 @@ GLOSS.push(
 ["One Health","t","Approccio che lega salute umana, animale e ambientale; il Codice deontologico lo richiama nella promozione della salute.","One Health","codice-capo-ii"],
 ["Governo clinico","t","Insieme di strumenti con cui un'organizzazione garantisce qualità e sicurezza delle cure; il Codice impegna l'infermiere a parteciparvi.","Clinical governance","codice-capo-vi"],
 ["Contratto di cura","t","Accordo trasparente tra libero professionista e persona assistita su presa in carico, consenso o dissenso informato, dati personali e compenso.","Care contract","codice-capo-vii"],
-["Esercizio abusivo della professione","t","Esercizio della professione senza titolo o iscrizione; infermiere e Ordine hanno il dovere di contrastarlo e denunciarlo.","Unlicensed practice","codice-capo-viii"]
+["Esercizio abusivo della professione","t","Esercizio della professione senza titolo o iscrizione; infermiere e Ordine hanno il dovere di contrastarlo e denunciarlo.","Unlicensed practice","codice-capo-viii"],
+/* da video: secrezione e azione dell'insulina */
+["Canale KATP","t","Canale del potassio sensibile all'ATP della cellula beta: si chiude quando l'ATP sale e avvia la depolarizzazione che porta alla secrezione di insulina; è il bersaglio delle sulfoniluree.","ATP-sensitive potassium channel","fisio-insulina"],
+["GLUT4","t","Trasportatore del glucosio di muscolo e tessuto adiposo: su stimolo dell'insulina passa dalle vescicole interne alla membrana e permette l'ingresso del glucosio.","Glucose transporter type 4","fisio-insulina"],
+["Esocitosi","t","Rilascio del contenuto di una vescicola all'esterno della cellula, per fusione con la membrana; così la cellula beta secerne l'insulina.","Exocytosis","fisio-insulina"],
+["Depolarizzazione","t","Riduzione della negatività del potenziale di membrana; nella cellula beta apre i canali del calcio e innesca il rilascio di insulina.","Depolarization","fisio-insulina"]
 );
