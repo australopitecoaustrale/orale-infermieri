@@ -1120,5 +1120,97 @@ const FIGURE=[
   +FT.arrow(356,162,356,180)
   +FT.box(8,180,424,64,"Magnesio solfato: previene e tratta le convulsioni",["monitorare: riflessi rotulei, frequenza respiratoria, diuresi","antidoto: calcio gluconato"],"ok")
   +FT.arrow(220,244,220,258)
-  +FT.box(8,258,424,46,"La cura definitiva è il parto","","info"))}
+  +FT.box(8,258,424,46,"La cura definitiva è il parto","","info"))},
+/* lotto: farmacologia e sicurezza dei farmaci */
+{id:"farmacovigilanza-percorso",t:"Dalla reazione avversa alla segnalazione",c:"Una reazione avversa può essere prevedibile (tipo A, legata alla dose) o imprevedibile (tipo B, per esempio un'allergia). In entrambi i casi chi la sospetta, operatore o cittadino, la segnala all'AIFA tramite la Rete nazionale di farmacovigilanza, anche online. Il triangolo nero rovesciato indica un farmaco sotto monitoraggio addizionale.",
+ enc:["farmacovigilanza"],gl:[],st:/farmacovigilanza|reazion\w* avvers|segnal/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow;
+  return FT.svg(440,290,"Tipo A e tipo B convergono nella segnalazione all'AIFA; in basso il simbolo del triangolo nero rovesciato",
+   B(8,8,208,50,"Tipo A","prevedibile, dose-dipendente","info")+B(224,8,208,50,"Tipo B","imprevedibile (es. allergie)","warn")
+   +A(112,58,170,92)+A(328,58,270,92)
+   +B(60,94,320,52,"Segnalazione","operatori sanitari e cittadini, anche online","ok")
+   +A(220,146,220,176)
+   +B(60,178,320,52,"AIFA","Rete nazionale di farmacovigilanza","info")
+   +`<path class="fh" d="M14 244H46L30 274Z"/>`
+   +FT.text(58,254,["Triangolo nero rovesciato: farmaco sottoposto","a monitoraggio addizionale"],{sm:true}))})()},
+{id:"stupefacenti-registro",t:"Stupefacenti: registro e giacenza devono coincidere",c:"Il registro di carico e scarico, vidimato dalla direzione sanitaria e conservato dal coordinatore per 2 anni, deve corrispondere alla giacenza reale nell'armadio chiuso a chiave. Ogni somministrazione si registra; residui e rotture si documentano. Il dirigente medico dell'unità operativa risponde della corrispondenza.",
+ enc:["stupefacenti"],gl:[],st:/stupefacent|registro di carico/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow;
+  return FT.svg(440,300,"Il registro di carico e scarico e la giacenza nell'armadio chiuso devono corrispondere; sotto i tre passi di ogni somministrazione",
+   B(8,8,170,70,["Registro di","carico e scarico"],["vidimato dalla direzione","sanitaria; 2 anni"],"info")
+   +FT.text(220,48,"=",{a:"middle",b:true,c:"fb"})+FT.text(220,66,"deve",{a:"middle",sm:true})
+   +B(262,8,170,70,["Giacenza reale","in armadio"],["chiuso a chiave"],"info")
+   +FT.text(220,102,"Ne risponde il dirigente medico dell'unità operativa",{a:"middle",sm:true})
+   +B(8,124,128,64,"1 Armadio","chiuso a chiave","")+A(136,156,156,156)
+   +B(156,124,128,64,"2 Somministra","e registra","ok")+A(284,156,304,156)
+   +B(304,124,128,64,"3 Residui","e rotture","warn")
+   +FT.text(220,212,"Residui e rotture vanno documentati.",{a:"middle",sm:true})
+   +B(8,230,424,50,"Oppioidi per il dolore","la L. 38/2010 ne ha semplificato la prescrizione","info"))})()},
+{id:"antibiotici-prima-dose",t:"Antibiotici: i controlli prima e durante la terapia",c:"Prima della prima dose si verifica l'allergia alla penicillina e, quando possibile, si prelevano le emocolture senza ritardare la terapia nella sepsi; poi si rispettano orari e intervalli. Due farmaci hanno un rischio specifico da ricordare: la vancomicina (infusione lenta) e gli aminoglicosidi (reni e orecchio).",
+ enc:["antibiotici"],gl:[],st:/antibiotic|vancomicina|aminoglicosid/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow;
+  return FT.svg(440,310,"Quattro passi in colonna: allergia, emocolture, prima dose, orari rispettati; a destra due rischi specifici",
+   B(8,8,230,56,"1 Allergia alla penicillina?","verificarla prima della prima dose","warn")+A(123,64,123,84)
+   +B(8,84,230,56,"2 Emocolture","prima della dose, se possibile","info")+A(123,140,123,160)
+   +B(8,160,230,56,"3 Prima dose","senza ritardare nella sepsi","ok")+A(123,216,123,236)
+   +B(8,236,230,56,"4 Orari e intervalli","rispettati per livelli efficaci","ok")
+   +B(254,8,178,86,"Vancomicina",["infondere lentamente:","sindrome dell'uomo","rosso; livelli monitorati"],"alarm")
+   +B(254,110,178,86,"Aminoglicosidi",["nefrotossicità e","ototossicità"],"warn")
+   +FT.text(254,226,["Uso corretto = meno","resistenza ai batteri."],{sm:true}))})()},
+{id:"riconciliazione-passaggi",t:"Riconciliazione: in tre passaggi di cura, due tempi",c:"A ogni passaggio di cura (ingresso, trasferimento, dimissione) si raccoglie la terapia realmente assunta (ricognizione) e la si confronta con quella prescritta decidendo che cosa continuare, sospendere o modificare (riconciliazione).",
+ enc:["riconciliazione"],gl:[],st:/riconcil|ricognizione/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow;
+  return FT.svg(440,290,"Ingresso, trasferimento e dimissione; per ognuno prima la ricognizione e poi la riconciliazione",
+   FT.text(8,14,"A ogni passaggio di cura",{b:true})
+   +B(8,24,128,40,"Ingresso","","info")+A(136,44,156,44)+B(156,24,128,40,"Trasferimento","","info")+A(284,44,304,44)+B(304,24,128,40,"Dimissione","","info")
+   +A(220,64,220,90)
+   +B(8,92,424,70,"1 Ricognizione: che cosa assume davvero",["tutti i farmaci in uso, anche da banco, integratori e fitoterapici;","dosi, orari e allergie"],"info")
+   +A(220,162,220,188)
+   +B(8,190,424,70,"2 Riconciliazione: che cosa fare",["confronto con la terapia prescritta e decisione:","continuare, sospendere o modificare"],"ok")
+   +FT.text(8,280,"Raccomandazione ministeriale n. 17 (2014).",{sm:true}))})()},
+{id:"last-sintomi-risposta",t:"Tossicità sistemica da anestetico locale (LAST)",c:"Di solito i sintomi neurologici compaiono prima di quelli cardiaci, ma la presentazione può essere atipica o ritardata. Alla comparsa si sospende l'iniezione, si chiama aiuto, si proteggono vie aeree e ossigenazione, si trattano le convulsioni e si prepara l'emulsione lipidica al 20% che l'anestesista somministra secondo protocollo.",
+ enc:["anest-locali"],gl:[],st:/LAST|anestetic\w* local|bupivacaina|lipidic/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow;
+  return FT.svg(440,330,"Prima i sintomi neurologici, poi quelli cardiaci; sotto le cinque azioni da fare",
+   FT.text(8,14,"Come si manifesta",{b:true})
+   +B(8,22,204,92,"Neurologici (prima)",["formicolio intorno alla bocca,","sapore metallico, ronzio","alle orecchie, agitazione,","convulsioni"],"warn")
+   +A(212,68,228,68)
+   +B(228,22,204,92,"Cardiaci (poi)",["aritmie,","arresto cardiaco"],"alarm")
+   +FT.text(8,142,"Che cosa fare",{b:true})
+   +B(8,150,204,40,"Sospendere l'iniezione","e chiamare aiuto","alarm")
+   +B(228,150,204,40,"Vie aeree e ossigeno","","info")
+   +B(8,198,204,40,"Convulsioni","benzodiazepine","info")
+   +B(228,198,204,40,"Emulsione lipidica 20%","la somministra l'anestesista","ok")
+   +B(8,252,424,64,"Prevenzione",["iniezione lenta e frazionata con aspirazione periodica;","dose massima calcolata sul peso; monitoraggio durante e dopo"],"ok"))})()},
+{id:"ponv-apfel-farmaci",t:"PONV: contare i fattori, combinare farmaci diversi",c:"La scala di Apfel conta quattro fattori di rischio; più sono, più sale il rischio di nausea e vomito post-operatori (da circa il 10% con zero fattori a circa l'80% con quattro). Si previene combinando farmaci che agiscono su recettori diversi. Gli anti-acidi non sono antiemetici.",
+ enc:["ponv"],gl:[],st:/PONV|apfel|antiemetic|nausea e vomito/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow,x0=24,w=34,g=8;let bars="";
+  for(let i=0;i<5;i++){const h=18+i*13,x=x0+i*(w+g);bars+=`<rect class="fbx k-${i<2?"ok":i<4?"warn":"alarm"}" x="${x}" y="${176-h}" width="${w}" height="${h}"/>`+FT.text(x+w/2,192,String(i),{a:"middle",sm:true})}
+  return FT.svg(440,370,"Quattro fattori di Apfel, istogramma indicativo del rischio da zero a quattro fattori e farmaci da combinare",
+   FT.text(8,14,"I 4 fattori di Apfel",{b:true})
+   +B(8,22,100,40,"Sesso","femminile","info")+B(112,22,100,40,"Non","fumatore","info")+B(216,22,108,40,"PONV o","cinetosi","info")+B(328,22,104,40,"Oppioidi","post-operatori","info")
+   +FT.text(8,92,"Rischio indicativo secondo i fattori presenti",{b:true})
+   +FT.axes(14,176,220,70,"","")+bars
+   +FT.text(24,192+14,"numero di fattori",{sm:true})
+   +FT.text(250,164,"circa 10% con 0 fattori",{sm:true})+FT.text(250,118,"circa 80% con 4 fattori",{sm:true})
+   +FT.text(8,232,"Farmaci su recettori diversi",{b:true})
+   +B(8,240,100,40,"5-HT3","ondansetron","info")+B(112,240,100,40,"Steroide","desametasone","info")+B(216,240,108,40,"NK1","aprepitant","info")+B(328,240,104,40,"Dopamina","droperidolo","info")
+   +B(8,296,424,56,"NON sono antiemetici",["famotidina e pantoprazolo: riducono l'acido e servono","per la profilassi dell'aspirazione, non per la nausea"],"warn"))})()},
+{id:"trasfusione-tempi",t:"Trasfusione: i tempi da rispettare",c:"Prima si controlla tutto al letto con due operatori; i primi 15 minuti la trasfusione va lenta e il paziente è osservato; i globuli rossi vanno completati entro 4 ore dall'uscita dal frigorifero. Alla minima reazione si ferma e si segue la sequenza in basso. Scala non proporzionale.",
+ enc:["trasfusione"],gl:[],st:/trasfusion|emocompon/i,
+ svg:(()=>{const B=FT.box,A=FT.arrow;
+  return FT.svg(440,340,"Linea del tempo non in scala: controllo al letto, primi 15 minuti lenti, fine entro 4 ore; sotto la sequenza in caso di reazione",
+   FT.text(8,14,"Linea del tempo (non in scala)",{b:true})
+   +`<path class="fl" d="M20 70H420"/>`
+   +[[20,"prima"],[120,"inizio"],[230,"15 min"],[400,"4 ore"]].map(p=>`<circle class="fbx k-info" cx="${p[0]}" cy="70" r="6"/>`+FT.text(p[0],92,p[1],{a:p[0]<30?"start":p[0]>390?"end":"middle",sm:true})).join("")
+   +B(8,108,138,86,"Prima",["consenso, prove di","compatibilità, controllo","a due: paziente, unità,","gruppo, scadenza"],"info")
+   +B(151,108,138,86,"Primi 15 min",["velocità lenta,","osservare il paziente;","parametri vitali","prima, a 15 min e alla fine"],"ok")
+   +B(294,108,138,86,"Entro 4 ore",["globuli rossi da","completare dall'uscita","dal frigorifero","emoteca"],"info")
+   +B(8,214,424,112,"Reazione: ferma la trasfusione",["mantieni l'accesso con sola fisiologica,","avvisa il medico e il centro trasfusionale,","conserva la sacca.","Emolitica acuta: febbre, brividi, dolore lombare, ipotensione.","TACO: dispnea, ipertensione, edema polmonare."],"alarm"))})()},
+{id:"iniettabili-vie",t:"Dieci iniettabili: per quale via e che cosa ricordare",c:"Matrice delle vie indicate nella voce per ciascun farmaco (EV endovenosa, IM intramuscolare, SC sottocutanea) con il punto di attenzione principale. Le vie valgono per le forme descritte: segui sempre scheda tecnica e prescrizione.",
+ enc:["farmaci-iniettabili"],gl:[],st:/iniettabil|adrenalina|ceftriaxone|ondansetron/i,
+ svg:(()=>{const R=[["Adrenalina","EV IM SC","anafilassi: IM in coscia"],["Idrocortisone","EV IM","può alzare la glicemia"],["Desametasone","EV IM","più potente, alza la glicemia"],["Diclofenac","IM","FANS: IM profonda"],["Atropina","EV IM","bocca secca, tachicardia"],["Ondansetron","EV IM","QT; EV lenta"],["Pantoprazolo","EV","da solo, niente miscele"],["Ceftriaxone","EV IM","allergie; non mescolare con calcio"],["Vitamina B12","IM","carenza di B12"],["Glucosio 33%","EV","ipoglicemia grave"]];
+  const cx={EV:136,IM:166,SC:196};let o=FT.text(8,14,"Farmaco",{b:true,sm:true})+["EV","IM","SC"].map(k=>FT.text(cx[k],14,k,{a:"middle",b:true,sm:true})).join("")+FT.text(226,14,"Attenzione",{b:true,sm:true});
+  R.forEach((r,i)=>{const y=24+i*27;o+=`<rect class="fbx" x="4" y="${y}" width="432" height="25" rx="5"/>`+FT.text(10,y+16,r[0],{sm:true})+r[1].split(" ").map(k=>`<circle class="fbx k-ok" cx="${cx[k]}" cy="${y+12.5}" r="7"/>`).join("")+FT.text(226,y+16,r[2],{sm:true})});
+  return FT.svg(440,300,"Tabella di dieci farmaci iniettabili con le vie EV, IM, SC e il punto di attenzione",o)})()}
 ];
