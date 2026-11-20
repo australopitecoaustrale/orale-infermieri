@@ -59,4 +59,5 @@ Una voce si apre con `index.html#voce-<id>`. Guardare sempre tema chiaro e scuro
 - `figura-animata`: classi e regole per le figure SVG.
 - `disegna-figure`: che cosa illustrare, scelta del modello (`figtpl.js`), controlli e ciclo per migliorare sempre; fonti di tecniche su GitHub in `references/fonti.md`.
 - `watch`: guardare un video; `design-dna`: analisi di stile.
+- `skill-inspector` (da `NVIDIA/SkillSpector`, Apache 2.0): controllare se una skill è sicura prima di installarla, con il programma `skillspector` (`uv tool install --python 3.13 git+https://github.com/NVIDIA/skillspector.git`) e una rilettura del codice. Usare sempre `--no-llm`, salvo richiesta.
 - Da `K-Dense-AI/scientific-agent-skills` (MIT, 13 su 177): `literature-review`, `citation-management`, `paper-lookup`, `research-lookup`, `scientific-critical-thinking`, `scholar-evaluation`, `clinical-decision-support`, `treatment-plans`, `clinical-reports`, `infographics`, `scientific-schematics`, `markdown-mermaid-writing`, `database-lookup`. Sono di supporto: i contenuti dell'Atlante seguono comunque le regole sopra.
