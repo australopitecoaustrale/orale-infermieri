@@ -1532,5 +1532,40 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
     o+=T(40,y+15,[r[1],r[2]],{sm:1,lh:12});
   });
   return FT.svg(440,300,"Schema in tre passi: la creatina entra nel muscolo e alza la fosfocreatina; una piccola parte diventa creatinina nel sangue; la creatininemia sale un poco e l'eGFR può scendere senza che il filtrato reale cambi per forza.",o);
+ })()},
+{id:"fig-creatina-perimenopausa",t:"Trial in perimenopausa: schema e risultati",c:"Tre gruppi, tre tempi, tre misure: il segnale su ossigenazione prefrontale e sonno è esplorativo e viene da sei settimane.",
+ enc:["creatina-perimenopausa","creatina-adulti"],gl:["Perimenopausa","NIRS","Test di Stroop"],st:/perimenopaus|menopaus|creatina.*donne|stroop/i,
+ svg:(()=>{
+  const T=FT.text,B=FT.box,A=FT.arrow;let o='';
+  const G='#2f8f8a';
+  const ring=(c,x,y,w,h)=>'<rect class="'+c+'" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="10" fill="none" stroke="'+G+'" stroke-width="2.6"/>';
+  /* gruppi */
+  o+=B(8,26,112,116,["51 donne","in perimenopausa"],["46 ± 5 anni"],"info");
+  [["Creatina (18)","carico 20 g al giorno, poi circa 4,5 g + allenamento","ok"],["Placebo (20)","stesso schema, con placebo",""],["Controllo (13)","nessun allenamento","warn"]].forEach((g,i)=>{
+   const y=26+i*41;
+   o+=A(120,84,134,y+17,{});
+   o+=B(134,y,298,35,g[0],g[1],g[2]);
+  });
+  o+=ring('ans',4,22,432,124);
+  /* linea del tempo */
+  o+='<path class="fl" d="M56 176H372"/>';
+  [[56,"Inizio",[]],[220,"Prima dell'allenamento",["5 giorni di carico:","20 g al giorno","(creatina e placebo)"]],[372,"Dopo 6 settimane",["circa 4,5 g al giorno","+ forza ad alta intensità","2 volte a settimana"]]].forEach(p=>{
+   o+='<circle class="fbx k-info" cx="'+p[0]+'" cy="176" r="7"/>';
+   o+=T(p[0],162,p[1],{a:"middle",b:1,sm:1});
+   if(p[2].length)o+=T(p[0],196,p[2],{a:"middle",sm:1,lh:12});
+  });
+  o+=ring('ans s2',4,148,432,92);
+  /* misure */
+  o+=T(8,254,"Misure",{b:1,sm:1});
+  [["Cognizione",["Stroop,","memoria di Rey"]],["Ossigenazione",["corteccia prefrontale","(NIRS)"]],["Sonno e sintomi",["braccialetto"]]].forEach((m,i)=>{
+   o+=B(8+i*144,260,136,52,m[0],m[1],"");
+  });
+  /* risultati */
+  o+='<rect class="eyrow" x="8" y="324" width="424" height="104" rx="10"/>';
+  o+=ring('ans s3',4,320,432,112);
+  o+=T(18,342,"Risultati dell'abstract",{b:1});
+  o+=T(18,361,["Ossigenazione prefrontale: +0,32% creatina contro −1,62% placebo","Costanza del sonno: +7,4 punti percentuali","Stroop: nessuna differenza tra i gruppi"],{sm:1,lh:15});
+  o+=T(18,418,"Esplorativo, 6 settimane, abstract letto",{sm:1,b:1});
+  return FT.svg(440,438,"Schema del trial in perimenopausa: 51 donne di 46 ± 5 anni divise in creatina (18), placebo (20) e controllo senza allenamento (13); linea del tempo con inizio, prima dell'allenamento dopo 5 giorni di carico e dopo 6 settimane; misure di cognizione, ossigenazione prefrontale e sonno; risultati esplorativi dell'abstract.",o);
  })()}
 ];
