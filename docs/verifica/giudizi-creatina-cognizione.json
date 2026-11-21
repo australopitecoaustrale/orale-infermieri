@@ -1,0 +1,114 @@
+[
+ {
+  "id": "creatina-cognizione-anziani#d",
+  "testo": "Una revisione sistematica di sei studi su persone dai 55 anni in su trova che la creatina si associa a prestazioni migliori in memoria e attenzione, ma le prove sono poche, di qualità mista (metà scarsa) e per lo più osservazionali: è un segnale da confermare, non un motivo per consigliarla contro il declino cognitivo.",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "Corretto «qualità mista»."
+ },
+ {
+  "id": "creatina-cognizione-anziani#p0",
+  "testo": "Revisione: Marshall S et al., Nutrition Reviews 2026 (PMID 40971619), registrata in PROSPERO; ricerca in otto banche dati (giugno-luglio 2024), solo studi su adulti di 55 anni o più con la creatina da sola (non associata all'allenamento) e una misura della cognizione",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Letto nel testo completo della revisione."
+ },
+ {
+  "id": "creatina-cognizione-anziani#p1",
+  "testo": "Selezione: 2897 articoli trovati, 961 doppioni tolti, 1837 scartati su titolo e abstract, 98 testi completi esaminati: 6 studi inclusi, 1542 partecipanti (55,7% donne), età media da 66,8 a 76,4 anni",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Il flusso riportato (2897, 961, 1837, 98) non torna aritmeticamente (99): scritto nella nota n."
+ },
+ {
+  "id": "creatina-cognizione-anziani#p2",
+  "testo": "Due studi di intervento (creatina monoidrato contro placebo): Alves 2013, trial randomizzato in doppio cieco su 56 donne di 60-80 anni in quattro gruppi (creatina o placebo, con o senza allenamento di forza), creatina 5 g al giorno per 24 settimane dopo 5 giorni di carico: nessun effetto sui test cognitivi; McMorris 2007, 32 persone con età media di 76 anni, in doppio cieco, creatina 20 g al giorno solo per una settimana (gruppo di confronto con placebo), con miglioramento del richiamo dei numeri in avanti, della memoria spaziale e di quella a lungo termine ma non della generazione di numeri casuali né del richiamo a ritroso (secondo la revisione; non è chiaro se i partecipanti fossero assegnati a caso)",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "Corretti: quattro gruppi di Alves, doppio cieco, esiti di McMorris come descritti dalla revisione; randomizzazione di McMorris da verificare (nota n)."
+ },
+ {
+  "id": "creatina-cognizione-anziani#p3",
+  "testo": "Quattro studi trasversali stimavano l'apporto di creatina dalla dieta con un richiamo alimentare (5 giorni o 24 ore): chi ne assumeva di più andava meglio in attenzione (compito di Flanker), memoria visuospaziale (blocchi di Corsi) o velocità di elaborazione (sostituzione di simboli); il più grande aveva 1340 partecipanti",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Letto nel testo completo della revisione."
+ },
+ {
+  "id": "creatina-cognizione-anziani#p7",
+  "testo": "Contesto: in altre revisioni la creatina migliorava la memoria, ma un'analisi trovava l'effetto maggiore sotto i 60 anni e un'altra sopra i 66: i dati sugli anziani restano incoerenti; gli autori chiedono studi in persone con deficit cognitivo, che questa revisione non includeva",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Letto nel testo completo della revisione."
+ },
+ {
+  "id": "creatina-cognizione-anziani#v0",
+  "testo": "Studi inclusi: 6 (2 interventi, 4 trasversali)",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Letto nel testo completo della revisione."
+ },
+ {
+  "id": "creatina-cognizione-anziani#v1",
+  "testo": "Partecipanti: 1542, di cui 55,7% donne",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Letto nel testo completo della revisione."
+ },
+ {
+  "id": "creatina-cognizione-anziani#v2",
+  "testo": "Studi con associazione positiva: 5 su 6",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Letto nel testo completo della revisione."
+ },
+ {
+  "id": "creatina-cognizione-anziani#v3",
+  "testo": "Qualità: 1 buona, 2 discreta, 3 scadente",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Letto nel testo completo della revisione."
+ },
+ {
+  "id": "creatina-cognizione-anziani#v4",
+  "testo": "Trial randomizzato (Alves): 5 g al giorno per 24 settimane: nessun effetto",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Letto nel testo completo della revisione."
+ },
+ {
+  "id": "creatina-cognizione-anziani#q0",
+  "testo": "Quanti studi ha incluso la revisione di Marshall (2026) su creatina e cognizione negli anziani? → Sei, di cui due di intervento (in doppio cieco) e quattro trasversali (Sei studi su 1542 partecipanti: due interventi in doppio cieco e quattro trasversali.)",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Letto nel testo completo della revisione."
+ },
+ {
+  "id": "creatina-cognizione-anziani#q1",
+  "testo": "Perché cinque studi su sei «positivi» non bastano a concludere che la creatina migliori la memoria? → Perché gli studi sono quattro trasversali, di qualità spesso bassa, che mostrano associazioni (Gli studi trasversali stimano l'apporto con un richiamo alimentare e non provano la causa; il trial più lungo e rigoroso (24 settimane) non ha trovato effetti.)",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Letto nel testo completo della revisione."
+ },
+ {
+  "id": "creatina-cognizione-anziani#q2",
+  "testo": "Che cosa ha mostrato il trial di Alves (5 g al giorno per 24 settimane in donne di 60-80 anni)? → Nessun effetto sui test cognitivi (È l'unico studio senza effetto; per la revisione era anche il più rigoroso (qualità «buona»).)",
+  "fonte": "PMID 40971619 (testo completo PMC12793482)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Letto nel testo completo della revisione."
+ }
+]

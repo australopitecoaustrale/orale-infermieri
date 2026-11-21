@@ -1600,5 +1600,33 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=hl(1,"ans")+hl(2,"ans s2")+hl(3,"ans s3");
   o+=FT.box(8,yb+2,424,34,"Sempre: ECG, pressione, SpO2, capnografia","vie aeree e ossigeno pronti","info");
   return FT.svg(440,yb+44,"Matrice di confronto dei farmaci per induzione e sedazione (propofol, tiopentale, etomidato, ketamina, midazolam, dexmedetomidina) per effetto su pressione, respiro e punto da ricordare; in basso il monitoraggio sempre necessario.",o);
+ })()},
+{id:"fig-creatina-cognizione",t:"Creatina e cognizione negli over 55: dalla ricerca ai 6 studi",c:"Da 2897 articoli restano 6 studi: due di intervento, quattro trasversali. Il segnale è debole e non prova una causa.",
+ enc:["creatina-cognizione-anziani"],gl:["Creatina monoidrato","Revisione sistematica","Studio trasversale","MMSE"],st:/creatina|cognizion/i,
+ svg:(()=>{
+  const T=FT.text,B=FT.box,A=FT.arrow;let o='';
+  const G='#2f8f8a';
+  const ring=(c,x,y,w,h)=>'<rect class="'+c+'" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="10" fill="none" stroke="'+G+'" stroke-width="2.6"/>';
+  /* imbuto: 5 passi */
+  const S=[["2897","trovati in","8 banche dati",""],["−961","doppioni","tolti",""],["−1837","scartati su","titolo/abstract",""],["98","testi completi","letti",""],["6 studi","1542 persone","55,7% donne","ok"]];
+  S.forEach((s,i)=>{
+   const x=8+i*88;
+   o+=B(x,22,76,58,s[0],[s[1],s[2]],s[3]);
+   if(i)o+=A(x-12,51,x-1,51,{});
+  });
+  o+=T(220,14,"Revisione sistematica, adulti dai 55 anni in su",{a:"middle",sm:1,b:1});
+  o+=ring('ans',4,18,172,66)+ring('ans s2',180,18,260,66);
+  o+=ring('ans s2',356,18,80,66);
+  /* due blocchi */
+  o+=B(8,98,206,84,"2 studi di intervento (doppio cieco)",["Alves 2013: 56 donne, 5 g/die","24 sett.: nessun effetto","McMorris 2007: 32 persone, 20 g/die","1 sett.: effetto su parte delle prove"],"info");
+  o+=B(222,98,210,84,"4 studi trasversali",["dieta stimata; Machado 2022 e 2023,","Oliveira 2023, Ostojic 2021 (n = 1340):","più creatina si associa a più","attenzione, memoria e velocità"],"info");
+  /* qualità */
+  o+=T(8,200,"Qualità (Downs e Black modificata)",{b:1,sm:1});
+  const W=424/6;
+  o+=B(8,208,W,30,"1 buona","","ok")+B(8+W,208,2*W,30,"2 discreta","","warn")+B(8+3*W,208,3*W,30,"3 scarsa","","alarm");
+  o+=ring('ans s3',4,204,432,38);
+  /* messaggio */
+  o+=B(8,250,424,46,["Segnale debole: studi pochi, eterogenei,","per lo più trasversali (non provano causa)"],"Il MMSE non cambia in nessuno studio che lo ha usato","warn");
+  return FT.svg(440,300,"Schema: da 2897 articoli, tolti 961 doppioni e scartati 1837 su titolo e abstract, 98 testi letti e 6 studi inclusi con 1542 partecipanti; due studi di intervento e quattro trasversali; qualità 1 buona, 2 discreta, 3 scarsa; segnale debole, il MMSE non cambia.",o);
  })()}
 ];
