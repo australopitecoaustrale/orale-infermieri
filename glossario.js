@@ -827,5 +827,9 @@ GLOSS.push(
 ["Sintomi vasomotori","t","Vampate di calore e sudorazioni notturne dovute alle variazioni ormonali della menopausa.","Vasomotor symptoms","creatina-perimenopausa"],
 ["NIRS","g","Spettroscopia nel vicino infrarosso: misura le variazioni di emoglobina ossigenata e deossigenata nei tessuti, per esempio nella corteccia cerebrale, con luce attraverso la pelle.","Near-infrared spectroscopy","creatina-perimenopausa"],
 ["Test di Stroop","t","Prova di attenzione ed esecuzione in cui si nomina il colore dell'inchiostro con cui è scritta una parola che indica un colore diverso; misura il controllo dell'interferenza.","Stroop test","creatina-perimenopausa"],
-["HIRT","g","Allenamento di forza ad alta intensità (High-Intensity Resistance Training).","High-intensity resistance training","creatina-perimenopausa"]
+["HIRT","g","Allenamento di forza ad alta intensità (High-Intensity Resistance Training).","High-intensity resistance training","creatina-perimenopausa"],
+["Revisione sistematica","t","Sintesi della letteratura con ricerca in più banche dati, criteri di inclusione stabiliti prima e valutazione della qualità di ogni studio; può includere o no una meta-analisi.","Systematic review","creatina-cognizione-anziani"],
+["Studio trasversale","t","Studio osservazionale che misura esposizione ed esito nello stesso momento: mostra associazioni, ma non può provare un rapporto di causa.","Cross-sectional study","creatina-cognizione-anziani"],
+["Compito di Flanker","t","Prova di attenzione: si risponde alla freccia centrale ignorando quelle ai lati; misura il controllo dell'interferenza.","Eriksen flanker task","creatina-cognizione-anziani"],
+["Blocchi di Corsi","t","Prova di memoria visuospaziale a breve termine: si ripete una sequenza di blocchi toccati dall'esaminatore, in avanti o a ritroso.","Corsi block-tapping task","creatina-cognizione-anziani"]
 );
