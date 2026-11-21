@@ -1638,7 +1638,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=T(8,16,"Fonte 1: sintesi nel corpo",{sm:1,b:1})+T(312,16,"Fonte 2: dieta",{sm:1,b:1});
   o+=B(8,24,128,62,"1 Rene",["glicina + arginina","→ ornitina + GAA"],"info");
   o+=B(160,24,128,62,"2 Fegato",["GAA + SAM","→ creatina + SAH"],"info");
-  o+=B(312,24,120,62,"3 Dieta",["carne, pesce,","latticini: creatina"],"warn");
+  o+=B(312,24,120,62,"3 Dieta",["carne e pesce:","creatina"],"warn");
   o+=A(136,55,160,55,{})+T(148,48,"GAA",{a:"middle",sm:1});
   o+=ring('ans',4,20,288,70)+ring('ans s2',308,20,128,70);
   o+=A(224,86,180,130,{})+T(214,112,"creatina",{sm:1});
@@ -1646,11 +1646,11 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=B(60,130,240,62,"4 Muscolo",["creatina ⇄ fosfocreatina","ADP → ATP (creatinchinasi)"],"ok");
   o+=ring('ans s3',56,126,248,70);
   o+=A(300,161,340,161,{});
-  o+=B(340,130,92,62,"5 Urina",["creatinina","(dal muscolo)","≈23,6 mg/kg/die"],"");
+  o+=B(340,130,92,62,"5 Urina",["creatinina","(dal muscolo)","eliminata dal rene"],"");
   o+=B(8,212,424,34,"Due fonti: sintesi e dieta","","info");
   o+=T(220,266,"La fosfocreatina rigenera l'ATP dall'ADP; la creatinina",{a:"middle",sm:1});
-  o+=T(220,280,"prodotta dal muscolo si elimina con le urine.",{a:"middle",sm:1});
+  o+=T(220,280,"si forma spontaneamente e si elimina con le urine.",{a:"middle",sm:1});
   o+=T(220,296,"Ostojic, J Funct Foods 2021 (opinione)",{a:"middle",sm:1});
-  return FT.svg(440,304,"Schema: nel rene glicina e arginina danno guanidinoacetato, nel fegato con SAM diventa creatina; la dieta (carne, pesce, latticini) è la seconda fonte. La creatina va al muscolo, dove con la fosfocreatina rigenera l'ATP dall'ADP; la creatinina si elimina con le urine.",o);
+  return FT.svg(440,304,"Schema: nel rene glicina e arginina danno guanidinoacetato, nel fegato con SAM diventa creatina; la dieta (carne, pesce) è la seconda fonte. La creatina va al muscolo, dove con la fosfocreatina rigenera l'ATP dall'ADP; la creatinina si elimina con le urine.",o);
  })()}
 ];

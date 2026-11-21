@@ -832,5 +832,5 @@ GLOSS.push(
 ["Studio trasversale","t","Studio osservazionale che misura esposizione ed esito nello stesso momento: mostra associazioni, ma non può provare un rapporto di causa.","Cross-sectional study","creatina-cognizione-anziani"],
 ["Compito di Flanker","t","Prova di attenzione: si risponde alla freccia centrale ignorando quelle ai lati; misura il controllo dell'interferenza.","Eriksen flanker task","creatina-cognizione-anziani"],
 ["Blocchi di Corsi","t","Prova di memoria visuospaziale a breve termine: si ripete una sequenza di blocchi toccati dall'esaminatore, in avanti o a ritroso.","Corsi block-tapping task","creatina-cognizione-anziani"],
-["Guanidinoacetato","s","GAA: composto che si forma nel rene da glicina e arginina ed è il precursore della creatina, che nel fegato riceve un gruppo metile da SAM.","Guanidinoacetate","creatina-popolazione"]
+["Guanidinoacetato","s","GAA: composto che si forma nel rene da glicina e arginina; nel fegato riceve un gruppo metile da SAM e diventa creatina.","Guanidinoacetate","creatina-popolazione"]
 );
