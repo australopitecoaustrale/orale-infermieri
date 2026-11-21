@@ -1324,5 +1324,94 @@ const FIGURE=[
   S.forEach((s,i)=>{const y=s[0]+16;
    o+='<g class="ans'+(i?" s"+(i+1):"")+'"><rect x="8" y="'+(y-2)+'" width="424" height="68" rx="4" fill="none" stroke="var(--scrub)" stroke-width="2.6"/>'+count(y,s[1])+'</g>'});
   o+=FT.text(220,312,"schema illustrativo · a 25 mm/s un'onda F per quadrato grande",{a:"middle",sm:true});
-  return FT.svg(440,320,"Tre strisce ECG schematiche di flutter atriale con onde F a circa 300 al minuto e QRS stretti: conduzione 2 a 1 a circa 150 al minuto, 3 a 1 a circa 100, 4 a 1 a circa 75",o)})()}
+  return FT.svg(440,320,"Tre strisce ECG schematiche di flutter atriale con onde F a circa 300 al minuto e QRS stretti: conduzione 2 a 1 a circa 150 al minuto, 3 a 1 a circa 100, 4 a 1 a circa 75",o)})()},
+{id:"fig-encefalo-regioni",t:"Encefalo: le grandi regioni e che cosa fanno",c:"Sezione sagittale mediana schematica, fronte a sinistra. I colori raggruppano le regioni per famiglia: verde e azzurro il telencefalo (corteccia con i quattro lobi, nuclei della base, ippocampo), rosso il diencefalo (talamo, ipotalamo con l'ipofisi), viola e arancio il tronco encefalico (mesencefalo, ponte, bulbo), oliva il cervelletto. Il lobo temporale, i nuclei della base e l'ippocampo stanno di lato alla linea mediana: sono accennati. Sotto il bulbo continua il midollo spinale.",
+ enc:["encefalo-regioni","sistema-nervoso"],gl:["Talamo","Ipotalamo","Cervelletto","Tronco encefalico"],st:/encefal|talam|cervellet|tronco|ipotalam|regioni cerebr/i,
+ svg:(()=>{
+  const CER="M44 160C22 128 26 70 78 42C120 18 196 16 240 40C278 62 292 108 280 146C274 160 258 170 240 170C226 170 214 166 206 160L168 156L160 158C150 158 142 160 136 166C132 186 112 198 92 196C70 194 58 182 56 172C50 170 46 166 44 160Z";
+  const BG='style="fill:var(--paper)"';
+  let o='<g transform="translate(4,16)">';
+  /* corteccia */
+  o+='<path d="'+CER+'" '+BG+'/><path d="'+CER+'" fill="#3fa35a" fill-opacity=".30" stroke="#3fa35a" stroke-width="1.6"/>';
+  /* solchi che separano i lobi */
+  o+='<g class="dash" fill="none"><path d="M150 20C148 40 144 60 140 76"/><path d="M246 44C240 62 236 78 234 92"/><path d="M40 154C72 138 108 134 136 138"/></g>';
+  /* corpo calloso, senza etichetta */
+  o+='<path d="M104 106C118 74 214 70 230 104" fill="none" class="lead" style="stroke-width:5;opacity:.45"/>';
+  /* striato (accennato) */
+  o+='<ellipse cx="140" cy="116" rx="20" ry="10" fill="#3b82c4" fill-opacity=".45" stroke="#3b82c4" stroke-width="1.4" stroke-dasharray="4 3"/>';
+  /* ippocampo (accennato) */
+  o+='<ellipse cx="108" cy="178" rx="17" ry="6" transform="rotate(-12 108 178)" fill="#2e7d4f" fill-opacity=".45" stroke="#2e7d4f" stroke-width="1.4" stroke-dasharray="4 3"/>';
+  /* diencefalo */
+  o+='<ellipse cx="182" cy="124" rx="20" ry="13" fill="#d9534f" fill-opacity=".55" stroke="#b33a36" stroke-width="1.4"/>';
+  o+='<ellipse cx="156" cy="146" rx="11" ry="7.5" fill="#e8806f" fill-opacity=".6" stroke="#b33a36" stroke-width="1.2"/>';
+  o+='<path d="M153 153L149 168" stroke="#b33a36" stroke-width="2.4" stroke-linecap="round"/><ellipse cx="148" cy="174" rx="7" ry="5.5" fill="#e8806f" fill-opacity=".75" stroke="#b33a36" stroke-width="1.2"/>';
+  /* tronco encefalico */
+  const MES="M168 140C178 137 196 137 206 140L208 166L170 168Z",PON="M170 168L208 166C214 176 214 196 208 204L176 206C164 198 162 178 170 168Z",BUL="M176 206L208 204C206 218 204 228 202 238L182 238C180 228 178 218 176 206Z",MID="M182 238L202 238L200 272L184 272Z";
+  [[MES,"#8a5cd6"],[PON,"#e08a2c"],[BUL,"#e08a2c"]].forEach(r=>{o+='<path d="'+r[0]+'" '+BG+'/><path d="'+r[0]+'" fill="'+r[1]+'" fill-opacity=".5" stroke="'+r[1]+'" stroke-width="1.4"/>'});
+  o+='<path d="'+MID+'" fill="#8c8c8c" fill-opacity=".35" stroke="#8c8c8c" stroke-width="1.4"/>';
+  /* cervelletto */
+  const CB="M214 186C220 168 252 166 272 176C286 186 284 214 266 224C246 232 222 226 214 212C210 202 210 194 214 186Z";
+  o+='<path d="'+CB+'" '+BG+'/><path d="'+CB+'" fill="#8a9a2b" fill-opacity=".5" stroke="#7a8a22" stroke-width="1.4"/>';
+  o+='<g fill="none" stroke="#5f6b1a" stroke-width="1" opacity=".7"><path d="M222 184C238 176 258 176 272 186"/><path d="M220 198C238 190 262 190 278 200"/><path d="M222 212C240 206 260 206 274 212"/></g>';
+  /* nomi dentro le forme */
+  o+='<g class="ft" font-weight="700" font-size="11"><text x="54" y="112">Frontale</text><text x="196" y="52" text-anchor="middle">Parietale</text><text x="258" y="112" text-anchor="middle" font-size="10.5">Occipitale</text><text x="66" y="160" font-size="10.5">Temporale</text></g>';
+  o+='<g class="ft" font-size="9.5" text-anchor="middle"><text x="189" y="190">ponte</text><text x="192" y="226">bulbo</text></g>';
+  /* linee guida */
+  o+='<g class="lead"><path d="M74 6L128 108"/><path d="M202 124H296"/><path d="M207 152H296"/><path d="M283 198H296"/><path d="M204 226L296 242"/><path d="M56 196L98 182"/><path d="M150 228L148 180"/></g>';
+  /* etichette */
+  const L=(x,y,a,b,an)=>'<text class="ft" x="'+x+'" y="'+y+'" font-weight="700" font-size="11.5"'+(an?' text-anchor="'+an+'"':'')+'>'+a+'</text>'+(b?'<text class="ft fsm" x="'+x+'" y="'+(y+13)+'"'+(an?' text-anchor="'+an+'"':'')+'>'+b+'</text>':'');
+  o+=L(0,-4,"Nuclei della base","striato, in profondità");
+  o+=L(300,120,"Talamo","smistamento sensitivo");
+  o+=L(300,150,"Mesencefalo","riflesso pupillare");
+  o+=L(300,196,"Cervelletto","coordinazione");
+  o+=L(300,240,"Ponte e bulbo","respiro e circolo");
+  o+='<text class="ft fsm" x="208" y="266">midollo spinale</text>';
+  o+=L(0,204,"Ippocampo","memoria");
+  o+=L(158,240,"Ipotalamo e ipofisi","temperatura, sete, ADH","end");
+  o+='</g>';
+  /* legenda delle famiglie */
+  const cell=(x,y,c1,c2,n,d)=>'<rect x="'+x+'" y="'+y+'" width="210" height="34" rx="6" class="eyrow"/><rect x="'+(x+8)+'" y="'+(y+10)+'" width="7" height="14" fill="'+c1+'" fill-opacity=".7"/><rect x="'+(x+15)+'" y="'+(y+10)+'" width="7" height="14" fill="'+c2+'" fill-opacity=".7"/><text class="ft" x="'+(x+30)+'" y="'+(y+15)+'" font-weight="700" font-size="11.5">'+n+'</text><text class="ft fsm" x="'+(x+30)+'" y="'+(y+28)+'">'+d+'</text>';
+  o+=cell(8,302,"#3fa35a","#3b82c4","Telencefalo","corteccia, nuclei della base");
+  o+=cell(222,302,"#d9534f","#e8806f","Diencefalo","talamo, ipotalamo");
+  o+=cell(8,340,"#8a5cd6","#e08a2c","Tronco encefalico","mesencefalo, ponte, bulbo");
+  o+=cell(222,340,"#8a9a2b","#8a9a2b","Cervelletto","dietro al tronco");
+  o+='<text class="ft fsm" x="220" y="392" text-anchor="middle">schema non in scala · grigio: midollo spinale, fuori dall\'encefalo</text>';
+  return FT.svg(440,400,"Sezione sagittale schematica dell'encefalo con le regioni colorate per famiglia: corteccia con lobi frontale, parietale, temporale e occipitale, nuclei della base, ippocampo, talamo, ipotalamo con ipofisi, mesencefalo, ponte, bulbo, cervelletto e midollo spinale, ciascuna con la sua funzione principale",o)})()},
+{id:"fig-encefalo-onda",t:"Una decisione accende tutto l'encefalo",c:"Idea di uno studio del 2025 su topi che sceglievano da che parte girare una rotella guardando uno stimolo visivo: l'attività parte dalle aree visive della corteccia occipitale, si estende a regioni del mesencefalo e del rombencefalo, che codificano anche la scelta; infine i segnali del movimento imminente compaiono in quasi tutto l'encefalo e quelli della ricompensa sono molto diffusi. La decisione non sta in un solo «centro». Schema su sagoma umana, non in scala.",
+ enc:["encefalo-regioni"],gl:["Neuropixels"],st:/decisione|mappa cerebrale|brain-wide|neuropixels/i,
+ svg:(()=>{
+  const CER="M44 160C22 128 26 70 78 42C120 18 196 16 240 40C278 62 292 108 280 146C274 160 258 170 240 170C226 170 214 166 206 160L168 156L160 158C150 158 142 160 136 166C132 186 112 198 92 196C70 194 58 182 56 172C50 170 46 166 44 160Z";
+  const DI="M162 124C162 112 200 110 204 124C206 136 196 146 182 146C168 146 162 136 162 124Z";
+  const MES="M168 146C178 143 196 143 206 146L208 166L170 168Z",ROMB="M170 168L208 166C214 176 214 196 208 204C206 218 204 228 202 238L182 238C180 222 176 210 172 204C164 194 163 178 170 168Z",CB="M214 186C220 168 252 166 272 176C286 186 284 214 266 224C246 232 222 226 214 212C210 202 210 194 214 186Z";
+  const OCC="M246 30L300 30L300 200L230 200L232 150L234 100Z";
+  const BG='style="fill:var(--paper)"';
+  const shape=(d,c,op,extra)=>'<path d="'+d+'" fill="'+c+'" fill-opacity="'+op+'" stroke="'+c+'" stroke-width="1.4"'+(extra||'')+'/>';
+  let o='<defs><clipPath id="encclip"><path d="'+CER+'"/></clipPath></defs>';
+  o+='<g transform="translate(6,22) scale(.82)">';
+  /* strato fisso: regioni tenui */
+  o+='<path d="'+CER+'" '+BG+'/>'+shape(CER,"#3fa35a",".14");
+  o+='<path d="'+OCC+'" clip-path="url(#encclip)" fill="#3fa35a" fill-opacity=".22"/><path d="M246 44C240 62 236 78 234 92" class="dash" fill="none"/>';
+  o+=shape(DI,"#d9534f",".22");
+  [[MES,"#8a5cd6"],[ROMB,"#e08a2c"],[CB,"#8a9a2b"]].forEach(r=>{o+='<path d="'+r[0]+'" '+BG+'/>'+shape(r[0],r[1],".22")});
+  /* occhio e via visiva */
+  o+='<circle cx="14" cy="150" r="11" fill="none" class="fl"/><circle cx="10" cy="150" r="4.5" class="fv"/>';
+  o+='<path d="M26 150C70 150 130 142 166 132M200 128C222 124 238 120 254 116" class="dash" fill="none"/>';
+  /* strato animato */
+  o+='<g class="ans"><path d="'+OCC+'" clip-path="url(#encclip)" fill="#3fa35a" fill-opacity=".75"/><path d="M26 150C70 150 130 142 166 132M200 128C222 124 238 120 254 116" fill="none" stroke="#3fa35a" stroke-width="3" stroke-linecap="round"/></g>';
+  o+='<g class="ans s2">'+shape(MES,"#8a5cd6",".8")+shape(ROMB,"#e08a2c",".8")+shape(CB,"#8a9a2b",".8")+'</g>';
+  o+='<g class="ans s3">'+shape(CER,"#3fa35a",".55")+shape(DI,"#d9534f",".8")+shape(MES,"#8a5cd6",".8")+shape(ROMB,"#e08a2c",".8")+shape(CB,"#8a9a2b",".8")+'</g>';
+  /* numeri dei passi, sempre visibili */
+  const badge=(x,y,n)=>'<circle cx="'+x+'" cy="'+y+'" r="11" style="fill:var(--paper)" stroke="var(--ink)" stroke-width="1.4"/><text class="ft" x="'+x+'" y="'+(y+4.5)+'" text-anchor="middle" font-weight="700" font-size="13">'+n+'</text>';
+  o+=badge(258,90,1)+badge(242,200,2)+badge(110,84,3);
+  o+='</g>';
+  /* etichette della sagoma */
+  o+='<g class="ft fsm"><text x="8" y="178">occhio</text><text x="128" y="244">mesencefalo e</text><text x="128" y="256">rombencefalo</text></g>';
+  o+='<path d="M170 240L168 204" class="lead"/>';
+  /* tabella dei passi */
+  const row=(y,n,c,a,b,d,cls)=>'<rect x="252" y="'+y+'" width="182" height="62" rx="8" class="eyrow"/><rect x="252" y="'+y+'" width="6" height="62" rx="3" fill="'+c+'"/><rect class="'+cls+'" x="252" y="'+y+'" width="182" height="62" rx="8" fill="none" stroke="'+c+'" stroke-width="2.6"/><text class="ft" x="266" y="'+(y+17)+'" font-weight="700" font-size="11.5">'+n+' · '+a+'</text><text class="ft fsm" x="266" y="'+(y+32)+'">'+b+'</text><text class="ft fsm" x="266" y="'+(y+46)+'">'+d+'</text>';
+  o+=row(10,1,"#3fa35a","Stimolo visivo","si accendono prima le aree","visive, nel lobo occipitale","ans");
+  o+=row(80,2,"#e08a2c","Scelta","l'attività si estende a","mesencefalo e rombencefalo","ans s2");
+  o+=row(150,3,"#d9534f","Movimento e ricompensa","movimento: quasi ovunque;","ricompensa: molto diffusa","ans s3");
+  o+='<rect x="8" y="272" width="424" height="28" rx="8" class="eyrow"/><text class="ft" x="220" y="290" text-anchor="middle" font-size="11">dati su topi: 621.733 neuroni, 279 aree</text>';
+  return FT.svg(440,306,"Sagoma schematica dell'encefalo in tre passi: lo stimolo visivo accende prima la corteccia occipitale, poi l'attività si estende a mesencefalo e rombencefalo, che codificano anche la scelta, infine il segnale del movimento compare in quasi tutto l'encefalo e quello della ricompensa è molto diffuso. Dati su topi: 621.733 neuroni, 279 aree",o)})()}
 ];

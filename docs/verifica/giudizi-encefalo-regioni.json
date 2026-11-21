@@ -1,0 +1,42 @@
+[
+ {
+  "id": "encefalo-regioni#p5",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 40903598, doi 10.1038/s41586-025-09235-0",
+  "nota": "Corretto dopo revisione: «codificavano» la scelta; ricompensa «molto diffusa».",
+  "testo": "Studio dell'International Brain Laboratory (Nature 2025): nei topi che sceglievano in base a uno stimolo visivo, l'attività compariva prima nelle aree visive e poi si estendeva a mesencefalo e rombencefalo, dove si formava anche la scelta; i segnali del movimento imminente e della ricompensa erano presenti in quasi tutto l'encefalo"
+ },
+ {
+  "id": "encefalo-regioni#v0",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 40903598",
+  "nota": "621,733 neurons across 139 mice (abstract).",
+  "testo": "Neuroni registrati (IBL 2025): 621.733 in 139 topi"
+ },
+ {
+  "id": "encefalo-regioni#v1",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 40903598",
+  "nota": "279 aree; copertura per lato scritta nella nota n.",
+  "testo": "Aree cerebrali coperte: 279"
+ },
+ {
+  "id": "encefalo-regioni#v2",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 40903598",
+  "nota": "699 sonde Neuropixels, 12 laboratori (abstract).",
+  "testo": "Strumenti: 699 sonde Neuropixels in 12 laboratori"
+ },
+ {
+  "id": "encefalo-regioni#q5",
+  "stato": "confermato",
+  "tipo": "studio",
+  "fonte": "PMID 40903598",
+  "nota": "«impending motor action almost everywhere in the brain».",
+  "testo": "Che cosa ha mostrato la mappa dell'attività cerebrale dell'International Brain Laboratory (Nature 2025) nei topi? → I segnali del movimento imminente compaiono in quasi tutto l'encefalo (Dopo le aree visive, l'attività si estendeva a mesencefalo e rombencefalo, dove si codificava anche la scelta; i segnali di movimento e ricompensa erano diffusi quasi ovunque.)"
+ }
+]
