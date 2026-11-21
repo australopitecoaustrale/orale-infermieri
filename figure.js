@@ -1567,5 +1567,38 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=T(18,361,["Ossigenazione prefrontale: +0,32% creatina contro −1,62% placebo","Costanza del sonno: +7,4 punti percentuali","Stroop: nessuna differenza tra i gruppi"],{sm:1,lh:15});
   o+=T(18,418,"Esplorativo, 6 settimane, abstract letto",{sm:1,b:1});
   return FT.svg(440,438,"Schema del trial in perimenopausa: 51 donne di 46 ± 5 anni divise in creatina (18), placebo (20) e controllo senza allenamento (13); linea del tempo con inizio, prima dell'allenamento dopo 5 giorni di carico e dopo 6 settimane; misure di cognizione, ossigenazione prefrontale e sonno; risultati esplorativi dell'abstract.",o);
+ })()},
+{id:"fig-anest-induzione",t:"Anestetici endovenosi: confronto per pressione e respiro",c:"Per ogni farmaco di induzione o sedazione cambiano i rischi: pressione e respiro. Etomidato e ketamina conservano di solito la pressione; propofol, tiopentale, midazolam e dexmedetomidina possono abbassarla.",
+ enc:["anest-induzione"],gl:["Flumazenil"],st:/anestetic|propofol|ketamina|etomidato|induzione|sedazione/i,
+ svg:(()=>{
+  const T=FT.text;
+  const X=[8,102,196,290],W=[90,92,92,142],Y0=36,H=36,G=3;
+  const rows=[
+   ["Propofol",["warn","↓ pressione"],["warn","respiro depresso"],["emulsione lipidica:","asepsi"]],
+   ["Tiopentale",["warn","↓ pressione"],["warn","respiro depresso"],["no in porfiria","acuta"]],
+   ["Etomidato",["ok","pressione stabile"],["","non indicato"],["può sopprimere surrene;","mioclonie"]],
+   ["Ketamina",["ok",["pressione ↑","(di solito)"]],["ok","riflessi vie aeree"],["reazioni al risveglio;","analgesia"]],
+   ["Midazolam",["warn","↓ pressione"],["warn","respiro depresso"],["flumazenil dura meno:","rischio risedazione"]],
+   [["Dexmede-","tomidina"],["warn","↓ pressione"],["ok",["poca depressione","respiratoria"]],["bradicardia",""]]
+  ];
+  let o="";
+  ["Farmaco","1 Pressione","2 Respiro","3 Da ricordare"].forEach((h,i)=>{
+    o+=`<rect class="fbx k-info" x="${X[i]}" y="6" width="${W[i]}" height="26" rx="6"/>`+T(X[i]+W[i]/2,23,h,{a:"middle",b:true,sm:true});
+  });
+  rows.forEach((r,j)=>{
+    const y=Y0+j*(H+G);
+    o+=`<rect class="fbx" x="${X[0]}" y="${y}" width="${W[0]}" height="${H}" rx="6"/>`+T(X[0]+W[0]/2,y+(Array.isArray(r[0])?16:22),r[0],{a:"middle",b:true,sm:true,lh:12});
+    for(let c=1;c<3;c++){
+      const [k,s]=r[c];
+      o+=`<rect class="fbx${k?" k-"+k:""}" x="${X[c]}" y="${y}" width="${W[c]}" height="${H}" rx="6"/>`+T(X[c]+W[c]/2,y+(Array.isArray(s)?16:22),s,{a:"middle",sm:true,lh:12});
+    }
+    const d=r[3];
+    o+=`<rect class="fbx" x="${X[3]}" y="${y}" width="${W[3]}" height="${H}" rx="6"/>`+T(X[3]+6,y+(d[1]?15:22),d[1]?d:[d[0]],{sm:true,lh:12});
+  });
+  const yb=Y0+6*(H+G)+4,hb=H*6+G*5;
+  const hl=(c,cl)=>`<rect class="${cl} fs" x="${X[c]-2}" y="3" width="${W[c]+4}" height="${hb+36}" rx="8" fill="none" style="stroke-width:3"/>`;
+  o+=hl(1,"ans")+hl(2,"ans s2")+hl(3,"ans s3");
+  o+=FT.box(8,yb+2,424,34,"Sempre: ECG, pressione, SpO2, capnografia","vie aeree e ossigeno pronti","info");
+  return FT.svg(440,yb+44,"Matrice di confronto dei farmaci per induzione e sedazione (propofol, tiopentale, etomidato, ketamina, midazolam, dexmedetomidina) per effetto su pressione, respiro e punto da ricordare; in basso il monitoraggio sempre necessario.",o);
  })()}
 ];
