@@ -1618,7 +1618,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=ring('ans',4,18,172,66)+ring('ans s2',180,18,260,66);
   o+=ring('ans s2',356,18,80,66);
   /* due blocchi */
-  o+=B(8,98,206,84,"2 studi di intervento",["Alves 2013: 56 donne, 5 g/die","24 sett.: nessun effetto","McMorris 2007: 32 persone, 20 g/die","1 sett.: alcune prove di memoria"],"info");
+  o+=B(8,98,206,84,"2 studi di intervento (doppio cieco)",["Alves 2013: 56 donne, 5 g/die","24 sett.: nessun effetto","McMorris 2007: 32 persone, 20 g/die","1 sett.: effetto su parte delle prove"],"info");
   o+=B(222,98,210,84,"4 studi trasversali",["dieta stimata; Machado 2022 e 2023,","Oliveira 2023, Ostojic 2021 (n = 1340):","più creatina si associa a più","attenzione, memoria e velocità"],"info");
   /* qualità */
   o+=T(8,200,"Qualità (Downs e Black modificata)",{b:1,sm:1});
