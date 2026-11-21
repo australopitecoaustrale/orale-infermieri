@@ -1413,5 +1413,77 @@ const FIGURE=[
   o+=row(80,2,"#e08a2c","Scelta","l'attività si estende a","mesencefalo e rombencefalo","ans s2");
   o+=row(150,3,"#d9534f","Movimento e ricompensa","movimento: quasi ovunque;","ricompensa: molto diffusa","ans s3");
   o+='<rect x="8" y="272" width="424" height="28" rx="8" class="eyrow"/><text class="ft" x="220" y="290" text-anchor="middle" font-size="11">dati su topi: 621.733 neuroni, 279 aree</text>';
-  return FT.svg(440,306,"Sagoma schematica dell'encefalo in tre passi: lo stimolo visivo accende prima la corteccia occipitale, poi l'attività si estende a mesencefalo e rombencefalo, che codificano anche la scelta, infine il segnale del movimento compare in quasi tutto l'encefalo e quello della ricompensa è molto diffuso. Dati su topi: 621.733 neuroni, 279 aree",o)})()}
+  return FT.svg(440,306,"Sagoma schematica dell'encefalo in tre passi: lo stimolo visivo accende prima la corteccia occipitale, poi l'attività si estende a mesencefalo e rombencefalo, che codificano anche la scelta, infine il segnale del movimento compare in quasi tutto l'encefalo e quello della ricompensa è molto diffuso. Dati su topi: 621.733 neuroni, 279 aree",o)})()},
+{id:"fig-cuore-cervello",t:"Cuore e cervello: tre vie di dialogo",c:"Cuore e cervello si parlano in entrambe le direzioni, per via neurale, biochimica e meccanica. Se il dialogo si altera, la malattia di un organo può danneggiare l'altro: Takotsubo, ictus e cuore, scompenso, demenza, depressione.",
+ enc:["cuore-cervello","sistema-nervoso"],gl:["Baroriflesso","Variabilità della frequenza cardiaca"],st:/cuore.cervello|neurocardiolog|baroriflesso|autonom/i,
+ svg:(()=>{
+  const COL=["#d9534f","#2f8f8a","#8a5cd6"];
+  const rows=[
+   {n:"1 Neurale",s:"la più rapida",d:["simpatico (ganglio stellato,","noradrenalina) e","parasimpatico (vago)"],u:["barocettori (baroriflesso),","via nucleo del tratto solitario"]},
+   {n:"2 Biochimica",s:"via del sangue",d:["catecolamine e cortisolo","(asse ipotalamo-ipofisi-","surrene)"],u:["peptidi natriuretici,","neuropeptide Y,","citochine infiammatorie"]},
+   {n:"3 Meccanica",s:"pressione e respiro",d:["il respiro accoppia","cuore e cervello","(in entrambe le direzioni)"],u:["pressione e pulsazione","sentite dai barocettori","(canali PIEZO)"],bi:1}
+  ];
+  const T=FT.text,A=FT.arrow;
+  let o='';
+  /* encefalo */
+  const BR="M104 62C92 40 104 16 138 10C170 4 214 8 232 26C250 42 244 62 228 68C222 76 206 76 198 70L168 70C160 80 138 84 124 76C114 72 108 68 104 62Z";
+  o+='<path d="'+BR+'" fill="#3fa35a" fill-opacity=".26" stroke="#3fa35a" stroke-width="1.6"/>';
+  o+='<path class="dash" fill="none" d="M170 70C168 56 176 40 190 32"/>';
+  o+=T(112,42,"prefrontale",{sm:1})+T(180,24,"insula",{sm:1})+T(176,59,"amigdala",{sm:1});
+  o+=T(256,28,["Rete autonomica","centrale: insula,","amigdala, corteccia","prefrontale"],{sm:1,b:1});
+  o+=T(96,40,"Cervello",{a:"end",b:1});
+  /* cuore */
+  const H="M220 404C196 386 168 368 168 350C168 336 180 330 192 332C204 334 214 342 220 350C226 342 236 334 248 332C260 330 272 336 272 350C272 368 244 386 220 404Z";
+  o+='<path d="'+H+'" fill="#d9534f" fill-opacity=".28" stroke="#d9534f" stroke-width="1.8"/>';
+  o+=T(160,372,"Cuore",{a:"end",b:1});
+  o+=T(284,366,["nodo del seno, vasi","e barocettori"],{sm:1});
+  /* frecce cervello-corsie-cuore */
+  o+=A(210,82,210,98)+A(230,98,230,82);
+  o+=A(188,322,188,333,{h:5})+A(252,333,252,322,{h:5});
+  rows.forEach((r,i)=>{
+    const y=102+i*74,c=COL[i];
+    o+='<rect class="eyrow" x="8" y="'+y+'" width="424" height="70" rx="8"/><rect x="8" y="'+y+'" width="6" height="70" rx="3" fill="'+c+'"/>';
+    o+=T(22,y+26,r.n,{b:1})+T(22,y+42,r.s,{sm:1});
+    o+=T(128,y+15,"Cervello → cuore",{sm:1,b:1})+T(128,y+28,r.d,{sm:1});
+    o+=T(298,y+15,"Cuore → cervello",{sm:1,b:1})+T(298,y+28,r.u,{sm:1});
+    o+=A(116,y+12,116,y+58)+A(284,y+58,284,y+12);
+    o+='<path class="dash" fill="none" d="M272 '+(y+8)+'V'+(y+62)+'"/>';
+    o+='<rect class="ans'+(i?" s"+(i+1):"")+'" x="8" y="'+y+'" width="424" height="70" rx="8" fill="'+c+'" fill-opacity=".12" stroke="'+c+'" stroke-width="2.6"/>';
+  });
+  return FT.svg(440,408,"Il cervello in alto, il cuore in basso e tre corsie con frecce nei due sensi: via neurale (simpatico, vago, barocettori), via biochimica (catecolamine, cortisolo, peptidi natriuretici, citochine) e via meccanica (pressione, canali PIEZO, respiro).",o);
+ })()},{id:"fig-takotsubo",t:"Takotsubo: dal cervello al ventricolo",c:"Può imitare un infarto (dolore, ECG e troponina alterati) ma le coronarie non hanno un'ostruzione responsabile; di solito regredisce.",enc:["takotsubo","cuore-cervello"],gl:["Sindrome di Takotsubo","Catecolamine"],st:/takotsubo|cuore spezzato|ballooning/i,
+svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress emotivo o fisico; rete autonomica centrale con insula, amigdala e corteccia prefrontale; scarica di catecolamine; ventricolo sinistro con apice dilatato e base che si contrae, a confronto con il ventricolo normale.",
+ FT.box(36,6,398,40,"Fattori scatenanti","stress emotivo o fisico, anche un evento positivo ('happy heart')","info")+
+ FT.dot(18,26,"1")+
+ FT.arrow(235,46,235,62)+
+ FT.box(36,62,398,58,"Rete autonomica centrale",["insula, amigdala più attiva, corteccia prefrontale meno efficace","asse ipotalamo-ipofisi-surrene e sistema simpatico"],"info")+
+ FT.dot(18,91,"2")+
+ FT.arrow(235,120,235,136)+
+ FT.box(36,136,398,58,"Scarica di catecolamine",["spasmo coronarico, microvasi meno reattivi,","infiammazione, metabolismo del miocardio alterato"],"warn")+
+ FT.dot(18,165,"3")+
+ FT.arrow(235,194,235,210)+
+ FT.dot(18,234,"4")+
+ FT.text(235,222,"Ventricolo sinistro in sistole",{a:"middle",b:true})+
+ /* normale */
+ FT.text(110,246,"Normale",{a:"middle",sm:true})+
+ `<path class="fbx k-ok" d="M78 256C68 292 80 346 110 380C140 346 152 292 142 256Z"/>`+
+ `<path class="fl dash" d="M90 262C84 292 92 336 110 366C128 336 136 292 130 262"/>`+
+ FT.arrow(70,310,86,310,{h:5})+FT.arrow(150,310,134,310,{h:5})+FT.arrow(110,392,110,376,{h:5})+
+ FT.text(110,408,["si contrae","in modo uniforme"],{a:"middle",sm:true})+
+ /* takotsubo */
+ FT.text(335,246,"Takotsubo",{a:"middle",sm:true})+
+ `<path class="fbx" d="M310 256C308 278 302 292 292 312C268 342 288 384 335 384C382 384 402 342 378 312C368 292 362 278 360 256Z"/>`+
+ `<path d="M290 316C270 344 290 384 335 384C380 384 400 344 380 316C360 330 310 330 290 316Z" fill="#c0392b" fill-opacity=".35"/>`+
+ `<path class="fl dash" d="M318 262C318 280 316 296 308 306M352 262C352 280 354 296 362 306"/>`+
+ FT.arrow(300,284,314,284,{h:5})+FT.arrow(370,284,356,284,{h:5})+
+ FT.arrow(280,362,266,372,{h:5,dash:true})+FT.arrow(390,362,404,372,{h:5,dash:true})+
+ FT.text(335,356,"apice",{a:"middle",sm:true,b:true})+
+ FT.text(335,368,"dilatato",{a:"middle",sm:true,b:true})+
+ FT.text(335,408,["base ipercontrattile, apice fermo,","forma di ampolla (takotsubo)"],{a:"middle",sm:true})+
+ FT.text(235,436,"Coronarie senza ostruzione responsabile",{a:"middle",sm:true})+
+ FT.box(36,446,398,38,["1-4% dei sospetti di sindrome coronarica acuta","circa 90% donne, soprattutto dopo la menopausa"],null,"ok")+
+ `<g class="vf k1"><rect class="fs" x="36" y="6" width="398" height="40" rx="8"/></g>`+
+ `<g class="vf k2"><rect class="fs" x="36" y="62" width="398" height="58" rx="8"/></g>`+
+ `<g class="vf k3"><rect class="fs" x="36" y="136" width="398" height="58" rx="8"/></g>`+
+ `<g class="vf k4"><rect class="fs" x="276" y="248" width="120" height="142" rx="10"/></g>`)}
 ];

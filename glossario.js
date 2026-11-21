@@ -808,5 +808,14 @@ GLOSS.push(
 ["Tronco encefalico","s","Insieme di mesencefalo, ponte e bulbo: collega encefalo e midollo, contiene i centri del respiro e del circolo e i nuclei di quasi tutti i nervi cranici.","Brainstem","encefalo-regioni"],
 ["Nuclei della base","s","Gruppi di neuroni profondi del telencefalo, tra cui lo striato, che aiutano ad avviare e scegliere i movimenti; coinvolti nel morbo di Parkinson.","Basal ganglia","encefalo-regioni"],
 ["Ippocampo","s","Struttura del lobo temporale importante per fissare i ricordi recenti e orientarsi nello spazio.","Hippocampus","encefalo-regioni"],
-["Neuropixels","t","Sonda sottilissima con centinaia di punti di registrazione che misura insieme l'attività di molti neuroni in più regioni del cervello; usata soprattutto negli studi sugli animali, ma anche in registrazioni durante interventi neurochirurgici nell'uomo.","Neuropixels probe","encefalo-regioni"]
+["Neuropixels","t","Sonda sottilissima con centinaia di punti di registrazione che misura insieme l'attività di molti neuroni in più regioni del cervello; usata soprattutto negli studi sugli animali, ma anche in registrazioni durante interventi neurochirurgici nell'uomo.","Neuropixels probe","encefalo-regioni"],
+["Sindrome di Takotsubo","t","Disfunzione acuta e di solito reversibile del ventricolo sinistro, con apice che non si contrae, scatenata da stress e catecolamine; imita un infarto ma senza occlusione coronarica.","Takotsubo syndrome","takotsubo"],
+["Sindrome ictus-cuore","t","Complicanze cardiache (aritmie, danno miocardico, scompenso) nei giorni e nelle settimane dopo un ictus, per squilibrio autonomico e infiammazione.","Stroke-heart syndrome","ictus-cuore"],
+["Variabilità della frequenza cardiaca","t","Variazione dell'intervallo tra i battiti: una variabilità ridotta indica squilibrio autonomico a favore del simpatico.","Heart rate variability","cuore-cervello"],
+["HRV","g","Sigla di variabilità della frequenza cardiaca (Heart Rate Variability).","Heart rate variability","cuore-cervello"],
+["Baroriflesso","t","Riflesso che a ogni aumento di pressione riduce simpatico, frequenza cardiaca e resistenze, attraverso i barocettori e il tronco encefalico.","Baroreflex","cuore-cervello"],
+["Rete autonomica centrale","s","Insieme di aree del cervello (corteccia prefrontale, insula, amigdala, ipotalamo, tronco) che comanda simpatico e parasimpatico.","Central autonomic network","cuore-cervello"],
+["SUDEP","g","Morte improvvisa inattesa in epilessia (Sudden Unexpected Death in Epilepsy): collegata a squilibrio autonomico dopo la crisi.","Sudden unexpected death in epilepsy","cuore-cervello"],
+["Psicocardiologia","t","Settore che studia e cura insieme disturbi del cuore e della mente (depressione, ansia, stress) nei pazienti cardiopatici.","Psychocardiology","cuore-cervello"],
+["Catecolamine","t","Adrenalina, noradrenalina e dopamina: ormoni e neurotrasmettitori dello stress che aumentano frequenza e forza del cuore e restringono i vasi.","Catecholamines","cuore-cervello"]
 );
