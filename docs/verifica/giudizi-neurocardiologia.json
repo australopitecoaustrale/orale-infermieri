@@ -1,0 +1,298 @@
+[
+ {
+  "id": "cuore-cervello#d",
+  "testo": "Cuore e cervello comunicano di continuo per vie neurali, biochimiche e meccaniche. Quando il dialogo si altera, una malattia di un organo può danneggiare l'altro: Takotsubo, cuore epilettico, sindrome ictus-cuore, scompenso, demenza cardiaca e disturbi psicologici sono i sei quadri descritti da una revisione del 2026.",
+  "fonte": "PMID 42699142 (abstract)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "I sei quadri corrispondono all'abstract."
+ },
+ {
+  "id": "cuore-cervello#p3",
+  "testo": "Il cuore ha un sistema nervoso proprio, il «piccolo cervello»: oltre 500 plessi di gangli con più di 14.000 neuroni che regolano ritmo e contrazione",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "cuore-cervello#p5",
+  "testo": "Cuore epilettico: chi ha epilessia ha più aritmie (HR 1,36) e alcuni antiepilettici (carbamazepina, valproato) si associano a rischio maggiore (dati osservazionali): il medico può richiedere un ECG prima e durante la terapia; la morte improvvisa inattesa in epilessia (SUDEP) è legata a squilibrio autonomico dopo la crisi",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "cuore-cervello#p6",
+  "testo": "Demenza cardiaca: fibrillazione atriale e scompenso si associano a declino cognitivo (nelle metanalisi FA e demenza OR 1,6) per ipoperfusione cerebrale, microembolie e infiammazione",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "cuore-cervello#p7",
+  "testo": "Psicocardiologia: nei cardiopatici sono frequenti depressione (31,3%) e ansia (32,9%), percentuali di studi diversi e quindi non confrontabili; nello scompenso la depressione si associa a un rischio di morte più alto di circa il 40% (misura relativa); si fa screening con domande brevi (PHQ-2, GAD-2) e un secondo livello (PHQ-9, GAD-7); il consenso della Società Europea di Cardiologia del 2025 propone un team psico-cardiologico",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "cuore-cervello#v0",
+  "testo": "Aritmie nell'epilessia: HR 1,36",
+  "fonte": "PMID 37602368",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "HR 1,36 (1,21-1,53) per tutte le aritmie nell'epilessia, UK Biobank."
+ },
+ {
+  "id": "cuore-cervello#v1",
+  "testo": "FA e demenza (metanalisi): OR 1,6",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "cuore-cervello#v2",
+  "testo": "Depressione nei cardiopatici: 31,3%",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "cuore-cervello#v3",
+  "testo": "Ansia nei cardiopatici: 32,9%",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "cuore-cervello#v4",
+  "testo": "Depressione nello scompenso: rischio di morte circa +40% (relativo)",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "cuore-cervello#q3",
+  "testo": "Un cardiopatico con scompenso è molto triste e senza interesse. Qual è la conseguenza più importante? → Nello scompenso la depressione si associa a un rischio di morte maggiore, quindi va cercata e segnalata (La depressione nello scompenso si associa a un rischio di morte più alto di circa il 40% (misura relativa): lo screening con domande brevi (PHQ-2) è parte dell'assistenza.)",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "takotsubo#p0",
+  "testo": "Frequenza: circa 1-4% dei pazienti con sospetta sindrome coronarica acuta (le fonti variano); circa il 90% sono donne, soprattutto dopo la menopausa",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "takotsubo#p1",
+  "testo": "Trigger: stress emotivo (lutto, paura, ma anche una gioia improvvisa: nel registro InterTAK il 4,1% dei casi con trigger emotivo era un evento positivo, la «happy heart») o fisico (intervento, ictus, malattia acuta, crisi d'asma); in alcuni casi non si trova nulla",
+  "fonte": "PMID 26935270",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "4,1% di eventi piacevoli tra i casi con trigger emotivo."
+ },
+ {
+  "id": "takotsubo#p5",
+  "testo": "Punteggio InterTAK per orientare la diagnosi: AUC 0,971 nella coorte di derivazione e 0,901 in quella di validazione; con soglia di 40 punti, nella derivazione, sensibilità 89% e specificità 91%; stima una probabilità e non sostituisce la coronarografia",
+  "fonte": "PMID 27928880",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "AUC 0,971 derivazione, 0,901 validazione; soglia 40 sens 89% spec 91% in derivazione (corretto nel testo). Errore del revisore (soglia attribuita alla validazione) corretto nel testo."
+ },
+ {
+  "id": "takotsubo#p6",
+  "testo": "Non è benigna: nel registro InterTAK le complicanze gravi in ospedale (shock, morte) erano simili a quelle della sindrome coronarica acuta; a lungo termine la mortalità per tutte le cause è 5,6% per paziente-anno; secondo la revisione circa un paziente su otto ha una recidiva entro cinque anni (dato da verificare)",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "takotsubo#p8",
+  "testo": "Malattie neurologiche o psichiatriche associate sono frequenti (55,8% dei casi contro 25,7% nella sindrome coronarica acuta); quelle acute predicono più complicanze in ospedale",
+  "fonte": "PMID 26332547",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "55,8% contro 25,7% nella SCA."
+ },
+ {
+  "id": "takotsubo#p9",
+  "testo": "Gestione integrata: terapia delle complicanze secondo il medico, evitare le catecolamine esogene se non indispensabili, trattare ansia e depressione; in uno studio di 12 settimane esercizio fisico o terapia cognitivo-comportamentale hanno migliorato risposta allo stress e infiammazione",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "takotsubo#v0",
+  "testo": "Frequenza nei sospetti SCA: 1-4%",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "takotsubo#v1",
+  "testo": "Donne: circa 90%",
+  "fonte": "PMID 26332547",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "89,8% donne."
+ },
+ {
+  "id": "takotsubo#v2",
+  "testo": "Punteggio InterTAK: AUC 0,901 in validazione; soglia 40 (derivazione): sensibilità 89%, specificità 91%",
+  "fonte": "PMID 27928880",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "Corretto: soglia 40 in derivazione. Errore del revisore (soglia attribuita alla validazione) corretto nel testo."
+ },
+ {
+  "id": "takotsubo#v3",
+  "testo": "Mortalità a lungo termine (tutte le cause): 5,6% per paziente-anno",
+  "fonte": "PMID 26332547",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "5,6% per paziente-anno, tutte le cause."
+ },
+ {
+  "id": "takotsubo#v4",
+  "testo": "Recidive a 5 anni: circa 1 su 8 (da verificare)",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "takotsubo#i0",
+  "testo": "Finché l'infarto non è escluso si segue lo stesso percorso della sindrome coronarica acuta: ECG a 12 derivazioni, monitoraggio continuo, accesso venoso, prelievo per troponina",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "takotsubo#q1",
+  "testo": "Chi è più colpito dalla sindrome di Takotsubo? → Donne dopo la menopausa (Circa il 90% sono donne, soprattutto dopo la menopausa; l'ipotesi del ruolo degli estrogeni non è dimostrata.)",
+  "fonte": "PMID 26332547",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Risposta unica corretta."
+ },
+ {
+  "id": "takotsubo#q2",
+  "testo": "Una donna sviluppa un quadro di Takotsubo dopo una festa a sorpresa. Che cosa si deduce? → Anche eventi positivi possono scatenarla («happy heart») (Nel registro InterTAK il 4,1% dei casi con trigger emotivo era un evento positivo.)",
+  "fonte": "PMID 26935270",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Risposta unica corretta."
+ },
+ {
+  "id": "ictus-cuore#p0",
+  "testo": "Tempi: il picco è nei primi 3 giorni; la definizione considera i primi 30 giorni",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "ictus-cuore#p1",
+  "testo": "Frequenza: nello studio VISTA (15.054 pazienti) l'11,8% aveva la sindrome, con esordio mediano a 2 giorni; in una coorte di 365.383 pazienti: sindrome coronarica acuta 11,1%, fibrillazione atriale o flutter 8,8%, scompenso 6,4%, aritmie ventricolari gravi 1,2%, Takotsubo 0,1%",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "ictus-cuore#p2",
+  "testo": "Le percentuali cambiano molto con la definizione e con il tempo di osservazione (in una coorte oltre il 27% ha un evento cardiaco entro 4 settimane): vanno lette come ordine di grandezza",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "ictus-cuore#p3",
+  "testo": "Rischio di eventi cardiovascolari maggiori dopo l'ictus: HR 25,0 nei primi 30 giorni, 4,8 tra il giorno 31 e il 90, 2,2 tra il giorno 91 e il 365 (21.931 pazienti)",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "ictus-cuore#p6",
+  "testo": "Il monitoraggio ECG si fa almeno nelle prime 24 ore (di solito più a lungo, secondo il protocollo) e il rischio cardiaco ha il picco entro 72 ore",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "ictus-cuore#v0",
+  "testo": "Prevalenza (VISTA): 11,8%",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "ictus-cuore#v1",
+  "testo": "Picco: primi 3 giorni",
+  "fonte": "PMID 38869825",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Picco entro 72 ore."
+ },
+ {
+  "id": "ictus-cuore#v2",
+  "testo": "Rischio MACE 0-30 giorni: HR 25,0",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "ictus-cuore#v3",
+  "testo": "Rischio MACE 31-90 giorni: HR 4,8",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "ictus-cuore#v4",
+  "testo": "Rischio MACE 91-365 giorni: HR 2,2",
+  "fonte": "PMID 42699142 (sintesi del testo completo; il revisore non ha potuto riscontrare)",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Scritto nella nota n come da verificare."
+ },
+ {
+  "id": "ictus-cuore#q0",
+  "testo": "Quando è più alto il rischio di complicanze cardiache dopo un ictus? → Nei primi giorni, con picco entro 3 giorni (La sindrome ictus-cuore ha il picco nei primi 3 giorni e si definisce entro 30 giorni.)",
+  "fonte": "PMID 38869825",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Risposta unica corretta."
+ },
+ {
+  "id": "ictus-cuore#q3",
+  "testo": "Perché le percentuali di sindrome ictus-cuore sono molto diverse tra gli studi? → Perché cambiano definizione e tempo di osservazione (Si va dall'11,8% di VISTA a oltre il 27% in 4 settimane in un'altra coorte: sono ordini di grandezza.)",
+  "fonte": "logica interna",
+  "tipo": "aritmetica",
+  "stato": "confermato",
+  "nota": "Nessun confronto improprio tra percentuali."
+ }
+]
