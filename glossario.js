@@ -804,9 +804,9 @@ GLOSS.push(
 ["Formula di Fridericia","t","Correzione del QT per la frequenza: QT diviso la radice cubica dell'intervallo R-R; più stabile di Bazett a frequenze alte.","Fridericia formula","ecg-qt-misura"],
 ["Talamo","s","Struttura del diencefalo che smista verso la corteccia quasi tutte le informazioni sensitive (non l'olfatto) e partecipa a vigilanza e movimento.","Thalamus","encefalo-regioni"],
 ["Ipotalamo","s","Parte del diencefalo che regola temperatura, fame, sete e ritmo sonno-veglia, produce l'ADH e controlla l'ipofisi.","Hypothalamus","encefalo-regioni"],
-["Cervelletto","s","Organo dietro il tronco encefalico che coordina i movimenti, l'equilibrio e il tono; le sue lesioni danno segni dallo stesso lato.","Cerebellum","encefalo-regioni"],
+["Cervelletto","s","Organo dietro il tronco encefalico che coordina i movimenti, l'equilibrio e il tono; le lesioni di un suo emisfero danno segni dallo stesso lato, quelle del verme atassia del tronco e dell'andatura.","Cerebellum","encefalo-regioni"],
 ["Tronco encefalico","s","Insieme di mesencefalo, ponte e bulbo: collega encefalo e midollo, contiene i centri del respiro e del circolo e i nuclei di quasi tutti i nervi cranici.","Brainstem","encefalo-regioni"],
 ["Nuclei della base","s","Gruppi di neuroni profondi del telencefalo, tra cui lo striato, che aiutano ad avviare e scegliere i movimenti; coinvolti nel morbo di Parkinson.","Basal ganglia","encefalo-regioni"],
 ["Ippocampo","s","Struttura del lobo temporale importante per fissare i ricordi recenti e orientarsi nello spazio.","Hippocampus","encefalo-regioni"],
-["Neuropixels","t","Sonda sottilissima con centinaia di punti di registrazione che misura insieme l'attività di molti neuroni in più regioni del cervello; usata negli studi sugli animali.","Neuropixels probe","encefalo-regioni"]
+["Neuropixels","t","Sonda sottilissima con centinaia di punti di registrazione che misura insieme l'attività di molti neuroni in più regioni del cervello; usata soprattutto negli studi sugli animali, ma anche in registrazioni durante interventi neurochirurgici nell'uomo.","Neuropixels probe","encefalo-regioni"]
 );
