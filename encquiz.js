@@ -1055,3 +1055,16 @@ var QUIZ_CC=[
 ];
 QUIZ_CC.forEach((x,i)=>{const t=(i*3+1)%4,o=x[2].slice(),c=o.splice(x[3],1)[0];o.splice(t,0,c);x[2]=o;x[3]=t});
 if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_CC);
+
+var QUIZ_CREAT=[
+["creatina-adulti","Un uomo di 60 anni assume creatina e la creatininemia è appena aumentata. Che cosa fa l'infermiere?",["Conclude che c'è insufficienza renale","Segnala al medico che assume creatina, perché la creatinina può salire senza danno","Sospende le terapie","Ignora il dato"],1,"La creatinina deriva dalla creatina muscolare: un lieve aumento isolato non prova un danno renale; il medico può usare la cistatina C."],
+["creatina-adulti","Quale indicatore del filtrato non dipende dalla massa muscolare?",["Creatinina","Urea","Cistatina C","Sodio"],2,"La cistatina C non è influenzata dalla creatina o dalla massa muscolare come la creatinina."],
+["creatina-adulti","In quale condizione la creatina ha mostrato di aumentare forza e massa magra negli adulti più anziani?",["Senza alcun esercizio","Insieme all'allenamento di forza","Solo con la dieta ipocalorica","Solo in ricoverati"],1,"Le prove positive riguardano la creatina associata all'allenamento di forza; senza esercizio sono deboli."],
+["creatina-adulti","Che cosa si può dire dell'effetto della creatina sulla densità ossea negli adulti?",["Aumenta molto la densità","Nelle meta-analisi non ha effetto","Provoca osteoporosi","Dipende solo dall'età"],1,"Le meta-analisi non hanno trovato un effetto sulla densità ossea."],
+["creatina-adulti","Nel trial di Chun (2026), perché i risultati cognitivi vanno letti con cautela?",["Perché i test multivariati non erano significativi e le analisi sui singoli test erano esplorative","Perché non c'era un gruppo placebo","Perché erano tutti anziani fragili","Perché la creatina è un farmaco"],0,"Gli autori stessi dichiarano esplorative le analisi sui singoli test e senza correzione per i confronti multipli."],
+["creatina-adulti","Quale affermazione è corretta sulla creatina e sulla disidratazione?",["Non è dimostrato che la causi, ma può aumentare il peso per l'acqua trattenuta","È la causa principale di crampi","Disidrata sempre","Aumenta sempre la diuresi"],0,"Le fonti non mostrano disidratazione o crampi, ma possono comparire aumento di peso e disturbi gastrointestinali lievi."],
+["creatina-adulti","Un paziente con insufficienza renale cronica vuole iniziare la creatina. Che cosa risponde l'infermiere?",["Può iniziare subito","Ne parli con il medico, che valuta il rischio","È sempre sicura","La assuma a dose doppia"],1,"Nelle malattie renali o con farmaci nefrotossici serve il parere del medico prima di iniziare."],
+["creatina-adulti","Perché nell'anamnesi bisogna chiedere sempre degli integratori?",["Per curiosità","Perché possono modificare esami e terapie, come la creatinina con la creatina","Perché sono farmaci","Perché non si possono assumere in ospedale"],1,"Gli integratori possono alterare gli esami (creatinina) o interagire con le terapie: vanno annotati."]
+];
+QUIZ_CREAT.forEach((x,i)=>{const t=(i*3+2)%4,o=x[2].slice(),c=o.splice(x[3],1)[0];o.splice(t,0,c);x[2]=o;x[3]=t});
+if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_CREAT);
