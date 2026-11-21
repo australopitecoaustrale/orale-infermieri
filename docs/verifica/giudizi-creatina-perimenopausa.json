@@ -1,0 +1,130 @@
+[
+ {
+  "id": "creatina-perimenopausa#p0",
+  "testo": "Trial: Baker PA et al., Eur J Appl Physiol 2026 (PMID 42926218); 51 donne in perimenopausa, età 46 ± 5 anni, assegnate a creatina monoidrato (18), placebo (20) o controllo senza allenamento (13)",
+  "fonte": "PMID 42926218",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Abstract: confermato."
+ },
+ {
+  "id": "creatina-perimenopausa#p1",
+  "testo": "Protocollo: carico di creatina 20 g al giorno per 5 giorni, poi circa 4,5 g al giorno per 6 settimane (forma di somministrazione non verificata), con allenamento di forza ad alta intensità due volte alla settimana",
+  "fonte": "PMID 42926218",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "Errore («caramelle gommose» non nell'abstract) corretto nel testo."
+ },
+ {
+  "id": "creatina-perimenopausa#p2",
+  "testo": "Misure: cognizione con test di Stroop e test della memoria di Rey a 15 parole; ossigenazione della corteccia prefrontale con spettroscopia nel vicino infrarosso; sonno e sintomi riferiti ogni giorno con un braccialetto da polso",
+  "fonte": "PMID 42926218",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Abstract: confermato."
+ },
+ {
+  "id": "creatina-perimenopausa#p3",
+  "testo": "Risultati riportati nell'abstract: il tempo di reazione allo Stroop è migliorato nel tempo (p < 0,001 nella prova congruente, p = 0,004 in quella incongruente), senza differenze tra i gruppi; durante lo Stroop l'ossigenazione prefrontale è variata di +0,32% con creatina contro −1,62% con placebo (p = 0,003); la costanza del sonno alla sesta settimana era più alta di 7,4 punti percentuali con la creatina (p = 0,015); meno giorni con sensibilità alla temperatura",
+  "fonte": "PMID 42926218",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Abstract: confermato."
+ },
+ {
+  "id": "creatina-perimenopausa#p4",
+  "testo": "Come leggerlo: gli autori definiscono l'analisi esplorativa; durata di sole 6 settimane, pochi partecipanti per gruppo, sintomi autoriferiti; un coautore è affiliato a WHOOP, l'azienda che produce il braccialetto (finanziamento non verificato); del trial è stato letto solo l'abstract, quindi mancano dimensione degli effetti, correzione per i confronti multipli, eventi avversi e registrazione",
+  "fonte": "PMID 42926218",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Abstract: confermato."
+ },
+ {
+  "id": "creatina-perimenopausa#p5",
+  "testo": "Altre prove nelle donne dopo la menopausa: meta-analisi di 7 studi (608 donne): massa magra +0,37 kg e forza alla leg press +7,5 kg, con almeno 5 g al giorno più allenamento di forza; densità ossea invariata; per la perimenopausa non ne ho trovata una (da verificare); la meta-analisi ha effetti piccoli, un intervallo di predizione della massa magra che include lo zero e un effetto sulla densità ossea non chiaro",
+  "fonte": "PMID 42141930",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "7 RCT, 608 donne: confermato; la frase sull'assenza di meta-analisi in perimenopausa è scritta come «non ne ho trovata una»."
+ },
+ {
+  "id": "creatina-perimenopausa#p6",
+  "testo": "Sonno e sintomi: nessuno studio ha ancora dimostrato in modo confermato che la creatina migliori sonno o vampate in perimenopausa; l'unico segnale (Baker 2026) è esplorativo, a 6 settimane e con misure autoriferite; il legame con l'energia del cervello è un'ipotesi; il ruolo degli estrogeni nel metabolismo della creatina viene soprattutto da dati su animali (da verificare)",
+  "fonte": "PMID 42926218 (abstract)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Scritto come da verificare nella nota n."
+ },
+ {
+  "id": "creatina-perimenopausa#p7",
+  "testo": "Cura dei sintomi: secondo la North American Menopause Society (2022, oggi Menopause Society) la terapia ormonale è il trattamento più efficace per le vampate; la terapia cognitivo-comportamentale per l'insonnia è una scelta di prima linea; gli effetti dell'esercizio sul sonno sono variabili",
+  "fonte": "PMID 35797481; PMID 42247852",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "NAMS 2022 e CBT-I; solo abstract."
+ },
+ {
+  "id": "creatina-perimenopausa#v0",
+  "testo": "Campione: 51 donne, 46 ± 5 anni",
+  "fonte": "PMID 42926218",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Abstract: confermato."
+ },
+ {
+  "id": "creatina-perimenopausa#v1",
+  "testo": "Durata: carico 5 giorni, poi 6 settimane",
+  "fonte": "PMID 42926218",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Abstract: confermato."
+ },
+ {
+  "id": "creatina-perimenopausa#v2",
+  "testo": "Dose: 20 g al giorno, poi circa 4,5 g al giorno",
+  "fonte": "PMID 42926218",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Abstract: confermato."
+ },
+ {
+  "id": "creatina-perimenopausa#v3",
+  "testo": "Ossigenazione prefrontale: +0,32% creatina, −1,62% placebo",
+  "fonte": "PMID 42926218",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Abstract: confermato."
+ },
+ {
+  "id": "creatina-perimenopausa#v4",
+  "testo": "Costanza del sonno: +7,4 punti percentuali",
+  "fonte": "PMID 42926218",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Abstract: confermato."
+ },
+ {
+  "id": "creatina-perimenopausa#q0",
+  "testo": "Che cosa si può concludere dal trial di Baker (2026) su creatina e perimenopausa? → Che c'è un segnale su ossigenazione prefrontale e costanza del sonno, ma esplorativo (L'analisi è dichiarata esplorativa, su 6 settimane e pochi partecipanti: è un segnale da confermare.)",
+  "fonte": "PMID 42926218",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Abstract: confermato."
+ },
+ {
+  "id": "creatina-perimenopausa#q3",
+  "testo": "Quale terapia è considerata la più efficace per le vampate di calore secondo la Menopause Society (2022)? → Terapia ormonale (rapporto rischio-beneficio favorevole sotto i 60 anni o entro 10 anni dalla menopausa e senza controindicazioni) (La terapia ormonale è il trattamento più efficace per i sintomi vasomotori, con indicazioni e controindicazioni da valutare.)",
+  "fonte": "PMID 35797481",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "Aggiunto «senza controindicazioni»."
+ },
+ {
+  "id": "creatina-perimenopausa#q6",
+  "testo": "Che cosa mostra la meta-analisi nelle donne in postmenopausa sulla creatina? → Piccoli aumenti di massa magra e forza, con almeno 5 g al giorno e allenamento di forza; densità ossea invariata (Massa magra circa +0,37 kg e leg press +7,5 kg; nessun effetto sulla densità ossea.)",
+  "fonte": "PMID 42141930",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "+0,37 kg e +7,5 kg confermati."
+ }
+]
