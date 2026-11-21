@@ -1,0 +1,138 @@
+[
+ {
+  "id": "creatina-adulti#d",
+  "testo": "La creatina monoidrato è un integratore molto studiato. Insieme all'allenamento di forza aumenta un poco la forza (la massa magra è meno sicura negli over 60); negli adulti sani non risulta dannosa per i reni, ma alza la creatininemia senza una perdita dimostrata di filtrato, e questo va saputo quando si leggono gli esami.",
+  "fonte": "PMID 42578920 e altre (vedi nota n della voce)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Il revisore ha letto solo gli abstract: scritto come da verificare nella nota n."
+ },
+ {
+  "id": "creatina-adulti#p0",
+  "testo": "Che cos'è: la creatina serve al muscolo come riserva rapida di energia (fosfocreatina, che ricicla l'ATP); la dose abituale è 3-5 g al giorno, con una fase di carico facoltativa (circa 0,3 g/kg per 5-7 giorni)",
+  "fonte": "PMID 42578920 e altre (vedi nota n della voce)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Il revisore ha letto solo gli abstract: scritto come da verificare nella nota n."
+ },
+ {
+  "id": "creatina-adulti#p1",
+  "testo": "Trial di Chun et al. (J Int Soc Sports Nutr 2026): 73 adulti sedentari di 45-65 anni, 64 analizzati; 12 settimane di creatina 10 g al giorno o placebo, con o senza esercizio e dieta ipocalorica; solo creatina contro placebo era randomizzata, l'esercizio lo sceglievano i partecipanti",
+  "fonte": "PMID 42578920",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "Disegno e arruolamento confermati dall'abstract."
+ },
+ {
+  "id": "creatina-adulti#p2",
+  "testo": "Risultati del trial: massa magra circa +1,1-1,7 kg con creatina contro circa 0 con placebo; forza massimale (leg press, panca) migliorata; grasso corporeo ridotto di più con creatina più esercizio (−3,2 punti percentuali); gruppi di 13-20 persone, senza correzione per i molti confronti",
+  "fonte": "PMID 42578920 e altre (vedi nota n della voce)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Il revisore ha letto solo gli abstract: scritto come da verificare nella nota n."
+ },
+ {
+  "id": "creatina-adulti#p3",
+  "testo": "Cognizione: nel trial i test multivariati non erano significativi; i risultati sui singoli test erano dichiarati esplorativi dagli autori e vanno confermati; nelle meta-analisi la memoria migliora un poco (circa 0,3 deviazioni standard, certezza moderata solo per la memoria), ma i dati sugli anziani sono incoerenti",
+  "fonte": "PMID 42578920 e altre (vedi nota n della voce)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Il revisore ha letto solo gli abstract: scritto come da verificare nella nota n."
+ },
+ {
+  "id": "creatina-adulti#p4",
+  "testo": "Muscolo negli over 60: una meta-analisi (11 studi, creatina più allenamento contro solo allenamento) trova un aumento della forza (g 0,31, certezza moderata); massa muscolare e funzione fisica non sono risultate significative (certezza bassa per la massa, molto bassa per la funzione); le prove riguardano soprattutto creatina più allenamento e senza allenamento mancano prove solide negli anziani (nel trial di Chun, a 45-65 anni, massa magra e forza aumentavano anche senza esercizio)",
+  "fonte": "PMID 42712402",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "Errore del revisore (funzione fisica con certezza molto bassa; confronto col solo allenamento) corretto nel testo."
+ },
+ {
+  "id": "creatina-adulti#p5",
+  "testo": "Fragilità, sarcopenia, cadute: uno studio su pre-fragili e fragili (200 persone, circa 72 anni, solo donne nel braccio con creatina) non ha mostrato benefici aggiuntivi; in un trial di 2 anni su 200 donne in postmenopausa (3 g al giorno) cadute, fratture, densità ossea e funzione non sono cambiate; per sarcopenia e ricoverati non ho trovato studi (da verificare); nella meta-analisi (5 studi) nessun effetto significativo sulla densità ossea",
+  "fonte": "PMID 42578920 e altre (vedi nota n della voce)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Il revisore ha letto solo gli abstract: scritto come da verificare nella nota n."
+ },
+ {
+  "id": "creatina-adulti#p6",
+  "testo": "Reni: nelle meta-analisi la creatininemia sale di circa 0,13 mg/dL (19 studi) e il filtrato stimato non risulta significativamente diverso (stima imprecisa, 8 studi: un piccolo calo non è escluso) e la sicurezza renale a lungo termine non è dimostrata oltre un anno; nel trial la creatininemia saliva del 6-8% con la sola creatina e del 16-18% con esercizio, restando sotto 1,0 mg/dL; l'eGFR calcolato dalla creatinina scendeva ma gli autori ricordano che non prova una riduzione del filtrato",
+  "fonte": "PMID 42578920 e altre (vedi nota n della voce)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Il revisore ha letto solo gli abstract: scritto come da verificare nella nota n."
+ },
+ {
+  "id": "creatina-adulti#v0",
+  "testo": "Dose abituale: 3-5 g al giorno",
+  "fonte": "PMID 42578920 e altre (vedi nota n della voce)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Il revisore ha letto solo gli abstract: scritto come da verificare nella nota n."
+ },
+ {
+  "id": "creatina-adulti#v1",
+  "testo": "Trial Chun 2026: 10 g al giorno per 12 settimane",
+  "fonte": "PMID 42578920",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "2 x 5 g al giorno, 12 settimane."
+ },
+ {
+  "id": "creatina-adulti#v2",
+  "testo": "Massa magra nel trial: circa +1,1-1,7 kg contro circa 0",
+  "fonte": "PMID 42578920 e altre (vedi nota n della voce)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Il revisore ha letto solo gli abstract: scritto come da verificare nella nota n."
+ },
+ {
+  "id": "creatina-adulti#v3",
+  "testo": "Creatininemia (meta-analisi, sani): circa +0,13 mg/dL",
+  "fonte": "PMID 42035842",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "MD 0,13 mg/dL (IC 0,07-0,18), 19 RCT."
+ },
+ {
+  "id": "creatina-adulti#v4",
+  "testo": "Forza negli over 60 (meta-analisi): g 0,31, certezza moderata",
+  "fonte": "PMID 42712402",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "g 0,31 (IC 0,18-0,45), certezza moderata; effetto aggiuntivo al solo allenamento."
+ },
+ {
+  "id": "creatina-adulti#q0",
+  "testo": "Un uomo di 60 anni assume creatina e la creatininemia è appena aumentata. Che cosa fa l'infermiere? → Segnala al medico che assume creatina, perché la creatinina può salire senza danno (La creatinina deriva dalla creatina muscolare: un lieve aumento isolato non prova un danno renale; il medico può usare la cistatina C.)",
+  "fonte": "PMID 42035842; PMID 18188581",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Creatinina sale senza calo significativo dell'eGFR; cistatina C alternativa."
+ },
+ {
+  "id": "creatina-adulti#q2",
+  "testo": "Negli over 60, quale effetto aggiuntivo della creatina su un programma di allenamento di forza ha prove di certezza moderata? → Un modesto aumento della forza (Nella meta-analisi la forza aumenta (g 0,31); massa muscolare e funzione fisica non sono risultate significative e i risultati non vanno estesi a fragili o sarcopenici.)",
+  "fonte": "PMID 42578920 e altre (vedi nota n della voce)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Il revisore ha letto solo gli abstract: scritto come da verificare nella nota n."
+ },
+ {
+  "id": "creatina-adulti#q4",
+  "testo": "Nel trial di Chun (2026), perché i risultati cognitivi vanno letti con cautela? → Perché i test multivariati non erano significativi e le analisi sui singoli test erano esplorative (Gli autori stessi dichiarano esplorative le analisi sui singoli test e senza correzione per i confronti multipli.)",
+  "fonte": "PMID 42578920 e altre (vedi nota n della voce)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Il revisore ha letto solo gli abstract: scritto come da verificare nella nota n."
+ },
+ {
+  "id": "creatina-adulti#gl:Creatina monoidrato",
+  "testo": "Integratore che aumenta la fosfocreatina del muscolo, riserva rapida di energia; con l'allenamento di forza aumenta un poco la forza; l'effetto sulla massa magra negli over 60 è meno sicuro.",
+  "fonte": "PMID 42578920 e altre (vedi nota n della voce)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Il revisore ha letto solo gli abstract: scritto come da verificare nella nota n."
+ }
+]

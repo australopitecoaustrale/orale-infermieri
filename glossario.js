@@ -818,9 +818,9 @@ GLOSS.push(
 ["SUDEP","g","Morte improvvisa inattesa in epilessia (Sudden Unexpected Death in Epilepsy): collegata a squilibrio autonomico dopo la crisi.","Sudden unexpected death in epilepsy","cuore-cervello"],
 ["Psicocardiologia","t","Settore che studia e cura insieme disturbi del cuore e della mente (depressione, ansia, stress) nei pazienti cardiopatici.","Psychocardiology","cuore-cervello"],
 ["Catecolamine","t","Adrenalina, noradrenalina e dopamina: ormoni e neurotrasmettitori dello stress che aumentano frequenza e forza del cuore e restringono i vasi.","Catecholamines","cuore-cervello"],
-["Creatina monoidrato","t","Integratore che aumenta la fosfocreatina del muscolo, riserva rapida di energia; con l'allenamento di forza aumenta un poco massa magra e forza.","Creatine monohydrate","creatina-adulti"],
-["Creatinina","t","Prodotto di scarto della creatina muscolare eliminato dal rene; la sua concentrazione nel sangue serve a stimare il filtrato, ma dipende anche dalla massa muscolare e dall'assunzione di creatina.","Creatinine","es-creatinina"],
-["Cistatina C","t","Proteina prodotta da tutte le cellule, filtrata dal rene: stima il filtrato indipendentemente dalla massa muscolare.","Cystatin C","creatina-adulti"],
+["Creatina monoidrato","t","Integratore che aumenta la fosfocreatina del muscolo, riserva rapida di energia; con l'allenamento di forza aumenta un poco la forza; l'effetto sulla massa magra negli over 60 è meno sicuro.","Creatine monohydrate","creatina-adulti"],
+["Creatinina","t","Prodotto di scarto della creatina muscolare eliminato dal rene; la sua concentrazione nel sangue serve a stimare il filtrato, ma dipende anche dalla massa muscolare, dalla carne cotta, dall'idratazione e dall'assunzione di creatina.","Creatinine","es-creatinina"],
+["Cistatina C","t","Proteina prodotta da tutte le cellule nucleate, filtrata dal rene: stima il filtrato indipendentemente dalla massa muscolare.","Cystatin C","creatina-adulti"],
 ["Fosfocreatina","t","Molecola del muscolo che cede un fosfato all'ADP per rigenerare ATP nei primi secondi di sforzo.","Phosphocreatine","creatina-adulti"],
 ["1RM","g","Una ripetizione massimale: il carico massimo che si riesce a sollevare una sola volta; misura la forza.","One-repetition maximum","creatina-adulti"]
 );
