@@ -822,5 +822,10 @@ GLOSS.push(
 ["Creatinina","t","Prodotto di scarto della creatina muscolare eliminato dal rene; la sua concentrazione nel sangue serve a stimare il filtrato, ma dipende anche dalla massa muscolare, dalla carne cotta, dall'idratazione e dall'assunzione di creatina.","Creatinine","es-creatinina"],
 ["Cistatina C","t","Proteina prodotta da tutte le cellule nucleate, filtrata dal rene: stima il filtrato indipendentemente dalla massa muscolare.","Cystatin C","creatina-adulti"],
 ["Fosfocreatina","t","Molecola del muscolo che cede un fosfato all'ADP per rigenerare ATP nei primi secondi di sforzo.","Phosphocreatine","creatina-adulti"],
-["1RM","g","Una ripetizione massimale: il carico massimo che si riesce a sollevare una sola volta; misura la forza.","One-repetition maximum","creatina-adulti"]
+["1RM","g","Una ripetizione massimale: il carico massimo che si riesce a sollevare una sola volta; misura la forza.","One-repetition maximum","creatina-adulti"],
+["Perimenopausa","t","Periodo di transizione verso la menopausa, con cicli irregolari e sintomi come vampate, disturbi del sonno e dell'umore.","Perimenopause","creatina-perimenopausa"],
+["Sintomi vasomotori","t","Vampate di calore e sudorazioni notturne dovute alle variazioni ormonali della menopausa.","Vasomotor symptoms","creatina-perimenopausa"],
+["NIRS","g","Spettroscopia nel vicino infrarosso: misura le variazioni di emoglobina ossigenata e deossigenata nei tessuti, per esempio nella corteccia cerebrale, con luce attraverso la pelle.","Near-infrared spectroscopy","creatina-perimenopausa"],
+["Test di Stroop","t","Prova di attenzione ed esecuzione in cui si nomina il colore dell'inchiostro con cui è scritta una parola che indica un colore diverso; misura il controllo dell'interferenza.","Stroop test","creatina-perimenopausa"],
+["HIRT","g","Allenamento di forza ad alta intensità (High-Intensity Resistance Training).","High-intensity resistance training","creatina-perimenopausa"]
 );
