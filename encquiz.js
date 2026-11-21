@@ -1024,3 +1024,15 @@ var QUIZ_LOTTOB=[
 ];
 QUIZ_LOTTOB.forEach((x,i)=>{const t=(i*3+1)%4,o=x[2].slice(),c=o.splice(x[3],1)[0];o.splice(t,0,c);x[2]=o;x[3]=t});
 if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_LOTTOB);
+
+var QUIZ_ENCEF=[
+["encefalo-regioni","Quale struttura smista verso la corteccia quasi tutte le vie sensitive, tranne l'olfatto?",["Ipotalamo","Talamo","Cervelletto","Bulbo"],1,"Il talamo è la stazione di smistamento sensitiva; l'olfatto raggiunge la corteccia senza passare prima dal talamo."],
+["encefalo-regioni","Un paziente ha atassia e dismetria del braccio destro. Dove è più probabile la lesione?",["Emisfero cerebrale destro","Cervelletto a destra","Cervelletto a sinistra","Talamo sinistro"],1,"Il cervelletto controlla la coordinazione dello stesso lato: segni a destra fanno pensare a una lesione cerebellare destra."],
+["encefalo-regioni","Dopo una lesione ipotalamica compaiono poliuria e urine molto diluite. Quale ormone manca?",["Aldosterone","Cortisolo","ADH (vasopressina)","Insulina"],2,"L'ADH è prodotto dall'ipotalamo e liberato dalla neuroipofisi; se manca si ha diabete insipido centrale."],
+["encefalo-regioni","Paralisi del nervo facciale a sinistra ed emiparesi a destra: dove si trova la lesione?",["Corteccia frontale destra","Cervelletto","Tronco encefalico a sinistra","Midollo cervicale"],2,"Sono segni crociati tipici del tronco encefalico: nervo cranico dal lato della lesione, emiparesi dal lato opposto."],
+["encefalo-regioni","In quale parte dell'encefalo si trovano i centri cardiovascolari e quelli di deglutizione, tosse e vomito?",["Bulbo","Talamo","Lobo occipitale","Ippocampo"],0,"Il bulbo contiene centri vitali: respiro, circolo, deglutizione, tosse, vomito."],
+["encefalo-regioni","Che cosa ha mostrato la mappa dell'attività cerebrale dell'International Brain Laboratory (Nature 2025) nei topi?",["La scelta si forma solo nella corteccia frontale","I segnali del movimento imminente compaiono in quasi tutto l'encefalo","Lo stimolo visivo attiva solo la corteccia visiva","Il cervelletto non partecipa al comportamento"],1,"Dopo le aree visive, l'attività si estendeva a mesencefalo e rombencefalo, dove si codificava anche la scelta; i segnali di movimento e ricompensa erano diffusi quasi ovunque."],
+["encefalo-regioni","Nel morbo di Parkinson si perdono i neuroni dopaminergici della sostanza nera. In quale parte dell'encefalo si trova?",["Bulbo","Mesencefalo","Ipotalamo","Corteccia parietale"],1,"La sostanza nera sta nel mesencefalo e invia dopamina allo striato dei nuclei della base."]
+];
+QUIZ_ENCEF.forEach((x,i)=>{const t=(i*3+2)%4,o=x[2].slice(),c=o.splice(x[3],1)[0];o.splice(t,0,c);x[2]=o;x[3]=t});
+if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_ENCEF);
