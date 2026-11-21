@@ -1485,5 +1485,52 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
  `<g class="vf k1"><rect class="fs" x="36" y="6" width="398" height="40" rx="8"/></g>`+
  `<g class="vf k2"><rect class="fs" x="36" y="62" width="398" height="58" rx="8"/></g>`+
  `<g class="vf k3"><rect class="fs" x="36" y="136" width="398" height="58" rx="8"/></g>`+
- `<g class="vf k4"><rect class="fs" x="276" y="248" width="120" height="142" rx="10"/></g>`)}
+ `<g class="vf k4"><rect class="fs" x="276" y="248" width="120" height="142" rx="10"/></g>`)},
+{id:"fig-creatina-creatinina",t:"Creatina: muscolo, creatinina ed esami del rene",c:"La creatina entra nel muscolo, una piccola parte diventa creatinina e passa nel sangue: la creatininemia sale un poco senza che il rene sia per forza danneggiato.",
+ enc:["creatina-adulti","es-creatinina"],gl:["Creatina monoidrato","Creatinina","Cistatina C"],st:/creatina|creatinina|integrator|cistatina/i,
+ svg:(()=>{
+  const T=FT.text,A=FT.arrow;let o='';
+  /* muscolo */
+  const M="M14 78C18 52 48 40 76 44C102 48 120 60 122 82C120 104 98 116 70 114C40 116 12 104 14 78Z";
+  o+='<path d="'+M+'" fill="#d9534f" fill-opacity=".26" stroke="#d9534f" stroke-width="1.6"/>';
+  o+='<path class="dash" fill="none" d="M30 80C52 66 80 66 106 82M30 94C52 84 80 84 104 96"/>';
+  o+='<path class="ans" fill="none" stroke="#d9534f" stroke-width="3" d="'+M+'"/>';
+  o+=T(68,30,"Muscolo",{a:"middle",b:1});
+  o+=T(68,130,["creatina monoidrato","3-5 g al giorno"],{a:"middle",sm:1});
+  o+=T(68,160,"fosfocreatina ↑",{a:"middle",sm:1,b:1});
+  /* rene e vaso */
+  const K="M216 52C192 52 184 72 186 94C188 116 204 130 220 124C226 120 224 112 218 108C212 104 212 94 218 90C224 86 228 76 226 66C226 58 224 52 216 52Z";
+  o+='<g transform="translate(20 0)"><path d="'+K+'" fill="#2f8f8a" fill-opacity=".28" stroke="#2f8f8a" stroke-width="1.6"/></g>';
+  o+=T(232,30,"Rene",{a:"middle",b:1});
+  o+='<path class="fl" d="M150 150C190 150 216 150 240 130" fill="none"/>';
+  o+=T(160,166,"vaso (sangue)",{sm:1});
+  o+=A(126,86,198,86,{dash:1})+T(162,78,"creatinina",{a:"middle",sm:1});
+  o+='<g class="ans s2"><path fill="none" stroke="#2f8f8a" stroke-width="3" d="M126 86H196"/><path transform="translate(20 0)" fill="none" stroke="#2f8f8a" stroke-width="3" d="'+K+'"/></g>';
+  /* provetta */
+  o+='<rect class="fbx" x="296" y="40" width="28" height="82" rx="12"/><rect x="299" y="82" width="22" height="37" rx="10" fill="#d9534f" fill-opacity=".4"/>';
+  o+='<rect class="ans s3" x="292" y="36" width="36" height="90" rx="14" fill="none" stroke="#d9534f" stroke-width="3"/>';
+  o+=T(310,30,"Esame",{a:"middle",b:1});
+  o+=T(310,140,"creatininemia ↑",{a:"middle",sm:1,b:1});
+  /* bilancia */
+  o+='<path class="fl" d="M396 70V124M380 124H412M374 78H418"/><path class="fl" d="M374 78L366 98H382ZM418 78L410 98H426Z"/>';
+  o+=T(396,60,"eGFR ↓?",{a:"middle",sm:1});
+  o+=T(396,142,["filtrato reale","invariato?"],{a:"middle",sm:1,b:1});
+  o+='<rect class="ans s3" x="360" y="52" width="72" height="96" rx="10" fill="none" stroke="#d9534f" stroke-width="2.4"/>';
+  /* tabella */
+  const R=[
+   ["1-2","Integratore e forza: più fosfocreatina (ricicla l'ATP); nel trial","Chun 2026, 12 sett.: massa magra +1,1 / +1,7 kg contro circa 0 col placebo"],
+   ["","",""],
+   ["3","Ogni giorno una piccola parte della creatina diventa creatinina,","che passa nel sangue"],
+   ["4","Creatininemia +0,13 mg/dL circa: l'eGFR può scendere,","non prova danno. Cistatina C se serve; avvisare il medico"]
+  ];
+  const rows=[R[0],R[2],R[3]],hs=[0,1,2];
+  rows.forEach((r,i)=>{
+    const y=176+i*40;
+    o+='<rect class="eyrow" x="8" y="'+y+'" width="424" height="36" rx="8"/>';
+    o+='<rect class="ans'+(i?" s"+(i+1):"")+'" x="8" y="'+y+'" width="424" height="36" rx="8" fill="none" stroke="#2f8f8a" stroke-width="2.4"/>';
+    o+=T(16,y+22,r[0],{b:1});
+    o+=T(40,y+15,[r[1],r[2]],{sm:1,lh:12});
+  });
+  return FT.svg(440,300,"Schema in tre passi: la creatina entra nel muscolo e alza la fosfocreatina; una piccola parte diventa creatinina nel sangue; la creatininemia sale un poco e l'eGFR può scendere senza che il filtrato reale cambi per forza.",o);
+ })()}
 ];
