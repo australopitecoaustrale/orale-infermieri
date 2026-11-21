@@ -1628,5 +1628,29 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   /* messaggio */
   o+=B(8,250,424,46,["Segnale debole: studi pochi, eterogenei,","per lo più trasversali (non provano causa)"],"Il MMSE non cambia in nessuno studio che lo ha usato","warn");
   return FT.svg(440,300,"Schema: da 2897 articoli, tolti 961 doppioni e scartati 1837 su titolo e abstract, 98 testi letti e 6 studi inclusi con 1542 partecipanti; due studi di intervento e quattro trasversali; qualità 1 buona, 2 discreta, 3 scarsa; segnale debole, il MMSE non cambia.",o);
+ })()},
+{id:"fig-creatina-metabolismo",t:"Da dove viene la creatina e dove va",c:"Due fonti, sintesi nel corpo e dieta, portano la creatina al muscolo; lì rigenera l'ATP e la parte consumata esce come creatinina nelle urine.",
+ enc:["creatina-popolazione"],gl:["Creatina monoidrato","Fosfocreatina","Guanidinoacetato","SAM"],st:/creatina|creatinina/i,
+ svg:(()=>{
+  const T=FT.text,B=FT.box,A=FT.arrow;let o='';
+  const G='#2f8f8a';
+  const ring=(c,x,y,w,h)=>'<rect class="'+c+'" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="10" fill="none" stroke="'+G+'" stroke-width="2.6"/>';
+  o+=T(8,16,"Fonte 1: sintesi nel corpo",{sm:1,b:1})+T(312,16,"Fonte 2: dieta",{sm:1,b:1});
+  o+=B(8,24,128,62,"1 Rene",["glicina + arginina","→ ornitina + GAA"],"info");
+  o+=B(160,24,128,62,"2 Fegato",["GAA + SAM","→ creatina + SAH"],"info");
+  o+=B(312,24,120,62,"3 Dieta",["carne e pesce:","creatina"],"warn");
+  o+=A(136,55,160,55,{})+T(148,48,"GAA",{a:"middle",sm:1});
+  o+=ring('ans',4,20,288,70)+ring('ans s2',308,20,128,70);
+  o+=A(224,86,180,130,{})+T(214,112,"creatina",{sm:1});
+  o+=A(372,86,280,130,{})+T(332,119,"creatina",{sm:1});
+  o+=B(60,130,240,62,"4 Muscolo",["creatina ⇄ fosfocreatina","ADP → ATP (creatinchinasi)"],"ok");
+  o+=ring('ans s3',56,126,248,70);
+  o+=A(300,161,340,161,{});
+  o+=B(340,130,92,62,"5 Urina",["creatinina","(dal muscolo)","eliminata dal rene"],"");
+  o+=B(8,212,424,34,"Due fonti: sintesi e dieta","","info");
+  o+=T(220,266,"La fosfocreatina rigenera l'ATP dall'ADP; la creatinina",{a:"middle",sm:1});
+  o+=T(220,280,"si forma spontaneamente e si elimina con le urine.",{a:"middle",sm:1});
+  o+=T(220,296,"Ostojic, J Funct Foods 2021 (opinione)",{a:"middle",sm:1});
+  return FT.svg(440,304,"Schema: nel rene glicina e arginina danno guanidinoacetato, nel fegato con SAM diventa creatina; la dieta (carne, pesce) è la seconda fonte. La creatina va al muscolo, dove con la fosfocreatina rigenera l'ATP dall'ADP; la creatinina si elimina con le urine.",o);
  })()}
 ];

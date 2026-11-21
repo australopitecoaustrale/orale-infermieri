@@ -1093,3 +1093,13 @@ var QUIZ_COGN=[
 ];
 QUIZ_COGN.forEach((x,i)=>{const t=(i*3+1)%4,o=x[2].slice(),c=o.splice(x[3],1)[0];o.splice(t,0,c);x[2]=o;x[3]=t});
 if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_COGN);
+var QUIZ_POP=[
+["creatina-popolazione","Dove si forma la creatina nell'organismo?",["Rene (guanidinoacetato) e fegato (con SAM)","Solo nel muscolo","Solo nell'intestino","Solo nel cervello"],0,"Il rene produce il guanidinoacetato da glicina e arginina; il fegato lo trasforma in creatina."],
+["creatina-popolazione","Da quali fonti l'organismo ottiene la creatina?",["Sintesi interna e alimenti di origine animale","Solo dai cereali","Solo dagli integratori","Solo dal sole"],0,"Due fonti: sintesi endogena e dieta (carne, pesce)."],
+["creatina-popolazione","In che cosa si trasforma la creatina del muscolo prima di essere eliminata con le urine?",["Creatinina","Urea","Glicina","Ornitina"],0,"La creatina del muscolo diventa creatinina, eliminata dal rene."],
+["creatina-popolazione","Che tipo di documento è l'articolo di Ostojic (2021) sulla creatina per la popolazione generale?",["Un articolo di opinione","Un trial randomizzato","Una meta-analisi","Un caso clinico"],0,"È un parere: non fornisce una prova che l'integrazione migliori la salute."],
+["creatina-popolazione","Perché uno studio osservazionale su un apporto basso di creatina non basta a consigliare l'integratore?",["Perché mostra associazioni, non che l'integrazione migliori la salute","Perché è troppo breve","Perché la creatina è un farmaco","Perché non esistono studi"],0,"Servono trial controllati per dimostrare un beneficio."],
+["creatina-popolazione","Che cosa deve ricordare l'infermiere se una persona assume creatina e si leggono gli esami renali?",["Può far salire un poco la creatininemia senza provare un danno: avvisare il medico","Deve sospendere subito ogni farmaco","La creatinina è sempre sbagliata","Nulla"],0,"Un lieve aumento isolato non prova un danno renale; lo valuta il medico."]
+];
+QUIZ_POP.forEach((x,i)=>{const t=(i*3+1)%4,o=x[2].slice(),c=o.splice(x[3],1)[0];o.splice(t,0,c);x[2]=o;x[3]=t});
+if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_POP);

@@ -831,5 +831,6 @@ GLOSS.push(
 ["Revisione sistematica","t","Sintesi della letteratura con ricerca in più banche dati, criteri di inclusione stabiliti prima e valutazione della qualità di ogni studio; può includere o no una meta-analisi.","Systematic review","creatina-cognizione-anziani"],
 ["Studio trasversale","t","Studio osservazionale che misura esposizione ed esito nello stesso momento: mostra associazioni, ma non può provare un rapporto di causa.","Cross-sectional study","creatina-cognizione-anziani"],
 ["Compito di Flanker","t","Prova di attenzione: si risponde alla freccia centrale ignorando quelle ai lati; misura il controllo dell'interferenza.","Eriksen flanker task","creatina-cognizione-anziani"],
-["Blocchi di Corsi","t","Prova di memoria visuospaziale a breve termine: si ripete una sequenza di blocchi toccati dall'esaminatore, in avanti o a ritroso.","Corsi block-tapping task","creatina-cognizione-anziani"]
+["Blocchi di Corsi","t","Prova di memoria visuospaziale a breve termine: si ripete una sequenza di blocchi toccati dall'esaminatore, in avanti o a ritroso.","Corsi block-tapping task","creatina-cognizione-anziani"],
+["Guanidinoacetato","s","GAA: composto che si forma nel rene da glicina e arginina; nel fegato riceve un gruppo metile da SAM e diventa creatina.","Guanidinoacetate","creatina-popolazione"]
 );
