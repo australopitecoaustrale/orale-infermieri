@@ -2051,5 +2051,91 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=T(220,441,"nome, dose, data dell'ultima dose; svuotamento gastrico rallentato",{a:"middle",sm:1});
   o+=hl(3,407,434,46,"k6");
   return FT.svg(440,456,"In alto una scala di quattro gradini di intensità crescente: stile di vita, sempre con sostegno continuo; farmaci agonisti del GLP-1 e doppi agonisti GIP/GLP-1; terapie endoscopiche; chirurgia metabolica bariatrica. Una freccia doppia indica che si può aumentare, combinare o alternare, con follow-up a lungo termine a ogni gradino. In basso a sinistra i cinque domini di competenza IFSO per chi prescrive: 1 l'obesità come malattia cronica recidivante, oltre il BMI; 2 farmacologia, con titolazione, rischi e aspirazione; 3 scelta del trattamento; 4 follow-up a lungo termine; 5 cura in team centrata sulla persona. A destra il team: medico che prescrive, infermiere per titolazione ed effetti avversi, dietista, salute mentale, esercizio di forza per conservare la massa magra. In fondo un'avvertenza: prima di sedazione o intervento segnalare il farmaco all'anestesista, con nome, dose e data dell'ultima dose, perché lo svuotamento gastrico è rallentato.",o);
+ })()},
+{id:"fig-ck-genetica",t:"Perché la CK di base cambia da persona a persona",c:"Il valore di CK a riposo è un equilibrio tra quanta CK esce dalle fibre muscolari ed entra nel sangue e quanta ne viene tolta: monociti e macrofagi la rimuovono dal sangue. La alzano più massa e forza muscolare, il sesso maschile, l'ascendenza africana, l'esercizio recente e varianti genetiche comuni in geni del muscolo (TTN, ANO5, CKM); l'infiammazione (PCR alta) si associa geneticamente a CK più bassa, attraverso lo smaltimento. Tra le molte varianti comuni a effetto piccolo e le rare mutazioni delle miopatie mendeliane c'è un continuum: statine, sforzo intenso o infezione possono rivelare una fragilità nascosta. Fonte: Chen e coll., eBioMedicine 2026, GWAS multi-ancestrale su 237.255 persone.",
+ enc:["es-ck-genetica","es-ck"],gl:["CK","GWAS"],st:/creatin.?chinasi|\bCK\b.*(genet|basale|ascendenza)|GWAS/i,
+ svg:(()=>{
+  const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  const ACC="var(--scrub)";
+  /* testo: dimensione dà la gerarchia, mai grassetto */
+  const T=(x,y,s,o={})=>{const L=[].concat(s),lh=o.lh||13,fz=o.fz||10.5,a=o.a||"start";
+   const st="font-size:"+fz+"px"+(o.acc?";fill:"+ACC:"")+(o.ink?";fill:var(--ink)":"");
+   return '<text class="ft'+(o.ink||o.acc?"":" fsm")+'" style="'+st+'" x="'+x+'" y="'+y+'" text-anchor="'+a+'">'+L.map((t,i)=>'<tspan x="'+x+'" dy="'+(i?lh:0)+'">'+e(t)+'</tspan>').join("")+'</text>';};
+  const H=(x,y,s,o={})=>T(x,y,s,Object.assign({fz:12,ink:1},o));
+  const line=(x1,y1,x2,y2)=>'<path class="lead" d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>';
+  const dot=(x,y,r)=>'<circle cx="'+x+'" cy="'+y+'" r="'+(r||3)+'" style="fill:'+ACC+'"/>';
+  /* freccia d'accento sottile, punta piena */
+  const arr=(x1,y,x2)=>'<path class="fs" style="stroke-width:1.5;stroke-linecap:butt" d="M'+x1+' '+y+'L'+(x2-6)+' '+y+'"/><path style="fill:'+ACC+'" d="M'+x2+' '+y+'L'+(x2-6)+' '+(y-3.5)+'L'+(x2-6)+' '+(y+3.5)+'Z"/>';
+  const hl=(x,y,w,h,k)=>'<rect class="ans'+(k?" "+k:"")+'" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="0" fill="none" style="stroke:'+ACC+';stroke-width:2"/>';
+  let o='';
+
+  /* ===== 1. Percorso della CK: fibra → sangue → macrofagi ===== */
+  o+=T(8,16,"Entra nel sangue (rilascio)",{fz:10});
+  o+=T(432,16,"Esce dal sangue (smaltimento)",{fz:10,a:"end"});
+  o+=line(8,24,432,24);
+  /* fibra muscolare */
+  o+='<rect class="fl" style="stroke-width:1" x="8" y="40" width="120" height="88" rx="0"/>';
+  o+='<rect class="lead" x="12" y="44" width="112" height="80" rx="0"/>';
+  for(let x=24;x<=116;x+=8)o+=line(x,48,x,120);
+  o+='<ellipse class="lead" cx="40" cy="44" rx="8" ry="2.5" style="fill:var(--paper)"/><ellipse class="lead" cx="92" cy="124" rx="8" ry="2.5" style="fill:var(--paper)"/>';
+  o+=dot(36,72)+dot(60,96)+dot(84,64)+dot(104,88);
+  /* rilascio attraverso la membrana */
+  o+=arr(128,84,168);
+  /* vaso sanguigno */
+  o+='<path class="fl" style="stroke-width:1" d="M168 48H272M168 120H272"/>';
+  o+=T(220,64,"sangue",{fz:9.5,a:"middle"});
+  o+=dot(184,80)+dot(204,100)+dot(224,84)+dot(244,104)+dot(256,76);
+  /* smaltimento */
+  o+=arr(272,84,312);
+  /* monocita/macrofago: forma irregolare con nucleo */
+  o+='<path class="fl" style="stroke-width:1;fill:var(--paper)" d="M330 60C344 44 364 52 372 44C384 36 404 48 400 64C416 68 428 84 416 100C424 116 404 128 388 120C376 132 352 132 344 120C324 124 312 108 324 96C312 84 318 64 330 60Z"/>';
+  o+='<path class="lead" d="M352 76C364 68 384 74 384 86C388 98 372 104 362 100C350 104 342 94 348 86C344 82 346 78 352 76Z"/>';
+  o+=dot(400,84,2.6)+dot(336,104,2.6)+dot(392,108,2.6);
+  /* pallini animati: escono dalla fibra e arrivano ai macrofagi */
+  [0,1.6,3.2].forEach(b=>{o+='<circle class="anm" r="3.4" style="fill:'+ACC+'"><animateMotion dur="4.8s" begin="-'+b+'s" repeatCount="indefinite" path="M100 84H168C196 84 200 96 220 92C240 88 250 84 272 84H330"/></circle>';});
+  /* passi sotto i tre elementi */
+  o+=T(8,144,"1",{fz:12,acc:1})+T(20,144,"Rilascio dalla",{fz:10})+T(20,157,"fibra muscolare",{fz:10});
+  o+=T(168,144,"2",{fz:12,acc:1})+T(180,144,"CK circolante",{fz:10})+T(180,157,"(valore misurato)",{fz:10});
+  o+=T(312,144,"3",{fz:12,acc:1})+T(324,144,"Monociti e macrofagi",{fz:10})+T(324,157,"la tolgono dal sangue",{fz:10});
+  o+=hl(4,36,128,128,"")+hl(164,36,112,128,"s2")+hl(308,36,128,128,"s3");
+
+  /* ===== 2. Fattori ===== */
+  o+=line(8,176,432,176);
+  o+=H(8,196,"Alzano la CK di base");
+  const F=["Più massa muscolare e forza","Sesso maschile","Ascendenza africana","Attività fisica, esercizio recente","Varianti comuni in geni del muscolo:"];
+  F.forEach((f,i)=>{const y=216+i*20;o+='<rect x="8" y="'+(y-7)+'" width="4" height="8" style="fill:'+ACC+'"/>';o+=T(20,y,f);if(i<F.length-1)o+=line(8,y+6,212,y+6);});
+  o+=T(20,309,"TTN, ANO5, CKM",{fz:10.5,ink:1});
+  /* smaltimento e infiammazione */
+  o+=H(228,196,"Abbassano la CK: smaltimento");
+  o+=T(228,216,["Monociti e macrofagi rimuovono","la CK dal sangue"]);
+  o+=line(228,236,432,236);
+  o+=T(228,256,"PCR ↑ → CK ↓",{fz:12,acc:1});
+  o+=T(228,272,["infiammazione: correlazione","genetica negativa con la CK"]);
+  o+=line(220,184,220,312);
+
+  /* ===== 3. Continuum ===== */
+  o+=line(8,324,432,324);
+  o+=H(8,344,"Un continuum, non due mondi");
+  /* fattori scatenanti, sopra il centro della barra */
+  o+='<rect class="lead" x="120" y="356" width="200" height="36" rx="0" style="fill:var(--paper)"/>';
+  o+=T(220,371,"Fattori scatenanti: statine,",{fz:10.5,ink:1,a:"middle"});
+  o+=T(220,385,"sforzo intenso, infezione",{fz:10.5,ink:1,a:"middle"});
+  o+='<path class="fs" style="stroke-width:1.5;stroke-linecap:butt" d="M220 392V402"/><path style="fill:'+ACC+'" d="M220 408L216.5 402H223.5Z"/>';
+  /* barra a campiture semantiche tenui */
+  o+='<rect x="8" y="408" width="140" height="16" rx="0" style="fill:#2e9e5b;fill-opacity:.22"/>';
+  o+='<rect x="148" y="408" width="144" height="16" rx="0" style="fill:#888;fill-opacity:.14"/>';
+  o+='<rect x="292" y="408" width="140" height="16" rx="0" style="fill:#d23c3c;fill-opacity:.24"/>';
+  o+='<rect class="fl" style="stroke-width:1" x="8" y="408" width="424" height="16" rx="0" fill="none"/>';
+  o+=T(220,420,"possono rivelare una fragilità nascosta",{fz:9.5,a:"middle"});
+  o+=T(8,440,"Molte varianti comuni, effetto piccolo",{fz:10,ink:1});
+  o+=T(8,453,["CK un po' più alta,","nessuna malattia"],{fz:10});
+  o+=T(432,440,"Mutazioni rare, effetto grande",{fz:10,ink:1,a:"end"});
+  o+=T(432,453,["miopatie mendeliane","(distrofie)"],{fz:10,a:"end"});
+
+  /* ===== 4. Nota ===== */
+  o+=line(8,480,432,480);
+  o+=T(8,496,"AST alta con CK alta: spesso origine muscolare, non epatica",{fz:10.5,ink:1});
+  o+=T(8,512,"Chen e coll., eBioMedicine 2026: GWAS multi-ancestrale su 237.255 persone",{fz:9.5});
+  return FT.svg(440,520,"Schema del perché la CK di base cambia da persona a persona. In alto il percorso della CK: 1, la CK esce dalla fibra muscolare ed entra nel sangue; 2, la CK circolante è il valore misurato; 3, monociti e macrofagi la tolgono dal sangue. Al centro a sinistra i fattori che alzano la CK di base: più massa muscolare e forza, sesso maschile, ascendenza africana, attività fisica ed esercizio recente, varianti comuni in geni del muscolo come TTN, ANO5 e CKM. A destra lo smaltimento: monociti e macrofagi rimuovono la CK; la PCR alta, segno di infiammazione, ha una correlazione genetica negativa con la CK. In basso una barra continua: a sinistra molte varianti comuni a effetto piccolo, CK un po' più alta senza malattia; a destra mutazioni rare a effetto grande, le miopatie mendeliane come le distrofie; al centro i fattori scatenanti, statine, sforzo intenso e infezione, che possono rivelare una fragilità nascosta. Nota: AST alta con CK alta ha spesso origine muscolare, non epatica. Fonte: Chen e coll., eBioMedicine 2026, GWAS multi-ancestrale su 237.255 persone.",o);
  })()}
 ];
