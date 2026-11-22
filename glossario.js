@@ -832,5 +832,11 @@ GLOSS.push(
 ["Studio trasversale","t","Studio osservazionale che misura esposizione ed esito nello stesso momento: mostra associazioni, ma non può provare un rapporto di causa.","Cross-sectional study","creatina-cognizione-anziani"],
 ["Compito di Flanker","t","Prova di attenzione: si risponde alla freccia centrale ignorando quelle ai lati; misura il controllo dell'interferenza.","Eriksen flanker task","creatina-cognizione-anziani"],
 ["Blocchi di Corsi","t","Prova di memoria visuospaziale a breve termine: si ripete una sequenza di blocchi toccati dall'esaminatore, in avanti o a ritroso.","Corsi block-tapping task","creatina-cognizione-anziani"],
-["Guanidinoacetato","s","GAA: composto che si forma nel rene da glicina e arginina; nel fegato riceve un gruppo metile da SAM e diventa creatina.","Guanidinoacetate","creatina-popolazione"]
+["Guanidinoacetato","s","GAA: composto che si forma nel rene da glicina e arginina; nel fegato riceve un gruppo metile da SAM e diventa creatina.","Guanidinoacetate","creatina-popolazione"],
+["Tecnica di Seldinger","p","Accesso a un vaso con ago, filo guida e catetere: l'ago apre la strada al filo, poi si toglie e il catetere entra sul filo; consente un catetere più grosso dell'ago.","Seldinger technique","tecnica-seldinger"],
+["Filo guida","p","Filo sottile e flessibile che si fa passare attraverso l'ago nel vaso e su cui si infilano dilatatore e catetere; va sempre controllato e ritirato a fine procedura.","Guidewire","tecnica-seldinger"],
+["Dilatatore","p","Strumento rigido e affusolato che si passa sul filo guida per allargare il tragitto prima del catetere.","Dilator","tecnica-seldinger"],
+["Micropuntura","p","Variante con ago sottile (per esempio 21 G) e filo da 0,018 pollici, con dilatatore coassiale per passare a un filo più grosso.","Micropuncture","tecnica-seldinger"],
+["French (Fr)","d","Unità del diametro esterno di un catetere: 1 French equivale a un terzo di millimetro; più è alto il numero, più è grosso il catetere.","French gauge","tecnica-seldinger"],
+["Gauge (G)","d","Misura del calibro degli aghi: più è alto il numero, più l'ago è sottile (per esempio 14 G grosso, 24 G piccolo).","Gauge","tecnica-seldinger"]
 );
