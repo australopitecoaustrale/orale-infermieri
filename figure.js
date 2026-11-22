@@ -1882,5 +1882,117 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+='</g>';
   o+=T(6,354,["banda grigia = normale (2+)","tracciati schematici, non misure"],{sm:1,lh:11});
   return FT.svg(440,372,"Cinque tracciati schematici dell'oscillazione della gamba dopo due colpi di martelletto su un asse del tempo di tre secondi: grado 0 linea piatta, 1+ piccola oscillazione, 2+ oscillazione media, 3+ calcio ampio, 4+ calcio ampio seguito da clono con oscillazioni ripetute; sullo sfondo la banda grigia della risposta normale.",o);
+ })()},
+{id:"fig-t1-sottotipi",t:"Diabete tipo 1 nell'adulto: la soglia decide quando arriva la diagnosi",c:"Schema concettuale, non dati reali (idea da Prystupa 2026). La funzione delle cellule beta cala nel tempo con una curva comune; i sintomi compaiono quando scende sotto la soglia di compenso. Nel sottotipo misto, meno sensibile all'insulina, la soglia è più alta: la diagnosi arriva prima, quando resta più funzione beta, circa 6 anni prima che nel classico. Quel tempo è la finestra per le terapie che cercano di preservare le cellule beta.",
+ enc:["diabete-t1-adulto"],gl:[],st:/tipo 1.*adult|sottotip|GADA|C-peptide|LADA/i,
+ svg:(()=>{
+  const T=FT.text;let o='';
+  const X0=54,W=366,Y0=62,H=150,f=x=>Y0+H*Math.pow((x-X0)/W,1.8);
+  const pts=[];for(let x=X0;x<=X0+W;x+=12.2)pts.push([x,f(x)]);
+  const cv=FT.curve(pts,"fs");const d=cv.match(/d="([^"]+)"/)[1];
+  const xM=248,yM=110,xC=374,yC=180;
+  /* finestra */
+  o+='<rect x="'+xM+'" y="40" width="'+(xC-xM)+'" height="190" fill="var(--ok)" fill-opacity=".09"/>';
+  o+='<rect class="fbx k-ok" x="'+(xM+5)+'" y="44" width="'+(xC-xM-10)+'" height="34" rx="7"/>';
+  o+=T((xM+xC)/2,58,["finestra per terapie","che preservano le beta"],{a:"middle",sm:1,b:1,lh:12});
+  /* assi */
+  o+=FT.axes(50,230,382,192,"tempo (anni)","funzione beta (C-peptide)");
+  /* soglie */
+  o+='<path d="M50 '+yM+'H432" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-dasharray="6 4"/>';
+  o+='<path d="M50 '+yC+'H432" fill="none" stroke="#4a8fe0" stroke-width="1.6" stroke-dasharray="6 4"/>';
+  o+=T(58,124,"soglia · misto (meno sensibile)",{sm:1});
+  o+=T(58,194,"soglia · classico (più sensibile)",{sm:1});
+  /* curva comune */
+  o+=cv;
+  /* cadute verticali e distanza */
+  o+='<path class="lead" d="M'+xM+' '+yM+'V230M'+xC+' '+yC+'V230"/>';
+  o+=FT.arrow(xM+40,220,xM+2,220,{h:6})+FT.arrow(xC-40,220,xC-2,220,{h:6});
+  o+=T((xM+xC)/2,214,"circa 6 anni",{a:"middle",sm:1,b:1});
+  o+='<path class="fl" d="M'+(xM+40)+' 220H'+(xC-40)+'"/>';
+  /* diagnosi */
+  o+='<circle cx="'+xM+'" cy="'+yM+'" r="5.5" fill="var(--amber)" stroke="var(--paper)" stroke-width="1.5"/>';
+  o+='<circle cx="'+xC+'" cy="'+yC+'" r="5.5" fill="#4a8fe0" stroke="var(--paper)" stroke-width="1.5"/>';
+  o+=T(xM+8,103,"diagnosi più precoce",{sm:1,b:1});
+  o+=T(xC+8,173,"diagnosi",{sm:1,b:1});
+  /* pallino */
+  o+='<circle class="fv anm" r="4.5"><animateMotion dur="6s" repeatCount="indefinite" path="'+d+'"/></circle>';
+  /* legenda */
+  const L=[["Classico",["GADA+, BMI più basso","più sensibile","all'insulina","poca funzione beta"],"#4a8fe0"],
+           ["Misto",["GADA+, BMI più alto","meno sensibile","all'insulina","più funzione beta"],"var(--amber)"],
+           ["GADA-negativo",["rischio genetico di","tipo 1 minore","declino più lento","gruppo eterogeneo"],"var(--muted)"]];
+  L.forEach((l,i)=>{const x=6+i*144;
+   o+=FT.box(x,250,140,78,l[0],l[1],"");
+   o+='<rect x="'+x+'" y="250" width="6" height="78" rx="3" fill="'+l[2]+'"/>';});
+  o+=T(220,348,"Schema concettuale, non dati reali (Prystupa 2026)",{a:"middle",sm:1});
+  return FT.svg(440,356,"Grafico schematico: la funzione delle cellule beta cala nel tempo con una curva comune. Due soglie di compenso tratteggiate: più alta per il sottotipo misto, meno sensibile all'insulina, che quindi viene diagnosticato prima, con più funzione beta residua; più bassa per il classico, diagnosticato circa 6 anni dopo. Tra le due diagnosi la finestra per terapie che preservano le cellule beta. Legenda dei tre sottotipi: classico, misto, GADA-negativo.",o);
+ })()},
+{id:"fig-diabete-t1-stadi",t:"Diabete tipo 1: tre stadi, due prima dei sintomi",c:"Il diabete tipo 1 comincia anni prima dei sintomi. Stadio 1: almeno due autoanticorpi, glicemia normale. Stadio 2: autoanticorpi e disglicemia, ancora senza sintomi. Stadio 3: compaiono i sintomi e si fa la diagnosi clinica. Lo screening degli autoanticorpi riconosce gli stadi 1 e 2; le 4T aiutano a riconoscere lo stadio 3.",
+ enc:["diabete-diagnosi-precoce"],gl:[],st:/stadi.*diabete|diabete.*stadi|4T|autoanticorp|screening.*diabete|diabete.*screening/i,
+ svg:(()=>{
+  const T=FT.text,B=FT.box,A=FT.arrow;let o='';
+  const X=[6,156,306],w=128,y=40,h=88;
+  const S=[["Stadio 1",["≥2 autoanticorpi","glicemia normale","nessun sintomo"],"info","var(--scrub)"],
+           ["Stadio 2",["autoanticorpi +","disglicemia","nessun sintomo"],"warn","var(--amber)"],
+           ["Stadio 3",["sintomi","diagnosi clinica"],"alarm","var(--vital)"]];
+  /* fasi */
+  o+='<path class="lead" d="M8 26V20H282V26M308 26V20H432V26"/>';
+  o+=T(145,15,"prima dei sintomi",{a:"middle",sm:1,b:1});
+  o+=T(370,15,"con sintomi",{a:"middle",sm:1,b:1});
+  S.forEach((s,i)=>{o+=B(X[i],y,w,h,s[0],s[1],s[2]);});
+  o+=A(134,84,154,84)+A(284,84,304,84);
+  /* sotto */
+  o+=A(70,128,70,156)+A(220,128,220,156)+A(370,128,370,156);
+  o+=B(6,158,278,78,"Screening autoanticorpi",["riconosce gli stadi 1 e 2,","quando non ci sono ancora sintomi"],"ok");
+  o+=B(306,158,128,78,"4T",["sete","bagno (urina spesso)","stanchezza","dimagrimento"],"alarm");
+  /* animazione: uno stadio alla volta */
+  const cl=["ans","ans s2","ans s3"];
+  S.forEach((s,i)=>{o+='<rect class="'+cl[i]+'" x="'+(X[i]-3)+'" y="'+(y-3)+'" width="'+(w+6)+'" height="'+(h+6)+'" rx="10" fill="none" stroke="'+s[3]+'" stroke-width="3"/>';});
+  o+='<rect class="ans s3" x="303" y="155" width="134" height="84" rx="10" fill="none" stroke="var(--vital)" stroke-width="3"/>';
+  o+='<g class="ans"><rect x="3" y="155" width="284" height="84" rx="10" fill="none" stroke="var(--scrub)" stroke-width="2.4" stroke-dasharray="7 4"/></g>';
+  o+='<g class="ans s2"><rect x="3" y="155" width="284" height="84" rx="10" fill="none" stroke="var(--amber)" stroke-width="2.4" stroke-dasharray="7 4"/></g>';
+  return FT.svg(440,244,"Tre stadi del diabete tipo 1 in fila. Stadio 1: almeno due autoanticorpi, glicemia normale, nessun sintomo. Stadio 2: autoanticorpi e disglicemia, nessun sintomo. Stadio 3: sintomi e diagnosi clinica. Sotto gli stadi 1 e 2 lo screening degli autoanticorpi; sotto lo stadio 3 le 4T: sete, bagno, stanchezza, dimagrimento.",o);
+ })()},
+{id:"fig-iodio-tiroide",t:"Iodio: dal piatto alla tiroide, dalla madre al feto",c:"Lo iodio di latte e latticini, pesce e sale iodato serve alla tiroide per fare T4 e T3. In gravidanza il feto dipende dalla tiroxina materna fino a circa 20 settimane. La ioduria mediana misura lo stato di una popolazione, non del singolo: sufficienza da 100 µg/L, obiettivo in gravidanza 150 µg/L, sotto 50 µg/L carenza moderata-grave (indicativo).",
+ enc:["iodio-carenza"],gl:[],st:/iodio|ioduria|sale iodato|gozzo|tiroxina/i,
+ svg:(()=>{
+  const T=FT.text,B=FT.box,A=FT.arrow;let o='';
+  /* fonti */
+  o+=T(6,20,"Fonti di iodio",{sm:1,b:1});
+  o+=B(6,30,112,36,"Latte e latticini","","info");
+  o+=B(6,72,112,36,"Pesce","","info");
+  o+=B(6,114,112,36,"Sale iodato","","info");
+  o+=A(118,48,156,82)+A(118,90,156,92)+A(118,132,156,102);
+  /* tiroide */
+  const TH="M175 64C160 60 154 78 156 96C158 114 170 120 180 112C184 108 196 108 200 112C210 120 222 114 224 96C226 78 220 60 205 64C198 66 196 80 190 82C184 80 182 66 175 64Z";
+  o+='<path d="'+TH+'" fill="var(--vital)" fill-opacity=".22" stroke="var(--vital)" stroke-width="1.6"/>';
+  o+='<path class="anp" d="'+TH+'" fill="none" stroke="var(--vital)" stroke-width="2.4"/>';
+  o+=T(190,134,"Tiroide",{a:"middle",b:1});
+  o+=A(226,90,244,90);
+  o+=B(246,70,56,40,"T4 / T3","ormoni","ok");
+  /* gravidanza */
+  o+=T(6,164,"In gravidanza",{sm:1,b:1});
+  o+=B(6,172,110,36,"Madre","tiroxina (T4)","warn");
+  o+=A(118,190,190,190);
+  o+=T(154,182,"T4 materna",{a:"middle",sm:1});
+  o+=T(154,204,"placenta",{a:"middle",sm:1});
+  o+=B(192,172,110,36,"Feto","usa la T4 materna","warn");
+  o+='<rect class="eyrow" x="6" y="216" width="296" height="38" rx="8"/>';
+  o+=T(154,230,["Il feto dipende dalla tiroxina materna","fino a circa 20 settimane"],{a:"middle",b:1,lh:14});
+  /* ioduria */
+  const yv=v=>230-v*0.9,bx=316,bw=16;
+  o+=T(bx-4,20,"Ioduria mediana",{sm:1,b:1});
+  o+=T(bx-4,33,"(µg/L)",{sm:1});
+  o+='<rect x="'+bx+'" y="'+yv(50)+'" width="'+bw+'" height="'+(yv(0)-yv(50))+'" fill="var(--vital)" fill-opacity=".55"/>';
+  o+='<rect x="'+bx+'" y="'+yv(100)+'" width="'+bw+'" height="'+(yv(50)-yv(100))+'" fill="var(--amber)" fill-opacity=".45"/>';
+  o+='<rect x="'+bx+'" y="'+yv(150)+'" width="'+bw+'" height="'+(yv(100)-yv(150))+'" fill="var(--ok)" fill-opacity=".35"/>';
+  o+='<rect x="'+bx+'" y="'+yv(200)+'" width="'+bw+'" height="'+(yv(150)-yv(200))+'" fill="var(--ok)" fill-opacity=".6"/>';
+  o+='<rect x="'+bx+'" y="'+yv(200)+'" width="'+bw+'" height="'+(yv(0)-yv(200))+'" fill="none" stroke="var(--ink)" stroke-width="1.2"/>';
+  [150,100,50].forEach(v=>{o+='<path class="fl" d="M'+(bx-4)+' '+yv(v)+'H'+(bx+bw+4)+'"/>';});
+  o+=T(bx+bw+8,yv(150)+4,["150 µg/L","obiettivo in","gravidanza"],{sm:1,lh:12});
+  o+=T(bx+bw+8,yv(100)+4,["100 µg/L","sufficienza nella","popolazione"],{sm:1,lh:12});
+  o+=T(bx+bw+8,yv(50)+4,["<50 µg/L","carenza moderata-","grave (indicativo)"],{sm:1,lh:12});
+  o+=T(bx-4,250,"valori di popolazione,",{sm:1});
+  o+=T(bx-4,262,"non per il singolo",{sm:1});
+  return FT.svg(440,270,"Flusso dello iodio: latte e latticini, pesce e sale iodato portano iodio alla tiroide, che produce T4 e T3. In gravidanza la madre passa la tiroxina al feto attraverso la placenta: il feto dipende dalla tiroxina materna fino a circa 20 settimane. A destra una barra della ioduria mediana: sotto 50 microgrammi per litro carenza moderata-grave, indicativo; 100 sufficienza nella popolazione; 150 obiettivo in gravidanza. Valori di popolazione, non per il singolo.",o);
  })()}
 ];
