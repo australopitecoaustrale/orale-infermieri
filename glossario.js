@@ -838,5 +838,10 @@ GLOSS.push(
 ["Dilatatore","p","Strumento rigido e affusolato che si passa sul filo guida per allargare il tragitto prima del catetere.","Dilator","tecnica-seldinger"],
 ["Micropuntura","p","Variante con ago sottile (per esempio 21 G) e filo da 0,018 pollici (valori indicativi), con dilatatore coassiale per passare a un filo più grosso.","Micropuncture","tecnica-seldinger"],
 ["French (Fr)","d","Unità del diametro esterno di un catetere: 1 French equivale a un terzo di millimetro; più è alto il numero, più è grosso il catetere; si usa per i cateteri, mentre il G è per gli aghi.","French gauge","tecnica-seldinger"],
-["Gauge (G)","d","Misura del calibro degli aghi: più è alto il numero, più l'ago è sottile (per esempio 14 G grosso, 24 G piccolo); non è la stessa scala del French.","Gauge","tecnica-seldinger"]
+["Gauge (G)","d","Misura del calibro degli aghi: più è alto il numero, più l'ago è sottile (per esempio 14 G grosso, 24 G piccolo); non è la stessa scala del French.","Gauge","tecnica-seldinger"],
+["Riflesso osteotendineo","s","Contrazione involontaria di un muscolo quando si percuote il suo tendine; si gradua da 0 (assente) a 4+ (molto vivace, con clono). Detto anche riflesso miotatico.","Deep tendon reflex","riflessi-osteotendinei"],
+["Clono","s","Contrazioni muscolari involontarie, ritmiche e ripetute dopo uno stimolo (per esempio oscillazioni ripetute della gamba dopo il colpo di martelletto); segno di riflessi molto vivaci.","Clonus","riflessi-osteotendinei"],
+["Iperriflessia","s","Riflessi osteotendinei più vivaci del normale (3+ o 4+): suggerisce un coinvolgimento del sistema nervoso centrale, da integrare con altri segni.","Hyperreflexia","riflessi-osteotendinei"],
+["Areflessia","s","Assenza dei riflessi osteotendinei (grado 0); l'ipoattività (1+) è detta iporiflessia e suggerisce un coinvolgimento del sistema nervoso periferico.","Areflexia","riflessi-osteotendinei"],
+["Fuso neuromuscolare","t","Recettore sensitivo del muscolo che rileva lo stiramento e avvia il riflesso osteotendineo.","Muscle spindle","riflessi-osteotendinei"]
 );
