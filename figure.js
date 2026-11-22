@@ -1690,7 +1690,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
    leg+
    FT.box(8,328,424,48,"Il foro basta al filo","il catetere può essere più grosso dell'ago","info"));
  })()},
-{id:"fig-seldinger-varianti",t:"Seldinger: classica, modificata e micropuntura a confronto",c:"Tre accessi vascolari con la stessa logica ago-filo-catetere. Nella classica l'ago con mandrino attraversa entrambe le pareti del vaso e si ritira piano fino al sangue pulsante; nella modificata (oggi la più usata) l'ago a punta smussa, senza mandrino, buca solo la parete anteriore; nella micropuntura un ago sottile e un filo da 0,018 pollici permettono, con un dilatatore coassiale, di passare a un filo da 0,035 pollici.",
+{id:"fig-seldinger-varianti",t:"Seldinger: classica, modificata e micropuntura a confronto",c:"Tre accessi vascolari con la stessa logica ago-filo-catetere. Nella classica l'ago con mandrino attraversa entrambe le pareti del vaso e si ritira piano fino al sangue pulsante; nella modificata l'ago a punta smussa, senza mandrino, buca solo la parete anteriore; nella micropuntura un ago sottile e un filo da 0,018 pollici permettono, con un dilatatore coassiale, di passare a un filo da 0,035 pollici.",
  enc:["tecnica-seldinger"],gl:["Tecnica di Seldinger","Filo guida","Dilatatore","Micropuntura","French (Fr)","Gauge (G)"],st:/seldinger|micropuntura|parete/i,
  svg:(()=>{
   const T=FT.text;
@@ -1718,7 +1718,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   /* tabella */
   const rows=[
    ["Ago",[["","con mandrino"],["",["punta smussa,","senza mandrino"]],["","sottile, 21 G"]]],
-   [["Pareti","forate"],[["warn",["anteriore e","posteriore"]],["ok",["solo anteriore:","meno sanguinamento"]],["",["ago sottile","(21 G)"]]]],
+   [["Pareti","forate"],[["warn",["anteriore e","posteriore"]],["ok",["solo anteriore:","meno ematoma (teorico)"]],["",["ago sottile","(21 G)"]]]],
    ["Filo",[["",["dopo il sangue","pulsante"]],["",["al primo ritorno","di sangue"]],["",["0,018 pollici +","dilatatore 4-5 F","→ 0,035 pollici"]]]]
   ];
   rows.forEach((r,j)=>{
