@@ -1,0 +1,130 @@
+[
+ {
+  "id": "riflessi-osteotendinei#d",
+  "testo": "Il riflesso osteotendineo (o miotatico) è la contrazione involontaria di un muscolo quando si percuote il suo tendine: lo stiramento attiva un arco a due neuroni nel midollo spinale. Nei manuali infermieristici si gradua da 0 (assente) a 4+ (molto vivace, con clono) e serve, insieme a forza, tono e sensibilità, a orientare verso un problema periferico (riflessi ridotti) o centrale (riflessi vivaci); non è una diagnosi, perché i riflessi vivaci possono avere anche cause metaboliche o farmacologiche.",
+  "fonte": "manuali infermieristici (scala 0-4+); NINDS non verificata",
+  "tipo": "manuale",
+  "stato": "corretto",
+  "nota": "Corretta l'attribuzione: non è la scala NINDS; definizioni NINDS da verificare (nota n)."
+ },
+ {
+  "id": "riflessi-osteotendinei#p2",
+  "testo": "Scala a cinque gradi dei manuali infermieristici: 0 assente; 1+ ridotto (ipoattivo); 2+ normale; 3+ vivace (iperattivo) senza clono; 4+ molto vivace con clono. Altre scale, come quella dell'NINDS (anch'essa 0-4), definiscono i gradi in modo diverso (per esempio 3 ancora nella norma): conviene usare quella del proprio reparto",
+  "fonte": "manuali infermieristici (scala 0-4+); NINDS non verificata",
+  "tipo": "manuale",
+  "stato": "corretto",
+  "nota": "Corretta l'attribuzione: non è la scala NINDS; definizioni NINDS da verificare (nota n)."
+ },
+ {
+  "id": "riflessi-osteotendinei#p6",
+  "testo": "Esempio quantitativo (Marshall e Little 2002, studio preliminare: non è una soglia clinica): la forza del colpo usata dai clinici per evocare il riflesso è più bassa se i riflessi sono vivaci e più alta se sono ridotti (forze mediane circa 13, 38 e 85 N per riflessi vivaci, normali e ridotti)",
+  "fonte": "PMID 12137223 (Marshall e Little 2002), 10803454 (Lu 2000), 36413336; scala dei manuali (reel e testi)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract)."
+ },
+ {
+  "id": "riflessi-osteotendinei#p7",
+  "testo": "Magnesio solfato (preeclampsia): la scomparsa del riflesso rotuleo è di solito il primo segnale di tossicità (livelli di magnesio nel sangue tra 3,5 e 5 mmol/L secondo una revisione del 2000), prima della paralisi respiratoria (5-6,5 mmol/L); però il riflesso da solo non basta, perché in uno studio retrospettivo l'accordo con la magnesiemia era scarso: si valutano insieme riflessi, frequenza respiratoria, diuresi e, se previsto, magnesiemia",
+  "fonte": "PMID 12137223 (Marshall e Little 2002), 10803454 (Lu 2000), 36413336; scala dei manuali (reel e testi)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract)."
+ },
+ {
+  "id": "riflessi-osteotendinei#v0",
+  "testo": "Scala dei manuali: 0, 1+, 2+, 3+, 4+",
+  "fonte": "manuali infermieristici (scala 0-4+); NINDS non verificata",
+  "tipo": "manuale",
+  "stato": "corretto",
+  "nota": "Corretta l'attribuzione: non è la scala NINDS; definizioni NINDS da verificare (nota n)."
+ },
+ {
+  "id": "riflessi-osteotendinei#v1",
+  "testo": "0: assente",
+  "fonte": "PMID 12137223 (Marshall e Little 2002), 10803454 (Lu 2000), 36413336; scala dei manuali (reel e testi)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract)."
+ },
+ {
+  "id": "riflessi-osteotendinei#v2",
+  "testo": "1+: ridotto (ipoattivo)",
+  "fonte": "PMID 12137223 (Marshall e Little 2002), 10803454 (Lu 2000), 36413336; scala dei manuali (reel e testi)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract)."
+ },
+ {
+  "id": "riflessi-osteotendinei#v3",
+  "testo": "2+: normale",
+  "fonte": "PMID 12137223 (Marshall e Little 2002), 10803454 (Lu 2000), 36413336; scala dei manuali (reel e testi)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract)."
+ },
+ {
+  "id": "riflessi-osteotendinei#v4",
+  "testo": "3+: vivace senza clono",
+  "fonte": "manuali infermieristici (scala 0-4+); NINDS non verificata",
+  "tipo": "manuale",
+  "stato": "corretto",
+  "nota": "Corretta l'attribuzione: non è la scala NINDS; definizioni NINDS da verificare (nota n)."
+ },
+ {
+  "id": "riflessi-osteotendinei#v5",
+  "testo": "4+: vivace con clono",
+  "fonte": "manuali infermieristici (scala 0-4+); NINDS non verificata",
+  "tipo": "manuale",
+  "stato": "corretto",
+  "nota": "Corretta l'attribuzione: non è la scala NINDS; definizioni NINDS da verificare (nota n)."
+ },
+ {
+  "id": "riflessi-osteotendinei#v6",
+  "testo": "Magnesio: riflesso rotuleo scompare: 3,5-5 mmol/L",
+  "fonte": "PMID 12137223 (Marshall e Little 2002), 10803454 (Lu 2000), 36413336; scala dei manuali (reel e testi)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract)."
+ },
+ {
+  "id": "riflessi-osteotendinei#q0",
+  "testo": "Quale grado indica un riflesso osteotendineo normale nella scala da 0 a 4+ dei manuali infermieristici? → 2+ (Nella scala dei manuali 2+ è il valore normale; 0 assente, 1+ ridotto, 3+ vivace, 4+ vivace con clono. Altre scale, come la NINDS, definiscono i gradi in modo diverso.)",
+  "fonte": "manuali infermieristici (scala 0-4+); NINDS non verificata",
+  "tipo": "manuale",
+  "stato": "corretto",
+  "nota": "Corretta l'attribuzione: non è la scala NINDS; definizioni NINDS da verificare (nota n)."
+ },
+ {
+  "id": "riflessi-osteotendinei#q1",
+  "testo": "Che cosa indica il grado 4+ nella scala dei manuali? → Riflesso molto vivace con clono (Il clono è la presenza di contrazioni ripetute e ritmiche.)",
+  "fonte": "manuali infermieristici (scala 0-4+); NINDS non verificata",
+  "tipo": "manuale",
+  "stato": "corretto",
+  "nota": "Corretta l'attribuzione: non è la scala NINDS; definizioni NINDS da verificare (nota n)."
+ },
+ {
+  "id": "riflessi-osteotendinei#gl:Riflesso osteotendineo",
+  "testo": "Contrazione involontaria di un muscolo quando si percuote il suo tendine; si gradua da 0 (assente) a 4+ (molto vivace, con clono). Detto anche riflesso miotatico.",
+  "fonte": "manuali infermieristici (scala 0-4+); NINDS non verificata",
+  "tipo": "manuale",
+  "stato": "corretto",
+  "nota": "Corretta l'attribuzione: non è la scala NINDS; definizioni NINDS da verificare (nota n)."
+ },
+ {
+  "id": "riflessi-osteotendinei#gl:Iperriflessia",
+  "testo": "Riflessi osteotendinei più vivaci del normale (3+ o 4+): spesso indica un coinvolgimento del neurone motorio superiore, ma può dipendere anche da cause metaboliche, tossiche o da farmaci (per esempio ipocalcemia, ipertiroidismo); da integrare con altri segni.",
+  "fonte": "manuali infermieristici (scala 0-4+); NINDS non verificata",
+  "tipo": "manuale",
+  "stato": "corretto",
+  "nota": "Corretta l'attribuzione: non è la scala NINDS; definizioni NINDS da verificare (nota n)."
+ },
+ {
+  "id": "riflessi-osteotendinei#gl:Areflessia",
+  "testo": "Assenza dei riflessi osteotendinei (grado 0); i riflessi ridotti (1+, iporiflessia) suggeriscono un problema periferico, ma possono dipendere da altre cause o da una fase acuta (shock spinale).",
+  "fonte": "PMID 12137223 (Marshall e Little 2002), 10803454 (Lu 2000), 36413336; scala dei manuali (reel e testi)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract)."
+ }
+]

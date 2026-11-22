@@ -1733,5 +1733,154 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=T(220,324,["Con la sigla «Seldinger modificato» i testi di radiologia","indicano a volte anche altre varianti."],{a:"middle",sm:true,lh:11.5});
   o+=T(220,352,"Fonti: Seldinger 1953; Lockwood 2019",{a:"middle",sm:true});
   return FT.svg(442,362,"Confronto di tre accessi vascolari con la stessa logica ago, filo, catetere. Tre sezioni del vaso con parete anteriore, lume e parete posteriore: nella classica l'ago con mandrino attraversa entrambe le pareti; nella modificata l'ago a punta smussa buca solo la parete anteriore e il filo entra al primo ritorno di sangue; nella micropuntura un ago da 21 G e un filo da 0,018 pollici, con dilatatore coassiale da 4-5 F per passare a un filo da 0,035 pollici. Sotto la tabella e la sequenza comune.",o);
+ })()},
+{id:"fig-riflessi-gradi",t:"Scala dei riflessi osteotendinei: da 0 a 4+",c:"Esempio con il riflesso rotuleo: per ogni grado, a sinistra la gamba a riposo (linea piena) e il calcio dopo il colpo di martelletto (linea tratteggiata), a destra il tracciato schematico dell'oscillazione della gamba. 0 assente: tracciato piatto. 1+ ridotto (ipoattivo): piccola oscillazione. 2+ normale: un solo calcio. 3+ vivace senza clono: oscillazione ampia, un solo calcio. 4+ vivace con clono: oscillazione ampia seguita da oscillazioni ripetute. I tracciati sono schematici, non misure. Clono: contrazioni muscolari involontarie, ritmiche e ripetute. Si graduano ogni lato e si confrontano destra e sinistra. Disegno originale. Scala dei manuali: altre scale (NINDS) definiscono i gradi in modo diverso.",
+ enc:["riflessi-osteotendinei"],gl:["Riflesso osteotendineo","Clono","Iperriflessia","Areflessia"],st:/rifless|clono/i,
+ svg:(()=>{
+  const rows=[
+   {g:"0",n:["Assente","(areflessia)"],ang:0,col:"#6b7a8a"},
+   {g:"1+",n:["Ridotto","(ipoattivo)"],ang:14,col:"#3b82c4"},
+   {g:"2+",n:["Normale"],ang:28,col:"#2f8f8a"},
+   {g:"3+",n:["Vivace","senza clono"],ang:46,col:"#d9902f"},
+   {g:"4+",n:["Vivace","con clono"],ang:46,col:"#d9534f"}];
+  const H=62,G=4,X0=190,X1=424;
+  /* tracciato: punti [[x,y]] sulla linea di base by */
+  const trace=(i,by)=>{
+    const A=[0,7,15,25,25][i];
+    if(i===0)return [[X0,by],[X1,by]];
+    const p=[[X0,by],[X0+8,by]];
+    const first=(a,u)=>{ /* un calcio con piccolo rimbalzo */
+      p.push([X0+16,by-a*.75],[X0+28,by-a],[X0+42,by-a*.45],[X0+56,by+(u?2:0)]);
+      if(u)p.push([X0+70,by-a*.08]);
+      p.push([X0+86,by],[X0+92,by]);
+    };
+    first(A,i>=2);
+    if(i===4){
+      let x=X0+100;const a=14;
+      while(x+22<=X1){p.push([x,by-1],[x+7,by-a],[x+15,by-a*.15]);x+=22;}
+      p.push([x,by-1]);
+    }else p.push([X1,by]);
+    return p;
+  };
+  let fixed="",anim="";
+  rows.forEach((r,i)=>{
+    const y=8+i*(H+G),by=y+H-12,kx=140,ky=y+15,L=30;
+    const ex=(a)=>[kx+L*Math.sin(a*Math.PI/180),ky+L*Math.cos(a*Math.PI/180)];
+    const [rx,ry]=ex(0),[ax,ay]=ex(r.ang);
+    fixed+=`<rect x="6" y="${y}" width="428" height="${H}" rx="8" class="eyrow"/>`;
+    fixed+=FT.text(14,y+37,r.g,{b:true});
+    fixed+=FT.text(42,y+27,r.n,{sm:true,lh:12.5});
+    /* gamba: coscia orizzontale, gamba a riposo, calcio tratteggiato */
+    fixed+=`<path class="fl" style="stroke-width:5;stroke-linecap:round" d="M112 ${ky}H${kx}"/>`;
+    if(r.ang)fixed+=`<path class="fl dash" style="stroke-width:3;stroke-linecap:round" d="M${kx} ${ky}L${ax.toFixed(1)} ${ay.toFixed(1)}"/>`;
+    fixed+=`<path class="fl" style="stroke-width:5;stroke-linecap:round" d="M${kx} ${ky}L${rx.toFixed(1)} ${ry.toFixed(1)}"/>`;
+    fixed+=`<circle class="fv" cx="${kx}" cy="${ky}" r="2.5"/>`;
+    /* tracciato */
+    fixed+=`<path class="lead" d="M${X0-6} ${by}H${X1+4}"/><path class="fl" style="stroke-width:1.2" d="M${X0} ${by+5}V${by-30}"/>`;
+    fixed+=FT.curve(trace(i,by),"fs");
+    if(i===0)fixed+=FT.text(X0+4,y+12,"colpo di martelletto",{sm:true});
+    /* strato animato */
+    anim+=`<g class="vf k${i+1}"><rect x="6" y="${y}" width="428" height="${H}" rx="8" fill="${r.col}" fill-opacity=".14" stroke="${r.col}" style="stroke-width:2.6"/><rect x="10" y="${y+6}" width="26" height="${H-12}" rx="5" fill="${r.col}" fill-opacity=".25"/>${FT.text(14,y+37,r.g,{b:true})}<path d="${FT.curve(trace(i,by)).match(/d="([^"]+)"/)[1]}" fill="none" stroke="${r.col}" stroke-width="3.2" stroke-linecap="round"/></g>`;
+  });
+  const yb=8+5*(H+G);
+  const bottom=FT.text(14,yb+9,"Clono: contrazioni muscolari involontarie, ritmiche e ripetute",{sm:true})
+   +FT.box(6,yb+18,428,30,"Si graduano ogni lato e si confrontano destra e sinistra","","info")
+   +FT.text(220,yb+64,"Tracciati schematici, non misure. Scala dei manuali.",{sm:true,a:"middle"});
+  return FT.svg(440,yb+74,"Scala dei riflessi osteotendinei da 0 a 4+: per ogni grado la gamba a riposo e dopo il colpo di martelletto e il tracciato schematico dell'oscillazione; 0 piatto, 1+ piccola, 2+ normale, 3+ ampia, 4+ ampia con clono",fixed+anim+bottom);
+ })()},
+{id:"fig-arco-riflesso",t:"Arco del riflesso rotuleo",c:"Due neuroni e una sola sinapsi: il martelletto stira il tendine, il segnale va al midollo e torna al quadricipite; dall'alto il cervello lo modula.",
+ enc:["riflessi-osteotendinei"],gl:["Riflesso osteotendineo","Fuso neuromuscolare"],st:/arco|riflesso rotuleo|fuso/i,
+ svg:(()=>{
+  const T=FT.text,A=FT.arrow,E=FT.elbow;let o='';
+  const G='#2f8f8a';
+  const ring=(c,x,y,w,h)=>'<rect class="'+c+'" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="10" fill="none" stroke="'+G+'" stroke-width="2.6"/>';
+  /* muscolo e fuso */
+  o+='<rect class="fbx k-info" x="10" y="90" width="110" height="130" rx="10"/>';
+  o+=T(65,106,"Quadricipite",{a:"middle",b:1});
+  o+='<ellipse class="fbx k-warn" cx="58" cy="140" rx="17" ry="7"/>';
+  o+=T(65,162,"fuso neuromuscolare",{a:"middle",sm:1});
+  /* tendine, martelletto, gamba */
+  o+='<path class="fl" style="stroke-width:3" d="M65 220V275M65 275V318"/>';
+  o+=T(74,252,"tendine rotuleo",{sm:1});
+  o+='<rect class="fbx k-alarm" x="36" y="256" width="26" height="12" rx="3"/><path class="fl" d="M36 262H8"/>';
+  o+=T(8,284,"martelletto",{sm:1});
+  o+='<path class="fl" style="stroke-width:3" d="M65 318H96"/>';
+  o+='<path class="fs ans s3" style="stroke-width:3.5;stroke-linecap:round" d="M65 318L98 300"/>';
+  o+=T(8,340,"gamba: si distende (calcio)",{sm:1,b:1});
+  /* midollo */
+  o+='<rect class="fbx" x="240" y="104" width="120" height="132" rx="34"/>';
+  o+=T(300,120,"corno posteriore",{a:"middle",sm:1});
+  o+=T(300,229,"corno anteriore",{a:"middle",sm:1});
+  o+=T(300,98,"midollo spinale (livelli lombari)",{a:"middle",sm:1,b:1});
+  o+=E([[76,140],[300,140],[300,164]]);
+  o+=T(128,124,["neurone sensitivo","(afferente)"],{sm:1,lh:11});
+  o+='<circle class="fbx k-warn" cx="300" cy="172" r="6"/>'+T(310,176,"sinapsi",{sm:1});
+  o+='<circle class="fbx k-ok" cx="300" cy="200" r="9"/>';
+  o+=A(291,200,121,200);
+  o+=T(128,214,["neurone motorio","(efferente)"],{sm:1,lh:11});
+  /* controllo dall'alto */
+  o+='<rect class="fbx dash" x="326" y="6" width="108" height="66" rx="8"/>';
+  o+=T(380,22,"Dal cervello",{a:"middle",b:1});
+  o+=T(380,36,["neurone motorio","superiore: modula","il riflesso"],{a:"middle",sm:1,lh:11});
+  o+=E([[400,72],[400,200],[311,200]],{dash:1});
+  /* anelli dei passi */
+  o+=ring("ans",4,228,160,118);
+  o+=ring('ans s2',126,92,238,146);
+  o+=ring('ans s3',4,84,122,142);
+  /* tabella passi */
+  const st=[["1","Il colpo stira il tendine,","il quadricipite e il fuso"],["2","Il segnale sale al midollo,","sinapsi e motoneurone rispondono"],["3","Il quadricipite si contrae:","la gamba si distende"]];
+  st.forEach((s,i)=>{
+   const y=262+i*30;
+   o+=FT.dot(190,y+5,s[0],{r:9});
+   o+=T(206,y,[s[1],s[2]],{sm:1,lh:12});
+   o+=ring(i?'ans s'+(i+1):'ans',178,y-14,254,29);
+  });
+  /* riquadro finale */
+  o+='<rect class="eyrow" x="8" y="352" width="424" height="76" rx="10"/>';
+  o+=T(18,371,"Riflessi ridotti: sospetto di problema periferico",{sm:1,b:1});
+  o+=T(18,384,"(nervo, radice, muscolo); vivaci: sospetto di problema centrale.",{sm:1,b:1});
+  o+=T(18,400,"Da leggere con forza, tono e altri segni.",{sm:1});
+  o+=T(18,416,"Fonte: Marshall e Little, J Spinal Cord Med 2002.",{sm:1});
+  return FT.svg(440,436,"Schema dell'arco del riflesso rotuleo: il martelletto colpisce il tendine, il quadricipite e il suo fuso neuromuscolare si stirano, il neurone sensitivo porta il segnale al corno posteriore del midollo, sinapsi con il motoneurone del corno anteriore, il neurone motorio porta la risposta al quadricipite che si contrae e la gamba si distende; tratteggiato il controllo dal neurone motorio superiore del cervello. Riquadro: riflessi ridotti suggeriscono un problema periferico, vivaci un problema centrale.",o);
+ })()},
+{id:"fig-riflessi-onde",t:"Le onde dei riflessi, dal grado 0 al 4+",c:"Oscillazione schematica della gamba dopo il colpo di martelletto, per i cinque gradi, su un asse del tempo di 3 secondi: la banda grigia è la risposta normale (2+) di confronto.",
+ enc:["riflessi-osteotendinei"],gl:["Riflesso osteotendineo","Clono","Iperriflessia","Areflessia"],st:/rifless|clono|onda/i,
+ svg:(()=>{
+  const T=FT.text;let o='';
+  const X0=104,PX=108,H1=0.25,H2=1.75,WIN=1.45; /* px per secondo, istanti dei colpi, durata della risposta */
+  const rows=[["0","assente"],["1+","ridotto"],["2+","normale"],["3+","vivace"],["4+","con clono"]];
+  const cy=i=>70+i*56;
+  const f=[
+   t=>0,
+   t=>6*Math.exp(-t/.25)*Math.sin(2*Math.PI*t/.6),
+   t=>14*Math.exp(-t/.3)*Math.sin(2*Math.PI*t/.75),
+   t=>t<.6?25*Math.pow(Math.sin(Math.PI*t/.6),2):2.5*Math.exp(-(t-.6)/.4)*Math.sin(2*Math.PI*(t-.6)/.5),
+   t=>26*Math.exp(-t/.2)*Math.sin(2*Math.PI*t/.8)+13*Math.exp(-t/.9)*Math.sin(2*Math.PI*t/.26)
+  ];
+  const path=(g,c)=>{let d='';for(let x=X0;x<=X0+3*PX;x+=2){const t=(x-X0)/PX;let v=0;
+    for(const h of [H1,H2]){const s=t-h;if(s>=0&&s<=WIN)v+=g(s)*Math.min(1,s/.04);}
+    d+=(d?'L':'M')+x+' '+(c-v).toFixed(1);}return d;};
+  /* colpi e griglia */
+  [[H1,"colpo 1"],[H2,"colpo 2"]].forEach(([h,n])=>{const x=X0+h*PX;
+    o+='<path class="fl dash" d="M'+x+' 34V322"/>'+T(x,28,n,{a:"middle",sm:1,b:1});});
+  /* asse ampiezza e tempo */
+  o+='<path class="fl" d="M'+X0+' 40V322H'+(X0+3*PX+6)+'"/>';
+  o+=T(X0+4,16,"asse verticale: oscillazione della gamba (su = calcio)",{sm:1});
+  for(let s=0;s<=3;s++){const x=X0+s*PX;o+='<path class="fl" d="M'+x+' 322v5"/>'+T(x,340,String(s),{a:"middle",sm:1});}
+  o+=T(X0+3*PX+6,354,"tempo (s)",{a:"end",sm:1});
+  /* righe: base, banda normale, tracciato fisso */
+  rows.forEach((r,i)=>{const c=cy(i);
+    o+='<path class="fl" style="opacity:.22" d="M'+X0+' '+c+'H'+(X0+3*PX)+'"/>';
+    o+='<path class="fl" style="stroke-width:7;opacity:.14;stroke-linejoin:round" d="'+path(f[2],c)+'"/>';
+    o+=T(6,c-2,r[0],{b:1});o+=T(26,c-2,r[1],{sm:1});
+  });
+  rows.forEach((r,i)=>{o+='<path class="fs" style="stroke-width:2;opacity:.5;stroke-linejoin:round" d="'+path(f[i],cy(i))+'"/>';});
+  /* strato animato */
+  o+='<defs><clipPath id="rwc"><rect x="'+X0+'" y="36" width="0" height="290"><animate attributeName="width" values="0;'+(3*PX)+';'+(3*PX)+'" keyTimes="0;.6;1" dur="6s" repeatCount="indefinite"/></rect></clipPath></defs>';
+  o+='<g clip-path="url(#rwc)">';
+  rows.forEach((r,i)=>{o+='<path class="fs" style="stroke-width:2.6;stroke-linejoin:round" d="'+path(f[i],cy(i))+'"/>';});
+  o+='</g>';
+  o+=T(6,354,["banda grigia = normale (2+)","tracciati schematici, non misure"],{sm:1,lh:11});
+  return FT.svg(440,372,"Cinque tracciati schematici dell'oscillazione della gamba dopo due colpi di martelletto su un asse del tempo di tre secondi: grado 0 linea piatta, 1+ piccola oscillazione, 2+ oscillazione media, 3+ calcio ampio, 4+ calcio ampio seguito da clono con oscillazioni ripetute; sullo sfondo la banda grigia della risposta normale.",o);
  })()}
 ];
