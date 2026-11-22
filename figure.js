@@ -1652,5 +1652,86 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=T(220,280,"si forma spontaneamente e si elimina con le urine.",{a:"middle",sm:1});
   o+=T(220,296,"Ostojic, J Funct Foods 2021 (opinione)",{a:"middle",sm:1});
   return FT.svg(440,304,"Schema: nel rene glicina e arginina danno guanidinoacetato, nel fegato con SAM diventa creatina; la dieta (carne, pesce) è la seconda fonte. La creatina va al muscolo, dove con la fosfocreatina rigenera l'ATP dall'ADP; la creatinina si elimina con le urine.",o);
+ })()},
+{id:"fig-seldinger-passi",t:"Tecnica di Seldinger: i cinque passi",c:"Accesso a un vaso con ago, filo guida e catetere, in sezione laterale (cute e sottocute in alto, parete anteriore, lume e parete posteriore del vaso). 1: l'ago entra nel lume e il sangue ritorna. 2: il filo guida passa attraverso l'ago e va nel lume. 3: si toglie l'ago, il filo resta; si comprime il punto di puntura. 4: il catetere viene infilato sul filo e portato nel lume. 5: si toglie il filo e il catetere resta nel vaso. Il foro basta al filo, perciò il catetere può essere più grosso dell'ago. Disegno originale. Fonti: Seldinger, Acta Radiol 1953; Lockwood, Br J Hosp Med 2019.",
+ enc:["tecnica-seldinger"],gl:["Tecnica di Seldinger","Filo guida","Dilatatore"],st:/seldinger|filo guida/i,
+ svg:(()=>{
+  const W="#d9902f",C="#2f8f8a";
+  const needle=`<path class="fl" style="stroke-width:3.4;stroke-linecap:round" d="M24 14L64 73"/><rect x="15" y="5" width="12" height="10" rx="2" transform="rotate(-34 21 10)" class="fbx"/>`;
+  const wireIn=`<path d="M6 1L20 11L58 66Q66 76 80 76L126 76" fill="none" stroke="${W}" stroke-width="1.8" stroke-linecap="round"/>`;
+  const wireOut=`<path d="M6 1L40 48L58 66Q66 76 80 76L126 76" fill="none" stroke="${W}" stroke-width="1.8" stroke-linecap="round"/>`;
+  const cath=(tip,hub)=>`<path d="M${hub?"26 14":"26 14"}L58 61Q66 76 ${tip} 76" fill="none" stroke="${C}" stroke-width="5" stroke-linecap="round"/><rect x="17" y="6" width="13" height="10" rx="2" transform="rotate(-34 23 11)" fill="${C}" opacity=".8"/>`;
+  const pane=(i,x,y,title,l2,l3,art,extra)=>{
+    const k="k"+i;
+    return `<g transform="translate(${x} ${y})"><rect width="136" height="152" rx="9" class="eyrow"/>
+ <clipPath id="sc${i}"><rect x="0" y="0" width="136" height="100"/></clipPath>
+ <g clip-path="url(#sc${i})"><rect x="0" y="0" width="136" height="24" fill="#e8b896" opacity=".4"/><rect x="0" y="24" width="136" height="32" fill="#f2d27a" opacity=".22"/>
+ <rect x="0" y="56" width="136" height="38" fill="#d9a9a0" opacity=".28"/><rect x="0" y="62" width="136" height="26" fill="#c0392b" opacity=".38"/>
+ <path class="fl" style="stroke-width:2" d="M0 59H136M0 91H136"/>${art}</g>
+ ${extra||""}
+ <circle cx="122" cy="12" r="8" class="fbx k-info"/><text class="ft" x="122" y="15.6" text-anchor="middle" font-weight="700" style="font-size:10px">${i}</text>
+ <g class="vf ${k}"><rect width="136" height="152" rx="9" class="fx" style="stroke-width:2.6"/><circle cx="122" cy="12" r="8" class="fv"/><text x="122" y="15.6" text-anchor="middle" font-weight="700" fill="#fff" style="font-size:10px;font-family:var(--f-body)">${i}</text></g>
+ <text class="ft" x="8" y="115" font-weight="700" style="font-size:11px">${title}</text><text class="ft fsm" x="8" y="127" style="font-size:9.6px">${l2}</text><text class="ft fsm" x="8" y="138" style="font-size:9.6px">${l3}</text></g>`;
+  };
+  const blood=`<g fill="#c0392b"><circle cx="10" cy="22" r="2.2"/><circle cx="6" cy="30" r="1.8"/></g>`;
+  const finger=`<ellipse cx="92" cy="12" rx="13" ry="8" fill="#e8b896" stroke="#b07a52" stroke-width="1.2"/><path class="fl" d="M92 22V32"/><path class="fh" d="M92 36L88 29L96 29Z"/>`;
+  const legR=[["#e8b896",.5,"cute"],["#f2d27a",.35,"sottocute"],["#d9a9a0",.5,"parete del vaso"],["#c0392b",.5,"lume (sangue)"]];
+  const leg=`<g transform="translate(296 168)"><rect width="136" height="152" rx="9" class="eyrow"/><text class="ft" x="8" y="17" font-weight="700" style="font-size:11px">Legenda</text>`+
+   legR.map((a,i)=>`<rect x="8" y="${25+i*17}" width="16" height="10" rx="2" fill="${a[0]}" opacity="${a[1]+.2}"/><text class="ft fsm" x="32" y="${34+i*17}" style="font-size:9.6px">${a[2]}</text>`).join("")+
+   `<path class="fl" style="stroke-width:3.4;stroke-linecap:round" d="M8 99H24"/><text class="ft fsm" x="32" y="102" style="font-size:9.6px">ago</text>
+ <path d="M8 116H24" stroke="${W}" stroke-width="2" stroke-linecap="round"/><text class="ft fsm" x="32" y="119" style="font-size:9.6px">filo guida</text>
+ <path d="M8 133H24" stroke="${C}" stroke-width="5" stroke-linecap="round"/><text class="ft fsm" x="32" y="136" style="font-size:9.6px">catetere</text></g>`;
+  return FT.svg(440,384,"Tecnica di Seldinger in cinque passi, in sezione laterale: ago nel vaso con ritorno di sangue, filo guida nel lume, ago tolto con compressione del punto, catetere sul filo, filo tolto e catetere nel vaso",
+   pane(1,8,8,"Ago nel vaso","il sangue ritorna","dal lume",needle+blood)+
+   pane(2,152,8,"Filo guida","passa nell'ago","e va nel lume",wireIn+needle)+
+   pane(3,296,8,"Ago fuori","il filo resta; si comprime","il punto di puntura",wireOut,finger)+
+   pane(4,8,168,"Catetere sul filo","infilato sul filo e","portato nel lume",`<path d="M6 1L24 14" stroke="${W}" stroke-width="1.8"/><path d="M58 66Q66 76 80 76L126 76" fill="none" stroke="${W}" stroke-width="1.8"/>`+cath(82))+
+   pane(5,152,168,"Filo fuori","il catetere resta","nel vaso",cath(108))+
+   leg+
+   FT.box(8,328,424,48,"Il foro basta al filo","il catetere può essere più grosso dell'ago","info"));
+ })()},
+{id:"fig-seldinger-varianti",t:"Seldinger: classica, modificata e micropuntura a confronto",c:"Tre accessi vascolari con la stessa logica ago-filo-catetere. Nella classica l'ago con mandrino attraversa entrambe le pareti del vaso e si ritira piano fino al sangue pulsante; nella modificata l'ago a punta smussa, senza mandrino, buca solo la parete anteriore; nella micropuntura un ago sottile e un filo da 0,018 pollici permettono, con un dilatatore coassiale, di passare a un filo da 0,035 pollici.",
+ enc:["tecnica-seldinger"],gl:["Tecnica di Seldinger","Filo guida","Dilatatore","Micropuntura","French (Fr)","Gauge (G)"],st:/seldinger|micropuntura|parete/i,
+ svg:(()=>{
+  const T=FT.text;
+  const X=[66,192,318],W=118,H=38,G=3,Y0=150;
+  let o="";
+  ["1 Classica","2 Modificata","3 Micropuntura"].forEach((h,i)=>{
+   o+=`<rect class="fbx k-info" x="${X[i]}" y="4" width="${W}" height="26" rx="6"/>`+T(X[i]+W/2,21,h,{a:"middle",b:true,sm:true});
+  });
+  /* sezioni del vaso */
+  o+=T(6,66,["parete","anteriore"],{sm:true,lh:11})+T(6,89,"lume",{sm:true})+T(6,106,["parete","posteriore"],{sm:true,lh:11});
+  X.forEach((x,i)=>{
+   o+=`<rect class="fbx" x="${x}" y="60" width="${W}" height="10" rx="0"/><rect class="fbx k-alarm" x="${x}" y="70" width="${W}" height="30" rx="0"/><rect class="fbx" x="${x}" y="100" width="${W}" height="10" rx="0"/>`;
+  });
+  /* 1 classica: attraversa le due pareti */
+  o+=`<path class="fl" style="stroke-width:3.2" d="M${X[0]+12} 40L${X[0]+68} 116"/>`;
+  o+=FT.arrow(X[0]+92,118,X[0]+74,94,{dash:true});
+  /* 2 modificata: tip nel lume, filo dentro */
+  o+=`<path class="fl" style="stroke-width:3.2" d="M${X[1]+12} 40L${X[1]+46} 84"/>`;
+  o+=`<path class="fs" d="M${X[1]+46} 86C${X[1]+64} 90 ${X[1]+86} 82 ${X[1]+112} 88"/>`;
+  /* 3 micropuntura: ago sottile, filo sottile, dilatatore */
+  o+=`<path class="fl" style="stroke-width:1.4" d="M${X[2]+12} 40L${X[2]+46} 84"/>`;
+  o+=`<path class="fs" style="stroke-width:1.2" d="M${X[2]+46} 86C${X[2]+64} 90 ${X[2]+86} 82 ${X[2]+112} 88"/>`;
+  o+=`<path class="fl" style="stroke-width:4.5;stroke:var(--amber)" d="M${X[2]+52} 89L${X[2]+82} 87"/>`;
+  [["attraversa 2 pareti,","poi si ritira piano"],["punta nel lume:","entra il filo"],["ago 21 G, filo","0,018 pollici"]].forEach((c,i)=>{o+=T(X[i]+W/2,128,c,{a:"middle",sm:true,lh:11.5});});
+  /* tabella */
+  const rows=[
+   ["Ago",[["","con mandrino"],["",["punta smussa,","senza mandrino"]],["","sottile, 21 G"]]],
+   [["Pareti","forate"],[["warn",["anteriore e","posteriore"]],["ok",["solo anteriore:","meno ematoma (teorico)"]],["",["ago sottile","(21 G)"]]]],
+   ["Filo",[["",["dopo il sangue","pulsante"]],["",["al primo ritorno","di sangue"]],["",["0,018 pollici +","dilatatore 4-5 F","→ 0,035 pollici"]]]]
+  ];
+  rows.forEach((r,j)=>{
+   const y=Y0+j*(H+G);
+   o+=`<rect class="fbx k-info" x="6" y="${y}" width="56" height="${H}" rx="6"/>`+T(34,y+(Array.isArray(r[0])?15:23),r[0],{a:"middle",b:true,sm:true,lh:11.5});
+   r[1].forEach((c,i)=>{
+    const L=[].concat(c[1]),n=L.length;
+    o+=`<rect class="fbx${c[0]?" k-"+c[0]:""}" x="${X[i]}" y="${y}" width="${W}" height="${H}" rx="6"/>`+T(X[i]+W/2,y+(H-(n-1)*11.5)/2+3.5,L,{a:"middle",sm:true,lh:11.5});
+   });
+  });
+  o+=FT.box(6,276,430,34,"Stessa sequenza: ago dentro, filo dentro,","ago fuori, catetere sul filo, filo fuori","info");
+  o+=T(220,324,["Con la sigla «Seldinger modificato» i testi di radiologia","indicano a volte anche altre varianti."],{a:"middle",sm:true,lh:11.5});
+  o+=T(220,352,"Fonti: Seldinger 1953; Lockwood 2019",{a:"middle",sm:true});
+  return FT.svg(442,362,"Confronto di tre accessi vascolari con la stessa logica ago, filo, catetere. Tre sezioni del vaso con parete anteriore, lume e parete posteriore: nella classica l'ago con mandrino attraversa entrambe le pareti; nella modificata l'ago a punta smussa buca solo la parete anteriore e il filo entra al primo ritorno di sangue; nella micropuntura un ago da 21 G e un filo da 0,018 pollici, con dilatatore coassiale da 4-5 F per passare a un filo da 0,035 pollici. Sotto la tabella e la sequenza comune.",o);
  })()}
 ];

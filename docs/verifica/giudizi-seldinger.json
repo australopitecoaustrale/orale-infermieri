@@ -1,0 +1,114 @@
+[
+ {
+  "id": "tecnica-seldinger#p0",
+  "testo": "Origine: Sven-Ivar Seldinger, radiologo svedese, la descrisse nel 1953 (Acta Radiologica) come sostituzione dell'ago con un catetere nell'arteriografia percutanea; prima servivano un taglio chirurgico o un ago di grosso calibro",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract) e conoscenze cliniche."
+ },
+ {
+  "id": "tecnica-seldinger#p1",
+  "testo": "I cinque passi: 1) ago nel vaso fino al ritorno di sangue; 2) filo guida attraverso l'ago; 3) ago fuori, il filo resta (nell'accesso arterioso si comprime il punto); 4) catetere sopra il filo nel lume; 5) filo fuori",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract) e conoscenze cliniche."
+ },
+ {
+  "id": "tecnica-seldinger#p6",
+  "testo": "Micropuntura: ago sottile (21 G) con filo da 0,018 pollici, poi un dilatatore coassiale (4-5 F) permette di passare a un filo da 0,035 pollici",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "manuale",
+  "stato": "da-verificare",
+  "nota": "Calibri del kit di micropuntura dichiarati dal video e coerenti con la pratica: da verificare su fonte primaria (nota n)."
+ },
+ {
+  "id": "tecnica-seldinger#p9",
+  "testo": "Complicanze possibili (meccaniche, infettive, trombotiche): puntura arteriosa accidentale, sanguinamento o ematoma, pneumotorace nei cateteri giugulari e succlavi, aritmie se il filo arriva in atrio, infezione, trombosi, filo guida ritenuto; un piccolo studio su 160 cardiochirurgici, senza ecografia, descrive un modo di ritentare più lateralmente dopo una puntura arteriosa: non è una raccomandazione generale",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract) e conoscenze cliniche."
+ },
+ {
+  "id": "tecnica-seldinger#v0",
+  "testo": "Primo lavoro: Seldinger, 1953",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract) e conoscenze cliniche."
+ },
+ {
+  "id": "tecnica-seldinger#v1",
+  "testo": "Passi: 5: ago, filo, ago fuori, catetere sul filo, filo fuori",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract) e conoscenze cliniche."
+ },
+ {
+  "id": "tecnica-seldinger#v2",
+  "testo": "Ago della micropuntura: 21 G",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "manuale",
+  "stato": "da-verificare",
+  "nota": "Calibri del kit di micropuntura dichiarati dal video e coerenti con la pratica: da verificare su fonte primaria (nota n)."
+ },
+ {
+  "id": "tecnica-seldinger#v3",
+  "testo": "Filo della micropuntura: 0,018 pollici (poi 0,035 con il dilatatore)",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "manuale",
+  "stato": "da-verificare",
+  "nota": "Calibri del kit di micropuntura dichiarati dal video e coerenti con la pratica: da verificare su fonte primaria (nota n)."
+ },
+ {
+  "id": "tecnica-seldinger#v4",
+  "testo": "Dilatatore coassiale: 4-5 F",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "manuale",
+  "stato": "da-verificare",
+  "nota": "Calibri del kit di micropuntura dichiarati dal video e coerenti con la pratica: da verificare su fonte primaria (nota n)."
+ },
+ {
+  "id": "tecnica-seldinger#q3",
+  "testo": "Quale ago e quale filo usa la micropuntura, secondo la lezione studiata? → Ago 21 G e filo da 0,018 pollici (Poi un dilatatore coassiale permette di passare a un filo da 0,035 pollici.)",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "manuale",
+  "stato": "da-verificare",
+  "nota": "Calibri del kit di micropuntura dichiarati dal video e coerenti con la pratica: da verificare su fonte primaria (nota n)."
+ },
+ {
+  "id": "tecnica-seldinger#q7",
+  "testo": "Come si legge il numero in G di un ago? → Più è alto, più l'ago è sottile (14 G è grosso, 24 G è piccolo.)",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract) e conoscenze cliniche."
+ },
+ {
+  "id": "tecnica-seldinger#gl:Micropuntura",
+  "testo": "Variante con ago sottile (per esempio 21 G) e filo da 0,018 pollici (valori indicativi), con dilatatore coassiale per passare a un filo più grosso.",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "manuale",
+  "stato": "da-verificare",
+  "nota": "Calibri del kit di micropuntura dichiarati dal video e coerenti con la pratica: da verificare su fonte primaria (nota n)."
+ },
+ {
+  "id": "tecnica-seldinger#gl:French (Fr)",
+  "testo": "Unità del diametro esterno di un catetere: 1 French equivale a un terzo di millimetro; più è alto il numero, più è grosso il catetere; si usa per i cateteri, mentre il G è per gli aghi.",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract) e conoscenze cliniche."
+ },
+ {
+  "id": "tecnica-seldinger#gl:Gauge (G)",
+  "testo": "Misura del calibro degli aghi: più è alto il numero, più l'ago è sottile (per esempio 14 G grosso, 24 G piccolo); non è la stessa scala del French.",
+  "fonte": "PMID 31437056 (Lockwood 2019), 27397766, 27052069; conoscenze di manuale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Verificato dal revisore su PubMed (abstract) e conoscenze cliniche."
+ }
+]

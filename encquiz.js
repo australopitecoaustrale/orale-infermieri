@@ -1103,3 +1103,15 @@ var QUIZ_POP=[
 ];
 QUIZ_POP.forEach((x,i)=>{const t=(i*3+1)%4,o=x[2].slice(),c=o.splice(x[3],1)[0];o.splice(t,0,c);x[2]=o;x[3]=t});
 if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_POP);
+var QUIZ_SELD=[
+["tecnica-seldinger","Qual è l'ordine dei passi della tecnica di Seldinger?",["Ago nel vaso, filo guida, ago fuori, catetere sul filo, filo fuori","Catetere, ago, filo, dilatatore","Filo, catetere, ago fuori","Incisione chirurgica, catetere, filo"],0,"L'ago apre la strada al filo; poi il catetere entra sul filo e il filo si ritira."],
+["tecnica-seldinger","Perché il catetere può essere più grosso dell'ago?",["Perché il foro deve solo far passare il filo guida, su cui il catetere entra","Perché l'ago si allarga","Perché il vaso è elastico","Perché si usa il laser"],0,"Il catetere entra sopra il filo, dopo l'eventuale dilatazione."],
+["tecnica-seldinger","Qual è la differenza tra la tecnica classica a doppia parete e la variante a parete singola?",["Nella classica si attraversano entrambe le pareti del vaso, nella variante a parete singola solo la parete anteriore","Nella variante a parete singola si taglia la pelle","Nella classica non si usa il filo guida","Nella variante a parete singola si usa solo il dilatatore"],0,"Con la parete singola la parete posteriore non viene attraversata, con minor rischio teorico di ematoma."],
+["tecnica-seldinger","Quale ago e quale filo usa la micropuntura, secondo la lezione studiata?",["Ago 21 G e filo da 0,018 pollici","Ago 14 G e filo da 0,5 pollici","Ago 18 F e filo da 4 mm","Solo il catetere"],0,"Poi un dilatatore coassiale permette di passare a un filo da 0,035 pollici."],
+["tecnica-seldinger","Quale vantaggio ha l'ecografia nel posizionare un CVC con questa tecnica?",["Vede le varianti anatomiche e riduce la puntura accidentale di un'arteria","Elimina il bisogno del filo","Elimina il rischio di infezione","Serve a misurare la pressione"],0,"È un aiuto alla puntura rispetto ai punti di repere."],
+["tecnica-seldinger","Che cosa fa l'infermiere dopo la procedura, per gli accessi arteriosi?",["Comprime il punto, medica e controlla sanguinamento e polso","Lascia il filo in sede","Toglie il catetere","Non fa nulla"],0,"Controlla ematoma, sanguinamento e circolo a valle, secondo protocollo."],
+["tecnica-seldinger","Che cosa è il filo guida?",["Un filo che passa dall'ago nel vaso e su cui si infila il catetere","Il filo di sutura","Un cavo del monitor","L'elettrodo dell'ECG"],0,"Serve da guida per dilatatore e catetere e a fine procedura va ritirato per intero."],
+["tecnica-seldinger","Come si legge il numero in G di un ago?",["Più è alto, più l'ago è sottile","Più è alto, più è grosso","Misura la lunghezza","Misura la pressione"],0,"14 G è grosso, 24 G è piccolo."]
+];
+QUIZ_SELD.forEach((x,i)=>{const t=(i*3+1)%4,o=x[2].slice(),c=o.splice(x[3],1)[0];o.splice(t,0,c);x[2]=o;x[3]=t});
+if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_SELD);
