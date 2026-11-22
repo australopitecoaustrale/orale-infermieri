@@ -1994,5 +1994,62 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=T(bx-4,250,"valori di popolazione,",{sm:1});
   o+=T(bx-4,262,"non per il singolo",{sm:1});
   return FT.svg(440,270,"Flusso dello iodio: latte e latticini, pesce e sale iodato portano iodio alla tiroide, che produce T4 e T3. In gravidanza la madre passa la tiroxina al feto attraverso la placenta: il feto dipende dalla tiroxina materna per tutta la prima metà della gravidanza, circa 20 settimane, e il contributo materno continua anche dopo. A destra una barra della ioduria mediana: sotto 50 microgrammi per litro carenza moderata-grave, indicativo; da 100 sufficienza in età scolare e negli adulti non in gravidanza; da 150 a 249 sufficienza in gravidanza. Valori di popolazione, non per il singolo.",o);
+ })()},
+{id:"fig-obesita-percorso",t:"Obesità: una scala di terapie, cinque competenze, un team",c:"L'obesità è una malattia cronica recidivante: la cura sale e scende lungo una scala di intensità (stile di vita sempre, poi farmaci agonisti del GLP-1 o doppi agonisti GIP/GLP-1, terapie endoscopiche, chirurgia bariatrica) e le terapie si possono intensificare, combinare o mettere in sequenza, sempre con un follow-up a lungo termine. Per IFSO chi prescrive i farmaci deve dimostrare competenza in cinque domini, non basta il titolo di specialità. L'infermiere cura la titolazione e il triage degli effetti avversi e, prima di sedazione o intervento, segnala il farmaco all'anestesista: lo stomaco si svuota lentamente.",
+ enc:["farmaci-obesita"],gl:["Agonista del recettore del GLP-1","Doppio agonista incretinico","IFSO"],st:/obesit|GLP-1|tirzepatide|semaglutide|liraglutide|bariatric|IFSO/i,
+ svg:(()=>{
+  const T=FT.text,B=FT.box,A=FT.arrow;let o='';
+  const hl=(x,y,w,h,k)=>'<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="9" class="fx vf '+k+'" fill="none" style="stroke-width:2.6"/>';
+  /* scala di intensità */
+  o+=T(6,16,"Scala delle terapie: intensità crescente",{b:1});
+  const S=[
+   [6,78,"Stile di vita",["sempre: sostegno","continuo"],"ok"],
+   [114,64,"Farmaci",["agonisti GLP-1","doppi agonisti","GIP/GLP-1"],"info"],
+   [222,50,["Terapie","endoscopiche"],"","info"],
+   [330,36,["Chirurgia","bariatrica"],["metabolica"],"warn"]
+  ];
+  S.forEach((s,i)=>{const h=124-s[1];o+=B(s[0],s[1],104,h,s[2],s[3],s[4]);o+=hl(s[0],s[1],104,h,"k"+(i+1));});
+  /* freccia doppia: si sale e si scende */
+  o+=A(60,138,420,138)+A(380,138,20,138);
+  o+=T(220,156,"si può aumentare, combinare o alternare",{a:"middle",sm:1});
+  o+='<rect class="eyrow" x="6" y="164" width="428" height="22" rx="7"/>';
+  o+=T(220,179,"Follow-up a lungo termine, a ogni gradino",{a:"middle",b:1});
+  /* domini IFSO */
+  o+=T(6,208,"IFSO: 5 domini per chi prescrive",{b:1});
+  const D=[
+   ["L'obesità come malattia","cronica, recidivante; oltre il BMI"],
+   ["Farmacologia","titolazione, rischi, aspirazione"],
+   ["Scelta del trattamento","intensificare, combinare, sequenza"],
+   ["Follow-up a lungo termine","risposta, nutrizione, muscolo"],
+   ["Cura in team","centrata sulla persona"]
+  ];
+  D.forEach((d,i)=>{const y=216+i*38;
+   o+='<rect class="fbx k-info" x="6" y="'+y+'" width="210" height="34" rx="8"/>';
+   o+=FT.dot(24,y+17,String(i+1),{r:10});
+   o+=T(40,y+14,d[0],{b:1});
+   o+=T(40,y+27,d[1],{sm:1});
+  });
+  o+=hl(3,213,216,192,"k5");
+  /* team */
+  o+=T(224,208,"Il team intorno alla persona",{b:1});
+  const M=[
+   ["Medico","prescrive con competenza nei 5 domini","info"],
+   ["Infermiere","titolazione, effetti avversi","ok"],
+   ["Dietista","proteine, micronutrienti","info"],
+   ["Salute mentale","comportamento alimentare, aderenza","info"],
+   ["Esercizio","forza: conservare la massa magra","info"]
+  ];
+  M.forEach((m,i)=>{const y=216+i*38;
+   o+='<rect class="fbx k-'+m[2]+'" x="224" y="'+y+'" width="210" height="34" rx="8"/>';
+   o+=T(232,y+14,m[0],{b:1});
+   o+=T(232,y+27,m[1],{sm:1});
+  });
+  o+=hl(221,251,216,40,"k6");
+  /* avvertenza */
+  o+='<rect class="fbx k-warn" x="6" y="410" width="428" height="40" rx="8"/>';
+  o+=T(220,426,"Prima di sedazione o intervento: segnalare il farmaco all'anestesista",{a:"middle",b:1}).replace('<text ','<text style="font-size:10.5px" ');
+  o+=T(220,441,"nome, dose, data dell'ultima dose; svuotamento gastrico rallentato",{a:"middle",sm:1});
+  o+=hl(3,407,434,46,"k6");
+  return FT.svg(440,456,"In alto una scala di quattro gradini di intensità crescente: stile di vita, sempre con sostegno continuo; farmaci agonisti del GLP-1 e doppi agonisti GIP/GLP-1; terapie endoscopiche; chirurgia metabolica bariatrica. Una freccia doppia indica che si può aumentare, combinare o alternare, con follow-up a lungo termine a ogni gradino. In basso a sinistra i cinque domini di competenza IFSO per chi prescrive: 1 l'obesità come malattia cronica recidivante, oltre il BMI; 2 farmacologia, con titolazione, rischi e aspirazione; 3 scelta del trattamento; 4 follow-up a lungo termine; 5 cura in team centrata sulla persona. A destra il team: medico che prescrive, infermiere per titolazione ed effetti avversi, dietista, salute mentale, esercizio di forza per conservare la massa magra. In fondo un'avvertenza: prima di sedazione o intervento segnalare il farmaco all'anestesista, con nome, dose e data dell'ultima dose, perché lo svuotamento gastrico è rallentato.",o);
  })()}
 ];
