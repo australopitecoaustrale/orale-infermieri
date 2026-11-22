@@ -1,0 +1,850 @@
+[
+ {
+  "id": "diabete-t1-adulto#p0",
+  "testo": "Il tipo 1 è una malattia autoimmune: il sistema immunitario distrugge a poco a poco le cellule beta del pancreas fino alla carenza di insulina; nell'adulto la perdita è di solito più lenta che nel bambino",
+  "fonte": "Prystupa 2026 PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#p1",
+  "testo": "LADA (diabete autoimmune latente dell'adulto): forma a esordio adulto con autoanticorpi presenti, che per mesi o anni può non richiedere insulina e viene spesso scambiata per tipo 2",
+  "fonte": "Buzzetti 2020 PMID 32847960",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "criteri LADA non concordi"
+ },
+ {
+  "id": "diabete-t1-adulto#p2",
+  "testo": "GADA: anticorpi contro la decarbossilasi dell'acido glutammico, l'autoanticorpo più frequente nel diabete autoimmune dell'adulto; altri sono ICA, IA-2A, ZnT8A e IAA (autoanticorpi anti-insulina)",
+  "fonte": "Buzzetti 2020 PMID 32847960; Prystupa PMID 42962686",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#p4",
+  "testo": "Studio tedesco (German Diabetes Study) su 600 adulti di 18-69 anni con diagnosi clinica di tipo 1 nei 12 mesi precedenti, più persone GADA positive diagnosticate all'inizio come tipo 2: con un algoritmo che raggruppa i pazienti in base a GADA, C-peptide a digiuno, glicemia, trigliceridi e colesterolo HDL sono emersi tre sottotipi; struttura dei sottotipi ritrovata nel registro DPV (483 adulti con diabete già stabilito)",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "aggiunti 18-69 anni, diagnosi ≤12 mesi, DPV diabete stabilito"
+ },
+ {
+  "id": "diabete-t1-adulto#p5",
+  "testo": "Tipo 1 classico (282): GADA positivo, più giovani e magri, buona sensibilità all'insulina, funzione beta molto ridotta (C-peptide più basso)",
+  "fonte": "Prystupa PMID 42962686, tabella",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#p6",
+  "testo": "Tipo 1 misto (135): GADA positivo ma più anziani, con più peso e meno sensibilità all'insulina, cioè con tratti anche da tipo 2; funzione beta meglio conservata",
+  "fonte": "Prystupa PMID 42962686, tabella",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#p7",
+  "testo": "GADA-negativo (183): GADA negativi; anche gli altri autoanticorpi meno frequenti; rischio genetico di tipo 1 più basso, funzione beta intermedia che cala più lentamente; gruppo misto che può comprendere anche forme non autoimmuni",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "GADA negativi, altri autoanticorpi meno frequenti"
+ },
+ {
+  "id": "diabete-t1-adulto#p8",
+  "testo": "Misto e classico non differivano per autoimmunità e rischio genetico di tipo 1: il misto si trova circa 6 anni prima sulla curva di declino delle cellule beta, quindi sembra uno stadio più precoce più che una malattia diversa",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "«non differivano per»"
+ },
+ {
+  "id": "diabete-t1-adulto#p10",
+  "testo": "Rischio pratico: chi ha peso più alto o anticorpi negativi può essere etichettato come tipo 2 e ricevere l'insulina tardi",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#v0",
+  "testo": "Partecipanti: 600 (GDS); validazione in 483 (DPV)",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#v1",
+  "testo": "Sottotipi: classico 282, misto 135, GADA-negativo 183",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#v2",
+  "testo": "BMI mediano: classico 22,9; misto 27,6; GADA-negativo 24,9 kg/m²",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#v3",
+  "testo": "C-peptide a digiuno mediano: classico 0,67; misto 1,68; GADA-negativo 1,20 ng/ml",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#v4",
+  "testo": "In insulina all'ingresso: classico 81,6%; misto 57,0%; GADA-negativo 61,7%",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "aritmetica",
+  "stato": "confermato",
+  "nota": "230/282, 77/135, 113/183"
+ },
+ {
+  "id": "diabete-t1-adulto#v5",
+  "testo": "Spostamento sulla curva beta: misto 6,1 anni prima del classico (IC 95% 4,6-7,8)",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#v6",
+  "testo": "Retinopatia, misto vs classico: HR aggiustato 4,93 (IC 95% 1,71-14,24)",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "non ripetuto nel DPV"
+ },
+ {
+  "id": "diabete-t1-adulto#i0",
+  "testo": "Educare sull'ipoglicemia anche chi ha appena iniziato l'insulina: sintomi (sudore, tremore, fame, confusione), regola del 15 (15 g di zuccheri semplici, nuovo controllo dopo 15 minuti), glucagone prescritto a portata di mano e familiari addestrati",
+  "fonte": "ADA SOC 2026 sez. 6 PMID 41358894",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "15 g/15 min da manuale"
+ },
+ {
+  "id": "diabete-t1-adulto#i2",
+  "testo": "In una persona con «tipo 2» magra, o che dimagrisce senza motivo, o con chetoni nelle urine o nel sangue, segnalare subito al medico: può trattarsi di diabete autoimmune che ha bisogno di insulina",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#q2",
+  "testo": "Che cosa indica la sigla LADA? → Diabete autoimmune latente dell'adulto (È un diabete con autoanticorpi a esordio adulto che per un periodo può non richiedere insulina e viene spesso scambiato per tipo 2.)",
+  "fonte": "Buzzetti PMID 32847960",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#q3",
+  "testo": "Nello studio tedesco su adulti con tipo 1 recente, quale sottotipo aveva peso più alto, meno sensibilità all'insulina e funzione beta meglio conservata? → Il tipo 1 misto (Il misto è GADA positivo ma con tratti anche da tipo 2.)",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#q4",
+  "testo": "Secondo lo studio, come si collocano il tipo 1 misto e quello classico? → Il misto è circa 6 anni prima sulla stessa curva di declino delle cellule beta (Autoimmunità e rischio genetico di tipo 1 non differivano: il misto sembra uno stadio più precoce dello stesso processo.)",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#q5",
+  "testo": "Quale complicanza restava diversa tra misto e classico dopo le correzioni statistiche? → La retinopatia, più frequente nel misto (HR 4,93 con intervallo di confidenza ampio (1,71-14,24): il dato va confermato in studi più grandi.)",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#q6",
+  "testo": "Una persona di 45 anni con diagnosi di «tipo 2» è magra, perde peso e ha chetoni nelle urine. Che cosa fa l'infermiere? → Segnala al medico: può essere un diabete autoimmune che richiede insulina (Calo di peso e chetosi in un presunto tipo 2 fanno pensare a carenza di insulina.)",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "manuale",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#q7",
+  "testo": "Qual è un limite dello studio sui sottotipi del tipo 1 dell'adulto? → Partecipanti in prevalenza di ascendenza europea e pochi eventi per diverse complicanze (Inoltre è osservazionale e i sottotipi non sono ancora in uso clinico.)",
+  "fonte": "Prystupa PMID 42962686",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-t1-adulto#gl:LADA",
+  "testo": "Diabete autoimmune latente dell'adulto: diabete con autoanticorpi a esordio adulto, che per un periodo può non richiedere insulina ed è spesso scambiato per tipo 2.",
+  "fonte": "Buzzetti PMID 32847960",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#d",
+  "testo": "Riconoscere il diabete, o il rischio di svilupparlo, prima che compaiano sintomi gravi o complicanze, così da intervenire presto con stile di vita, farmaci e, nel tipo 1, evitando la chetoacidosi all'esordio.",
+  "fonte": "Editoriale doi 10.1016/S2213-8587(26)00277-9",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#p0",
+  "testo": "Obiettivi OMS per il 2030 (Global Diabetes Compact): 80% delle persone con diabete diagnosticate, 80% con buon controllo della glicemia, 80% con buon controllo della pressione, 60% di chi ha 40 anni o più in terapia con statine, 100% delle persone con tipo 1 con insulina e strumenti di autocontrollo accessibili",
+  "fonte": "Editoriale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#p1",
+  "testo": "IDF Diabetes Atlas, 11ª edizione: 589 milioni di adulti con diabete nel 2024 (circa 1 su 9), stima di 853 milioni nel 2050",
+  "fonte": "IDF Atlas PMID 41412135",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#p2",
+  "testo": "Nel 2024 il 42,8% delle persone con diabete non sapeva di averlo: 58,7% nei paesi a basso reddito contro 28,9% in quelli ad alto reddito (Teufel 2026)",
+  "fonte": "Teufel 2026 PMID 41604596",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "42,8%"
+ },
+ {
+  "id": "diabete-diagnosi-precoce#p3",
+  "testo": "Perché conta: al momento della diagnosi fino a metà delle persone con tipo 2 ha già danni a reni, cuore, occhi o nervi",
+  "fonte": "Editoriale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "solo editoriale"
+ },
+ {
+  "id": "diabete-diagnosi-precoce#p4",
+  "testo": "Prediabete (glicemia o HbA1c sopra il normale ma sotto la soglia del diabete): dieta, attività fisica e calo di peso riducono il rischio e ritardano il passaggio al tipo 2",
+  "fonte": "Editoriale; ADA SOC 2026 sez. 3",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#p5",
+  "testo": "Tipo 1, stadi: stadio 1, due o più autoanticorpi con glicemia normale; stadio 2, due o più autoanticorpi con disglicemia (glicemia alterata), ancora senza sintomi (presintomatico); stadio 3, diabete clinico secondo i criteri diagnostici, di solito con sintomi (con il monitoraggio può essere diagnosticato prima dei sintomi)",
+  "fonte": "Insel 2015 PMID 26404926; ADA SOC 2026 PMID 41358893",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "stadio 2 con ≥2 autoanticorpi; stadio 3 di solito con sintomi"
+ },
+ {
+  "id": "diabete-diagnosi-precoce#p6",
+  "testo": "I 4T del tipo 1 (campagna di Diabetes UK): sete eccessiva (Thirsty), andare spesso in bagno (Toilet), stanchezza insolita (Tired), dimagrimento (Thinner); con uno di questi segni bisogna farsi visitare",
+  "fonte": "Editoriale; Diabetes UK",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#p7",
+  "testo": "Screening degli autoanticorpi: oggi consigliato nei parenti di primo grado di una persona con tipo 1 e in chi ha altre malattie autoimmuni (celiachia, tiroidite di Hashimoto); lo screening di tutta la popolazione è ancora discusso; in Italia la legge 130/2023 ha previsto uno screening degli autoanticorpi del tipo 1 e della celiachia nella popolazione pediatrica, partito con il progetto pilota D1Ce Screen dell'ISS",
+  "fonte": "Consenso PMID 38910151; D1Ce PMID 40802787; legge 130/2023",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "aggiunto screening pediatrico in Italia"
+ },
+ {
+  "id": "diabete-diagnosi-precoce#p8",
+  "testo": "Teplizumab: anticorpo monoclonale anti-CD3 (agisce sui linfociti T), per infusione; approvato da FDA (novembre 2022) e nell'Unione europea (gennaio 2026) per ritardare lo stadio 3 in chi ha 8 anni o più ed è in stadio 2; nello studio registrativo tempo mediano alla diagnosi 48,4 mesi contro 24,4 con placebo (Herold 2019); rimborsabilità in Italia da verificare",
+  "fonte": "Herold 2019 PMID 31180194; EMA EPAR Teizeild",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "anti-CD3, FDA 2022, UE 2026; rimborsabilità Italia da verificare"
+ },
+ {
+  "id": "diabete-diagnosi-precoce#p9",
+  "testo": "Anche la diagnosi giusta conta: molti adulti con tipo 1 vengono prima classificati come tipo 2; il LADA, che l'ADA colloca nello spettro del tipo 1, è spesso riconosciuto tardi",
+  "fonte": "Editoriale",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "riformulato il LADA"
+ },
+ {
+  "id": "diabete-diagnosi-precoce#v0",
+  "testo": "Obiettivi OMS 2030: 80/80/80/60/100",
+  "fonte": "Editoriale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#v1",
+  "testo": "Adulti con diabete, 2024: 589 milioni (IDF, 11ª ed.)",
+  "fonte": "PMID 41412135",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#v2",
+  "testo": "Stima 2050: 853 milioni",
+  "fonte": "PMID 41412135",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#v3",
+  "testo": "Non diagnosticati, 2024: 42,8% (58,7% nei paesi a basso reddito, 28,9% in quelli ad alto reddito)",
+  "fonte": "PMID 41604596",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#v4",
+  "testo": "Tipo 2 con complicanze alla diagnosi: fino a metà",
+  "fonte": "Editoriale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#v5",
+  "testo": "Prediabete (ADA): glicemia a digiuno 100-125 mg/dl o HbA1c 39-47 mmol/mol (5,7-6,4%) o glicemia a 2 ore dopo carico orale (OGTT) 140-199 mg/dl",
+  "fonte": "ADA SOC 2026 sez. 3; OMS 2019",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#i0",
+  "testo": "Riconoscere i 4T in chi si presenta in ambulatorio, in triage o a domicilio, soprattutto bambini e giovani adulti",
+  "fonte": "Editoriale",
+  "tipo": "manuale",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#q0",
+  "testo": "Quali sono i 4T del diabete tipo 1? → Sete, bisogno frequente di urinare, stanchezza, dimagrimento (Dall'inglese Thirsty, Toilet, Tired, Thinner (campagna di Diabetes UK).)",
+  "fonte": "Editoriale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#q1",
+  "testo": "Che cosa indica lo stadio 2 del diabete tipo 1? → Due o più autoanticorpi con glicemia alterata ma senza sintomi (Lo stadio 1 ha due o più autoanticorpi con glicemia normale; lo stadio 3 è il diabete clinico, di solito con sintomi.)",
+  "fonte": "Insel PMID 26404926",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "due o più autoanticorpi"
+ },
+ {
+  "id": "diabete-diagnosi-precoce#q2",
+  "testo": "Quale percentuale di persone con diabete non era diagnosticata nel 2024, secondo lo studio citato dall'editoriale? → Circa il 43% (Per la precisione il 42,8%, con grandi differenze: 58,7% nei paesi a basso reddito contro 28,9% in quelli ad alto reddito.)",
+  "fonte": "PMID 41604596",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#q3",
+  "testo": "Quanti adulti vivevano con il diabete nel 2024 secondo l'IDF Diabetes Atlas, 11ª edizione? → 589 milioni (853 milioni è la stima per il 2050.)",
+  "fonte": "PMID 41412135",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#q4",
+  "testo": "Che cosa può fare il teplizumab nello stadio 2 del tipo 1? → Ritardare il passaggio allo stadio 3 sintomatico (Anticorpo monoclonale anti-CD3 che agisce sui linfociti T, per infusione; approvato da FDA (novembre 2022) e nell'Unione europea (gennaio 2026) da 8 anni in su in stadio 2; nello studio registrativo tempo mediano alla diagnosi 48,4 mesi contro 24,4 con placebo (Herold 2019).)",
+  "fonte": "Herold PMID 31180194",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#q5",
+  "testo": "A chi è oggi consigliato lo screening degli autoanticorpi del tipo 1? → Ai parenti di primo grado di una persona con tipo 1 e a chi ha altre malattie autoimmuni (Lo screening di tutta la popolazione è ancora discusso; in Italia la legge 130/2023 ha previsto uno screening degli autoanticorpi del tipo 1 e della celiachia nella popolazione pediatrica, partito con il progetto pilota D1Ce Screen dell'ISS.)",
+  "fonte": "PMID 38910151; legge 130/2023",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#q6",
+  "testo": "Perché è importante diagnosticare presto il tipo 2? → Fino a metà delle persone ha già complicanze a reni, cuore, occhi o nervi alla diagnosi (Il processo inizia anni prima della diagnosi.)",
+  "fonte": "Editoriale",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#q7",
+  "testo": "Un ragazzo beve molto, urina spesso ed è dimagrito. Qual è il primo gesto utile dell'infermiere? → Misurare la glicemia capillare e, se alta, cercare i chetoni, avvisando il medico (Riconoscere i 4T permette di evitare che l'esordio arrivi in chetoacidosi.)",
+  "fonte": "Editoriale; ADA SOC 2026",
+  "tipo": "manuale",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#gl:4T del diabete",
+  "testo": "Sintomi d'esordio del tipo 1 da riconoscere presto: sete, bisogno frequente di urinare, stanchezza, dimagrimento.",
+  "fonte": "Editoriale; Diabetes UK",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "diabete-diagnosi-precoce#gl:Teplizumab",
+  "testo": "Anticorpo monoclonale anti-CD3 che agisce sui linfociti T, dato per infusione. Approvato da FDA (novembre 2022) e nell'Unione europea (gennaio 2026) per ritardare lo stadio 3 del diabete tipo 1 in chi ha 8 anni o più ed è in stadio 2; nello studio registrativo tempo mediano alla diagnosi 48,4 mesi contro 24,4 con placebo. Rimborsabilità in Italia da verificare.",
+  "fonte": "Herold PMID 31180194; EMA EPAR Teizeild",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "anti-CD3, approvazioni"
+ },
+ {
+  "id": "diabete-diagnosi-precoce#gl:Prediabete",
+  "testo": "Glicemia o HbA1c sopra il normale ma sotto la soglia del diabete: con dieta, movimento e calo di peso il passaggio al tipo 2 si può ritardare.",
+  "fonte": "ADA SOC 2026 sez. 3",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#d",
+  "testo": "L'obesità è una malattia cronica e recidivante. I farmaci che la trattano (agonisti del recettore del GLP-1 e doppi agonisti incretinici) chiedono competenze precise: secondo una presa di posizione IFSO del 2026 il diritto di prescriverli dovrebbe dipendere dalla formazione dimostrata e dalla capacità di offrire una cura completa, non dal titolo di specialità.",
+  "fonte": "Cohen RV et al., Lancet Diabetes Endocrinol 2026;14:983-85, DOI 10.1016/S2213-8587(26)00274-3",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "presa di posizione IFSO (Comment), non linea guida formale"
+ },
+ {
+  "id": "farmaci-obesita#p1",
+  "testo": "Farmaci, come classi: agonisti del recettore del GLP-1 (per esempio semaglutide, liraglutide) e doppi agonisti incretinici GIP/GLP-1 (per esempio tirzepatide); riducono l'appetito e rallentano lo svuotamento dello stomaco",
+  "fonte": "PMID 37940101; PMID 40330819",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "tirzepatide rallenta lo svuotamento gastrico più dei GLP-1 RA"
+ },
+ {
+  "id": "farmaci-obesita#p5",
+  "testo": "Prima della chirurgia bariatrica: prove insufficienti per l'uso di routine, ma uso personalizzato possibile (per esempio BMI molto alto, alto rischio anestesiologico, diabete di tipo 2 mal controllato)",
+  "fonte": "Cohen 2026; consenso IFSO Br J Surg 2024;111:znae283",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#p6",
+  "testo": "Perioperatorio da concordare con l'anestesia: IFSO consigliava di sospendere il farmaco prima dell'intervento bariatrico, mentre una guida multisocietaria del 2024 ne ammette la prosecuzione in molti pazienti dopo valutazione del rischio (lo stomaco che si svuota lentamente espone ad aspirazione)",
+  "fonte": "Cohen 2026; Kindel TL et al., PMID 39480373",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "tempi di sospensione da verificare (nota)"
+ },
+ {
+  "id": "farmaci-obesita#p10",
+  "testo": "Esempi di regole diverse: in India gli agonisti GLP-1 sono approvati solo su prescrizione di endocrinologi, internisti e, per alcune indicazioni, cardiologi; la Francia ha aperto la prescrizione a tutti i medici nel 2025 per le attese lunghe e l'accesso diseguale, e da giugno 2026 il rimborso dell'avvio comprende i chirurghi bariatrici con diploma interuniversitario in centri designati; la Svizzera esclude dal rimborso di semaglutide e liraglutide per il peso chi ha fatto o ha in programma la chirurgia bariatrica",
+  "fonte": "Cohen 2026",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "regole riportate dalla lettera"
+ },
+ {
+  "id": "farmaci-obesita#v0",
+  "testo": "Dominio 1: la malattia: fisiopatologia, cause biologiche, nutrizionali, psicologiche e sociali, cause secondarie, obesità preclinica e clinica con una diagnosi che va oltre il BMI",
+  "fonte": "Cohen 2026",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#v1",
+  "testo": "Dominio 2: farmacologia: meccanismi, titolazione, controindicazioni; rischi gastrointestinali, biliari, pancreatici e di aspirazione; adeguamento dei farmaci per il diabete; gravidanza e contraccezione; conservazione della massa magra",
+  "fonte": "Cohen 2026",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#v2",
+  "testo": "Dominio 3: scelta del trattamento: stile di vita, farmaci, endoscopia, chirurgia; quando intensificare, combinare o mettere in sequenza; aspettative realistiche, compresa la ripresa del peso dopo la sospensione",
+  "fonte": "Cohen 2026",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#v3",
+  "testo": "Dominio 4: follow-up a lungo termine: risposta, effetti avversi, stato nutrizionale, funzione muscolare, piano scritto di mantenimento e invio",
+  "fonte": "Cohen 2026",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#v4",
+  "testo": "Dominio 5: cura di squadra centrata sulla persona: dietisti, salute mentale, esercizio, infermieri; comunicazione non stigmatizzante; decisione condivisa",
+  "fonte": "Cohen 2026",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#v6",
+  "testo": "SCOPE: certificazione della World Obesity Federation, aperta a tutti i professionisti sanitari con almeno 6 mesi di esperienza pratica nell'obesità",
+  "fonte": "Cohen 2026",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "6 mesi di esperienza pratica"
+ },
+ {
+  "id": "farmaci-obesita#i5",
+  "testo": "Contraccezione e gravidanza: chiedere se la persona desidera una gravidanza; questi farmaci non si usano in gravidanza; semaglutide va sospesa almeno 2 mesi prima di una gravidanza programmata (RCP EMA), per gli altri principi attivi seguire la scheda tecnica; con tirzepatide la pillola può essere meno affidabile: per 4 settimane dopo l'inizio e dopo ogni aumento di dose serve un metodo barriera in più, oppure un metodo non orale (scheda tecnica EMA); indirizzare al prescrittore",
+  "fonte": "RCP EMA Mounjaro e Wegovy; Skelley 2024 PMID 37940101",
+  "tipo": "manuale",
+  "stato": "corretto",
+  "nota": "metodo barriera 4 settimane con tirzepatide; semaglutide sospesa 2 mesi prima"
+ },
+ {
+  "id": "farmaci-obesita#q0",
+  "testo": "Secondo la presa di posizione IFSO del 2026, su che cosa dovrebbe basarsi il diritto di prescrivere i farmaci per l'obesità? → Sulla competenza dimostrata con formazione e valutazione (IFSO chiede che conti la formazione dimostrata e la capacità di offrire una cura completa, per ogni specialità compresa la medicina generale.)",
+  "fonte": "Cohen 2026",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#q2",
+  "testo": "Quale tra questi è un doppio agonista incretinico GIP/GLP-1? → Tirzepatide (Liraglutide e semaglutide sono agonisti del solo recettore del GLP-1; tirzepatide agisce su GIP e GLP-1.)",
+  "fonte": "PMID 40330819",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#q3",
+  "testo": "Perché prima di una sedazione va segnalato all'anestesista che la persona assume un agonista del GLP-1? → Perché rallenta lo svuotamento gastrico e aumenta il rischio di aspirazione (Lo stomaco può non essere vuoto nonostante il digiuno: la gestione va concordata con l'anestesia.)",
+  "fonte": "Kindel 2024, PMID 39480373; Cohen 2026",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#q5",
+  "testo": "Quale segno, in una persona che assume un agonista del GLP-1, va riferito subito perché può indicare una pancreatite? → Dolore addominale forte e persistente che va verso la schiena (Nausea e sazietà sono attese all'inizio o dopo un aumento di dose; un dolore forte e persistente al dorso va valutato.)",
+  "fonte": "RCP EMA Wegovy",
+  "tipo": "manuale",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#gl:Agonista del recettore del GLP-1",
+  "testo": "Farmaco che imita l'ormone intestinale GLP-1: aumenta la secrezione di insulina quando la glicemia è alta, riduce il glucagone e l'appetito e rallenta lo svuotamento dello stomaco (per esempio semaglutide, liraglutide). Si usa nel diabete di tipo 2 e nell'obesità.",
+  "fonte": "PMID 40330819; RCP EMA Wegovy",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#gl:Doppio agonista incretinico",
+  "testo": "Farmaco che attiva insieme i recettori di due ormoni intestinali, GIP e GLP-1 (per esempio tirzepatide); si usa nel diabete di tipo 2 e nell'obesità.",
+  "fonte": "PMID 40330819; PMID 37940101",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "farmaci-obesita#gl:IFSO",
+  "testo": "International Federation for the Surgery and Other Therapies for Obesity: federazione internazionale della chirurgia e delle altre terapie dell'obesità. Nel 2026 ha chiesto che il diritto di prescrivere i farmaci per l'obesità dipenda dalla competenza e non dalla specialità.",
+  "fonte": "Cohen 2026",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#d",
+  "testo": "Lo iodio serve alla tiroide per produrre gli ormoni tiroxina (T4) e triiodotironina (T3). Una carenza, anche lieve o moderata, può causare gozzo e, in gravidanza, danneggiare lo sviluppo del cervello del bambino. Nella popolazione si misura con lo iodio nelle urine (ioduria).",
+  "fonte": "Zimmermann, Endocr Rev 2009, PMID 19460960",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#p0",
+  "testo": "Funzione: lo iodio è parte di T4 e T3, che regolano il metabolismo e sono indispensabili allo sviluppo del sistema nervoso",
+  "fonte": "PMID 19460960",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#p4",
+  "testo": "Questo vantaggio si sta perdendo: l'indagine nazionale NDNS, che misura la ioduria dal 2013, mostra un calo ogni anno nelle ragazze di 11-18 anni e negli adulti; nelle donne in età fertile la mediana è scesa del 30%, da 117 a 82 µg/L, sotto la soglia OMS",
+  "fonte": "Taylor 2026, dati NDNS 2019-2023",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#p5",
+  "testo": "Cause: si beve meno latte vaccino, che nel Regno Unito fornisce il 30-40% dello iodio assunto; le bevande vegetali che lo sostituiscono spesso non sono arricchite; nella lavorazione si usano meno disinfettanti iodati e il latte invernale contiene meno iodio che nel 1996",
+  "fonte": "Taylor 2026",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#p6",
+  "testo": "Gruppi a rischio: vegani (in due piccoli campioni di Nottingham ioduria mediana di 31 e 12 µg/L), ragazze e giovani donne, donne in gravidanza, donne a basso reddito o di minoranze etniche, gravidanze in adolescenza",
+  "fonte": "Taylor 2026; Eveleigh, Br J Nutr 2023",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "campioni di 12 e 7 persone"
+ },
+ {
+  "id": "iodio-carenza#p7",
+  "testo": "Gravidanza: il feto dipende dalla tiroxina materna per tutta la prima metà della gravidanza (circa 20 settimane), e il contributo materno continua anche dopo; la finestra comprende le settimane in cui la donna non sa ancora di essere incinta",
+  "fonte": "Taylor 2026; Fisher 1997, PMID 9103947",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "attenuato «del tutto»: contributo materno anche dopo"
+ },
+ {
+  "id": "iodio-carenza#p8",
+  "testo": "Studio ALSPAC: i figli di madri con rapporto iodio/creatinina urinario < 150 µg/g in gravidanza avevano più spesso punteggi nel quartile più basso per QI verbale e lettura a 8-9 anni",
+  "fonte": "Bath, Lancet 2013, PMID 23706508",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#p9",
+  "testo": "Danimarca: iodazione del sale volontaria dal 1998 e obbligatoria dal 2000; meno gozzi, noduli e volume della tiroide nei vent'anni successivi; aumento solo temporaneo dell'ipertiroidismo negli anziani; adolescenti nati dopo la iodazione con risultati scolastici migliori, ma anche più autoimmunità tiroidea e più ipotiroidismo",
+  "fonte": "Tang Møllehave L et al., PMID 38657651",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "aggiunti autoimmunità e ipotiroidismo; volontaria 1998, obbligatoria 2000"
+ },
+ {
+  "id": "iodio-carenza#p10",
+  "testo": "Proposte degli autori per il Regno Unito: misurare la ioduria anche in gravidanza, raccomandare 150 µg/die nel periodo periconcezionale, in gravidanza e in allattamento, iodare per legge il sale usato per il pane e fissare un minimo di iodio nelle bevande vegetali",
+  "fonte": "Taylor 2026",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "da verificare se 150 µg/die è integratore o apporto totale"
+ },
+ {
+  "id": "iodio-carenza#p11",
+  "testo": "Italia: la legge 21 marzo 2005, n. 55 avvia una iodoprofilassi volontaria; il sale iodato deve essere presente in tutti i punti vendita, il sale comune si dà solo su richiesta, e se ne consente l'uso nella ristorazione collettiva e nell'industria alimentare. Sorveglianza ISS-OSNAMI 2015-2019: sale iodato usato dal 71,5% degli adulti e nel 78% delle mense scolastiche; ioduria mediana 124 µg/L nei ragazzi di 11-13 anni (sufficienza); resta il dubbio sulla gravidanza",
+  "fonte": "Legge 55/2005 (GU n. 91/2005); PMID 37820735; PMID 42300299",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "profilassi volontaria, dati ISS-OSNAMI"
+ },
+ {
+  "id": "iodio-carenza#v0",
+  "testo": "Ioduria mediana in età scolare e negli adulti non in gravidanza (OMS): ≥ 100 µg/L indica sufficienza, con non più del 20% dei valori < 50 µg/L",
+  "fonte": "OMS NLiS; Taylor 2026",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "soglia in età scolare e adulti non in gravidanza"
+ },
+ {
+  "id": "iodio-carenza#v1",
+  "testo": "Ioduria mediana in gravidanza (OMS): sufficienza 150-249 µg/L",
+  "fonte": "Zimmermann 2009, PMID 19088150; OMS NLiS",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "sufficienza in gravidanza 150-249 µg/L"
+ },
+ {
+  "id": "iodio-carenza#v2",
+  "testo": "Donne in età fertile, Regno Unito: mediana da 117 a 82 µg/L (−30%); quota < 50 µg/L dall'11% al 30%, oltre il tetto OMS del 20% dal 2016",
+  "fonte": "Taylor 2026",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#v3",
+  "testo": "Primo trimestre, coorti regionali del Regno Unito: mediana 60-100 µg/L; a Bradford gozzo in gravidanza nel 36% delle donne (89 su 246)",
+  "fonte": "Taylor 2026",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#v4",
+  "testo": "Danimarca dopo la iodazione del 2000: ioduria mediana da 61 a 101 µg/L",
+  "fonte": "Taylor 2026; PMID 38657651",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#v5",
+  "testo": "Apporto proposto dagli autori: 150 µg/die nel periodo periconcezionale, in gravidanza e in allattamento (l'OMS raccomanda 250 µg/die in gravidanza e allattamento)",
+  "fonte": "Andersson 2007, PMID 18053287; Zimmermann 2009, PMID 19088150",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "250 µg/die OMS confermato"
+ },
+ {
+  "id": "iodio-carenza#q0",
+  "testo": "A che cosa serve lo iodio nell'organismo? → A produrre gli ormoni tiroidei T4 e T3 (Lo iodio è un componente della tiroxina (T4) e della triiodotironina (T3).)",
+  "fonte": "PMID 19460960",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#q1",
+  "testo": "Secondo l'OMS, quale ioduria mediana indica sufficienza di iodio nella popolazione generale? → Almeno 100 µg/L (Vale per età scolare e adulti non in gravidanza, con non più del 20% dei valori sotto 50 µg/L; in gravidanza la sufficienza è 150-249 µg/L.)",
+  "fonte": "OMS NLiS; PMID 19088150",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#q3",
+  "testo": "Di quanto è scesa la ioduria mediana delle donne in età fertile nel Regno Unito secondo l'indagine NDNS? → Del 30%, da 117 a 82 µg/L (82 µg/L è sotto la soglia di sufficienza OMS di 100 µg/L.)",
+  "fonte": "Taylor 2026",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#q4",
+  "testo": "Fino a circa quale epoca di gestazione il feto dipende del tutto dalla tiroxina della madre? → Circa 20 settimane (La finestra comprende anche le settimane in cui la gravidanza non è ancora riconosciuta: per questo conta lo stato iodico prima del concepimento.)",
+  "fonte": "Taylor 2026; PMID 9103947",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "iodio-carenza#gl:Ioduria",
+  "testo": "Concentrazione di iodio nelle urine (µg/L). La mediana in un campione indica lo stato iodico della popolazione (secondo l'OMS sufficienza da 100 µg/L in età scolare e negli adulti non in gravidanza, 150-249 µg/L in gravidanza), non quello della singola persona.",
+  "fonte": "OMS NLiS; PMID 19088150",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "precisato «in età scolare e negli adulti non in gravidanza»"
+ },
+ {
+  "id": "adenomi-ipofisari#p4",
+  "testo": "Centri di eccellenza: la Pituitary Society nel 2017 li ha definiti intorno all'alleanza tra neurochirurgo dell'ipofisi e neuroendocrinologo, sostenuti da altre specialità; nella pratica il coordinamento resta difficile e il follow-up a lungo termine spesso manca",
+  "fonte": "Zhang 2026; Casanueva, Pituitary 2017;20:489-98",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "adenomi-ipofisari#p5",
+  "testo": "Modello MDIT dell'ospedale Huashan (Shanghai), dal 2018: non è più il paziente a cercare i singoli specialisti, sono gli specialisti a lavorare insieme intorno al paziente",
+  "fonte": "Zhang 2026",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "adenomi-ipofisari#p7",
+  "testo": "Reparto comune: neurochirurghi e neuroendocrinologi gestiscono insieme diagnosi, intervento, farmaci e radioterapia, con il sostegno di oltre 20 specialità (tra cui otorinolaringoiatria, oculistica, malattie infettive, medicina della riproduzione); giri visita programmati, consulenze e discussioni online, un database clinico e un sistema di follow-up condivisi",
+  "fonte": "Zhang 2026",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "adenomi-ipofisari#p9",
+  "testo": "Risultati riferiti dal centro: interventi annui raddoppiati, oltre 2800; tumori giganti (> 4 cm) asportati in modo totale o quasi totale dal 45,2% all'86,3%; remissione nell'acromegalia dal 46% al 70% e nella malattia di Cushing dall'85% al 95%",
+  "fonte": "Zhang 2026",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "cifre riferite dalla lettera, non controllate"
+ },
+ {
+  "id": "adenomi-ipofisari#v0",
+  "testo": "Tumori giganti (> 4 cm): resezione totale o quasi totale: dal 45,2% all'86,3%",
+  "fonte": "Zhang 2026",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "dato non controllato"
+ },
+ {
+  "id": "adenomi-ipofisari#v1",
+  "testo": "Remissione nell'acromegalia: dal 46% al 70%",
+  "fonte": "Zhang 2026",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "adenomi-ipofisari#v2",
+  "testo": "Remissione nella malattia di Cushing: dall'85% al 95%",
+  "fonte": "Zhang 2026",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "adenomi-ipofisari#v3",
+  "testo": "Attività dell'ospedale Huashan: oltre 2800 interventi l'anno; oltre 26 000 visite ambulatoriali nel 2025; database di oltre 22 000 casi, con follow-up per oltre 10 000",
+  "fonte": "Zhang 2026",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "adenomi-ipofisari#v4",
+  "testo": "Macroadenoma: diametro ≥ 1 cm",
+  "fonte": "Molitch, JAMA 2017, PMID 28170483",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "macroadenoma ≥ 10 mm"
+ },
+ {
+  "id": "adenomi-ipofisari#i1",
+  "testo": "Sodio nel sangue secondo prescrizione: può salire (diabete insipido) oppure scendere dopo 4-7 giorni (secrezione inappropriata di ADH), anche dopo la dimissione: spiegare alla persona i sintomi (nausea, cefalea, confusione)",
+  "fonte": "Alzhrani 2018 PMID 28989047; Perez-Vega 2021 PMID 34265453",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "iponatriemia tardiva al 4°-7° giorno; resto da protocollo locale (nota)"
+ },
+ {
+  "id": "adenomi-ipofisari#q5",
+  "testo": "Nel modello MDIT dell'ospedale Huashan, come è cambiata la resezione totale o quasi totale dei tumori giganti (> 4 cm)? → Dal 45,2% all'86,3% (È un dato osservazionale di un solo centro: confronti prima e dopo, senza gruppo di controllo; gli studi citati confrontano soprattutto tecniche chirurgiche, quindi il guadagno non si può attribuire al solo modello MDIT.)",
+  "fonte": "Zhang 2026",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "spiegazione: confronto prima e dopo non controllato"
+ },
+ {
+  "id": "adenomi-ipofisari#q7",
+  "testo": "Che cosa caratterizza il modello MDIT rispetto alla cura tradizionale? → Gli specialisti lavorano insieme intorno al paziente, con ambulatorio e reparto comuni (Ambulatorio multispecialistico settimanale, reparto comune neurochirurghi-neuroendocrinologi, oltre 20 specialità, database e follow-up condivisi.)",
+  "fonte": "Zhang 2026",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ }
+]
