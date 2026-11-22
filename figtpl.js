@@ -15,7 +15,7 @@ const FT=(()=>{
     t=[].concat(t);s=s?[].concat(s):[];
     const th=14.5,sh=12.5,total=t.length*th+(s.length?s.length*sh+3:0);
     let ty=y+(h-total)/2+11;
-    let out=`<rect class="fbx${k?" k-"+k:""}" x="${x}" y="${y}" width="${w}" height="${h}" rx="${o.rx||8}"/>`;
+    let out=`<rect class="fbx${k?" k-"+k:""}" x="${x}" y="${y}" width="${w}" height="${h}" rx="${o.rx??2}"/>`;
     out+=text(x+w/2,r(ty),t,{a:"middle",b:true,c:o.tc});
     if(s.length)out+=text(x+w/2,r(ty+t.length*th+3),s,{a:"middle",sm:true});
     return out;

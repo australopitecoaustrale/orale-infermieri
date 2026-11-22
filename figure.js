@@ -88,17 +88,17 @@ const FIGURE=[
  enc:["ecg-wellens","ecg-quadri-tipici","stemi"],gl:["Pattern di Wellens"],st:/ecg|wellens|torace|coronar/i,
  svg:`<svg viewBox="0 0 440 330" role="img" aria-label="Sindrome di Wellens: due forme dell'onda T in V2-V3 (bifasica e profondamente invertita), criteri di riconoscimento e comportamento da tenere">
  <defs><pattern id="fw1" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M4 0V4H0" class="gp1"/></pattern><pattern id="fw5" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="url(#fw1)"/><path d="M20 0V20H0" class="gp5"/></pattern></defs>
-<rect x="8" y="4" width="424" height="84" rx="10" class="eyrow"/><rect x="8" y="4" width="424" height="84" rx="10" class="fx ans" fill="none" style="stroke-width:2.6"/>
+<rect x="8" y="4" width="424" height="84" rx="2" class="eyrow"/><rect x="8" y="4" width="424" height="84" rx="10" class="fx ans" fill="none" style="stroke-width:2.6"/>
 <g class="ft"><text x="20" y="28" font-weight="700" style="font-size:10.5px">1 · Tipo B (circa 75%)</text><text class="fsm" x="20" y="43" style="font-size:9.6px">onda T profondamente</text><text class="fsm" x="20" y="56" style="font-size:9.6px">invertita e simmetrica</text><text class="fsm" x="20" y="72" style="font-size:9.6px;font-weight:700">V2-V3, dolore già passato</text></g>
 <rect x="150" y="14" width="274" height="64" rx="6" style="fill:var(--ecg-bg);stroke:var(--ecg-edge)"/><rect x="150" y="14" width="274" height="64" rx="6" fill="url(#fw5)"/>
 <path d="M158 42 h4 q3 -5 6 0 h4 l2 2 l3 -9 l4 20 l3 -13 h6 c4 22 12 22 16 0 h12 h4 q3 -5 6 0 h4 l2 2 l3 -9 l4 20 l3 -13 h6 c4 22 12 22 16 0 h12 h4 q3 -5 6 0 h4 l2 2 l3 -9 l4 20 l3 -13 h6 c4 22 12 22 16 0 h12 h4 q3 -5 6 0 h4 l2 2 l3 -9 l4 20 l3 -13 h6 c4 22 12 22 16 0 h12" class="etr" style="stroke-width:1.7"/>
 <text class="ft fsm" x="418" y="28" text-anchor="end" style="font-size:9.6px">V2</text>
-<rect x="8" y="96" width="424" height="84" rx="10" class="eyrow"/><rect x="8" y="96" width="424" height="84" rx="10" class="fx ans s2" fill="none" style="stroke-width:2.6"/>
+<rect x="8" y="96" width="424" height="84" rx="2" class="eyrow"/><rect x="8" y="96" width="424" height="84" rx="10" class="fx ans s2" fill="none" style="stroke-width:2.6"/>
 <g class="ft"><text x="20" y="120" font-weight="700" style="font-size:10.5px">2 · Tipo A (circa 25%)</text><text class="fsm" x="20" y="135" style="font-size:9.6px">onda T bifasica: prima</text><text class="fsm" x="20" y="148" style="font-size:9.6px">positiva, poi negativa</text><text class="fsm" x="20" y="164" style="font-size:9.6px;font-weight:700">V2-V3, dolore già passato</text></g>
 <rect x="150" y="106" width="274" height="64" rx="6" style="fill:var(--ecg-bg);stroke:var(--ecg-edge)"/><rect x="150" y="106" width="274" height="64" rx="6" fill="url(#fw5)"/>
 <path d="M158 134 h4 q3 -5 6 0 h4 l2 2 l3 -9 l4 20 l3 -13 h6 q4 -10 8 -4 q6 30 14 4 h10 h4 q3 -5 6 0 h4 l2 2 l3 -9 l4 20 l3 -13 h6 q4 -10 8 -4 q6 30 14 4 h10 h4 q3 -5 6 0 h4 l2 2 l3 -9 l4 20 l3 -13 h6 q4 -10 8 -4 q6 30 14 4 h10 h4 q3 -5 6 0 h4 l2 2 l3 -9 l4 20 l3 -13 h6 q4 -10 8 -4 q6 30 14 4 h10" class="etr" style="stroke-width:1.7"/>
 <text class="ft fsm" x="418" y="120" text-anchor="end" style="font-size:9.6px">V2</text>
-<rect x="8" y="188" width="424" height="138" rx="10" class="eyrow"/><rect x="8" y="188" width="424" height="138" rx="10" class="fx ans s3" fill="none" style="stroke-width:2.6"/>
+<rect x="8" y="188" width="424" height="138" rx="2" class="eyrow"/><rect x="8" y="188" width="424" height="138" rx="10" class="fx ans s3" fill="none" style="stroke-width:2.6"/>
 <g class="ft"><text x="20" y="210" font-weight="700" style="font-size:10.5px">3 · Criteri (tutti insieme)</text><text x="228" y="210" font-weight="700" style="font-size:10.5px">Che fare</text></g>
 <g class="ft fsm" style="font-size:9.6px"><text x="30" y="230">ST piatto o sopra di meno di 1 mm</text><text x="30" y="250">nessuna onda Q, R conservate</text><text x="30" y="270">nessun dolore al momento dell'ECG</text><text x="30" y="290">troponina normale o poco alta</text></g>
 <circle cx="23" cy="227" r="2.6" fill="#2f8f8a"/><circle cx="23" cy="247" r="2.6" fill="#2f8f8a"/><circle cx="23" cy="267" r="2.6" fill="#2f8f8a"/><circle cx="23" cy="287" r="2.6" fill="#2f8f8a"/>
@@ -137,29 +137,29 @@ const FIGURE=[
  <defs><clipPath id="eyc"><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/></clipPath></defs>
  <path class="dash" fill="none" d="M130 22H310"/><circle class="fv ey egz" cx="220" cy="22" r="6"/>
  <g class="ft fsm"><text x="124" y="26" text-anchor="end">destra del paziente</text><text x="316" y="26">sinistra del paziente</text><text x="160" y="46" text-anchor="middle">occhio destro</text><text x="250" y="46" text-anchor="middle">occhio sinistro</text></g>
- <rect x="4" y="51" width="432" height="62" rx="10" class="eyrow"/><g transform="translate(160 84)"><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey0"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g transform="translate(250 84)"><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey0"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g class="ft"><text x="14" y="88" font-weight="700">Normale</text><text class="fsm" x="298" y="83">gli occhi si muovono</text><text class="fsm" x="298" y="97">insieme in ogni direzione</text></g><rect x="4" y="119" width="432" height="62" rx="10" class="eyrow"/><g transform="translate(160 152)"><ellipse class="fx anp" rx="36" ry="27" style="stroke-width:1.6;stroke-dasharray:4 4"/><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey3"><circle r="11.5" class="eir"/><circle r="7.4" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g><path d="M-27 0Q0 -21 27 0Q0 -1 -27 0Z" fill="#e2b59a"/><path class="fl" d="M-27 0Q0 -1 27 0"/></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g transform="translate(250 152)"><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey0"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g class="ft"><text x="14" y="150" font-weight="700">III nervo destro</text><text class="fsm" x="14" y="165">oculomotore</text><text class="fsm" x="298" y="151">giù e in fuori, ptosi,</text><text class="fsm" x="298" y="165">pupilla dilatata</text></g><rect x="4" y="187" width="432" height="62" rx="10" class="eyrow"/><g transform="translate(160 220)"><ellipse class="fx anp" rx="36" ry="27" style="stroke-width:1.6;stroke-dasharray:4 4"/><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey4"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g transform="translate(250 220)"><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey0"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g class="ft"><text x="14" y="218" font-weight="700">IV nervo destro</text><text class="fsm" x="14" y="233">trocleare</text><text class="fsm" x="298" y="219">occhio più alto, peggio</text><text class="fsm" x="298" y="233">guardando a sinistra</text></g><rect x="4" y="255" width="432" height="62" rx="10" class="eyrow"/><g transform="translate(160 288)"><ellipse class="fx anp" rx="36" ry="27" style="stroke-width:1.6;stroke-dasharray:4 4"/><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey6"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g transform="translate(250 288)"><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey0"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g class="ft"><text x="14" y="286" font-weight="700">VI nervo destro</text><text class="fsm" x="14" y="301">abducente</text><text class="fsm" x="298" y="287">occhio girato in dentro,</text><text class="fsm" x="298" y="301">non guarda a destra</text></g></svg>`},
+ <rect x="4" y="51" width="432" height="62" rx="2" class="eyrow"/><g transform="translate(160 84)"><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey0"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g transform="translate(250 84)"><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey0"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g class="ft"><text x="14" y="88" font-weight="700">Normale</text><text class="fsm" x="298" y="83">gli occhi si muovono</text><text class="fsm" x="298" y="97">insieme in ogni direzione</text></g><rect x="4" y="119" width="432" height="62" rx="2" class="eyrow"/><g transform="translate(160 152)"><ellipse class="fx anp" rx="36" ry="27" style="stroke-width:1.6;stroke-dasharray:4 4"/><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey3"><circle r="11.5" class="eir"/><circle r="7.4" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g><path d="M-27 0Q0 -21 27 0Q0 -1 -27 0Z" fill="#e2b59a"/><path class="fl" d="M-27 0Q0 -1 27 0"/></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g transform="translate(250 152)"><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey0"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g class="ft"><text x="14" y="150" font-weight="700">III nervo destro</text><text class="fsm" x="14" y="165">oculomotore</text><text class="fsm" x="298" y="151">giù e in fuori, ptosi,</text><text class="fsm" x="298" y="165">pupilla dilatata</text></g><rect x="4" y="187" width="432" height="62" rx="2" class="eyrow"/><g transform="translate(160 220)"><ellipse class="fx anp" rx="36" ry="27" style="stroke-width:1.6;stroke-dasharray:4 4"/><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey4"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g transform="translate(250 220)"><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey0"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g class="ft"><text x="14" y="218" font-weight="700">IV nervo destro</text><text class="fsm" x="14" y="233">trocleare</text><text class="fsm" x="298" y="219">occhio più alto, peggio</text><text class="fsm" x="298" y="233">guardando a sinistra</text></g><rect x="4" y="255" width="432" height="62" rx="2" class="eyrow"/><g transform="translate(160 288)"><ellipse class="fx anp" rx="36" ry="27" style="stroke-width:1.6;stroke-dasharray:4 4"/><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey6"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g transform="translate(250 288)"><path d="M-27 0Q0 -21 27 0Q0 21 -27 0Z" fill="#fff"/><g clip-path="url(#eyc)"><g class="ey ey0"><circle r="11.5" class="eir"/><circle r="4.6" fill="#0d1517"/><circle cx="-3" cy="-3.5" r="1.8" fill="#fff"/></g></g><path class="fl" style="stroke-width:2" d="M-27 0Q0 -21 27 0Q0 21 -27 0Z"/><path class="fl" style="stroke-width:3;stroke-linecap:round" d="M-27 -19Q0 -33 27 -21"/></g><g class="ft"><text x="14" y="286" font-weight="700">VI nervo destro</text><text class="fsm" x="14" y="301">abducente</text><text class="fsm" x="298" y="287">occhio girato in dentro,</text><text class="fsm" x="298" y="301">non guarda a destra</text></g></svg>`},
 {id:"nervo-facciale",t:"Nervo facciale: decorso in sei tappe",c:"Sei tappe evidenziate a turno. Il facciale nasce dal ponte ed entra con l'VIII nervo nel meato acustico interno; nel canale facciale dà il nervo grande petroso (GP, lacrime), il nervo dello stapedio (St) e la corda del timpano (CT, gusto). Esce dal forame stilomastoideo dando il ramo auricolare posteriore (AP), attraversa la parotide senza innervarla e si divide in cinque rami terminali: temporale, zigomatico, buccale, mandibolare marginale, cervicale. Se la lesione è del nervo (paralisi periferica) è colpita anche la fronte; se è centrale, per esempio un ictus, la fronte è risparmiata.",
  enc:["nervo-facciale","sistema-nervoso","ictus"],gl:["Nervo facciale","Paralisi di Bell","Corda del timpano"],st:/facciale|paralisi|bell|parotide|mimica/i,
  svg:`<svg viewBox="0 0 440 310" role="img" aria-label="Decorso del nervo facciale in sei tappe: ponte e meato acustico interno, canale facciale con tre rami, forame stilomastoideo, parotide, cinque rami terminali e paralisi periferica o centrale">
- <rect x="8" y="8" width="246" height="44" rx="9" class="eyrow"/><rect x="8" y="8" width="246" height="44" rx="9" class="fx vf k1" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="8" width="246" height="44" rx="2" class="eyrow"/><rect x="8" y="8" width="246" height="44" rx="9" class="fx vf k1" fill="none" style="stroke-width:2.6"/>
  <circle cx="26" cy="30" r="11" fill="#4a90d9" opacity=".22"/><circle cx="26" cy="30" r="11" fill="none" stroke="#4a90d9" stroke-width="1.6"/><text x="26" y="35" text-anchor="middle" class="ft" font-weight="700" style="font-size:12px">1</text>
  <g class="ft"><text x="46" y="23" font-weight="700" style="font-size:11px">Ponte e meato acustico interno</text><text class="fsm" x="46" y="36" style="font-size:9.6px">entra con l'VIII nervo</text><text class="fsm" x="46" y="47" style="font-size:9.6px">nell'osso temporale</text></g>
- <rect x="8" y="57" width="246" height="44" rx="9" class="eyrow"/><rect x="8" y="57" width="246" height="44" rx="9" class="fx vf k2" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="57" width="246" height="44" rx="2" class="eyrow"/><rect x="8" y="57" width="246" height="44" rx="9" class="fx vf k2" fill="none" style="stroke-width:2.6"/>
  <circle cx="26" cy="79" r="11" fill="#3a9d6a" opacity=".22"/><circle cx="26" cy="79" r="11" fill="none" stroke="#3a9d6a" stroke-width="1.6"/><text x="26" y="84" text-anchor="middle" class="ft" font-weight="700" style="font-size:12px">2</text>
  <g class="ft"><text x="46" y="72" font-weight="700" style="font-size:11px">Canale facciale: tre rami</text><text class="fsm" x="46" y="85" style="font-size:9.6px">grande petroso (lacrime), stapedio,</text><text class="fsm" x="46" y="96" style="font-size:9.6px">corda del timpano (gusto)</text></g>
- <rect x="8" y="106" width="246" height="44" rx="9" class="eyrow"/><rect x="8" y="106" width="246" height="44" rx="9" class="fx vf k3" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="106" width="246" height="44" rx="2" class="eyrow"/><rect x="8" y="106" width="246" height="44" rx="9" class="fx vf k3" fill="none" style="stroke-width:2.6"/>
  <circle cx="26" cy="128" r="11" fill="#d9902f" opacity=".22"/><circle cx="26" cy="128" r="11" fill="none" stroke="#d9902f" stroke-width="1.6"/><text x="26" y="133" text-anchor="middle" class="ft" font-weight="700" style="font-size:12px">3</text>
  <g class="ft"><text x="46" y="121" font-weight="700" style="font-size:11px">Forame stilomastoideo</text><text class="fsm" x="46" y="134" style="font-size:9.6px">esce dal cranio e dà il ramo</text><text class="fsm" x="46" y="145" style="font-size:9.6px">auricolare posteriore</text></g>
- <rect x="8" y="155" width="246" height="44" rx="9" class="eyrow"/><rect x="8" y="155" width="246" height="44" rx="9" class="fx vf k4" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="155" width="246" height="44" rx="2" class="eyrow"/><rect x="8" y="155" width="246" height="44" rx="9" class="fx vf k4" fill="none" style="stroke-width:2.6"/>
  <circle cx="26" cy="177" r="11" fill="#8a5cd6" opacity=".22"/><circle cx="26" cy="177" r="11" fill="none" stroke="#8a5cd6" stroke-width="1.6"/><text x="26" y="182" text-anchor="middle" class="ft" font-weight="700" style="font-size:12px">4</text>
  <g class="ft"><text x="46" y="170" font-weight="700" style="font-size:11px">Parotide</text><text class="fsm" x="46" y="183" style="font-size:9.6px">la attraversa senza innervarla</text><text class="fsm" x="46" y="194" style="font-size:9.6px">(la saliva parotidea è del IX nervo)</text></g>
- <rect x="8" y="204" width="246" height="44" rx="9" class="eyrow"/><rect x="8" y="204" width="246" height="44" rx="9" class="fx vf k5" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="204" width="246" height="44" rx="2" class="eyrow"/><rect x="8" y="204" width="246" height="44" rx="9" class="fx vf k5" fill="none" style="stroke-width:2.6"/>
  <circle cx="26" cy="226" r="11" fill="#2f8f8a" opacity=".22"/><circle cx="26" cy="226" r="11" fill="none" stroke="#2f8f8a" stroke-width="1.6"/><text x="26" y="231" text-anchor="middle" class="ft" font-weight="700" style="font-size:12px">5</text>
  <g class="ft"><text x="46" y="219" font-weight="700" style="font-size:11px">Cinque rami terminali</text><text class="fsm" x="46" y="232" style="font-size:9.6px">temporale, zigomatico, buccale,</text><text class="fsm" x="46" y="243" style="font-size:9.6px">mandibolare marginale, cervicale</text></g>
- <rect x="8" y="253" width="246" height="44" rx="9" class="eyrow"/><rect x="8" y="253" width="246" height="44" rx="9" class="fx vf k6" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="253" width="246" height="44" rx="2" class="eyrow"/><rect x="8" y="253" width="246" height="44" rx="9" class="fx vf k6" fill="none" style="stroke-width:2.6"/>
  <circle cx="26" cy="275" r="11" fill="#c0392b" opacity=".22"/><circle cx="26" cy="275" r="11" fill="none" stroke="#c0392b" stroke-width="1.6"/><text x="26" y="280" text-anchor="middle" class="ft" font-weight="700" style="font-size:12px">6</text>
  <g class="ft"><text x="46" y="268" font-weight="700" style="font-size:11px">Clinica: paralisi del volto</text><text class="fsm" x="46" y="281" style="font-size:9.6px">periferica: colpisce anche la fronte</text><text class="fsm" x="46" y="292" style="font-size:9.6px">centrale (ictus): fronte risparmiata</text></g>
- <rect x="262" y="8" width="170" height="294" rx="9" class="eyrow"/><rect x="262" y="8" width="170" height="294" rx="9" class="fx vf k6" fill="none" style="stroke-width:2.6"/>
+ <rect x="262" y="8" width="170" height="294" rx="2" class="eyrow"/><rect x="262" y="8" width="170" height="294" rx="9" class="fx vf k6" fill="none" style="stroke-width:2.6"/>
  <g class="fl" fill="none" style="stroke-width:3"><path d="M290 30 L290 62 L325 100 L325 150 L338 205"/></g>
  <g class="fl" fill="none" style="stroke-width:1.8"><path d="M325 100 L360 84 M325 100 L366 100 M325 100 L362 118 M325 150 L286 160"/><path d="M338 205 L292 262 M338 205 L318 262 M338 205 L344 262 M338 205 L370 262 M338 205 L396 262"/></g>
  <ellipse cx="340" cy="212" rx="48" ry="22" fill="#8a5cd6" opacity=".15"/><ellipse cx="340" cy="212" rx="48" ry="22" fill="none" stroke="#8a5cd6" stroke-width="1.5"/>
@@ -177,12 +177,12 @@ const FIGURE=[
 {id:"campo-visivo",t:"Vie ottiche: dalla sede della lesione al difetto del campo visivo",c:"Le vie ottiche viste dall'alto, con sei lesioni a destra evidenziate a turno. I campi sono disegnati come li vede il paziente (S = occhio sinistro, D = occhio destro); la parte scura è quella persa. Prima del chiasma è colpito un solo occhio; al chiasma si perdono le due metà esterne; dietro il chiasma si perde la metà opposta del campo in entrambi gli occhi, tutta o un quadrante.",
  enc:["campo-visivo-difetti","occhio","ictus"],gl:["Emianopsia","Quadrantopsia"],st:/occhi|vista|campo visivo|neurolog/i,
  svg:`<svg viewBox="0 0 440 396" role="img" aria-label="Vie ottiche viste dall'alto con sei sedi di lesione a destra e i sei difetti del campo visivo corrispondenti">
- <rect x="8" y="4" width="424" height="188" rx="10" class="eyrow"/>
+ <rect x="8" y="4" width="424" height="188" rx="2" class="eyrow"/>
  <g class="fs"><path d="M170 30L220 78L260 112M270 30L220 78L180 112"/><path d="M260 112C258 130 250 150 244 170M260 112C330 104 320 168 250 174"/><path d="M180 112C182 130 190 150 196 170M180 112C110 104 120 168 190 174"/></g>
  <g fill="#fbf3c4" stroke="#2f8f8a" stroke-width="1.6"><circle cx="170" cy="28" r="13"/><circle cx="270" cy="28" r="13"/><ellipse cx="180" cy="112" rx="8" ry="5"/><ellipse cx="260" cy="112" rx="8" ry="5"/><ellipse cx="196" cy="174" rx="16" ry="7"/><ellipse cx="244" cy="174" rx="16" ry="7"/></g>
  <circle class="fx vf k1" cx="245" cy="53" r="12" style="stroke-width:2.4"/><circle class="fv" cx="245" cy="53" r="7"/><text x="245" y="56.4" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff" style="font-family:var(--f-body)">1</text><circle class="fx vf k2" cx="220" cy="78" r="12" style="stroke-width:2.4"/><circle class="fv" cx="220" cy="78" r="7"/><text x="220" y="81.4" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff" style="font-family:var(--f-body)">2</text><circle class="fx vf k3" cx="240" cy="95" r="12" style="stroke-width:2.4"/><circle class="fv" cx="240" cy="95" r="7"/><text x="240" y="98.4" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff" style="font-family:var(--f-body)">3</text><circle class="fx vf k4" cx="297" cy="140" r="12" style="stroke-width:2.4"/><circle class="fv" cx="297" cy="140" r="7"/><text x="297" y="143.4" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff" style="font-family:var(--f-body)">4</text><circle class="fx vf k5" cx="254" cy="138" r="12" style="stroke-width:2.4"/><circle class="fv" cx="254" cy="138" r="7"/><text x="254" y="141.4" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff" style="font-family:var(--f-body)">5</text><circle class="fx vf k6" cx="244" cy="172" r="12" style="stroke-width:2.4"/><circle class="fv" cx="244" cy="172" r="7"/><text x="244" y="175.4" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff" style="font-family:var(--f-body)">6</text>
  <g class="ft fsm"><text x="16" y="18">visto dall'alto</text><text x="150" y="32" text-anchor="end">occhio sinistro</text><text x="290" y="32">occhio destro</text><text x="180" y="58" text-anchor="end">nervo ottico</text><text x="204" y="82" text-anchor="end">chiasma</text><text x="188" y="99" text-anchor="end">tratto ottico</text><text x="148" y="116" text-anchor="end">corpo genicolato</text><text x="124" y="146" text-anchor="end">ansa di Meyer</text><text x="124" y="159" text-anchor="end">(temporale)</text><text x="316" y="176">radiazione</text><text x="316" y="187">parietale: 5</text><text x="172" y="188" text-anchor="end">corteccia visiva</text></g>
- <rect x="8" y="200" width="136" height="92" rx="9" class="eyrow"/><rect x="8" y="200" width="136" height="92" rx="9" class="fx vf k1" style="stroke-width:2.6"/><circle cx="52" cy="248" r="17" fill="#fbf3c4"/><circle cx="102" cy="248" r="17" fill="#fbf3c4"/><circle cx="102" cy="248" r="17" fill="#22343a"/><g fill="none" stroke="#2f8f8a" stroke-width="1.4"><circle cx="52" cy="248" r="17"/><circle cx="102" cy="248" r="17"/></g><g class="ft"><text x="16" y="217" font-weight="700" font-size="10.5">1 · Nervo ottico</text><text class="fsm" x="26" y="252" text-anchor="middle">S</text><text class="fsm" x="128" y="252" text-anchor="middle">D</text><text class="fsm" style="font-size:9.6px" x="76" y="284" text-anchor="middle">cecità dell'occhio destro</text></g><rect x="152" y="200" width="136" height="92" rx="9" class="eyrow"/><rect x="152" y="200" width="136" height="92" rx="9" class="fx vf k2" style="stroke-width:2.6"/><circle cx="196" cy="248" r="17" fill="#fbf3c4"/><circle cx="246" cy="248" r="17" fill="#fbf3c4"/><path fill="#22343a" d="M196 231A17 17 0 0 0 196 265Z"/><path fill="#22343a" d="M246 231A17 17 0 0 1 246 265Z"/><g fill="none" stroke="#2f8f8a" stroke-width="1.4"><circle cx="196" cy="248" r="17"/><circle cx="246" cy="248" r="17"/></g><g class="ft"><text x="160" y="217" font-weight="700" font-size="10.5">2 · Chiasma ottico</text><text class="fsm" x="170" y="252" text-anchor="middle">S</text><text class="fsm" x="272" y="252" text-anchor="middle">D</text><text class="fsm" style="font-size:9.6px" x="220" y="284" text-anchor="middle">emianopsia bitemporale</text></g><rect x="296" y="200" width="136" height="92" rx="9" class="eyrow"/><rect x="296" y="200" width="136" height="92" rx="9" class="fx vf k3" style="stroke-width:2.6"/><circle cx="340" cy="248" r="17" fill="#fbf3c4"/><circle cx="390" cy="248" r="17" fill="#fbf3c4"/><path fill="#22343a" d="M340 231A17 17 0 0 0 340 265Z"/><path fill="#22343a" d="M390 231A17 17 0 0 0 390 265Z"/><g fill="none" stroke="#2f8f8a" stroke-width="1.4"><circle cx="340" cy="248" r="17"/><circle cx="390" cy="248" r="17"/></g><g class="ft"><text x="304" y="217" font-weight="700" font-size="10.5">3 · Tratto ottico</text><text class="fsm" x="314" y="252" text-anchor="middle">S</text><text class="fsm" x="416" y="252" text-anchor="middle">D</text><text class="fsm" style="font-size:9.6px" x="364" y="284" text-anchor="middle">emianopsia omonima sinistra</text></g><rect x="8" y="300" width="136" height="92" rx="9" class="eyrow"/><rect x="8" y="300" width="136" height="92" rx="9" class="fx vf k4" style="stroke-width:2.6"/><circle cx="52" cy="348" r="17" fill="#fbf3c4"/><circle cx="102" cy="348" r="17" fill="#fbf3c4"/><path fill="#22343a" d="M52 348L52 331A17 17 0 0 0 35 348Z"/><path fill="#22343a" d="M102 348L102 331A17 17 0 0 0 85 348Z"/><g fill="none" stroke="#2f8f8a" stroke-width="1.4"><circle cx="52" cy="348" r="17"/><circle cx="102" cy="348" r="17"/></g><g class="ft"><text x="16" y="317" font-weight="700" font-size="10.5">4 · Ansa di Meyer</text><text class="fsm" x="26" y="352" text-anchor="middle">S</text><text class="fsm" x="128" y="352" text-anchor="middle">D</text><text class="fsm" style="font-size:9.6px" x="76" y="384" text-anchor="middle">quadrante superiore sinistro</text></g><rect x="152" y="300" width="136" height="92" rx="9" class="eyrow"/><rect x="152" y="300" width="136" height="92" rx="9" class="fx vf k5" style="stroke-width:2.6"/><circle cx="196" cy="348" r="17" fill="#fbf3c4"/><circle cx="246" cy="348" r="17" fill="#fbf3c4"/><path fill="#22343a" d="M196 348L179 348A17 17 0 0 0 196 365Z"/><path fill="#22343a" d="M246 348L229 348A17 17 0 0 0 246 365Z"/><g fill="none" stroke="#2f8f8a" stroke-width="1.4"><circle cx="196" cy="348" r="17"/><circle cx="246" cy="348" r="17"/></g><g class="ft"><text x="160" y="317" font-weight="700" font-size="10.5">5 · Radiazione parietale</text><text class="fsm" x="170" y="352" text-anchor="middle">S</text><text class="fsm" x="272" y="352" text-anchor="middle">D</text><text class="fsm" style="font-size:9.6px" x="220" y="384" text-anchor="middle">quadrante inferiore sinistro</text></g><rect x="296" y="300" width="136" height="92" rx="9" class="eyrow"/><rect x="296" y="300" width="136" height="92" rx="9" class="fx vf k6" style="stroke-width:2.6"/><circle cx="340" cy="348" r="17" fill="#fbf3c4"/><circle cx="390" cy="348" r="17" fill="#fbf3c4"/><path fill="#22343a" d="M340 331A17 17 0 0 0 340 365Z"/><circle cx="340" cy="348" r="4.5" fill="#fbf3c4"/><path fill="#22343a" d="M390 331A17 17 0 0 0 390 365Z"/><circle cx="390" cy="348" r="4.5" fill="#fbf3c4"/><g fill="none" stroke="#2f8f8a" stroke-width="1.4"><circle cx="340" cy="348" r="17"/><circle cx="390" cy="348" r="17"/></g><g class="ft"><text x="304" y="317" font-weight="700" font-size="10.5">6 · Corteccia occipitale</text><text class="fsm" x="314" y="352" text-anchor="middle">S</text><text class="fsm" x="416" y="352" text-anchor="middle">D</text><text class="fsm" style="font-size:9.6px" x="364" y="384" text-anchor="middle">emianopsia sin., macula salva</text></g></svg>`},
+ <rect x="8" y="200" width="136" height="92" rx="2" class="eyrow"/><rect x="8" y="200" width="136" height="92" rx="9" class="fx vf k1" style="stroke-width:2.6"/><circle cx="52" cy="248" r="17" fill="#fbf3c4"/><circle cx="102" cy="248" r="17" fill="#fbf3c4"/><circle cx="102" cy="248" r="17" fill="#22343a"/><g fill="none" stroke="#2f8f8a" stroke-width="1.4"><circle cx="52" cy="248" r="17"/><circle cx="102" cy="248" r="17"/></g><g class="ft"><text x="16" y="217" font-weight="700" font-size="10.5">1 · Nervo ottico</text><text class="fsm" x="26" y="252" text-anchor="middle">S</text><text class="fsm" x="128" y="252" text-anchor="middle">D</text><text class="fsm" style="font-size:9.6px" x="76" y="284" text-anchor="middle">cecità dell'occhio destro</text></g><rect x="152" y="200" width="136" height="92" rx="2" class="eyrow"/><rect x="152" y="200" width="136" height="92" rx="9" class="fx vf k2" style="stroke-width:2.6"/><circle cx="196" cy="248" r="17" fill="#fbf3c4"/><circle cx="246" cy="248" r="17" fill="#fbf3c4"/><path fill="#22343a" d="M196 231A17 17 0 0 0 196 265Z"/><path fill="#22343a" d="M246 231A17 17 0 0 1 246 265Z"/><g fill="none" stroke="#2f8f8a" stroke-width="1.4"><circle cx="196" cy="248" r="17"/><circle cx="246" cy="248" r="17"/></g><g class="ft"><text x="160" y="217" font-weight="700" font-size="10.5">2 · Chiasma ottico</text><text class="fsm" x="170" y="252" text-anchor="middle">S</text><text class="fsm" x="272" y="252" text-anchor="middle">D</text><text class="fsm" style="font-size:9.6px" x="220" y="284" text-anchor="middle">emianopsia bitemporale</text></g><rect x="296" y="200" width="136" height="92" rx="2" class="eyrow"/><rect x="296" y="200" width="136" height="92" rx="9" class="fx vf k3" style="stroke-width:2.6"/><circle cx="340" cy="248" r="17" fill="#fbf3c4"/><circle cx="390" cy="248" r="17" fill="#fbf3c4"/><path fill="#22343a" d="M340 231A17 17 0 0 0 340 265Z"/><path fill="#22343a" d="M390 231A17 17 0 0 0 390 265Z"/><g fill="none" stroke="#2f8f8a" stroke-width="1.4"><circle cx="340" cy="248" r="17"/><circle cx="390" cy="248" r="17"/></g><g class="ft"><text x="304" y="217" font-weight="700" font-size="10.5">3 · Tratto ottico</text><text class="fsm" x="314" y="252" text-anchor="middle">S</text><text class="fsm" x="416" y="252" text-anchor="middle">D</text><text class="fsm" style="font-size:9.6px" x="364" y="284" text-anchor="middle">emianopsia omonima sinistra</text></g><rect x="8" y="300" width="136" height="92" rx="2" class="eyrow"/><rect x="8" y="300" width="136" height="92" rx="9" class="fx vf k4" style="stroke-width:2.6"/><circle cx="52" cy="348" r="17" fill="#fbf3c4"/><circle cx="102" cy="348" r="17" fill="#fbf3c4"/><path fill="#22343a" d="M52 348L52 331A17 17 0 0 0 35 348Z"/><path fill="#22343a" d="M102 348L102 331A17 17 0 0 0 85 348Z"/><g fill="none" stroke="#2f8f8a" stroke-width="1.4"><circle cx="52" cy="348" r="17"/><circle cx="102" cy="348" r="17"/></g><g class="ft"><text x="16" y="317" font-weight="700" font-size="10.5">4 · Ansa di Meyer</text><text class="fsm" x="26" y="352" text-anchor="middle">S</text><text class="fsm" x="128" y="352" text-anchor="middle">D</text><text class="fsm" style="font-size:9.6px" x="76" y="384" text-anchor="middle">quadrante superiore sinistro</text></g><rect x="152" y="300" width="136" height="92" rx="2" class="eyrow"/><rect x="152" y="300" width="136" height="92" rx="9" class="fx vf k5" style="stroke-width:2.6"/><circle cx="196" cy="348" r="17" fill="#fbf3c4"/><circle cx="246" cy="348" r="17" fill="#fbf3c4"/><path fill="#22343a" d="M196 348L179 348A17 17 0 0 0 196 365Z"/><path fill="#22343a" d="M246 348L229 348A17 17 0 0 0 246 365Z"/><g fill="none" stroke="#2f8f8a" stroke-width="1.4"><circle cx="196" cy="348" r="17"/><circle cx="246" cy="348" r="17"/></g><g class="ft"><text x="160" y="317" font-weight="700" font-size="10.5">5 · Radiazione parietale</text><text class="fsm" x="170" y="352" text-anchor="middle">S</text><text class="fsm" x="272" y="352" text-anchor="middle">D</text><text class="fsm" style="font-size:9.6px" x="220" y="384" text-anchor="middle">quadrante inferiore sinistro</text></g><rect x="296" y="300" width="136" height="92" rx="2" class="eyrow"/><rect x="296" y="300" width="136" height="92" rx="9" class="fx vf k6" style="stroke-width:2.6"/><circle cx="340" cy="348" r="17" fill="#fbf3c4"/><circle cx="390" cy="348" r="17" fill="#fbf3c4"/><path fill="#22343a" d="M340 331A17 17 0 0 0 340 365Z"/><circle cx="340" cy="348" r="4.5" fill="#fbf3c4"/><path fill="#22343a" d="M390 331A17 17 0 0 0 390 365Z"/><circle cx="390" cy="348" r="4.5" fill="#fbf3c4"/><g fill="none" stroke="#2f8f8a" stroke-width="1.4"><circle cx="340" cy="348" r="17"/><circle cx="390" cy="348" r="17"/></g><g class="ft"><text x="304" y="317" font-weight="700" font-size="10.5">6 · Corteccia occipitale</text><text class="fsm" x="314" y="352" text-anchor="middle">S</text><text class="fsm" x="416" y="352" text-anchor="middle">D</text><text class="fsm" style="font-size:9.6px" x="364" y="384" text-anchor="middle">emianopsia sin., macula salva</text></g></svg>`},
 {id:"nefrone-diuretici",t:"Dove agiscono i diuretici nel nefrone",c:"Tre gruppi, tre sedi. Diuretici dell'ansa (furosemide): ansa di Henle, i più potenti, usati per togliere liquidi nello scompenso. Tiazidici (indapamide, idroclorotiazide): tubulo distale, soprattutto per la pressione. Risparmiatori di potassio (spironolattone, amiloride): tratto finale del nefrone, trattengono il potassio. Ansa e tiazidici abbassano il potassio, i risparmiatori lo alzano.",
  enc:["diuretici","rene-fisiologia","scompenso"],gl:[],st:/diuretic|rene|nefron/i,
  svg:`<svg viewBox="0 0 440 262" role="img" aria-label="Nefrone schematico con le tre sedi d'azione dei diuretici: ansa di Henle, tubulo distale, tratto finale">
@@ -191,12 +191,12 @@ const FIGURE=[
  <path d="M40 22L56 42" fill="none" stroke="#c0392b" stroke-width="6" stroke-linecap="round"/><circle cx="62" cy="52" r="14" fill="#e06c5f" stroke="#8f2f27" stroke-width="1.6"/><g fill="#c0392b"><circle cx="57" cy="48" r="4.2"/><circle cx="66" cy="47" r="4.2"/><circle cx="58" cy="57" r="4.2"/><circle cx="67" cy="56" r="4.2"/></g>
  <circle class="fdrop anm" r="2.6" fill="#3b82c4"><animateMotion dur="7s" begin="0s" repeatCount="indefinite" path="M72 52C92 36 100 72 120 58C128 54 132 60 132 70V150C132 176 164 176 164 150V70C164 50 178 46 188 58C198 72 214 44 226 58C232 64 232 74 232 84V196"/></circle><circle class="fdrop anm" r="2.6" fill="#3b82c4"><animateMotion dur="7s" begin="-1.75s" repeatCount="indefinite" path="M72 52C92 36 100 72 120 58C128 54 132 60 132 70V150C132 176 164 176 164 150V70C164 50 178 46 188 58C198 72 214 44 226 58C232 64 232 74 232 84V196"/></circle><circle class="fdrop anm" r="2.6" fill="#3b82c4"><animateMotion dur="7s" begin="-3.5s" repeatCount="indefinite" path="M72 52C92 36 100 72 120 58C128 54 132 60 132 70V150C132 176 164 176 164 150V70C164 50 178 46 188 58C198 72 214 44 226 58C232 64 232 74 232 84V196"/></circle><circle class="fdrop anm" r="2.6" fill="#3b82c4"><animateMotion dur="7s" begin="-5.25s" repeatCount="indefinite" path="M72 52C92 36 100 72 120 58C128 54 132 60 132 70V150C132 176 164 176 164 150V70C164 50 178 46 188 58C198 72 214 44 226 58C232 64 232 74 232 84V196"/></circle>
  <g class="ft fsm"><text x="62" y="84" text-anchor="middle">glomerulo</text><text x="62" y="96" text-anchor="middle">(filtro)</text><text x="148" y="196" text-anchor="middle">ansa di Henle</text><text x="196" y="34" text-anchor="middle">tubulo distale</text><text x="232" y="216" text-anchor="middle">tratto finale</text></g>
- <rect x="262" y="18" width="172" height="54" rx="8" class="eyrow"/><rect x="262" y="18" width="6" height="54" rx="3" fill="#d9534f"/><rect class="ans" x="262" y="18" width="172" height="54" rx="8" fill="none" stroke="#d9534f" stroke-width="2.6"/><g class="ft"><text x="276" y="36" font-weight="700" font-size="11.5">Dell'ansa · furosemide</text><text class="fsm" x="276" y="51">ansa di Henle: i più potenti,</text><text class="fsm" x="276" y="64">tolgono liquidi nello scompenso</text></g><rect x="262" y="80" width="172" height="54" rx="8" class="eyrow"/><rect x="262" y="80" width="6" height="54" rx="3" fill="#2f8f8a"/><rect class="ans s2" x="262" y="80" width="172" height="54" rx="8" fill="none" stroke="#2f8f8a" stroke-width="2.6"/><g class="ft"><text x="276" y="98" font-weight="700" font-size="11.5">Tiazidici · indapamide</text><text class="fsm" x="276" y="113">tubulo distale: soprattutto</text><text class="fsm" x="276" y="126">per la pressione alta</text></g><rect x="262" y="142" width="172" height="54" rx="8" class="eyrow"/><rect x="262" y="142" width="6" height="54" rx="3" fill="#8a5cd6"/><rect class="ans s3" x="262" y="142" width="172" height="54" rx="8" fill="none" stroke="#8a5cd6" stroke-width="2.6"/><g class="ft"><text x="276" y="160" font-weight="700" font-size="11.5">Risparmiatori di potassio</text><text class="fsm" x="276" y="175">spironolattone, amiloride:</text><text class="fsm" x="276" y="188">tratto finale, trattengono K⁺</text></g>
- <rect x="8" y="226" width="424" height="30" rx="8" class="eyrow"/><g class="ft" font-size="10.4"><text x="18" y="245"><tspan font-weight="700">Potassio:</tspan> ansa e tiazidici lo abbassano ↓ · spironolattone e amiloride lo alzano ↑</text></g></svg>`},
+ <rect x="262" y="18" width="172" height="54" rx="2" class="eyrow"/><rect x="262" y="18" width="6" height="54" rx="3" fill="#d9534f"/><rect class="ans" x="262" y="18" width="172" height="54" rx="8" fill="none" stroke="#d9534f" stroke-width="2.6"/><g class="ft"><text x="276" y="36" font-weight="700" font-size="11.5">Dell'ansa · furosemide</text><text class="fsm" x="276" y="51">ansa di Henle: i più potenti,</text><text class="fsm" x="276" y="64">tolgono liquidi nello scompenso</text></g><rect x="262" y="80" width="172" height="54" rx="2" class="eyrow"/><rect x="262" y="80" width="6" height="54" rx="3" fill="#2f8f8a"/><rect class="ans s2" x="262" y="80" width="172" height="54" rx="8" fill="none" stroke="#2f8f8a" stroke-width="2.6"/><g class="ft"><text x="276" y="98" font-weight="700" font-size="11.5">Tiazidici · indapamide</text><text class="fsm" x="276" y="113">tubulo distale: soprattutto</text><text class="fsm" x="276" y="126">per la pressione alta</text></g><rect x="262" y="142" width="172" height="54" rx="2" class="eyrow"/><rect x="262" y="142" width="6" height="54" rx="3" fill="#8a5cd6"/><rect class="ans s3" x="262" y="142" width="172" height="54" rx="8" fill="none" stroke="#8a5cd6" stroke-width="2.6"/><g class="ft"><text x="276" y="160" font-weight="700" font-size="11.5">Risparmiatori di potassio</text><text class="fsm" x="276" y="175">spironolattone, amiloride:</text><text class="fsm" x="276" y="188">tratto finale, trattengono K⁺</text></g>
+ <rect x="8" y="226" width="424" height="30" rx="2" class="eyrow"/><g class="ft" font-size="10.4"><text x="18" y="245"><tspan font-weight="700">Potassio:</tspan> ansa e tiazidici lo abbassano ↓ · spironolattone e amiloride lo alzano ↑</text></g></svg>`},
 {id:"asse-cardiaco",t:"Asse elettrico: i quattro quadranti e i due metodi",c:"Le sei derivazioni degli arti formano una raggiera: DI a 0°, aVF a +90°. Con DI e aVF si trova il quadrante: tutte e due positive, asse normale; DI positiva e aVF negativa, si guarda DII (positiva: tra 0° e −30°, ancora normale; negativa: deviazione a sinistra); DI negativa e aVF positiva, deviazione a destra; tutte e due negative, deviazione estrema. Per stimare i gradi si cerca il QRS isodifasico: l'asse è perpendicolare a quella derivazione.",
  enc:["ecg-asse","ecg-lettura","ecg-basi"],gl:["Asse elettrico cardiaco","Sistema esassiale"],st:/ecg|asse|derivazion/i,
  svg:`<svg viewBox="0 0 440 318" role="img" aria-label="Sistema esassiale con i quattro quadranti dell'asse elettrico e i due metodi per calcolarlo: DI più aVF e derivazione isodifasica">
- <rect x="8" y="4" width="232" height="310" rx="10" class="eyrow"/>
+ <rect x="8" y="4" width="232" height="310" rx="2" class="eyrow"/>
  <path d="M124 150L214.0 150.0A90 90 0 0 1 124.0 240.0Z" fill="#2f8f8a" opacity=".16"/>
  <path d="M124 150L124.0 60.0A90 90 0 0 1 214.0 150.0Z" fill="#d9902f" opacity=".16"/>
  <path d="M124 150L124.0 240.0A90 90 0 0 1 34.0 150.0Z" fill="#d9534f" opacity=".16"/>
@@ -234,29 +234,29 @@ const FIGURE=[
  <g class="vf k6"><path d="M46.1 195.0L201.9 105.0" stroke="#d9902f" stroke-width="2.8" fill="none"/><path d="M79.0 72.1L124 150" stroke="#2f8f8a" stroke-width="1.6" stroke-dasharray="4 3" fill="none"/><g class=""><path d="M124 150L162.5 216.7" stroke="#2f8f8a" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M167.0 224.5L168.5 209.1L152.9 218.1Z" fill="#2f8f8a"/></g><path d="M136.1 143.0L143.1 155.1L131.0 162.1" fill="none" stroke="#2f8f8a" stroke-width="1.4"/></g>
  <circle cx="124" cy="150" r="3.4" class="fv"/>
  <g class="ft fsm"><text x="16" y="20">piano frontale · gradi positivi in senso orario</text><text x="124" y="290" text-anchor="middle">asse normale: da −30° a +90°</text><text x="124" y="304" text-anchor="middle">oltre −30° sinistra · oltre +90° destra</text></g>
- <rect x="248" y="4.0" width="184" height="48" rx="8" class="eyrow"/><rect x="248" y="4.0" width="184" height="48" rx="8" class="fx vf k1" fill="none" stroke="#2f8f8a" style="stroke-width:2.6"/>
+ <rect x="248" y="4.0" width="184" height="48" rx="2" class="eyrow"/><rect x="248" y="4.0" width="184" height="48" rx="8" class="fx vf k1" fill="none" stroke="#2f8f8a" style="stroke-width:2.6"/>
  <path d="M256 30.0h6l2 2l3 -13l3 14l2 -3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M288 30.0h6l2 2l3 -13l3 14l2 -3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
  <g class="ft"><text class="fsm" x="267" y="16.0" text-anchor="middle" style="font-size:9px">DI</text><text class="fsm" x="299" y="16.0" text-anchor="middle" style="font-size:9px">aVF</text><text x="322" y="25.0" font-weight="700" style="font-size:10.5px">Asse normale</text><text class="fsm" x="322" y="39.0" style="font-size:9.6px">da 0° a +90°</text></g>
- <rect x="248" y="56.4" width="184" height="48" rx="8" class="eyrow"/><rect x="248" y="56.4" width="184" height="48" rx="8" class="fx vf k2" fill="none" stroke="#d9902f" style="stroke-width:2.6"/>
+ <rect x="248" y="56.4" width="184" height="48" rx="2" class="eyrow"/><rect x="248" y="56.4" width="184" height="48" rx="8" class="fx vf k2" fill="none" stroke="#d9902f" style="stroke-width:2.6"/>
  <path d="M256 82.4h6l2 2l3 -13l3 14l2 -3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M288 82.4h6l2 -2l3 13l3 -14l2 3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
  <g class="ft"><text class="fsm" x="267" y="68.4" text-anchor="middle" style="font-size:9px">DI</text><text class="fsm" x="299" y="68.4" text-anchor="middle" style="font-size:9px">aVF</text><text x="322" y="77.4" font-weight="700" style="font-size:10.5px">Guardare DII</text><text class="fsm" x="322" y="91.4" style="font-size:9.6px">normale o sinistra</text></g>
- <rect x="248" y="108.8" width="184" height="48" rx="8" class="eyrow"/><rect x="248" y="108.8" width="184" height="48" rx="8" class="fx vf k3" fill="none" stroke="#d9534f" style="stroke-width:2.6"/>
+ <rect x="248" y="108.8" width="184" height="48" rx="2" class="eyrow"/><rect x="248" y="108.8" width="184" height="48" rx="8" class="fx vf k3" fill="none" stroke="#d9534f" style="stroke-width:2.6"/>
  <path d="M256 134.8h6l2 -2l3 13l3 -14l2 3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M288 134.8h6l2 2l3 -13l3 14l2 -3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
  <g class="ft"><text class="fsm" x="267" y="120.8" text-anchor="middle" style="font-size:9px">DI</text><text class="fsm" x="299" y="120.8" text-anchor="middle" style="font-size:9px">aVF</text><text x="322" y="129.8" font-weight="700" style="font-size:10.5px">Deviazione destra</text><text class="fsm" x="322" y="143.8" style="font-size:9.6px">da +90° a 180°</text></g>
- <rect x="248" y="161.2" width="184" height="48" rx="8" class="eyrow"/><rect x="248" y="161.2" width="184" height="48" rx="8" class="fx vf k4" fill="none" stroke="#8a5cd6" style="stroke-width:2.6"/>
+ <rect x="248" y="161.2" width="184" height="48" rx="2" class="eyrow"/><rect x="248" y="161.2" width="184" height="48" rx="8" class="fx vf k4" fill="none" stroke="#8a5cd6" style="stroke-width:2.6"/>
  <path d="M256 187.2h6l2 -2l3 13l3 -14l2 3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M288 187.2h6l2 -2l3 13l3 -14l2 3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
  <g class="ft"><text class="fsm" x="267" y="173.2" text-anchor="middle" style="font-size:9px">DI</text><text class="fsm" x="299" y="173.2" text-anchor="middle" style="font-size:9px">aVF</text><text x="322" y="182.2" font-weight="700" style="font-size:10.5px">Deviazione estrema</text><text class="fsm" x="322" y="196.2" style="font-size:9.6px">da −90° a 180°</text></g>
- <rect x="248" y="213.6" width="184" height="48" rx="8" class="eyrow"/><rect x="248" y="213.6" width="184" height="48" rx="8" class="fx vf k5" fill="none" stroke="#2f8f8a" style="stroke-width:2.6"/>
+ <rect x="248" y="213.6" width="184" height="48" rx="2" class="eyrow"/><rect x="248" y="213.6" width="184" height="48" rx="8" class="fx vf k5" fill="none" stroke="#2f8f8a" style="stroke-width:2.6"/>
  <path d="M256 239.6h6l2 2l3 -13l3 14l2 -3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M288 239.6h6l2 -2l3 13l3 -14l2 3h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
  <g class="ft"><text class="fsm" x="267" y="225.6" text-anchor="middle" style="font-size:9px">DII</text><text class="fsm" x="299" y="225.6" text-anchor="middle" style="font-size:9px"></text><text x="322" y="234.6" font-weight="700" style="font-size:9.6px">DII + : 0°/−30°, normale</text><text class="fsm" x="322" y="248.6" style="font-size:9.6px">DII − : deviazione sinistra</text></g>
- <rect x="248" y="266.0" width="184" height="48" rx="8" class="eyrow"/><rect x="248" y="266.0" width="184" height="48" rx="8" class="fx vf k6" fill="none" stroke="#2f8f8a" style="stroke-width:2.6"/>
+ <rect x="248" y="266.0" width="184" height="48" rx="2" class="eyrow"/><rect x="248" y="266.0" width="184" height="48" rx="8" class="fx vf k6" fill="none" stroke="#2f8f8a" style="stroke-width:2.6"/>
  <path d="M256 292.0h6l2 -1l3 -8l4 16l3 -8l2 1h6" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
  <g class="ft"><text class="fsm" x="269" y="278.0" text-anchor="middle" style="font-size:9px">aVL</text><text x="290" y="287.0" font-weight="700" style="font-size:10.5px">QRS isodifasico</text><text class="fsm" x="290" y="301.0" style="font-size:9.6px">asse a 90° da lì: qui +60°</text></g>
  </svg>`},
 {id:"avrt-circuiti",t:"WPW e AVRT: il circuito decide il QRS",c:"Tre circuiti a confronto, evidenziati a turno. Con ritmo sinusale l'impulso passa insieme dal nodo AV e dal Kent: PR corto, onda delta, QRS largo. Nell'AVRT ortodromica scende dal nodo AV e risale dal Kent: QRS stretto, con la P retrograda nell'ST. Nell'antidromica scende dal Kent: QRS largo, simile a una TV. Trappola: nell'antidromica niente farmaci che bloccano il nodo AV.",
  enc:["ecg-avrt","ecg-preeccitazione"],gl:["AVRT","Intervallo RP"],st:/ecg|tachicardi|wpw|pre-eccit/i,
  svg:`<svg viewBox="0 0 440 326" role="img" aria-label="Tre circuiti tra atri e ventricoli: ritmo sinusale con pre-eccitazione, AVRT ortodromica con QRS stretto, AVRT antidromica con QRS largo">
- <rect x="8" y="4" width="424" height="100" rx="10" class="eyrow"/><rect x="8" y="4" width="424" height="100" rx="10" class="fx ans" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="4" width="424" height="100" rx="2" class="eyrow"/><rect x="8" y="4" width="424" height="100" rx="10" class="fx ans" fill="none" style="stroke-width:2.6"/>
  <rect x="20" y="18" width="104" height="24" rx="5" class="ff fl" style="stroke-width:1.4"/><rect x="20" y="66" width="104" height="26" rx="5" class="ff fl" style="stroke-width:1.4"/>
  <g class="ft fsm" style="font-size:9.6px"><text x="26" y="34">atri</text><text x="26" y="83">ventricoli</text><text x="38" y="57" fill="#c0392b">Kent</text><text x="104" y="57">AV</text></g>
  <path d="M34 42V66" stroke="#c0392b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M96 42V66" stroke="var(--muted)" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="96" cy="51" r="4" class="ff fl" style="stroke-width:1.4"/>
@@ -266,7 +266,7 @@ const FIGURE=[
  <rect x="150" y="42" width="274" height="54" rx="6" style="fill:var(--ecg-bg);stroke:var(--ecg-edge)"/>
  <path d="M160 83h8q4 -6 8 0h6l10 -3l10 -10l8 -13l10 +30l10 -4h14q8 -10 16 0h12 M290 83h8q4 -6 8 0h6l10 -3l10 -10l8 -13l10 +30l10 -4h14q8 -10 16 0h12" class="etr" style="stroke-width:1.7"/>
  <text class="ft fsm" x="418" y="52" text-anchor="end" style="font-size:9.6px">PR corto, onda delta, QRS largo</text>
- <rect x="8" y="112" width="424" height="100" rx="10" class="eyrow"/><rect x="8" y="112" width="424" height="100" rx="10" class="fx ans s2" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="112" width="424" height="100" rx="2" class="eyrow"/><rect x="8" y="112" width="424" height="100" rx="10" class="fx ans s2" fill="none" style="stroke-width:2.6"/>
  <rect x="20" y="126" width="104" height="24" rx="5" class="ff fl" style="stroke-width:1.4"/><rect x="20" y="174" width="104" height="26" rx="5" class="ff fl" style="stroke-width:1.4"/>
  <g class="ft fsm" style="font-size:9.6px"><text x="26" y="142">atri</text><text x="26" y="191">ventricoli</text><text x="38" y="165" fill="#c0392b">Kent</text><text x="104" y="165">AV</text></g>
  <path d="M34 150V174" stroke="#c0392b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M96 150V174" stroke="var(--muted)" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="96" cy="159" r="4" class="ff fl" style="stroke-width:1.4"/>
@@ -276,7 +276,7 @@ const FIGURE=[
  <rect x="150" y="150" width="274" height="54" rx="6" style="fill:var(--ecg-bg);stroke:var(--ecg-edge)"/>
  <path d="M160 191h8l4 3l4 -22l4 +28l4 -9h6q3 -6 6 0h4q6 -7 12 0h6 M222 191h8l4 3l4 -22l4 +28l4 -9h6q3 -6 6 0h4q6 -7 12 0h6 M284 191h8l4 3l4 -22l4 +28l4 -9h6q3 -6 6 0h4q6 -7 12 0h6 M346 191h8l4 3l4 -22l4 +28l4 -9h6q3 -6 6 0h4q6 -7 12 0h6" class="etr" style="stroke-width:1.7"/>
  <text class="ft fsm" x="418" y="160" text-anchor="end" style="font-size:9.6px">QRS stretto, P retrograda nell'ST</text>
- <rect x="8" y="220" width="424" height="100" rx="10" class="eyrow"/><rect x="8" y="220" width="424" height="100" rx="10" class="fx ans s3" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="220" width="424" height="100" rx="2" class="eyrow"/><rect x="8" y="220" width="424" height="100" rx="10" class="fx ans s3" fill="none" style="stroke-width:2.6"/>
  <rect x="20" y="234" width="104" height="24" rx="5" class="ff fl" style="stroke-width:1.4"/><rect x="20" y="282" width="104" height="26" rx="5" class="ff fl" style="stroke-width:1.4"/>
  <g class="ft fsm" style="font-size:9.6px"><text x="26" y="250">atri</text><text x="26" y="299">ventricoli</text><text x="38" y="273" fill="#c0392b">Kent</text><text x="104" y="273">AV</text></g>
  <path d="M34 258V282" stroke="#c0392b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M96 258V282" stroke="var(--muted)" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="96" cy="267" r="4" class="ff fl" style="stroke-width:1.4"/>
@@ -290,32 +290,32 @@ const FIGURE=[
 {id:"antipertensivi-desinenze",t:"Antipertensivi: la desinenza dice la classe",c:"Sei classi evidenziate a turno. -pril e -sartan agiscono sul sistema renina-angiotensina (enzima e recettore), -olol frena il cuore, -dipina dilata le arterie, -azosina rilassa i vasi, gli agonisti alfa-2 centrali (clonidina, guanfacina) non hanno una desinenza comune. Attenzione: verapamil e diltiazem sono calcio-antagonisti ma non finiscono in -dipina.",
  enc:["antipertensivi-desinenze","ipertensione","diuretici"],gl:["ACE-inibitori","Beta-bloccanti"],st:/ipertension|pressione|antipert|farmac/i,
  svg:`<svg viewBox="0 0 440 326" role="img" aria-label="Sei classi di farmaci antipertensivi con la desinenza del nome, il meccanismo e gli esempi">
- <rect x="8" y="4" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="4" width="424" height="50" rx="9" class="fx vf k1" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="4" width="424" height="50" rx="2" class="eyrow"/><rect x="8" y="4" width="424" height="50" rx="9" class="fx vf k1" fill="none" style="stroke-width:2.6"/>
  <rect x="16" y="13" width="80" height="32" rx="16" fill="#4a90d9" opacity=".22"/><rect x="16" y="13" width="80" height="32" rx="16" fill="none" stroke="#4a90d9" stroke-width="1.6"/>
  <text x="56" y="34" text-anchor="middle" class="ft" font-weight="700" style="font-size:14px">-pril</text>
  <g class="ft"><text x="108" y="23" font-weight="700" style="font-size:11px">ACE-inibitori</text><text class="fsm" x="108" y="36" style="font-size:10px">bloccano la produzione di angiotensina II</text><text class="fsm" x="108" y="48" style="font-size:9.6px" font-style="italic">enalapril, ramipril, lisinopril</text></g>
  <circle cx="418" cy="29" r="5" fill="#4a90d9"/>
- <rect x="8" y="58" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="58" width="424" height="50" rx="9" class="fx vf k2" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="58" width="424" height="50" rx="2" class="eyrow"/><rect x="8" y="58" width="424" height="50" rx="9" class="fx vf k2" fill="none" style="stroke-width:2.6"/>
  <rect x="16" y="67" width="80" height="32" rx="16" fill="#8a5cd6" opacity=".22"/><rect x="16" y="67" width="80" height="32" rx="16" fill="none" stroke="#8a5cd6" stroke-width="1.6"/>
  <text x="56" y="88" text-anchor="middle" class="ft" font-weight="700" style="font-size:12.5px">-sartan</text>
  <g class="ft"><text x="108" y="77" font-weight="700" style="font-size:11px">Sartani (antagonisti AT1)</text><text class="fsm" x="108" y="90" style="font-size:10px">bloccano il recettore dell'angiotensina II</text><text class="fsm" x="108" y="102" style="font-size:9.6px" font-style="italic">losartan, valsartan, candesartan</text></g>
  <circle cx="418" cy="83" r="5" fill="#8a5cd6"/>
- <rect x="8" y="112" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="112" width="424" height="50" rx="9" class="fx vf k3" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="112" width="424" height="50" rx="2" class="eyrow"/><rect x="8" y="112" width="424" height="50" rx="9" class="fx vf k3" fill="none" style="stroke-width:2.6"/>
  <rect x="16" y="121" width="80" height="32" rx="16" fill="#d9902f" opacity=".22"/><rect x="16" y="121" width="80" height="32" rx="16" fill="none" stroke="#d9902f" stroke-width="1.6"/>
  <text x="56" y="142" text-anchor="middle" class="ft" font-weight="700" style="font-size:14px">-olol</text>
  <g class="ft"><text x="108" y="131" font-weight="700" style="font-size:11px">Beta-bloccanti</text><text class="fsm" x="108" y="144" style="font-size:10px">rallentano e riposano il cuore</text><text class="fsm" x="108" y="156" style="font-size:9.6px" font-style="italic">bisoprololo, metoprololo, atenololo</text></g>
  <circle cx="418" cy="137" r="5" fill="#d9902f"/>
- <rect x="8" y="166" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="166" width="424" height="50" rx="9" class="fx vf k4" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="166" width="424" height="50" rx="2" class="eyrow"/><rect x="8" y="166" width="424" height="50" rx="9" class="fx vf k4" fill="none" style="stroke-width:2.6"/>
  <rect x="16" y="175" width="80" height="32" rx="16" fill="#2f8f8a" opacity=".22"/><rect x="16" y="175" width="80" height="32" rx="16" fill="none" stroke="#2f8f8a" stroke-width="1.6"/>
  <text x="56" y="196" text-anchor="middle" class="ft" font-weight="700" style="font-size:12.5px">-dipina</text>
  <g class="ft"><text x="108" y="185" font-weight="700" style="font-size:11px">Calcio-antagonisti diidropiridinici</text><text class="fsm" x="108" y="198" style="font-size:10px">dilatano le arterie</text><text class="fsm" x="108" y="210" style="font-size:9.6px" font-style="italic">amlodipina, nifedipina, felodipina</text></g>
  <circle cx="418" cy="191" r="5" fill="#2f8f8a"/>
- <rect x="8" y="220" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="220" width="424" height="50" rx="9" class="fx vf k5" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="220" width="424" height="50" rx="2" class="eyrow"/><rect x="8" y="220" width="424" height="50" rx="9" class="fx vf k5" fill="none" style="stroke-width:2.6"/>
  <rect x="16" y="229" width="80" height="32" rx="16" fill="#b04fb5" opacity=".22"/><rect x="16" y="229" width="80" height="32" rx="16" fill="none" stroke="#b04fb5" stroke-width="1.6"/>
  <text x="56" y="250" text-anchor="middle" class="ft" font-weight="700" style="font-size:12.5px">-azosina</text>
  <g class="ft"><text x="108" y="239" font-weight="700" style="font-size:11px">Alfa-1 bloccanti</text><text class="fsm" x="108" y="252" style="font-size:10px">rilassano i vasi</text><text class="fsm" x="108" y="264" style="font-size:9.6px" font-style="italic">doxazosina, prazosina, terazosina</text></g>
  <circle cx="418" cy="245" r="5" fill="#b04fb5"/>
- <rect x="8" y="274" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="274" width="424" height="50" rx="9" class="fx vf k6" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="274" width="424" height="50" rx="2" class="eyrow"/><rect x="8" y="274" width="424" height="50" rx="9" class="fx vf k6" fill="none" style="stroke-width:2.6"/>
  <rect x="16" y="283" width="80" height="32" rx="16" fill="#3a9d6a" opacity=".22"/><rect x="16" y="283" width="80" height="32" rx="16" fill="none" stroke="#3a9d6a" stroke-width="1.6"/>
  <text x="56" y="304" text-anchor="middle" class="ft" font-weight="700" style="font-size:12.5px">nessuna</text>
  <g class="ft"><text x="108" y="293" font-weight="700" style="font-size:11px">Agonisti alfa-2 centrali</text><text class="fsm" x="108" y="306" style="font-size:10px">riducono il tono simpatico dal cervello</text><text class="fsm" x="108" y="318" style="font-size:9.6px" font-style="italic">clonidina, guanfacina</text></g>
@@ -324,7 +324,7 @@ const FIGURE=[
 {id:"ipp-pompa",t:"IPP: come bloccano la pompa dell'acido",c:"A sinistra la cellula parietale dello stomaco pompa ioni idrogeno nel lume: è così che si forma l'acido. A destra l'IPP si lega alla pompa e la blocca, gli ioni restano nella cellula e il lume diventa meno acido. Sotto, le indicazioni principali. Non tutti gli IPP hanno le stesse indicazioni autorizzate.",
  enc:["ipp","emorragia-digestiva"],gl:["IPP","Pompa protonica"],st:/stomaco|gastr|ulcer|reflusso|ipp|acid/i,
  svg:`<svg viewBox="0 0 440 300" role="img" aria-label="Pompa protonica della cellula parietale: senza IPP gli ioni idrogeno passano nel lume gastrico, con IPP la pompa è bloccata; sotto le indicazioni principali">
- <rect x="8" y="4" width="208" height="214" rx="10" class="eyrow"/>
+ <rect x="8" y="4" width="208" height="214" rx="2" class="eyrow"/>
  <text x="20" y="22" class="ft" font-weight="700" style="font-size:10.5px">Senza IPP: l'acido esce</text>
  <rect x="20" y="30" width="184" height="46" rx="5" fill="#d9902f" opacity="0.2"/>
  <text x="28" y="46" class="ft fsm" style="font-size:9.6px">lume gastrico</text><text x="196" y="46" text-anchor="end" class="ft fsm" style="font-size:9.6px">molto acido</text>
@@ -337,7 +337,7 @@ const FIGURE=[
  <circle class="fv anm" r="5"><animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite" path="M112 160V34"/></circle>
  <circle class="fv anm" r="5"><animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite" path="M112 160V34"/></circle>
  <text x="28" y="168" class="ft fsm" style="font-size:9.6px">ioni H⁺ verso il lume</text>
- <rect x="224" y="4" width="208" height="214" rx="10" class="eyrow"/>
+ <rect x="224" y="4" width="208" height="214" rx="2" class="eyrow"/>
  <text x="236" y="22" class="ft" font-weight="700" style="font-size:10.5px">Con IPP: la pompa è bloccata</text>
  <rect x="236" y="30" width="184" height="46" rx="5" fill="#d9902f" opacity="0.06"/>
  <text x="244" y="46" class="ft fsm" style="font-size:9.6px">lume gastrico</text><text x="412" y="46" text-anchor="end" class="ft fsm" style="font-size:9.6px">meno acido</text>
@@ -365,32 +365,32 @@ const FIGURE=[
 {id:"vie-metaboliche",t:"Metabolismo: le tappe che si vedono in corsia",c:"Sei tappe evidenziate a turno. La glicolisi trasforma il glucosio in piruvato; con ossigeno il piruvato alimenta Krebs e catena respiratoria (circa 30 ATP per glucosio), senza ossigeno diventa lattato. Il fegato rifà glucosio dal lattato (ciclo di Cori), produce chetoni quando manca l'insulina e trasforma l'ammoniaca in urea. Ogni blocco ha un riscontro clinico: glicemia, lattato, chetoni, ammoniemia.",
  enc:["vie-metaboliche","es-chetoni","es-ammoniemia"],gl:["Gluconeogenesi","Ciclo di Cori"],st:/metabol|glicemi|lattat|chetoni|ammoni|fegato/i,
  svg:`<svg viewBox="0 0 440 326" role="img" aria-label="Sei tappe del metabolismo che si vedono in corsia: glicolisi, ciclo di Krebs, lattato, ciclo di Cori, chetoni e ciclo dell'urea">
- <rect x="8" y="4" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="4" width="424" height="50" rx="9" class="fx vf k1" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="4" width="424" height="50" rx="2" class="eyrow"/><rect x="8" y="4" width="424" height="50" rx="9" class="fx vf k1" fill="none" style="stroke-width:2.6"/>
  <rect x="16" y="13" width="80" height="32" rx="16" fill="#4a90d9" opacity=".22"/><rect x="16" y="13" width="80" height="32" rx="16" fill="none" stroke="#4a90d9" stroke-width="1.6"/>
  <text x="56" y="34" text-anchor="middle" class="ft" font-weight="700" style="font-size:13px">Glicolisi</text>
  <g class="ft"><text x="108" y="23" font-weight="700" style="font-size:11px">Glucosio → piruvato</text><text class="fsm" x="108" y="36" style="font-size:10px">citoplasma, senza ossigeno: 2 ATP netti</text><text class="fsm" x="108" y="48" style="font-size:9.6px" font-style="italic">è ciò che misura la glicemia</text></g>
  <circle cx="418" cy="29" r="5" fill="#4a90d9"/>
- <rect x="8" y="58" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="58" width="424" height="50" rx="9" class="fx vf k2" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="58" width="424" height="50" rx="2" class="eyrow"/><rect x="8" y="58" width="424" height="50" rx="9" class="fx vf k2" fill="none" style="stroke-width:2.6"/>
  <rect x="16" y="67" width="80" height="32" rx="16" fill="#3a9d6a" opacity=".22"/><rect x="16" y="67" width="80" height="32" rx="16" fill="none" stroke="#3a9d6a" stroke-width="1.6"/>
  <text x="56" y="88" text-anchor="middle" class="ft" font-weight="700" style="font-size:13px">Krebs</text>
  <g class="ft"><text x="108" y="77" font-weight="700" style="font-size:11px">Con ossigeno: la centrale dell'ATP</text><text class="fsm" x="108" y="90" style="font-size:10px">mitocondri: ciclo di Krebs e catena respiratoria</text><text class="fsm" x="108" y="102" style="font-size:9.6px" font-style="italic">circa 30 ATP per glucosio</text></g>
  <circle cx="418" cy="83" r="5" fill="#3a9d6a"/>
- <rect x="8" y="112" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="112" width="424" height="50" rx="9" class="fx vf k3" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="112" width="424" height="50" rx="2" class="eyrow"/><rect x="8" y="112" width="424" height="50" rx="9" class="fx vf k3" fill="none" style="stroke-width:2.6"/>
  <rect x="16" y="121" width="80" height="32" rx="16" fill="#d9902f" opacity=".22"/><rect x="16" y="121" width="80" height="32" rx="16" fill="none" stroke="#d9902f" stroke-width="1.6"/>
  <text x="56" y="142" text-anchor="middle" class="ft" font-weight="700" style="font-size:12.5px">Lattato</text>
  <g class="ft"><text x="108" y="131" font-weight="700" style="font-size:11px">Senza ossigeno il piruvato diventa lattato</text><text class="fsm" x="108" y="144" style="font-size:10px">shock, sepsi, ipoperfusione dei tessuti</text><text class="fsm" x="108" y="156" style="font-size:9.6px" font-style="italic">acidosi lattica</text></g>
  <circle cx="418" cy="137" r="5" fill="#d9902f"/>
- <rect x="8" y="166" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="166" width="424" height="50" rx="9" class="fx vf k4" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="166" width="424" height="50" rx="2" class="eyrow"/><rect x="8" y="166" width="424" height="50" rx="9" class="fx vf k4" fill="none" style="stroke-width:2.6"/>
  <rect x="16" y="175" width="80" height="32" rx="16" fill="#8a5cd6" opacity=".22"/><rect x="16" y="175" width="80" height="32" rx="16" fill="none" stroke="#8a5cd6" stroke-width="1.6"/>
  <text x="56" y="196" text-anchor="middle" class="ft" font-weight="700" style="font-size:14px">Cori</text>
  <g class="ft"><text x="108" y="185" font-weight="700" style="font-size:11px">Il fegato rifà glucosio dal lattato</text><text class="fsm" x="108" y="198" style="font-size:10px">gluconeogenesi: anche da aminoacidi e glicerolo</text><text class="fsm" x="108" y="210" style="font-size:9.6px" font-style="italic">digiuno, epatopatia, alcol: ipoglicemia</text></g>
  <circle cx="418" cy="191" r="5" fill="#8a5cd6"/>
- <rect x="8" y="220" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="220" width="424" height="50" rx="9" class="fx vf k5" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="220" width="424" height="50" rx="2" class="eyrow"/><rect x="8" y="220" width="424" height="50" rx="9" class="fx vf k5" fill="none" style="stroke-width:2.6"/>
  <rect x="16" y="229" width="80" height="32" rx="16" fill="#c0392b" opacity=".22"/><rect x="16" y="229" width="80" height="32" rx="16" fill="none" stroke="#c0392b" stroke-width="1.6"/>
  <text x="56" y="250" text-anchor="middle" class="ft" font-weight="700" style="font-size:13px">Chetoni</text>
  <g class="ft"><text x="108" y="239" font-weight="700" style="font-size:11px">Poca insulina: acidi grassi → chetoni</text><text class="fsm" x="108" y="252" style="font-size:10px">digiuno prolungato e diabete senza insulina</text><text class="fsm" x="108" y="264" style="font-size:9.6px" font-style="italic">chetoacidosi diabetica</text></g>
  <circle cx="418" cy="245" r="5" fill="#c0392b"/>
- <rect x="8" y="274" width="424" height="50" rx="9" class="eyrow"/><rect x="8" y="274" width="424" height="50" rx="9" class="fx vf k6" fill="none" style="stroke-width:2.6"/>
+ <rect x="8" y="274" width="424" height="50" rx="2" class="eyrow"/><rect x="8" y="274" width="424" height="50" rx="9" class="fx vf k6" fill="none" style="stroke-width:2.6"/>
  <rect x="16" y="283" width="80" height="32" rx="16" fill="#2f8f8a" opacity=".22"/><rect x="16" y="283" width="80" height="32" rx="16" fill="none" stroke="#2f8f8a" stroke-width="1.6"/>
  <text x="56" y="304" text-anchor="middle" class="ft" font-weight="700" style="font-size:14px">Urea</text>
  <g class="ft"><text x="108" y="293" font-weight="700" style="font-size:11px">Il fegato trasforma l'ammoniaca in urea</text><text class="fsm" x="108" y="306" style="font-size:10px">l'urea esce con le urine</text><text class="fsm" x="108" y="318" style="font-size:9.6px" font-style="italic">epatopatia: ammoniaca alta, encefalopatia</text></g>
@@ -578,7 +578,7 @@ const FIGURE=[
   +FT.text(8,264,"Lattati normali < 2 mmol/L · prelievo arterioso radiale dopo il test di Allen",{sm:true}))},
 {id:"ossigeno-dispositivi",t:"Ossigeno: dispositivi, flussi e FiO₂",c:"Ogni dispositivo copre un intervallo diverso di FiO₂: si sceglie in base al bisogno e si titola sul bersaglio di SpO₂. La maschera di Venturi dà una FiO₂ precisa.",
  enc:["ossigenoterapia"],gl:[],st:/ossigen|respir|ipossi/i,
- svg:(()=>{const X=p=>140+(p-20)*3.55,row=(i,n,f,a,b,k)=>{const y=34+i*50;return FT.text(8,y+11,n,{b:true})+FT.text(8,y+24,f,{sm:true})+`<rect class="fbx k-${k}" x="${X(a)}" y="${y}" width="${X(b)-X(a)}" height="22" rx="5"/>`+(k==="ok"?FT.text(X(a)-6,y+15,"circa "+a+"-"+b+"%",{a:"end",sm:true,c:"halo"}):FT.text(X(b)+6,y+15,a+"-"+b+"%",{sm:true}))};
+ svg:(()=>{const X=p=>140+(p-20)*3.55,row=(i,n,f,a,b,k)=>{const y=34+i*50;return FT.text(8,y+11,n,{b:true})+FT.text(8,y+24,f,{sm:true})+`<rect class="fbx k-${k}" x="${X(a)}" y="${y}" width="${X(b)-X(a)}" height="22" rx="2"/>`+(k==="ok"?FT.text(X(a)-6,y+15,"circa "+a+"-"+b+"%",{a:"end",sm:true,c:"halo"}):FT.text(X(b)+6,y+15,a+"-"+b+"%",{sm:true}))};
   return FT.svg(440,340,"Barre della FiO₂ ottenibile con cannule nasali, maschera semplice, Venturi, reservoir e alti flussi, e il bersaglio di SpO₂",
    [20,40,60,80,100].map(p=>`<path class="dash" d="M${X(p)} 22V228"/>`+FT.text(X(p),16,p+"%",{a:"middle",sm:true})).join("")
    +row(0,"Cannule nasali","1-6 L/min",24,44,"info")+row(1,"Maschera semplice","5-10 L/min",40,60,"info")+row(2,"Maschera di Venturi","FiO₂ precisa",24,60,"warn")
@@ -628,7 +628,7 @@ const FIGURE=[
   +FT.box(316,100,116,74,["Eparina","non frazionata"],["potenzia","l'antitrombina:","Xa e trombina"],"ok")+FT.arrow(316,137,295,134,{dash:true})
   +FT.box(316,182,116,44,"Dabigatran",["blocca la trombina"],"ok")+FT.arrow(316,204,295,180,{dash:true})
   +FT.text(8,262,"Antidoto e controllo",{b:true})
-  +[["Eparina non frazionata","protamina","aPTT"],["Warfarin","vitamina K + PCC","INR"],["Dabigatran","idarucizumab","senza INR"],["Anti-Xa orali","andexanet alfa (emorragia grave)","senza INR"]].map((r,i)=>{const y=270+i*26;return `<rect class="fbx" x="8" y="${y}" width="424" height="22" rx="6"/>`+FT.text(16,y+15,r[0],{b:true})+FT.text(160,y+15,r[1])+FT.text(424,y+15,r[2],{a:"end",sm:true})}).join("")
+  +[["Eparina non frazionata","protamina","aPTT"],["Warfarin","vitamina K + PCC","INR"],["Dabigatran","idarucizumab","senza INR"],["Anti-Xa orali","andexanet alfa (emorragia grave)","senza INR"]].map((r,i)=>{const y=270+i*26;return `<rect class="fbx" x="8" y="${y}" width="424" height="22" rx="2"/>`+FT.text(16,y+15,r[0],{b:true})+FT.text(160,y+15,r[1])+FT.text(424,y+15,r[2],{a:"end",sm:true})}).join("")
   +FT.text(8,384,"PCC: concentrato di complesso protrombinico",{sm:true}))},
 {id:"giunzione-neuromuscolare",t:"Giunzione neuromuscolare e miorilassanti",c:"L'acetilcolina rilasciata dal nervo attiva i recettori del muscolo e provoca la contrazione. Il blocco si può produrre agendo sul recettore e si inverte aumentando l'acetilcolina (neostigmina) o inattivando il farmaco (sugammadex).",
  enc:["anest-miorilassanti"],gl:[],st:/miorilass|anestes|giunzione|curar/i,
@@ -638,9 +638,9 @@ const FIGURE=[
   +[100,180,235,345].map(x=>FT.arrow(x,68,x,104,{h:6})).join("")
   +[[92,92],[108,96],[172,94],[188,92],[227,96],[243,92],[337,94],[353,96]].map(p=>`<circle class="fh" cx="${p[0]}" cy="${p[1]}" r="2.6"/>`).join("")
   +FT.text(372,100,"acetilcolina",{sm:true})
-  +`<rect class="fbx" x="20" y="116" width="400" height="48" rx="8"/>`
-  +[60,168].map(x=>`<rect class="fbx k-ok" x="${x-11}" y="110" width="22" height="14" rx="3"/>`).join("")
-  +`<rect class="fbx k-warn" x="265" y="92" width="22" height="12" rx="3"/>`
+  +`<rect class="fbx" x="20" y="116" width="400" height="48" rx="2"/>`
+  +[60,168].map(x=>`<rect class="fbx k-ok" x="${x-11}" y="110" width="22" height="14" rx="2"/>`).join("")
+  +`<rect class="fbx k-warn" x="265" y="92" width="22" height="12" rx="2"/>`
   +FT.text(410,144,"Fibra muscolare",{a:"end",b:true})+FT.text(84,148,"recettori",{sm:true})+FT.text(292,101,"enzima",{sm:true})
   +FT.box(8,186,104,84,["Succinilcolina"],["depolarizzante:","lo attiva in modo","prolungato"],"alarm")+FT.arrow(60,186,60,127,{dash:true,h:6})
   +FT.box(116,186,104,84,["Non","depolarizzanti"],["bloccano il","recettore","(rocuronio…)"],"alarm")+FT.arrow(168,186,168,127,{dash:true,h:6})
@@ -651,12 +651,12 @@ const FIGURE=[
 {id:"eco-formazione-immagine",t:"Come nasce un'immagine ecografica",c:"Gli ultrasuoni attraversano i tessuti e si riflettono dove cambia l'impedenza acustica: più forte la riflessione, più chiaro il punto sullo schermo. L'osso riflette quasi tutto e lascia un'ombra dietro di sé; l'aria blocca il fascio, per questo serve il gel.",
  enc:["eco-principi","eco-artefatti"],gl:[],st:/ecograf|ultrasuon|sonda/i,
  svg:FT.svg(440,296,"Sonda con gel che invia ultrasuoni nei tessuti, echi più deboli dalle interfacce e forti dall'osso con ombra posteriore, e la scala delle luminosità: anecogeno, ipoecogeno, isoecogeno, iperecogeno",
-  `<rect class="fbx k-info" x="76" y="8" width="64" height="24" rx="6"/>`+FT.text(108,24,"Sonda",{a:"middle",b:true})
+  `<rect class="fbx k-info" x="76" y="8" width="64" height="24" rx="2"/>`+FT.text(108,24,"Sonda",{a:"middle",b:true})
   +`<rect class="fa" x="68" y="34" width="80" height="6"/>`+FT.text(154,40,"gel",{sm:true})
   +`<rect class="ff fl" x="20" y="44" width="200" height="176"/>`
   +`<rect class="fa" x="21" y="96" width="198" height="54"/><path class="dash" d="M21 96H219"/>`
   +FT.text(26,64,"tessuto molle",{sm:true})+FT.text(26,114,"liquido",{sm:true})+FT.text(26,128,"(vescica)",{sm:true})
-  +`<rect class="fbx k-warn" x="70" y="150" width="100" height="16" rx="3"/>`+FT.text(120,162,"osso o calcolo",{a:"middle",sm:true})
+  +`<rect class="fbx k-warn" x="70" y="150" width="100" height="16" rx="2"/>`+FT.text(120,162,"osso o calcolo",{a:"middle",sm:true})
   +`<rect class="shd" x="70" y="166" width="100" height="52"/>`+FT.text(120,196,"ombra",{a:"middle",sm:true})
   +FT.arrow(100,42,100,146)+FT.arrow(150,98,150,48,{dash:true,h:6})+FT.arrow(122,148,122,48,{dash:true,h:9})
   +FT.text(158,70,"eco debole",{sm:true})+FT.text(166,128,"eco forte",{sm:true})+FT.text(8,236,["L'aria riflette quasi tutto il fascio:","il gel elimina l'aria tra sonda e pelle."],{sm:true})
@@ -666,9 +666,9 @@ const FIGURE=[
 {id:"eco-sonde",t:"Le tre sonde e che cosa mostrano",c:"La forma dell'immagine dipende dalla sonda: lineare rettangolare, convex a ventaglio, settoriale a cono. Alta frequenza dà più dettaglio ma meno profondità; bassa frequenza scende più in profondità.",
  enc:["eco-sonde"],gl:[],st:/ecograf|sonda|vasi/i,
  svg:FT.svg(440,252,"Tre sonde ecografiche con la forma dell'immagine: lineare rettangolare per vasi e superficie, convex a ventaglio per addome e polmone, settoriale per il cuore",
-  `<rect class="fbx k-info" x="22" y="12" width="108" height="14" rx="4"/><rect class="fbx k-ok" x="22" y="30" width="108" height="84" rx="4"/>`
-  +`<rect class="fbx k-info" x="190" y="12" width="60" height="14" rx="6"/><path class="fbx k-ok" d="M190 30L158 108Q220 126 282 108L250 30Q220 36 190 30Z"/>`
-  +`<rect class="fbx k-info" x="346" y="12" width="36" height="14" rx="6"/><path class="fbx k-ok" d="M364 30L304 108Q364 126 424 108Z"/>`
+  `<rect class="fbx k-info" x="22" y="12" width="108" height="14" rx="2"/><rect class="fbx k-ok" x="22" y="30" width="108" height="84" rx="2"/>`
+  +`<rect class="fbx k-info" x="190" y="12" width="60" height="14" rx="2"/><path class="fbx k-ok" d="M190 30L158 108Q220 126 282 108L250 30Q220 36 190 30Z"/>`
+  +`<rect class="fbx k-info" x="346" y="12" width="36" height="14" rx="2"/><path class="fbx k-ok" d="M364 30L304 108Q364 126 424 108Z"/>`
   +FT.text(76,134,"Lineare",{a:"middle",b:true})+FT.text(220,134,"Convex",{a:"middle",b:true})+FT.text(364,134,"Settoriale",{a:"middle",b:true})
   +FT.text(76,148,["alta frequenza","(7-15 MHz)","vasi, accessi venosi,","pleura, nervi"],{a:"middle",sm:true})
   +FT.text(220,148,["bassa frequenza","addome, vescica, eFAST,","polmone in profondità"],{a:"middle",sm:true})
@@ -715,9 +715,9 @@ const FIGURE=[
   +FT.box(12,70,198,58,"Sotto 60 battiti/min",["in genere non si somministra","senza indicazione medica"],"alarm")
   +FT.box(230,70,198,58,"60 battiti/min o più",["si procede come prescritto"],"ok")
   +FT.text(8,150,"Indice terapeutico stretto",{b:true})
-  +`<rect class="fbx" x="120" y="160" width="312" height="18" rx="5"/><rect class="band" x="150" y="160" width="220" height="18"/>`
+  +`<rect class="fbx" x="120" y="160" width="312" height="18" rx="2"/><rect class="band" x="150" y="160" width="220" height="18"/>`
   +FT.text(8,173,"Margine ampio",{sm:true})+FT.text(260,173,"efficace",{a:"middle",sm:true})
-  +`<rect class="fbx" x="120" y="188" width="312" height="18" rx="5"/><rect class="band" x="260" y="188" width="36" height="18"/>`
+  +`<rect class="fbx" x="120" y="188" width="312" height="18" rx="2"/><rect class="band" x="260" y="188" width="36" height="18"/>`
   +FT.text(8,201,"Digossina",{sm:true,b:true})+FT.text(304,201,"margine ristretto",{sm:true})
   +FT.text(120,222,"dose bassa",{sm:true})+FT.text(432,222,"tossicità",{a:"end",sm:true})
   +FT.box(8,236,208,106,"Segni di tossicità",["nausea, vomito","bradicardia, aritmie","disturbi visivi","(visione gialla-verde)"],"alarm")
@@ -769,7 +769,7 @@ const FIGURE=[
    s+=FT.text(26,y+rh/2+4,String(n),{a:"end",b:true});
    cols.forEach((c,i)=>{const v=c[1][n];if(v===undefined)return;
     const two=Array.isArray(v),k=(i===2&&(n===3||n===2))?"warn":(n===1?"alarm":"");
-    s+=`<rect class="fbx${k?" k-"+k:""}" x="${X[i]}" y="${y}" width="${W}" height="${rh}" rx="6"/>`+FT.text(X[i]+W/2,two?y+rh/2-2:y+rh/2+4,v,{a:"middle",sm:true});
+    s+=`<rect class="fbx${k?" k-"+k:""}" x="${X[i]}" y="${y}" width="${W}" height="${rh}" rx="2"/>`+FT.text(X[i]+W/2,two?y+rh/2-2:y+rh/2+4,v,{a:"middle",sm:true});
    });
   }
   s+=FT.box(8,236,424,62,"Totale = E + V + M: da 3 a 15, ≤ 8 coma",["Si riportano sempre i tre componenti (es. E3 V4 M6)","Nel paziente intubato la V si annota come T"],"warn");
@@ -786,7 +786,7 @@ const FIGURE=[
   let s="";
   rows.forEach((r,i)=>{const y=8+i*48;
    s+=`<rect x="8" y="${y}" width="44" height="44" rx="8" style="fill:${r[1]};stroke:#888;stroke-width:1.2"/><text x="30" y="${y+30}" text-anchor="middle" style="fill:${r[2]};font-size:20px;font-weight:700;font-family:var(--f-body)">${r[0]}</text>`
-   +`<rect class="fbx" x="58" y="${y}" width="374" height="44" rx="8"/>`+FT.text(70,y+19,r[3],{b:true})+FT.text(70,y+34,r[4],{sm:true});
+   +`<rect class="fbx" x="58" y="${y}" width="374" height="44" rx="2"/>`+FT.text(70,y+19,r[3],{b:true})+FT.text(70,y+34,r[4],{sm:true});
   });
   s+=FT.box(8,254,424,50,"Il codice non è definitivo",["I tempi sono massimi di attesa raccomandati, non obiettivi.","Chi attende va rivalutato: il codice cambia se cambiano le condizioni."],"info");
   return FT.svg(440,312,"Cinque riquadri colorati con i codici di triage: 1 rosso accesso immediato, 2 arancione entro 15 minuti, 3 azzurro entro 60, 4 verde entro 120, 5 bianco entro 240",s);
@@ -794,12 +794,12 @@ const FIGURE=[
 {id:"sepsi-percorso",t:"Sepsi: dallo screening al bundle della prima ora",c:"Il qSOFA (2 criteri su 3) segnala un rischio maggiore di esito sfavorevole ma non basta da solo come screening; il bundle raggruppa gli interventi da fare insieme; lo shock settico è definito da vasopressori e lattati nonostante i liquidi. Il NEWS2 è spesso preferito al qSOFA come allerta.",
  enc:["sepsi","bundle"],gl:["qSOFA","Lattati","NEWS2"],st:/sepsi|settic|qsofa|bundle/i,
  svg:(()=>{
-  let s=`<rect class="fbx" x="8" y="8" width="424" height="80" rx="8"/>`+FT.text(220,26,"Screening qSOFA: 2 criteri su 3 = rischio elevato",{a:"middle",b:true});
+  let s=`<rect class="fbx" x="8" y="8" width="424" height="80" rx="2"/>`+FT.text(220,26,"Screening qSOFA: 2 criteri su 3 = rischio elevato",{a:"middle",b:true});
   [["Frequenza","respiratoria ≥ 22"],["Alterazione","mentale"],["Pressione sistolica","≤ 100 mmHg"]].forEach((c,i)=>{s+=FT.box(16+i*138,36,132,44,c,null,"warn")});
   s+=FT.arrow(220,88,220,106);
-  s+=`<rect class="fbx" x="8" y="106" width="424" height="166" rx="8"/>`+FT.text(220,124,"Bundle della prima ora",{a:"middle",b:true});
+  s+=`<rect class="fbx" x="8" y="106" width="424" height="166" rx="2"/>`+FT.text(220,124,"Bundle della prima ora",{a:"middle",b:true});
   ["Lattati","Emocolture prima degli antibiotici","Antibiotici ad ampio spettro","30 ml/kg di cristalloidi se ipotensione o lattati ≥ 4","Vasopressori (noradrenalina) se l'ipotensione persiste"].forEach((t,i)=>{
-   const y=132+i*27;s+=`<rect class="fbx k-ok" x="16" y="${y}" width="408" height="23" rx="6"/>`+FT.text(28,y+16,t);});
+   const y=132+i*27;s+=`<rect class="fbx k-ok" x="16" y="${y}" width="408" height="23" rx="2"/>`+FT.text(28,y+16,t);});
   s+=FT.arrow(220,272,220,290);
   s+=FT.box(8,290,424,58,"Shock settico",["Vasopressori per PAM ≥ 65 mmHg e lattati > 2 mmol/L","nonostante liquidi adeguati"],"alarm");
   s+=FT.text(8,366,"Il NEWS2 è spesso preferito al qSOFA come strumento di allerta.",{sm:true});
@@ -823,7 +823,7 @@ const FIGURE=[
  svg:(()=>{
   const R=[["Frequenza cardiaca",["60-100 battiti/min"],26],["Frequenza respiratoria",["12-20 atti/min"],26],["Pressione arteriosa",["ottimale < 120/80 mmHg","ipertensione ≥ 140/90"],40],["SpO₂",["94-98%","88-92% se prescritto (ipercapnia)"],40],["Temperatura",["36-37,5 °C (ascellare)"],26]];
   let s="",y=8;
-  R.forEach(r=>{s+=FT.text(8,y+r[2]/2+4,r[0],{b:true})+`<rect class="fbx k-ok" x="190" y="${y}" width="242" height="${r[2]}" rx="6"/>`+FT.text(311,r[1].length>1?y+r[2]/2-2:y+r[2]/2+4,r[1],{a:"middle",sm:true});y+=r[2]+4});
+  R.forEach(r=>{s+=FT.text(8,y+r[2]/2+4,r[0],{b:true})+`<rect class="fbx k-ok" x="190" y="${y}" width="242" height="${r[2]}" rx="2"/>`+FT.text(311,r[1].length>1?y+r[2]/2-2:y+r[2]/2+4,r[1],{a:"middle",sm:true});y+=r[2]+4});
   s+=FT.box(8,192,424,56,"NEWS2 combina sette parametri",["frequenza respiratoria, SpO₂, ossigeno sì/no, pressione","sistolica, frequenza cardiaca, coscienza (ACVPU), temperatura"],"info");
   s+=FT.arrow(220,248,220,268);
   s+=FT.box(8,268,136,84,"0-4",["rischio basso","(salvo 3 in un parametro)"],"ok")+FT.box(152,268,136,84,"5-6",["oppure 3 in un","singolo parametro","medio: valutazione","urgente"],"warn")+FT.box(296,268,136,84,"≥ 7",["alto: risposta di","emergenza"],"alarm");
@@ -851,7 +851,7 @@ const FIGURE=[
 {id:"glicolisi-passi",t:"Glicolisi: investimento e recupero di ATP",c:"Nel citoplasma il glucosio spende 2 ATP (investimento), si scinde in due molecole a 3 atomi di carbonio e queste rendono 4 ATP e 2 NADH (recupero): netto 2 ATP, 2 NADH, 2 piruvato. Tre passaggi irreversibili e regolati, con la PFK-1 come controllo principale. Il destino del piruvato dipende dall'ossigeno.",
  enc:["bc-glicolisi"],gl:[],st:/glicol|glucosio|metabol|biochim/i,
  svg:FT.svg(440,448,"Passi della glicolisi dal glucosio al piruvato con gli enzimi regolati, la fase di investimento di 2 ATP e di recupero di 4 ATP e 2 NADH, e il destino del piruvato con o senza ossigeno",
-  `<rect class="fbx k-warn" x="6" y="6" width="428" height="268" rx="12"/><rect class="fbx k-ok" x="6" y="278" width="428" height="72" rx="12"/>`
+  `<rect class="fbx k-warn" x="6" y="6" width="428" height="268" rx="2"/><rect class="fbx k-ok" x="6" y="278" width="428" height="72" rx="2"/>`
   +FT.text(246,24,["Investimento (passi 1-5)","spende 2 ATP"],{b:false,sm:true})
   +FT.box(30,14,200,30,"Glucosio","","info")
   +FT.arrow(130,44,130,70)+FT.text(246,56,["esochinasi: −1 ATP"],{sm:true})
@@ -874,7 +874,7 @@ const FIGURE=[
   const N=[["Citrato (6 C)",220,85,100],["Isocitrato",350,123,88],["α-chetoglutarato",370,215,124],["Succinil-CoA",326,307,100],["Succinato",220,345,86],["Fumarato",114,307,86],["Malato",70,215,76],["Ossalacetato (4 C)",90,123,130]];
   const H=13,edge=(a,b)=>{const dx=b[1]-a[1],dy=b[2]-a[2],hw=a[3]/2+4,hh=H+4,t=Math.min(hw/Math.abs(dx||1e-9),hh/Math.abs(dy||1e-9));return [a[1]+dx*t,a[2]+dy*t]};
   let s="";
-  N.forEach((n,i)=>{s+=`<rect class="fbx k-info" x="${n[1]-n[3]/2}" y="${n[2]-H}" width="${n[3]}" height="${2*H}" rx="8"/>`+FT.text(n[1],n[2]+4.5,n[0],{a:"middle",b:true})});
+  N.forEach((n,i)=>{s+=`<rect class="fbx k-info" x="${n[1]-n[3]/2}" y="${n[2]-H}" width="${n[3]}" height="${2*H}" rx="2"/>`+FT.text(n[1],n[2]+4.5,n[0],{a:"middle",b:true})});
   N.forEach((n,i)=>{const m=N[(i+1)%8];const p=edge(n,m),q=edge(m,n);s+=FT.arrow(p[0],p[1],q[0],q[1])});
   s+=FT.box(20,10,110,26,"Acetil-CoA (2 C)","","ok")+FT.elbow([[130,23],[220,23],[220,70]])+FT.text(228,48,"citrato sintasi",{sm:true});
   s+=FT.text(362,164,["NADH","+ CO2"],{sm:true})+FT.text(362,262,["NADH","+ CO2"],{sm:true});
@@ -906,7 +906,7 @@ const FIGURE=[
 {id:"chetogenesi-percorso",t:"Chetogenesi: dal fegato ai tessuti che usano i chetoni",c:"Nei mitocondri del fegato l'acetil-CoA in eccesso diventa acetoacetato, poi beta-idrossibutirrato o acetone. Cervello, cuore e muscolo bruciano i chetoni, il fegato no. Glucagone e digiuno la attivano, l'insulina la frena: senza insulina la produzione supera l'uso e si arriva alla chetoacidosi.",
  enc:["bc-chetogenesi"],gl:[],st:/chet|digiuno|diabet|biochim|metabol/i,
  svg:FT.svg(440,458,"Via della chetogenesi nei mitocondri del fegato: acetil-CoA, acetoacetil-CoA, HMG-CoA, acetoacetato, beta-idrossibutirrato e acetone; i chetoni sono usati da cervello, cuore e muscolo ma non dal fegato",
-  `<rect class="fbx k-info" x="6" y="22" width="298" height="322" rx="16"/>`+FT.text(200,42,"Mitocondri epatici",{sm:true})
+  `<rect class="fbx k-info" x="6" y="22" width="298" height="322" rx="2"/>`+FT.text(200,42,"Mitocondri epatici",{sm:true})
   +FT.box(20,40,170,30,"Acetil-CoA","","ok")+FT.arrow(105,70,105,100)
   +FT.box(20,100,170,30,"Acetoacetil-CoA","","")+FT.arrow(105,130,105,160)+FT.text(200,141,["HMG-CoA sintasi","mitocondriale","(+ acetil-CoA)"],{sm:true,lh:12})
   +FT.box(20,160,170,30,"HMG-CoA","","")+FT.arrow(105,190,105,220)+FT.text(200,205,["liberato:","acetil-CoA"],{sm:true,lh:12})
@@ -1003,14 +1003,14 @@ const FIGURE=[
 {id:"es-coagulazione-vie",t:"PT e aPTT: quale via guardano e quali valori hanno",c:"Il PT vede la via estrinseca (VII) e la via comune; l'aPTT vede la via intrinseca e la comune. In terapia con warfarin si segue l'INR: bersaglio di solito 2-3, più alto per alcune protesi valvolari meccaniche. Barre indicative.",
  enc:["es-coagulazione"],gl:[],st:/coagul|inr|aptt|warfarin|anticoag/i,
  svg:(()=>{
-  const X=v=>20+(v-0.5)*(400/3.5),bar=(y,a,b,k)=>`<rect class="fbx k-${k}" x="${X(a)}" y="${y}" width="${X(b)-X(a)}" height="18" rx="4"/>`;
+  const X=v=>20+(v-0.5)*(400/3.5),bar=(y,a,b,k)=>`<rect class="fbx k-${k}" x="${X(a)}" y="${y}" width="${X(b)-X(a)}" height="18" rx="2"/>`;
   return FT.svg(440,408,"Schema della coagulazione con via intrinseca (XII, XI, IX, VIII), via estrinseca (VII) e via comune (X, V, II, I); riquadri su che cosa vedono PT e aPTT; asse dell'INR con gli intervalli senza terapia, con warfarin e per alcune protesi valvolari meccaniche; aPTT in secondi",
    FT.text(8,20,"Via intrinseca",{b:true})
-   +["XII","XI","IX","VIII"].map((n,i)=>FT.box(8+i*56,28,44,26,n,"","warn",{rx:5})).join("")
+   +["XII","XI","IX","VIII"].map((n,i)=>FT.box(8+i*56,28,44,26,n,"","warn",{rx:2})).join("")
    +[0,1,2].map(i=>FT.arrow(52+i*56,41,64+i*56,41,{h:6})).join("")
-   +FT.text(8,78,"Via estrinseca",{b:true})+FT.box(8,84,44,26,"VII","","info",{rx:5})
+   +FT.text(8,78,"Via estrinseca",{b:true})+FT.box(8,84,44,26,"VII","","info",{rx:2})
    +FT.text(242,22,"Via comune",{b:true})
-   +["X","V","II","I"].map((n,i)=>FT.box(242+i*50,56,40,26,n,"","",{rx:5})).join("")
+   +["X","V","II","I"].map((n,i)=>FT.box(242+i*50,56,40,26,n,"","",{rx:2})).join("")
    +[0,1,2].map(i=>FT.arrow(282+i*50,69,292+i*50,69,{h:6})).join("")
    +FT.elbow([[220,41],[262,41],[262,56]],{h:6})+FT.elbow([[52,97],[262,97],[262,82]],{h:6})
    +FT.text(242,112,"II = protrombina · I = fibrinogeno",{sm:true})
@@ -1028,7 +1028,7 @@ const FIGURE=[
  svg:(()=>{
   const row=(y,nome,lo,hi,mn,mx,zl,zh,nl,nh)=>{const X=v=>24+(v-mn)/(mx-mn)*392,a=X(lo),b=X(hi);
    return FT.text(8,y,nome,{b:true})
-   +`<rect class="fbx k-warn" x="24" y="${y+8}" width="392" height="22" rx="5"/><rect class="fbx k-ok" x="${a}" y="${y+8}" width="${b-a}" height="22"/>`
+   +`<rect class="fbx k-warn" x="24" y="${y+8}" width="392" height="22" rx="2"/><rect class="fbx k-ok" x="${a}" y="${y+8}" width="${b-a}" height="22"/>`
    +FT.text(24+(a-24)/2,y+23,zl,{a:"middle",sm:true})+FT.text((a+b)/2,y+23,nl+"-"+nh,{a:"middle",sm:true})+FT.text((b+416)/2,y+23,zh,{a:"middle",sm:true})
    +FT.text(a,y+44,nl,{a:"middle",sm:true})+FT.text(b,y+44,nh,{a:"middle",sm:true})};
   const Xk=v=>24+(v-2)/5*392;
@@ -1211,7 +1211,7 @@ const FIGURE=[
  enc:["farmaci-iniettabili"],gl:[],st:/iniettabil|adrenalina|ceftriaxone|ondansetron/i,
  svg:(()=>{const R=[["Adrenalina","EV IM SC","anafilassi: IM in coscia"],["Idrocortisone","EV IM","può alzare la glicemia"],["Desametasone","EV IM","più potente, alza la glicemia"],["Diclofenac","IM","FANS: IM profonda"],["Atropina","EV IM","bocca secca, tachicardia"],["Ondansetron","EV IM","QT; EV lenta"],["Pantoprazolo","EV","da solo, niente miscele"],["Ceftriaxone","EV IM","allergie; non mescolare con calcio"],["Vitamina B12","IM","carenza di B12"],["Glucosio 33%","EV","ipoglicemia grave"]];
   const cx={EV:136,IM:166,SC:196};let o=FT.text(8,14,"Farmaco",{b:true,sm:true})+["EV","IM","SC"].map(k=>FT.text(cx[k],14,k,{a:"middle",b:true,sm:true})).join("")+FT.text(226,14,"Attenzione",{b:true,sm:true});
-  R.forEach((r,i)=>{const y=24+i*27;o+=`<rect class="fbx" x="4" y="${y}" width="432" height="25" rx="5"/>`+FT.text(10,y+16,r[0],{sm:true})+r[1].split(" ").map(k=>`<circle class="fbx k-ok" cx="${cx[k]}" cy="${y+12.5}" r="7"/>`).join("")+FT.text(226,y+16,r[2],{sm:true})});
+  R.forEach((r,i)=>{const y=24+i*27;o+=`<rect class="fbx" x="4" y="${y}" width="432" height="25" rx="2"/>`+FT.text(10,y+16,r[0],{sm:true})+r[1].split(" ").map(k=>`<circle class="fbx k-ok" cx="${cx[k]}" cy="${y+12.5}" r="7"/>`).join("")+FT.text(226,y+16,r[2],{sm:true})});
   return FT.svg(440,300,"Tabella di dieci farmaci iniettabili con le vie EV, IM, SC e il punto di attenzione",o)})()},
 /* lotto: video insulina */
 {id:"insulina-dal-pancreas-al-muscolo",t:"Insulina: dalla cellula beta al muscolo in sei passi",c:"Sequenza: glicemia alta, ATP nella cellula beta, chiusura dei canali KATP, ingresso di calcio e rilascio di insulina, legame al recettore con GLUT4 in membrana, ingresso del glucosio e calo della glicemia.",
@@ -1250,7 +1250,7 @@ const FIGURE=[
   const lqt=[[0,0],[8,0],[11,-4],[14,0],[20,0],[21,3],[23,-24],[25,4],[28,0],[62,0],[72,-9],[82,0],[88,0],[96,0]];
   const Q=[[8,28,"Tachicardia sinusale","frequenza alta a riposo","warn"],[226,28,"Ischemia","ST sottoslivellato","alarm"],[8,166,"Ipertrofia ventricolare sin.","QRS alto, ST-T da sovraccarico","info"],[226,166,"QTc prolungato","> 500 ms: rischio di torsione","alarm"]];
   let o="";
-  Q.forEach(q=>{o+='<rect class="fbx k-'+q[4]+'" x="'+q[0]+'" y="'+(q[1]-20)+'" width="206" height="124" rx="8"/>'+FT.text(q[0]+10,q[1]-4,q[2],{b:true})+FT.text(q[0]+10,q[1]+9,q[3],{sm:true})});
+  Q.forEach(q=>{o+='<rect class="fbx k-'+q[4]+'" x="'+q[0]+'" y="'+(q[1]-20)+'" width="206" height="124" rx="2"/>'+FT.text(q[0]+10,q[1]-4,q[2],{b:true})+FT.text(q[0]+10,q[1]+9,q[3],{sm:true})});
   o+=trace(18,96,tachy,30,6);
   o+=trace(236,96,isch,64,3);
   o+=trace(18,232,lvh,64,3);
@@ -1370,7 +1370,7 @@ const FIGURE=[
   o+=L(158,240,"Ipotalamo e ipofisi","temperatura, sete, ADH","end");
   o+='</g>';
   /* legenda delle famiglie */
-  const cell=(x,y,c1,c2,n,d)=>'<rect x="'+x+'" y="'+y+'" width="210" height="34" rx="6" class="eyrow"/><rect x="'+(x+8)+'" y="'+(y+10)+'" width="7" height="14" fill="'+c1+'" fill-opacity=".7"/><rect x="'+(x+15)+'" y="'+(y+10)+'" width="7" height="14" fill="'+c2+'" fill-opacity=".7"/><text class="ft" x="'+(x+30)+'" y="'+(y+15)+'" font-weight="700" font-size="11.5">'+n+'</text><text class="ft fsm" x="'+(x+30)+'" y="'+(y+28)+'">'+d+'</text>';
+  const cell=(x,y,c1,c2,n,d)=>'<rect x="'+x+'" y="'+y+'" width="210" height="34" rx="2" class="eyrow"/><rect x="'+(x+8)+'" y="'+(y+10)+'" width="7" height="14" fill="'+c1+'" fill-opacity=".7"/><rect x="'+(x+15)+'" y="'+(y+10)+'" width="7" height="14" fill="'+c2+'" fill-opacity=".7"/><text class="ft" x="'+(x+30)+'" y="'+(y+15)+'" font-weight="700" font-size="11.5">'+n+'</text><text class="ft fsm" x="'+(x+30)+'" y="'+(y+28)+'">'+d+'</text>';
   o+=cell(8,302,"#3fa35a","#3b82c4","Telencefalo","corteccia, nuclei della base");
   o+=cell(222,302,"#d9534f","#e8806f","Diencefalo","talamo, ipotalamo");
   o+=cell(8,340,"#8a5cd6","#e08a2c","Tronco encefalico","mesencefalo, ponte, bulbo");
@@ -1408,11 +1408,11 @@ const FIGURE=[
   o+='<g class="ft fsm"><text x="8" y="178">occhio</text><text x="128" y="244">mesencefalo e</text><text x="128" y="256">rombencefalo</text></g>';
   o+='<path d="M170 240L168 204" class="lead"/>';
   /* tabella dei passi */
-  const row=(y,n,c,a,b,d,cls)=>'<rect x="252" y="'+y+'" width="182" height="62" rx="8" class="eyrow"/><rect x="252" y="'+y+'" width="6" height="62" rx="3" fill="'+c+'"/><rect class="'+cls+'" x="252" y="'+y+'" width="182" height="62" rx="8" fill="none" stroke="'+c+'" stroke-width="2.6"/><text class="ft" x="266" y="'+(y+17)+'" font-weight="700" font-size="11.5">'+n+' · '+a+'</text><text class="ft fsm" x="266" y="'+(y+32)+'">'+b+'</text><text class="ft fsm" x="266" y="'+(y+46)+'">'+d+'</text>';
+  const row=(y,n,c,a,b,d,cls)=>'<rect x="252" y="'+y+'" width="182" height="62" rx="2" class="eyrow"/><rect x="252" y="'+y+'" width="6" height="62" rx="3" fill="'+c+'"/><rect class="'+cls+'" x="252" y="'+y+'" width="182" height="62" rx="8" fill="none" stroke="'+c+'" stroke-width="2.6"/><text class="ft" x="266" y="'+(y+17)+'" font-weight="700" font-size="11.5">'+n+' · '+a+'</text><text class="ft fsm" x="266" y="'+(y+32)+'">'+b+'</text><text class="ft fsm" x="266" y="'+(y+46)+'">'+d+'</text>';
   o+=row(10,1,"#3fa35a","Stimolo visivo","si accendono prima le aree","visive, nel lobo occipitale","ans");
   o+=row(80,2,"#e08a2c","Scelta","l'attività si estende a","mesencefalo e rombencefalo","ans s2");
   o+=row(150,3,"#d9534f","Movimento e ricompensa","movimento: quasi ovunque;","ricompensa: molto diffusa","ans s3");
-  o+='<rect x="8" y="272" width="424" height="28" rx="8" class="eyrow"/><text class="ft" x="220" y="290" text-anchor="middle" font-size="11">dati su topi: 621.733 neuroni, 279 aree</text>';
+  o+='<rect x="8" y="272" width="424" height="28" rx="2" class="eyrow"/><text class="ft" x="220" y="290" text-anchor="middle" font-size="11">dati su topi: 621.733 neuroni, 279 aree</text>';
   return FT.svg(440,306,"Sagoma schematica dell'encefalo in tre passi: lo stimolo visivo accende prima la corteccia occipitale, poi l'attività si estende a mesencefalo e rombencefalo, che codificano anche la scelta, infine il segnale del movimento compare in quasi tutto l'encefalo e quello della ricompensa è molto diffuso. Dati su topi: 621.733 neuroni, 279 aree",o)})()},
 {id:"fig-cuore-cervello",t:"Cuore e cervello: tre vie di dialogo",c:"Cuore e cervello si parlano in entrambe le direzioni, per via neurale, biochimica e meccanica. Se il dialogo si altera, la malattia di un organo può danneggiare l'altro: Takotsubo, ictus e cuore, scompenso, demenza, depressione.",
  enc:["cuore-cervello","sistema-nervoso"],gl:["Baroriflesso","Variabilità della frequenza cardiaca"],st:/cuore.cervello|neurocardiolog|baroriflesso|autonom/i,
@@ -1442,7 +1442,7 @@ const FIGURE=[
   o+=A(188,322,188,333,{h:5})+A(252,333,252,322,{h:5});
   rows.forEach((r,i)=>{
     const y=102+i*74,c=COL[i];
-    o+='<rect class="eyrow" x="8" y="'+y+'" width="424" height="70" rx="8"/><rect x="8" y="'+y+'" width="6" height="70" rx="3" fill="'+c+'"/>';
+    o+='<rect class="eyrow" x="8" y="'+y+'" width="424" height="70" rx="2"/><rect x="8" y="'+y+'" width="6" height="70" rx="3" fill="'+c+'"/>';
     o+=T(22,y+26,r.n,{b:1})+T(22,y+42,r.s,{sm:1});
     o+=T(128,y+15,"Cervello → cuore",{sm:1,b:1})+T(128,y+28,r.d,{sm:1});
     o+=T(298,y+15,"Cuore → cervello",{sm:1,b:1})+T(298,y+28,r.u,{sm:1});
@@ -1507,7 +1507,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=A(126,86,198,86,{dash:1})+T(162,78,"creatinina",{a:"middle",sm:1});
   o+='<g class="ans s2"><path fill="none" stroke="#2f8f8a" stroke-width="3" d="M126 86H196"/><path transform="translate(20 0)" fill="none" stroke="#2f8f8a" stroke-width="3" d="'+K+'"/></g>';
   /* provetta */
-  o+='<rect class="fbx" x="296" y="40" width="28" height="82" rx="12"/><rect x="299" y="82" width="22" height="37" rx="10" fill="#d9534f" fill-opacity=".4"/>';
+  o+='<rect class="fbx" x="296" y="40" width="28" height="82" rx="2"/><rect x="299" y="82" width="22" height="37" rx="10" fill="#d9534f" fill-opacity=".4"/>';
   o+='<rect class="ans s3" x="292" y="36" width="36" height="90" rx="14" fill="none" stroke="#d9534f" stroke-width="3"/>';
   o+=T(310,30,"Esame",{a:"middle",b:1});
   o+=T(310,140,"creatininemia ↑",{a:"middle",sm:1,b:1});
@@ -1526,7 +1526,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   const rows=[R[0],R[2],R[3]],hs=[0,1,2];
   rows.forEach((r,i)=>{
     const y=176+i*40;
-    o+='<rect class="eyrow" x="8" y="'+y+'" width="424" height="36" rx="8"/>';
+    o+='<rect class="eyrow" x="8" y="'+y+'" width="424" height="36" rx="2"/>';
     o+='<rect class="ans'+(i?" s"+(i+1):"")+'" x="8" y="'+y+'" width="424" height="36" rx="8" fill="none" stroke="#2f8f8a" stroke-width="2.4"/>';
     o+=T(16,y+22,r[0],{b:1});
     o+=T(40,y+15,[r[1],r[2]],{sm:1,lh:12});
@@ -1561,7 +1561,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
    o+=B(8+i*144,260,136,52,m[0],m[1],"");
   });
   /* risultati */
-  o+='<rect class="eyrow" x="8" y="324" width="424" height="104" rx="10"/>';
+  o+='<rect class="eyrow" x="8" y="324" width="424" height="104" rx="2"/>';
   o+=ring('ans s3',4,320,432,112);
   o+=T(18,342,"Risultati dell'abstract",{b:1});
   o+=T(18,361,["Ossigenazione prefrontale: +0,32% creatina contro −1,62% placebo","Costanza del sonno: +7,4 punti percentuali","Stroop: nessuna differenza tra i gruppi"],{sm:1,lh:15});
@@ -1583,17 +1583,17 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   ];
   let o="";
   ["Farmaco","1 Pressione","2 Respiro","3 Da ricordare"].forEach((h,i)=>{
-    o+=`<rect class="fbx k-info" x="${X[i]}" y="6" width="${W[i]}" height="26" rx="6"/>`+T(X[i]+W[i]/2,23,h,{a:"middle",b:true,sm:true});
+    o+=`<rect class="fbx k-info" x="${X[i]}" y="6" width="${W[i]}" height="26" rx="2"/>`+T(X[i]+W[i]/2,23,h,{a:"middle",b:true,sm:true});
   });
   rows.forEach((r,j)=>{
     const y=Y0+j*(H+G);
-    o+=`<rect class="fbx" x="${X[0]}" y="${y}" width="${W[0]}" height="${H}" rx="6"/>`+T(X[0]+W[0]/2,y+(Array.isArray(r[0])?16:22),r[0],{a:"middle",b:true,sm:true,lh:12});
+    o+=`<rect class="fbx" x="${X[0]}" y="${y}" width="${W[0]}" height="${H}" rx="2"/>`+T(X[0]+W[0]/2,y+(Array.isArray(r[0])?16:22),r[0],{a:"middle",b:true,sm:true,lh:12});
     for(let c=1;c<3;c++){
       const [k,s]=r[c];
-      o+=`<rect class="fbx${k?" k-"+k:""}" x="${X[c]}" y="${y}" width="${W[c]}" height="${H}" rx="6"/>`+T(X[c]+W[c]/2,y+(Array.isArray(s)?16:22),s,{a:"middle",sm:true,lh:12});
+      o+=`<rect class="fbx${k?" k-"+k:""}" x="${X[c]}" y="${y}" width="${W[c]}" height="${H}" rx="2"/>`+T(X[c]+W[c]/2,y+(Array.isArray(s)?16:22),s,{a:"middle",sm:true,lh:12});
     }
     const d=r[3];
-    o+=`<rect class="fbx" x="${X[3]}" y="${y}" width="${W[3]}" height="${H}" rx="6"/>`+T(X[3]+6,y+(d[1]?15:22),d[1]?d:[d[0]],{sm:true,lh:12});
+    o+=`<rect class="fbx" x="${X[3]}" y="${y}" width="${W[3]}" height="${H}" rx="2"/>`+T(X[3]+6,y+(d[1]?15:22),d[1]?d:[d[0]],{sm:true,lh:12});
   });
   const yb=Y0+6*(H+G)+4,hb=H*6+G*5;
   const hl=(c,cl)=>`<rect class="${cl} fs" x="${X[c]-2}" y="3" width="${W[c]+4}" height="${hb+36}" rx="8" fill="none" style="stroke-width:3"/>`;
@@ -1663,7 +1663,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   const cath=(tip,hub)=>`<path d="M${hub?"26 14":"26 14"}L58 61Q66 76 ${tip} 76" fill="none" stroke="${C}" stroke-width="5" stroke-linecap="round"/><rect x="17" y="6" width="13" height="10" rx="2" transform="rotate(-34 23 11)" fill="${C}" opacity=".8"/>`;
   const pane=(i,x,y,title,l2,l3,art,extra)=>{
     const k="k"+i;
-    return `<g transform="translate(${x} ${y})"><rect width="136" height="152" rx="9" class="eyrow"/>
+    return `<g transform="translate(${x} ${y})"><rect width="136" height="152" rx="2" class="eyrow"/>
  <clipPath id="sc${i}"><rect x="0" y="0" width="136" height="100"/></clipPath>
  <g clip-path="url(#sc${i})"><rect x="0" y="0" width="136" height="24" fill="#e8b896" opacity=".4"/><rect x="0" y="24" width="136" height="32" fill="#f2d27a" opacity=".22"/>
  <rect x="0" y="56" width="136" height="38" fill="#d9a9a0" opacity=".28"/><rect x="0" y="62" width="136" height="26" fill="#c0392b" opacity=".38"/>
@@ -1676,7 +1676,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   const blood=`<g fill="#c0392b"><circle cx="10" cy="22" r="2.2"/><circle cx="6" cy="30" r="1.8"/></g>`;
   const finger=`<ellipse cx="92" cy="12" rx="13" ry="8" fill="#e8b896" stroke="#b07a52" stroke-width="1.2"/><path class="fl" d="M92 22V32"/><path class="fh" d="M92 36L88 29L96 29Z"/>`;
   const legR=[["#e8b896",.5,"cute"],["#f2d27a",.35,"sottocute"],["#d9a9a0",.5,"parete del vaso"],["#c0392b",.5,"lume (sangue)"]];
-  const leg=`<g transform="translate(296 168)"><rect width="136" height="152" rx="9" class="eyrow"/><text class="ft" x="8" y="17" font-weight="700" style="font-size:11px">Legenda</text>`+
+  const leg=`<g transform="translate(296 168)"><rect width="136" height="152" rx="2" class="eyrow"/><text class="ft" x="8" y="17" font-weight="700" style="font-size:11px">Legenda</text>`+
    legR.map((a,i)=>`<rect x="8" y="${25+i*17}" width="16" height="10" rx="2" fill="${a[0]}" opacity="${a[1]+.2}"/><text class="ft fsm" x="32" y="${34+i*17}" style="font-size:9.6px">${a[2]}</text>`).join("")+
    `<path class="fl" style="stroke-width:3.4;stroke-linecap:round" d="M8 99H24"/><text class="ft fsm" x="32" y="102" style="font-size:9.6px">ago</text>
  <path d="M8 116H24" stroke="${W}" stroke-width="2" stroke-linecap="round"/><text class="ft fsm" x="32" y="119" style="font-size:9.6px">filo guida</text>
@@ -1697,7 +1697,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   const X=[66,192,318],W=118,H=38,G=3,Y0=150;
   let o="";
   ["1 Classica","2 Modificata","3 Micropuntura"].forEach((h,i)=>{
-   o+=`<rect class="fbx k-info" x="${X[i]}" y="4" width="${W}" height="26" rx="6"/>`+T(X[i]+W/2,21,h,{a:"middle",b:true,sm:true});
+   o+=`<rect class="fbx k-info" x="${X[i]}" y="4" width="${W}" height="26" rx="2"/>`+T(X[i]+W/2,21,h,{a:"middle",b:true,sm:true});
   });
   /* sezioni del vaso */
   o+=T(6,66,["parete","anteriore"],{sm:true,lh:11})+T(6,89,"lume",{sm:true})+T(6,106,["parete","posteriore"],{sm:true,lh:11});
@@ -1723,10 +1723,10 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   ];
   rows.forEach((r,j)=>{
    const y=Y0+j*(H+G);
-   o+=`<rect class="fbx k-info" x="6" y="${y}" width="56" height="${H}" rx="6"/>`+T(34,y+(Array.isArray(r[0])?15:23),r[0],{a:"middle",b:true,sm:true,lh:11.5});
+   o+=`<rect class="fbx k-info" x="6" y="${y}" width="56" height="${H}" rx="2"/>`+T(34,y+(Array.isArray(r[0])?15:23),r[0],{a:"middle",b:true,sm:true,lh:11.5});
    r[1].forEach((c,i)=>{
     const L=[].concat(c[1]),n=L.length;
-    o+=`<rect class="fbx${c[0]?" k-"+c[0]:""}" x="${X[i]}" y="${y}" width="${W}" height="${H}" rx="6"/>`+T(X[i]+W/2,y+(H-(n-1)*11.5)/2+3.5,L,{a:"middle",sm:true,lh:11.5});
+    o+=`<rect class="fbx${c[0]?" k-"+c[0]:""}" x="${X[i]}" y="${y}" width="${W}" height="${H}" rx="2"/>`+T(X[i]+W/2,y+(H-(n-1)*11.5)/2+3.5,L,{a:"middle",sm:true,lh:11.5});
    });
   });
   o+=FT.box(6,276,430,34,"Stessa sequenza: ago dentro, filo dentro,","ago fuori, catetere sul filo, filo fuori","info");
@@ -1767,7 +1767,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
     const y=8+i*(H+G),by=y+H-12,kx=140,ky=y+15,L=30;
     const ex=(a)=>[kx+L*Math.sin(a*Math.PI/180),ky+L*Math.cos(a*Math.PI/180)];
     const [rx,ry]=ex(0),[ax,ay]=ex(r.ang);
-    fixed+=`<rect x="6" y="${y}" width="428" height="${H}" rx="8" class="eyrow"/>`;
+    fixed+=`<rect x="6" y="${y}" width="428" height="${H}" rx="2" class="eyrow"/>`;
     fixed+=FT.text(14,y+37,r.g,{b:true});
     fixed+=FT.text(42,y+27,r.n,{sm:true,lh:12.5});
     /* gamba: coscia orizzontale, gamba a riposo, calcio tratteggiato */
@@ -1795,14 +1795,14 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   const G='#2f8f8a';
   const ring=(c,x,y,w,h)=>'<rect class="'+c+'" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="10" fill="none" stroke="'+G+'" stroke-width="2.6"/>';
   /* muscolo e fuso */
-  o+='<rect class="fbx k-info" x="10" y="90" width="110" height="130" rx="10"/>';
+  o+='<rect class="fbx k-info" x="10" y="90" width="110" height="130" rx="2"/>';
   o+=T(65,106,"Quadricipite",{a:"middle",b:1});
   o+='<ellipse class="fbx k-warn" cx="58" cy="140" rx="17" ry="7"/>';
   o+=T(65,162,"fuso neuromuscolare",{a:"middle",sm:1});
   /* tendine, martelletto, gamba */
   o+='<path class="fl" style="stroke-width:3" d="M65 220V275M65 275V318"/>';
   o+=T(74,252,"tendine rotuleo",{sm:1});
-  o+='<rect class="fbx k-alarm" x="36" y="256" width="26" height="12" rx="3"/><path class="fl" d="M36 262H8"/>';
+  o+='<rect class="fbx k-alarm" x="36" y="256" width="26" height="12" rx="2"/><path class="fl" d="M36 262H8"/>';
   o+=T(8,284,"martelletto",{sm:1});
   o+='<path class="fl" style="stroke-width:3" d="M65 318H96"/>';
   o+='<path class="fs ans s3" style="stroke-width:3.5;stroke-linecap:round" d="M65 318L98 300"/>';
@@ -1819,7 +1819,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=A(291,200,121,200);
   o+=T(128,214,["neurone motorio","(efferente)"],{sm:1,lh:11});
   /* controllo dall'alto */
-  o+='<rect class="fbx dash" x="326" y="6" width="108" height="66" rx="8"/>';
+  o+='<rect class="fbx dash" x="326" y="6" width="108" height="66" rx="2"/>';
   o+=T(380,22,"Dal cervello",{a:"middle",b:1});
   o+=T(380,36,["neurone motorio","superiore: modula","il riflesso"],{a:"middle",sm:1,lh:11});
   o+=E([[400,72],[400,200],[311,200]],{dash:1});
@@ -1836,7 +1836,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
    o+=ring(i?'ans s'+(i+1):'ans',178,y-14,254,29);
   });
   /* riquadro finale */
-  o+='<rect class="eyrow" x="8" y="352" width="424" height="76" rx="10"/>';
+  o+='<rect class="eyrow" x="8" y="352" width="424" height="76" rx="2"/>';
   o+=T(18,371,"Riflessi ridotti: sospetto di problema periferico",{sm:1,b:1});
   o+=T(18,384,"(nervo, radice, muscolo); vivaci: sospetto di problema centrale.",{sm:1,b:1});
   o+=T(18,400,"Da leggere con forza, tono e altri segni.",{sm:1});
@@ -1893,7 +1893,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   const xM=248,yM=110,xC=374,yC=180;
   /* finestra */
   o+='<rect x="'+xM+'" y="40" width="'+(xC-xM)+'" height="190" fill="var(--ok)" fill-opacity=".09"/>';
-  o+='<rect class="fbx k-ok" x="'+(xM+5)+'" y="44" width="'+(xC-xM-10)+'" height="34" rx="7"/>';
+  o+='<rect class="fbx k-ok" x="'+(xM+5)+'" y="44" width="'+(xC-xM-10)+'" height="34" rx="2"/>';
   o+=T((xM+xC)/2,58,["finestra per terapie","che preservano le beta"],{a:"middle",sm:1,b:1,lh:12});
   /* assi */
   o+=FT.axes(50,230,382,192,"tempo dall'inizio del processo autoimmune","funzione beta (C-peptide)");
@@ -1976,7 +1976,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=T(154,182,"T4 materna",{a:"middle",sm:1});
   o+=T(154,204,"placenta",{a:"middle",sm:1});
   o+=B(192,172,110,36,"Feto","usa la T4 materna","warn");
-  o+='<rect class="eyrow" x="6" y="216" width="296" height="38" rx="8"/>';
+  o+='<rect class="eyrow" x="6" y="216" width="296" height="38" rx="2"/>';
   o+=T(154,230,["Dipende dalla T4 materna fino a circa","20 settimane; poi il contributo continua"],{a:"middle",b:1,lh:14});
   /* ioduria */
   const yv=v=>230-v*0.9,bx=316,bw=16;
@@ -2012,7 +2012,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   /* freccia doppia: si sale e si scende */
   o+=A(60,138,420,138)+A(380,138,20,138);
   o+=T(220,156,"si può aumentare, combinare o alternare",{a:"middle",sm:1});
-  o+='<rect class="eyrow" x="6" y="164" width="428" height="22" rx="7"/>';
+  o+='<rect class="eyrow" x="6" y="164" width="428" height="22" rx="2"/>';
   o+=T(220,179,"Follow-up a lungo termine, a ogni gradino",{a:"middle",b:1});
   /* domini IFSO */
   o+=T(6,208,"IFSO: 5 domini per chi prescrive",{b:1});
@@ -2024,7 +2024,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
    ["Cura in team","centrata sulla persona"]
   ];
   D.forEach((d,i)=>{const y=216+i*38;
-   o+='<rect class="fbx k-info" x="6" y="'+y+'" width="210" height="34" rx="8"/>';
+   o+='<rect class="fbx k-info" x="6" y="'+y+'" width="210" height="34" rx="2"/>';
    o+=FT.dot(24,y+17,String(i+1),{r:10});
    o+=T(40,y+14,d[0],{b:1});
    o+=T(40,y+27,d[1],{sm:1});
@@ -2040,13 +2040,13 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
    ["Esercizio","forza: conservare la massa magra","info"]
   ];
   M.forEach((m,i)=>{const y=216+i*38;
-   o+='<rect class="fbx k-'+m[2]+'" x="224" y="'+y+'" width="210" height="34" rx="8"/>';
+   o+='<rect class="fbx k-'+m[2]+'" x="224" y="'+y+'" width="210" height="34" rx="2"/>';
    o+=T(232,y+14,m[0],{b:1});
    o+=T(232,y+27,m[1],{sm:1});
   });
   o+=hl(221,251,216,40,"k6");
   /* avvertenza */
-  o+='<rect class="fbx k-warn" x="6" y="410" width="428" height="40" rx="8"/>';
+  o+='<rect class="fbx k-warn" x="6" y="410" width="428" height="40" rx="2"/>';
   o+=T(220,426,"Prima di sedazione o intervento: segnalare il farmaco all'anestesista",{a:"middle",b:1}).replace('<text ','<text style="font-size:10.5px" ');
   o+=T(220,441,"nome, dose, data dell'ultima dose; svuotamento gastrico rallentato",{a:"middle",sm:1});
   o+=hl(3,407,434,46,"k6");

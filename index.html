@@ -695,7 +695,7 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ecg-bg:#1a1413;--ecg-g1:#33221f;--ecg-g5:#5a352f;--ecg-ink:#f4ede7;--ecg-lab:#f0998e;--ecg-edge:#3b2925}}
 :root[data-theme="dark"]{--ecg-bg:#1a1413;--ecg-g1:#33221f;--ecg-g5:#5a352f;--ecg-ink:#f4ede7;--ecg-lab:#f0998e;--ecg-edge:#3b2925}
 .pap{fill:var(--ecg-bg);stroke:var(--ecg-edge);stroke-width:1}.gp1{fill:none;stroke:var(--ecg-g1);stroke-width:.5}.gp5{fill:none;stroke:var(--ecg-g5);stroke-width:.9}
-.fig .eir{fill:#2f8f8a;stroke:#1d5f5c;stroke-width:1.2}.fig .eyrow{fill:color-mix(in srgb,var(--amber-soft) 55%,var(--paper));stroke:var(--line)}
+.fig .eir{fill:#2f8f8a;stroke:#1d5f5c;stroke-width:1.2}.fig .eyrow{fill:color-mix(in srgb,var(--ink) 4%,var(--paper));stroke:var(--line);stroke-width:1}
 .fig .ey3{transform:translate(-7px,5px)}.fig .ey4{transform:translate(0,-3px)}.fig .ey6{transform:translate(5px,0)}
 @media (prefers-reduced-motion: no-preference){.fig .ey{animation:9s ease-in-out infinite}.fig .ey0{animation-name:ey0}.fig .ey3{animation-name:ey3}.fig .ey4{animation-name:ey4}.fig .ey6{animation-name:ey6}.fig .egz{animation-name:egz}}
 @keyframes ey0{0%,12%,50%,62%,100%{transform:translate(0,0)}22%,40%{transform:translate(-10px,0)}72%,90%{transform:translate(10px,0)}}
@@ -828,7 +828,7 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .fig figcaption{font-size:.88rem;line-height:1.45;color:var(--ink)}
 .fig .ft{fill:var(--ink);font-family:var(--f-body);font-size:12px}
 .fig .fsm{font-size:10.5px;fill:var(--muted)}
-.fig .fl{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round}
+.fig .fl{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}
 .fig .ff{fill:var(--paper)}
 .fig .fa{fill:color-mix(in srgb,var(--scrub) 20%,var(--paper))}
 .fig .dash{stroke-dasharray:5 5;stroke:var(--muted);stroke-width:1.2}
@@ -1546,13 +1546,13 @@ body::after{display:none}
   .lv-bar i{transition:width .8s cubic-bezier(.2,.8,.2,1)}
 }
 /* modelli delle figure (figtpl.js) */
-.fig .fbx{fill:var(--paper);stroke:var(--scrub);stroke-width:1.6}
+.fig .fbx{fill:var(--paper);stroke:color-mix(in srgb,var(--ink) 30%,var(--paper));stroke-width:1}
 .fig .halo{paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}
-.fig .k-info{fill:color-mix(in srgb,var(--scrub) 14%,var(--paper))}
+.fig .k-info{fill:color-mix(in srgb,var(--scrub) 10%,var(--paper));stroke:var(--scrub)}
 .fig .k-ok{fill:var(--ok-soft);stroke:var(--ok)}
 .fig .k-warn{fill:var(--amber-soft);stroke:var(--amber)}
 .fig .k-alarm{fill:var(--vital-soft);stroke:var(--vital)}
-.fig .fh{fill:var(--ink)}.fig .fb{font-weight:700}
+.fig .fh{fill:var(--ink)}.fig .fb{font-weight:600}
 .fig .fo{fill:none;stroke:var(--ok);stroke-width:2.4;stroke-linecap:round}
 .fig .fw{fill:none;stroke:var(--amber);stroke-width:2.4;stroke-linecap:round}
 .fig .fz{fill:none;stroke:var(--vital);stroke-width:2.4;stroke-linecap:round}
