@@ -2052,7 +2052,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=hl(3,407,434,46,"k6");
   return FT.svg(440,456,"In alto una scala di quattro gradini di intensità crescente: stile di vita, sempre con sostegno continuo; farmaci agonisti del GLP-1 e doppi agonisti GIP/GLP-1; terapie endoscopiche; chirurgia metabolica bariatrica. Una freccia doppia indica che si può aumentare, combinare o alternare, con follow-up a lungo termine a ogni gradino. In basso a sinistra i cinque domini di competenza IFSO per chi prescrive: 1 l'obesità come malattia cronica recidivante, oltre il BMI; 2 farmacologia, con titolazione, rischi e aspirazione; 3 scelta del trattamento; 4 follow-up a lungo termine; 5 cura in team centrata sulla persona. A destra il team: medico che prescrive, infermiere per titolazione ed effetti avversi, dietista, salute mentale, esercizio di forza per conservare la massa magra. In fondo un'avvertenza: prima di sedazione o intervento segnalare il farmaco all'anestesista, con nome, dose e data dell'ultima dose, perché lo svuotamento gastrico è rallentato.",o);
  })()},
-{id:"fig-ck-genetica",t:"Perché la CK di base cambia da persona a persona",c:"Il valore di CK a riposo è un equilibrio tra quanta CK esce dalle fibre muscolari ed entra nel sangue e quanta ne viene tolta: monociti e macrofagi la rimuovono dal sangue. La alzano più massa e forza muscolare, il sesso maschile, l'ascendenza africana, l'esercizio recente e varianti genetiche comuni in geni del muscolo (TTN, ANO5, CKM); l'infiammazione (PCR alta) si associa geneticamente a CK più bassa, attraverso lo smaltimento. Tra le molte varianti comuni a effetto piccolo e le rare mutazioni delle miopatie mendeliane c'è un continuum: statine, sforzo intenso o infezione possono rivelare una fragilità nascosta. Fonte: Chen e coll., eBioMedicine 2026, GWAS multi-ancestrale su 237.255 persone.",
+{id:"fig-ck-genetica",t:"Perché la CK di base cambia da persona a persona",c:"Il valore di CK a riposo è un equilibrio tra quanta CK esce dalle fibre muscolari ed entra nel sangue e quanta ne viene tolta (secondo gli autori anche da monociti e macrofagi). La alzano più massa e forza muscolare, il sesso maschile, l'ascendenza africana, l'esercizio recente e varianti genetiche comuni in geni del muscolo (TTN, ANO5, CKM); le varianti legate a una PCR più alta si associano a CK più bassa, forse per uno smaltimento maggiore (ipotesi degli autori). Tra le molte varianti comuni a effetto piccolo e le rare mutazioni delle miopatie mendeliane c'è un continuum: statine, sforzo intenso o infezione possono rivelare una fragilità nascosta. Fonte: Chen e coll., eBioMedicine 2026, GWAS multi-ancestrale su 237.255 persone.",
  enc:["es-ck-genetica","es-ck"],gl:["CK","GWAS"],st:/creatin.?chinasi|\bCK\b.*(genet|basale|ascendenza)|GWAS/i,
  svg:(()=>{
   const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
@@ -2096,7 +2096,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   /* passi sotto i tre elementi */
   o+=T(8,144,"1",{fz:12,acc:1})+T(20,144,"Rilascio dalla",{fz:10})+T(20,157,"fibra muscolare",{fz:10});
   o+=T(168,144,"2",{fz:12,acc:1})+T(180,144,"CK circolante",{fz:10})+T(180,157,"(valore misurato)",{fz:10});
-  o+=T(312,144,"3",{fz:12,acc:1})+T(324,144,"Monociti e macrofagi",{fz:10})+T(324,157,"la tolgono dal sangue",{fz:10});
+  o+=T(312,144,"3",{fz:12,acc:1})+T(324,144,"Monociti e macrofagi",{fz:10})+T(324,157,"la tolgono (ipotesi)",{fz:10});
   o+=hl(4,36,128,128,"")+hl(164,36,112,128,"s2")+hl(308,36,128,128,"s3");
 
   /* ===== 2. Fattori ===== */
@@ -2107,7 +2107,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=T(20,309,"TTN, ANO5, CKM",{fz:10.5,ink:1});
   /* smaltimento e infiammazione */
   o+=H(228,196,"Abbassano la CK: smaltimento");
-  o+=T(228,216,["Monociti e macrofagi rimuovono","la CK dal sangue"]);
+  o+=T(228,216,["Monociti e macrofagi:","smaltimento (ipotesi)"]);
   o+=line(228,236,432,236);
   o+=T(228,256,"PCR ↑ → CK ↓",{fz:12,acc:1});
   o+=T(228,272,["infiammazione: correlazione","genetica negativa con la CK"]);
