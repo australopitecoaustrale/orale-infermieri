@@ -846,5 +846,101 @@
   "tipo": "studio",
   "stato": "confermato",
   "nota": ""
+ },
+ {
+  "id": "es-ck-genetica#d",
+  "testo": "Uno studio di associazione sull'intero genoma (GWAS) su 237.255 persone di cinque ascendenze ha trovato 107 regioni del DNA legate al livello di creatinchinasi (CK) nel sangue, quasi tutte nuove, con un arricchimento in geni espressi nel muscolo scheletrico e cardiaco; spiega in parte perché la CK «normale» cambia molto da una persona all'altra.",
+  "fonte": "Chen 2026, eBioMedicine 127:106274, PMID 42066438",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "237.255 persone, 5 ascendenze, 107 loci (98 nuovi); «soprattutto in geni del muscolo» corretto in «arricchimento in geni espressi nel muscolo»"
+ },
+ {
+  "id": "es-ck-genetica#p3",
+  "testo": "Una variante del gene LILRB5, un recettore delle cellule immunitarie che si ipotizza coinvolto nello smaltimento della CK, era già nota per l'associazione con intolleranza alle statine e dolori muscolari (Siddiqui 2017)",
+  "fonte": "Siddiqui 2017 PMID 29020356; Dubé 2014 PMID 25214527; Kristjansson 2016 PMID 26838040",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "LILRB5 e intolleranza alle statine confermato; ruolo nello smaltimento riformulato come ipotesi"
+ },
+ {
+  "id": "es-ck-genetica#v0",
+  "testo": "Partecipanti: 237.255, da quattro biobanche (USA, Giappone, Qatar): ascendenza europea, afroamericana, est-asiatica, ispanica (americana mista) e mediorientale",
+  "fonte": "Chen 2026, PMID 42066438",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "237.255 da 4 biobanche (MVP, VUMC, BBJ, QGP), 6 coorti, 5 ascendenze"
+ },
+ {
+  "id": "es-ck-genetica#v1",
+  "testo": "Regioni del DNA associate: 107 (98 mai descritte prima), soglia di significatività dell'intero genoma P < 5 × 10⁻⁸",
+  "fonte": "Chen 2026, PMID 42066438",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "107 loci, 98 nuovi, P<5e-8"
+ },
+ {
+  "id": "es-ck-genetica#v2",
+  "testo": "Geni di miopatie ereditarie: 8 delle regioni cadono in geni che, se gravemente mutati, causano miopatie (es. TTN, NEB, ANO5, CAV3)",
+  "fonte": "Chen 2026, PMID 42066438",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "8 geni in elenco OMIM di malattie muscolari mendeliane (OR 14); TTN, NEB, ANO5, CAV3 tra questi"
+ },
+ {
+  "id": "es-ck-genetica#v3",
+  "testo": "Ereditabilità spiegata dalle varianti comuni: circa 10% (stimata nelle coorti europee ed est-asiatica)",
+  "fonte": "Chen 2026, PMID 42066438",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "ereditabilità SNP circa 10% (LDSC); aggiunto che è stimata nelle coorti europee ed est-asiatica"
+ },
+ {
+  "id": "es-ck-genetica#q0",
+  "testo": "Nello studio genetico di Chen e colleghi (eBioMedicine 2026) su quante persone è stata studiata la CK? → 237.255 (La meta-analisi riuniva 237.255 persone di cinque ascendenze da quattro biobanche. Lo studio precedente più grande, islandese, ne aveva circa 63.000.)",
+  "fonte": "Chen 2026 PMID 42066438; Kristjansson 2016 PMID 26838040",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "237.255; studio islandese 63.159"
+ },
+ {
+  "id": "es-ck-genetica#q1",
+  "testo": "Quante regioni del DNA associate alla CK ha trovato lo studio? → 107, di cui 98 nuove (107 regioni indipendenti a significatività dell'intero genoma (P < 5 × 10⁻⁸), 98 delle quali non descritte prima.)",
+  "fonte": "Chen 2026, PMID 42066438",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "107 regioni, 98 nuove"
+ },
+ {
+  "id": "es-ck-genetica#q5",
+  "testo": "Che cosa intendono gli autori con «continuum» tra varianti comuni e mutazioni rare? → Che negli stessi geni del muscolo varianti comuni alzano poco la CK e mutazioni rare causano miopatie ereditarie (Otto regioni cadono in geni di miopatie mendeliane (TTN, NEB, ANO5, CAV3...): le varianti comuni potrebbero agire da modificatori della resistenza del muscolo.)",
+  "fonte": "Chen 2026, PMID 42066438",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "continuum e modificatori genetici, pagina 12"
+ },
+ {
+  "id": "es-ck-genetica#q6",
+  "testo": "Secondo lo studio, quale situazione può far emergere una fragilità muscolare genetica silente? → La terapia con statine, uno sforzo intenso o un'infezione (Gli autori indicano come fattori scatenanti sforzo intenso, infezione e farmaci come le statine; la variante di LILRB5 era già legata all'intolleranza alle statine.)",
+  "fonte": "Chen 2026 PMID 42066438; Siddiqui 2017 PMID 29020356",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "fattori scatenanti come modello ipotetico degli autori"
+ },
+ {
+  "id": "es-ck-genetica#gl:Miopatia mendeliana",
+  "testo": "Malattia muscolare ereditaria causata da una mutazione rara in un singolo gene (per esempio distrofie muscolari da mutazioni di TTN, ANO5 o CAV3).",
+  "fonte": "Chen 2026, PMID 42066438",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "definizione monogenica corretta; esempi TTN, ANO5, CAV3"
+ },
+ {
+  "id": "es-ck-genetica#gl:Iperckemia idiopatica",
+  "testo": "CK persistentemente sopra il limite (per le linee guida EFNS oltre 1,5 volte il limite superiore), con sintomi assenti o minimi (crampi, mialgie) e senza causa trovata dopo gli accertamenti; può essere la normalità della persona o il segno di una miopatia silente.",
+  "fonte": "EFNS, Kyriakides 2010, Eur J Neurol, PMID 20402744",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "iperCKemia oltre 1,5 volte il limite superiore; aggiunta su proposta del revisore"
  }
 ]
