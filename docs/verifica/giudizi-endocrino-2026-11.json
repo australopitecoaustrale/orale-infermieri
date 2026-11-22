@@ -849,7 +849,7 @@
  },
  {
   "id": "es-ck-genetica#d",
-  "testo": "Uno studio di associazione sull'intero genoma (GWAS) su 237.255 persone di cinque ascendenze ha trovato 107 regioni del DNA legate al livello di creatinchinasi (CK) nel sangue, quasi tutte nuove e soprattutto in geni del muscolo: spiega in parte perché la CK «normale» cambia molto da una persona all'altra.",
+  "testo": "Uno studio di associazione sull'intero genoma (GWAS) su 237.255 persone di cinque ascendenze ha trovato 107 regioni del DNA legate al livello di creatinchinasi (CK) nel sangue, quasi tutte nuove, con un arricchimento in geni espressi nel muscolo scheletrico e cardiaco; spiega in parte perché la CK «normale» cambia molto da una persona all'altra.",
   "fonte": "Chen 2026, eBioMedicine 127:106274, PMID 42066438",
   "tipo": "studio",
   "stato": "corretto",
@@ -857,7 +857,7 @@
  },
  {
   "id": "es-ck-genetica#p3",
-  "testo": "Una variante del gene LILRB5 (legato allo smaltimento immunitario della CK) era già nota per l'associazione con intolleranza alle statine e dolori muscolari",
+  "testo": "Una variante del gene LILRB5, un recettore delle cellule immunitarie che si ipotizza coinvolto nello smaltimento della CK, era già nota per l'associazione con intolleranza alle statine e dolori muscolari (Siddiqui 2017)",
   "fonte": "Siddiqui 2017 PMID 29020356; Dubé 2014 PMID 25214527; Kristjansson 2016 PMID 26838040",
   "tipo": "studio",
   "stato": "corretto",
@@ -889,7 +889,7 @@
  },
  {
   "id": "es-ck-genetica#v3",
-  "testo": "Ereditabilità spiegata dalle varianti comuni: circa 10%",
+  "testo": "Ereditabilità spiegata dalle varianti comuni: circa 10% (stimata nelle coorti europee ed est-asiatica)",
   "fonte": "Chen 2026, PMID 42066438",
   "tipo": "studio",
   "stato": "corretto",
@@ -934,5 +934,13 @@
   "tipo": "studio",
   "stato": "confermato",
   "nota": "definizione monogenica corretta; esempi TTN, ANO5, CAV3"
+ },
+ {
+  "id": "es-ck-genetica#gl:Iperckemia idiopatica",
+  "testo": "CK persistentemente sopra il limite (per le linee guida EFNS oltre 1,5 volte il limite superiore), con sintomi assenti o minimi (crampi, mialgie) e senza causa trovata dopo gli accertamenti; può essere la normalità della persona o il segno di una miopatia silente.",
+  "fonte": "EFNS, Kyriakides 2010, Eur J Neurol, PMID 20402744",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "iperCKemia oltre 1,5 volte il limite superiore; aggiunta su proposta del revisore"
  }
 ]
