@@ -2123,5 +2123,72 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=T(8,496,"AST alta con CK alta: spesso origine muscolare, non epatica",{fz:10.5,ink:1});
   o+=T(8,512,"Chen e coll., eBioMedicine 2026: GWAS multi-ancestrale su 237.255 persone",{fz:9.5});
   return FT.svg(440,520,"Schema del perché la CK di base cambia da persona a persona. In alto il percorso della CK: 1, la CK esce dalla fibra muscolare ed entra nel sangue; 2, la CK circolante è il valore misurato; 3, monociti e macrofagi la tolgono dal sangue. Al centro a sinistra i fattori che alzano la CK di base: più massa muscolare e forza, sesso maschile, ascendenza africana, attività fisica ed esercizio recente, varianti comuni in geni del muscolo come TTN, ANO5 e CKM. A destra lo smaltimento: monociti e macrofagi rimuovono la CK; la PCR alta, segno di infiammazione, ha una correlazione genetica negativa con la CK. In basso una barra continua: a sinistra molte varianti comuni a effetto piccolo, CK un po' più alta senza malattia; a destra mutazioni rare a effetto grande, le miopatie mendeliane come le distrofie; al centro i fattori scatenanti, statine, sforzo intenso e infezione, che possono rivelare una fragilità nascosta. Nota: AST alta con CK alta ha spesso origine muscolare, non epatica. Fonte: Chen e coll., eBioMedicine 2026, GWAS multi-ancestrale su 237.255 persone.",o);
+ })()},
+{id:"fig-radici-cervicali",t:"Radici cervicali: dove si sente, che muscolo, che riflesso",c:"Braccio sinistro abdotto a 90° con il palmo in avanti: il lato del pollice guarda in alto. Le fasce sono i dermatomi, con tinte di intensità diversa: la più tenue è C4, sulla spalla (punto chiave: articolazione acromioclavicolare), la più intensa C7, dito medio; i pallini sono i punti chiave sensitivi degli standard ISNCSCI/ASIA: C5 gomito laterale, C6 pollice, C7 dito medio, C8 mignolo, T1 gomito mediale. La tabella unisce per ogni radice sensibilità, muscolo chiave e riflesso: se un riflesso, un muscolo e una fascia di sensibilità puntano alla stessa radice, il sospetto di radicolopatia cresce. Schema di studio: i dermatomi si sovrappongono e variano da persona a persona. Disegno originale.",
+ enc:["radicolopatia-cervicale","riflessi-osteotendinei"],gl:["Radicolopatia","Dermatomo","Miotomo"],st:/radicolopat|dermatom|miotom|radici? (nervos|cervical)/i,
+ svg:(()=>{
+  /* sagoma: tronco (bordo sinistro = linea mediana, fuori figura), braccio, pollice, dita */
+  const top="M42 22Q64 30 88 38Q108 44 118 54Q126 60 150 62L212 66L296 72Q314 74 322 76L364 74";
+  const bot="L364 108Q352 111 340 110Q330 108 322 104L296 106L212 112L150 112Q120 112 104 110L100 128";
+  const thumb="M328 77Q330 60 346 48Q354 41 359 47Q362 54 352 62Q346 68 344 76Z";
+  const fing=[[75,400],[84,410],[93,404],[102,392]];
+  const fingR=fing.map(([y,x2])=>`<rect x="358" y="${y}" width="${x2-358}" height="${y===102?7:8}" rx="4"/>`).join("");
+  const clip=`<clipPath id="rcArm"><path d="${top}${bot}L12 128L12 0L42 0Z"/><path d="${thumb}"/>${fingR}</clipPath>`;
+  /* fasce: [radice, punti del poligono, opacità] */
+  const B={
+   C4:["12,14 42,14 100,26 128,50 122,64 70,50 12,46",.14],
+   C5:["126,26 222,30 222,89 104,88 106,60 122,64",.28],
+   C6:["222,30 440,30 440,72 362,72 340,80 322,84 222,89",.44],
+   C7:["322,84 340,80 362,72 440,72 440,92.5 340,94 322,92",.62],
+   C8:["262,92 322,92 340,94 440,92.5 440,130 262,130",.4],
+   T1:["160,88 222,89 262,92 262,130 160,130",.2]};
+  const band=(k,o,extra)=>`<polygon points="${B[k][0]}" class="mz" style="--o:${o};stroke:var(--paper);stroke-width:1${extra||""}"/>`;
+  let fixed=clip+`<g clip-path="url(#rcArm)">`+Object.keys(B).map(k=>band(k,B[k][1])).join("")+`</g>`;
+  /* contorni */
+  fixed+=`<path class="fl" style="stroke-width:1.2" d="M42 4V22${top.slice(6)}"/><path class="fl" style="stroke-width:1.2" d="M364 74${bot}"/>`;
+  fixed+=`<path class="fl" style="stroke-width:1.2;fill:none" d="${thumb}"/>`;
+  fixed+=`<g class="fl" style="stroke-width:1.2;fill:none">${fingR}</g>`;
+  fixed+=`<path class="lead" d="M48 34L84 44"/><path class="lead dash" style="stroke-width:1" d="M12 4V128"/>`; /* clavicola */
+  fixed+=`<path class="lead dash" style="stroke-width:1" d="M212 70V108"/>`; /* piega del gomito */
+  /* punti chiave sensitivi */
+  const P={C4:[90,45],C5:[208,72],C6:[352,53],C7:[401,88],C8:[386,105],T1:[208,106]};
+  const pdot=(x,y,r)=>`<circle cx="${x}" cy="${y}" r="${r||3}" class="fh" style="stroke:var(--paper);stroke-width:1.2"/>`;
+  fixed+=Object.values(P).map(([x,y])=>pdot(x,y)).join("");
+  /* etichette vicino alle fasce, fuori dalla sagoma */
+  const L={C4:[60,22,"start"],C5:[150,54,"middle"],C6:[262,60,"middle"],C7:[416,92,"start"],C8:[384,124,"middle"],T1:[210,127,"middle"]};
+  fixed+=Object.keys(L).map(k=>FT.text(L[k][0],L[k][1],k,{b:true,a:L[k][2]})).join("");
+  /* legenda */
+  fixed+=pdot(206,12)+FT.text(214,16,"punto chiave sensitivo (ISNCSCI)",{sm:true});
+  fixed+=FT.text(200,32,"braccio sinistro abdotto, palmo in avanti",{sm:true});
+  /* tabella */
+  const X=[6,58,152,318,434],y0=146;
+  const tx=(x,y,lines)=>FT.text(x,y,lines,{c:"",lh:12.5}).replace('class="ft"','class="ft" style="font-size:11px"');
+  fixed+=FT.text(26,y0+20,"Radice",{sm:true,b:true});
+  fixed+=FT.text(X[1]+6,y0+13,["Sensibilità","(punto chiave)"],{sm:true,b:true});
+  fixed+=FT.text(X[2]+6,y0+13,["Muscolo chiave","(ISNCSCI)"],{sm:true,b:true});
+  fixed+=FT.text(X[3]+6,y0+20,"Riflesso",{sm:true,b:true});
+  const R=[
+   ["C5","gomito laterale",["flessori del gomito","(bicipite)"],"bicipitale"],
+   ["C6","pollice","estensori del polso",["brachioradiale","(stiloradiale)"]],
+   ["C7","dito medio",["estensori del gomito","(tricipite)"],"tricipitale"],
+   ["C8","mignolo",["flessore profondo","del dito medio"],["nessun riflesso","tipico"]],
+   ["T1","gomito mediale","abduttori del mignolo","nessuno"]];
+  const H=32,G=2,yr=y0+30;
+  let anim="";
+  R.forEach((r,i)=>{
+   const y=yr+i*(H+G);
+   const cell=(x,v)=>{v=[].concat(v);return tx(x,v.length>1?y+13.5:y+20,v)};
+   fixed+=`<rect x="6" y="${y}" width="428" height="${H}" rx="2" class="eyrow"/>`;
+   fixed+=`<rect x="11" y="${y+10}" width="11" height="12" rx="2" class="mz" style="--o:${B[r[0]][1]}"/>`;
+   fixed+=FT.text(28,y+21,r[0],{b:true});
+   fixed+=cell(X[1]+6,r[1])+cell(X[2]+6,r[2])+cell(X[3]+6,r[3]);
+   /* strato animato: riga, fascia e punto chiave della stessa radice */
+   anim+=`<g class="vf k${i+1}"><rect x="6" y="${y}" width="428" height="${H}" rx="2" fill="var(--scrub)" fill-opacity=".1" stroke="var(--scrub)" style="stroke-width:2"/>`
+    +`<g clip-path="url(#rcArm)">${band(r[0],.9,";stroke:var(--scrub);stroke-width:2.5")}</g>`
+    +pdot(P[r[0]][0],P[r[0]][1],4.5)+`</g>`;
+  });
+  const yn=yr+5*(H+G)+14;
+  const note=FT.text(220,yn,["Schema di studio: i dermatomi si sovrappongono","e variano da persona a persona"],{sm:true,a:"middle"});
+  return FT.svg(440,yn+20,"Arto superiore sinistro abdotto con il palmo in avanti e le fasce dei dermatomi: C4 sulla spalla (articolazione acromioclavicolare), C5 gomito laterale, C6 pollice, C7 dito medio, C8 mignolo, T1 gomito mediale. Sotto, tabella: C5 gomito laterale, flessori del gomito, riflesso bicipitale; C6 pollice, estensori del polso, riflesso brachioradiale; C7 dito medio, estensori del gomito, riflesso tricipitale; C8 mignolo, flessore profondo del dito medio, nessun riflesso tipico; T1 gomito mediale, abduttori del mignolo, nessun riflesso.",fixed+anim+note);
  })()}
 ];
