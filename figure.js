@@ -918,12 +918,12 @@ const FIGURE=[
 {id:"eco-fast-finestre",t:"eFAST: le cinque finestre in cui appoggiare la sonda",c:"Si cerca liquido libero (striscia anecogena nelle zone declivi) in tre finestre addominali e in quella pericardica, più il torace anteriore per lo scivolamento pleurico. Si parte di solito da Morison o dal pericardio, secondo il protocollo locale. Disegno schematico, non in scala.",
  enc:["eco-fast"],gl:[],st:/efast|fast|ecograf|traum/i,
  svg:FT.svg(440,354,"Sagoma del tronco con i cinque punti di appoggio della sonda numerati: spazio di Morison, spleno-renale, pelvica, sottoxifoidea e torace anteriore, con legenda e nota sul liquido libero",
-  FT.text(8,11,"destra del paziente",{sm:true})+FT.text(200,11,"sinistra",{a:"end",sm:true})
+  (FT.text(8,11,"destra del paziente",{sm:true})+FT.text(200,11,"sinistra",{a:"end",sm:true})
   +`<path class="fbx" d="M42 30Q105 16 168 30L186 68L178 284H32L24 68Z"/>`
-  +`<ellipse class="fa fl" cx="62" cy="158" rx="36" ry="22"/>`+FT.text(62,162,"fegato",{a:"middle",sm:true})
-  +`<ellipse class="fa fl" cx="148" cy="150" rx="16" ry="22"/>`+FT.text(148,154,"milza",{a:"middle",sm:true})
-  +`<ellipse class="fa fl" cx="108" cy="92" rx="22" ry="16"/>`+FT.text(108,96,"cuore",{a:"middle",sm:true})
-  +`<ellipse class="fa fl" cx="105" cy="254" rx="24" ry="14"/>`+FT.text(105,258,"vescica",{a:"middle",sm:true})
+  +`<ellipse class="fbx" cx="62" cy="158" rx="36" ry="22"/>`+FT.text(62,162,"fegato",{a:"middle",sm:true})
+  +`<ellipse class="fbx" cx="148" cy="150" rx="16" ry="22"/>`+FT.text(148,154,"milza",{a:"middle",sm:true})
+  +`<ellipse class="fbx" cx="108" cy="92" rx="22" ry="16"/>`+FT.text(108,96,"cuore",{a:"middle",sm:true})
+  +`<ellipse class="fbx" cx="105" cy="254" rx="24" ry="14"/>`+FT.text(105,258,"vescica",{a:"middle",sm:true})
   +FT.dot(50,198,"1",{r:11})+FT.dot(152,194,"2",{r:11})+FT.dot(105,228,"3",{r:11})+FT.dot(108,128,"4",{r:11})+FT.dot(60,60,"5",{r:11})+FT.dot(156,60,"5",{r:11})
   +[["1","Spazio di Morison",["tra fegato e rene destro:","il punto da guardare per primo"]],
     ["2","Finestra spleno-renale",["tra milza e rene sinistro"]],
@@ -931,7 +931,7 @@ const FIGURE=[
     ["4","Finestra sottoxifoidea",["versamento pericardico"]],
     ["5","Torace anteriore",["scivolamento pleurico:","pneumotorace"]]
   ].map((r,k)=>{const y=22+k*54;return FT.dot(232,y+11,r[0],{r:11})+FT.text(252,y+15,r[1],{b:true})+FT.text(252,y+29,r[2],{sm:true})}).join("")
-  +FT.box(8,294,424,52,"Liquido libero: striscia anecogena nelle zone declivi",["Positiva in un paziente instabile: di solito sala operatoria.","Negativa: non esclude lesioni, si ripete."],"info"))},
+  +FT.box(8,294,424,52,"Liquido libero: striscia anecogena nelle zone declivi",["Positiva in un paziente instabile: di solito sala operatoria.","Negativa: non esclude lesioni, si ripete."],"info")).replace(/class="fbx k-info" cx=/g,'class="fbx" cx='))},
 {id:"eco-polmone-segni",t:"Polmone: il modo M e i segni da riconoscere",c:"In modo M il polmone normale ha l'aspetto della «riva del mare» (righe sopra la pleura, granulare sotto); nel pneumotorace le righe continuano anche sotto la pleura («codice a barre»). Consolidamento e versamento si riconoscono dall'aspetto del polmone e dalla raccolta anecogena sopra il diaframma. La linea chiara è la pleura. Disegni schematici.",
  enc:["eco-polmone"],gl:[],st:/ecograf|polmon|pleur|pneumotorace/i,
  svg:(()=>{
