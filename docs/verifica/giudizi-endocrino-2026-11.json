@@ -1070,5 +1070,165 @@
   "tipo": "revisione",
   "stato": "confermato",
   "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#p1",
+  "testo": "Punta e onda aguzza hanno la stessa forma appuntita: le distingue solo la durata (punta < 70 ms, onda aguzza 70-200 ms). Il glossario IFCN ricorda che il confine è arbitrario e serve a descrivere",
+  "fonte": "Kane 2017 PMID 30214992",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "confine arbitrario da verificare, in n"
+ },
+ {
+  "id": "eeg-epilessia#p3",
+  "testo": "Complesso punta-onda: punta seguita da onda lenta. Se a circa 3 Hz e generalizzato, con brevi «assenze» in un bambino che si sviluppa normalmente, orienta verso l'epilessia con assenze dell'infanzia, che è un'epilessia generalizzata idiopatica, non un'encefalopatia",
+  "fonte": "Brigo 2021 PMID 33475151; Bernson-Leung 2014 PMID 24799520",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#p5",
+  "testo": "Sindrome di Lennox-Gastaut: encefalopatia epilettica e dello sviluppo dell'infanzia con crisi toniche e altri tipi di crisi, disabilità intellettiva, farmacoresistenza; all'EEG punta-onda lenta ≤ 2,5 Hz e, nel sonno, attività rapida generalizzata (sequenze di onde rapide, di almeno 10 Hz secondo i criteri ILAE riportati dalle revisioni)",
+  "fonte": "Nightscales 2024 PMID 38135919; Sankar 2023 PMID 37321047",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "≤2,5 Hz confermato; ≥10 Hz da revisioni, testo ILAE non letto; in n"
+ },
+ {
+  "id": "eeg-epilessia#v0",
+  "testo": "Punta (spike): durata da 20 a meno di 70 ms, picco aguzzo; ampiezza di solito > 50 µV",
+  "fonte": "Kane 2017 PMID 30214992",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "letto nel testo PMC"
+ },
+ {
+  "id": "eeg-epilessia#v1",
+  "testo": "Onda aguzza (sharp wave): durata 70-200 ms; spesso asimmetrica (una fase più ripida dell'altra)",
+  "fonte": "Kane 2017 PMID 30214992; Nascimento-Beniczky 2023 PMID 39449781",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "asimmetria nei due versi"
+ },
+ {
+  "id": "eeg-epilessia#v4",
+  "testo": "Assenze tipiche (epilessia con assenze dell'infanzia): punta-onda generalizzata a circa 3 Hz, spesso scatenata dall'iperpnea",
+  "fonte": "Brigo 2021 PMID 33475151; Bernson-Leung 2014 PMID 24799520",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#v5",
+  "testo": "Epilessie generalizzate genetiche (ILAE 2022): punta-onda generalizzata a 2,5-5,5 Hz",
+  "fonte": "Hirsch 2022 PMID 35503716",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "abstract"
+ },
+ {
+  "id": "eeg-epilessia#v6",
+  "testo": "Sindrome di Lennox-Gastaut (criteri ILAE): punta-onda lenta diffusa ≤ 2,5 Hz e attività parossistica rapida generalizzata nel sonno",
+  "fonte": "Nightscales 2024 PMID 38135919; Sankar 2023 PMID 37321047",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#v7",
+  "testo": "Ipsaritmia (spasmi infantili, sindrome di West): onde lente irregolari di ampiezza molto alta (> 300 µV) con punte e onde aguzze in più regioni dei due emisferi, aspetto disorganizzato",
+  "fonte": "Kane 2017 PMID 30214992",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "IFCN >300 µV; altre definizioni >200 µV, in n"
+ },
+ {
+  "id": "eeg-epilessia#v8",
+  "testo": "Anomalia epilettiforme (IFCN): deve soddisfare almeno 4 di 6 criteri (tra cui forma aguzza, durata diversa dal fondo, asimmetria dell'onda); con 5 criteri la specificità è maggiore",
+  "fonte": "Kane 2017 PMID 30214992; Kural 2020 PMID 32321764",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#v9",
+  "testo": "EEG dopo privazione di sonno, dopo una prima crisi con EEG standard normale: sensibilità circa 45% in uno studio: un EEG normale non esclude l'epilessia",
+  "fonte": "Geut 2017 PMID 28797915",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "singolo studio retrospettivo"
+ },
+ {
+  "id": "eeg-epilessia#i7",
+  "testo": "Osserva e documenta: ora di inizio e durata, cosa succede per primo (sguardo, testa, un arto), coscienza e risposta, movimenti, colorito e respiro, incontinenza o morso della lingua, stato dopo la crisi; segnala subito una crisi che dura più di 5 minuti o crisi ripetute senza ripresa",
+  "fonte": "Trinka 2015 PMID 26336950",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#q0",
+  "testo": "Secondo il glossario IFCN, quanto dura una punta (spike) all'EEG? → Da 20 a meno di 70 ms (La punta dura 20-<70 ms; l'onda aguzza 70-200 ms. Le distingue la durata, non la forma.)",
+  "fonte": "Kane 2017 PMID 30214992",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#q1",
+  "testo": "Che cosa distingue un'onda aguzza da una punta? → La durata più lunga (70-200 ms) (Hanno la stessa forma appuntita; l'onda aguzza dura di più (70-200 ms).)",
+  "fonte": "Kane 2017 PMID 30214992",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#q2",
+  "testo": "Un bambino di 7 anni ha brevi pause dello sguardo più volte al giorno; durante l'iperpnea l'EEG mostra punta-onda generalizzata a circa 3 Hz. A quale sindrome fa pensare? → Epilessia con assenze dell'infanzia (Punta-onda generalizzata a 3 Hz scatenata dall'iperpnea è tipica delle assenze; l'epilessia con assenze dell'infanzia è un'epilessia generalizzata idiopatica, non un'encefalopatia.)",
+  "fonte": "Brigo 2021 PMID 33475151; Bernson-Leung 2014 PMID 24799520; Specchio 2022 PMID 35503717",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#q3",
+  "testo": "Quale reperto EEG è richiesto dai criteri ILAE per la sindrome di Lennox-Gastaut? → Punta-onda lenta diffusa ≤ 2,5 Hz e attività rapida generalizzata nel sonno (I criteri ILAE chiedono punta-onda lenta ≤ 2,5 Hz e attività parossistica rapida generalizzata nel sonno, insieme a crisi toniche, disabilità intellettiva e farmacoresistenza.)",
+  "fonte": "Nightscales 2024 PMID 38135919; Sankar 2023 PMID 37321047",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#q4",
+  "testo": "L'ipsaritmia è il tracciato tipico di quale quadro? → Spasmi epilettici infantili (sindrome di West) (Ipsaritmia: onde lente molto ampie (> 300 µV) e disorganizzate con punte multifocali, tipica degli spasmi infantili.)",
+  "fonte": "Kane 2017 PMID 30214992",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#gl:Complesso punta-onda",
+  "testo": "Punta seguita subito da un'onda lenta; a circa 3 Hz e generalizzato è tipico delle assenze tipiche.",
+  "fonte": "Brigo 2021 PMID 33475151; Bernson-Leung 2014 PMID 24799520",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#gl:Ipsaritmia",
+  "testo": "Tracciato EEG caotico con onde lente di ampiezza molto alta (> 300 µV) e punte in più regioni dei due emisferi; tipico degli spasmi epilettici infantili.",
+  "fonte": "Kane 2017 PMID 30214992",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "eeg-epilessia#gl:Sindrome di Lennox-Gastaut",
+  "testo": "Encefalopatia epilettica e dello sviluppo dell'infanzia con crisi toniche e altri tipi di crisi, disabilità intellettiva e farmacoresistenza; all'EEG punta-onda lenta ≤ 2,5 Hz e attività rapida generalizzata nel sonno.",
+  "fonte": "Nightscales 2024 PMID 38135919; Sankar 2023 PMID 37321047",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
  }
 ]

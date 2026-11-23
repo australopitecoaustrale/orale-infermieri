@@ -171,7 +171,7 @@ const FIGURE=[
  <g class="ft fsm" style="font-size:9.6px"><text x="300" y="33">ponte</text><text x="300" y="65">meato</text><text x="316" y="104" text-anchor="end">genicolato</text><text x="366" y="87">GP</text><text x="372" y="103">St</text><text x="368" y="121">CT</text><text x="337" y="148">forame</text><text x="337" y="159">stilomast.</text><text x="282" y="164" text-anchor="end">AP</text><text x="392" y="200">parotide</text></g>
  <g class="ft" text-anchor="middle" font-weight="600" style="font-size:12px"><text x="292" y="279">T</text><text x="318" y="279">Z</text><text x="344" y="279">B</text><text x="370" y="279">M</text><text x="396" y="279">C</text></g>
  <text class="ft fsm" x="344" y="295" text-anchor="middle" style="font-size:9.6px">rami terminali</text>
- <circle class="fbx" cx="274" cy="30" r="7"/><text class="ft fb" x="274" y="33.5" text-anchor="middle" font-size="10">1</text><circle class="fbx" cx="305" cy="124" r="7"/><text class="ft fb" x="305" y="127.5" text-anchor="middle" font-size="10">2</text><circle class="fbx" cx="300" cy="142" r="7"/><text class="ft fb" x="300" y="145.5" text-anchor="middle" font-size="10">3</text><circle class="fbx" cx="412" cy="218" r="7"/><text class="ft fb" x="412" y="221.5" text-anchor="middle" font-size="10">4</text><circle class="fbx" cx="300" cy="292" r="7"/><text class="ft fb" x="300" y="295.5" text-anchor="middle" font-size="10">5</text>
+ <circle class="fbx" cx="274" cy="30" r="7"/><text class="ft fb" x="274" y="33.5" text-anchor="middle" font-size="10">1</text><circle class="fbx" cx="346" cy="77" r="7"/><text class="ft fb" x="346" y="80.5" text-anchor="middle" font-size="10">2</text><circle class="fbx" cx="300" cy="142" r="7"/><text class="ft fb" x="300" y="145.5" text-anchor="middle" font-size="10">3</text><circle class="fbx" cx="412" cy="218" r="7"/><text class="ft fb" x="412" y="221.5" text-anchor="middle" font-size="10">4</text><circle class="fbx" cx="300" cy="292" r="7"/><text class="ft fb" x="300" y="295.5" text-anchor="middle" font-size="10">5</text>
  <rect x="276" y="16" width="62" height="60" rx="2" class="fx vf k1" fill="none" style="stroke-width:2.6"/>
  <rect x="268" y="76" width="128" height="54" rx="2" class="fx vf k2" fill="none" style="stroke-width:2.6"/>
  <rect x="268" y="138" width="112" height="36" rx="2" class="fx vf k3" fill="none" style="stroke-width:2.6"/>
@@ -498,7 +498,7 @@ const FIGURE=[
  <path d="M220 40V100Q220 114 228 120Q240 128 232 136Q220 144 230 150Q242 156 230 160" fill="none" stroke="#5f8fb4" stroke-width="2"/>
  <path d="M20 120Q120 104 200 122T340 116" fill="none" stroke="#c0392b" stroke-width="3"/><path d="M20 128Q120 114 200 130T340 124" fill="none" stroke="#3b5bdb" stroke-width="3"/>
  <g class="ft fb"><text x="350" y="52">Epidermide</text><text x="350" y="100">Derma</text><text x="350" y="190">Ipoderma</text></g>
- <g class="ft fsm"><text x="62" y="16">pelo</text><text x="128" y="80" style="fill:#4a3a2e">gh. sebacea</text><text x="250" y="160" style="fill:#4a3a2e">gh. sudoripara</text><text x="246" y="112" style="fill:#4a3a2e">vasi</text><text x="20" y="246">tessuto adiposo</text></g></svg>`},
+ <g class="ft fsm"><text x="62" y="16">pelo</text><text x="128" y="80" style="fill:#4a3a2e">gh. sebacea</text><text x="250" y="151" style="fill:#4a3a2e">gh. sudoripara</text><text x="246" y="112" style="fill:#4a3a2e">vasi</text><text x="20" y="246">tessuto adiposo</text></g></svg>`},
 {id:"auscultazione",t:"Focolai di auscultazione cardiaca",c:"Aortico: II spazio intercostale a destra dello sterno. Polmonare: II spazio a sinistra dello sterno. Tricuspidale: IV-V spazio a sinistra dello sterno. Mitralico (itta della punta): V spazio sulla linea emiclaveare sinistra. Nei polmoni si ausculta confrontando punti simmetrici, dagli apici alle basi, davanti e dietro.",
  enc:["esame-obiettivo","cuore-fisiologia"],gl:[],st:/torace|cuore/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Torace con i focolai di auscultazione aortico, polmonare, tricuspidale e mitralico">
@@ -677,7 +677,7 @@ const FIGURE=[
     [166,["Intermedia",["tra i due casi"]],[28,16],[["PAD","circa 8 mmHg"],"(5-10)","warn"]],
     [270,["Cava > 2,1 cm",["collasso < 50%","con inspirazione","profonda (sniff)"]],[36,33],[["PAD","circa 15 mmHg"],"(10-20)","alarm"]]
   ].map(r=>{const cy=r[0];return FT.text(8,cy-8,r[1][0],{b:true})+FT.text(8,cy+7,r[1][1],{sm:true})
-    +`<rect class="fbx k-info" x="150" y="${cy-r[2][0]/2}" width="72" height="${r[2][0]}" rx="${r[2][0]/2}"/><rect class="fbx k-info" x="240" y="${cy-r[2][1]/2}" width="72" height="${r[2][1]}" rx="${r[2][1]/2}"/>`
+    +`<rect class="fbx" x="150" y="${cy-r[2][0]/2}" width="72" height="${r[2][0]}" rx="${r[2][0]/2}"/><rect class="fbx" x="240" y="${cy-r[2][1]/2}" width="72" height="${r[2][1]}" rx="${r[2][1]/2}"/>`
     +FT.box(326,cy-34,106,68,r[3][0],r[3][1],r[3][2])}).join("")
   +FT.text(8,322,["PAD = pressione dell'atrio destro. Misura sottocostale in asse lungo,","1-2 cm prima dell'atrio. Non vale in ventilazione a pressione positiva."],{sm:true}))},
 {id:"eco-artefatti-figura",t:"Quattro artefatti utili",c:"Le immagini «sbagliate» aiutano la diagnosi: l'ombra indica un calcolo o un osso, il rinforzo posteriore un liquido, le linee A un polmone aerato (o un pneumotorace: serve lo scivolamento pleurico), le linee B numerose una sindrome interstiziale.",
@@ -1261,7 +1261,7 @@ const FIGURE=[
   const C=140,Y4=158,Y5=184,B=362;
   /* cerchio con etichetta: k = s (standard, pieno), r (destre, anello ambra), p (posteriori, anello tratteggiato) */
   const el=(x,y,s,k,r)=>{r=r||10;
-   const c=k==="s"?'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="var(--scrub)"/>':'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="var(--paper)" stroke="var(--'+(k==="r"?"amber":"ink")+')" stroke-width="'+(k==="r"?2.6:1.8)+'"'+(k==="p"?' stroke-dasharray="3 2"':'')+'/>';
+   const c=k==="s"?'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="var(--scrub)"/>':'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="var(--paper)" stroke="var(--'+(k==="r"?"muted":"ink")+')" stroke-width="'+(k==="r"?2:1.8)+'"'+(k==="p"?' stroke-dasharray="3 2"':k==="r"?' stroke-dasharray="1.5 1.5"':'')+'/>';
    return c+'<text x="'+x+'" y="'+(y+3.2)+'" text-anchor="middle" font-family="var(--f-mono)" font-size="9" font-weight="600" fill="var('+(k==="s"?"--paper":"--ink")+')">'+s+'</text>'};
   let o="";
   /* legenda */
@@ -1620,7 +1620,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=ring('ans s3',4,204,432,38);
   /* messaggio */
   o+=B(8,250,424,46,["Segnale debole: studi pochi, eterogenei,","per lo più trasversali (non provano causa)"],"Il MMSE non cambia in nessuno studio che lo ha usato","warn");
-  return FT.svg(440,300,"Schema: da 2897 articoli, tolti 961 doppioni e scartati 1837 su titolo e abstract, 98 testi letti e 6 studi inclusi con 1542 partecipanti; due studi di intervento e quattro trasversali; qualità 1 buona, 2 discreta, 3 scarsa; segnale debole, il MMSE non cambia.",o);
+  return FT.svg(440,304,"Schema: da 2897 articoli, tolti 961 doppioni e scartati 1837 su titolo e abstract, 98 testi letti e 6 studi inclusi con 1542 partecipanti; due studi di intervento e quattro trasversali; qualità 1 buona, 2 discreta, 3 scarsa; segnale debole, il MMSE non cambia.",'<g transform="translate(0 4)">'+o+'</g>');
  })()},
 {id:"fig-creatina-metabolismo",t:"Da dove viene la creatina e dove va",c:"Due fonti, sintesi nel corpo e dieta, portano la creatina al muscolo; lì rigenera l'ATP e la parte consumata esce come creatinina nelle urine.",
  enc:["creatina-popolazione"],gl:["Creatina monoidrato","Fosfocreatina","Guanidinoacetato","SAM"],st:/creatina|creatinina/i,
@@ -1822,7 +1822,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   const st=[["1","Il colpo stira il tendine,","il quadricipite e il fuso"],["2","Il segnale sale al midollo,","sinapsi e motoneurone rispondono"],["3","Il quadricipite si contrae:","la gamba si distende"]];
   st.forEach((s,i)=>{
    const y=262+i*30;
-   o+=FT.dot(190,y+5,s[0],{r:9});
+   o+=FT.dot(190,y+5,s[0],{r:9}).replace(" k-info","");
    o+=T(206,y,[s[1],s[2]],{sm:1,lh:12});
    o+=ring(i?'ans s'+(i+1):'ans',178,y-14,254,29);
   });
@@ -1994,8 +1994,8 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   /* scala di intensità */
   o+=T(6,16,"Scala delle terapie: intensità crescente",{b:1});
   const S=[
-   [6,78,"Stile di vita",["sempre: sostegno","continuo"],"ok"],
-   [114,64,"Farmaci",["agonisti GLP-1","doppi agonisti","GIP/GLP-1"],"info"],
+   [6,78,"Stile di vita",["sempre: sostegno","continuo"],""],
+   [114,64,"Farmaci",["agonisti GLP-1","doppi agonisti","GIP/GLP-1"],""],
    [222,50,["Terapie","endoscopiche"],"",""],
    [330,36,["Chirurgia","bariatrica"],["metabolica"],""]
   ];
@@ -2016,7 +2016,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   ];
   D.forEach((d,i)=>{const y=216+i*38;
    o+='<rect class="fbx" x="6" y="'+y+'" width="210" height="34" rx="2"/>';
-   o+=FT.dot(24,y+17,String(i+1),{r:10});
+   o+=FT.dot(24,y+17,String(i+1),{r:10}).replace(" k-info","");
    o+=T(40,y+14,d[0],{b:1});
    o+=T(40,y+27,d[1],{sm:1});
   });
@@ -2054,7 +2054,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
    return '<text class="ft'+(o.ink||o.acc?"":" fsm")+'" style="'+st+'" x="'+x+'" y="'+y+'" text-anchor="'+a+'">'+L.map((t,i)=>'<tspan x="'+x+'" dy="'+(i?lh:0)+'">'+e(t)+'</tspan>').join("")+'</text>';};
   const H=(x,y,s,o={})=>T(x,y,s,Object.assign({fz:12,ink:1},o));
   const line=(x1,y1,x2,y2)=>'<path class="lead" d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>';
-  const dot=(x,y,r)=>'<circle cx="'+x+'" cy="'+y+'" r="'+(r||3)+'" style="fill:'+ACC+'"/>';
+  const dot=(x,y,r)=>'<circle cx="'+x+'" cy="'+y+'" r="'+(r||3)+'" style="fill:var(--ink)"/>';
   /* freccia d'accento sottile, punta piena */
   const arr=(x1,y,x2)=>'<path class="fs" style="stroke-width:1.5;stroke-linecap:butt" d="M'+x1+' '+y+'L'+(x2-6)+' '+y+'"/><path style="fill:'+ACC+'" d="M'+x2+' '+y+'L'+(x2-6)+' '+(y-3.5)+'L'+(x2-6)+' '+(y+3.5)+'Z"/>';
   const hl=(x,y,w,h,k)=>'<rect class="ans'+(k?" "+k:"")+'" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="0" fill="none" style="stroke:'+ACC+';stroke-width:2"/>';
@@ -2083,7 +2083,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+='<path class="lead" d="M352 76C364 68 384 74 384 86C388 98 372 104 362 100C350 104 342 94 348 86C344 82 346 78 352 76Z"/>';
   o+=dot(400,84,2.6)+dot(336,104,2.6)+dot(392,108,2.6);
   /* pallini animati: escono dalla fibra e arrivano ai macrofagi */
-  [0,1.6,3.2].forEach(b=>{o+='<circle class="anm" r="3.4" style="fill:'+ACC+'"><animateMotion dur="4.8s" begin="-'+b+'s" repeatCount="indefinite" path="M100 84H168C196 84 200 96 220 92C240 88 250 84 272 84H330"/></circle>';});
+  [0,1.6,3.2].forEach(b=>{o+='<circle class="anm" r="3.4" style="fill:var(--ink)"><animateMotion dur="4.8s" begin="-'+b+'s" repeatCount="indefinite" path="M100 84H168C196 84 200 96 220 92C240 88 250 84 272 84H330"/></circle>';});
   /* passi sotto i tre elementi */
   o+=T(8,144,"1",{fz:12,acc:1})+T(20,144,"Rilascio dalla",{fz:10})+T(20,157,"fibra muscolare",{fz:10});
   o+=T(168,144,"2",{fz:12,acc:1})+T(180,144,"CK circolante",{fz:10})+T(180,157,"(valore misurato)",{fz:10});
