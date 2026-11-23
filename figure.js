@@ -225,10 +225,10 @@ const FIGURE=[
  <text x="124.0" y="50.5" style="font-size:9px">−90°</text>
  </g>
  <g class="ft" text-anchor="middle" style="font-size:9.6px" font-weight="600">
- <text x="176.0" y="183.0" style="font-size:9.6px">NORMALE</text>
- <text x="176.0" y="123.0" style="font-size:9.6px">SINISTRA</text>
- <text x="72.0" y="183.0" style="font-size:9.6px">DESTRA</text>
- <text x="72.0" y="123.0" style="font-size:9.6px">ESTREMA</text>
+ <text x="174.8" y="197.5" style="font-size:9px">NORMALE</text>
+ <text x="173" y="107.5" style="font-size:9px">SINISTRA</text>
+ <text x="73.2" y="197.5" style="font-size:9px">DESTRA</text>
+ <text x="74.5" y="107.5" style="font-size:9px">ESTREMA</text>
  </g>
  <g class="vf k1"><path d="M124 150L214.0 150.0A90 90 0 0 1 124.0 240.0Z" style="fill:var(--ok)" opacity=".42"/><g class=""><path d="M124 150L143.9 224.4" style="stroke:var(--ok)" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M146.3 233.1L151.7 218.6L134.3 223.3Z" style="fill:var(--ok)"/></g></g>
  <g class="vf k2"><path d="M124 150L124.0 60.0A90 90 0 0 1 214.0 150.0Z" style="fill:var(--amber)" opacity=".42"/><g class=""><path d="M124 150L143.9 75.6" style="stroke:var(--amber)" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M146.3 66.9L134.3 76.7L151.7 81.4Z" style="fill:var(--amber)"/></g></g>
@@ -1349,9 +1349,9 @@ const FIGURE=[
   o+='<g fill="none" stroke="#5f6b1a" stroke-width="1" opacity=".7"><path d="M222 184C238 176 258 176 272 186"/><path d="M220 198C238 190 262 190 278 200"/><path d="M222 212C240 206 260 206 274 212"/></g>';
   /* nomi dentro le forme */
   o+='<g class="ft" font-weight="600" font-size="11"><text x="54" y="112">Frontale</text><text x="196" y="52" text-anchor="middle">Parietale</text><text x="258" y="112" text-anchor="middle" font-size="10.5">Occipitale</text><text x="66" y="160" font-size="10.5">Temporale</text></g>';
-  o+='<g class="ft" font-size="9.5" text-anchor="middle"><text x="189" y="190">ponte</text><text x="192" y="226">bulbo</text></g>';
+  o+='<g class="ft" font-size="9.5" text-anchor="middle"><text x="189" y="190">ponte</text><text x="192" y="226" font-size="9">bulbo</text></g>';
   /* linee guida */
-  o+='<g class="lead"><path d="M74 6L128 108"/><path d="M202 124H296"/><path d="M207 152H296"/><path d="M283 198H296"/><path d="M204 226L296 242"/><path d="M56 196L98 182"/><path d="M150 228L148 180"/></g>';
+  o+='<g class="lead"><path d="M79.3 16L128 108"/><path d="M202 124H296"/><path d="M207 152H296"/><path d="M283 198H296"/><path d="M208 227L296 242"/><path d="M56 196L98 182"/><path d="M150 228L148 180"/></g>';
   /* etichette */
   const L=(x,y,a,b,an)=>'<text class="ft" x="'+x+'" y="'+y+'" font-weight="600" font-size="11.5"'+(an?' text-anchor="'+an+'"':'')+'>'+a+'</text>'+(b?'<text class="ft fsm" x="'+x+'" y="'+(y+13)+'"'+(an?' text-anchor="'+an+'"':'')+'>'+b+'</text>':'');
   o+=L(0,-4,"Nuclei della base","striato, in profondità");
@@ -1400,7 +1400,7 @@ const FIGURE=[
   o+='</g>';
   /* etichette della sagoma */
   o+='<g class="ft fsm"><text x="8" y="178">occhio</text><text x="128" y="244">mesencefalo e</text><text x="128" y="256">rombencefalo</text></g>';
-  o+='<path d="M170 240L168 204" class="lead"/>';
+  o+='<path d="M169.7 228L168 204" class="lead"/>';
   /* tabella dei passi */
   const row=(y,n,c,a,b,d,cls)=>'<rect x="252" y="'+y+'" width="182" height="62" rx="2" class="eyrow"/><rect x="252" y="'+y+'" width="4" height="62" fill="'+c+'"/><rect class="'+cls+'" x="252" y="'+y+'" width="182" height="62" rx="2" fill="none" stroke="'+c+'" stroke-width="2"/><text class="ft" x="266" y="'+(y+17)+'" font-weight="600" font-size="11.5">'+n+' · '+a+'</text><text class="ft fsm" x="266" y="'+(y+32)+'">'+b+'</text><text class="ft fsm" x="266" y="'+(y+46)+'">'+d+'</text>';
   o+=row(10,1,"#3fa35a","Stimolo visivo","si accendono prima le aree","visive, nel lobo occipitale","ans");

@@ -864,5 +864,11 @@ GLOSS.push(
 ["Radicolopatia","d","Sofferenza di una radice nervosa spinale, di solito compressa da ernia del disco o artrosi: dolore irradiato, alterazioni della sensibilità, debolezza e riflessi ridotti nel suo territorio.","Radiculopathy","radicolopatia-cervicale"],
 ["Dermatomo","t","Zona di pelle innervata dalle fibre sensitive di una singola radice spinale; i dermatomi vicini si sovrappongono.","Dermatome","radicolopatia-cervicale"],
 ["Miotomo","t","Gruppo di muscoli innervati da una singola radice spinale; negli standard ISNCSCI ogni radice ha un «muscolo chiave».","Myotome","radicolopatia-cervicale"],
-["Mielopatia cervicale","d","Compressione del midollo spinale nel collo: mani goffe, cammino instabile, disturbi sfinterici, riflessi vivaci; richiede valutazione urgente.","Cervical myelopathy","radicolopatia-cervicale"]
+["Mielopatia cervicale","d","Compressione del midollo spinale nel collo: mani goffe, cammino instabile, disturbi sfinterici, riflessi vivaci; richiede valutazione urgente.","Cervical myelopathy","radicolopatia-cervicale"],
+["Elettroencefalogramma (EEG)","t","Registrazione dell'attività elettrica del cervello con elettrodi posti sul cuoio capelluto; serve a cercare anomalie epilettiformi e alterazioni dell'attività di fondo.","Electroencephalogram (EEG)","eeg-epilessia"],
+["Anomalia epilettiforme intercritica","s","Onda o gruppo di onde appuntite (punte, onde aguzze, punta-onda) che si staccano dal ritmo di fondo all'EEG tra una crisi e l'altra; tipica, ma non esclusiva, delle persone con epilessia.","Interictal epileptiform discharge (IED)","eeg-epilessia"],
+["Complesso punta-onda","s","Punta seguita subito da un'onda lenta; a circa 3 Hz e generalizzato è tipico delle assenze tipiche.","Spike-and-slow-wave complex","eeg-epilessia"],
+["Ipsaritmia","s","Tracciato EEG caotico con onde lente di ampiezza molto alta (> 300 µV) e punte in più regioni dei due emisferi; tipico degli spasmi epilettici infantili.","Hypsarrhythmia","eeg-epilessia"],
+["Sindrome di Lennox-Gastaut","d","Encefalopatia epilettica e dello sviluppo dell'infanzia con crisi toniche e altri tipi di crisi, disabilità intellettiva e farmacoresistenza; all'EEG punta-onda lenta ≤ 2,5 Hz e attività rapida generalizzata nel sonno.","Lennox-Gastaut syndrome","eeg-epilessia"],
+["Video-EEG","t","Registrazione prolungata di EEG e video insieme, per vedere cosa accade al corpo e al tracciato durante un evento e distinguere crisi epilettiche da eventi non epilettici.","Video-EEG monitoring","eeg-epilessia"]
 );
