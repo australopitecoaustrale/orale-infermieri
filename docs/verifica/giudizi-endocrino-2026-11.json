@@ -942,5 +942,133 @@
   "tipo": "linea-guida",
   "stato": "corretto",
   "nota": "iperCKemia oltre 1,5 volte il limite superiore; aggiunta su proposta del revisore"
+ },
+ {
+  "id": "radicolopatia-cervicale#p0",
+  "testo": "Le radici cervicali sono otto (C1-C8) anche se le vertebre sono sette: ogni radice esce sopra la vertebra con lo stesso numero, la C8 tra C7 e T1",
+  "fonte": "manuale (anatomia)",
+  "tipo": "manuale",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "radicolopatia-cervicale#p2",
+  "testo": "Gli standard internazionali per l'esame neurologico (ISNCSCI dell'ASIA, revisione 2019) indicano per l'arto superiore: C5 gomito laterale, C6 pollice, C7 dito medio, C8 mignolo, T1 gomito mediale; muscoli chiave C5 flessori del gomito, C6 estensori del polso, C7 estensori del gomito, C8 flessori delle dita (flessore profondo del dito medio), T1 abduttori del mignolo",
+  "fonte": "Rupp 2021 PMID 34108832 (testo non letto); Jajeh 2024 PMID 38567008; Yousif 2025 PMID 40188056",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "punti e muscoli chiave ISNCSCI C6, C8, T1 non letti nel testo; scritto in n"
+ },
+ {
+  "id": "radicolopatia-cervicale#p3",
+  "testo": "Riflessi: bicipitale (C5-C6), brachioradiale (C6), tricipitale (C7); un riflesso ridotto da un solo lato orienta verso la radice",
+  "fonte": "Jajeh 2024 PMID 38567008; Yousif 2025 PMID 40188056",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "attribuzione C5/C5-C6 e C6 variabile, scritta in n"
+ },
+ {
+  "id": "radicolopatia-cervicale#v0",
+  "testo": "Picco di incidenza: 50-54 anni (studio di popolazione)",
+  "fonte": "Radhakrishnan 1994 PMID 8186959; Childress 2016 PMID 27175952",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "riformulato come picco di incidenza"
+ },
+ {
+  "id": "radicolopatia-cervicale#v1",
+  "testo": "Reperto neurologico più frequente: riflesso tricipitale ridotto (radice C7)",
+  "fonte": "Childress 2016 PMID 27175952; Radhakrishnan 1994 PMID 8186959",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "radicolopatia-cervicale#v2",
+  "testo": "C5: sensibilità: fossa del gomito, lato laterale · muscolo chiave: flessori del gomito (bicipite) · riflesso bicipitale",
+  "fonte": "Jajeh 2024 PMID 38567008; Yousif 2025 PMID 40188056",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "punto chiave esatto ISNCSCI da verificare"
+ },
+ {
+  "id": "radicolopatia-cervicale#v3",
+  "testo": "C6: sensibilità: pollice · muscolo chiave: estensori del polso · riflesso brachioradiale (stiloradiale)",
+  "fonte": "Jajeh 2024 PMID 38567008; Yousif 2025 PMID 40188056",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "riflesso C6 variabile tra testi"
+ },
+ {
+  "id": "radicolopatia-cervicale#v4",
+  "testo": "C7: sensibilità: dito medio · muscolo chiave: estensori del gomito (tricipite) · riflesso tricipitale",
+  "fonte": "Jajeh 2024 PMID 38567008; Yousif 2025 PMID 40188056",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "radicolopatia-cervicale#v5",
+  "testo": "C8: sensibilità: mignolo · muscolo chiave: flessore profondo del dito medio · nessun riflesso tipico",
+  "fonte": "Jajeh 2024 PMID 38567008; Yousif 2025 PMID 40188056",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "sensibilità e flessori delle dita confermati; assenza di riflesso da verificare, in n"
+ },
+ {
+  "id": "radicolopatia-cervicale#v6",
+  "testo": "T1: sensibilità: fossa del gomito, lato mediale · muscolo chiave: abduttori del mignolo · nessun riflesso tipico",
+  "fonte": "Yousif 2025 PMID 40188056",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "T1 in una sola fonte, muscoli discordanti; in n"
+ },
+ {
+  "id": "radicolopatia-cervicale#v7",
+  "testo": "C4: punto chiave ISNCSCI: articolazione acromioclavicolare (parte alta della spalla)",
+  "fonte": "Rupp 2021 PMID 34108832 (testo non letto); Jajeh 2024 PMID 38567008",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "punto chiave C4 corretto in acromioclavicolare; in n"
+ },
+ {
+  "id": "radicolopatia-cervicale#q0",
+  "testo": "Secondo gli standard ISNCSCI, quale radice corrisponde al punto sensitivo chiave del pollice? → C6 (Pollice C6, dito medio C7, mignolo C8. C5 è il lato laterale del gomito.)",
+  "fonte": "Jajeh 2024 PMID 38567008; Yousif 2025 PMID 40188056",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "pollice = C6 in entrambe"
+ },
+ {
+  "id": "radicolopatia-cervicale#q1",
+  "testo": "Quale riflesso si riduce più spesso nella radicolopatia cervicale? → Tricipitale (Il riflesso tricipitale (radice C7) è il reperto neurologico più frequente; C7 è la radice più spesso coinvolta.)",
+  "fonte": "Childress 2016 PMID 27175952",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "radicolopatia-cervicale#q2",
+  "testo": "Qual è il muscolo chiave della radice C7 negli standard ISNCSCI? → Estensori del gomito (tricipite) (C5 flessori del gomito, C6 estensori del polso, C7 estensori del gomito, C8 flessori delle dita, T1 abduttori del mignolo.)",
+  "fonte": "Jajeh 2024 PMID 38567008; Yousif 2025 PMID 40188056; caso ISNCSCI PMC12376160",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "radicolopatia-cervicale#q5",
+  "testo": "Perché le radici cervicali sono otto se le vertebre cervicali sono sette? → Perché le radici cervicali escono sopra la vertebra con lo stesso numero e la C8 esce tra C7 e T1 (Nel tratto cervicale ogni radice esce sopra la vertebra omonima; la C8 non ha una vertebra propria.)",
+  "fonte": "manuale (anatomia)",
+  "tipo": "manuale",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "radicolopatia-cervicale#q6",
+  "testo": "Il formicolio al mignolo e all'avambraccio mediale con debolezza nella flessione delle dita fa pensare a quale radice? → C8 (Mignolo e flessori delle dita: C8.)",
+  "fonte": "Jajeh 2024 PMID 38567008; Yousif 2025 PMID 40188056",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
  }
 ]
