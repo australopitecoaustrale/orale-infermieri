@@ -11,11 +11,11 @@ const FIGURE=[
  <path class="fs thick" d="M190 130H200V164"/><path class="fs thick" d="M200 164Q186 196 160 236"/><path class="fs thick" d="M200 164Q222 200 252 234"/>
  <path class="fs" d="M160 236Q140 220 132 196M160 236Q176 252 196 258M252 234Q270 214 276 190M252 234Q232 252 206 258"/>
  <circle class="fv" cx="128" cy="86" r="8"/><circle class="fv" cx="190" cy="130" r="7"/>
- <g class="ft fsm" text-anchor="middle"><text x="140" y="118">Atrio dx</text><text x="258" y="112">Atrio sx</text><text x="150" y="170">Ventricolo dx</text><text x="252" y="170">Ventricolo sx</text></g>
+ <g class="ft fsm" style="fill:var(--ink)" text-anchor="middle"><text x="140" y="118">Atrio dx</text><text x="258" y="112">Atrio sx</text><text x="150" y="170">Ventricolo dx</text><text x="252" y="170">Ventricolo sx</text></g>
  </g>
  <g class="ft"><text x="6" y="40">Nodo seno-atriale</text><text x="6" y="54" class="fsm">60-100/min</text><path class="lead" d="M120 46L182 82"/>
  <text x="380" y="40">Nodo atrio-</text><text x="380" y="54">ventricolare</text><text x="380" y="68" class="fsm">40-60/min</text><path class="lead" d="M378 56L256 128"/>
- <text x="380" y="190">Fascio di His</text><path class="lead" d="M378 186L262 156"/>
+ <text x="380" y="190">Fascio di His</text><path class="lead" d="M378 186H272L262 160"/>
  <text x="380" y="236">Branca sinistra</text><path class="lead" d="M378 232L314 226"/>
  <text x="6" y="236">Branca destra</text><path class="lead" d="M100 232L216 230"/>
  <text x="170" y="294">Fibre del Purkinje · 20-40/min</text></g></svg>`},
@@ -27,7 +27,7 @@ const FIGURE=[
  <path d="M10 140H64Q80 118 96 140H120L126 150L138 44L150 162L158 140H196Q228 98 262 140H286Q296 130 306 140H410" class="etr" style="stroke-width:2.4"/>
  <g class="fx" style="stroke-width:4.2;stroke-linecap:round;stroke-linejoin:round"><path class="ans" d="M64 140Q80 118 96 140"/><path class="ans s2" d="M120 140L126 150L138 44L150 162L158 140"/><path class="ans s3" d="M196 140Q228 98 262 140"/></g>
  <g class="emt" style="font-family:var(--f-body)" font-size="12" font-weight="600" text-anchor="end"><text class="ans" x="408" y="196">P: si attivano gli atri</text><text class="ans s2" x="408" y="196">QRS: si attivano i ventricoli</text><text class="ans s3" x="408" y="196">T: i ventricoli si ricaricano</text></g>
- <g class="elab" style="font-family:var(--f-mono)" font-size="13" font-weight="600"><text x="74" y="112">P</text><text x="122" y="40">R</text><text x="112" y="164">Q</text><text x="161" y="167">S</text><text x="224" y="94">T</text><text x="292" y="124">U</text></g>
+ <g class="elab" style="font-family:var(--f-mono)" font-size="13" font-weight="600"><text x="74" y="112">P</text><text x="122" y="40">R</text><text x="112" y="164">Q</text><text x="161" y="163">S</text><text x="224" y="94">T</text><text x="292" y="124">U</text></g>
  <g class="emk" stroke-width="1.6"><path d="M64 190V196M120 190V196M64 193H120"/><path d="M120 172V178M158 172V178M120 175H158"/><path d="M120 18V24M262 18V24M120 21H262"/><path d="M158 128H196" stroke-dasharray="3 3"/></g>
  <g class="emt" style="font-family:var(--f-body)" font-size="12" font-weight="600"><text x="70" y="208">PR 0,12-0,20 s</text><text x="164" y="179">QRS &lt; 0,12 s</text><text x="160" y="15">QT</text><text x="160" y="124" font-size="10">ST</text></g></svg>`},
 {id:"elettrodi",t:"Posizione degli elettrodi dell'ECG a 12 derivazioni",c:"Precordiali: V1 IV spazio intercostale a destra dello sterno; V2 IV spazio a sinistra dello sterno; V4 V spazio sulla linea emiclaveare; V3 a metà tra V2 e V4; V5 linea ascellare anteriore e V6 linea ascellare media, alla stessa altezza di V4. Arti: rosso braccio destro, giallo braccio sinistro, verde gamba sinistra, nero gamba destra.",
@@ -36,9 +36,9 @@ const FIGURE=[
  <path class="ff fl" d="M150 44Q230 28 310 44L350 74Q366 150 350 236Q320 272 230 276Q140 272 110 236Q94 150 110 74Z"/>
  <path class="fl" d="M150 56Q190 64 224 62M236 62Q270 64 310 56"/><rect class="fa fl" x="220" y="66" width="20" height="118" rx="6"/>
  <path class="fl dash" d="M122 146.6Q230 134 348 148M122 170.6Q230 158 348 172"/><path class="fl dash" d="M288 74V250M326 86V244M350 100V230"/>
- <g class="ft fsm"><text x="6" y="146">IV spazio intercostale</text><text x="6" y="176">V spazio intercostale</text><path class="lead" d="M124 143H150M124 171H150"/>
- <path class="lead" d="M288 252V282M326 246V296M350 232V310"/>
- <text class="halo" x="262" y="292">emiclaveare</text><text class="halo" x="300" y="306">ascellare anteriore</text><text class="halo" x="340" y="320">ascellare media</text></g>
+ <g class="ft fsm"><text x="6" y="146" style="font-size:9.6px">IV spazio intercostale</text><text x="6" y="176" style="font-size:9.6px">V spazio intercostale</text><path class="lead" d="M124 143H150M124 171H150"/>
+ <path class="lead" d="M288 252V282M326 246V290M350 232V310"/>
+ <text class="halo" x="262" y="292">emiclaveare</text><text class="halo" x="344" y="306" text-anchor="end">ascellare anteriore</text><text class="halo" x="340" y="320">ascellare media</text></g>
  <g class="fv-dot"><circle cx="210" cy="142" r="10"/><circle cx="250" cy="142" r="10"/><circle cx="269" cy="155" r="10"/><circle cx="288" cy="166" r="10"/><circle cx="326" cy="166" r="10"/><circle cx="350" cy="166" r="10"/></g>
  <g font-family="var(--f-mono)" font-size="9.5" font-weight="600" style="fill:var(--paper)" text-anchor="middle"><text x="210" y="145.5">V1</text><text x="250" y="145.5">V2</text><text x="269" y="158.5">V3</text><text x="288" y="169.5">V4</text><text x="326" y="169.5">V5</text><text x="350" y="169.5">V6</text></g>
  <circle cx="90" cy="54" r="11" fill="#d93a32"/><circle cx="370" cy="54" r="11" fill="#e6b800"/><circle cx="150" cy="300" r="11" fill="#222" stroke="#999" stroke-width="1.5"/><circle cx="210" cy="300" r="11" fill="#2f9e44"/>
@@ -325,7 +325,7 @@ const FIGURE=[
  <rect x="8" y="4" width="208" height="214" rx="2" class="eyrow"/>
  <text x="20" y="22" class="ft" font-weight="600" style="font-size:10.5px">Senza IPP: l'acido esce</text>
  <rect x="20" y="30" width="184" height="46" rx="2" style="fill:var(--amber)" opacity="0.2"/>
- <text x="28" y="46" class="ft fsm" style="font-size:9.6px">lume gastrico</text><text x="196" y="46" text-anchor="end" class="ft fsm" style="font-size:9.6px">molto acido</text>
+ <text x="28" y="46" class="ft fsm" style="font-size:9.6px;fill:var(--ink)">lume gastrico</text><text x="196" y="46" text-anchor="end" class="ft fsm" style="font-size:9.6px;fill:var(--ink)">molto acido</text>
  <rect x="20" y="84" width="184" height="124" rx="2" class="ff fl" style="stroke-width:1"/>
  <text x="28" y="200" class="ft fsm" style="font-size:9.6px">cellula parietale</text>
  <rect x="20" y="76" width="184" height="8" fill="var(--muted)" opacity=".45"/>
@@ -338,7 +338,7 @@ const FIGURE=[
  <rect x="224" y="4" width="208" height="214" rx="2" class="eyrow"/>
  <text x="236" y="22" class="ft" font-weight="600" style="font-size:10.5px">Con IPP: la pompa è bloccata</text>
  <rect x="236" y="30" width="184" height="46" rx="2" style="fill:var(--amber)" opacity="0.08"/>
- <text x="244" y="46" class="ft fsm" style="font-size:9.6px">lume gastrico</text><text x="412" y="46" text-anchor="end" class="ft fsm" style="font-size:9.6px">meno acido</text>
+ <text x="244" y="46" class="ft fsm" style="font-size:9.6px;fill:var(--ink)">lume gastrico</text><text x="412" y="46" text-anchor="end" class="ft fsm" style="font-size:9.6px;fill:var(--ink)">meno acido</text>
  <rect x="236" y="84" width="184" height="124" rx="2" class="ff fl" style="stroke-width:1"/>
  <text x="244" y="200" class="ft fsm" style="font-size:9.6px">cellula parietale</text>
  <rect x="236" y="76" width="184" height="8" fill="var(--muted)" opacity=".45"/>
@@ -447,7 +447,7 @@ const FIGURE=[
  enc:["ica","precauzioni","igiene-mani"],gl:[],st:/infezion|igiene|sicurezza/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Sei anelli della catena del contagio">
  <circle cx="210" cy="150" r="96" class="fl dash" fill="none"/>
- <g class="chain"><circle cx="210" cy="54" r="38"/><circle cx="293" cy="102" r="38"/><circle cx="293" cy="198" r="38"/><circle cx="210" cy="246" r="38"/><circle cx="127" cy="198" r="38"/><circle cx="127" cy="102" r="38"/></g>
+ <circle class="fbx k-info" cx="210" cy="54" r="40"/><g class="fbx"><circle cx="293" cy="102" r="40"/><circle cx="293" cy="198" r="40"/><circle cx="210" cy="246" r="40"/><circle cx="127" cy="198" r="40"/><circle cx="127" cy="102" r="40"/></g>
  <g class="ft fb" text-anchor="middle" font-size="11"><text x="210" y="52">Agente</text><text x="210" y="65">infettivo</text><text x="293" y="106">Serbatoio</text><text x="293" y="196">Porta di</text><text x="293" y="209">uscita</text><text x="210" y="243">Modalità di</text><text x="210" y="256">trasmissione</text><text x="127" y="196">Porta di</text><text x="127" y="209">ingresso</text><text x="127" y="100">Ospite</text><text x="127" y="113">suscettibile</text></g>
  <g class="ft fsm" text-anchor="middle"><text x="210" y="146">Igiene delle mani,</text><text x="210" y="160">DPI, vaccini</text></g></svg>`},
 {id:"start",t:"Triage START nella maxiemergenza",c:"Meno di un minuto per vittima. Durante il triage si fanno solo manovre salvavita rapide: apertura delle vie aeree, controllo di un'emorragia massiva, posizione laterale di sicurezza. Il triage si ripete al Posto medico avanzato.",
@@ -466,20 +466,20 @@ const FIGURE=[
 {id:"posizioni",t:"Posizioni del paziente a letto",c:"Fowler (testata a 45-60°): dispnea, pasti, nutrizione enterale. Semi-Fowler (30°): prevenzione dell'aspirazione e della polmonite da ventilazione, minore scivolamento. Supina: esami e riposo. Laterale e Sims (laterale sinistra semiprona): alternanza dei punti d'appoggio, clisteri. Prona: alcune insufficienze respiratorie gravi. Trendelenburg: oggi poco usata nello shock, dove si preferisce il sollevamento passivo delle gambe.",
  enc:["mobilizzazione","lesioni-pressione"],gl:["Decubito"],st:/cute|lesion/i,
  svg:`<svg viewBox="0 0 480 250" role="img" aria-label="Sei posizioni del paziente a letto">
- <g transform="translate(0 0)"><path class="bed" d="M10 66H70L44 26M70 66H150M14 66V78M146 66V78"/><circle class="pz" cx="40" cy="18" r="8"/><path class="pzb" d="M44 28L72 58H148"/><text class="ft fb" x="80" y="100" text-anchor="middle">Fowler 45-60°</text></g>
- <g transform="translate(160 0)"><path class="bed" d="M10 66H70L24 44M70 66H150M14 66V78M146 66V78"/><circle class="pz" cx="20" cy="36" r="8"/><path class="pzb" d="M28 42L72 58H148"/><text class="ft fb" x="80" y="100" text-anchor="middle">Semi-Fowler 30°</text></g>
- <g transform="translate(320 0)"><path class="bed" d="M10 66H150M14 66V78M146 66V78"/><circle class="pz" cx="22" cy="50" r="8"/><path class="pzb" d="M32 56H146"/><text class="ft fb" x="80" y="100" text-anchor="middle">Supina</text></g>
- <g transform="translate(0 125)"><path class="bed" d="M10 66H150M14 66V78M146 66V78"/><circle class="pz" cx="22" cy="50" r="8"/><path class="pzb" d="M32 56H96L118 40L140 48M96 56H146"/><text class="ft fb" x="80" y="100" text-anchor="middle">Laterale / Sims</text></g>
- <g transform="translate(160 125)"><path class="bed" d="M10 66H150M14 66V78M146 66V78"/><circle class="pz" cx="22" cy="52" r="8"/><path class="pzb" d="M32 57H146"/><path class="fl" d="M20 60Q24 64 30 60"/><text class="ft fb" x="80" y="100" text-anchor="middle">Prona</text></g>
- <g transform="translate(320 125)"><path class="bed" d="M10 76L150 40M18 74V86M144 42V86"/><circle class="pz" cx="24" cy="62" r="8"/><path class="pzb" d="M34 64L148 34"/><text class="ft fb" x="80" y="100" text-anchor="middle">Trendelenburg</text></g></svg>`},
+ <g transform="translate(0 0)"><path class="bed" d="M10 66H70L44 26M70 66H150M14 66V78M146 66V78"/><circle class="pz" style="stroke:var(--ink);stroke-width:1.4" cx="40" cy="18" r="8"/><path class="pzb" style="stroke:color-mix(in srgb,var(--ink) 55%,var(--paper))" d="M44 28L72 58H148"/><text class="ft fb" x="80" y="100" text-anchor="middle">Fowler 45-60°</text></g>
+ <g transform="translate(160 0)"><path class="bed" d="M10 66H70L24 44M70 66H150M14 66V78M146 66V78"/><circle class="pz" style="stroke:var(--ink);stroke-width:1.4" cx="20" cy="36" r="8"/><path class="pzb" style="stroke:color-mix(in srgb,var(--ink) 55%,var(--paper))" d="M28 42L72 58H148"/><text class="ft fb" x="80" y="100" text-anchor="middle">Semi-Fowler 30°</text></g>
+ <g transform="translate(320 0)"><path class="bed" d="M10 66H150M14 66V78M146 66V78"/><circle class="pz" style="stroke:var(--ink);stroke-width:1.4" cx="22" cy="50" r="8"/><path class="pzb" style="stroke:color-mix(in srgb,var(--ink) 55%,var(--paper))" d="M32 56H146"/><text class="ft fb" x="80" y="100" text-anchor="middle">Supina</text></g>
+ <g transform="translate(0 125)"><path class="bed" d="M10 66H150M14 66V78M146 66V78"/><circle class="pz" style="stroke:var(--ink);stroke-width:1.4" cx="22" cy="50" r="8"/><path class="pzb" style="stroke:color-mix(in srgb,var(--ink) 55%,var(--paper))" d="M32 56H96L118 40L140 48M96 56H146"/><text class="ft fb" x="80" y="100" text-anchor="middle">Laterale / Sims</text></g>
+ <g transform="translate(160 125)"><path class="bed" d="M10 66H150M14 66V78M146 66V78"/><circle class="pz" style="stroke:var(--ink);stroke-width:1.4" cx="22" cy="52" r="8"/><path class="pzb" style="stroke:color-mix(in srgb,var(--ink) 55%,var(--paper))" d="M32 57H146"/><path class="fl" d="M20 60Q24 64 30 60"/><text class="ft fb" x="80" y="100" text-anchor="middle">Prona</text></g>
+ <g transform="translate(320 125)"><path class="bed" d="M10 76L150 40M18 74V86M144 42V86"/><circle class="pz" style="stroke:var(--ink);stroke-width:1.4" cx="24" cy="62" r="8"/><path class="pzb" style="stroke:color-mix(in srgb,var(--ink) 55%,var(--paper))" d="M34 64L148 34"/><text class="ft fb" x="80" y="100" text-anchor="middle">Trendelenburg</text></g></svg>`},
 {id:"sedi-im",t:"Sedi delle iniezioni intramuscolari",c:"Ventrogluteo (sede preferita nell'adulto): palmo sul grande trocantere, indice sulla spina iliaca antero-superiore, medio verso la cresta iliaca; si inietta al centro della «V», lontano da nervo sciatico e grandi vasi. Deltoide: 2-3 dita sotto l'acromion, piccoli volumi. Vasto laterale: terzo medio della faccia esterna della coscia, sede di scelta nel lattante.",
  enc:["vie-somministrazione"],gl:[],st:/terapia|farmac/i,
  svg:`<svg viewBox="0 0 480 240" role="img" aria-label="Sedi ventroglutea, deltoidea e vasto laterale">
- <g><path class="ff fl" d="M30 40Q80 20 130 44Q150 90 136 150Q120 200 70 214Q36 190 30 140Z"/><path class="fl dash" d="M40 58Q84 34 126 56"/><circle class="fv" cx="114" cy="62" r="5"/><circle class="fl ff" cx="72" cy="150" r="13"/>
+ <g><path class="ff fl" d="M30 40Q80 20 130 44Q150 90 136 150Q120 200 70 214Q36 190 30 140Z"/><path class="fl dash" d="M40 58Q84 34 126 56"/><circle class="fh" cx="114" cy="62" r="5"/><circle class="fl ff" cx="72" cy="150" r="13"/>
   <path class="fs thick" d="M72 150L112 66M72 150L58 58"/><path class="fl" d="M60 168Q72 186 88 168" /><circle cx="84" cy="88" r="7" class="fx"/>
   <g class="ft fsm"><text x="70" y="12">spina iliaca antero-superiore</text><path class="lead" d="M116 16L114 56"/><text x="2" y="30">cresta iliaca</text><path class="lead" d="M84 162L100 194"/><text x="102" y="204">grande trocantere</text></g>
   <text class="ft fb" x="80" y="232" text-anchor="middle">Ventrogluteo</text></g>
- <g transform="translate(170 0)"><path class="ff fl" d="M40 40Q70 20 104 34Q122 44 120 70L112 200H58L46 80Q36 60 40 40Z"/><circle class="fv" cx="96" cy="38" r="5"/><path class="fl dash" d="M60 62H118M62 92H116"/><path d="M66 70L112 70L90 120Z" class="fa fl"/><circle cx="88" cy="84" r="7" class="fx"/>
+ <g transform="translate(170 0)"><path class="ff fl" d="M40 40Q70 20 104 34Q122 44 120 70L112 200H58L46 80Q36 60 40 40Z"/><circle class="fh" cx="96" cy="38" r="5"/><path class="fl dash" d="M60 62H118M62 92H116"/><path d="M66 70L112 70L90 120Z" class="fa fl"/><circle cx="88" cy="84" r="7" class="fx"/>
   <g class="ft fsm"><text x="100" y="28">acromion</text><text x="126" y="80">2-3 dita sotto</text></g>
   <text class="ft fb" x="85" y="232" text-anchor="middle">Deltoide</text></g>
  <g transform="translate(330 0)"><path class="ff fl" d="M40 24H110Q118 120 104 210H52Q34 120 40 24Z"/><path class="fl dash" d="M38 86H114M40 148H112"/><rect x="82" y="92" width="24" height="50" rx="8" class="fa fl"/><circle cx="94" cy="117" r="7" class="fx"/>
@@ -488,8 +488,8 @@ const FIGURE=[
 {id:"strati-cute",t:"Gli strati della cute",c:"Epidermide (cheratinociti, melanociti; senza vasi), derma (collagene, vasi, nervi, follicoli, ghiandole sebacee e sudoripare) e ipoderma (tessuto adiposo). La profondità di ustioni e lesioni si descrive in base agli strati coinvolti.",
  enc:["cute","ustioni","lesioni-pressione"],gl:[],st:/cute/i,
  svg:`<svg viewBox="0 0 480 250" role="img" aria-label="Sezione della cute con epidermide, derma e ipoderma">
+ <path d="M20 48H340V140H20Z" fill="#f3cdb7"/>
  <path d="M20 40Q60 34 100 40T180 40T260 40T340 40V58Q300 52 260 58T180 58T100 58T20 58Z" fill="#e3a98c"/>
- <path d="M20 58Q60 52 100 58T180 58T260 58T340 58V140H20Z" fill="#f3cdb7"/>
  <rect x="20" y="140" width="320" height="90" fill="#f6e1a0"/>
  <g fill="#fbefc6" stroke="#e0c46e" stroke-width="1"><circle cx="50" cy="168" r="16"/><circle cx="86" cy="196" r="18"/><circle cx="130" cy="166" r="15"/><circle cx="176" cy="200" r="17"/><circle cx="222" cy="170" r="16"/><circle cx="268" cy="198" r="18"/><circle cx="310" cy="168" r="15"/></g>
  <path d="M96 20L100 40L106 126Q108 140 98 140Q88 140 92 126L96 40" fill="none" stroke="#5a3a28" stroke-width="2.5"/><ellipse cx="99" cy="132" rx="10" ry="8" fill="#e8b49a" stroke="#b5655a"/>
@@ -497,14 +497,14 @@ const FIGURE=[
  <path d="M220 40V100Q220 114 228 120Q240 128 232 136Q220 144 230 150Q242 156 230 160" fill="none" stroke="#5f8fb4" stroke-width="2"/>
  <path d="M20 120Q120 104 200 122T340 116" fill="none" stroke="#c0392b" stroke-width="3"/><path d="M20 128Q120 114 200 130T340 124" fill="none" stroke="#3b5bdb" stroke-width="3"/>
  <g class="ft fb"><text x="350" y="52">Epidermide</text><text x="350" y="100">Derma</text><text x="350" y="190">Ipoderma</text></g>
- <g class="ft fsm"><text x="62" y="16">pelo</text><text x="128" y="80" style="fill:#4a3a2e">gh. sebacea</text><text x="244" y="160" style="fill:#4a3a2e">gh. sudoripara</text><text x="246" y="112" style="fill:#4a3a2e">vasi</text><text x="20" y="246">tessuto adiposo</text></g></svg>`},
+ <g class="ft fsm"><text x="62" y="16">pelo</text><text x="128" y="80" style="fill:#4a3a2e">gh. sebacea</text><text x="250" y="160" style="fill:#4a3a2e">gh. sudoripara</text><text x="246" y="112" style="fill:#4a3a2e">vasi</text><text x="20" y="246">tessuto adiposo</text></g></svg>`},
 {id:"auscultazione",t:"Focolai di auscultazione cardiaca",c:"Aortico: II spazio intercostale a destra dello sterno. Polmonare: II spazio a sinistra dello sterno. Tricuspidale: IV-V spazio a sinistra dello sterno. Mitralico (itta della punta): V spazio sulla linea emiclaveare sinistra. Nei polmoni si ausculta confrontando punti simmetrici, dagli apici alle basi, davanti e dietro.",
  enc:["esame-obiettivo","cuore-fisiologia"],gl:[],st:/torace|cuore/i,
  svg:`<svg viewBox="0 0 420 300" role="img" aria-label="Torace con i focolai di auscultazione aortico, polmonare, tricuspidale e mitralico">
  <path class="ff fl" d="M110 34Q210 16 310 34L350 66Q366 150 350 240Q320 280 210 284Q100 280 70 240Q54 150 70 66Z"/>
  <rect class="fa fl" x="198" y="54" width="24" height="132" rx="7"/>
- <path class="fl dash" d="M88 92Q210 78 332 92M84 124Q210 110 336 124M82 154Q210 140 338 154M82 184Q210 170 338 184"/><path class="fl dash" d="M272 60V250"/>
- <g class="ft fsm"><text x="6" y="96">II spazio</text><text x="6" y="128">III spazio</text><text x="6" y="158">IV spazio</text><text x="6" y="188">V spazio</text><text x="278" y="262">emiclaveare sx</text></g>
+ <path class="fl dash" d="M88 92Q210 78 332 92M84 124Q210 110 336 124M82 154Q210 140 338 154M82 184Q210 170 338 184"/><path class="fl dash" d="M272 84V250"/><path class="lead" d="M272 254V284"/>
+ <g class="ft fsm"><text x="6" y="96">II spazio</text><text x="6" y="128">III spazio</text><text x="6" y="158">IV spazio</text><text x="6" y="188">V spazio</text><text x="278" y="294">emiclaveare sx</text></g>
  <g class="fbx k-info"><circle cx="186" cy="86" r="11"/><circle cx="234" cy="86" r="11"/><circle cx="232" cy="162" r="11"/><circle cx="272" cy="178" r="11"/></g>
  <g class="ft fb" font-size="11" text-anchor="middle"><text x="186" y="90">A</text><text x="234" y="90">P</text><text x="232" y="166">T</text><text x="272" y="182">M</text></g>
  <g class="ft" font-size="11.5"><text x="104" y="74">Aortico</text><path class="lead" d="M150 78L176 84"/><text x="268" y="74">Polmonare</text><path class="lead" d="M266 78L244 84"/><text x="132" y="214">Tricuspidale</text><path class="lead" d="M204 210L226 170"/><text x="300" y="214">Mitralico</text><path class="lead" d="M310 202L280 186"/></g>
@@ -1470,8 +1470,8 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
  `<path class="fl dash" d="M318 262C318 280 316 296 308 306M352 262C352 280 354 296 362 306"/>`+
  FT.arrow(300,284,314,284,{h:5})+FT.arrow(370,284,356,284,{h:5})+
  FT.arrow(280,362,266,372,{h:5,dash:true})+FT.arrow(390,362,404,372,{h:5,dash:true})+
- FT.text(335,356,"apice",{a:"middle",sm:true,b:true})+
- FT.text(335,368,"dilatato",{a:"middle",sm:true,b:true})+
+ FT.text(335,356,"apice",{a:"middle",sm:true,b:true}).replace('class="ft fsm','style="fill:var(--ink)" class="ft fsm')+
+ FT.text(335,368,"dilatato",{a:"middle",sm:true,b:true}).replace('class="ft fsm','style="fill:var(--ink)" class="ft fsm')+
  FT.text(335,408,["base ipercontrattile, apice fermo,","forma di ampolla (takotsubo)"],{a:"middle",sm:true})+
  FT.text(235,436,"Coronarie senza ostruzione responsabile",{a:"middle",sm:true})+
  FT.box(36,446,398,38,["1-4% dei sospetti di sindrome coronarica acuta","circa 90% donne, soprattutto dopo la menopausa"],null,"")+
