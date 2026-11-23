@@ -860,5 +860,9 @@ GLOSS.push(
 ["Chirurgia transsfenoidale","t","Intervento che raggiunge l'ipofisi attraverso il naso e il seno sfenoidale, senza aprire il cranio. Dopo l'intervento si sorvegliano diuresi, sodio, perdita di liquor dal naso e vista.","Transsphenoidal surgery","adenomi-ipofisari"],
 ["GWAS","g","Studio di associazione sull'intero genoma: confronta milioni di varianti del DNA in molte persone per trovare quelle legate a un carattere (per esempio il livello di CK). Mostra associazioni, non la causa nel singolo.","Genome-wide association study","es-ck-genetica"],
 ["Iperckemia idiopatica","t","CK persistentemente sopra il limite (per le linee guida EFNS oltre 1,5 volte il limite superiore), con sintomi assenti o minimi (crampi, mialgie) e senza causa trovata dopo gli accertamenti; può essere la normalità della persona o il segno di una miopatia silente.","Idiopathic hyperCKaemia","es-ck-genetica"],
-["Miopatia mendeliana","d","Malattia muscolare ereditaria causata da una mutazione rara in un singolo gene (per esempio distrofie muscolari da mutazioni di TTN, ANO5 o CAV3).","Mendelian myopathy","es-ck-genetica"]
+["Miopatia mendeliana","d","Malattia muscolare ereditaria causata da una mutazione rara in un singolo gene (per esempio distrofie muscolari da mutazioni di TTN, ANO5 o CAV3).","Mendelian myopathy","es-ck-genetica"],
+["Radicolopatia","d","Sofferenza di una radice nervosa spinale, di solito compressa da ernia del disco o artrosi: dolore irradiato, alterazioni della sensibilità, debolezza e riflessi ridotti nel suo territorio.","Radiculopathy","radicolopatia-cervicale"],
+["Dermatomo","t","Zona di pelle innervata dalle fibre sensitive di una singola radice spinale; i dermatomi vicini si sovrappongono.","Dermatome","radicolopatia-cervicale"],
+["Miotomo","t","Gruppo di muscoli innervati da una singola radice spinale; negli standard ISNCSCI ogni radice ha un «muscolo chiave».","Myotome","radicolopatia-cervicale"],
+["Mielopatia cervicale","d","Compressione del midollo spinale nel collo: mani goffe, cammino instabile, disturbi sfinterici, riflessi vivaci; richiede valutazione urgente.","Cervical myelopathy","radicolopatia-cervicale"]
 );

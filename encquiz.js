@@ -1201,3 +1201,16 @@ var QUIZ_CKGEN=[
 ];
 QUIZ_CKGEN.forEach((x,i)=>{const t=(i*3+1)%4,o=x[2].slice(),c=o.splice(x[3],1)[0];o.splice(t,0,c);x[2]=o;x[3]=t});
 if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_CKGEN);
+
+var QUIZ_RADC=[
+["radicolopatia-cervicale","Secondo gli standard ISNCSCI, quale radice corrisponde al punto sensitivo chiave del pollice?",["C5","C6","C7","C8"],1,"Pollice C6, dito medio C7, mignolo C8. C5 è il lato laterale del gomito."],
+["radicolopatia-cervicale","Quale riflesso si riduce più spesso nella radicolopatia cervicale?",["Bicipitale","Brachioradiale","Tricipitale","Rotuleo"],2,"Il riflesso tricipitale (radice C7) è il reperto neurologico più frequente; C7 è la radice più spesso coinvolta."],
+["radicolopatia-cervicale","Qual è il muscolo chiave della radice C7 negli standard ISNCSCI?",["Flessori del gomito","Estensori del polso","Estensori del gomito (tricipite)","Abduttori del mignolo"],2,"C5 flessori del gomito, C6 estensori del polso, C7 estensori del gomito, C8 flessori delle dita, T1 abduttori del mignolo."],
+["radicolopatia-cervicale","Che cos'è un dermatomo?",["Un gruppo di muscoli innervati da una radice","La zona di pelle innervata da una singola radice","Un tratto del midollo spinale","Un riflesso osteotendineo"],1,"Il dermatomo è cutaneo; il miotomo è l'insieme dei muscoli di una radice."],
+["radicolopatia-cervicale","Una persona con dolore al collo riferisce mani goffe, cammino instabile e urgenza minzionale. Che cosa fa l'infermiere?",["Somministra un antidolorifico e rivaluta il giorno dopo","Segnala subito al medico: sono segni di possibile compressione del midollo","Consiglia esercizi di stretching","Applica il collare senza riferire"],1,"Segni bilaterali, alterazioni del cammino e di vescica orientano verso la mielopatia, che richiede valutazione urgente."],
+["radicolopatia-cervicale","Perché le radici cervicali sono otto se le vertebre cervicali sono sette?",["Perché C1 non ha radice","Perché le radici cervicali escono sopra la vertebra con lo stesso numero e la C8 esce tra C7 e T1","Perché T1 è considerata cervicale","Perché ci sono due radici C7"],1,"Nel tratto cervicale ogni radice esce sopra la vertebra omonima; la C8 non ha una vertebra propria."],
+["radicolopatia-cervicale","Il formicolio al mignolo e all'avambraccio mediale con debolezza nella flessione delle dita fa pensare a quale radice?",["C5","C6","C7","C8"],3,"Mignolo e flessori delle dita: C8."],
+["radicolopatia-cervicale","Quale affermazione sulla gestione della radicolopatia cervicale è corretta?",["Serve sempre la risonanza magnetica subito","La maggior parte dei casi migliora con terapia conservativa","La chirurgia è la prima scelta","Il riposo assoluto a letto è indicato per settimane"],1,"La maggior parte guarisce con terapia conservativa; imaging e chirurgia sono per segni di allarme, deficit importanti o sintomi persistenti."]
+];
+QUIZ_RADC.forEach((x,i)=>{const t=(i*3+1)%4,o=x[2].slice(),c=o.splice(x[3],1)[0];o.splice(t,0,c);x[2]=o;x[3]=t});
+if(typeof QUIZ3!=="undefined")QUIZ3.push(...QUIZ_RADC);
