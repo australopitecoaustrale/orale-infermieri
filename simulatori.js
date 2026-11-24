@@ -567,3 +567,134 @@ SIM.push({id:"sim-sca",enc:["sca"],t:"Simulatore: la sindrome coronarica acuta s
  legenda:[["#d9637b","Parete e miocardio"],["#f0c040","Nucleo lipidico"],["#b8956a","Cappuccio fibroso"],["#8e63c9","Piastrine"],["#c0283c","Trombo"],["#e0425a","Globuli rossi"],["#f0a23a","Ischemia"],["#b3263a","Necrosi"],["#8a8f98","Cicatrice"]],
  n:"Linee guida ESC 2023 sulle sindromi coronariche acute (PMID 37622654; DOI 10.1093/eurheartj/ehad191). Quarta definizione universale di infarto, Thygesen et al., Circulation 2018 (PMID 30571511). Disegno originale e schematico."});
 })();
+
+/* ---- Malattia renale cronica ---- */
+/* ---- Malattia renale cronica (stadi G KDIGO; disegno originale) ---- */
+(function(){
+const W=440,H=250,R=(a,b,t)=>a+(b-a)*t;
+const head=(lab,body)=>`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${lab}">${body}</svg>`;
+const ST=["G1","G2","G3","G4","G5"];
+const C={glo:"#d9637b",rbc:"#c62f45",fil:"#3aa0d8",alb:"#f0a23a",ure:"#9c6b3c",k:"#2e9e5b",p:"#8e63c9",h:"#d46bb5"};
+const rnd=k=>{let x=Math.sin(k*999)*1e4;return x-Math.floor(x)};
+const bez=(p,u)=>{const v=1-u;return[0,1].map(k=>v*v*v*p[0][k]+3*v*v*u*p[1][k]+3*v*u*u*p[2][k]+u*u*u*p[3][k])};
+
+/* Livello 1: nefroni (sclerosi, iperfiltrazione dei residui, albumina) */
+const nef=s=>{const t=s/4,nScl=[0,1,3,4,5][s],ord=[2,4,0,5,1,3];
+ const scl=new Set(ord.slice(0,nScl));
+ const pos=[[45,62],[100,62],[155,62],[45,140],[100,140],[155,140]];
+ const rg=R(10,14,t),dur=R(4,2.6,t).toFixed(2);
+ let ic="";pos.forEach((p,i)=>{const[x,y]=p,dead=scl.has(i),r=dead?9:rg,rc=r+5,ty=y+rc;
+  const tub=`M${x} ${ty}q9 7 0 14q-9 7 0 14`;
+  ic+=`<path d="${tub}" fill="none" stroke="${dead?"var(--muted)":C.fil}" stroke-width="${dead?1.2:R(2,4,t).toFixed(1)}" stroke-linecap="round" opacity="${dead?.6:.9}"/>`;
+  ic+=`<circle cx="${x}" cy="${y}" r="${rc}" class="ff" stroke="var(--ink)" stroke-width="1"${dead?' stroke-dasharray="3 2"':""}/>`;
+  if(dead)ic+=`<circle cx="${x}" cy="${y}" r="${r}" fill="var(--muted)" opacity=".55"/><path d="M${x-6} ${y-4}l10 10M${x-7} ${y+2}l7 7M${x-2} ${y-8}l9 9" stroke="var(--paper)" stroke-width="1.2"/>`;
+  else{ic+=`<circle cx="${x}" cy="${y}" r="${r}" fill="${C.glo}" opacity=".25"/>`;for(let j=0;j<5;j++){const a=j/5*6.283;ic+=`<circle cx="${(x+r*.45*Math.cos(a)).toFixed(1)}" cy="${(y+r*.45*Math.sin(a)).toFixed(1)}" r="${(r*.42).toFixed(1)}" fill="none" stroke="${C.glo}" stroke-width="1.3"/>`}
+   ic+=`<circle class="anm" r="2.4" fill="${C.fil}"><animateMotion path="${tub}" dur="${dur}s" begin="${(i*.37).toFixed(2)}s" repeatCount="indefinite"/></circle>`}});
+ // nefrone residuo ingrandito
+ const cx=345,cy=106,Rc=R(42,52,t),Rt=Rc-11,a50=.87;
+ const sx=cx+Rc*Math.cos(a50),sy=cy+Rc*Math.sin(a50);
+ const tp=[[sx,sy],[sx+22,sy+12],[sx+4,sy+38],[sx+16,196]];
+ const tubD=`M${tp[0][0].toFixed(1)} ${tp[0][1].toFixed(1)}C${tp[1].map(v=>v.toFixed(1)).join(" ")} ${tp[2].map(v=>v.toFixed(1)).join(" ")} ${tp[3].map(v=>v.toFixed(1)).join(" ")}`;
+ let pet="";for(let j=0;j<7;j++){const a=j/7*6.283+.3;pet+=`<circle cx="${(cx+Rt*.5*Math.cos(a)).toFixed(1)}" cy="${(cy+Rt*.5*Math.sin(a)).toFixed(1)}" r="${(Rt*.36).toFixed(1)}" fill="none" stroke="${C.glo}" stroke-width="1.6"/>`}
+ const x0=(cx+Rt*.35*Math.cos(a50)).toFixed(1),y0=(cy+Rt*.35*Math.sin(a50)).toFixed(1);
+ const mp=`M${x0} ${y0}L${tp[0][0].toFixed(1)} ${tp[0][1].toFixed(1)}`+tubD.replace(/^M[^C]*/,"");
+ const df=R(4,2.4,t).toFixed(2),nA=[1,1,2,3,4][s];
+ let dots="";for(let i=0;i<3;i++)dots+=`<circle class="anm" r="2.6" fill="${C.fil}"><animateMotion path="${mp}" dur="${df}s" begin="${(i*df/3).toFixed(2)}s" repeatCount="indefinite"/></circle>`;
+ for(let i=0;i<nA;i++)dots+=`<circle class="anm" r="3.4" fill="${C.alb}"><animateMotion path="${mp}" dur="${df}s" begin="${(i*df/nA+.2).toFixed(2)}s" repeatCount="indefinite"/></circle>`;
+ let albS="";for(let i=0;i<nA;i++){const q=bez(tp,.35+i*.15);albS+=`<circle cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" r="3.4" fill="${C.alb}" stroke="var(--paper)" stroke-width=".8"/>`}
+ const ar=(cx+(Rt+2)*Math.cos(a50)).toFixed(1),ar2=(cy+(Rt+2)*Math.sin(a50)).toFixed(1);
+ const glom=`<path d="${tubD}" fill="none" stroke="${C.fil}" stroke-width="12" stroke-linecap="round" opacity=".28"/>
+ <circle cx="${cx}" cy="${cy}" r="${Rc.toFixed(1)}" class="ff" stroke="var(--ink)" stroke-width="1.4"/>
+ <circle cx="${cx}" cy="${cy}" r="${Rt.toFixed(1)}" fill="${C.glo}" opacity=".18"/>${pet}
+ <path d="M236 ${cy+6}H${(cx-Rt+8).toFixed(1)}" stroke="${C.glo}" stroke-width="${R(7,12,t).toFixed(1)}" opacity=".85"/>
+ <path d="M236 ${cy-16}H${(cx-Rt+6).toFixed(1)}" stroke="${C.glo}" stroke-width="5" opacity=".85"/>
+ <path d="M${(cx+Rt*.5*Math.cos(a50)).toFixed(1)} ${(cy+Rt*.5*Math.sin(a50)).toFixed(1)}L${ar} ${ar2}" stroke="${C.fil}" stroke-width="2"/><circle cx="${ar}" cy="${ar2}" r="2.4" fill="${C.fil}"/>
+ ${albS}${dots}
+ <text x="236" y="${cy-24}" class="ft fsm">efferente</text><text x="236" y="${cy+28}" class="ft fsm">afferente</text>
+ <text x="${cx}" y="${(cy-Rc-6).toFixed(1)}" class="ft fsm" text-anchor="middle">capsula di Bowman</text>
+ <text x="${(tp[3][0]-16).toFixed(1)}" y="200" class="ft fsm" text-anchor="end">tubulo</text>`;
+ return head(`Nefroni nello stadio ${ST[s]}: ${nScl?nScl+" glomeruli su 6 sclerotici, i nefroni residui ingranditi filtrano di più":"tutti i nefroni funzionano"}; passa albumina nel filtrato`,
+ `<text x="20" y="24" class="ft fb">Nefroni del rene</text><text x="232" y="24" class="ft fb">Un nefrone residuo</text>
+ <path d="M216 36V${H-8}" class="lead"/>${ic}${glom}
+ <text x="20" y="${H-28}" class="ft fsm">Nefroni al lavoro: ${["tutti","quasi tutti","circa metà","pochi","pochissimi"][s]}</text>
+ <text x="20" y="${H-12}" class="ft fsm">Filtrato totale: ${["normale","poco ridotto","ridotto","molto ridotto","minimo"][s]}</text>
+ <text x="232" y="${H-28}" class="ft fsm">Pressione nel glomerulo: ${["normale","in aumento","alta","alta","alta"][s]}</text>
+ <text x="232" y="${H-12}" class="ft fsm">Albumina nelle urine: ${["presente","presente","in aumento","in aumento","in aumento"][s]}</text>`)};
+
+/* Livello 2: sangue (scorie, potassio, fosforo, acidi, globuli rossi) */
+const san=s=>{const t=s/4,x0=20,x1=200,yT=54,yB=164,L=x1-x0;
+ const n={rbc:[10,10,8,6,4][s],ure:[3,4,7,11,15][s],k:[2,2,2,4,6][s],p:[2,2,2,4,6][s],h:[2,2,2,4,6][s]};
+ const cols=10,rws=4,cw=L/cols,ch=(yB-yT)/rws,cells=[...Array(cols*rws).keys()].sort((a,b)=>rnd(a+3)-rnd(b+3));
+ let k=0,parts="";const put=(nn,f)=>{for(let i=0;i<nn;i++,k++){const c=cells[k%cells.length],px=(x0+(c%cols+.5)*cw+(rnd(c+50)-.5)*cw*.5).toFixed(1),py=(yT+(Math.floor(c/cols)+.5)*ch+(rnd(c+90)-.5)*ch*.5).toFixed(1);parts+=f(+px,+py)}};
+ put(n.rbc,(x,y)=>`<circle cx="${x}" cy="${y}" r="5.5" fill="${C.rbc}" opacity=".85"/><circle cx="${x}" cy="${y}" r="2" fill="var(--paper)" opacity=".5"/>`);
+ put(n.ure,(x,y)=>`<circle cx="${x}" cy="${y}" r="2.6" fill="${C.ure}"/>`);
+ put(n.k,(x,y)=>`<rect x="${x-2.8}" y="${y-2.8}" width="5.6" height="5.6" rx="1" fill="${C.k}"/>`);
+ put(n.p,(x,y)=>`<path d="M${x} ${y-3.5}l3.5 6.5h-7z" fill="${C.p}"/>`);
+ put(n.h,(x,y)=>`<path d="M${x} ${y-3.5}l3.5 3.5l-3.5 3.5l-3.5-3.5z" fill="${C.h}"/>`);
+ const flow=`<defs><clipPath id="vas"><rect x="${x0}" y="${yT}" width="${L}" height="${yB-yT}" rx="18"/></clipPath></defs>
+ <rect x="${x0}" y="${yT}" width="${L}" height="${yB-yT}" rx="18" fill="${C.glo}" opacity=".1" stroke="${C.glo}" stroke-width="1.4"/>
+ <g clip-path="url(#vas)"><g><animateTransform attributeName="transform" type="translate" values="0 0;${L} 0" dur="4s" repeatCount="indefinite"/>${parts}<g transform="translate(${-L} 0)">${parts}</g></g></g>`;
+ // pannello dei valori
+ const rows=[["Urea e creatinina",[.3,.4,.56,.78,.95],1],["Potassio (K⁺)",[.3,.3,.33,.52,.74],1],["Fosforo",[.3,.3,.34,.52,.74],1],["Acidi nel sangue",[.3,.3,.35,.55,.76],1],["Globuli rossi",[.6,.6,.48,.4,.3],-1]];
+ const bx=232,bw=140;let pan="";
+ rows.forEach((r,i)=>{const y=50+i*38,v=r[1][s],up=r[2]>0;
+  const lev=up?(v>.65?2:v>.42?1:0):(v<.36?2:v<.5?1:0),col=["var(--ok)","var(--amber)","var(--vital)"][lev];
+  const word=lev?(up?(lev>1?"↑↑":"↑"):(lev>1?"↓↓":"↓")):"normale";
+  const band=up?[.18,.42]:[.5,.72];
+  pan+=`<text x="${bx}" y="${y}" class="ft fsm">${r[0]}</text>
+  <rect x="${bx}" y="${y+5}" width="${bw}" height="9" rx="2" class="eyrow"/>
+  <rect x="${(bx+band[0]*bw).toFixed(1)}" y="${y+5}" width="${((band[1]-band[0])*bw).toFixed(1)}" height="9" class="band"/>
+  <rect x="${bx}" y="${y+7}" width="${(v*bw).toFixed(1)}" height="5" rx="1" fill="${col}"/>
+  <text x="${bx+bw+8}" y="${y+13}" class="ft fsm">${word}</text>`});
+ return head(`Sangue nello stadio ${ST[s]}: ${s<2?"valori ancora nella norma":"aumentano scorie"+(s>=3?", potassio, fosforo e acidi":"")+"; meno eritropoietina e meno globuli rossi"}`,
+ `<text x="20" y="24" class="ft fb">Nel sangue</text><text x="20" y="46" class="ft fsm">vaso sanguigno, il sangue scorre →</text><text x="232" y="24" class="ft fb">Valori (schema)</text><text x="232" y="${H-12}" class="ft fsm">Banda verde: intervallo normale</text>
+ <path d="M216 36V${H-8}" class="lead"/>${flow}
+ <text x="20" y="${yB+22}" class="ft fsm">Scorie trattenute: ${["poche","appena di più","di più","molte","moltissime"][s]}</text>
+ <text x="20" y="${yB+38}" class="ft fsm">Eritropoietina dal rene: ${["adeguata","adeguata","ridotta","ridotta","molto ridotta"][s]}</text>
+ ${pan}`)};
+
+/* Livello 3: organismo (pressione, edemi, prurito, nausea, anemia, dialisi) */
+const org=s=>{const t=s/4,cx=150,body="color-mix(in srgb,var(--ink) 11%,var(--paper))";
+ const kd=R(1,.68,t);
+ const kid=(x,f)=>`<path d="M${x} ${116-11*kd}c${f*9*kd} 0 ${f*9*kd} ${22*kd} 0 ${22*kd}c${-f*5*kd} 0 ${-f*2*kd} ${-7*kd} ${-f*1*kd} ${-11*kd}c${f*1*kd} ${-4*kd} ${-f*4*kd} ${-11*kd} ${f*1*kd} ${-11*kd}z" fill="#b5534f" opacity=".75"/>`;
+ const ed=s>=2?R(0,1,(s-1)/3):0;
+ const edema=ed?[cx-14,cx+14].map(x=>`<ellipse cx="${x}" cy="212" rx="${(8+4*ed).toFixed(1)}" ry="${(5+3*ed).toFixed(1)}" fill="${C.fil}" opacity="${(.25+.3*ed).toFixed(2)}"/>`).join(""):"";
+ const amp=R(.08,.18,t).toFixed(2);
+ const heart=`<g style="transform-origin:${cx+8}px 94px;transform-box:view-box"><g><animateTransform attributeName="transform" type="scale" additive="sum" values="1;${1+ +amp};1;1" keyTimes="0;.15;.3;1" dur="1s" repeatCount="indefinite"/><path d="M${cx+8} 100c-9-6-12-10-9-14c2-3 7-3 9 1c2-4 7-4 9-1c3 4 0 8-9 14z" fill="${C.glo}"/></g></g>`;
+ const itch=s>=3?`<g stroke="#e0425a" stroke-width="1.6" stroke-linecap="round" opacity="${s>3?1:.7}"><animate attributeName="opacity" values="1;.35;1" dur="2s" repeatCount="indefinite"/><path d="M193 121l9-4M195 128l9-4M197 135l9-4"/></g>`:"";
+ const naus=s>=3?`<path d="M168 36q4-4 8 0t8 0M168 44q4-4 8 0t8 0" fill="none" stroke="var(--muted)" stroke-width="1.6" opacity="${s>3?1:.7}"/>`:"";
+ const fist=s>=3?`<circle cx="103" cy="134" r="4" fill="none" stroke="var(--vital)" stroke-width="1.6"/><text x="98" y="120" class="ft fsm" text-anchor="end">fistola</text>`:"";
+ const dial=s===4?`<rect x="16" y="104" width="44" height="66" rx="2" class="fbx"/><text x="38" y="118" class="ft fsm" text-anchor="middle">dialisi</text>
+  <rect x="30" y="124" width="16" height="34" rx="6" fill="none" stroke="var(--ink)" stroke-width="1.2"/><path d="M30 132h16M30 141h16M30 150h16" class="lead"/>
+  <path d="M101 131C88 126 76 132 60 132" fill="none" stroke="${C.rbc}" stroke-width="2.2"/><path d="M60 150C80 150 90 142 104 138" fill="none" stroke="${C.fil}" stroke-width="2.2"/>
+  ${[0,1].map(i=>`<circle class="anm" r="2.4" fill="${C.rbc}"><animateMotion path="M101 131C88 126 76 132 60 132" dur="2s" begin="${i}s" repeatCount="indefinite"/></circle><circle class="anm" r="2.4" fill="${C.fil}"><animateMotion path="M60 150C80 150 90 142 104 138" dur="2s" begin="${i+.5}s" repeatCount="indefinite"/></circle>`).join("")}`:"";
+ const fig=`<circle cx="${cx}" cy="44" r="15" fill="${body}"/><rect x="${cx-6}" y="57" width="12" height="10" fill="${body}"/>
+ <path d="M${cx-32} 68Q${cx} 62 ${cx+32} 68L${cx+36} 142Q${cx} 150 ${cx-36} 142Z" fill="${body}"/>
+ <path d="M${cx-30} 72L${cx-42} 110L${cx-48} 150M${cx+30} 72L${cx+42} 110L${cx+48} 150M${cx-14} 144L${cx-14} 222M${cx+14} 144L${cx+14} 222" fill="none" stroke="${body}" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+ ${kid(cx-16,-1)}${kid(cx+16,1)}`;
+ const L=[["Nausea, poco appetito",["assente","assente","rara","possibile","frequente"],[0,0,0,1,2],[184,40]],
+  ["Pressione alta",["possibile","frequente","frequente","quasi sempre","quasi sempre"],[1,1,1,2,2],[176,94]],
+  ["Stanchezza (anemia)",["rara","rara","possibile","frequente","frequente"],[0,0,1,2,2],null],
+  ["Prurito",["assente","assente","raro","possibile","frequente"],[0,0,0,1,2],[206,124]],
+  ["Edemi",["di solito assenti","di solito assenti","possibili","frequenti","frequenti"],[0,0,1,2,2],[180,214]],
+  ["Dialisi o trapianto",["non serve","non serve","non serve","si prepara","spesso necessari"],[0,0,0,1,2],null]];
+ let rows="";L.forEach((r,i)=>{const y=40+i*34,lev=r[2][s];
+  if(r[3])rows+=`<path d="M246 ${y-4}L${r[3][0]} ${r[3][1]}" class="lead" stroke-dasharray="${lev?"0":"2 3"}"/>`;
+  rows+=`<rect x="250" y="${y-9}" width="9" height="9" rx="2" class="${["k-ok","k-warn","k-alarm"][lev]}"/>
+  <text x="264" y="${y}" class="ft">${r[0]}</text><text x="264" y="${y+13}" class="ft fsm">${r[1][s]}</text>`});
+ return head(`Organismo nello stadio ${ST[s]}: ${["di solito nessun sintomo","pochi sintomi, pressione da controllare","pressione alta, possibili edemi e anemia","edemi, prurito e nausea possibili, si prepara la terapia sostitutiva","sindrome uremica, paziente in dialisi dalla fistola al braccio"][s]}`,
+ `<text x="20" y="24" class="ft fb">Organismo</text>${fig}${edema}${heart}${itch}${naus}${fist}${dial}${rows}`)};
+
+const V=["eGFR ≥ 90 ml/min/1,73 m²","eGFR 60-89","eGFR 30-59 (G3a 45-59, G3b 30-44)","eGFR 15-29","eGFR < 15"];
+SIM.push({id:"sim-insufficienza-renale",enc:["insufficienza-renale"],t:"Simulatore: la malattia renale cronica stadio per stadio",d:"Scegli lo stadio KDIGO del filtrato glomerulare (G1-G5) e il livello da osservare. Il disegno è schematico: le proporzioni servono a capire, non a misurare.",
+ stadi:["G1 normale","G2 lieve calo","G3 calo moderato","G4 calo grave","G5 insufficienza renale"],dur:"4s",
+ livelli:[
+  {t:"Nefrone",sub:"glomeruli",svg:nef,val:V,
+   testo:["Il filtrato è normale ma c'è già un segno di danno renale, spesso albumina nelle urine (proteinuria): per parlare di malattia renale cronica deve durare più di 3 mesi.","Alcuni glomeruli si cicatrizzano (sclerosi). I nefroni rimasti si ingrandiscono e filtrano di più per compensare: il filtrato totale cala di poco.","Molti nefroni non lavorano più. Nei glomeruli residui pressione e filtrato aumentano (iperfiltrazione): il sovraccarico li danneggia e passa più albumina.","Restano pochi nefroni, ciascuno sovraccarico, e la sclerosi si estende: è un circolo vizioso che fa progredire la malattia.","Pochissimi nefroni ancora attivi: il filtrato non basta più a depurare il sangue. Il danno è irreversibile."]},
+  {t:"Sangue",sub:"esami",svg:san,val:V,
+   testo:["Il rene elimina ancora bene scorie, potassio, fosforo e acidi e produce abbastanza eritropoietina: gli esami del sangue sono normali.","Urea e creatinina possono salire appena; gli altri valori di solito restano normali.","Urea e creatinina aumentano. Il rene produce meno eritropoietina e può comparire anemia; possono iniziare le alterazioni del fosforo.","Il rene non elimina più abbastanza potassio, fosforo e acidi: iperpotassiemia, iperfosforemia e acidosi metabolica (bicarbonato basso). L'anemia peggiora.","Scorie molto alte (uremia), iperpotassiemia che può dare aritmie pericolose, acidosi e anemia marcate: servono dialisi o trapianto."]},
+  {t:"Organismo",sub:"sintomi",svg:org,val:V,
+   testo:["Di solito nessun sintomo: la malattia si scopre con gli esami. L'ipertensione può esserci già, come causa o come conseguenza.","Ancora pochi sintomi. Controllare pressione e glicemia (ipertensione e diabete sono le cause più frequenti) rallenta la progressione.","Il rene trattiene sodio e acqua: la pressione sale e possono comparire edemi. L'anemia dà stanchezza.","Edemi e ipertensione più difficili da controllare; possono comparire prurito, nausea e poco appetito. Si prepara la terapia sostitutiva, per esempio la fistola artero-venosa.","Sindrome uremica: nausea, prurito, stanchezza, rischio di edema polmonare e iperpotassiemia. Servono dialisi o trapianto; sul braccio della fistola non si misura la pressione e non si fanno prelievi."]}],
+ legenda:[["#d9637b","Glomerulo e vasi"],["var(--muted)","Glomerulo sclerotico"],["#3aa0d8","Filtrato e liquidi"],["#f0a23a","Albumina"],["#c62f45","Globuli rossi"],["#9c6b3c","Urea e creatinina"],["#2e9e5b","Potassio"],["#8e63c9","Fosforo"],["#d46bb5","Acidi (H⁺)"]],
+ n:"KDIGO 2024 sulla malattia renale cronica (Kidney Int 2024; PMID 38490803), stadi G come nella voce es-creatinina dell'Atlante."});
+})();
