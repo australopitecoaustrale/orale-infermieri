@@ -15,7 +15,7 @@ const bron=s=>{const t=s/4,cx=330,cy=125,Ro=78,wall=R(10,34,t),Rl=Ro-wall,mu=R(0
  const mucus=mu>0?`<circle cx="${cx}" cy="${cy}" r="${Rl}" fill="#9bc53d" opacity=".75"/><circle cx="${cx}" cy="${cy}" r="${Rl-mu}" class="ff"/>`:"";
  // sezione longitudinale
  const x0=30,x1=210,yT=48,yB=202,wt=R(10,30,t),gap=(yB-yT)-2*wt,mh=R(0,.28,t)*gap;
- const flow=[0,1,2].map(i=>`<circle r="3" class="fv anm" fill="var(--scrub)"><animateMotion path="M${x1-8} ${125+(i-1)*R(26,8,t)}H${x0+8}" dur="${R(2,3.6,t)}s" begin="${i*.5}s" repeatCount="indefinite"/></circle>`).join("");
+ const flow=[0,1,2].map(i=>`<circle class="fv anm" r="3" fill="var(--scrub)"><animateMotion path="M${x1-8} ${125+(i-1)*R(26,8,t)}H${x0+8}" dur="${R(2,3.6,t)}s" begin="${-i*.7}s" repeatCount="indefinite"/></circle>`).join("");
  return head(`Bronchiolo nello stadio ${s}: parete ${t?"ispessita e infiammata, muco nel lume":"sottile, lume ampio"}`,
  `<text x="${x0}" y="30" class="ft fb">Sezione longitudinale</text><text x="${cx}" y="30" class="ft fb" text-anchor="middle">Sezione trasversale</text>
  <rect x="${x0}" y="${yT}" width="${x1-x0}" height="${yB-yT}" class="eyrow"/>
@@ -697,4 +697,146 @@ SIM.push({id:"sim-insufficienza-renale",enc:["insufficienza-renale"],t:"Simulato
    testo:["Di solito nessun sintomo: la malattia si scopre con gli esami. L'ipertensione può esserci già, come causa o come conseguenza.","Ancora pochi sintomi. Controllare pressione e glicemia (ipertensione e diabete sono le cause più frequenti) rallenta la progressione.","Il rene trattiene sodio e acqua: la pressione sale e possono comparire edemi. L'anemia dà stanchezza.","Edemi e ipertensione più difficili da controllare; possono comparire prurito, nausea e poco appetito. Si prepara la terapia sostitutiva, per esempio la fistola artero-venosa.","Sindrome uremica: nausea, prurito, stanchezza, rischio di edema polmonare e iperpotassiemia. Servono dialisi o trapianto; sul braccio della fistola non si misura la pressione e non si fanno prelievi."]}],
  legenda:[["#d9637b","Glomerulo e vasi"],["var(--muted)","Glomerulo sclerotico"],["#3aa0d8","Filtrato e liquidi"],["#f0a23a","Albumina"],["#c62f45","Globuli rossi"],["#9c6b3c","Urea e creatinina"],["#2e9e5b","Potassio"],["#8e63c9","Fosforo"],["#d46bb5","Acidi (H⁺)"]],
  n:"KDIGO 2024 sulla malattia renale cronica (Kidney Int 2024; PMID 38490803), stadi G come nella voce es-creatinina dell'Atlante."});
+})();
+
+/* ---- Cirrosi epatica ---- */
+
+/* ---- Cirrosi epatica (disegno originale) ---- */
+(function(){
+const W=440,H=250,R=(a,b,t)=>a+(b-a)*t,cl=x=>Math.max(0,Math.min(1,x)),f=n=>+n.toFixed(1);
+const head=(lab,body)=>`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${lab}">${body}</svg>`;
+const rnd=k=>{let x=Math.sin(k*999)*1e4;return x-Math.floor(x)};
+// colori semantici
+const EP="#c98a5e",EPS="#a8683e",FAT="#f3dc7a",FATS="#c9a227",STL="#e0662e",STQ="#e0a030",COL="#3f9e97",VEN="#6b5fb5",ART="#d9637b",BIL="#3aa55d",LIV="#b5524a",ASC="#4ea3d8",GIA="#e8c020";
+// grandezze per stadio (0 sano … 4 scompensata)
+const FAT_=[0,1,.8,.55,.35],FIB_=[0,0,.5,1,1],NOD_=[0,0,0,1,1],PRE_=[0,0,.25,.65,1],VAR_=[0,0,0,.6,1],SPL_=[0,0,.15,.6,1],SC_=[1,1.1,1.04,.9,.78];
+const STADIO=["fegato sano","steatosi","fibrosi","cirrosi compensata","cirrosi scompensata"];
+const liverPath=(cx,cy,rx,ry,nod)=>{let d="";for(let i=0;i<=96;i++){const a=i/96*6.2832,x=Math.cos(a),y=Math.sin(a),nx=(x+1)/2,fy=(1-.55*nx)*(y<0?.8:1),b=1+nod*.06*(Math.abs(Math.sin(9*a))-.6);d+=(i?"L":"M")+f(cx+rx*x*b)+" "+f(cy+ry*y*fy*b)}return d+"Z"};
+
+/* Livello 1: lobulo e sinusoide */
+const lob=s=>{const t=s/4,cx=118,cy=132,Rh=86,ap=Rh*Math.cos(Math.PI/6),fat=FAT_[s],fib=FIB_[s],nod=NOD_[s],sw=[0,0,2.6,4,6.5][s];
+ const V=[...Array(6)].map((_,k)=>[cx+Rh*Math.cos(k*Math.PI/3),cy+Rh*Math.sin(k*Math.PI/3)]);
+ const hex="M"+V.map(p=>f(p[0])+" "+f(p[1])).join("L")+"Z";
+ const edge=a=>{const m=((a%60)+60)%60;return ap/Math.cos((m-30)*Math.PI/180)};
+ let cords="";for(let i=0;i<18;i++){const a=i*20+10,r=a*Math.PI/180,d=edge(a)-7;cords+=`<path d="M${f(cx+15*Math.cos(r))} ${f(cy+15*Math.sin(r))}L${f(cx+d*Math.cos(r))} ${f(cy+d*Math.sin(r))}" stroke="${EP}" stroke-width="7" stroke-dasharray="7 1.6" opacity="${f(.75*(1-nod))}" fill="none"/>`}
+ let fl="";const nfl=[6,6,6,3,3][s];for(let i=0;i<nfl;i++){const a=(i*360/nfl+20)*Math.PI/180,d=edge(i*360/nfl+20)-6;fl+=`<circle class="anm" r="2.2" fill="${ART}"><animateMotion path="M${f(cx+d*Math.cos(a))} ${f(cy+d*Math.sin(a))}L${f(cx+10*Math.cos(a))} ${f(cy+10*Math.sin(a))}" dur="${f(R(3,6,t))}s" begin="-${f(i*.6)}s" repeatCount="indefinite"/></circle>`}
+ const NODS=[[28,-34,24],[58,14,15],[-28,34,24],[-58,-14,15]];let fd="";const nf=Math.round(26*fat);for(let i=0;i<nf;i++){const a=rnd(i+3)*6.2832,r=R(18,68,rnd(i+17)),px=r*Math.cos(a),py=r*Math.sin(a);if(nod&&!NODS.some(([dx,dy,q])=>Math.hypot(px-dx,py-dy)<q-6))continue;fd+=`<circle cx="${f(cx+r*Math.cos(a))}" cy="${f(cy+r*Math.sin(a))}" r="${f(R(2.5,5.5,rnd(i+31)))}" fill="${FAT}" stroke="${FATS}" stroke-width=".8"/>`}
+ let sep="";if(fib>0){for(let k=0;k<6;k++){const A=V[k],B=V[(k+1)%6],h=fib*.5;sep+=`<path d="M${f(A[0])} ${f(A[1])}L${f(R(A[0],B[0],h))} ${f(R(A[1],B[1],h))}M${f(B[0])} ${f(B[1])}L${f(R(B[0],A[0],h))} ${f(R(B[1],A[1],h))}" stroke="${COL}" stroke-width="${sw}" stroke-linecap="round" fill="none"/>`}
+  const bf=Math.min(1,fib*1.1);[1,4].forEach(k=>{sep+=`<path d="M${f(V[k][0])} ${f(V[k][1])}L${f(R(V[k][0],cx,bf))} ${f(R(V[k][1],cy,bf))}" stroke="${COL}" stroke-width="${sw}" stroke-linecap="round" fill="none"/>`})}
+ let nd="";if(nod>0){const rr=s===4?.82:1;NODS.forEach(([dx,dy,r],j)=>{const x=cx+dx,y=cy+dy,q=r*rr;let c="";for(let gx=-q;gx<=q;gx+=7)for(let gy=-q;gy<=q;gy+=7){const ox=gx+((gy/7)%2?3.5:0);if(Math.hypot(ox,gy)<q-5)c+=`<rect x="${f(x+ox-2.8)}" y="${f(y+gy-2.8)}" width="5.6" height="5.6" rx="1.2" fill="${EP}" opacity=".85"/>`}
+  nd+=`<circle cx="${x}" cy="${y}" r="${f(q)}" fill="${EP}" opacity=".25"/>${c}<circle cx="${x}" cy="${y}" r="${f(q+sw/2)}" fill="none" stroke="${COL}" stroke-width="${sw}"/>`})}
+ const star=(x,y,act)=>{const L=act?7:3.5,c=act?STL:STQ;return `<path d="M${x-L} ${y}L${x+L} ${y}M${x} ${y-L*.6}L${x} ${y+L*.6}M${x-L*.7} ${y-L*.5}L${x+L*.7} ${y+L*.5}" stroke="${c}" stroke-width="${act?1.6:1.2}" fill="none"/><circle cx="${x}" cy="${y}" r="${act?2.6:1.8}" fill="${c}"/>`};
+ const act=s>=2;let st="";if(nod<1)[[cx-52,cy-30],[cx+46,cy+38],[cx-20,cy+60],[cx+16,cy-58],[cx+62,cy-10],[cx-60,cy+20]].forEach(p=>st+=star(p[0],p[1],act));
+ const tri=V.map(p=>`<circle cx="${f(p[0])}" cy="${f(p[1])}" r="4.6" fill="${VEN}"/><circle cx="${f(p[0]+5)}" cy="${f(p[1]-4)}" r="2.4" fill="${ART}"/><circle cx="${f(p[0]-5)}" cy="${f(p[1]-4)}" r="2.2" fill="${BIL}"/>`).join("");
+ // riquadro ingrandito
+ const X0=252,X1=428,Y0=40,Y1=206,dz=R(5,14,fib),yt=Y0+46+dz,yb=Y1-46-dz,ym=(yt+yb)/2,fen=1-fib;
+ let hep="";[Y0+6,Y1-46].forEach((y,row)=>{for(let k=0;k<4;k++){const x=X0+4+k*43.5,w=40,fr=15*fat,hx=x+w/2,hy=y+20;hep+=`<rect x="${f(x)}" y="${y}" width="${w}" height="40" rx="3" fill="${EP}" opacity=".55" stroke="${EPS}" stroke-width=".8"/>`;
+  if(fr>0)hep+=`<circle cx="${f(hx-3)}" cy="${hy}" r="${f(fr)}" fill="${FAT}" stroke="${FATS}" stroke-width=".8"/>`;
+  hep+=`<circle cx="${f(fr>4?x+w-7:hx)}" cy="${f(fr>4?hy+row*0+(k%2?-8:8):hy)}" r="4.2" fill="#7a4a2e" opacity=".85"/>`}});
+ const dis=`<rect x="${X0}" y="${Y0+46}" width="${X1-X0}" height="${f(dz)}" fill="${COL}" opacity="${f(R(.1,.8,fib))}"/><rect x="${X0}" y="${f(yb)}" width="${X1-X0}" height="${f(dz)}" fill="${COL}" opacity="${f(R(.1,.8,fib))}"/>`;
+ const da=fen>0?`stroke-dasharray="${f(8+(1-fen)*20)} ${f(4*fen)}"`:"";
+ const endo=`<path d="M${X0} ${f(yt)}H${X1}M${X0} ${f(yb)}H${X1}" stroke="var(--muted)" stroke-width="1.6" ${da} fill="none"/>`;
+ const lum=`<rect x="${X0}" y="${f(yt)}" width="${X1-X0}" height="${f(yb-yt)}" fill="${ART}" opacity=".1"/>`;
+ const sc=(x,y,a)=>{if(!a)return `<ellipse cx="${x}" cy="${y}" rx="5" ry="2.4" fill="${STQ}"/><circle cx="${x-2}" cy="${y}" r="1.1" fill="${FAT}"/><circle cx="${x+2}" cy="${y}" r="1.1" fill="${FAT}"/>`;
+  let fb="";for(let i=0;i<4;i++)fb+=`<path d="M${x-26+i*14} ${f(y-1.5+i%2*3)}h12" stroke="${COL}" stroke-width="1.2"/>`;return fb+`<ellipse cx="${x}" cy="${y}" rx="9" ry="3.4" fill="${STL}"/><path d="M${x-9} ${y}l-8 -2M${x+9} ${y}l8 2" stroke="${STL}" stroke-width="1.4"/>`};
+ const rbc=[0,1,2].map(i=>`<circle class="anm" r="4" fill="${ART}" opacity=".85"><animateMotion path="M${X0+6} ${f(ym)}H${X1-6}" dur="${f(R(2.6,5,t))}s" begin="-${f(i*R(.9,1.7,t))}s" repeatCount="indefinite"/></circle>`).join("");
+ const IX=cx+20,IY=cy-10;
+ return head(`Lobulo epatico, ${STADIO[s]}: ${["lamine di epatociti ordinate dalle triadi portali alla vena centrale","gocce di grasso negli epatociti","cellule stellate attivate e setti fibrosi tra le triadi","noduli di rigenerazione circondati da setti fibrosi","noduli piccoli e setti spessi, pochi epatociti funzionanti"][s]}`,
+ `<text x="14" y="24" class="ft fb">Lobulo epatico</text><text x="340" y="30" class="ft fb" text-anchor="middle">Sinusoide ingrandito</text>
+ <path d="${hex}" class="eyrow"/>${nod?`<path d="${hex}" fill="${COL}" opacity=".16"/>`:""}${cords}${fl}${nd}${sep}${fd}${st}
+ <circle cx="${cx}" cy="${cy}" r="8" fill="${VEN}" opacity="${nod?.35:.7}" stroke="${VEN}"/>${tri}
+ <text x="${f(V[5][0]+10)}" y="${f(V[5][1]-4)}" class="ft fsm">Triade portale</text>
+ <rect x="${IX}" y="${IY}" width="24" height="14" fill="none" stroke="var(--ink)" stroke-width="1"/><path d="M${IX+24} ${IY}L${X0} ${Y0}M${IX+24} ${IY+14}L${X0} ${Y1}" class="lead" stroke-dasharray="3 3"/>
+ <rect x="${X0}" y="${Y0}" width="${X1-X0}" height="${Y1-Y0}" class="ff" stroke="var(--line)"/>${hep}${dis}${lum}${endo}${rbc}${sc(318,f(Y0+46+dz/2),act)}${sc(384,f(yb+dz/2),act)}
+ <text x="14" y="${H-12}" class="ft fsm">${["Lamine ordinate verso la vena centrale","Gocce di grasso negli epatociti","Setti fibrosi uniscono le triadi","Noduli circondati da setti","Noduli piccoli, setti spessi"][s]}</text>
+ <text x="${X0}" y="${H-26}" class="ft fsm">Cellula stellata: ${act?"attivata, fa collagene":"quiescente"}</text>
+ <text x="${X0}" y="${H-12}" class="ft fsm">Endotelio: ${["fenestrato","fenestrato","fenestre ridotte","fenestre perse","fenestre perse"][s]}</text>`)};
+
+/* Livello 2: fegato e circolo portale */
+const por=s=>{const t=s/4,p=PRE_[s],vr=VAR_[s],sp=SPL_[s],sc=SC_[s],fat=FAT_[s],nod=NOD_[s];
+ const lcx=118,lcy=80,rx=95*sc,ry=46*sc,lp=liverPath(lcx,lcy,rx,ry,nod),hx=130,hy=f(lcy+ry*.66);
+ let nds="";if(nod)for(let i=0;i<12;i++){const a=rnd(i+40)*6.2832,r=R(.15,.7,rnd(i+50));nds+=`<circle cx="${f(lcx-20+rx*.7*r*Math.cos(a))}" cy="${f(lcy+ry*.55*r*Math.sin(a))}" r="${f(R(4,7,rnd(i+60))*sc)}" fill="none" stroke="#7a2e28" stroke-width="1.1" opacity=".8"/>`}
+ const scx=398,scy=128,srx=R(22,34,sp),sry=R(34,52,sp),shx=f(scx-srx*.8);
+ const pw=f(R(9,15,p)),spl=`M${shx} 140C320 178 250 186 190 186`,col="M232 184C250 160 262 128 280 112L287 98";
+ let vx="";if(vr>0){const a=R(2,5,vr);let d="M287 98";for(let y=98,i=0;y>34;y-=8,i++)d+=`Q${i%2?287+a*1.6:287-a*1.6} ${y-4} 287 ${y-8}`;vx=`<path d="${d}" stroke="${VEN}" stroke-width="${f(R(2,5,vr))}" fill="none" stroke-linecap="round"/>`}
+ const dot=(path,n,dur,c)=>[...Array(n)].map((_,i)=>`<circle class="anm" r="3" fill="${c||"var(--scrub)"}"><animateMotion path="${path}" dur="${f(dur)}s" begin="-${f(i*dur/n)}s" repeatCount="indefinite"/></circle>`).join("");
+ const dmain=dot(`${spl}L${hx} ${hy}`,s>=3?3:4,R(3.5,6.5,p)),dsmv=dot(`M190 244V186L${hx} ${hy}`,2,R(2.4,4.5,p)),dcol=vr>0?dot(`${col}V36`,s===4?3:2,3.2):"";
+ const ble=s===4?`<path d="M292 62q6 8 0 11q-6 -3 0 -11z" fill="#e0425a"/><path d="M283 78q5 7 0 10q-5 -3 0 -10z" fill="#e0425a"/><circle class="anm" r="2.6" fill="#e0425a"><animateMotion path="M287 66V96" dur="1.6s" repeatCount="indefinite"/></circle>`:"";
+ const gc=p<.3?"#3aa55d":p<.8?"#e0a030":"#e0425a";
+ return head(`Fegato e circolo portale, ${STADIO[s]}: ${["pressione portale normale, tutto il sangue portale attraversa il fegato","fegato ingrandito e giallastro, flusso normale","pressione portale in aumento","ipertensione portale: sangue deviato nei collaterali, varici esofagee, milza ingrandita","ipertensione portale grave, varici che sanguinano, fegato piccolo e nodulare"][s]}`,
+ `<text x="14" y="18" class="ft fb">Fegato e circolo portale</text>
+ <path d="${lp}" fill="${LIV}" opacity=".75" stroke="#8a3a33"/>${fat&&s<3?`<path d="${lp}" fill="${GIA}" opacity="${f(fat*.45)}"/>`:""}${nds}
+ <rect x="280" y="26" width="14" height="74" rx="4" fill="#e2a3a0" opacity=".45" stroke="#c27770"/>
+ <path d="M286 98C318 86 350 104 346 140C342 172 300 180 280 166C268 156 276 142 292 136C300 128 296 112 286 98Z" fill="#e2a3a0" opacity=".45" stroke="#c27770"/>
+ <ellipse cx="${scx}" cy="${scy}" rx="${f(srx)}" ry="${f(sry)}" fill="#8e3b5b" opacity=".7" stroke="#6e2a45"/>
+ <path d="${col}" stroke="${VEN}" stroke-width="${f(R(1.5,5,vr))}" fill="none" stroke-linecap="round" opacity=".85"/>${vx}
+ <path d="${spl}" stroke="${VEN}" stroke-width="${f(R(6,10,p))}" fill="none" stroke-linecap="round" opacity=".8"/>
+ <path d="M190 244V186" stroke="${VEN}" stroke-width="8" fill="none" opacity=".8"/>
+ <path d="M190 186L${hx} ${hy}" stroke="${VEN}" stroke-width="${pw}" fill="none" stroke-linecap="round" opacity=".8"/>
+ ${dsmv}${dmain}${dcol}${ble}
+ <text x="14" y="146" class="ft fsm">Fegato${["",", ingrandito",""," nodulare",", piccolo e nodulare"][s]}</text>
+ <text x="152" y="170" class="ft fsm" text-anchor="end">Vena porta</text>
+ <text x="182" y="242" class="ft fsm" text-anchor="end">Vena mesenterica superiore</text>
+ <text x="300" y="204" class="ft fsm" text-anchor="middle">Vena splenica</text>
+ <text x="316" y="152" class="ft fsm" text-anchor="middle">Stomaco</text>
+ <text x="${scx}" y="${f(scy+sry+14)}" class="ft fsm" text-anchor="middle">Milza${sp>.5?" grande":""}</text>
+ <text x="300" y="36" class="ft fsm">Esofago</text>${vr?`<text x="300" y="50" class="ft fsm">Varici esofagee</text>`:""}${s===4?`<text x="300" y="64" class="ft fsm">rottura: emorragia</text>`:""}
+ ${s>=3?`<text x="250" y="132" class="ft fsm" text-anchor="end">collaterali</text>`:""}
+ <text x="20" y="190" class="ft fsm">Pressione portale: ${["normale","normale","in aumento","alta","molto alta"][s]}</text>
+ <rect x="20" y="196" width="130" height="8" class="eyrow"/><rect x="20" y="196" width="${f(R(18,130,p))}" height="8" fill="${gc}" opacity=".85"/>`)};
+
+/* Livello 3: organismo */
+const org=s=>{const t=s/4,dec=s===4,asc=dec?1:0,b=asc*14,jau=dec?1:0,sp=SPL_[s],sc=SC_[s],nod=NOD_[s],vr=VAR_[s];
+ const torso=`M182 72Q220 62 258 72C262 110 ${258+b} 140 ${256+b} 170C${f(256+b*.8)} 192 250 204 246 214L194 214C190 204 ${f(184-b*.8)} 192 ${184-b} 170C${182-b} 140 178 110 182 72Z`;
+ const body=(fill,op)=>`<g opacity="${op}"><g fill="${fill}"><circle cx="220" cy="40" r="19"/><rect x="212" y="56" width="16" height="12"/><path d="${torso}"/><rect x="196" y="212" width="20" height="36" rx="4"/><rect x="224" y="212" width="20" height="36" rx="4"/></g><g stroke="${fill}" stroke-width="12" stroke-linecap="round" fill="none"><path d="M184 78L167 168"/><path d="M256 78L273 168"/></g></g>`;
+ const hand=`<g><rect x="268" y="168" width="11" height="16" rx="4" fill="#d9a27a" opacity=".8"/>${jau?`<rect x="268" y="168" width="11" height="16" rx="4" fill="${GIA}" opacity=".5"/>`:""}${dec?`<animateTransform attributeName="transform" type="rotate" values="0 273 168;-28 273 168;0 273 168;0 273 168" keyTimes="0;.15;.3;1" dur="1.4s" repeatCount="indefinite"/>`:""}</g>`;
+ const eyes=[213,227].map(x=>`<circle cx="${x}" cy="38" r="3.2" fill="${jau?GIA:"#ffffff"}" stroke="#7a4a2e" stroke-width=".6"/><circle cx="${x}" cy="38" r="1.2" fill="#3b3346"/>`).join("");
+ const brain=`<path d="M205 33C203 20 213 23 220 24C227 23 237 20 235 33C228 30 212 30 205 33Z" fill="${dec?"#9b6bd0":"#c98bb0"}" opacity=".8"/><path d="M212 27q3 3 0 5M220 25v6M228 27q-3 3 0 5" stroke="#6e3f78" stroke-width=".8" fill="none"/>`;
+ const gut=`<path d="M200 182q6 -10 12 0t12 0t12 0t12 0M202 196q6 -10 12 0t12 0t12 0" class="lead"/>`;
+ const asF=asc?`<path d="M${184-b+4} 150C${184-b} 190 200 206 220 206C240 206 ${256+b} 190 ${256+b-4} 150Z" fill="${ASC}" opacity=".45"/>`:"";
+ const lv=`<path d="${liverPath(208,112,26*sc,13*sc,nod)}" fill="${LIV}" opacity=".85" stroke="#8a3a33"/>`;
+ const spl=`<ellipse cx="244" cy="116" rx="${f(R(4,9,sp))}" ry="${f(R(7,12,sp))}" fill="#8e3b5b" opacity=".75"/>`;
+ const eso=`<path d="M220 60V100" stroke="#c27770" stroke-width="4" fill="none" opacity=".8"/>${vr?`<path d="M220 100q-${f(3*vr)} -4 0 -8t0 -8t0 -8t0 -8" stroke="${VEN}" stroke-width="${f(R(2,3.5,vr))}" fill="none"/>`:""}${dec?`<circle cx="223" cy="82" r="4" fill="#e0425a"/><circle class="anm" r="2.2" fill="#e0425a"><animateMotion path="M223 84V104" dur="1.6s" repeatCount="indefinite"/></circle>`:""}`;
+ const bru=dec?`<ellipse cx="270" cy="124" rx="5" ry="3.5" fill="#7b4fa0" opacity=".7"/><ellipse cx="172" cy="140" rx="4.5" ry="3" fill="#7b4fa0" opacity=".7"/>`:"";
+ const nh=(path,n,dur)=>[...Array(n)].map((_,i)=>`<circle class="anm" r="3.2" fill="#3aa55d" stroke="var(--paper)" stroke-width="1"><animateMotion path="${path}" dur="${dur}s" begin="-${f(i*dur/n)}s" repeatCount="indefinite"/></circle>`).join("");
+ const amm=nh("M222 186C220 160 214 140 210 118",2,2.6)+(dec?nh("M232 186C268 150 262 70 226 32",3,3.6):"");
+ const C=["var(--muted)","#e0a030","#e0425a"];
+ const items=[["Encefalopatia",14,48,206,34,[[0,"assente"],[0,"assente"],[0,"assente"],[0,"non evidente"],[2,"confusione, asterixis"]]],
+  ["Varici esofagee",14,108,218,86,[[0,"assenti"],[0,"assenti"],[0,"assenti"],[1,"presenti, rischio"],[2,"sanguinano"]]],
+  ["Ascite",14,168,196,176,[[0,"assente"],[0,"assente"],[0,"assente"],[0,"assente"],[2,"addome disteso"]]],
+  ["Ittero",300,48,229,38,[[0,"assente"],[0,"assente"],[0,"assente"],[0,"assente"],[2,"cute e sclere gialle"]]],
+  ["Coagulopatia",300,108,272,124,[[0,"assente"],[0,"assente"],[0,"assente"],[0,"di solito assente"],[2,"ecchimosi, sanguinamenti"]]],
+  ["Funzione epatica",300,168,226,114,[[0,"normale"],[0,"conservata"],[0,"conservata"],[1,"ancora sufficiente"],[2,"insufficiente"]]]];
+ const lab=items.map(([n,x,y,tx,ty,v])=>{const [l,w]=v[s],left=x<100,ex=left?150:294;return `<path d="M${ex} ${y-4}L${tx} ${ty}" class="lead" stroke-dasharray="2 3"${l?"":` opacity=".5"`}/><circle cx="${left?x+5:x+5}" cy="${y-4}" r="5" fill="${C[l]}"/><text x="${x+14}" y="${y}" class="ft fb">${n}</text><text x="${x+14}" y="${y+14}" class="ft fsm">${w}</text>`}).join("");
+ return head(`Organismo, ${STADIO[s]}: ${dec?"ascite, ittero, encefalopatia con asterixis, ecchimosi ed emorragia da varici":s===3?"nessun segno di scompenso, ma milza ingrandita e varici":"nessun segno clinico evidente"}`,
+ `${body("#d9a27a",".55")}${jau?body(GIA,".45"):""}${asF}${gut}${lv}${spl}${eso}${brain}${eyes}${bru}${hand}${amm}${lab}
+ <text x="14" y="18" class="ft fb">Organismo: segni e complicanze</text>
+ <text x="14" y="${H-26}" class="ft fsm">Pallini verdi: ammoniaca (NH₃)</text><text x="14" y="${H-12}" class="ft fsm">${dec?"supera il fegato e va al cervello":"il fegato la trasforma in urea"}</text>`)};
+
+SIM.push({id:"sim-epatopatie",enc:["epatopatie"],t:"Simulatore: dal fegato sano alla cirrosi scompensata",d:"Scegli lo stadio della malattia e il livello da osservare, dal lobulo all'organismo intero. Il disegno è schematico: le proporzioni servono a capire, non a misurare.",
+ stadi:["Sano","Steatosi","Fibrosi","Cirrosi compensata","Cirrosi scompensata"],dur:"4s",
+ livelli:[
+  {t:"Lobulo epatico",sub:"epatociti e sinusoidi",svg:lob,
+   val:["Architettura normale","Grasso negli epatociti","Fibrosi a ponte","Noduli di rigenerazione","Noduli e setti spessi"],
+   testo:["Gli epatociti formano lamine che vanno dalle triadi portali (vena porta, arteria epatica, dotto biliare) alla vena centrale; il sangue scorre nei sinusoidi. Le cellule stellate dello spazio di Disse sono quiescenti e conservano vitamina A.",
+    "Gocce di grasso (trigliceridi) si accumulano negli epatociti, per alcol o per alterazioni metaboliche (MASLD). Se si toglie la causa, la steatosi può regredire.",
+    "Il danno ripetuto attiva le cellule stellate, che diventano miofibroblasti e producono collagene: i setti fibrosi partono dalle triadi e le collegano con ponti. L'endotelio perde le fenestrature e gli scambi con gli epatociti peggiorano.",
+    "Setti completi circondano noduli di rigenerazione: l'architettura del lobulo è sovvertita. Il fegato svolge ancora le sue funzioni, ma il sangue lo attraversa con più resistenza.",
+    "Setti più spessi e meno epatociti funzionanti: la massa di fegato attiva non basta più. Calano la sintesi di albumina e fattori della coagulazione, la trasformazione dell'ammoniaca e l'eliminazione della bilirubina."]},
+  {t:"Fegato e circolo portale",sub:"ipertensione portale",svg:por,
+   val:["Pressione portale normale","Flusso normale","Resistenza in aumento","Ipertensione portale","Ipertensione portale grave"],
+   testo:["Il sangue di intestino e milza arriva al fegato con la vena porta, attraversa i sinusoidi ed esce dalle vene sovraepatiche verso il cuore. La pressione nella vena porta è bassa.",
+    "Il fegato steatosico può essere ingrandito e giallastro; il flusso portale resta normale.",
+    "La fibrosi aumenta la resistenza al passaggio del sangue nel fegato: la pressione nella vena porta comincia a salire.",
+    "Ipertensione portale: il sangue cerca vie alternative verso le vene sistemiche (circoli collaterali). La vena gastrica sinistra porta sangue alle vene dell'esofago, che si dilatano in varici; la milza si ingrandisce e trattiene piastrine.",
+    "Pressione portale molto alta e fegato piccolo e nodulare: le varici possono rompersi e dare un'emorragia digestiva alta grave, con ematemesi e melena."]},
+  {t:"Organismo",sub:"complicanze",svg:org,
+   val:["Nessun segno","Di solito asintomatica","Spesso asintomatica","Compensata","Scompensata"],
+   testo:["Nessun segno: il fegato trasforma l'ammoniaca che arriva dall'intestino in urea, produce albumina e fattori della coagulazione, elimina la bilirubina con la bile.",
+    "La steatosi di solito non dà sintomi: spesso si scopre per caso con esami del sangue o un'ecografia.",
+    "Anche la fibrosi è spesso silenziosa; la stanchezza è un sintomo aspecifico. Per questo il danno si cerca con esami mirati.",
+    "Cirrosi compensata: la persona può stare bene a lungo. Possono esserci già varici e milza ingrandita, ma non ascite, ittero, encefalopatia o emorragia.",
+    "Scompenso: ascite (ipertensione portale e albumina bassa), ittero, encefalopatia (l'ammoniaca supera il fegato e arriva al cervello: confusione, asterixis), coagulopatia ed emorragia da varici."]}],
+ legenda:[[EP,"Epatociti"],[FAT,"Gocce di grasso"],[STL,"Cellule stellate attivate"],[COL,"Collagene, setti fibrosi"],[VEN,"Vene (porta e collaterali)"],[ART,"Sangue, arteria epatica"],[BIL,"Dotto biliare, ammoniaca"],[ASC,"Ascite"],[GIA,"Ittero"]],
+ n:"Ginès P et al. Liver cirrhosis. Lancet 2021 (PMID 34543610); EASL Clinical Practice Guidelines for the management of patients with decompensated cirrhosis, J Hepatol 2018 (PMID 29653741); Tsochatzis EA, Bosch J, Burroughs AK. Liver cirrhosis. Lancet 2014 (PMID 24480518). PMID da verificare."});
 })();
