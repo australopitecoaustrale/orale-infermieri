@@ -183,3 +183,134 @@ SIM.push({id:"sim-shock",enc:["shock"],t:"Simulatore: lo shock stadio per stadio
  legenda:[[RBC,"Globuli rossi"],[O2,"Ossigeno"],[LAT,"Lattati"],[LIQ,"Liquido che esce dai capillari"],[TRO,"Microtrombi"],[MAR,"Marezzatura"],["#9bc53d","Mitocondri"]],
  n:"Voce «shock» dell'Atlante; Vincent JL, De Backer D. Circulatory shock. N Engl J Med 2013 (PMID 24171518); Cecconi M et al. Consensus on circulatory shock and hemodynamic monitoring. Intensive Care Med 2014 (PMID 25392034); Standl T et al. Hypovolemic shock. Dtsch Arztebl Int 2018 (PMID 30573009). PMID da verificare: PubMed non raggiungibile dall'ambiente di lavoro."});
 })();
+
+/* ---- Scompenso cardiaco ---- */
+/* ---- Scompenso cardiaco (disegno originale) ---- */
+(function(){
+const W=440,H=250,R=(a,b,t)=>a+(b-a)*t,f=x=>Math.round(x*10)/10;
+const head=(lab,body)=>`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${lab}">${body}</svg>`;
+const rnd=k=>{let x=Math.sin(k*999)*1e4;return x-Math.floor(x)};
+const ST=["sano","classe NYHA I","classe NYHA II","classe NYHA III","classe NYHA IV"];
+/* sistole nella prima metà del ciclo (come l'etichetta delle fasi), diastole nella seconda */
+const KT="0;.22;.45;.62;1";
+
+/* ---- 1. Cuore: ventricolo sinistro in sezione lungo l'asse ---- */
+const cav=(cx,y0,a,L)=>`M${f(cx-a)} ${y0}C${f(cx-a)} ${f(y0+L*.72)} ${f(cx-a*.42)} ${f(y0+L)} ${cx} ${f(y0+L)}C${f(cx+a*.42)} ${f(y0+L)} ${f(cx+a)} ${f(y0+L*.72)} ${f(cx+a)} ${y0}Z`;
+const cuore=s=>{const t=s/4,cx=116,y0=80;
+ const a=R(32,52,t),L=R(112,136,t),w=R(17,9,t),k=R(.7,.92,t);
+ const ws=w*R(1.45,1.12,t);               // in sistole la parete si ispessisce meno quando è malata
+ const dIn=cav(cx,y0,a,L),sIn=cav(cx,y0,a*k,L*k),dOut=cav(cx,y0,a+w,L+w),sOut=cav(cx,y0,a*k+ws,L*k+ws);
+ const mv=(d1,d2)=>`<animate attributeName="d" values="${d1};${d2};${d2};${d1};${d1}" keyTimes="${KT}" dur="4s" repeatCount="indefinite"/>`;
+ const ar=R(20,30,t);
+ const nEj=Math.round(R(6,2,t));
+ const ej=[...Array(nEj)].map((_,i)=>`<circle r="3" fill="#b8324f" class="anm" opacity="0"><animateMotion path="M${cx+10} ${y0+40+i*6}V${y0-28}Q${cx+10} ${y0-40} ${cx+26} ${y0-40}H${cx+78}" dur="4s" keyPoints="0;1;1" keyTimes="0;.45;1" calcMode="linear" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.04;.42;.46;1" dur="4s" repeatCount="indefinite"/></circle>`).join("");
+ const fill=[0,1,2,3].map(i=>`<circle r="3" fill="#b8324f" class="anm" opacity="0"><animateMotion path="M${cx-ar-8+i*8} ${y0-14}V${y0+30+i*10}" dur="4s" keyPoints="0;0;1;1" keyTimes="0;.5;.95;1" calcMode="linear" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.5;.54;.94;1" dur="4s" repeatCount="indefinite"/></circle>`).join("");
+ // pannello dei volumi
+ const vol=(aa,LL)=>aa*aa*LL, Vmax=vol(52,136), bw=150;
+ const Vd=vol(a,L)/Vmax*bw, Vs=Vd*k*k*k, x0=270;
+ const fe=["normale","in calo","ridotta","ridotta","molto ridotta"][s];
+ return head(`Ventricolo sinistro, ${ST[s]}: ${s?"cavità dilatata, parete più sottile, frazione di eiezione "+fe:"dimensioni normali, parete spessa, frazione di eiezione normale"}`,
+ `<text x="16" y="20" class="ft fb">Ventricolo sinistro (sezione)</text>
+ <path d="M${cx+10} ${y0+2}V${y0-28}Q${cx+10} ${y0-40} ${cx+26} ${y0-40}H${cx+96}" fill="none" stroke="#d9637b" stroke-width="14" opacity=".45"/>
+ <text x="${cx+60}" y="${y0-54}" class="ft fsm">Aorta</text>
+ <ellipse cx="${f(cx-ar-2)}" cy="${y0-12}" rx="${f(ar)}" ry="${f(R(12,17,t))}" fill="#d9637b" opacity=".35" stroke="#c2506f"/>
+ <text x="${f(cx-ar-2)}" y="${f(y0-16-R(12,17,t))}" class="ft fsm" text-anchor="middle">Atrio sin.</text>
+ <path d="${dOut}" fill="#d9637b" opacity=".85">${mv(dOut,sOut)}</path>
+ <path d="${dIn}" class="ff">${mv(dIn,sIn)}</path>
+ <path d="${dIn}" fill="#d9637b" opacity=".2">${mv(dIn,sIn)}</path>
+ <path d="${sIn}" fill="none" class="lead" stroke-dasharray="4 3"/>
+ ${fill}${ej}
+ <text x="16" y="${H-8}" class="ft fsm">Pieno: fine diastole · tratteggio: fine sistole</text>
+ <line x1="254" y1="34" x2="254" y2="224" class="lead"/>
+ <text x="${x0}" y="44" class="ft fb">Volumi a ogni battito</text>
+ <rect x="${x0}" y="54" width="${f(Vd)}" height="16" class="eyrow"/>
+ <rect x="${x0}" y="54" width="${f(Vd-Vs)}" height="16" fill="#d9637b" opacity=".75"/>
+ <text x="${x0}" y="86" class="ft fsm">Colore: sangue espulso</text>
+ <text x="${x0}" y="100" class="ft fsm">Grigio: sangue che resta</text>
+ <text x="${x0}" y="126" class="ft">Parete</text>
+ <text x="${x0}" y="141" class="ft fb">${["spessa","spessa","più sottile","sottile","molto sottile"][s]}</text>
+ <text x="${x0}" y="164" class="ft">Frazione di eiezione</text>
+ <text x="${x0}" y="179" class="ft fb"${s>=2?` style="fill:#c2506f"`:""}>${fe}</text>
+ <text x="${x0}" y="202" class="ft">Pressione di riempimento</text>
+ <text x="${x0}" y="217" class="ft fb">${["normale","normale","in aumento","alta","molto alta"][s]}</text>`)};
+
+/* ---- 2. Polmoni e circolo: alveoli, interstizio e posizione del paziente ---- */
+const seg=(cx,cy,r,h)=>{if(h<=0)return"";const y=cy+r-h,c=Math.sqrt(Math.max(0,r*r-(y-cy)*(y-cy)));return`M${f(cx-c)} ${f(y)}A${r} ${r} 0 ${h>r?1:0} 0 ${f(cx+c)} ${f(y)}Z`};
+const polm=s=>{const t=s/4,cy=124,r=44,sw=R(12,30,t),mx=124,aL=mx-sw/2-r,aR=mx+sw/2+r;
+ const liq=[0,0,0,14,40][s],nI=[0,0,6,10,14][s];
+ const br=R(4,1.6,t);
+ let inter="";for(let i=0;i<nI;i++){const side=i%2?1:-1;inter+=`<circle cx="${f(mx+side*R(8,sw/2-2,rnd(i+4)))}" cy="${f(R(cy-38,cy+38,rnd(i+9)))}" r="2.4" fill="#3aa0d8" opacity=".85"/>`}
+ const leak=s>=2?[0,1,2].map(i=>`<circle r="2.4" fill="#3aa0d8" class="anm"><animateMotion path="M${mx+(i%2?3:-3)} ${cy-20+i*20}h${(i%2?1:-1)*(sw/2+(s>=3?14:0))}" dur="4s" begin="${i*1.3}s" repeatCount="indefinite"/></circle>`).join(""):"";
+ const blood=[0,1,2,3].map(i=>`<circle r="2.6" class="anm" fill="#b8324f"><animateMotion path="M${mx} ${cy-58}V${cy+58}" dur="${R(2,3.2,t)}s" begin="${i*.5}s" repeatCount="indefinite"/></circle>`).join("");
+ const alv=(cx)=>`<g style="transform-origin:${f(cx)}px ${cy}px;transform-box:view-box"><g><animateTransform attributeName="transform" type="scale" additive="sum" values="1;1.05;1" dur="${f(br)}s" repeatCount="indefinite"/>
+  <circle cx="${f(cx)}" cy="${cy}" r="${r}" class="fa"/>${liq?`<path d="${seg(cx,cy,r,liq)}" fill="#3aa0d8" opacity=".55"/>`:""}<circle cx="${f(cx)}" cy="${cy}" r="${r}" fill="none" stroke="#d9637b" stroke-width="1.6"/></g></g>`;
+ // paziente a letto: busto sollevato con l'ortopnea
+ const th=[0,0,8,28,62][s]*Math.PI/180,hx=362,hy=200,Lb=54,sx=hx-Lb*Math.cos(th),sy=hy-6-Lb*Math.sin(th),hdx=sx-13*Math.cos(th),hdy=sy-13*Math.sin(th);
+ const pil=s>=3?`<path d="M${f(hx-8)} ${hy}L${f(sx-10*Math.cos(th))} ${f(sy-10*Math.sin(th)+12)}L${f(sx-10*Math.cos(th))} ${hy}Z" class="eyrow"/>`:`<rect x="${f(sx-22)}" y="${hy-10}" width="26" height="10" rx="4" class="eyrow"/>`;
+ const puff=s>=4?[0,1,2].map(i=>`<path d="M${f(hdx-16-i*7)} ${f(hdy-6+i*5)}q-5 5 0 10" fill="none" stroke="var(--muted)" stroke-width="1.4" class="anm" opacity=".2"><animate attributeName="opacity" values=".15;1;.15" dur="${f(br)}s" begin="${f(i*br/6)}s" repeatCount="indefinite"/></path>`).join(""):"";
+ const resp=["respiro normale, dorme sdraiato","nessuna dispnea nelle attività ordinarie","dispnea con le attività ordinarie","dispnea con sforzi lievi; ortopnea","dispnea a riposo; sta meglio seduto"][s];
+ const lq=["resta nei capillari","resta nei capillari","esce nell'interstizio","nell'interstizio e negli alveoli","riempie gli alveoli (edema polmonare)"][s];
+ return head(`Polmoni, ${ST[s]}: liquido ${lq}; ${resp}`,
+ `<text x="16" y="20" class="ft fb">Alveoli e capillare polmonare</text>
+ <text x="16" y="36" class="ft fsm">Pressione nel capillare: ${["normale","normale","in aumento","alta","molto alta"][s]}</text>
+ <rect x="${f(mx-sw/2)}" y="${cy-64}" width="${f(sw)}" height="128" class="eyrow"/>
+ ${alv(aL)}${alv(aR)}
+ <rect x="${mx-5}" y="${cy-64}" width="10" height="128" fill="#d9637b" opacity=".55"/>
+ ${inter}${blood}${leak}
+ <text x="${mx}" y="${cy+80}" class="ft fsm" text-anchor="middle">Interstizio con capillare</text>
+ <text x="${f(aL)}" y="${cy-50}" class="ft fsm" text-anchor="middle">Alveolo</text>
+ <line x1="254" y1="34" x2="254" y2="214" class="lead"/>
+ <text x="270" y="36" class="ft fb">Dispnea e posizione</text>
+ ${["Sforzi ordinari","Sforzi lievi","Riposo"].map((a,i)=>`<text x="270" y="${60+i*18}" class="ft fsm">${a}</text><text x="424" y="${60+i*18}" class="ft fsm" text-anchor="end"${s>=i+2?` style="fill:#c2506f"`:""}>${s>=i+2?"dispnea":"no"}</text>`).join("")}
+ <rect x="270" y="${hy}" width="158" height="8" rx="2" class="eyrow"/>
+ ${pil}
+ <path d="M${hx} ${hy-6}H420" stroke="var(--ink)" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+ <path d="M${hx} ${hy-6}L${f(sx)} ${f(sy)}" stroke="var(--ink)" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+ <circle cx="${f(hdx)}" cy="${f(hdy)}" r="9" fill="var(--ink)" opacity=".55"/>
+ ${puff}
+ <text x="16" y="${H-24}" class="ft fsm">Liquido: ${lq}</text>
+ <text x="16" y="${H-10}" class="ft fsm">Respiro: ${resp}</text>`)};
+
+/* ---- 3. Organismo: risposta neuro-ormonale, ritenzione, edemi, peso ---- */
+const organ=s=>{const t=s/4,bx=74;
+ const act=[1,1,1,2,3],box=["Il cuore pompa meno: portata ridotta","Simpatico: tachicardia, vasocostrizione","Rene: renina → angiotensina II → aldosterone","Trattenuti sodio e acqua: più volume","Edemi declivi e aumento di peso"];
+ const x1=150,x2=408,bh=26,g=12,y0=34;
+ const boxes=box.map((b,i)=>{const y=y0+i*(bh+g),on=s>=act[i];
+  return `<rect x="${x1}" y="${y}" width="${x2-x1}" height="${bh}" rx="2" class="eyrow"${on?"":` stroke-dasharray="3 3"`}/>${on?`<rect x="${x1}" y="${y}" width="${x2-x1}" height="${bh}" rx="2" fill="${i==1?"#8e63c9":i==4?"#3aa0d8":"#f0a23a"}" opacity="${f(R(.18,.42,t))}"/>`:""}
+  <text x="${x1+8}" y="${y+bh/2}" dominant-baseline="middle" class="ft fsm"${on?` style="fill:var(--ink)"`:""}>${b}</text>${i<4?`<path d="M${(x1+x2)/2} ${y+bh+1}v${g-3}m-3 -4l3 4l3 -4" class="lead"/>`:""}`}).join("");
+ const loop=s>=3?`<path d="M${x2} ${y0+3*(bh+g)+bh/2}h12V${y0+bh/2}h-10m4 -4l-4 4l4 4" fill="none" stroke="#c2506f" stroke-width="1.6"/><text transform="translate(${x2+26} ${y0+80}) rotate(90)" class="ft fsm" text-anchor="middle">circolo vizioso</text>`:"";
+ // corpo
+ const ed=s>=2?R(0,1,(s-1)/3):0;
+ const leg=(dx)=>`<path d="M${bx+dx*10} 156L${bx+dx*14} 226" stroke="var(--ink)" stroke-width="12" stroke-linecap="round" opacity=".5"/>${ed?`<ellipse cx="${bx+dx*14}" cy="${f(220-ed*3)}" rx="${f(5+ed*4)}" ry="${f(5+ed*6)}" fill="#3aa0d8" opacity=".6"/>`:""}`;
+ const hr=f(R(1,.6,t));
+ const sym=s?`<path d="M${bx+2} 70l6 6l-6 6l6 6l-6 6l6 6l-6 6" fill="none" stroke="#8e63c9" stroke-width="1.8" opacity="${f(R(.5,1,t))}" stroke-dasharray="4 3" class="anm"><animate attributeName="stroke-dashoffset" values="14;0" dur="${f(R(1.6,.6,t))}s" repeatCount="indefinite"/></path>`:"";
+ const na=s?[...Array(Math.round(R(1,5,t)))].map((_,i)=>`<circle r="2.4" fill="#3aa0d8" class="anm"><animateMotion path="M${bx-10} 130Q${bx-34} 108 ${bx-6} 92" dur="3s" begin="${f(i*.6)}s" repeatCount="indefinite"/></circle>`).join(""):"";
+ const kid=(dx)=>`<ellipse cx="${bx+dx*12}" cy="130" rx="6" ry="9" fill="${s?"#f0a23a":"#d9637b"}" opacity="${s?f(R(.6,1,t)):.5}"/>`;
+ const wArrow=s>=2?`<path d="M${bx+54} 212V${f(212-R(16,56,(s-2)/2))}m-6 8l6 -8l6 8" fill="none" stroke="#c2506f" stroke-width="2"/><text x="${bx+54}" y="226" class="ft fsm" text-anchor="middle">Peso</text>`:"";
+ return head(`Organismo, ${ST[s]}: ${s?"simpatico e sistema renina-angiotensina-aldosterone attivi"+(s>=2?", ritenzione di sodio e acqua":"")+(s>=3?", edemi declivi e aumento di peso":""):"sistemi in equilibrio, nessun edema"}`,
+ `<text x="16" y="20" class="ft fb">Risposta dell'organismo</text>
+ <circle cx="${bx}" cy="44" r="13" fill="var(--ink)" opacity=".5"/>
+ <path d="M${bx-22} 64h44l-4 96h-36z" fill="var(--ink)" opacity=".18"/>
+ <path d="M${bx-22} 68l-12 70M${bx+22} 68l12 70" stroke="var(--ink)" stroke-width="9" stroke-linecap="round" opacity=".4"/>
+ ${leg(-1)}${leg(1)}
+ <g style="transform-origin:${bx+8}px 92px;transform-box:view-box"><g><animateTransform attributeName="transform" type="scale" additive="sum" values="1;1.15;1;1" keyTimes="0;.2;.45;1" dur="${hr}s" repeatCount="indefinite"/><path d="M${bx+8} 102c-10 -8 -12 -16 -6 -19c3 -2 6 0 6 3c0 -3 3 -5 6 -3c6 3 4 11 -6 19z" fill="#d9637b"/></g></g>
+ ${kid(-1)}${kid(1)}${sym}${na}${wArrow}
+ <text x="${bx}" y="${H-4}" class="ft fsm" text-anchor="middle">${ed?"Edemi alle caviglie":"Caviglie asciutte"}</text>
+ <text x="${x2}" y="20" class="ft fsm" text-anchor="end">${["Nel sano: sistemi in equilibrio","Compenso: attivi senza sintomi","Compenso che diventa dannoso","Circolo vizioso","Congestione sistemica"][s]}</text>
+ ${boxes}${loop}`)};
+
+SIM.push({id:"sim-scompenso",enc:["scompenso"],t:"Simulatore: lo scompenso cardiaco classe per classe",d:"Scegli lo stadio e il livello da osservare. Il modello è lo scompenso sinistro con frazione di eiezione ridotta; le classi NYHA descrivono i sintomi, qui affiancate ai cambiamenti più tipici. Il disegno è schematico.",
+ stadi:["Sano","NYHA I","NYHA II","NYHA III","NYHA IV"],dur:"4s",fasi:["Sistole","Diastole"],
+ livelli:[
+  {t:"Cuore",sub:"ventricolo sinistro",svg:cuore,
+   testo:["Ventricolo di dimensioni normali, parete spessa e ben contrattile: in sistole si svuota di buona parte del sangue e la frazione di eiezione è normale.","Il muscolo si contrae meno (per esempio dopo un infarto) e il ventricolo inizia a dilatarsi; a riposo e negli sforzi ordinari la portata è ancora mantenuta.","Il ventricolo si dilata e la parete si assottiglia (rimodellamento). Un ventricolo più pieno spinge un po' di più (Frank-Starling), ma la quota espulsa a ogni battito cala.","La frazione di eiezione è ridotta: per riempirsi il ventricolo ha bisogno di pressioni più alte, che risalgono verso l'atrio sinistro e i polmoni.","Ventricolo molto dilatato, parete sottile e contrazione debole: la gittata non basta più neanche a riposo e la pressione di riempimento è molto alta."],
+   val:["FE normale","FE in calo","FE ridotta","FE ridotta","FE molto ridotta"]},
+  {t:"Polmoni e circolo",sub:"congestione",svg:polm,
+   testo:["La pressione nei capillari polmonari è bassa: il liquido resta nei vasi, l'interstizio è sottile e gli alveoli sono asciutti. Si dorme sdraiati senza fatica.","Classe I: nessuna limitazione, l'attività fisica ordinaria non provoca dispnea. Il liquido resta ancora nei capillari.","Classe II: dispnea con gli sforzi ordinari, per esempio salire le scale. La pressione che risale dal cuore sinistro spinge liquido nell'interstizio.","Classe III: dispnea con sforzi lievi. Il liquido arriva negli alveoli; da sdraiati il sangue che torna dalle gambe aumenta la congestione: ortopnea e dispnea parossistica notturna.","Classe IV: dispnea a riposo, la persona respira meglio seduta. Gli alveoli si riempiono di liquido (rantoli) e l'ossigenazione peggiora: il quadro estremo è l'edema polmonare acuto."],
+   val:["Polmoni asciutti","Nessun limite","Limiti negli sforzi ordinari","Limiti negli sforzi lievi","Sintomi a riposo"]},
+  {t:"Organismo",sub:"neuro-ormoni e liquidi",svg:organ,
+   testo:["Pressione arteriosa e volume circolante sono in equilibrio: il rene elimina sodio e acqua in eccesso e il peso è stabile.","Il calo della portata attiva il simpatico e il sistema renina-angiotensina-aldosterone: tachicardia e vasocostrizione mantengono la pressione. All'inizio compensano, ma affaticano il cuore.","L'aldosterone fa trattenere sodio e, con esso, acqua: il volume di sangue aumenta e compaiono i primi edemi alle caviglie.","Più volume significa più carico per un cuore già debole: è un circolo vizioso. Edemi declivi evidenti e peso in aumento; avvisare se il peso sale di più di 2 kg in 2-3 giorni.","Ritenzione marcata: edemi estesi e congestione sistemica (turgore giugulare, epatomegalia, ascite). Peso quotidiano, bilancio idrico e restrizione idrosalina se prescritta guidano l'assistenza."],
+   val:["Peso stabile","Compenso neuro-ormonale","Ritenzione idrosalina","Edemi e peso in aumento","Congestione sistemica"]}],
+ legenda:[["#d9637b","Miocardio e sangue"],["#3aa0d8","Liquido (edema)"],["#f0a23a","Renina-angiotensina-aldosterone"],["#8e63c9","Simpatico"]],
+ n:"Linee guida ESC 2021 sullo scompenso cardiaco, McDonagh TA et al., Eur Heart J 2021 (PMID 34447992, da verificare); classificazione NYHA e soglia di peso come nella voce dell'Atlante."});
+})();
