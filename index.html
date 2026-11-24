@@ -1546,20 +1546,22 @@ body::after{display:none}
   .lv-bar i{transition:width .8s cubic-bezier(.2,.8,.2,1)}
 }
 /* simulatori di fisiopatologia (simulatori.js) */
-.sim{border:1px solid var(--line);border-radius:4px;padding:10px;margin:12px 0;background:var(--paper)}
-.sim-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.sim{border:1px solid var(--line);border-radius:4px;padding:10px;margin:12px 0;background:var(--paper);scroll-margin-top:72px}
 .sim-h b{font-size:.95rem}.sim-row{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
-.sim-row .chip{cursor:pointer}.sim-row .chip .small{color:inherit;opacity:.75;font-weight:400}.sim-lab{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:6px}
-.sim-ph{display:inline-flex;gap:6px;align-items:center;font-size:.8rem;color:var(--muted)}
-.sim-ph i{width:8px;height:8px;border-radius:50%;background:var(--scrub);display:inline-block}
+.sim-row .chip{cursor:pointer;display:inline-block;text-align:left;min-height:40px;padding:8px 12px}
+.sim-lab{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:6px}
+.sim-cap{font-size:.86rem;margin:10px 0 2px;color:var(--muted)}.sim-cap b{color:var(--ink)}
+.sim-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:4px 0}
+.sim-ph{display:inline-flex;gap:6px;align-items:center;font-size:.9rem;font-weight:600;color:var(--scrub)}
+.sim-ph i{width:10px;height:10px;border-radius:50%;background:var(--scrub);display:inline-block}
 .sim-ph .pw{display:inline-grid}.sim-ph .p1,.sim-ph .p2{grid-area:1/1;animation:simPh var(--d,4s) steps(1) infinite}.sim-ph .p2{animation-delay:calc(var(--d,4s) / -2)}
 @keyframes simPh{0%{visibility:visible}50%{visibility:hidden}}
 .sim.paused .sim-ph span{animation-play-state:paused}
-.sim-svg svg{width:100%;height:auto;display:block}
-.sim-t{font-size:.9rem;line-height:1.45;margin:6px 0 0}.sim-v{font-weight:600;color:var(--scrub)}
-.sim-lg{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted);margin-top:6px}
+.sim-svg{max-width:640px;margin:0 auto}.sim-svg svg{width:100%;height:auto;display:block}
+@media (max-width:600px){.sim-svg{margin:0 -6px}.sim-svg .fsm{font-size:11.5px}}
+.sim-t{font-size:.9rem;line-height:1.45;margin:6px auto 0;max-width:70ch}.sim-v{font-weight:600;color:var(--scrub)}.sim-v.al{color:var(--vital)}
+.sim-lg{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted);margin:6px auto 0;max-width:640px}
 .sim-lg span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:-1px;background:var(--c)}
-@media (prefers-reduced-motion:reduce){.sim-ph{display:none}}
 /* modelli delle figure (figtpl.js) */
 .fig .fbx{fill:var(--paper);stroke:color-mix(in srgb,var(--ink) 30%,var(--paper));stroke-width:1}
 .fig .halo{paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}
@@ -3833,17 +3835,19 @@ function scenaSol(c){const sc=c.scena;if(!sc)return "";
 const FIGS=typeof FIGURE!=="undefined"?FIGURE:[];
 let FIG_N=0;const FIG_STILL=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;function figHtml(f){const u="_"+(++FIG_N),svg=(FIG_STILL?f.svg.replace(/<circle class="[^"]*anm"[^>]*>.*?<\/circle>/g,"").replace(/<animate\b[^>]*\/>/g,""):f.svg).replace(/id="([\w-]+)"/g,(m,a)=>`id="${a}${u}"`).replace(/url\(#([\w-]+)\)/g,(m,a)=>`url(#${a}${u})`);return `<figure class="fig"><div class="fig-svg">${svg}</div><figcaption><b>${esc(f.t)}.</b> ${esc(f.c)}</figcaption></figure>`}
 function simSvg(sim,st,lv){const u="_s"+(++FIG_N);let v=sim.livelli[lv].svg(st);if(FIG_STILL)v=v.replace(/<circle class="[^"]*anm"[^>]*>.*?<\/circle>/g,"").replace(/<animate(Motion|Transform)?\b[^>]*\/>/g,"");return v.replace(/id="([\w-]+)"/g,(m,a)=>`id="${a}${u}"`).replace(/url\(#([\w-]+)\)/g,(m,a)=>`url(#${a}${u})`)}
-function simBody(sim,st,lv){const L=sim.livelli[lv];return `<div class="fig-svg sim-svg">${simSvg(sim,st,lv)}</div><p class="sim-t">${L.val?`<span class="sim-v">${esc(L.val[st])}</span> · `:""}${esc(L.testo[st])}</p>`}
-function simHtml(sim){const ph=sim.fasi?`<span class="sim-ph" style="--d:${sim.dur||"4s"}"><i></i><span class="pw"><span class="p1">${esc(sim.fasi[0])}</span><span class="p2">${esc(sim.fasi[1])}</span></span></span>`:"";
- return `<figure class="fig sim" data-sim="${sim.id}" data-st="0" data-lv="0"><div class="sim-h"><b>${esc(sim.t)}</b>${ph}</div>${sim.d?`<p class="small" style="margin:4px 0 0">${esc(sim.d)}</p>`:""}
+function simBody(sim,st,lv){const L=sim.livelli[lv],F=L.fasi===false?null:(L.fasi||sim.fasi),d=L.dur||sim.dur||"4s",v=L.val?L.val[st]:"",al=v.startsWith("!");
+ const bar=FIG_STILL?"":`<div class="sim-bar">${F?`<span class="sim-ph" style="--d:${d}"><i></i><span class="pw"><span class="p1">${esc(F[0])}</span><span class="p2">${esc(F[1])}</span></span></span>`:"<span></span>"}<button class="chip" data-sim-pause aria-pressed="false">Pausa</button></div>`;
+ return `<div class="sim-cap"><b>${esc(L.t)}</b>${L.sub?` · ${esc(L.sub)}`:""} — ${esc(sim.stadi[st])}</div>${bar}<div class="fig-svg sim-svg">${simSvg(sim,st,lv)}</div><p class="sim-t">${v?`<span class="sim-v${al?" al":""}">${esc(al?v.slice(1):v)}</span> · `:""}${esc(L.testo[st])}</p>`}
+function simHtml(sim){
+ return `<figure class="fig sim" data-sim="${sim.id}" data-st="0" data-lv="0"><div class="sim-h"><b>${esc(sim.t)}</b></div>${sim.d?`<p class="small" style="margin:4px 0 0">${esc(sim.d)}</p>`:""}
  <div class="sim-lab">Stadio</div><div class="sim-row" role="group" aria-label="Stadio">${sim.stadi.map((x,i)=>`<button class="chip" data-sim-st="${i}" aria-pressed="${i===0}">${esc(x)}</button>`).join("")}</div>
- <div class="sim-lab">Livello</div><div class="sim-row" role="group" aria-label="Livello">${sim.livelli.map((x,i)=>`<button class="chip" data-sim-lv="${i}" aria-pressed="${i===0}">${i+1}. ${esc(x.t)}${x.sub?` <span class="small">(${esc(x.sub)})</span>`:""}</button>`).join("")}${FIG_STILL?"":`<button class="chip" data-sim-pause aria-pressed="false">Pausa</button>`}</div>
+ <div class="sim-lab">Livello</div><div class="sim-row" role="group" aria-label="Livello">${sim.livelli.map((x,i)=>`<button class="chip" data-sim-lv="${i}" aria-pressed="${i===0}">${i+1}. ${esc(x.t)}</button>`).join("")}</div>
  <div class="sim-b" aria-live="polite">${simBody(sim,0,0)}</div>${sim.legenda?`<div class="sim-lg">${sim.legenda.map(l=>`<span style="--c:${l[0]}">${esc(l[1])}</span>`).join("")}</div>`:""}</figure>`}
 function simEnc(id){const L=(typeof SIM!=="undefined"?SIM:[]).filter(s=>s.enc.includes(id));return L.map(simHtml).join("")}
 document.addEventListener("click",e=>{const b=e.target.closest("[data-sim-st],[data-sim-lv],[data-sim-pause]");if(!b)return;const box=b.closest("[data-sim]");if(!box)return;const sim=SIM.find(s=>s.id===box.dataset.sim);if(!sim)return;
  if(b.hasAttribute("data-sim-pause")){const p=!box.classList.contains("paused");box.classList.toggle("paused",p);b.setAttribute("aria-pressed",p);b.textContent=p?"Riprendi":"Pausa";const sv=box.querySelector(".sim-svg svg");if(sv&&sv.pauseAnimations)p?sv.pauseAnimations():sv.unpauseAnimations();return}
  const k=b.hasAttribute("data-sim-st")?"st":"lv";box.dataset[k]=b.dataset[k==="st"?"simSt":"simLv"];b.parentNode.querySelectorAll(`[data-sim-${k}]`).forEach(x=>x.setAttribute("aria-pressed",x===b));
- box.querySelector(".sim-b").innerHTML=simBody(sim,+box.dataset.st,+box.dataset.lv);if(box.classList.contains("paused")){const sv=box.querySelector(".sim-svg svg");if(sv&&sv.pauseAnimations)sv.pauseAnimations()}});
+ box.classList.remove("paused");box.querySelector(".sim-b").innerHTML=simBody(sim,+box.dataset.st,+box.dataset.lv)});
 function figsEnc(id){const L=FIGS.filter(f=>f.enc.includes(id));return L.length?`<div class="figs">${L.map(figHtml).join("")}</div>`:""}
 function figsStudy(t){if(!t||/^Guida/.test(t.t))return "";const L=FIGS.filter(f=>f.st&&f.st.test(t.t));return L.length?`<div class="figs">${L.map(figHtml).join("")}</div>`:""}
 function figsGloss(term){const L=FIGS.filter(f=>f.gl.includes(term));return L.map(f=>`<details class="gl-fig"><summary>Figura: ${esc(f.t)}</summary>${figHtml(f)}</details>`).join("")}
