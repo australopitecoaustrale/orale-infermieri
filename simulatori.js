@@ -33,14 +33,14 @@ const alv=s=>{const t=s/4,cx=220,cy=124;
  const fill=pos.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="${i<lost?R(31,40,t):29}" class="fa"/>`).join("");
  const sept=pos.map((p,i)=>i<lost?"":`<circle cx="${p[0]}" cy="${p[1]}" r="29" fill="none" stroke="#d9637b" stroke-width="2.4"/>`).join("");
  const fib=pos.map((p,i)=>i<lost?"":`<path d="M${p[0]-20} ${p[1]+21}q20 6 40 0" fill="none" stroke="#3aa0d8" stroke-width="2"/>`).join("");
- const hull=lost?`<circle cx="${cx}" cy="${cy}" r="${R(80,92,t)}" fill="none" stroke="#d9637b" stroke-width="2.4" stroke-dasharray="${s>=3?"0":"4 5"}"/>`:"";
+ const hull=lost?`<circle cx="${cx}" cy="${cy}" r="${R(80,88,t)}" fill="none" stroke="#d9637b" stroke-width="2.4" stroke-dasharray="${s>=3?"0":"4 5"}"/>`:"";
  let ela="";for(let i=0;i<[0,4,7,10,13][s];i++){const a=rnd(i+2)*6.283,r=R(12,78,rnd(i+5));ela+=`<path d="M${cx+r*Math.cos(a)-4} ${cy+r*Math.sin(a)}l4 -4l4 4l-4 4z" fill="#e0425a"/>`}
  let gas="";for(let i=0;i<[14,12,9,7,5][s];i++){const a=rnd(i+9)*6.283,r=R(8,64,rnd(i+11));gas+=`<circle cx="${cx+r*Math.cos(a)}" cy="${cy+r*Math.sin(a)}" r="3" fill="#3a6fd8"/>`}
  return head(`Acino polmonare nello stadio ${s}: ${lost?lost+" alveoli su 7 hanno perso i setti e sono confluiti":"alveoli integri con setti elastici"}`,
  `<text x="20" y="24" class="ft fb">Acino: alveoli, setti elastici, capillari</text>
  <g transform="translate(${cx} ${cy})"><g>${anim}<g transform="translate(${-cx} ${-cy})">${fill}${sept}${fib}${hull}</g></g></g>${ela}${gas}
- <text x="20" y="${H-28}" class="ft fsm">Superficie di scambio ${["normale","lievemente ridotta","ridotta","molto ridotta","gravemente ridotta"][s]}</text>
- <text x="20" y="${H-12}" class="ft fsm">Ritorno elastico ${["normale","poco ridotto","ridotto","molto ridotto","quasi perso"][s]}${s>=2?": in espirazione le piccole vie aeree collassano":""}</text>`)};
+ <text x="20" y="${H-24}" class="ft fsm">Superficie di scambio ${["normale","lievemente ridotta","ridotta","molto ridotta","gravemente ridotta"][s]}</text>
+ <text x="20" y="${H-8}" class="ft fsm">Ritorno elastico ${["normale","poco ridotto","ridotto","molto ridotto","quasi perso"][s]}${s>=2?": in espirazione le piccole vie aeree collassano":""}</text>`)};
 const pol=s=>{const t=s/4,cx=220,top=40,base=R(196,214,t),sc=R(1,1.13,t),dc=R(160,206,t);
  const lung=(dx,f)=>`<path d="M${cx+dx*18} ${top+18}C${cx+dx*(70*sc)} ${top} ${cx+dx*(112*sc)} ${top+90} ${cx+dx*(104*sc)} ${base}Q${cx+dx*60} ${dc+6} ${cx+dx*22} ${base-8}Z" fill="#e2789a" opacity="${R(.9,.55,t)}" stroke="#c2506f"/>`;
  const bul=s>=2?[...Array(s*2)].map((_,i)=>`<circle cx="${cx+(i%2?1:-1)*R(40,90,rnd(i+3))}" cy="${R(70,170,rnd(i+8))}" r="${R(6,14,rnd(i+1))}" fill="#3b3346" opacity=".75"/>`).join(""):"";
@@ -50,19 +50,22 @@ const pol=s=>{const t=s/4,cx=220,top=40,base=R(196,214,t),sc=R(1,1.13,t),dc=R(16
  `<text x="20" y="24" class="ft fb">Meccanica globale e diaframma</text>
  <path d="M${cx} ${top-20}V${top+30}M${cx} ${top+30}l-18 18M${cx} ${top+30}l18 18" class="fl" stroke-width="6" stroke="var(--muted)"/>
  <g transform="translate(${cx} ${base})"><g><animateTransform attributeName="transform" type="scale" additive="sum" values="1;${1+amp};1" dur="4s" repeatCount="indefinite"/><g transform="translate(${-cx} ${-base})">${lung(-1)}${lung(1)}${bul}${trap}</g></g></g>
- <path d="M${cx-130} ${base+16}Q${cx} ${R(base-30,base+10,t)} ${cx+130} ${base+16}" fill="none" stroke="#d9637b" stroke-width="5" stroke-linecap="round"/>
+ <path d="M${cx-130} ${base+8}Q${cx} ${R(base-30,base+10,t)} ${cx+130} ${base+8}" fill="none" stroke="#d9637b" stroke-width="5" stroke-linecap="round"/>
  <text x="20" y="${H-10}" class="ft fsm">Diaframma ${["a cupola","appena abbassato","abbassato","appiattito","piatto"][s]}</text>`)};
-SIM.push({id:"sim-bpco",enc:["bpco"],t:"Simulatore: la BPCO stadio per stadio",d:"Scegli lo stadio spirometrico GOLD e il livello da osservare. Il disegno è schematico: le proporzioni servono a capire, non a misurare.",
+SIM.push({id:"sim-bpco",enc:["bpco"],t:"Simulatore: la BPCO stadio per stadio",d:"Scegli lo stadio spirometrico GOLD e il livello da osservare. Il disegno è schematico: le proporzioni servono a capire, non a misurare. Nello stesso stadio i quadri variano: enfisema e bronchite non crescono sempre insieme alla gravità spirometrica.",
  stadi:["Sano","GOLD 1 lieve","GOLD 2 moderata","GOLD 3 grave","GOLD 4 molto grave"],dur:"4s",fasi:["Inspirazione","Espirazione"],
  livelli:[
-  {t:"Bronchiolo",sub:"bronchite cronica",svg:bron,
+  {t:"Bronchiolo",fasi:false,sub:"bronchite cronica",svg:bron,
+   val:["Lume libero","Poco ristretto","Ristretto","Molto ristretto","Quasi occluso"],
    testo:["Parete sottile, ciglia numerose che spostano il muco verso l'alto, lume ampio: l'aria passa senza ostacoli.","Il fumo richiama neutrofili e macrofagi; le cellule che producono muco aumentano. Spesso c'è già tosse con espettorato.","La parete si ispessisce, il muco aderisce alle pareti e le ciglia lavorano peggio: il lume si restringe e l'espirazione si allunga.","Infiammazione e fibrosi della parete, tappi di muco: il flusso è molto ridotto, le infezioni e le riacutizzazioni sono più frequenti.","Lume quasi occluso da parete spessa e secrezioni: l'aria esce con grande fatica."]},
   {t:"Alveoli",sub:"enfisema",svg:alv,
+   val:["Setti integri","Elastasi attiva","Alveoli confluiti","Enfisema esteso","Bolle"],
    testo:["Alveoli separati da setti sottili ricchi di fibre elastiche (blu) e capillari: grande superficie di scambio e buon ritorno elastico.","Le proteasi delle cellule infiammatorie, come l'elastasi dei neutrofili (rombi rossi), iniziano a superare le difese antiproteasiche.","L'elastina si rompe e alcuni setti spariscono: gli alveoli confluiscono in spazi più grandi e lo scambio di O₂ e CO₂ si riduce.","Molti setti distrutti: il polmone perde la trazione elastica che teneva aperte le piccole vie aeree, che in espirazione collassano.","Grandi spazi aerei e bolle: superficie di scambio gravemente ridotta. Il danno è permanente."]},
   {t:"Polmone intero",sub:"iperinflazione",svg:pol,
-   testo:["Volume normale; il diaframma a cupola si contrae bene e in espirazione il polmone torna al volume di partenza.","Lieve aria intrappolata alla fine dell'espirazione, di solito senza sintomi a riposo.","L'aria intrappolata aumenta, soprattutto sotto sforzo (iperinflazione dinamica): compare dispnea da sforzo.","Il torace si espande e il diaframma si abbassa: le fibre accorciate si contraggono male, la dispnea aumenta.","Polmoni iperinflati con bolle, diaframma piatto, uso dei muscoli accessori: respirare costa molta fatica."]}],
+   val:["Volume normale","Lieve aria intrappolata","Iperinflazione da sforzo","Diaframma abbassato","Iperinflazione grave"],
+   testo:["Il diaframma a cupola si contrae bene e in espirazione il polmone torna al volume di partenza.","Alla fine dell'espirazione resta un po' d'aria nei polmoni, di solito senza sintomi a riposo.","L'aria intrappolata aumenta, soprattutto sotto sforzo (iperinflazione dinamica): compare dispnea da sforzo.","Il torace si espande e il diaframma si abbassa: le fibre accorciate si contraggono male, la dispnea aumenta.","Polmoni iperinflati con bolle, diaframma piatto, uso dei muscoli accessori: respirare costa molta fatica."]}],
  legenda:[["#d9637b","Parete e tessuto"],["#9bc53d","Muco"],["#8e63c9","Neutrofili e macrofagi"],["#3aa0d8","Fibre elastiche"],["#e0425a","Elastasi"],["#3a6fd8","Gas scambiati"],["#f0a23a","Aria intrappolata"],["#3b3346","Bolle"]],
- n:"GOLD 2023 Executive Summary (PMID 36858443); Christenson SA et al. Lancet 2022 (PMID 35533707)."});
+ n:"GOLD 2023 Executive Summary (PMID 36858443); Christenson SA et al. Lancet 2022 (PMID 35533707); Hogg JC et al. N Engl J Med 2004 (PMID 15215480)."});
 })();
 
 /* ---- Shock ---- */
@@ -87,9 +90,9 @@ const micro=s=>{const t=s/3,yc=62;
  const rbcFix=[...Array(nr)].map((_,i)=>`<circle cx="${R(150,300,nr>1?i/(nr-1):.5)}" cy="${yc}" r="3.4" fill="${RBC}" opacity=".55"/>`).join("");
  const nt=P([0,0,0,3],s);let tro="";for(let i=0;i<nt;i++)tro+=`<ellipse cx="${170+i*55}" cy="${yc}" rx="7" ry="${rc-0.5}" fill="${TRO}"/>`;
  const cx=270,cy=158,rx=R(64,78,t),ry=R(30,38,t);
- const no=P([5,3,1,0],s);let o2="";for(let i=0;i<no;i++){const x=200+i*30;o2+=`<circle cx="${x}" cy="${yc+16}" r="3" fill="${O2}"/><circle class="anm" r="3" fill="${O2}"><animateMotion path="M${x} ${yc+8}V${cy-ry+8}" dur="2s" begin="${(i*.4).toFixed(1)}s" repeatCount="indefinite"/></circle>`}
+ const no=P([5,3,1,0],s);let o2="";for(let i=0;i<no;i++){const x=200+i*30;o2+=`<circle cx="${x}" cy="${yc+16}" r="3" fill="${O2}"/><circle class="anm" r="3" fill="${O2}"><animateMotion path="M${x} ${yc+8}V${cy-ry+8}" dur="2s" begin="${(-i*.4).toFixed(1)}s" repeatCount="indefinite"/></circle>`}
  const nl=P([0,0,8,14],s);let liq="";for(let i=0;i<nl;i++){const x=R(140,410,rnd(i+3)),y=R(yc+14,yc+42,rnd(i+5));liq+=`<path d="M${x} ${y-4}q3 4 0 7q-3-3 0-7z" fill="${LIQ}" opacity=".8"/>`}
- const drip=s>=2?[0,1,2].map(i=>`<circle class="anm" r="2.4" fill="${LIQ}"><animateMotion path="M${180+i*60} ${yc+6}V${yc+34}" dur="1.6s" begin="${i*.5}s" repeatCount="indefinite"/></circle>`).join(""):"";
+ const drip=s>=2?[0,1,2].map(i=>`<circle class="anm" r="2.4" fill="${LIQ}"><animateMotion path="M${180+i*60} ${yc+6}V${yc+34}" dur="1.6s" begin="${-i*.5}s" repeatCount="indefinite"/></circle>`).join(""):"";
  const nla=P([0,3,9,14],s);let lat="";for(let i=0;i<nla;i++){const a=rnd(i+11)*6.283,r=R(.25,.85,rnd(i+13));lat+=`<rect x="${cx+rx*r*Math.cos(a)-2.5}" y="${cy+ry*r*Math.sin(a)-2.5}" width="5" height="5" fill="${LAT}" transform="rotate(45 ${cx+rx*r*Math.cos(a)} ${cy+ry*r*Math.sin(a)})"/>`}
  const mito=[[-34,-8],[-30,14],[30,-12]].map(([dx,dy],i)=>`<ellipse cx="${cx+dx}" cy="${cy+dy}" rx="11" ry="5.5" fill="#9bc53d" opacity="${R(.85,.35,t)}" stroke="#6f9a1f" ${s==3?'stroke-dasharray="2 2"':""}/><path d="M${cx+dx-7} ${cy+dy}q2-3 4 0t4 0t4 0" fill="none" stroke="#6f9a1f" stroke-width=".8"/>`).join("");
  const cell=`<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="#d9637b" opacity=".1"/><ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" class="fl" ${s==3?'stroke-dasharray="6 4"':""}/><ellipse cx="${cx+4}" cy="${cy+6}" rx="13" ry="10" fill="#8e63c9" opacity=".35" stroke="#8e63c9"/>`;
@@ -152,7 +155,7 @@ const org=s=>{const t=s/3,cx=220;
  const kid=[-1,1].map(k=>`<ellipse cx="${cx+k*14}" cy="106" rx="6" ry="9" fill="${["#b5523b","#a5513f","#8e5148","#6e4a4a"][s]}"/>`).join("");
  const gut=`<path d="M${cx-14} 118q4-6 8 0t8 0t8 0t8 0M${cx-12} 124q4-5 8 0t8 0t8 0" fill="none" stroke="${["#d49a7a","#c99683","#b98d8a","#9a7f86"][s]}" stroke-width="3" stroke-linecap="round"/>`;
  const nd=P([3,2,1,0],s),dd=P([1.6,2.6,4,4],s);
- const urine=`<path d="M${cx-6} 136h12v7h-12z" fill="#f0d24a" opacity="${P([.8,.55,.3,.12],s)}" stroke="#c9a92a"/>`+[...Array(nd)].map((_,i)=>`<circle class="anm" r="1.8" fill="#c9a92a"><animateMotion path="M${cx} 129V136" dur="${dd}s" begin="${(i*dd/Math.max(nd,1)).toFixed(2)}s" repeatCount="indefinite"/></circle>`).join("");
+ const urine=`<path d="M${cx-6} 136h12v7h-12z" fill="#f0d24a" opacity="${P([.8,.55,.3,.12],s)}" stroke="#c9a92a"/>`+[...Array(nd)].map((_,i)=>`<circle class="anm" r="1.8" fill="#c9a92a"><animateMotion path="M${cx} 129V136" dur="${dd}s" begin="${(-i*dd/Math.max(nd,1)).toFixed(2)}s" repeatCount="indefinite"/></circle>`).join("");
  const K=["k-ok","k-warn","k-alarm","k-alarm"],kk=v=>K[v];
  const call=(x,y,anchor,title,txt,lvl,lx,ly)=>{  return `<path d="M${anchor=="end"?x+4:x-4} ${y-4}L${lx} ${ly}" class="lead"/><rect x="${anchor=="end"?x-120:x}" y="${y-15}" width="9" height="9" rx="2" class="${kk(lvl)}"/>
   <text x="${anchor=="end"?x-107:x+13}" y="${y-7}" class="ft fsm fb">${title}</text><text x="${anchor=="end"?x-120:x}" y="${y+7}" class="ft fsm">${txt}</text>`};
@@ -164,8 +167,8 @@ const org=s=>{const t=s/3,cx=220;
  ${call(150,196,"end","Gambe e ginocchia",["colorito normale","estremità fredde","marezzatura","marezzatura estesa"][s],P([0,1,2,2],s),cx-20,190)}
  ${call(292,84,"start","Cuore",["frequenza normale","tachicardia","tachicardia, ipotensione","pompa che cede"][s],P([0,1,2,2],s),cx+22,84)}
  ${call(292,124,"start","Reni",["diuresi normale","diuresi ridotta","oliguria","anuria"][s],P([0,1,2,2],s),cx+14,108)}
- ${call(292,184,"start","Altri organi",["funzione normale","ancora protetti","fegato, intestino, polmoni","insufficienza multiorgano"][s],P([0,0,2,2],s),cx+14,121)}
- ${s==2?`<text x="292" y="205" class="ft fsm">in sofferenza</text>`:""}
+ ${call(292,184,"start","Altri organi",["funzione normale","meno flusso a","fegato, intestino, polmoni","insufficienza multiorgano"][s],P([0,1,2,2],s),cx+14,121)}
+ ${s==1||s==2?`<text x="292" y="205" class="ft fsm">${s==1?"intestino e fegato":"in sofferenza"}</text>`:""}
  ${[["Perfusione adeguata","di tutti gli organi"],["Sangue dirottato verso","cuore e cervello"],["La compensazione","non basta più"],["Danno anche se si","ripristina la pressione"]][s].map((x,i)=>`<text x="20" y="${226+i*13}" class="ft fsm">${x}</text>`).join("")}`)};
 
 SIM.push({id:"sim-shock",enc:["shock"],t:"Simulatore: lo shock stadio per stadio",d:"Esempio: shock ipovolemico da emorragia. Scegli lo stadio e il livello da osservare; il disegno è schematico e non riporta valori.",
@@ -173,15 +176,15 @@ SIM.push({id:"sim-shock",enc:["shock"],t:"Simulatore: lo shock stadio per stadio
  livelli:[
   {t:"Cellula e microcircolo",sub:"ossigeno e lattati",svg:micro,
    val:["Metabolismo aerobio","Primi lattati","Acidosi lattica","Danno cellulare"],
-   testo:["Arteriole e capillari aperti: i globuli rossi portano ossigeno alle cellule, che producono energia (ATP) nei mitocondri con il metabolismo aerobio.","Per la perdita di sangue le arteriole e gli sfinteri precapillari si chiudono: arriva meno ossigeno, una parte dell'energia si produce senza ossigeno e i lattati cominciano a salire.","L'acidosi apre gli sfinteri prima del capillare mentre le venule restano chiuse: il sangue ristagna, la pressione nel capillare sale e il liquido esce nell'interstizio. Le cellule si gonfiano, i lattati sono alti.","Si formano microtrombi, le membrane e i mitocondri sono danneggiati e le cellule muoiono: anche ridando liquidi il tessuto non recupera."]},
+   testo:["Arteriole e capillari aperti: i globuli rossi portano ossigeno alle cellule, che producono energia (ATP) nei mitocondri con il metabolismo aerobio.","Per la perdita di sangue le arteriole e gli sfinteri precapillari si chiudono: arriva meno ossigeno, una parte dell'energia si produce senza ossigeno e i lattati cominciano a salire.","L'acidosi apre gli sfinteri prima del capillare mentre gli sfinteri dopo il capillare e le venule restano chiusi: il sangue ristagna, la pressione nel capillare sale e il liquido esce nell'interstizio. Le cellule si gonfiano, i lattati sono alti.","Si formano microtrombi, le membrane e i mitocondri sono danneggiati e le cellule muoiono: anche ridando liquidi spesso il tessuto non recupera."]},
   {t:"Cuore e vasi",sub:"frequenza, tono, pressione",svg:circ,
-   val:["Pressione normale","Pressione mantenuta","Ipotensione","Ipotensione refrattaria"],
-   testo:["Il cuore si riempie bene e a ogni battito spinge un volume adeguato; frequenza e pressione sono normali.","Torna meno sangue al cuore. Il sistema simpatico aumenta la frequenza e stringe le arteriole: la pressione massima regge, la minima sale e il differenziale si riduce. L'ipotensione è un segno tardivo.","La compensazione non basta: il riempimento è scarso, il cuore batte molto veloce ma spinge poco e la pressione cade. L'indice di shock (frequenza / pressione sistolica) supera 1.","Le arteriole perdono il tono e il cuore, poco irrorato, cede: la pressione resta bassa nonostante liquidi e farmaci. La frequenza può anche scendere, segno di arresto vicino."]},
+   val:["Pressione normale","Pressione mantenuta","Ipotensione","!Ipotensione refrattaria"],
+   testo:["Il cuore si riempie bene e a ogni battito spinge un volume adeguato; frequenza e pressione sono normali.","Torna meno sangue al cuore. Il sistema simpatico aumenta la frequenza e stringe le arteriole: la pressione massima regge, la minima sale e il differenziale si riduce. L'ipotensione è un segno tardivo.","La compensazione non basta: il riempimento è scarso, il cuore batte molto veloce ma spinge poco e la pressione cade. L'indice di shock (frequenza / pressione sistolica) raggiunge o supera 1.","Le arteriole perdono il tono e il cuore, poco irrorato, cede: la pressione resta bassa nonostante liquidi e farmaci. La frequenza può anche scendere, segno di arresto vicino."]},
   {t:"Organi",sub:"segni clinici",svg:org,
-   val:["Organi ben perfusi","Segni precoci","Organi in sofferenza","Insufficienza multiorgano"],
-   testo:["Cute calda e rosea, diuresi normale, paziente vigile e orientato.","Il sangue viene dirottato verso cuore e cervello: cute pallida, fredda e sudata, riempimento capillare lento, diuresi ridotta, ansia e agitazione. Sono i segni da cogliere presto.","Cute fredda e marezzata (prima su ginocchia e gambe), oliguria, confusione e sopore: gli organi lavorano senza abbastanza ossigeno. Si controllano diuresi oraria e lattati.","Reni, polmoni, fegato, intestino e coagulazione si guastano insieme (insufficienza multiorgano); il paziente non risponde. Il danno non è più reversibile."]}],
+   val:["Organi ben perfusi","Segni precoci","Organi in sofferenza","!Insufficienza multiorgano"],
+   testo:["Cute calda e rosea, diuresi normale, paziente vigile e orientato.","Il sangue viene dirottato verso cuore e cervello: cute pallida, fredda e sudata, riempimento capillare lento, diuresi ridotta, ansia e agitazione. Sono i segni da cogliere presto.","Cute fredda e marezzata (prima su ginocchia e gambe), oliguria, confusione e sopore: gli organi lavorano senza abbastanza ossigeno. Si controllano diuresi oraria e lattati.","Reni, polmoni, fegato, intestino e coagulazione si guastano insieme (insufficienza multiorgano); il paziente non risponde. Il danno di solito non è più reversibile."]}],
  legenda:[[RBC,"Globuli rossi"],[O2,"Ossigeno"],[LAT,"Lattati"],[LIQ,"Liquido che esce dai capillari"],[TRO,"Microtrombi"],[MAR,"Marezzatura"],["#9bc53d","Mitocondri"]],
- n:"Voce «shock» dell'Atlante; Vincent JL, De Backer D. Circulatory shock. N Engl J Med 2013 (PMID 24171518); Cecconi M et al. Consensus on circulatory shock and hemodynamic monitoring. Intensive Care Med 2014 (PMID 25392034); Standl T et al. Hypovolemic shock. Dtsch Arztebl Int 2018 (PMID 30573009). PMID da verificare: PubMed non raggiungibile dall'ambiente di lavoro."});
+ n:"Voce «shock» dell'Atlante; Vincent JL, De Backer D. Circulatory shock. N Engl J Med 2013 (PMID 24171518); Cecconi M et al. Consensus on circulatory shock and hemodynamic monitoring. Intensive Care Med 2014 (PMID 25392034); Standl T et al. The nomenclature, definition and distinction of types of shock. Dtsch Arztebl Int 2018 (PMID 30573009; doi 10.3238/arztebl.2018.0757); Mutschler M et al. Crit Care 2013 (PMID 23938104) per l'indice di shock; Ait-Oufella H et al. Intensive Care Med 2011 (PMID 21373821) per la marezzatura. Schema degli sfinteri pre/postcapillari: schema didattico classico della fase progressiva, da verificare."});
 })();
 
 /* ---- Scompenso cardiaco ---- */
@@ -203,8 +206,8 @@ const cuore=s=>{const t=s/4,cx=116,y0=80;
  const mv=(d1,d2)=>`<animate attributeName="d" values="${d1};${d2};${d2};${d1};${d1}" keyTimes="${KT}" dur="4s" repeatCount="indefinite"/>`;
  const ar=R(20,30,t);
  const nEj=Math.round(R(6,2,t));
- const ej=[...Array(nEj)].map((_,i)=>`<circle r="3" fill="#b8324f" class="anm" opacity="0"><animateMotion path="M${cx+10} ${y0+40+i*6}V${y0-28}Q${cx+10} ${y0-40} ${cx+26} ${y0-40}H${cx+78}" dur="4s" keyPoints="0;1;1" keyTimes="0;.45;1" calcMode="linear" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.04;.42;.46;1" dur="4s" repeatCount="indefinite"/></circle>`).join("");
- const fill=[0,1,2,3].map(i=>`<circle r="3" fill="#b8324f" class="anm" opacity="0"><animateMotion path="M${cx-ar-8+i*8} ${y0-14}V${y0+30+i*10}" dur="4s" keyPoints="0;0;1;1" keyTimes="0;.5;.95;1" calcMode="linear" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.5;.54;.94;1" dur="4s" repeatCount="indefinite"/></circle>`).join("");
+ const ej=[...Array(nEj)].map((_,i)=>`<circle class="anm" r="3" fill="#b8324f" opacity="0"><animateMotion path="M${cx+10} ${y0+40+i*6}V${y0-28}Q${cx+10} ${y0-40} ${cx+26} ${y0-40}H${cx+78}" dur="4s" keyPoints="0;1;1" keyTimes="0;.45;1" calcMode="linear" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.04;.42;.46;1" dur="4s" repeatCount="indefinite"/></circle>`).join("");
+ const fill=[0,1,2,3].map(i=>`<circle class="anm" r="3" fill="#b8324f" opacity="0"><animateMotion path="M${cx-ar-8+i*8} ${y0-14}V${y0+30+i*10}" dur="4s" keyPoints="0;0;1;1" keyTimes="0;.5;.95;1" calcMode="linear" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.5;.54;.94;1" dur="4s" repeatCount="indefinite"/></circle>`).join("");
  // pannello dei volumi
  const vol=(aa,LL)=>aa*aa*LL, Vmax=vol(52,136), bw=150;
  const Vd=vol(a,L)/Vmax*bw, Vs=Vd*k*k*k, x0=270;
@@ -237,11 +240,11 @@ const cuore=s=>{const t=s/4,cx=116,y0=80;
 /* ---- 2. Polmoni e circolo: alveoli, interstizio e posizione del paziente ---- */
 const seg=(cx,cy,r,h)=>{if(h<=0)return"";const y=cy+r-h,c=Math.sqrt(Math.max(0,r*r-(y-cy)*(y-cy)));return`M${f(cx-c)} ${f(y)}A${r} ${r} 0 ${h>r?1:0} 0 ${f(cx+c)} ${f(y)}Z`};
 const polm=s=>{const t=s/4,cy=124,r=44,sw=R(12,30,t),mx=124,aL=mx-sw/2-r,aR=mx+sw/2+r;
- const liq=[0,0,0,14,40][s],nI=[0,0,6,10,14][s];
+ const liq=[0,0,0,6,40][s],nI=[0,0,6,10,14][s];
  const br=R(4,1.6,t);
  let inter="";for(let i=0;i<nI;i++){const side=i%2?1:-1;inter+=`<circle cx="${f(mx+side*R(8,sw/2-2,rnd(i+4)))}" cy="${f(R(cy-38,cy+38,rnd(i+9)))}" r="2.4" fill="#3aa0d8" opacity=".85"/>`}
- const leak=s>=2?[0,1,2].map(i=>`<circle r="2.4" fill="#3aa0d8" class="anm"><animateMotion path="M${mx+(i%2?3:-3)} ${cy-20+i*20}h${(i%2?1:-1)*(sw/2+(s>=3?14:0))}" dur="4s" begin="${i*1.3}s" repeatCount="indefinite"/></circle>`).join(""):"";
- const blood=[0,1,2,3].map(i=>`<circle r="2.6" class="anm" fill="#b8324f"><animateMotion path="M${mx} ${cy-58}V${cy+58}" dur="${R(2,3.2,t)}s" begin="${i*.5}s" repeatCount="indefinite"/></circle>`).join("");
+ const leak=s>=2?[0,1,2].map(i=>`<circle class="anm" r="2.4" fill="#3aa0d8"><animateMotion path="M${mx+(i%2?3:-3)} ${cy-20+i*20}h${(i%2?1:-1)*(sw/2+(s>=3?14:0))}" dur="4s" begin="${-i*1.3}s" repeatCount="indefinite"/></circle>`).join(""):"";
+ const blood=[0,1,2,3].map(i=>`<circle class="anm" r="2.6" fill="#b8324f"><animateMotion path="M${mx} ${cy-58}V${cy+58}" dur="${R(2,3.2,t)}s" begin="${-i*.5}s" repeatCount="indefinite"/></circle>`).join("");
  const alv=(cx)=>`<g style="transform-origin:${f(cx)}px ${cy}px;transform-box:view-box"><g><animateTransform attributeName="transform" type="scale" additive="sum" values="1;1.05;1" dur="${f(br)}s" repeatCount="indefinite"/>
   <circle cx="${f(cx)}" cy="${cy}" r="${r}" class="fa"/>${liq?`<path d="${seg(cx,cy,r,liq)}" fill="#3aa0d8" opacity=".55"/>`:""}<circle cx="${f(cx)}" cy="${cy}" r="${r}" fill="none" stroke="#d9637b" stroke-width="1.6"/></g></g>`;
  // paziente a letto: busto sollevato con l'ortopnea
@@ -249,7 +252,7 @@ const polm=s=>{const t=s/4,cy=124,r=44,sw=R(12,30,t),mx=124,aL=mx-sw/2-r,aR=mx+s
  const pil=s>=3?`<path d="M${f(hx-8)} ${hy}L${f(sx-10*Math.cos(th))} ${f(sy-10*Math.sin(th)+12)}L${f(sx-10*Math.cos(th))} ${hy}Z" class="eyrow"/>`:`<rect x="${f(sx-22)}" y="${hy-10}" width="26" height="10" rx="4" class="eyrow"/>`;
  const puff=s>=4?[0,1,2].map(i=>`<path d="M${f(hdx-16-i*7)} ${f(hdy-6+i*5)}q-5 5 0 10" fill="none" stroke="var(--muted)" stroke-width="1.4" class="anm" opacity=".2"><animate attributeName="opacity" values=".15;1;.15" dur="${f(br)}s" begin="${f(i*br/6)}s" repeatCount="indefinite"/></path>`).join(""):"";
  const resp=["respiro normale, dorme sdraiato","nessuna dispnea nelle attività ordinarie","dispnea con le attività ordinarie","dispnea con sforzi lievi; ortopnea","dispnea a riposo; sta meglio seduto"][s];
- const lq=["resta nei capillari","resta nei capillari","esce nell'interstizio","nell'interstizio e negli alveoli","riempie gli alveoli (edema polmonare)"][s];
+ const lq=["resta nei capillari","resta nei capillari","esce nell'interstizio","nell'interstizio, poco o nulla negli alveoli","può invadere gli alveoli (edema polmonare acuto)"][s];
  return head(`Polmoni, ${ST[s]}: liquido ${lq}; ${resp}`,
  `<text x="16" y="20" class="ft fb">Alveoli e capillare polmonare</text>
  <text x="16" y="36" class="ft fsm">Pressione nel capillare: ${["normale","normale","in aumento","alta","molto alta"][s]}</text>
@@ -284,7 +287,7 @@ const organ=s=>{const t=s/4,bx=74;
  const leg=(dx)=>`<path d="M${bx+dx*10} 156L${bx+dx*14} 226" stroke="var(--ink)" stroke-width="12" stroke-linecap="round" opacity=".5"/>${ed?`<ellipse cx="${bx+dx*14}" cy="${f(220-ed*3)}" rx="${f(5+ed*4)}" ry="${f(5+ed*6)}" fill="#3aa0d8" opacity=".6"/>`:""}`;
  const hr=f(R(1,.6,t));
  const sym=s?`<path d="M${bx+2} 70l6 6l-6 6l6 6l-6 6l6 6l-6 6" fill="none" stroke="#8e63c9" stroke-width="1.8" opacity="${f(R(.5,1,t))}" stroke-dasharray="4 3" class="anm"><animate attributeName="stroke-dashoffset" values="14;0" dur="${f(R(1.6,.6,t))}s" repeatCount="indefinite"/></path>`:"";
- const na=s?[...Array(Math.round(R(1,5,t)))].map((_,i)=>`<circle r="2.4" fill="#3aa0d8" class="anm"><animateMotion path="M${bx-10} 130Q${bx-34} 108 ${bx-6} 92" dur="3s" begin="${f(i*.6)}s" repeatCount="indefinite"/></circle>`).join(""):"";
+ const na=s?[...Array(Math.round(R(1,5,t)))].map((_,i)=>`<circle class="anm" r="2.4" fill="#3aa0d8"><animateMotion path="M${bx-10} 130Q${bx-34} 108 ${bx-6} 92" dur="3s" begin="${f(-i*.6)}s" repeatCount="indefinite"/></circle>`).join(""):"";
  const kid=(dx)=>`<ellipse cx="${bx+dx*12}" cy="130" rx="6" ry="9" fill="${s?"#f0a23a":"#d9637b"}" opacity="${s?f(R(.6,1,t)):.5}"/>`;
  const wArrow=s>=2?`<path d="M${bx+54} 212V${f(212-R(16,56,(s-2)/2))}m-6 8l6 -8l6 8" fill="none" stroke="#c2506f" stroke-width="2"/><text x="${bx+54}" y="226" class="ft fsm" text-anchor="middle">Peso</text>`:"";
  return head(`Organismo, ${ST[s]}: ${s?"simpatico e sistema renina-angiotensina-aldosterone attivi"+(s>=2?", ritenzione di sodio e acqua":"")+(s>=3?", edemi declivi e aumento di peso":""):"sistemi in equilibrio, nessun edema"}`,
@@ -296,23 +299,23 @@ const organ=s=>{const t=s/4,bx=74;
  <g style="transform-origin:${bx+8}px 92px;transform-box:view-box"><g><animateTransform attributeName="transform" type="scale" additive="sum" values="1;1.15;1;1" keyTimes="0;.2;.45;1" dur="${hr}s" repeatCount="indefinite"/><path d="M${bx+8} 102c-10 -8 -12 -16 -6 -19c3 -2 6 0 6 3c0 -3 3 -5 6 -3c6 3 4 11 -6 19z" fill="#d9637b"/></g></g>
  ${kid(-1)}${kid(1)}${sym}${na}${wArrow}
  <text x="${bx}" y="${H-4}" class="ft fsm" text-anchor="middle">${ed?"Edemi alle caviglie":"Caviglie asciutte"}</text>
- <text x="${x2}" y="20" class="ft fsm" text-anchor="end">${["Nel sano: sistemi in equilibrio","Compenso: attivi senza sintomi","Compenso che diventa dannoso","Circolo vizioso","Congestione sistemica"][s]}</text>
+ <text x="${x2}" y="20" class="ft fsm" text-anchor="end">${["Nel sano: sistemi in equilibrio","Compenso: attivi senza sintomi","Compenso che diventa dannoso","Circolo vizioso","Congestione, anche sistemica"][s]}</text>
  ${boxes}${loop}`)};
 
-SIM.push({id:"sim-scompenso",enc:["scompenso"],t:"Simulatore: lo scompenso cardiaco classe per classe",d:"Scegli lo stadio e il livello da osservare. Il modello è lo scompenso sinistro con frazione di eiezione ridotta; le classi NYHA descrivono i sintomi, qui affiancate ai cambiamenti più tipici. Il disegno è schematico.",
+SIM.push({id:"sim-scompenso",enc:["scompenso"],t:"Simulatore: lo scompenso cardiaco classe per classe",d:"Scegli lo stadio e il livello da osservare. Il modello è lo scompenso sinistro con frazione di eiezione ridotta; le classi NYHA descrivono i sintomi, qui affiancate ai cambiamenti più tipici. La classe NYHA dipende dai sintomi e non dalla frazione di eiezione: si può avere una FE molto ridotta anche in classe I. Il disegno è schematico.",
  stadi:["Sano","NYHA I","NYHA II","NYHA III","NYHA IV"],dur:"4s",fasi:["Sistole","Diastole"],
  livelli:[
   {t:"Cuore",sub:"ventricolo sinistro",svg:cuore,
    testo:["Ventricolo di dimensioni normali, parete spessa e ben contrattile: in sistole si svuota di buona parte del sangue e la frazione di eiezione è normale.","Il muscolo si contrae meno (per esempio dopo un infarto) e il ventricolo inizia a dilatarsi; a riposo e negli sforzi ordinari la portata è ancora mantenuta.","Il ventricolo si dilata e la parete si assottiglia (rimodellamento). Un ventricolo più pieno spinge un po' di più (Frank-Starling), ma la quota espulsa a ogni battito cala.","La frazione di eiezione è ridotta: per riempirsi il ventricolo ha bisogno di pressioni più alte, che risalgono verso l'atrio sinistro e i polmoni.","Ventricolo molto dilatato, parete sottile e contrazione debole: la gittata non basta più neanche a riposo e la pressione di riempimento è molto alta."],
-   val:["FE normale","FE in calo","FE ridotta","FE ridotta","FE molto ridotta"]},
-  {t:"Polmoni e circolo",sub:"congestione",svg:polm,
-   testo:["La pressione nei capillari polmonari è bassa: il liquido resta nei vasi, l'interstizio è sottile e gli alveoli sono asciutti. Si dorme sdraiati senza fatica.","Classe I: nessuna limitazione, l'attività fisica ordinaria non provoca dispnea. Il liquido resta ancora nei capillari.","Classe II: dispnea con gli sforzi ordinari, per esempio salire le scale. La pressione che risale dal cuore sinistro spinge liquido nell'interstizio.","Classe III: dispnea con sforzi lievi. Il liquido arriva negli alveoli; da sdraiati il sangue che torna dalle gambe aumenta la congestione: ortopnea e dispnea parossistica notturna.","Classe IV: dispnea a riposo, la persona respira meglio seduta. Gli alveoli si riempiono di liquido (rantoli) e l'ossigenazione peggiora: il quadro estremo è l'edema polmonare acuto."],
-   val:["Polmoni asciutti","Nessun limite","Limiti negli sforzi ordinari","Limiti negli sforzi lievi","Sintomi a riposo"]},
-  {t:"Organismo",sub:"neuro-ormoni e liquidi",svg:organ,
-   testo:["Pressione arteriosa e volume circolante sono in equilibrio: il rene elimina sodio e acqua in eccesso e il peso è stabile.","Il calo della portata attiva il simpatico e il sistema renina-angiotensina-aldosterone: tachicardia e vasocostrizione mantengono la pressione. All'inizio compensano, ma affaticano il cuore.","L'aldosterone fa trattenere sodio e, con esso, acqua: il volume di sangue aumenta e compaiono i primi edemi alle caviglie.","Più volume significa più carico per un cuore già debole: è un circolo vizioso. Edemi declivi evidenti e peso in aumento; avvisare se il peso sale di più di 2 kg in 2-3 giorni.","Ritenzione marcata: edemi estesi e congestione sistemica (turgore giugulare, epatomegalia, ascite). Peso quotidiano, bilancio idrico e restrizione idrosalina se prescritta guidano l'assistenza."],
-   val:["Peso stabile","Compenso neuro-ormonale","Ritenzione idrosalina","Edemi e peso in aumento","Congestione sistemica"]}],
+   val:["FE normale","FE in calo","FE ridotta","FE ridotta, cuore più dilatato","FE molto ridotta"]},
+  {t:"Polmoni e circolo",fasi:false,sub:"congestione",svg:polm,
+   testo:["La pressione nei capillari polmonari è bassa: il liquido resta nei vasi, l'interstizio è sottile e gli alveoli sono asciutti. Si dorme sdraiati senza fatica.","Classe I: nessuna limitazione, l'attività fisica ordinaria non provoca dispnea. Il liquido resta ancora nei capillari.","Classe II: lieve limitazione; gli sforzi ordinari (per esempio salire le scale) danno dispnea, affaticamento o palpitazioni. La pressione che risale dal cuore sinistro spinge liquido nell'interstizio.","Classe III: dispnea con sforzi lievi. La congestione aumenta; da sdraiati il sangue che torna dalle gambe la peggiora: ortopnea e dispnea parossistica notturna.","Classe IV: sintomi anche a riposo, che aumentano con qualsiasi attività; la persona respira meglio seduta. Se la pressione nei capillari supera la capacità di drenaggio il liquido invade gli alveoli (rantoli, ipossiemia): è l'edema polmonare acuto, un'emergenza che può comparire anche in classi più basse."],
+   val:["Polmoni asciutti","Nessun limite","Limiti negli sforzi ordinari","Limiti negli sforzi lievi","!Sintomi a riposo"]},
+  {t:"Organismo",fasi:false,sub:"neuro-ormoni e liquidi",svg:organ,
+   testo:["Pressione arteriosa e volume circolante sono in equilibrio: il rene elimina sodio e acqua in eccesso e il peso è stabile.","Il calo della portata attiva il simpatico e il sistema renina-angiotensina-aldosterone: tachicardia e vasocostrizione mantengono la pressione. All'inizio compensano, ma affaticano il cuore.","L'aldosterone fa trattenere sodio e, con esso, acqua: il volume di sangue aumenta e compaiono i primi edemi alle caviglie.","Più volume significa più carico per un cuore già debole: è un circolo vizioso. Edemi declivi evidenti e peso in aumento; avvisare se il peso sale di più di 2 kg in 2-3 giorni.","Ritenzione marcata ed edemi estesi; se la pressione alta nei polmoni affatica anche il ventricolo destro (scompenso biventricolare) compare congestione sistemica: turgore giugulare, epatomegalia, ascite. Peso quotidiano, bilancio idrico e restrizione idrosalina se prescritta guidano l'assistenza."],
+   val:["Peso stabile","Compenso neuro-ormonale","Ritenzione idrosalina","Edemi e peso in aumento","Congestione, anche sistemica"]}],
  legenda:[["#d9637b","Miocardio e sangue"],["#3aa0d8","Liquido (edema)"],["#f0a23a","Renina-angiotensina-aldosterone"],["#8e63c9","Simpatico"]],
- n:"Linee guida ESC 2021 sullo scompenso cardiaco, McDonagh TA et al., Eur Heart J 2021 (PMID 34447992, da verificare); classificazione NYHA e soglia di peso come nella voce dell'Atlante."});
+ n:"Linee guida ESC 2021 sullo scompenso cardiaco, McDonagh TA et al., Eur Heart J 2021 (PMID 34447992); Jaarsma T et al. Eur J Heart Fail 2021 (PMID 32945600) per il peso; classificazione NYHA come nella voce dell'Atlante; soglia di peso: ESC indica > 2 kg in 3 giorni, da verificare la tabella."});
 })();
 
 /* ---- Asma ---- */
@@ -322,8 +325,8 @@ SIM.push({id:"sim-scompenso",enc:["scompenso"],t:"Simulatore: lo scompenso cardi
 const W=440,H=250,R=(a,b,t)=>a+(b-a)*t,f1=x=>Math.round(x*10)/10;
 const head=(lab,body)=>`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${lab}">${body}</svg>`;
 const rnd=k=>{let x=Math.sin(k*999)*1e4;return x-Math.floor(x)};
-const NOMI=["asma controllata","attacco lieve","attacco moderato","attacco grave con torace silente"];
-const MU="#c0504d",MUC="#e2789a",MK="#9bc53d",EO="#f0a23a",MA="#8e63c9",TR="#3aa0d8",AL="#d23a52";
+const NOMI=["asma controllata","attacco lieve-moderato","attacco grave","attacco con pericolo di vita (torace silente)"];
+const MU="#c0504d",MUC="#e2789a",MK="#9bc53d",EO="#f0a23a",MA="#8e63c9",TR="#3aa0d8",AL="var(--vital)";
 const pol=(cx,cy,rf)=>{let d="";for(let i=0;i<=72;i++){const a=i/72*6.283,r=rf(a);d+=(i?"L":"M")+f1(cx+r*Math.cos(a))+" "+f1(cy+r*Math.sin(a))}return d+"Z"};
 /* 1. Bronco in sezione trasversale */
 const bron=s=>{const t=s/3,cx=122,cy=130,Ro=R(90,74,t),mw=R(7,14,t),Ri=Ro-mw,ed=R(10,22,t),Rl=Ri-ed,A=R(1.5,8,t),mu=R(.06,.62,t);
@@ -353,7 +356,7 @@ const bron=s=>{const t=s/3,cx=122,cy=130,Ro=R(90,74,t),mw=R(7,14,t),Ri=Ro-mw,ed=
  <text x="${cx}" y="${H-6}" class="ft fsm" text-anchor="middle">Lume ${["ampio","ristretto","molto ristretto","quasi chiuso"][s]}</text>
  <rect x="${lx-8}" y="196" width="${W-lx}" height="46" rx="2" class="fbx k-info"/>
  <text x="${lx}" y="211" class="ft fb">Diverso dalla BPCO</text>
- <text x="${lx}" y="224" class="ft fsm">asma: ostruzione variabile, reversibile</text>
+ <text x="${lx}" y="224" class="ft fsm">asma: variabile, di solito reversibile</text>
  <text x="${lx}" y="236" class="ft fsm">BPCO: ostruzione persistente</text>`)};
 /* 2. Polmoni: sibili, aria intrappolata, PEF */
 const lung=s=>{const t=s/3,cx=120,top=50,base=R(192,202,t),sc=R(1,1.08,t),dc=R(160,192,t);
@@ -363,9 +366,9 @@ const lung=s=>{const t=s/3,cx=120,top=50,base=R(192,202,t),sc=R(1,1.08,t),dc=R(1
  const nw=[0,2,4,0][s],wp=[[-46,104],[46,104],[-60,150],[60,150]];
  const wz=wp.slice(0,nw).map(([dx,y])=>`<path d="M${cx+dx-12} ${y}q3 -5 6 0t6 0t6 0t6 0" class="fs" opacity="1"><animate attributeName="opacity" values=".35;.35;1;.35" keyTimes="0;.5;.75;1" dur="4s" repeatCount="indefinite"/></path>`).join("");
  const len=R(70,14,t);
- const air=[0,1].map(i=>`<circle r="3" class="anm" fill="var(--scrub)"><animateMotion path="M${cx} 32V${f1(32+len)}" keyPoints="0;1;0" keyTimes="0;.5;1" calcMode="linear" dur="4s" begin="${i*.25}s" repeatCount="indefinite"/></circle>`).join("");
+ const air=[0,1].map(i=>`<circle class="anm" r="3" fill="var(--scrub)"><animateMotion path="M${cx} 32V${f1(32+len)}" keyPoints="0;1;0" keyTimes="0;.5;1" calcMode="linear" dur="4s" begin="${-i*.25}s" repeatCount="indefinite"/></circle>`).join("");
  const amp=R(.05,.01,t);
- const px=320,py=48,ph=140,frac=[.92,.72,.5,.22][s],cy=py+ph*(1-frac);
+ const px=320,py=48,ph=140,frac=[.92,.65,.4,.22][s],cy=py+ph*(1-frac);
  const silent="";
  return head(`Polmoni, ${NOMI[s]}: ${["nessun sibilo, PEF vicino al migliore personale","sibili espiratori, poca aria intrappolata, PEF in calo","sibili forti, aria intrappolata, PEF basso","nessun sibilo perché l'aria quasi non si muove, torace silente, PEF molto basso o non eseguibile"][s]}`,
  `<text x="16" y="18" class="ft fb">Polmoni: sibili e aria intrappolata</text>
@@ -389,11 +392,11 @@ const pers=s=>{const t=s/3,cx=104,hy=88,lean=R(0,9,t);
  const ribs=[0,1,2,3].map(i=>`<path d="M${cx-46} ${hy+70+i*22}q46 ${12} 92 0" class="lead"/>`).join("");
  const retr=s>=2?[0,1,2].map(i=>`<path d="M${cx-30} ${hy+80+i*22}l5 4l-5 4M${cx+30} ${hy+80+i*22}l-5 4l5 4" stroke="${AL}" stroke-width="1.4" fill="none"/>`).join(""):"";
  const amp=R(.03,.012,t);
- const say=["«Sto bene, parlo senza fatica.»","«Mi manca un po' il fiato, ma parlo.»","«Faccio... fatica... a parlare...»","«Aiuto...»"][s];
+ const say=["«Sto bene, parlo senza fatica.»","«Mi manca un po' il fiato, ma parlo.»","«Non... respiro...»","«...»"][s];
  const row=(y,n,v,k)=>`<text x="244" y="${y}" class="ft fb">${n}</text><text x="244" y="${y+13}" class="ft fsm">${v}</text>${k?`<circle cx="424" cy="${y-4}" r="4" class="${k}"/>`:""}`;
- const kk=["k-ok","k-ok","k-warn","k-alarm"][s];
- const g0=252,g1=424,gy=218,X=v=>f1(g0+(v-84)/16*(g1-g0)),lev=[98,96,93,87][s];
- return head(`Persona durante ${NOMI[s]}: ${["respira tranquilla e parla normalmente","parla a frasi, muscoli accessori non usati","parla a frasi spezzate, usa i muscoli accessori","parla a parole singole, sporta in avanti, muscoli accessori molto attivi, saturazione sotto il 90 per cento"][s]}`,
+ const kk=["k-ok","k-warn","k-alarm","k-alarm"][s];
+ const g0=252,g1=424,gy=218,X=v=>f1(g0+(v-84)/16*(g1-g0)),lev=[98,94,88,85][s];
+ return head(`Persona durante ${NOMI[s]}: ${["respira tranquilla e parla normalmente","parla a frasi, preferisce stare seduta, non agitata, muscoli accessori non usati","parla a parole singole, seduta sporta in avanti, agitata, usa i muscoli accessori, saturazione sotto il 90 per cento","sonnolenta o confusa, torace silente, sforzo respiratorio che cala per esaurimento: pericolo di vita"][s]}`,
  `<path d="M150 20H${s===3?262:412}a2 2 0 0 1 2 2V50a2 2 0 0 1 -2 2H156L140 66L148 52H150a2 2 0 0 1 -2 -2V22a2 2 0 0 1 2 -2Z" class="fbx"/>
  <text x="160" y="40" class="ft">${say}</text>
  <g transform="rotate(${f1(lean)} ${cx} 240)">
@@ -404,30 +407,30 @@ const pers=s=>{const t=s/3,cx=104,hy=88,lean=R(0,9,t);
  <circle cx="${cx}" cy="${hy}" r="24" class="ff"/><circle cx="${cx}" cy="${hy}" r="24" class="fl"/>${scm}
  ${s>=2?`<ellipse cx="${cx}" cy="${hy+11}" rx="${s===3?6:4.5}" ry="${s===3?5:3.5}" class="fl"/>`:`<path d="M${cx-7} ${hy+11}H${cx+7}" class="fl"/>`}<circle cx="${cx-8}" cy="${hy-4}" r="1.8" class="fh"/><circle cx="${cx+8}" cy="${hy-4}" r="1.8" class="fh"/></g>
  <path d="M234 74V236" class="lead"/>
- ${row(88,"Muscoli accessori",["non usati","di solito non usati","spesso usati","usati, rientramenti"][s],s>=2?kk:"")}
- ${row(122,"Postura",["normale","può stare sdraiata","preferisce stare seduta","seduta, sporta in avanti"][s],"")}
- ${row(156,"Torace",["nessun sibilo","sibili espiratori","sibili forti","torace silente"][s],kk)}
+ ${row(88,"Muscoli accessori",["non usati","non usati","usati, rientramenti","sforzo che cala: esaurimento"][s],s>=2?kk:"")}
+ ${row(122,"Postura e coscienza",["normale","preferisce stare seduta","seduta in avanti, agitata","sonnolenta o confusa"][s],"")}
+ ${row(156,"Torace",["nessun sibilo","sibili espiratori","sibili, FR oltre 30","torace silente"][s],kk)}
  <text x="244" y="188" class="ft fb">SpO₂</text>
  <rect x="${g0}" y="${gy-5}" width="${g1-g0}" height="10" rx="2" class="eyrow"/>
- <rect x="${g0}" y="${gy-5}" width="${f1(X(lev)-g0)}" height="10" rx="2" class="${["k-ok","k-ok","k-warn","k-alarm"][s]}"/>
+ <rect x="${g0}" y="${gy-5}" width="${f1(X(lev)-g0)}" height="10" rx="2" class="${["k-ok","k-warn","k-alarm","k-alarm"][s]}"/>
  <path d="M${X(92)} ${gy-9}V${gy+9}M${X(90)} ${gy-9}V${gy+9}" class="fl"/>
  <text x="${X(92)}" y="${gy-12}" class="ft fsm" text-anchor="middle">92% BTS/SIGN</text>
  <text x="${X(90)}" y="${gy+20}" class="ft fsm" text-anchor="middle">90% GINA</text>
- <text x="${g1}" y="188" class="ft fsm" text-anchor="end">${["normale","normale","può calare","sotto il 90%"][s]}</text>`)};
+ <text x="${g1}" y="188" class="ft fsm" text-anchor="end">${["normale","90-95% o normale","sotto il 90%","sotto il 92% (BTS/SIGN)"][s]}</text>`)};
 SIM.push({id:"sim-asma",enc:["asma"],t:"Simulatore: l'attacco d'asma passo per passo",d:"Scegli quanto è grave l'attacco e il livello da osservare, dal bronco alla persona. Il disegno è schematico: le proporzioni servono a capire, non a misurare.",
- stadi:["Controllata","Attacco lieve","Attacco moderato","Attacco grave (torace silente)"],dur:"4s",fasi:["Inspirazione","Espirazione"],
+ stadi:["Controllata","Attacco lieve-moderato","Attacco grave","Pericolo di vita (torace silente)"],dur:"4s",fasi:["Inspirazione","Espirazione"],
  livelli:[
   {t:"Bronco",sub:"broncospasmo",svg:bron,
    val:["Infiammazione di fondo","Broncospasmo","Spasmo, edema e muco","Lume quasi chiuso"],
-   testo:["Anche quando l'asma è controllata la mucosa resta un po' infiammata (eosinofili, mastociti): per questo la terapia di fondo con cortisonico inalatorio va presa ogni giorno.","Un fattore scatenante (allergene, infezione, sforzo, freddo, fumo) attiva i mastociti, che liberano mediatori: il muscolo liscio si contrae e il lume si restringe.","Al broncospasmo si aggiungono l'edema della mucosa e più muco: il lume si riduce ancora e in espirazione l'aria esce con fatica.","Muscolo contratto, mucosa gonfia e tappi di muco chiudono quasi del tutto il bronco. A differenza della BPCO l'ostruzione è reversibile, ma qui serve un trattamento urgente."]},
+   testo:["Anche quando l'asma è controllata la mucosa resta un po' infiammata (eosinofili, mastociti): per questo serve sempre una terapia con cortisonico inalatorio: ogni giorno, oppure al bisogno insieme al formoterolo nell'asma lieve, come prescritto.","Un fattore scatenante (allergene, infezione, sforzo, freddo, fumo) attiva i mastociti, che liberano mediatori: il muscolo liscio si contrae e il lume si restringe.","Al broncospasmo si aggiungono l'edema della mucosa e più muco: il lume si riduce ancora e in espirazione l'aria esce con fatica.","Muscolo contratto, mucosa gonfia e tappi di muco chiudono quasi del tutto il bronco. A differenza della BPCO l'ostruzione è di solito reversibile, ma qui serve un trattamento urgente."]},
   {t:"Polmone",sub:"sibili e PEF",svg:lung,
-   val:["Nessun sibilo","Sibili espiratori","Aria intrappolata","Torace silente"],
-   testo:["Le vie aeree sono pervie: niente sibili e il PEF è vicino al migliore valore personale.","L'aria che passa in bronchi stretti fa vibrare le pareti: si sentono sibili, soprattutto in espirazione. Il PEF comincia a calare.","L'espirazione si allunga e non finisce: parte dell'aria resta intrappolata e il torace si gonfia. Sibili forti, PEF basso.","Il flusso è così scarso che i sibili spariscono: il torace silente non è un miglioramento ma un segno di gravità estrema. Spesso il PEF non si riesce a misurare."]},
+   val:["Nessun sibilo","Sibili espiratori","Aria intrappolata","!Torace silente"],
+   testo:["Le vie aeree sono pervie: niente sibili e il PEF è vicino al migliore valore personale.","L'aria che passa in bronchi stretti fa vibrare le pareti: si sentono sibili, soprattutto in espirazione. Il PEF comincia a calare.","L'espirazione si allunga e non finisce: parte dell'aria resta intrappolata e il torace si gonfia. Sibili forti, PEF basso.","Il flusso è così scarso che i sibili spariscono: il torace silente non è un miglioramento ma un segno di gravità estrema. Il PEF può non essere eseguibile e misurarlo non deve ritardare il trattamento."]},
   {t:"Persona",sub:"segni",svg:pers,
-   val:["Parla normalmente","Parla a frasi","Frasi spezzate","Parole singole"],
-   testo:["Respiro tranquillo, parla senza fatica e svolge le attività di ogni giorno.","Fiato corto e sibili, ma riesce a parlare a frasi e a stare sdraiata; muscoli accessori di solito a riposo.","Parla a frasi spezzate, preferisce stare seduta e usa i muscoli accessori (sternocleidomastoidei, rientramenti intercostali). La SpO₂ può calare.","Parla a parole singole o non riesce a parlare, sta seduta sporta in avanti, torace silente e SpO₂ sotto il 90% (sotto il 92% secondo BTS/SIGN indica rischio per la vita): è un'emergenza."]}],
+   val:["Parla normalmente","Parla a frasi","Parole singole","!Sonnolenta o confusa"],
+   testo:["Respiro tranquillo, parla senza fatica e svolge le attività di ogni giorno.","Fiato corto e sibili, ma riesce a parlare a frasi; preferisce stare seduta, non è agitata e non usa i muscoli accessori. La SpO₂ è tra 90 e 95% o normale.","Sta seduta sporta in avanti, è agitata e riesce a dire solo parole singole; la frequenza respiratoria supera 30 al minuto e usa i muscoli accessori (sternocleidomastoidei, rientramenti intercostali). La SpO₂ è sotto il 90%.","Torace silente e sforzo respiratorio che cala per esaurimento; la persona diventa sonnolenta o confusa: è un'emergenza con pericolo di vita. Secondo BTS/SIGN una SpO₂ sotto il 92% indica pericolo di vita."]}],
  legenda:[["#c0504d","Muscolo liscio"],["#e2789a","Mucosa"],["#9bc53d","Muco"],["#f0a23a","Eosinofili"],["#8e63c9","Mastociti"],["#3aa0d8","Aria intrappolata"],["var(--scrub)","Flusso d'aria e sibili"]],
- n:"GINA, Global Strategy for Asthma Management and Prevention 2024 (ginasthma.org); Reddel HK et al., GINA 2021 executive summary, Am J Respir Crit Care Med 2022 (PMID 34658302, da verificare); BTS/SIGN British guideline on the management of asthma 2019. Classificazione in quattro gradi e segni per grado (frasi, postura, muscoli accessori, sibili) dalle tabelle GINA della gravità dell'attacco: da verificare."});
+ n:"GINA, Global Strategy for Asthma Management and Prevention 2024 (ginasthma.org); Reddel HK et al., GINA 2021 executive summary, Am J Respir Crit Care Med 2022 (PMID 34658302); BTS/SIGN British guideline on the management of asthma 2019. Gravità dell'attacco secondo GINA (Summary Guide 2025): lieve-moderato, grave, pericolo di vita. Da verificare: soglie PEF BTS e SpO₂ 90-95% nella Box GINA."});
 })();
 
 /* ---- Sindrome coronarica acuta ---- */
@@ -436,7 +439,7 @@ SIM.push({id:"sim-asma",enc:["asma"],t:"Simulatore: l'attacco d'asma passo per p
 const W=440,H=250,R=(a,b,t)=>a+(b-a)*t,C=x=>Math.max(0,Math.min(1,x)),f=x=>+x.toFixed(1);
 const head=(lab,body)=>`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${lab}">${body}</svg>`;
 const rnd=k=>{let x=Math.sin(k*999)*1e4;return x-Math.floor(x)};
-const COL={wall:"#d9637b",core:"#f0c040",cap:"#b8956a",plt:"#8e63c9",thr:"#c0283c",old:"#7a1f2b",isc:"#f0a23a",nec:"#b3263a",scar:"#8a8f98",rbc:"#e0425a"};
+const COL={wall:"#d9637b",core:"#f0c040",cap:"#b8956a",plt:"#8e63c9",thr:"#c0283c",old:"#7a1f2b",isc:"#f0a23a",nec:"#b3263a",scar:"#8a8f98",rbc:"#d9637b"};
 
 /* 1. Coronaria in sezione longitudinale */
 const cor=s=>{const t=s/4,x0=20,x1=420,yo=56,yi=72,yb=160,yob=176,cx=220;
@@ -452,8 +455,8 @@ const cor=s=>{const t=s/4,x0=20,x1=420,yo=56,yi=72,yb=160,yob=176,cx=220;
  const occl=s>=3,yc=top>yi?f((yi+top)/2):116,n=[7,7,4,5,5][s],dur=[2.2,2.6,4,4,4][s];
  const pth=`M${x0+6} 116H150Q${cx-30} ${yc} ${cx} ${yc}Q${cx+30} ${yc} 290 116H${x1-6}`;
  let flow="";for(let i=0;i<n;i++){const dy=(i%3-1)*(occl?14:Math.min(10,gap/4));
-  flow+=occl?`<circle class="anm" r="4" fill="${COL.rbc}"><animateMotion path="M${x0+6} ${116+dy}H${162-i*9}" keyPoints="0;1;1" keyTimes="0;.6;1" calcMode="linear" dur="${dur}s" begin="${f(i*.25)}s" repeatCount="indefinite"/></circle>`
-  :`<circle class="anm" r="4" fill="${COL.rbc}"><animateMotion path="${pth.replace("M"+(x0+6)+" 116","M"+(x0+6)+" "+(116+dy))}" dur="${dur}s" begin="${f(i*dur/n)}s" repeatCount="indefinite"/></circle>`}
+  flow+=occl?`<circle class="anm" r="4" fill="${COL.rbc}" opacity=".6"><animateMotion path="M${x0+6} ${116+dy}H${162-i*9}" keyPoints="0;1;1" keyTimes="0;.6;1" calcMode="linear" dur="${dur}s" begin="${f(-i*.25)}s" repeatCount="indefinite"/></circle>`
+  :`<circle class="anm" r="4" fill="${COL.rbc}" opacity=".6"><animateMotion path="${pth.replace("M"+(x0+6)+" 116","M"+(x0+6)+" "+(116+dy))}" dur="${dur}s" begin="${f(-i*dur/n)}s" repeatCount="indefinite"/></circle>`}
  // strato fisso: globuli rossi fermi
  let rbc="";const nr=[10,9,6,6,6][s];for(let i=0;i<nr;i++){const x=occl?R(34,150,i/(nr-1)):R(34,404,i/(nr-1));if(!occl&&x>150&&x<290&&gap<30)continue;const y=x>150&&x<290?yc:116+((i%3)-1)*10;rbc+=`<circle cx="${f(x)}" cy="${f(y)}" r="4" fill="${COL.rbc}" opacity=".35"/>`}
  const lab=[];
@@ -488,8 +491,8 @@ const mio=s=>{const t=s/4,cx=128,cy=134,Ro=80,Ri=42,a1=-150,a2=-30;
  const arc=`M${P(cx,cy,Rc,ca1)}A${Rc} ${Rc} 0 0 1 ${P(cx,cy,Rc,ca2)}`;
  const stop=`M${P(cx,cy,Rc,ca1)}A${Rc} ${Rc} 0 0 1 ${P(cx,cy,Rc,occA-4)}`;
  const n=[5,5,3,4,4][s],dur=[2.4,2.8,4,3,3][s];
- let flow="";for(let i=0;i<n;i++)flow+=s>=3?`<circle class="anm" r="3" fill="${COL.rbc}"><animateMotion path="${stop}" keyPoints="0;1;1" keyTimes="0;.6;1" calcMode="linear" dur="${dur}s" begin="${f(i*.3)}s" repeatCount="indefinite"/></circle>`
-  :`<circle class="anm" r="3" fill="${COL.rbc}"><animateMotion path="${arc}" dur="${dur}s" begin="${f(i*dur/n)}s" repeatCount="indefinite"/></circle>`;
+ let flow="";for(let i=0;i<n;i++)flow+=s>=3?`<circle class="anm" r="3" fill="${COL.rbc}" opacity=".6"><animateMotion path="${stop}" keyPoints="0;1;1" keyTimes="0;.6;1" calcMode="linear" dur="${dur}s" begin="${f(-i*.3)}s" repeatCount="indefinite"/></circle>`
+  :`<circle class="anm" r="3" fill="${COL.rbc}" opacity=".6"><animateMotion path="${arc}" dur="${dur}s" begin="${f(-i*dur/n)}s" repeatCount="indefinite"/></circle>`;
  const occ=s>=1?`<circle cx="${P(cx,cy,Rc,occA).split(" ")[0]}" cy="${P(cx,cy,Rc,occA).split(" ")[1]}" r="${s>=3?6:s===2?5:4}" fill="${s>=3?(s===4?COL.old:COL.thr):s===2?COL.thr:COL.core}" stroke="var(--paper)" stroke-width="1"/>`:"";
  // pannello: il tempo è muscolo
  const px=262,rows=[["Perfuso",COL.wall],["Ischemia",COL.isc],["Necrosi",COL.nec],["Cicatrice",COL.scar]];
@@ -550,22 +553,22 @@ const lab=s=>{const t=s/4,ex=16,ey=40,ew=208,eh=124,y0=112;
  <path d="M${pts[ni][0]} ${gy}V${gb}" class="lead" stroke-dasharray="2 3"/><text x="${pts[ni][0]+(now>.6?-4:4)}" y="${gy+10}" class="ft fsm" text-anchor="${now>.6?"end":"start"}">ora</text>
  ${sm}${tdot}
  <text x="${gx}" y="${gb+16}" class="ft fsm">tempo dall'esordio dei sintomi</text>
- <text x="${gx}" y="${gb+30}" class="ft fsm">${["sotto il limite","sotto il limite","sopra il limite: NSTEMI","in forte aumento","dopo il picco scende"][s]}</text>`)};
+ <text x="${gx}" y="${gb+30}" class="ft fsm">${["sotto il limite","sotto il limite","sale sopra il limite: NSTEMI","in forte aumento","dopo il picco scende"][s]}</text>`)};
 
 SIM.push({id:"sim-sca",enc:["sca"],t:"Simulatore: la sindrome coronarica acuta stadio per stadio",d:"Scegli lo stadio e il livello da osservare: dalla placca nella coronaria al tracciato e agli esami. Il disegno è schematico: le proporzioni servono a capire, non a misurare.",
  stadi:["Coronaria sana","Placca stabile","Rottura e trombo parziale","Occlusione completa","Necrosi e cicatrice"],dur:"4s",
  livelli:[
   {t:"Coronaria",sub:"placca e trombo",svg:cor,
-   val:["Flusso normale","Stenosi stabile","Trombo parziale","Occlusione","Vaso chiuso"],
-   testo:["Endotelio liscio e lume libero: i globuli rossi arrivano senza ostacoli al miocardio.","Una placca aterosclerotica, con nucleo lipidico e cappuccio fibroso spesso, restringe il lume: a riposo il flusso basta, sotto sforzo no (angina da sforzo).","Il cappuccio fibroso si rompe: le piastrine aderiscono, si attivano e formano un trombo che chiude in parte il lume (angina instabile o NSTEMI). Per questo si danno doppia antiaggregazione e anticoagulante.","Il trombo chiude del tutto la coronaria e a valle il flusso si ferma (STEMI): serve la riperfusione urgente, con angioplastica primaria o, se non è possibile in tempo, fibrinolisi.","Se il vaso resta chiuso o si riapre troppo tardi, il territorio a valle va in necrosi e il trombo si organizza."]},
+   val:["Flusso normale","Stenosi stabile","Trombo parziale","!Occlusione","Vaso chiuso"],
+   testo:["Endotelio liscio e lume libero: i globuli rossi arrivano senza ostacoli al miocardio.","Una placca aterosclerotica, con nucleo lipidico e cappuccio fibroso spesso, restringe il lume: a riposo il flusso basta, sotto sforzo no (angina da sforzo: sindrome coronarica cronica, non ancora acuta).","Il cappuccio fibroso si rompe, oppure l'endotelio sopra la placca si erode (erosione di placca): le piastrine aderiscono, si attivano e formano un trombo che chiude in parte il lume (di solito angina instabile o NSTEMI). Per questo il medico prescrive antiaggreganti (di solito doppia antiaggregazione) e un anticoagulante.","Il trombo chiude del tutto la coronaria e a valle il flusso si ferma (di solito STEMI): serve la riperfusione urgente, con angioplastica primaria o, se non è possibile in tempo, fibrinolisi. Un'occlusione può non dare sopraslivellamento ST (soprattutto della circonflessa).","Se il vaso resta chiuso o si riapre troppo tardi, il territorio a valle va in necrosi e il trombo si organizza."]},
   {t:"Miocardio",sub:"il tempo è muscolo",svg:mio,
-   val:["Perfusione normale","Ischemia da sforzo","Ischemia subendocardica","Ischemia transmurale","Cicatrice"],
-   testo:["Il flusso coronarico copre il fabbisogno di ossigeno di tutta la parete, dall'endocardio all'epicardio.","Sotto sforzo il fabbisogno cresce ma la placca limita il flusso: soffre per primo il subendocardio, lo strato più lontano dalle coronarie epicardiche. Con il riposo l'ischemia regredisce.","Il trombo parziale riduce il flusso anche a riposo: ischemia subendocardica. Se una piccola parte delle cellule muore e la troponina sale, è un NSTEMI.","Con l'occlusione completa l'ischemia diventa transmurale e la necrosi avanza dal subendocardio verso l'epicardio: prima si riapre il vaso, più miocardio si salva.","Le cellule necrotiche sono sostituite da tessuto cicatriziale: la parete diventa sottile e non si contrae più."]},
+   val:["Perfusione normale","Ischemia da sforzo","Ischemia subendocardica","!Ischemia transmurale","Cicatrice"],
+   testo:["Il flusso coronarico copre il fabbisogno di ossigeno di tutta la parete, dall'endocardio all'epicardio.","Sotto sforzo il fabbisogno cresce ma la placca limita il flusso (sindrome coronarica cronica, non ancora acuta): soffre per primo il subendocardio, lo strato più lontano dalle coronarie epicardiche. Con il riposo l'ischemia regredisce.","Il trombo parziale riduce il flusso anche a riposo: ischemia subendocardica. Se una piccola parte delle cellule muore e la troponina sale, è un NSTEMI.","Con l'occlusione completa l'ischemia diventa transmurale e la necrosi avanza dal subendocardio verso l'epicardio: prima si riapre il vaso, più miocardio si salva.","Le cellule necrotiche sono sostituite da tessuto cicatriziale: la parete diventa sottile e non si contrae più."]},
   {t:"Tracciato e laboratorio",sub:"ECG e troponina",svg:lab,
-   val:["ECG e troponina normali","ST sotto da sforzo","ST sotto, T invertita","ST sopra","Onda Q"],
-   testo:["ECG normale: tratto ST sulla linea di base e onda T positiva. La troponina resta sotto il limite di riferimento.","Nell'angina da sforzo l'ECG a riposo è spesso normale; sotto sforzo può comparire un sottoslivellamento del tratto ST che regredisce con il riposo. La troponina non sale.","Sottoslivellamento ST o onda T invertita, ma l'ECG può anche essere normale. La troponina ad alta sensibilità va ripetuta: se sale oltre il limite è un NSTEMI, se resta normale è angina instabile.","Sopraslivellamento del tratto ST in almeno due derivazioni contigue: è uno STEMI e si avvia subito la riperfusione, senza aspettare il risultato della troponina.","Compaiono onde Q patologiche, segno di necrosi, e onde T invertite; il tratto ST torna verso la linea di base. La troponina, dopo il picco, scende lentamente."]}],
- legenda:[["#d9637b","Parete e miocardio"],["#f0c040","Nucleo lipidico"],["#b8956a","Cappuccio fibroso"],["#8e63c9","Piastrine"],["#c0283c","Trombo"],["#e0425a","Globuli rossi"],["#f0a23a","Ischemia"],["#b3263a","Necrosi"],["#8a8f98","Cicatrice"]],
- n:"Linee guida ESC 2023 sulle sindromi coronariche acute (PMID 37622654; DOI 10.1093/eurheartj/ehad191). Quarta definizione universale di infarto, Thygesen et al., Circulation 2018 (PMID 30571511). Disegno originale e schematico."});
+   val:["ECG e troponina normali","ST sotto da sforzo","ST sotto, T invertita","!ST sopra","Onda Q"],
+   testo:["ECG normale: tratto ST sulla linea di base e onda T positiva. La troponina resta sotto il limite di riferimento.","Nell'angina da sforzo l'ECG a riposo è spesso normale; sotto sforzo può comparire un sottoslivellamento del tratto ST che regredisce con il riposo. La troponina non sale.","Sottoslivellamento ST o onda T invertita, ma l'ECG può anche essere normale. La troponina ad alta sensibilità va ripetuta: se mostra un aumento o un calo, con almeno un valore sopra il 99° percentile del limite superiore di riferimento, in un quadro di ischemia, è un NSTEMI; se resta normale è angina instabile.","Con sintomi di ischemia, un sopraslivellamento ST sopra le soglie in almeno due derivazioni contigue indica uno STEMI: il medico avvia subito la riperfusione, senza aspettare la troponina.","Compaiono onde Q patologiche, segno di necrosi, e onde T invertite; il tratto ST torna verso la linea di base. La troponina, dopo il picco, scende lentamente."]}],
+ legenda:[["#d9637b","Parete e miocardio"],["#f0c040","Nucleo lipidico"],["#b8956a","Cappuccio fibroso"],["#8e63c9","Piastrine"],["#c0283c","Trombo"],["#d9637b","Globuli rossi"],["#f0a23a","Ischemia"],["#b3263a","Necrosi"],["#8a8f98","Cicatrice"]],
+ n:"Linee guida ESC 2023 sulle sindromi coronariche acute (PMID 37622654; DOI 10.1093/eurheartj/ehad191). Quarta definizione universale di infarto, Thygesen et al., Circulation 2018 (PMID 30571511). Reimer KA et al. Circulation 1977 (PMID 912839); Bentzon JF et al. Circ Res 2014 (PMID 24902970); Khan AR et al. Eur Heart J 2017 (PMID 29020244). Disegno originale e schematico."});
 })();
 
 /* ---- Malattia renale cronica ---- */
@@ -589,7 +592,7 @@ const nef=s=>{const t=s/4,nScl=[0,1,3,4,5][s],ord=[2,4,0,5,1,3];
   ic+=`<circle cx="${x}" cy="${y}" r="${rc}" class="ff" stroke="var(--ink)" stroke-width="1"${dead?' stroke-dasharray="3 2"':""}/>`;
   if(dead)ic+=`<circle cx="${x}" cy="${y}" r="${r}" fill="var(--muted)" opacity=".55"/><path d="M${x-6} ${y-4}l10 10M${x-7} ${y+2}l7 7M${x-2} ${y-8}l9 9" stroke="var(--paper)" stroke-width="1.2"/>`;
   else{ic+=`<circle cx="${x}" cy="${y}" r="${r}" fill="${C.glo}" opacity=".25"/>`;for(let j=0;j<5;j++){const a=j/5*6.283;ic+=`<circle cx="${(x+r*.45*Math.cos(a)).toFixed(1)}" cy="${(y+r*.45*Math.sin(a)).toFixed(1)}" r="${(r*.42).toFixed(1)}" fill="none" stroke="${C.glo}" stroke-width="1.3"/>`}
-   ic+=`<circle class="anm" r="2.4" fill="${C.fil}"><animateMotion path="${tub}" dur="${dur}s" begin="${(i*.37).toFixed(2)}s" repeatCount="indefinite"/></circle>`}});
+   ic+=`<circle class="anm" r="2.4" fill="${C.fil}"><animateMotion path="${tub}" dur="${dur}s" begin="${(-i*.37).toFixed(2)}s" repeatCount="indefinite"/></circle>`}});
  // nefrone residuo ingrandito
  const cx=345,cy=106,Rc=R(42,52,t),Rt=Rc-11,a50=.87;
  const sx=cx+Rc*Math.cos(a50),sy=cy+Rc*Math.sin(a50);
@@ -599,8 +602,8 @@ const nef=s=>{const t=s/4,nScl=[0,1,3,4,5][s],ord=[2,4,0,5,1,3];
  const x0=(cx+Rt*.35*Math.cos(a50)).toFixed(1),y0=(cy+Rt*.35*Math.sin(a50)).toFixed(1);
  const mp=`M${x0} ${y0}L${tp[0][0].toFixed(1)} ${tp[0][1].toFixed(1)}`+tubD.replace(/^M[^C]*/,"");
  const df=R(4,2.4,t).toFixed(2),nA=[1,1,2,3,4][s];
- let dots="";for(let i=0;i<3;i++)dots+=`<circle class="anm" r="2.6" fill="${C.fil}"><animateMotion path="${mp}" dur="${df}s" begin="${(i*df/3).toFixed(2)}s" repeatCount="indefinite"/></circle>`;
- for(let i=0;i<nA;i++)dots+=`<circle class="anm" r="3.4" fill="${C.alb}"><animateMotion path="${mp}" dur="${df}s" begin="${(i*df/nA+.2).toFixed(2)}s" repeatCount="indefinite"/></circle>`;
+ let dots="";for(let i=0;i<3;i++)dots+=`<circle class="anm" r="2.6" fill="${C.fil}"><animateMotion path="${mp}" dur="${df}s" begin="${(-i*df/3).toFixed(2)}s" repeatCount="indefinite"/></circle>`;
+ for(let i=0;i<nA;i++)dots+=`<circle class="anm" r="3.4" fill="${C.alb}"><animateMotion path="${mp}" dur="${df}s" begin="${(-(i*df/nA+.2)).toFixed(2)}s" repeatCount="indefinite"/></circle>`;
  let albS="";for(let i=0;i<nA;i++){const q=bez(tp,.35+i*.15);albS+=`<circle cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" r="3.4" fill="${C.alb}" stroke="var(--paper)" stroke-width=".8"/>`}
  const ar=(cx+(Rt+2)*Math.cos(a50)).toFixed(1),ar2=(cy+(Rt+2)*Math.sin(a50)).toFixed(1);
  const glom=`<path d="${tubD}" fill="none" stroke="${C.fil}" stroke-width="12" stroke-linecap="round" opacity=".28"/>
@@ -667,7 +670,7 @@ const org=s=>{const t=s/4,cx=150,body="color-mix(in srgb,var(--ink) 11%,var(--pa
  const dial=s===4?`<rect x="16" y="104" width="44" height="66" rx="2" class="fbx"/><text x="38" y="118" class="ft fsm" text-anchor="middle">dialisi</text>
   <rect x="30" y="124" width="16" height="34" rx="6" fill="none" stroke="var(--ink)" stroke-width="1.2"/><path d="M30 132h16M30 141h16M30 150h16" class="lead"/>
   <path d="M101 131C88 126 76 132 60 132" fill="none" stroke="${C.rbc}" stroke-width="2.2"/><path d="M60 150C80 150 90 142 104 138" fill="none" stroke="${C.fil}" stroke-width="2.2"/>
-  ${[0,1].map(i=>`<circle class="anm" r="2.4" fill="${C.rbc}"><animateMotion path="M101 131C88 126 76 132 60 132" dur="2s" begin="${i}s" repeatCount="indefinite"/></circle><circle class="anm" r="2.4" fill="${C.fil}"><animateMotion path="M60 150C80 150 90 142 104 138" dur="2s" begin="${i+.5}s" repeatCount="indefinite"/></circle>`).join("")}`:"";
+  ${[0,1].map(i=>`<circle class="anm" r="2.4" fill="${C.rbc}"><animateMotion path="M101 131C88 126 76 132 60 132" dur="2s" begin="${-i}s" repeatCount="indefinite"/></circle><circle class="anm" r="2.4" fill="${C.fil}"><animateMotion path="M60 150C80 150 90 142 104 138" dur="2s" begin="${-(i+.5)}s" repeatCount="indefinite"/></circle>`).join("")}`:"";
  const fig=`<circle cx="${cx}" cy="44" r="15" fill="${body}"/><rect x="${cx-6}" y="57" width="12" height="10" fill="${body}"/>
  <path d="M${cx-32} 68Q${cx} 62 ${cx+32} 68L${cx+36} 142Q${cx} 150 ${cx-36} 142Z" fill="${body}"/>
  <path d="M${cx-30} 72L${cx-42} 110L${cx-48} 150M${cx+30} 72L${cx+42} 110L${cx+48} 150M${cx-14} 144L${cx-14} 222M${cx+14} 144L${cx+14} 222" fill="none" stroke="${body}" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
@@ -682,21 +685,21 @@ const org=s=>{const t=s/4,cx=150,body="color-mix(in srgb,var(--ink) 11%,var(--pa
   if(r[3])rows+=`<path d="M246 ${y-4}L${r[3][0]} ${r[3][1]}" class="lead" stroke-dasharray="${lev?"0":"2 3"}"/>`;
   rows+=`<rect x="250" y="${y-9}" width="9" height="9" rx="2" class="${["k-ok","k-warn","k-alarm"][lev]}"/>
   <text x="264" y="${y}" class="ft">${r[0]}</text><text x="264" y="${y+13}" class="ft fsm">${r[1][s]}</text>`});
- return head(`Organismo nello stadio ${ST[s]}: ${["di solito nessun sintomo","pochi sintomi, pressione da controllare","pressione alta, possibili edemi e anemia","edemi, prurito e nausea possibili, si prepara la terapia sostitutiva","sindrome uremica, paziente in dialisi dalla fistola al braccio"][s]}`,
+ return head(`Organismo nello stadio ${ST[s]}: ${["di solito nessun sintomo","pochi sintomi, pressione da controllare","pressione alta, possibili edemi e anemia","edemi, prurito e nausea possibili, si prepara la terapia sostitutiva","sindrome uremica, terapia sostitutiva, per esempio emodialisi dalla fistola al braccio"][s]}`,
  `<text x="20" y="24" class="ft fb">Organismo</text>${fig}${edema}${heart}${itch}${naus}${fist}${dial}${rows}`)};
 
-const V=["eGFR ≥ 90 ml/min/1,73 m²","eGFR 60-89","eGFR 30-59 (G3a 45-59, G3b 30-44)","eGFR 15-29","eGFR < 15"];
+const V=["eGFR ≥ 90 ml/min/1,73 m²","eGFR 60-89","eGFR 30-59 (G3a 45-59, G3b 30-44)","eGFR 15-29","!eGFR < 15"];
 SIM.push({id:"sim-insufficienza-renale",enc:["insufficienza-renale"],t:"Simulatore: la malattia renale cronica stadio per stadio",d:"Scegli lo stadio KDIGO del filtrato glomerulare (G1-G5) e il livello da osservare. Il disegno è schematico: le proporzioni servono a capire, non a misurare.",
  stadi:["G1 normale","G2 lieve calo","G3 calo moderato","G4 calo grave","G5 insufficienza renale"],dur:"4s",
  livelli:[
   {t:"Nefrone",sub:"glomeruli",svg:nef,val:V,
    testo:["Il filtrato è normale ma c'è già un segno di danno renale, spesso albumina nelle urine (proteinuria): per parlare di malattia renale cronica deve durare più di 3 mesi.","Alcuni glomeruli si cicatrizzano (sclerosi). I nefroni rimasti si ingrandiscono e filtrano di più per compensare: il filtrato totale cala di poco.","Molti nefroni non lavorano più. Nei glomeruli residui pressione e filtrato aumentano (iperfiltrazione): il sovraccarico li danneggia e passa più albumina.","Restano pochi nefroni, ciascuno sovraccarico, e la sclerosi si estende: è un circolo vizioso che fa progredire la malattia.","Pochissimi nefroni ancora attivi: il filtrato non basta più a depurare il sangue. Il danno è irreversibile."]},
   {t:"Sangue",sub:"esami",svg:san,val:V,
-   testo:["Il rene elimina ancora bene scorie, potassio, fosforo e acidi e produce abbastanza eritropoietina: gli esami del sangue sono normali.","Urea e creatinina possono salire appena; gli altri valori di solito restano normali.","Urea e creatinina aumentano. Il rene produce meno eritropoietina e può comparire anemia; possono iniziare le alterazioni del fosforo.","Il rene non elimina più abbastanza potassio, fosforo e acidi: iperpotassiemia, iperfosforemia e acidosi metabolica (bicarbonato basso). L'anemia peggiora.","Scorie molto alte (uremia), iperpotassiemia che può dare aritmie pericolose, acidosi e anemia marcate: servono dialisi o trapianto."]},
+   testo:["Il rene elimina ancora bene scorie, potassio, fosforo e acidi e produce abbastanza eritropoietina: gli esami del sangue sono normali.","Urea e creatinina possono salire appena; gli altri valori di solito restano normali.","Urea e creatinina aumentano. Il rene produce meno eritropoietina e può comparire anemia; salgono gli ormoni che regolano il fosforo (PTH). In G3b possono iniziare iperpotassiemia, acidosi e aumento del fosforo.","Il rene non elimina più abbastanza potassio, fosforo e acidi: diventano frequenti iperpotassiemia, iperfosforemia e acidosi metabolica (bicarbonato basso). L'anemia peggiora.","Scorie molto alte (uremia), iperpotassiemia che può dare aritmie pericolose, acidosi e anemia marcate: il medico valuta la terapia sostitutiva (dialisi o trapianto), che si inizia quando compaiono sintomi o complicanze, non per il solo valore di eGFR."]},
   {t:"Organismo",sub:"sintomi",svg:org,val:V,
-   testo:["Di solito nessun sintomo: la malattia si scopre con gli esami. L'ipertensione può esserci già, come causa o come conseguenza.","Ancora pochi sintomi. Controllare pressione e glicemia (ipertensione e diabete sono le cause più frequenti) rallenta la progressione.","Il rene trattiene sodio e acqua: la pressione sale e possono comparire edemi. L'anemia dà stanchezza.","Edemi e ipertensione più difficili da controllare; possono comparire prurito, nausea e poco appetito. Si prepara la terapia sostitutiva, per esempio la fistola artero-venosa.","Sindrome uremica: nausea, prurito, stanchezza, rischio di edema polmonare e iperpotassiemia. Servono dialisi o trapianto; sul braccio della fistola non si misura la pressione e non si fanno prelievi."]}],
+   testo:["Di solito nessun sintomo: la malattia si scopre con gli esami. L'ipertensione può esserci già, come causa o come conseguenza.","Ancora pochi sintomi. Controllare pressione e glicemia (ipertensione e diabete sono le cause più frequenti) rallenta la progressione.","Il rene trattiene sodio e acqua: la pressione sale e possono comparire edemi. L'anemia dà stanchezza.","Edemi e ipertensione più difficili da controllare; possono comparire prurito, nausea e poco appetito. Si prepara la terapia sostitutiva, per esempio la fistola artero-venosa.","Sindrome uremica: nausea, prurito, stanchezza, rischio di edema polmonare e iperpotassiemia. Si decide la terapia sostitutiva (dialisi o trapianto) o, in alcuni casi, una terapia conservativa; sul braccio della fistola non si misura la pressione e non si fanno prelievi."]}],
  legenda:[["#d9637b","Glomerulo e vasi"],["var(--muted)","Glomerulo sclerotico"],["#3aa0d8","Filtrato e liquidi"],["#f0a23a","Albumina"],["#c62f45","Globuli rossi"],["#9c6b3c","Urea e creatinina"],["#2e9e5b","Potassio"],["#8e63c9","Fosforo"],["#d46bb5","Acidi (H⁺)"]],
- n:"KDIGO 2024 sulla malattia renale cronica (Kidney Int 2024; PMID 38490803), stadi G come nella voce es-creatinina dell'Atlante."});
+ n:"KDIGO 2024 sulla malattia renale cronica (Kidney Int 2024; PMID 38490803), stadi G come nella voce es-creatinina dell'Atlante; Moranne O et al. J Am Soc Nephrol 2009 (PMID 19005010); Cooper BA et al. N Engl J Med 2010, studio IDEAL (PMID 20581422)."});
 })();
 
 /* ---- Cirrosi epatica ---- */
@@ -763,7 +766,7 @@ const por=s=>{const t=s/4,p=PRE_[s],vr=VAR_[s],sp=SPL_[s],sc=SC_[s],fat=FAT_[s],
  const dmain=dot(`${spl}L${hx} ${hy}`,s>=3?3:4,R(3.5,6.5,p)),dsmv=dot(`M190 244V186L${hx} ${hy}`,2,R(2.4,4.5,p)),dcol=vr>0?dot(`${col}V36`,s===4?3:2,3.2):"";
  const ble=s===4?`<path d="M292 62q6 8 0 11q-6 -3 0 -11z" fill="#e0425a"/><path d="M283 78q5 7 0 10q-5 -3 0 -10z" fill="#e0425a"/><circle class="anm" r="2.6" fill="#e0425a"><animateMotion path="M287 66V96" dur="1.6s" repeatCount="indefinite"/></circle>`:"";
  const gc=p<.3?"#3aa55d":p<.8?"#e0a030":"#e0425a";
- return head(`Fegato e circolo portale, ${STADIO[s]}: ${["pressione portale normale, tutto il sangue portale attraversa il fegato","fegato ingrandito e giallastro, flusso normale","pressione portale in aumento","ipertensione portale: sangue deviato nei collaterali, varici esofagee, milza ingrandita","ipertensione portale grave, varici che sanguinano, fegato piccolo e nodulare"][s]}`,
+ return head(`Fegato e circolo portale, ${STADIO[s]}: ${["pressione portale normale, tutto il sangue portale attraversa il fegato","fegato ingrandito e giallastro, flusso normale","pressione portale in aumento","ipertensione portale: possibili collaterali, varici esofagee e milza ingrandita","ipertensione portale grave, varici che sanguinano, fegato piccolo e nodulare"][s]}`,
  `<text x="14" y="18" class="ft fb">Fegato e circolo portale</text>
  <path d="${lp}" fill="${LIV}" opacity=".75" stroke="#8a3a33"/>${fat&&s<3?`<path d="${lp}" fill="${GIA}" opacity="${f(fat*.45)}"/>`:""}${nds}
  <rect x="280" y="26" width="14" height="74" rx="4" fill="#e2a3a0" opacity=".45" stroke="#c27770"/>
@@ -805,7 +808,7 @@ const org=s=>{const t=s/4,dec=s===4,asc=dec?1:0,b=asc*14,jau=dec?1:0,sp=SPL_[s],
   ["Varici esofagee",14,108,218,86,[[0,"assenti"],[0,"assenti"],[0,"assenti"],[1,"presenti, rischio"],[2,"sanguinano"]]],
   ["Ascite",14,168,196,176,[[0,"assente"],[0,"assente"],[0,"assente"],[0,"assente"],[2,"addome disteso"]]],
   ["Ittero",300,48,229,38,[[0,"assente"],[0,"assente"],[0,"assente"],[0,"assente"],[2,"cute e sclere gialle"]]],
-  ["Coagulopatia",300,108,272,124,[[0,"assente"],[0,"assente"],[0,"assente"],[0,"di solito assente"],[2,"ecchimosi, sanguinamenti"]]],
+  ["Coagulopatia",300,108,272,124,[[0,"assente"],[0,"assente"],[0,"assente"],[0,"di solito assente"],[2,"INR alto, piastrine basse"]]],
   ["Funzione epatica",300,168,226,114,[[0,"normale"],[0,"conservata"],[0,"conservata"],[1,"ancora sufficiente"],[2,"insufficiente"]]]];
  const lab=items.map(([n,x,y,tx,ty,v])=>{const [l,w]=v[s],left=x<100,ex=left?150:294;return `<path d="M${ex} ${y-4}L${tx} ${ty}" class="lead" stroke-dasharray="2 3"${l?"":` opacity=".5"`}/><circle cx="${left?x+5:x+5}" cy="${y-4}" r="5" fill="${C[l]}"/><text x="${x+14}" y="${y}" class="ft fb">${n}</text><text x="${x+14}" y="${y+14}" class="ft fsm">${w}</text>`}).join("");
  return head(`Organismo, ${STADIO[s]}: ${dec?"ascite, ittero, encefalopatia con asterixis, ecchimosi ed emorragia da varici":s===3?"nessun segno di scompenso, ma milza ingrandita e varici":"nessun segno clinico evidente"}`,
@@ -824,19 +827,19 @@ SIM.push({id:"sim-epatopatie",enc:["epatopatie"],t:"Simulatore: dal fegato sano 
     "Setti completi circondano noduli di rigenerazione: l'architettura del lobulo è sovvertita. Il fegato svolge ancora le sue funzioni, ma il sangue lo attraversa con più resistenza.",
     "Setti più spessi e meno epatociti funzionanti: la massa di fegato attiva non basta più. Calano la sintesi di albumina e fattori della coagulazione, la trasformazione dell'ammoniaca e l'eliminazione della bilirubina."]},
   {t:"Fegato e circolo portale",sub:"ipertensione portale",svg:por,
-   val:["Pressione portale normale","Flusso normale","Resistenza in aumento","Ipertensione portale","Ipertensione portale grave"],
+   val:["Pressione portale normale","Flusso normale","Resistenza in aumento","Ipertensione portale","!Ipertensione portale grave"],
    testo:["Il sangue di intestino e milza arriva al fegato con la vena porta, attraversa i sinusoidi ed esce dalle vene sovraepatiche verso il cuore. La pressione nella vena porta è bassa.",
     "Il fegato steatosico può essere ingrandito e giallastro; il flusso portale resta normale.",
     "La fibrosi aumenta la resistenza al passaggio del sangue nel fegato: la pressione nella vena porta comincia a salire.",
-    "Ipertensione portale: il sangue cerca vie alternative verso le vene sistemiche (circoli collaterali). La vena gastrica sinistra porta sangue alle vene dell'esofago, che si dilatano in varici; la milza si ingrandisce e trattiene piastrine.",
+    "Il sangue cerca vie alternative verso le vene sistemiche (circoli collaterali). La vena gastrica sinistra porta sangue alle vene dell'esofago, che si dilatano in varici; la milza si ingrandisce e trattiene piastrine.",
     "Pressione portale molto alta e fegato piccolo e nodulare: le varici possono rompersi e dare un'emorragia digestiva alta grave, con ematemesi e melena."]},
   {t:"Organismo",sub:"complicanze",svg:org,
-   val:["Nessun segno","Di solito asintomatica","Spesso asintomatica","Compensata","Scompensata"],
-   testo:["Nessun segno: il fegato trasforma l'ammoniaca che arriva dall'intestino in urea, produce albumina e fattori della coagulazione, elimina la bilirubina con la bile.",
+   val:["Nessun segno","Di solito asintomatica","Spesso asintomatica","Compensata","!Scompensata"],
+   testo:["Il fegato trasforma l'ammoniaca che arriva dall'intestino in urea, produce albumina e fattori della coagulazione, elimina la bilirubina con la bile.",
     "La steatosi di solito non dà sintomi: spesso si scopre per caso con esami del sangue o un'ecografia.",
     "Anche la fibrosi è spesso silenziosa; la stanchezza è un sintomo aspecifico. Per questo il danno si cerca con esami mirati.",
-    "Cirrosi compensata: la persona può stare bene a lungo. Possono esserci già varici e milza ingrandita, ma non ascite, ittero, encefalopatia o emorragia.",
-    "Scompenso: ascite (ipertensione portale e albumina bassa), ittero, encefalopatia (l'ammoniaca supera il fegato e arriva al cervello: confusione, asterixis), coagulopatia ed emorragia da varici."]}],
+    "La persona può stare bene a lungo. Possono esserci già varici e milza ingrandita, ma non ascite, ittero, encefalopatia o emorragia.",
+    "Basta che compaia una di queste complicanze, cioè ascite (ipertensione portale con ritenzione di sodio e acqua; l'albumina bassa contribuisce), emorragia da varici, encefalopatia (l'ammoniaca, che il fegato non trasforma e che passa per i collaterali, arriva al cervello: confusione, asterixis) o ittero. Gli esami della coagulazione sono alterati, ma il rischio di sanguinare non dipende solo dall'INR."]}],
  legenda:[[EP,"Epatociti"],[FAT,"Gocce di grasso"],[STL,"Cellule stellate attivate"],[COL,"Collagene, setti fibrosi"],[VEN,"Vene (porta e collaterali)"],[ART,"Sangue, arteria epatica"],[BIL,"Dotto biliare, ammoniaca"],[ASC,"Ascite"],[GIA,"Ittero"]],
- n:"Ginès P et al. Liver cirrhosis. Lancet 2021 (PMID 34543610); EASL Clinical Practice Guidelines for the management of patients with decompensated cirrhosis, J Hepatol 2018 (PMID 29653741); Tsochatzis EA, Bosch J, Burroughs AK. Liver cirrhosis. Lancet 2014 (PMID 24480518). PMID da verificare."});
+ n:"Ginès P et al. Liver cirrhosis. Lancet 2021 (PMID 34543610); EASL Clinical Practice Guidelines for the management of patients with decompensated cirrhosis, J Hepatol 2018 (PMID 29653741); Tsochatzis EA, Bosch J, Burroughs AK. Liver cirrhosis. Lancet 2014 (PMID 24480518); Baveno VII (PMID 35120736); Tripodi A, Mannucci PM. N Engl J Med 2011 (PMID 21751907)."});
 })();
