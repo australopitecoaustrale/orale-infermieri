@@ -429,3 +429,141 @@ SIM.push({id:"sim-asma",enc:["asma"],t:"Simulatore: l'attacco d'asma passo per p
  legenda:[["#c0504d","Muscolo liscio"],["#e2789a","Mucosa"],["#9bc53d","Muco"],["#f0a23a","Eosinofili"],["#8e63c9","Mastociti"],["#3aa0d8","Aria intrappolata"],["var(--scrub)","Flusso d'aria e sibili"]],
  n:"GINA, Global Strategy for Asthma Management and Prevention 2024 (ginasthma.org); Reddel HK et al., GINA 2021 executive summary, Am J Respir Crit Care Med 2022 (PMID 34658302, da verificare); BTS/SIGN British guideline on the management of asthma 2019. Classificazione in quattro gradi e segni per grado (frasi, postura, muscoli accessori, sibili) dalle tabelle GINA della gravità dell'attacco: da verificare."});
 })();
+
+/* ---- Sindrome coronarica acuta ---- */
+/* ---- Sindrome coronarica acuta (disegno originale) ---- */
+(function(){
+const W=440,H=250,R=(a,b,t)=>a+(b-a)*t,C=x=>Math.max(0,Math.min(1,x)),f=x=>+x.toFixed(1);
+const head=(lab,body)=>`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${lab}">${body}</svg>`;
+const rnd=k=>{let x=Math.sin(k*999)*1e4;return x-Math.floor(x)};
+const COL={wall:"#d9637b",core:"#f0c040",cap:"#b8956a",plt:"#8e63c9",thr:"#c0283c",old:"#7a1f2b",isc:"#f0a23a",nec:"#b3263a",scar:"#8a8f98",rbc:"#e0425a"};
+
+/* 1. Coronaria in sezione longitudinale */
+const cor=s=>{const t=s/4,x0=20,x1=420,yo=56,yi=72,yb=160,yob=176,cx=220;
+ const hp=f(R(0,44,C(t*4)));                 // altezza della placca
+ const th=s<2?0:s===2?30:yb-yi-hp;           // altezza del trombo sopra la placca
+ const top=yb-hp-th;                         // margine superiore dell'ostacolo
+ const gap=f(top-yi);                        // lume residuo
+ const plaque=hp?`<path d="M140 ${yb}C176 ${yb} 178 ${yb-hp} ${cx} ${yb-hp}C262 ${yb-hp} 264 ${yb} 300 ${yb}Z" fill="${COL.core}" opacity=".85"/>
+ <path d="M146 ${yb}C178 ${yb-2} 180 ${yb-hp} ${cx} ${yb-hp}C260 ${yb-hp} 262 ${yb-2} 294 ${yb}" fill="none" stroke="${COL.cap}" stroke-width="5" ${s>=2?`stroke-dasharray="74 22 200"`:""}/>`:"";
+ const thromb=th?`<path d="M${s===2?186:170} ${yb-hp+6}C${s===2?190:172} ${top+6} ${s===2?200:174} ${top} ${cx} ${top}C${s===2?240:266} ${top} ${s===2?250:268} ${top+6} ${s===2?254:270} ${yb-hp+6}Z" fill="${s===4?COL.old:COL.thr}" opacity=".9"/>`:"";
+ let plt="";if(s>=2){for(let i=0;i<9;i++){const x=R(s===2?190:176,s===2?250:264,rnd(i+3)),y=R(top+6,yb-hp,rnd(i+11));plt+=`<ellipse cx="${f(x)}" cy="${f(y)}" rx="4" ry="2.4" fill="${COL.plt}"/>`}}
+ // pallini del flusso: passano sopra l'ostacolo oppure si fermano davanti
+ const occl=s>=3,yc=top>yi?f((yi+top)/2):116,n=[7,7,4,5,5][s],dur=[2.2,2.6,4,4,4][s];
+ const pth=`M${x0+6} 116H150Q${cx-30} ${yc} ${cx} ${yc}Q${cx+30} ${yc} 290 116H${x1-6}`;
+ let flow="";for(let i=0;i<n;i++){const dy=(i%3-1)*(occl?14:Math.min(10,gap/4));
+  flow+=occl?`<circle class="anm" r="4" fill="${COL.rbc}"><animateMotion path="M${x0+6} ${116+dy}H${162-i*9}" keyPoints="0;1;1" keyTimes="0;.6;1" calcMode="linear" dur="${dur}s" begin="${f(i*.25)}s" repeatCount="indefinite"/></circle>`
+  :`<circle class="anm" r="4" fill="${COL.rbc}"><animateMotion path="${pth.replace("M"+(x0+6)+" 116","M"+(x0+6)+" "+(116+dy))}" dur="${dur}s" begin="${f(i*dur/n)}s" repeatCount="indefinite"/></circle>`}
+ // strato fisso: globuli rossi fermi
+ let rbc="";const nr=[10,9,6,6,6][s];for(let i=0;i<nr;i++){const x=occl?R(34,150,i/(nr-1)):R(34,404,i/(nr-1));if(!occl&&x>150&&x<290&&gap<30)continue;const y=x>150&&x<290?yc:116+((i%3)-1)*10;rbc+=`<circle cx="${f(x)}" cy="${f(y)}" r="4" fill="${COL.rbc}" opacity=".35"/>`}
+ const lab=[];
+ if(hp){lab.push(`<path d="M${cx} ${yb-hp*.45}V196" class="lead"/><text x="${cx}" y="206" class="ft fsm" text-anchor="middle">Nucleo lipidico</text>`);
+  lab.push(`<path d="M154 ${yb-6}L118 196" class="lead"/><text x="118" y="206" class="ft fsm" text-anchor="middle">Cappuccio fibroso</text>`)}
+ if(s>=2)lab.push(`<path d="M${cx} ${top}V46" class="lead"/><text x="${cx}" y="42" class="ft fsm" text-anchor="middle">${s===2?"Rottura e trombo parziale":s===3?"Trombo occlusivo":"Trombo organizzato"}</text><path d="M${s===2?248:262} ${yb-hp-4}L326 46" class="lead"/><text x="326" y="42" class="ft fsm">Piastrine</text>`);
+ if(!s)lab.push(`<text x="${cx}" y="42" class="ft fsm" text-anchor="middle">Endotelio liscio, lume libero</text>`);
+ return head(`Coronaria, stadio ${s}: ${["lume libero e flusso normale","placca stabile che restringe il lume","placca rotta con trombo che chiude in parte il lume","trombo che chiude del tutto il lume, flusso fermo","vaso chiuso da trombo organizzato, a valle necrosi"][s]}`,
+ `<text x="${x0}" y="20" class="ft fb">Coronaria in sezione longitudinale</text>
+ <rect x="${x0}" y="${yo}" width="${x1-x0}" height="${yi-yo}" fill="${COL.wall}" opacity=".8"/><rect x="${x0}" y="${yb}" width="${x1-x0}" height="${yob-yb}" fill="${COL.wall}" opacity=".8"/>
+ <rect x="${x0}" y="${yi}" width="${x1-x0}" height="${yb-yi}" class="ff"/>
+ ${rbc}${plaque}${thromb}${plt}${flow}${lab.join("")}
+ <text x="${x0}" y="190" class="ft fsm">dall'aorta</text><text x="${x1}" y="190" class="ft fsm" text-anchor="end">verso il miocardio</text>
+ <text x="${x0}" y="226" class="ft fsm">Lume ${["libero","ristretto dalla placca","ristretto da placca e trombo","chiuso dal trombo","chiuso"][s]}</text>
+ <text x="${x0}" y="242" class="ft fsm">Flusso a valle ${["normale","sufficiente a riposo, non sotto sforzo","molto ridotto anche a riposo","assente","assente"][s]}</text>`)};
+
+/* 2. Miocardio: ventricolo sinistro in sezione trasversale */
+const P=(cx,cy,r,a)=>`${f(cx+r*Math.cos(a*Math.PI/180))} ${f(cy+r*Math.sin(a*Math.PI/180))}`;
+const sect=(cx,cy,r1,r2,a1,a2,attr)=>`<path d="M${P(cx,cy,r2,a1)}A${r2} ${r2} 0 0 1 ${P(cx,cy,r2,a2)}L${P(cx,cy,r1,a2)}A${r1} ${r1} 0 0 0 ${P(cx,cy,r1,a1)}Z" ${attr}/>`;
+const mio=s=>{const t=s/4,cx=128,cy=134,Ro=80,Ri=42,a1=-150,a2=-30;
+ const iscR=[Ri,Ri+12,Ri+18,Ro,Ro][s];                 // ischemia: dal subendocardio a tutta la parete
+ const necR=[Ri,Ri,Ri+5,Ri+20,Ro][s];                  // necrosi che avanza verso l'epicardio
+ const inner=s===4?Ri+16:Ri;                           // parete assottigliata nella cicatrice
+ let body=`<circle cx="${cx}" cy="${cy}" r="${(Ro+Ri)/2}" fill="none" stroke="${COL.wall}" stroke-width="${Ro-Ri}" opacity=".8"/><circle cx="${cx}" cy="${cy}" r="${Ri}" class="ff"/>`;
+ if(s===4)body+=sect(cx,cy,Ri-1,inner,a1,a2,`class="ff"`)+sect(cx,cy,inner,Ro,a1,a2,`fill="${COL.scar}" opacity=".9"`);
+ else{if(s)body+=sect(cx,cy,Ri,iscR,a1,a2,`fill="${COL.isc}" opacity="${s===1?.6:.85}"`);
+  if(necR>Ri)body+=sect(cx,cy,Ri,necR,a1,a2,`fill="${COL.nec}" opacity=".9"`)}
+ // fronte della necrosi che avanza (solo animazione, stadio 3)
+ const wave=s===3?`<path d="${sect(cx,cy,Ri,Ri+20,a1,a2,"").match(/d="([^"]+)"/)[1]}" fill="${COL.nec}" opacity=".9"><animate attributeName="d" values="${sect(cx,cy,Ri,Ri+6,a1,a2,"").match(/d="([^"]+)"/)[1]};${sect(cx,cy,Ri,Ro-4,a1,a2,"").match(/d="([^"]+)"/)[1]};${sect(cx,cy,Ri,Ro-4,a1,a2,"").match(/d="([^"]+)"/)[1]}" keyTimes="0;.8;1" dur="4s" repeatCount="indefinite"/></path>`:"";
+ // coronaria epicardica sulla parete anteriore
+ const Rc=Ro+9,ca1=-172,ca2=-14,occA=-150;
+ const arc=`M${P(cx,cy,Rc,ca1)}A${Rc} ${Rc} 0 0 1 ${P(cx,cy,Rc,ca2)}`;
+ const stop=`M${P(cx,cy,Rc,ca1)}A${Rc} ${Rc} 0 0 1 ${P(cx,cy,Rc,occA-4)}`;
+ const n=[5,5,3,4,4][s],dur=[2.4,2.8,4,3,3][s];
+ let flow="";for(let i=0;i<n;i++)flow+=s>=3?`<circle class="anm" r="3" fill="${COL.rbc}"><animateMotion path="${stop}" keyPoints="0;1;1" keyTimes="0;.6;1" calcMode="linear" dur="${dur}s" begin="${f(i*.3)}s" repeatCount="indefinite"/></circle>`
+  :`<circle class="anm" r="3" fill="${COL.rbc}"><animateMotion path="${arc}" dur="${dur}s" begin="${f(i*dur/n)}s" repeatCount="indefinite"/></circle>`;
+ const occ=s>=1?`<circle cx="${P(cx,cy,Rc,occA).split(" ")[0]}" cy="${P(cx,cy,Rc,occA).split(" ")[1]}" r="${s>=3?6:s===2?5:4}" fill="${s>=3?(s===4?COL.old:COL.thr):s===2?COL.thr:COL.core}" stroke="var(--paper)" stroke-width="1"/>`:"";
+ // pannello: il tempo è muscolo
+ const px=262,rows=[["Perfuso",COL.wall],["Ischemia",COL.isc],["Necrosi",COL.nec],["Cicatrice",COL.scar]];
+ const act=[[0],[1],[1,2],[1,2],[3]][s];
+ const panel=rows.map((r,i)=>{const y=44+i*30,on=act.includes(i)||(s===0&&i===0);return `${on?`<rect x="${px-6}" y="${y-14}" width="174" height="24" rx="2" class="fbx k-info"/>`:""}<rect x="${px}" y="${y-8}" width="12" height="12" rx="2" fill="${r[1]}" opacity="${on?.9:.35}"/><text x="${px+20}" y="${y+2}" class="ft ${on?"fb":"fsm"}">${r[0]}</text><text x="${px+164}" y="${y+2}" class="ft fsm" text-anchor="end">${["",i===1?"reversibile":"",i===2?"irreversibile":"",""][i]||(i===3?"non si contrae":"")}</text>`}).join("");
+ const by=176,bw=164,nf=[0,0,.12,.45,1][s];
+ const bar=`<text x="${px}" y="${by-8}" class="ft fb">Il tempo è muscolo</text>
+ <rect x="${px}" y="${by}" width="${bw}" height="14" rx="2" fill="${s?COL.isc:COL.wall}" opacity=".55"/>
+ ${nf?`<rect x="${px}" y="${by}" width="${f(bw*nf)}" height="14" rx="2" fill="${s===4?COL.scar:COL.nec}" opacity=".9"/>`:""}
+ ${s===3?`<rect class="anm" x="${px}" y="${by}" height="14" rx="2" fill="${COL.nec}" width="${f(bw*nf)}"><animate attributeName="width" values="${f(bw*.1)};${f(bw*.95)};${f(bw*.95)}" keyTimes="0;.8;1" dur="4s" repeatCount="indefinite"/></rect>`:""}
+ <rect x="${px}" y="${by}" width="${bw}" height="14" rx="2" fill="none" class="lead"/>
+ <text x="${px}" y="${by+28}" class="ft fsm">${["Tutto il miocardio è perfuso","Ischemia solo sotto sforzo","Necrosi limitata (se c'è)","Più tempo, più necrosi:","Necrosi completata"][s]}</text>
+ <text x="${px}" y="${by+42}" class="ft fsm">${["",  "e reversibile con il riposo","al subendocardio","riaprire presto salva muscolo","sostituita da cicatrice"][s]}</text>`;
+ return head(`Ventricolo sinistro in sezione, stadio ${s}: ${["parete tutta perfusa","ischemia subendocardica da sforzo","ischemia subendocardica a riposo con possibile piccola necrosi","ischemia transmurale con necrosi che avanza verso l'epicardio","cicatrice sottile al posto del miocardio necrotico"][s]}`,
+ `<text x="20" y="20" class="ft fb">Ventricolo sinistro in sezione trasversale</text>
+ ${body}${wave}<path d="${arc}" fill="none" stroke="${COL.wall}" stroke-width="7" stroke-linecap="round" opacity=".55"/>${occ}${flow}
+ <text x="${cx}" y="${cy+4}" class="ft fsm" text-anchor="middle">cavità</text>
+ <path d="M${P(cx,cy,Ri+3,160)}L18 ${cy+52}" class="lead"/><text x="16" y="${cy+64}" class="ft fsm">Endocardio</text>
+ <path d="M${P(cx,cy,Ro,25)}L212 ${cy+52}" class="lead"/><text x="212" y="${cy+64}" class="ft fsm" text-anchor="middle">Epicardio</text>
+ <path d="M${P(cx,cy,Rc+3,-128)}L46 46" class="lead"/><text x="20" y="42" class="ft fsm">Coronaria</text>
+ ${panel}${bar}`)};
+
+/* 3. Tracciato e laboratorio */
+const beat=(x,y,p)=>{const {st,ta,r,q}=p;let d=`L${x+6} ${y}Q${x+11} ${y-7} ${x+16} ${y}L${x+24} ${y}`;
+ d+=q?`L${x+27} ${y+14}L${x+31} ${y-r}L${x+34} ${y+5}`:`L${x+26} ${y+3}L${x+30} ${y-r}L${x+34} ${y+8}`;
+ d+=`L${x+37} ${y-st}`;
+ d+=st>8?`Q${x+44} ${y-st-ta} ${x+52} ${y-st+2}Q${x+56} ${y-2} ${x+60} ${y}`:`L${x+44} ${y-st}Q${x+51} ${y-st-ta} ${x+58} ${y}`;
+ return d+`L${x+64} ${y}`};
+const lab=s=>{const t=s/4,ex=16,ey=40,ew=208,eh=124,y0=112;
+ const p=[{st:0,ta:10,r:38,q:0},{st:-6,ta:7,r:38,q:0},{st:-6,ta:-8,r:36,q:0},{st:16,ta:8,r:34,q:0},{st:0,ta:-9,r:20,q:1}][s];
+ let tr=`M${ex+4} ${y0}`;for(let i=0;i<3;i++)tr+=beat(ex+8+i*66,y0,p);
+ const grid=`<defs><pattern id="g1" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M4 0V4H0" class="gp1"/></pattern><pattern id="g5" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="url(#g1)"/><path d="M20 0V20H0" class="gp5"/></pattern></defs>
+ <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="2" class="pap"/><rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" fill="url(#g5)"/>`;
+ // segno sul tratto ST o sull'onda Q del secondo battito
+ const bx=ex+8+66;
+ const mark=s===0?""
+  :s===4?`<path d="M${bx+27} ${y0+18}V${y0+24}" class="emk"/><text x="${bx+27}" y="${y0+34}" class="emt fsm" text-anchor="middle">onda Q</text>`
+  :`<path d="M${bx+36} ${y0}H${bx+48}" class="emk" stroke-dasharray="2 2"/><path d="M${bx+42} ${y0}V${y0-p.st+(p.st>0?2:-2)}" class="emk"/><text x="${p.st>0?bx+60:bx+42}" y="${p.st>0?y0-p.st-p.ta-6:y0+24}" class="emt fsm" text-anchor="middle">ST ${p.st>0?"sopra":"sotto"}</text>`;
+ const dot=`<circle class="anm" r="3" fill="var(--ecg-lab)"><animateMotion path="${tr}" dur="4s" repeatCount="indefinite"/></circle>`;
+ // troponina
+ const gx=262,gy=48,gw=162,gh=116,gb=gy+gh,lim=gb-22;
+ const A=[0,0,48,98,98][s];
+ const pts=[];for(let i=0;i<=40;i++){const u=i/40;const rise=A?A*(u<.38?(u/.38)**1.6:Math.exp(-(u-.38)*1.9)):0;pts.push([f(gx+u*gw),f(gb-8-rise)])}
+ const curve=`M${pts.map(q=>q.join(" ")).join("L")}`;
+ const now=[.3,.3,.42,.42,.88][s],ni=Math.round(now*40);
+ const samp=[[.08,"1°"],[.3,"2°"]];
+ const sm=samp.map(([u,l])=>{const q=pts[Math.round(u*40)];return `<rect x="${q[0]-3}" y="${q[1]-3}" width="6" height="6" fill="var(--scrub)"/><text x="${q[0]+5}" y="${A?q[1]+13:q[1]-5}" class="ft fsm">${l}</text>`}).join("");
+ const tdot=`<circle class="anm" r="3.5" fill="var(--scrub)"><animateMotion path="${curve}" keyPoints="0;${now};${now}" keyTimes="0;.85;1" calcMode="linear" dur="4s" repeatCount="indefinite"/></circle>`;
+ return head(`ECG schematico e troponina, stadio ${s}: ${["ECG normale, troponina sotto il limite","sottoslivellamento ST da sforzo, troponina normale","sottoslivellamento ST e onda T invertita, troponina che può salire","sopraslivellamento ST, troponina in forte aumento","onda Q e onda T invertita, troponina che scende dopo il picco"][s]}`,
+ `<text x="20" y="20" class="ft fb">ECG schematico</text>${grid}
+ <path d="${tr}" class="etr"/>${mark}${dot}
+ <text x="${ex}" y="${ey+eh+16}" class="ft fsm">${["Tratto ST sulla linea di base, onda T positiva","Sottoslivellamento ST durante lo sforzo","Sottoslivellamento ST, onda T invertita","Sopraslivellamento ST","Onda Q e onda T invertita"][s]}</text>
+ <text x="${ex}" y="${ey+eh+30}" class="ft fsm">${["","a riposo l'ECG è spesso normale","l'ECG può anche essere normale","in almeno due derivazioni contigue","segno di necrosi"][s]}</text>
+ <text x="${gx}" y="20" class="ft fb">Troponina ad alta sensibilità</text>
+ <path d="M${gx} ${gy}V${gb}H${gx+gw}" class="fl" fill="none"/>
+ <path d="M${gx} ${lim}H${gx+gw}" class="lead" stroke-dasharray="4 3"/><path d="M${gx} 33H${gx+16}" class="lead" stroke-dasharray="4 3"/><text x="${gx+20}" y="36" class="ft fsm">limite di riferimento</text>
+ <path d="${curve}" fill="none" stroke="var(--scrub)" stroke-width="2.2"/>
+ <path d="M${pts[ni][0]} ${gy}V${gb}" class="lead" stroke-dasharray="2 3"/><text x="${pts[ni][0]+(now>.6?-4:4)}" y="${gy+10}" class="ft fsm" text-anchor="${now>.6?"end":"start"}">ora</text>
+ ${sm}${tdot}
+ <text x="${gx}" y="${gb+16}" class="ft fsm">tempo dall'esordio dei sintomi</text>
+ <text x="${gx}" y="${gb+30}" class="ft fsm">${["sotto il limite","sotto il limite","sopra il limite: NSTEMI","in forte aumento","dopo il picco scende"][s]}</text>`)};
+
+SIM.push({id:"sim-sca",enc:["sca"],t:"Simulatore: la sindrome coronarica acuta stadio per stadio",d:"Scegli lo stadio e il livello da osservare: dalla placca nella coronaria al tracciato e agli esami. Il disegno è schematico: le proporzioni servono a capire, non a misurare.",
+ stadi:["Coronaria sana","Placca stabile","Rottura e trombo parziale","Occlusione completa","Necrosi e cicatrice"],dur:"4s",
+ livelli:[
+  {t:"Coronaria",sub:"placca e trombo",svg:cor,
+   val:["Flusso normale","Stenosi stabile","Trombo parziale","Occlusione","Vaso chiuso"],
+   testo:["Endotelio liscio e lume libero: i globuli rossi arrivano senza ostacoli al miocardio.","Una placca aterosclerotica, con nucleo lipidico e cappuccio fibroso spesso, restringe il lume: a riposo il flusso basta, sotto sforzo no (angina da sforzo).","Il cappuccio fibroso si rompe: le piastrine aderiscono, si attivano e formano un trombo che chiude in parte il lume (angina instabile o NSTEMI). Per questo si danno doppia antiaggregazione e anticoagulante.","Il trombo chiude del tutto la coronaria e a valle il flusso si ferma (STEMI): serve la riperfusione urgente, con angioplastica primaria o, se non è possibile in tempo, fibrinolisi.","Se il vaso resta chiuso o si riapre troppo tardi, il territorio a valle va in necrosi e il trombo si organizza."]},
+  {t:"Miocardio",sub:"il tempo è muscolo",svg:mio,
+   val:["Perfusione normale","Ischemia da sforzo","Ischemia subendocardica","Ischemia transmurale","Cicatrice"],
+   testo:["Il flusso coronarico copre il fabbisogno di ossigeno di tutta la parete, dall'endocardio all'epicardio.","Sotto sforzo il fabbisogno cresce ma la placca limita il flusso: soffre per primo il subendocardio, lo strato più lontano dalle coronarie epicardiche. Con il riposo l'ischemia regredisce.","Il trombo parziale riduce il flusso anche a riposo: ischemia subendocardica. Se una piccola parte delle cellule muore e la troponina sale, è un NSTEMI.","Con l'occlusione completa l'ischemia diventa transmurale e la necrosi avanza dal subendocardio verso l'epicardio: prima si riapre il vaso, più miocardio si salva.","Le cellule necrotiche sono sostituite da tessuto cicatriziale: la parete diventa sottile e non si contrae più."]},
+  {t:"Tracciato e laboratorio",sub:"ECG e troponina",svg:lab,
+   val:["ECG e troponina normali","ST sotto da sforzo","ST sotto, T invertita","ST sopra","Onda Q"],
+   testo:["ECG normale: tratto ST sulla linea di base e onda T positiva. La troponina resta sotto il limite di riferimento.","Nell'angina da sforzo l'ECG a riposo è spesso normale; sotto sforzo può comparire un sottoslivellamento del tratto ST che regredisce con il riposo. La troponina non sale.","Sottoslivellamento ST o onda T invertita, ma l'ECG può anche essere normale. La troponina ad alta sensibilità va ripetuta: se sale oltre il limite è un NSTEMI, se resta normale è angina instabile.","Sopraslivellamento del tratto ST in almeno due derivazioni contigue: è uno STEMI e si avvia subito la riperfusione, senza aspettare il risultato della troponina.","Compaiono onde Q patologiche, segno di necrosi, e onde T invertite; il tratto ST torna verso la linea di base. La troponina, dopo il picco, scende lentamente."]}],
+ legenda:[["#d9637b","Parete e miocardio"],["#f0c040","Nucleo lipidico"],["#b8956a","Cappuccio fibroso"],["#8e63c9","Piastrine"],["#c0283c","Trombo"],["#e0425a","Globuli rossi"],["#f0a23a","Ischemia"],["#b3263a","Necrosi"],["#8a8f98","Cicatrice"]],
+ n:"Linee guida ESC 2023 sulle sindromi coronariche acute (PMID 37622654; DOI 10.1093/eurheartj/ehad191). Quarta definizione universale di infarto, Thygesen et al., Circulation 2018 (PMID 30571511). Disegno originale e schematico."});
+})();
