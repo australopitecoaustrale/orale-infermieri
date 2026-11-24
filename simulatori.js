@@ -314,3 +314,118 @@ SIM.push({id:"sim-scompenso",enc:["scompenso"],t:"Simulatore: lo scompenso cardi
  legenda:[["#d9637b","Miocardio e sangue"],["#3aa0d8","Liquido (edema)"],["#f0a23a","Renina-angiotensina-aldosterone"],["#8e63c9","Simpatico"]],
  n:"Linee guida ESC 2021 sullo scompenso cardiaco, McDonagh TA et al., Eur Heart J 2021 (PMID 34447992, da verificare); classificazione NYHA e soglia di peso come nella voce dell'Atlante."});
 })();
+
+/* ---- Asma ---- */
+
+/* ---- Asma bronchiale (disegno originale) ---- */
+(function(){
+const W=440,H=250,R=(a,b,t)=>a+(b-a)*t,f1=x=>Math.round(x*10)/10;
+const head=(lab,body)=>`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${lab}">${body}</svg>`;
+const rnd=k=>{let x=Math.sin(k*999)*1e4;return x-Math.floor(x)};
+const NOMI=["asma controllata","attacco lieve","attacco moderato","attacco grave con torace silente"];
+const MU="#c0504d",MUC="#e2789a",MK="#9bc53d",EO="#f0a23a",MA="#8e63c9",TR="#3aa0d8",AL="#d23a52";
+const pol=(cx,cy,rf)=>{let d="";for(let i=0;i<=72;i++){const a=i/72*6.283,r=rf(a);d+=(i?"L":"M")+f1(cx+r*Math.cos(a))+" "+f1(cy+r*Math.sin(a))}return d+"Z"};
+/* 1. Bronco in sezione trasversale */
+const bron=s=>{const t=s/3,cx=122,cy=130,Ro=R(90,74,t),mw=R(7,14,t),Ri=Ro-mw,ed=R(10,22,t),Rl=Ri-ed,A=R(1.5,8,t),mu=R(.06,.62,t);
+ const lum=a=>Rl-A*(1+Math.cos(10*a))/2;
+ let spin="";for(let i=0;i<24;i++){const a=i/24*6.283,r=Ri+mw/2;spin+=`<ellipse cx="${f1(cx+r*Math.cos(a))}" cy="${f1(cy+r*Math.sin(a))}" rx="${f1(mw*.32)}" ry="5" transform="rotate(${f1(a*57.3)} ${f1(cx+r*Math.cos(a))} ${f1(cy+r*Math.sin(a))})" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width=".8"/>`}
+ const at=(a,r)=>[f1(cx+r*Math.cos(a)),f1(cy+r*Math.sin(a))];
+ const band=(k)=>Rl+2+(Ri-Rl-6)*R(.2,.8,rnd(k));
+ let eo="";const ne=Math.round(R(3,16,t));for(let i=0;i<ne;i++){const a=i===0?.5:rnd(i+3)*6.283,[x,y]=at(a,i===0?(Rl+Ri)/2:band(i+11));eo+=`<circle cx="${x}" cy="${y}" r="3.2" fill="${EO}" stroke="${MU}" stroke-width=".6"/>`}
+ let ma="";const nm=Math.round(R(2,6,t));for(let i=0;i<nm;i++){const a=i===0?.95:rnd(i+21)*6.283,[x,y]=at(a,i===0?(Rl+Ri)/2:band(i+31));ma+=`<circle cx="${x}" cy="${y}" r="5" fill="${MA}"/><circle cx="${x-1.6}" cy="${y-1}" r=".9" class="ff"/><circle cx="${x+1.6}" cy="${y+.6}" r=".9" class="ff"/><circle cx="${x}" cy="${y+2}" r=".9" class="ff"/>`;
+  if(s>0)for(let j=0;j<s+1;j++){const b=a+(rnd(i*7+j)-.5)*.5,rr=(i===0?(Rl+Ri)/2:band(i+31))+(rnd(i+j*3)-.5)*12;const[p,q]=at(b,rr);ma+=`<circle cx="${p}" cy="${q}" r="1.3" fill="${MA}" opacity=".8"/>`}}
+ const free=a=>lum(a)*(1-mu)*(1+.07*t*Math.sin(3*a+1));
+ const amp=R(.035,.008,t);
+ const anim=`<animateTransform attributeName="transform" type="scale" additive="sum" values="1;${1+amp};1" keyTimes="0;.5;1" dur="4s" repeatCount="indefinite"/>`;
+ const pts=[[-.8,(Ri+Ro)/2],[-.35,(Rl+Ri)/2],[.08,Rl*(1-mu/2)-A/2],[.5,(Rl+Ri)/2],[.95,(Rl+Ri)/2]].map(([a,r])=>at(a,r));
+ const L=[["Muscolo liscio",["rilassato","in contrazione","contratto","contratto al massimo"][s]],["Mucosa",["poco edematosa","edema","edema marcato","edema grave"][s]],["Muco",["scarso","aumentato","abbondante","tappi di muco"][s]],["Eosinofili",["pochi","in aumento","numerosi","moltissimi"][s]],["Mastociti",["a riposo","liberano mediatori","degranulano","degranulano"][s]]];
+ const ly=i=>52+i*28,lx=252;
+ const labs=L.map((l,i)=>`<path d="M${pts[i][0]} ${pts[i][1]}L${lx-30} ${ly(i)-4}H${lx-4}" class="lead"/><circle cx="${pts[i][0]}" cy="${pts[i][1]}" r="1.8" class="fh"/><text x="${lx}" y="${ly(i)}" class="ft fb">${l[0]}</text><text x="${lx}" y="${ly(i)+12}" class="ft fsm">${l[1]}</text>`).join("");
+ return head(`Bronco in sezione, ${NOMI[s]}: muscolo liscio ${L[0][1]}, mucosa con ${L[1][1]}, muco ${L[2][1]}, lume ${["ampio","ristretto","molto ristretto","quasi chiuso"][s]}`,
+ `<text x="16" y="18" class="ft fb">Bronco in sezione trasversale</text>
+ <g style="transform-origin:${cx}px ${cy}px;transform-box:view-box"><g>${anim}
+ <circle cx="${cx}" cy="${cy}" r="${f1(Ro+6)}" class="eyrow"/>
+ <circle cx="${cx}" cy="${cy}" r="${f1(Ri+mw/2)}" fill="none" stroke="${MU}" stroke-opacity=".85" stroke-width="${f1(mw)}"/>${spin}
+ <circle cx="${cx}" cy="${cy}" r="${f1(Ri)}" fill="${MUC}" opacity=".8"/>
+ <path d="${pol(cx,cy,lum)}" fill="${MK}" opacity=".8"/><path d="${pol(cx,cy,free)}" class="ff"/>
+ <path d="${pol(cx,cy,lum)}" class="fl"/>${eo}${ma}</g></g>
+ ${labs}
+ <text x="${cx}" y="${H-6}" class="ft fsm" text-anchor="middle">Lume ${["ampio","ristretto","molto ristretto","quasi chiuso"][s]}</text>
+ <rect x="${lx-8}" y="196" width="${W-lx}" height="46" rx="2" class="fbx k-info"/>
+ <text x="${lx}" y="211" class="ft fb">Diverso dalla BPCO</text>
+ <text x="${lx}" y="224" class="ft fsm">asma: ostruzione variabile, reversibile</text>
+ <text x="${lx}" y="236" class="ft fsm">BPCO: ostruzione persistente</text>`)};
+/* 2. Polmoni: sibili, aria intrappolata, PEF */
+const lung=s=>{const t=s/3,cx=120,top=50,base=R(192,202,t),sc=R(1,1.08,t),dc=R(160,192,t);
+ const half=dx=>`<path d="M${cx+dx*14} ${top+16}C${cx+dx*56*sc} ${top} ${cx+dx*90*sc} ${top+80} ${cx+dx*84*sc} ${base}Q${cx+dx*48} ${dc} ${cx+dx*16} ${base-8}Z" fill="#e2789a" opacity=".6" stroke="#c2506f"/>`;
+ const tree=`<path d="M${cx} 32V${top+34}M${cx} ${top+34}L${cx-30} ${top+62}L${cx-48} ${top+100}M${cx-30} ${top+62}L${cx-22} ${top+108}M${cx} ${top+34}L${cx+30} ${top+62}L${cx+48} ${top+100}M${cx+30} ${top+62}L${cx+22} ${top+108}" fill="none" stroke="var(--muted)" stroke-width="${f1(R(5,3.4,t))}" stroke-linecap="round"/>`;
+ const trap=s?[-1,1].map(dx=>`<ellipse cx="${cx+dx*52*sc}" cy="${base-34}" rx="${f1(R(8,26,t))}" ry="${f1(R(6,18,t))}" fill="${TR}" opacity=".5"/>`).join(""):"";
+ const nw=[0,2,4,0][s],wp=[[-46,104],[46,104],[-60,150],[60,150]];
+ const wz=wp.slice(0,nw).map(([dx,y])=>`<path d="M${cx+dx-12} ${y}q3 -5 6 0t6 0t6 0t6 0" class="fs" opacity="1"><animate attributeName="opacity" values=".35;.35;1;.35" keyTimes="0;.5;.75;1" dur="4s" repeatCount="indefinite"/></path>`).join("");
+ const len=R(70,14,t);
+ const air=[0,1].map(i=>`<circle r="3" class="anm" fill="var(--scrub)"><animateMotion path="M${cx} 32V${f1(32+len)}" keyPoints="0;1;0" keyTimes="0;.5;1" calcMode="linear" dur="4s" begin="${i*.25}s" repeatCount="indefinite"/></circle>`).join("");
+ const amp=R(.05,.01,t);
+ const px=320,py=48,ph=140,frac=[.92,.72,.5,.22][s],cy=py+ph*(1-frac);
+ const silent="";
+ return head(`Polmoni, ${NOMI[s]}: ${["nessun sibilo, PEF vicino al migliore personale","sibili espiratori, poca aria intrappolata, PEF in calo","sibili forti, aria intrappolata, PEF basso","nessun sibilo perché l'aria quasi non si muove, torace silente, PEF molto basso o non eseguibile"][s]}`,
+ `<text x="16" y="18" class="ft fb">Polmoni: sibili e aria intrappolata</text>
+ <g style="transform-origin:${cx}px ${base}px;transform-box:view-box"><g><animateTransform attributeName="transform" type="scale" additive="sum" values="1;${1+amp};1" keyTimes="0;.5;1" dur="4s" repeatCount="indefinite"/>${half(-1)}${half(1)}${trap}</g></g>
+ ${tree}${air}${wz}${silent}
+ <path d="M${cx-104} ${base+14}Q${cx} ${f1(R(base-26,base+4,t))} ${cx+104} ${base+14}" fill="none" stroke="#d9637b" stroke-width="4" stroke-linecap="round"/>
+ ${s===3?`<text x="16" y="${H-20}" class="ft fb" style="fill:${AL}">Torace silente</text><text x="16" y="${H-6}" class="ft fsm">niente sibili: l'aria quasi non si muove</text>`:`<text x="16" y="${H-6}" class="ft fsm">Sibili: ${["assenti","espiratori","forti, in tutto il torace"][s]}</text>`}
+ <path d="M246 30V236" class="lead"/>
+ <text x="${px+15}" y="30" class="ft fb" text-anchor="middle">PEF</text>
+ <rect x="${px}" y="${py}" width="30" height="${ph}" rx="2" class="eyrow"/>
+ <rect x="${px+6}" y="${py+ph}" width="18" height="16" rx="2" class="eyrow"/>
+ <path d="M${px-6} ${py+ph*.08}H${px+36}" class="lead" stroke-dasharray="3 3"/>
+ <text x="${px+42}" y="${f1(py+ph*.08+4)}" class="ft fsm">migliore</text><text x="${px+42}" y="${f1(py+ph*.08+16)}" class="ft fsm">personale</text>
+ <rect x="${px+2}" y="${f1(cy-3)}" width="26" height="6" rx="1" fill="var(--scrub)"><animate attributeName="y" values="${py+ph-6};${py+ph-6};${f1(cy-3)};${f1(cy-3)}" keyTimes="0;.5;.6;1" dur="4s" repeatCount="indefinite"/></rect>
+ <path d="M${px-24} ${f1(cy)}H${px-2}" class="lead"/><text x="${px-28}" y="${f1(cy+4)}" class="ft fsm" text-anchor="end">oggi</text>
+ <text x="258" y="${H-24}" class="ft fsm">PEF ${["vicino al migliore","in calo","basso","molto basso o"][s]}</text>
+ <text x="258" y="${H-10}" class="ft fsm">${["personale","rispetto al migliore","rispetto al migliore","non eseguibile"][s]}</text>`)};
+/* 3. Persona */
+const pers=s=>{const t=s/3,cx=104,hy=88,lean=R(0,9,t);
+ const scm=s>=2?`<path d="M${cx-15} ${hy+19}L${cx-5} ${hy+50}M${cx+15} ${hy+19}L${cx+5} ${hy+50}" stroke="#d9637b" stroke-width="${s===2?3.2:5}" stroke-linecap="round" fill="none"/>`:`<path d="M${cx-15} ${hy+19}L${cx-5} ${hy+50}M${cx+15} ${hy+19}L${cx+5} ${hy+50}" class="lead" stroke-dasharray="2 3"/>`;
+ const ribs=[0,1,2,3].map(i=>`<path d="M${cx-46} ${hy+70+i*22}q46 ${12} 92 0" class="lead"/>`).join("");
+ const retr=s>=2?[0,1,2].map(i=>`<path d="M${cx-30} ${hy+80+i*22}l5 4l-5 4M${cx+30} ${hy+80+i*22}l-5 4l5 4" stroke="${AL}" stroke-width="1.4" fill="none"/>`).join(""):"";
+ const amp=R(.03,.012,t);
+ const say=["«Sto bene, parlo senza fatica.»","«Mi manca un po' il fiato, ma parlo.»","«Faccio... fatica... a parlare...»","«Aiuto...»"][s];
+ const row=(y,n,v,k)=>`<text x="244" y="${y}" class="ft fb">${n}</text><text x="244" y="${y+13}" class="ft fsm">${v}</text>${k?`<circle cx="424" cy="${y-4}" r="4" class="${k}"/>`:""}`;
+ const kk=["k-ok","k-ok","k-warn","k-alarm"][s];
+ const g0=252,g1=424,gy=218,X=v=>f1(g0+(v-84)/16*(g1-g0)),lev=[98,96,93,87][s];
+ return head(`Persona durante ${NOMI[s]}: ${["respira tranquilla e parla normalmente","parla a frasi, muscoli accessori non usati","parla a frasi spezzate, usa i muscoli accessori","parla a parole singole, sporta in avanti, muscoli accessori molto attivi, saturazione sotto il 90 per cento"][s]}`,
+ `<path d="M150 20H${s===3?262:412}a2 2 0 0 1 2 2V50a2 2 0 0 1 -2 2H156L140 66L148 52H150a2 2 0 0 1 -2 -2V22a2 2 0 0 1 2 -2Z" class="fbx"/>
+ <text x="160" y="40" class="ft">${say}</text>
+ <g transform="rotate(${f1(lean)} ${cx} 240)">
+ <g style="transform-origin:${cx}px 240px;transform-box:view-box"><g><animateTransform attributeName="transform" type="scale" additive="sum" values="1;${1+amp};1" keyTimes="0;.5;1" dur="4s" repeatCount="indefinite"/>
+ <path d="M${cx-14} ${hy+18}V${hy+46}Q${cx-60} ${hy+50} ${cx-70} ${hy+70}L${cx-72} 244H${cx+72}L${cx+70} ${hy+70}Q${cx+60} ${hy+50} ${cx+14} ${hy+46}V${hy+18}Z" class="fa"/>
+ <path d="M${cx-14} ${hy+18}V${hy+46}Q${cx-60} ${hy+50} ${cx-70} ${hy+70}L${cx-72} 244M${cx+72} 244L${cx+70} ${hy+70}Q${cx+60} ${hy+50} ${cx+14} ${hy+46}V${hy+18}" class="fl"/>
+ ${ribs}${retr}</g></g>
+ <circle cx="${cx}" cy="${hy}" r="24" class="ff"/><circle cx="${cx}" cy="${hy}" r="24" class="fl"/>${scm}
+ ${s>=2?`<ellipse cx="${cx}" cy="${hy+11}" rx="${s===3?6:4.5}" ry="${s===3?5:3.5}" class="fl"/>`:`<path d="M${cx-7} ${hy+11}H${cx+7}" class="fl"/>`}<circle cx="${cx-8}" cy="${hy-4}" r="1.8" class="fh"/><circle cx="${cx+8}" cy="${hy-4}" r="1.8" class="fh"/></g>
+ <path d="M234 74V236" class="lead"/>
+ ${row(88,"Muscoli accessori",["non usati","di solito non usati","spesso usati","usati, rientramenti"][s],s>=2?kk:"")}
+ ${row(122,"Postura",["normale","può stare sdraiata","preferisce stare seduta","seduta, sporta in avanti"][s],"")}
+ ${row(156,"Torace",["nessun sibilo","sibili espiratori","sibili forti","torace silente"][s],kk)}
+ <text x="244" y="188" class="ft fb">SpO₂</text>
+ <rect x="${g0}" y="${gy-5}" width="${g1-g0}" height="10" rx="2" class="eyrow"/>
+ <rect x="${g0}" y="${gy-5}" width="${f1(X(lev)-g0)}" height="10" rx="2" class="${["k-ok","k-ok","k-warn","k-alarm"][s]}"/>
+ <path d="M${X(92)} ${gy-9}V${gy+9}M${X(90)} ${gy-9}V${gy+9}" class="fl"/>
+ <text x="${X(92)}" y="${gy-12}" class="ft fsm" text-anchor="middle">92% BTS/SIGN</text>
+ <text x="${X(90)}" y="${gy+20}" class="ft fsm" text-anchor="middle">90% GINA</text>
+ <text x="${g1}" y="188" class="ft fsm" text-anchor="end">${["normale","normale","può calare","sotto il 90%"][s]}</text>`)};
+SIM.push({id:"sim-asma",enc:["asma"],t:"Simulatore: l'attacco d'asma passo per passo",d:"Scegli quanto è grave l'attacco e il livello da osservare, dal bronco alla persona. Il disegno è schematico: le proporzioni servono a capire, non a misurare.",
+ stadi:["Controllata","Attacco lieve","Attacco moderato","Attacco grave (torace silente)"],dur:"4s",fasi:["Inspirazione","Espirazione"],
+ livelli:[
+  {t:"Bronco",sub:"broncospasmo",svg:bron,
+   val:["Infiammazione di fondo","Broncospasmo","Spasmo, edema e muco","Lume quasi chiuso"],
+   testo:["Anche quando l'asma è controllata la mucosa resta un po' infiammata (eosinofili, mastociti): per questo la terapia di fondo con cortisonico inalatorio va presa ogni giorno.","Un fattore scatenante (allergene, infezione, sforzo, freddo, fumo) attiva i mastociti, che liberano mediatori: il muscolo liscio si contrae e il lume si restringe.","Al broncospasmo si aggiungono l'edema della mucosa e più muco: il lume si riduce ancora e in espirazione l'aria esce con fatica.","Muscolo contratto, mucosa gonfia e tappi di muco chiudono quasi del tutto il bronco. A differenza della BPCO l'ostruzione è reversibile, ma qui serve un trattamento urgente."]},
+  {t:"Polmone",sub:"sibili e PEF",svg:lung,
+   val:["Nessun sibilo","Sibili espiratori","Aria intrappolata","Torace silente"],
+   testo:["Le vie aeree sono pervie: niente sibili e il PEF è vicino al migliore valore personale.","L'aria che passa in bronchi stretti fa vibrare le pareti: si sentono sibili, soprattutto in espirazione. Il PEF comincia a calare.","L'espirazione si allunga e non finisce: parte dell'aria resta intrappolata e il torace si gonfia. Sibili forti, PEF basso.","Il flusso è così scarso che i sibili spariscono: il torace silente non è un miglioramento ma un segno di gravità estrema. Spesso il PEF non si riesce a misurare."]},
+  {t:"Persona",sub:"segni",svg:pers,
+   val:["Parla normalmente","Parla a frasi","Frasi spezzate","Parole singole"],
+   testo:["Respiro tranquillo, parla senza fatica e svolge le attività di ogni giorno.","Fiato corto e sibili, ma riesce a parlare a frasi e a stare sdraiata; muscoli accessori di solito a riposo.","Parla a frasi spezzate, preferisce stare seduta e usa i muscoli accessori (sternocleidomastoidei, rientramenti intercostali). La SpO₂ può calare.","Parla a parole singole o non riesce a parlare, sta seduta sporta in avanti, torace silente e SpO₂ sotto il 90% (sotto il 92% secondo BTS/SIGN indica rischio per la vita): è un'emergenza."]}],
+ legenda:[["#c0504d","Muscolo liscio"],["#e2789a","Mucosa"],["#9bc53d","Muco"],["#f0a23a","Eosinofili"],["#8e63c9","Mastociti"],["#3aa0d8","Aria intrappolata"],["var(--scrub)","Flusso d'aria e sibili"]],
+ n:"GINA, Global Strategy for Asthma Management and Prevention 2024 (ginasthma.org); Reddel HK et al., GINA 2021 executive summary, Am J Respir Crit Care Med 2022 (PMID 34658302, da verificare); BTS/SIGN British guideline on the management of asthma 2019. Classificazione in quattro gradi e segni per grado (frasi, postura, muscoli accessori, sibili) dalle tabelle GINA della gravità dell'attacco: da verificare."});
+})();
