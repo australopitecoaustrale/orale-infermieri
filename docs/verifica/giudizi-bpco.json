@@ -1,0 +1,82 @@
+[
+ {
+  "id": "bpco#p1",
+  "testo": "Diagnosi: sintomi respiratori e/o esposizione a fattori di rischio, confermata dalla spirometria con VEMS/CVF < 0,70 dopo broncodilatatore",
+  "fonte": "GOLD 2025 Report (goldcopd.org, testo letto); Weiss G et al. Respiration 2014, PMID 24296512; GOLD 2023 Exec Summary PMID 36858443",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "Due fonti indipendenti; precisato il contesto clinico."
+ },
+ {
+  "id": "bpco#p8",
+  "testo": "Riacutizzazione: ossigeno controllato (SpO2 88-92%), broncodilatatori, cortisonici, antibiotici se indicati, NIV (su prescrizione) se acidosi respiratoria ipercapnica (pH < 7,35 con PaCO₂ > 45 mmHg)",
+  "fonte": "GOLD 2025 Report (SpO2 88-92%); Jensen ASR et al. Trials 2024, PMID 38273393; Austin MA et al. BMJ 2010, PMID 20959284; Osadnik CR et al. Cochrane 2017, PMID 28702957",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "Soglia NIV scritta come Cochrane (< 7,35 / > 45); formulazione GOLD da verificare (scritto in n)."
+ },
+ {
+  "id": "bpco#v0",
+  "testo": "Diagnosi spirometrica: VEMS/CVF < 0,70 dopo broncodilatatore",
+  "fonte": "GOLD 2025 Report; Weiss G et al. Respiration 2014, PMID 24296512",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "bpco#v1",
+  "testo": "GOLD 1 (lieve): VEMS ≥ 80% del teorico",
+  "fonte": "GOLD 2023 PMID 36858443; Weiss 2014 PMID 24296512; ClinicalTrials.gov NCT03151395, NCT03611777",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "Due fonti indipendenti"
+ },
+ {
+  "id": "bpco#v2",
+  "testo": "GOLD 2 (moderata): VEMS 50-79% del teorico",
+  "fonte": "Come v1",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "50% ≤ VEMS < 80%"
+ },
+ {
+  "id": "bpco#v3",
+  "testo": "GOLD 3 (grave): VEMS 30-49% del teorico",
+  "fonte": "Come v1; NCT02343458",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "30% ≤ VEMS < 50%"
+ },
+ {
+  "id": "bpco#v4",
+  "testo": "GOLD 4 (molto grave): VEMS < 30% del teorico",
+  "fonte": "Come v3",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "bpco#v5",
+  "testo": "SpO₂ obiettivo nella riacutizzazione: 88-92%",
+  "fonte": "GOLD 2025 Report; Jensen ASR et al. Trials 2024, PMID 38273393",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "Due fonti indipendenti"
+ },
+ {
+  "id": "bpco#q0",
+  "testo": "La diagnosi di BPCO richiede alla spirometria un rapporto VEMS/CVF dopo broncodilatatore… → < 0,70 (Criterio diagnostico GOLD: VEMS/CVF < 0,70 dopo broncodilatatore.)",
+  "fonte": "Come v0",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "Spiegazione resa esplicita"
+ },
+ {
+  "id": "bpco#q4",
+  "testo": "Persona con VEMS/CVF < 0,70 dopo broncodilatatore e VEMS al 40% del teorico: quale stadio GOLD? → GOLD 3 (GOLD 1 ≥ 80%, GOLD 2 50-79%, GOLD 3 30-49%, GOLD 4 < 30% del teorico.)",
+  "fonte": "Come v1-v4",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "Risposta univoca"
+ }
+]

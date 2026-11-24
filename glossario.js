@@ -870,5 +870,9 @@ GLOSS.push(
 ["Complesso punta-onda","s","Punta seguita subito da un'onda lenta; a circa 3 Hz e generalizzato è tipico delle assenze tipiche.","Spike-and-slow-wave complex","eeg-epilessia"],
 ["Ipsaritmia","s","Tracciato EEG caotico con onde lente di ampiezza molto alta (> 300 µV) e punte in più regioni dei due emisferi; tipico degli spasmi epilettici infantili.","Hypsarrhythmia","eeg-epilessia"],
 ["Sindrome di Lennox-Gastaut","d","Encefalopatia epilettica e dello sviluppo dell'infanzia con crisi toniche e altri tipi di crisi, disabilità intellettiva e farmacoresistenza; all'EEG punta-onda lenta ≤ 2,5 Hz e attività rapida generalizzata nel sonno.","Lennox-Gastaut syndrome","eeg-epilessia"],
-["Video-EEG","t","Registrazione prolungata di EEG e video insieme, per vedere cosa accade al corpo e al tracciato durante un evento e distinguere crisi epilettiche da eventi non epilettici.","Video-EEG monitoring","eeg-epilessia"]
+["Video-EEG","t","Registrazione prolungata di EEG e video insieme, per vedere cosa accade al corpo e al tracciato durante un evento e distinguere crisi epilettiche da eventi non epilettici.","Video-EEG monitoring","eeg-epilessia"],
+["Enfisema polmonare","d","Distruzione permanente dei setti alveolari, che fa confluire gli alveoli in spazi più grandi: meno superficie di scambio e meno ritorno elastico. È una delle componenti della BPCO.","Pulmonary emphysema","bpco"],
+["Iperinflazione dinamica","t","Aumento progressivo del volume di aria nei polmoni, atto dopo atto, perché l'espirazione non fa in tempo a completarsi; tipica della BPCO sotto sforzo.","Dynamic hyperinflation","bpco"],
+["Elastasi dei neutrofili","t","Enzima delle cellule infiammatorie che digerisce l'elastina; quando prevale sulle antiproteasi distrugge i setti alveolari (enfisema).","Neutrophil elastase","bpco"],
+["Bronchite cronica","d","Tosse con espettorato per almeno tre mesi all'anno per due anni consecutivi; nella BPCO corrisponde a infiammazione e ipersecrezione di muco nelle vie aeree.","Chronic bronchitis","bpco"]
 );
