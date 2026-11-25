@@ -595,7 +595,7 @@ const FIGURE=[
   /* ===== intestazione: ciclo del respiro ===== */
   o+=T(8,20,"Ciclo del respiro",{sm:true});
   o+=`<rect class="fbx" x="124" y="6" width="192" height="19" rx="2"/>`;
-  o+=`<rect class="fbx k-info" x="124" y="6" width="96" height="19" rx="2" opacity="0"><animate attributeName="opacity" values="1;0" keyTimes="0;.4" calcMode="discrete" dur="${D}"${R}/></rect>`;
+  o+=`<rect class="fbx k-info" x="124" y="6" width="96" height="19" rx="2" opacity="1"><animate attributeName="opacity" values="1;0" keyTimes="0;.4" calcMode="discrete" dur="${D}"${R}/></rect>`;
   o+=`<rect class="fbx k-info" x="220" y="6" width="96" height="19" rx="2" opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;.4" calcMode="discrete" dur="${D}"${R}/></rect>`;
   o+=T(172,19,"inspirazione",{a:"middle",sm:true})+T(268,19,"espirazione",{a:"middle",sm:true});
   /* colonne */
@@ -630,7 +630,7 @@ const FIGURE=[
     /* caliciformi */
     [5,78,135,195,250,310].forEach((a,i)=>{const p=pol(cx,cy,27.5,a);o+=`<ellipse cx="${P(...p).split(" ")[0]}" cy="${P(...p).split(" ")[1]}" rx="2.7" ry="4.6" transform="rotate(${a+90} ${r1(p[0])} ${r1(p[1])})" style="${FL("amber",45)};stroke:var(--amber);stroke-width:.9"/>`});
     /* ciglia rade e rotte */
-    [{a:50,b:1},{a:112,b:-1},{a:168,b:1},{a:290,b:-1}].forEach(({a,b})=>{const p=pol(cx,cy,LU(a)-.5,a),c=pol(cx,cy,LU(a)-3,a+6*b),q=pol(cx,cy,LU(a)-5,a+16*b);o+=`<path d="M${P(...p)}Q${P(...c)} ${P(...q)}" style="${ST(.9)};fill:none"/>`});
+    [{a:78,b:1},{a:112,b:-1},{a:168,b:1},{a:290,b:-1}].forEach(({a,b})=>{const p=pol(cx,cy,LU(a)-.5,a),c=pol(cx,cy,LU(a)-3,a+6*b),q=pol(cx,cy,LU(a)-5,a+16*b);o+=`<path d="M${P(...p)}Q${P(...c)} ${P(...q)}" style="${ST(.9)};fill:none"/>`});
     /* cellule infiammatorie */
     [[10,40],[44,38],[86,40],[132,39],[172,41],[214,39],[256,41],[300,40],[336,38],[62,33],[198,33],[322,32]].forEach(([a,rr])=>{const p=pol(cx,cy,rr,a);o+=`<ellipse cx="${r1(p[0])}" cy="${r1(p[1])}" rx="2.6" ry="2.1" transform="rotate(${a} ${r1(p[0])} ${r1(p[1])})" style="${NEU}"/>`});
     [[-24,37],[150,35],[238,36]].forEach(([a,rr])=>{const p=pol(cx,cy,rr,a);o+=`<circle cx="${r1(p[0])}" cy="${r1(p[1])}" r="4.6" style="${MAC}"/><circle cx="${r1(p[0]+1)}" cy="${r1(p[1])}" r="1.8" style="fill:var(--scrub)"/>`});
@@ -638,12 +638,12 @@ const FIGURE=[
     o+=T(X,c1+16,["parete spessa,","infiammata"],{sm:true})+LD(X-3,c1+13,...pol(cx,cy,40,-52));
     o+=T(X,c1+48,["neutrofili,","macrofagi"],{sm:true})+LD(X-3,c1+45,...pol(cx,cy,37,-24));
     o+=T(X,c1+80,"caliciformi ↑",{sm:true})+LD(X-3,c1+77,...pol(cx,cy,27.5,5));
-    o+=T(X,c1+98,"muco nel lume",{sm:true})+LD(X-3,c1+95,cx+8,cy+5);
-    o+=T(X,c1+116,"ciglia rotte",{sm:true})+LD(X-3,c1+113,...pol(cx,cy,LU(50)-4,50));
+    o+=T(X,c1+98,"muco nel lume",{sm:true})+LD(X-3,c1+95,cx+10,cy+3);
+    o+=T(X,c1+116,"ciglia rotte",{sm:true})+LD(X-3,c1+113,...pol(cx,cy,LU(78)-4,78));
   }
 
   /* ===== 2. Alveoli ===== */
-  const t2=c1+H1+24,c2=t2+16,H2=170,cy2=c2+54;
+  const t2=c1+H1+24,c2=t2+24,H2=168,cy2=c2+54;
   o+=level(t2,2,"Alveoli","enfisema");
   { /* normale */
     o+=`<rect x="16" y="${cy2-37}" width="190" height="74" rx="16" style="${TIS("ok",20)}"/>`;
@@ -659,7 +659,7 @@ const FIGURE=[
     o+=T(112,c2+9,"setti integri",{sm:true})+LD(128,c2+13,121,cy2-17);
     o+=T(112,c2+104,"fibre elastiche",{sm:true})+LD(130,c2+93,131.5,cy2+4);
     o+=`<circle class="anm" style="fill:var(--scrub);stroke:var(--paper);stroke-width:1" r="3.4"><animateMotion dur="${D}"${R} calcMode="linear" keyPoints="0;1;0" keyTimes="0;.4;1" path="M20 ${cy2}H100"/></circle>`;
-    o+=T(12,c2+126,["i setti elastici tengono aperta","la via aerea: l'aria entra ed esce,","buon ritorno elastico"],{sm:true});
+    o+=T(12,c2+126,["i setti elastici tengono aperta","la via: l'aria entra ed esce,","buon ritorno elastico"],{sm:true});
   }
   { /* BPCO */
     const wall=p=>`M232 ${cy2-7}H250Q270 ${cy2-7+p} 290 ${cy2-7}H310`,wallB=p=>`M232 ${cy2+7}H250Q270 ${cy2+7-p} 290 ${cy2+7}H310`;
@@ -685,12 +685,12 @@ const FIGURE=[
     o+=`<path d="${wallB(0)}" style="${ST(1.7,"var(--vital)")};fill:none">${an(seq(wallB),"0;.4;.6;.92;1")}</path>`;
     o+=`<circle class="anm" style="fill:var(--scrub);stroke:var(--paper);stroke-width:1" r="3.4"><animateMotion dur="${D}"${R} calcMode="linear" keyPoints="0;1;1" keyTimes="0;.4;1" path="M234 ${cy2}H312C326 ${cy2} 334 ${cy2+2} 344 ${cy2+2}C352 ${cy2-2} 360 ${cy2-8} 366 ${cy2-12}"/><animate attributeName="opacity" values="1;1;1;0;1" keyTimes="0;.4;.9;.96;1" dur="${D}"${R}/></circle>`;
     /* neutrofilo che libera elastasi */
-    o+=`<circle cx="304" cy="${cy2-34}" r="4.8" style="${MAC}"/><circle cx="303" cy="${cy2-35}" r="1.4" style="fill:var(--scrub)"/><circle cx="306" cy="${cy2-34}" r="1.4" style="fill:var(--scrub)"/><circle cx="304.4" cy="${cy2-32}" r="1.4" style="fill:var(--scrub)"/>`;
-    o+=FT.arrow(309,cy2-31,316,cy2-22,{h:5});
+    o+=`<circle cx="310" cy="${cy2-36}" r="4.8" style="${MAC}"/><circle cx="309" cy="${cy2-37}" r="1.4" style="fill:var(--scrub)"/><circle cx="312" cy="${cy2-36}" r="1.4" style="fill:var(--scrub)"/><circle cx="310.4" cy="${cy2-34}" r="1.4" style="fill:var(--scrub)"/>`;
+    o+=FT.arrow(314,cy2-32,319,cy2-23,{h:5});
     o+=T(232,c2+8,["neutrofilo:","elastasi"],{sm:true});
-    o+=T(340,c2+9,"alveoli confluiti",{sm:true})+LD(368,c2+13,368,cy2-32);
+    o+=T(378,c2+9,"alveoli confluiti",{a:"middle",sm:true})+LD(368,c2+13,368,cy2-32);
     o+=T(232,c2+98,["la via si chiude","in espirazione"],{sm:true})+LD(268,c2+86,268,cy2+8);
-    o+=T(232,c2+126,["setti distrutti: alveoli confluiti,","meno scambio e meno ritorno elastico;","in espirazione la via si chiude:","l'aria resta intrappolata"],{sm:true});
+    o+=T(232,c2+126,["setti distrutti: meno scambio","e meno ritorno elastico;","l'aria resta intrappolata"],{sm:true});
   }
 
   /* ===== 3. Polmone intero ===== */
@@ -713,19 +713,19 @@ const FIGURE=[
       if(!i)s+=`<path d="${fis(mx,lx,ay,by,doms[0],1)}" style="${ST(.8)};fill:none;stroke-opacity:.7"/>`});
     return s};
   { /* normale */
-    const tx=16,tc=tx+50,by=c3+104,doms=[c3+70,c3+98,c3+70];
+    const tx=16,tc=tx+50,by=c3+104,doms=[c3+52,c3+96,c3+52];
     o+=thorax(tx);
-    o+=lungs(tx,[tx+10,tc-5,tc+5,tx+90,c3+14],by,doms,FL("ok",13),ST(1));
+    o+=lungs(tx,[tx+10,tc-5,tc+5,tx+90,c3+14],by,doms,FL("ok",20),ST(1));
     o+=tree(tc,c3+6,[tx+30,c3+46,tx+18,c3+72],[tx+70,c3+46,tx+82,c3+72]);
     const dN=d=>`M${P(tx+10,by)}Q${P((tx+10+tc-5)/2,d)} ${P(tc-5,by-6)}L${P(tc+5,by-6)}Q${P((tx+90+tc+5)/2,d)} ${P(tx+90,by)}`;
     o+=`<path class="fs" d="${dN(doms[0])}">${an(doms.map(dN),"0;.4;1")}</path>`;
     o+=T(126,c3+30,["si svuota","in espirazione"],{sm:true})+LD(123,c3+27,tx+88,c3+40);
-    o+=T(126,c3+88,["diaframma","a cupola,","si muove bene"],{sm:true})+LD(123,c3+85,tx+76,c3+(104+70)/2+2);
+    o+=T(126,c3+88,["diaframma","a cupola,","si muove bene"],{sm:true})+LD(123,c3+85,tx+76,c3+(104+52)/2+2);
   }
   { /* BPCO */
     const tx=232,tc=tx+50,by=c3+116,doms=[c3+116,c3+120,c3+116];
     o+=thorax(tx);
-    o+=lungs(tx,[tx+4,tc-5,tc+5,tx+96,c3+8],by,doms,FL("vital",10),ST(1));
+    o+=lungs(tx,[tx+4,tc-5,tc+5,tx+96,c3+8],by,doms,`fill:color-mix(in srgb,var(--vital) 26%,color-mix(in srgb,var(--ink) 12%,var(--paper)))`,ST(1));
     o+=tree(tc,c3+6,[tx+30,c3+46,tx+16,c3+74],[tx+70,c3+46,tx+84,c3+74]);
     /* aria intrappolata */
     [[tx+20,c3+88],[tx+28,c3+96],[tx+36,c3+84],[tx+66,c3+92],[tx+76,c3+86],[tx+84,c3+98],[tx+30,c3+72],[tx+74,c3+70]].forEach(([x,y])=>{o+=`<circle cx="${x}" cy="${y}" r="1.7" style="fill:none;stroke:var(--scrub);stroke-width:.8"/>`});
@@ -1509,15 +1509,15 @@ const FIGURE=[
   const T=FT.text,R=" repeatCount=\"indefinite\"";
   const S="var(--scrub)",A="var(--amber)";
   const mx=(c,p,b)=>`color-mix(in srgb,${c} ${p}%,${b||"var(--paper)"})`;
-  const nuc=`fill:${mx(S,65,"var(--ink)")};fill-opacity:.8`;
+  const nuc=`fill:${mx(S,25,"var(--ink)")};stroke:var(--paper);stroke-width:.9`;
   let o="";
   /* definizioni: volume della fibra (solo nel disegno anatomico) */
-  o+=`<defs><linearGradient id="dm-g" x1="0" x2="1" y1="0" y2="0"><stop offset="0" style="stop-color:${mx(S,36)}"/><stop offset=".42" style="stop-color:${mx(S,10)}"/><stop offset="1" style="stop-color:${mx(S,30)}"/></linearGradient>`
-   +`<pattern id="dm-p1" x="28" y="64" width="48" height="9" patternUnits="userSpaceOnUse"><rect width="48" height="1.6" style="fill:${S};fill-opacity:.45"/><rect y="2.6" width="48" height="4.4" style="fill:var(--ink);fill-opacity:.07"/></pattern>`
-   +`<pattern id="dm-p2" x="28" y="118" width="48" height="13" patternUnits="userSpaceOnUse"><rect width="48" height="1.6" style="fill:${S};fill-opacity:.45"/><rect y="4.4" width="48" height="4.4" style="fill:var(--ink);fill-opacity:.07"/></pattern>`
-   +`<pattern id="dm-p3" x="28" y="166" width="48" height="9" patternUnits="userSpaceOnUse"><rect width="48" height="1.6" style="fill:${S};fill-opacity:.45"/><rect y="2.6" width="48" height="4.4" style="fill:var(--ink);fill-opacity:.07"/></pattern>`
+  o+=`<defs><linearGradient id="dm-g" x1="0" x2="1" y1="0" y2="0"><stop offset="0" style="stop-color:${mx(S,44)}"/><stop offset=".42" style="stop-color:${mx(S,8)}"/><stop offset="1" style="stop-color:${mx(S,38)}"/></linearGradient>`
+   +`<pattern id="dm-p1" x="28" y="64" width="48" height="9" patternUnits="userSpaceOnUse"><rect width="48" height="1.9" style="fill:${S};fill-opacity:.75"/><rect y="2.6" width="48" height="4.4" style="fill:var(--ink);fill-opacity:.15"/></pattern>`
+   +`<pattern id="dm-p2" x="28" y="118" width="48" height="13" patternUnits="userSpaceOnUse"><rect width="48" height="1.9" style="fill:${S};fill-opacity:.75"/><rect y="4.4" width="48" height="4.4" style="fill:var(--ink);fill-opacity:.15"/></pattern>`
+   +`<pattern id="dm-p3" x="28" y="166" width="48" height="9" patternUnits="userSpaceOnUse"><rect width="48" height="1.9" style="fill:${S};fill-opacity:.75"/><rect y="2.6" width="48" height="4.4" style="fill:var(--ink);fill-opacity:.15"/></pattern>`
    +`<clipPath id="dm-c"><rect x="28" y="64" width="48" height="140" rx="12"/></clipPath>`
-   +`<clipPath id="dm-ca"><rect x="30" y="420" width="183" height="100"/></clipPath><clipPath id="dm-cb"><rect x="213" y="420" width="220" height="100"/></clipPath></defs>`;
+   +`<clipPath id="dm-ca"><rect x="30" y="470" width="183" height="100"/></clipPath><clipPath id="dm-cb"><rect x="213" y="470" width="220" height="100"/></clipPath></defs>`;
   /* intestazioni di colonna */
   const hd=(x,w,s)=>T(x,14,s,{sm:true,b:true,c:"dm-h"})+`<path class="lead" d="M${x} 21H${x+w}" style="stroke-opacity:.6"/>`;
   o+=hd(8,150,"1 · Contrazione eccentrica")+hd(168,122,"2 · Due vie")+hd(300,132,"3 · Nocicettore");
@@ -1527,11 +1527,11 @@ const FIGURE=[
   o+=`<g clip-path="url(#dm-c)"><rect x="28" y="64" width="48" height="140" fill="url(#dm-g)"/>`
    +`<rect x="28" y="64" width="48" height="54" fill="url(#dm-p1)"/><rect x="28" y="118" width="48" height="48" fill="url(#dm-p2)"/><rect x="28" y="166" width="48" height="38" fill="url(#dm-p3)"/>`
    +`<rect x="37" y="64" width="3" height="140" style="fill:var(--paper);fill-opacity:.4"/>`
-   +[[33,88],[33,142],[33,188]].map(p=>`<ellipse cx="${p[0]}" cy="${p[1]}" rx="3.4" ry="6.5" style="${nuc}"/>`).join("")
-   +`</g><rect x="28" y="64" width="48" height="140" rx="12" style="fill:none;stroke:${S};stroke-width:1.4"/>`;
+   +[[33,88],[33,142],[33,188]].map(p=>`<ellipse cx="${p[0]}" cy="${p[1]}" rx="3.8" ry="7" style="${nuc}"/>`).join("")
+   +`</g><rect x="28" y="64" width="48" height="140" rx="12" style="fill:none;stroke:${S};stroke-width:1.7"/>`;
   o+=`<path class="lead" d="M24 118H20V166H24"/><text class="ft fsm" transform="rotate(-90 12 142)" x="12" y="142" text-anchor="middle">sarcomeri allungati</text>`;
   /* cellula satellite accanto alla fibra */
-  o+=`<ellipse cx="83" cy="168" rx="9" ry="15" style="fill:${mx(S,30)};stroke:${S};stroke-width:1.3"/><ellipse cx="84" cy="168" rx="4.6" ry="8.6" style="${nuc}"/>`;
+  o+=`<ellipse cx="83" cy="168" rx="9.5" ry="15.5" style="fill:${mx(S,62)};stroke:var(--ink);stroke-width:1.4"/><ellipse cx="84" cy="168" rx="5.2" ry="9.6" style="${nuc}"/>`;
   o+=`<path class="lead" d="M92 170H98"/>`+T(101,174,"cellula satellite",{sm:true});
   o+=`<path class="lead" d="M34 228V198"/><circle cx="34" cy="198" r="1.8" style="fill:${S}"/>`+T(8,240,"fibra muscolare",{sm:true});
   /* 3. terminazione nervosa (nocicettore) */
@@ -1547,8 +1547,8 @@ const FIGURE=[
     o+=`<circle cx="312" cy="${y}" r="4.2" style="fill:${A};stroke:var(--paper);stroke-width:1.2"/>`;
   });
   o+=`<circle cx="324" cy="118" r="3.6" style="fill:${nv};stroke:var(--paper);stroke-width:1.2"/>`;
-  o+=T(300,40,["terminazioni nervose","del dolore (nocicettori)"],{sm:true});
-  o+=`<path class="lead" d="M376 53V108"/><circle cx="376" cy="113" r="1.8" style="fill:var(--muted)"/>`;
+  o+=T(300,38,["terminazioni nervose","del dolore","(nocicettori)"],{sm:true,lh:13});
+  o+=`<path class="lead" d="M424 66V112"/><circle cx="424" cy="115" r="1.8" style="fill:var(--muted)"/>`;
   /* 2. le due vie */
   const L1="M100 118C110 118 112 88 140 88H300",L2="M100 118C110 118 112 148 140 148H300";
   const lane=d=>`<path d="${d}" style="fill:none;stroke:${S};stroke-width:1.5;stroke-linecap:round"/>`;
@@ -1567,10 +1567,10 @@ const FIGURE=[
     o+=`<circle class="anm" r="3" style="fill:${S};stroke:var(--paper);stroke-width:1"><animateMotion dur="4.2s" begin="${b}s"${R} calcMode="linear" path="${d}"/></circle>`;
   });});
   /* iperalgesia */
-  o+=FT.arrow(366,168,366,184,{});
-  o+=FT.box(300,186,132,62,["Iperalgesia","meccanica"],["dolore alla pressione","e al movimento"],"warn");
+  o+=FT.arrow(366,170,366,190,{});
+  o+=FT.box(296,194,136,76,["Iperalgesia","meccanica"],["dolore alla","pressione e","al movimento"],"warn");
   /* legenda delle sigle */
-  const ky=262;
+  const ky=292;
   o+=`<path class="lead" d="M8 ${ky}H432" style="stroke-opacity:.6"/>`;
   [["B2","recettore della bradichinina"],["NGF","fattore di crescita nervoso"],["COX-2","ciclo-ossigenasi 2"],["GDNF","fattore neurotrofico di derivazione gliale"]].forEach((r,i)=>{
     const y=ky+i*16;
@@ -1578,12 +1578,14 @@ const FIGURE=[
     if(i<3)o+=`<path class="lead" d="M8 ${y+16}H432" style="stroke-opacity:.25"/>`;
   });
   /* messaggio chiave */
-  o+=`<rect class="fbx k-info" x="8" y="338" width="424" height="58" rx="2"/><rect x="8" y="338" width="4" height="58" style="fill:${S}"/>`;
-  o+=T(24,358,"Il danno della fibra non è necessario",{b:true});
-  o+=T(24,374,["può esserci, ma NGF e GDNF hanno un ruolo cruciale","dati dal ratto · rassegna di Mizumura e Taguchi, 2016"],{sm:true});
+  o+=`<rect x="8" y="372" width="424" height="76" rx="2" style="fill:${mx(S,5)};stroke:${mx(S,55)};stroke-width:1"/>`;
+  o+=T(22,393,"Il danno della fibra non è necessario",{b:true});
+  o+=T(22,410,"può esserci, ma NGF e GDNF hanno un ruolo cruciale",{sm:true});
+  o+=`<path class="lead" d="M22 420H418" style="stroke-opacity:.35"/>`;
+  o+=T(22,438,"fonte: dati dal ratto · Mizumura e Taguchi, 2016",{sm:true,c:"dm-src"});
   /* linea temporale */
-  const X=h=>40+h*3.6,B=500,TP=438;
-  o+=T(8,418,"Andamento del dolore nel tempo (schematico)",{sm:true,b:true});
+  const X=h=>40+h*3.6,B=552,TP=490;
+  o+=T(8,470,"Andamento del dolore nel tempo (schematico)",{sm:true,b:true});
   o+=`<rect x="${X(24)}" y="${TP}" width="${X(72)-X(24)}" height="${B-TP}" style="fill:${A};fill-opacity:.11"/>`;
   o+=`<path class="dash" d="M${X(24)} ${B}V${TP}M${X(72)} ${B}V${TP}" style="stroke-opacity:.6"/>`;
   o+=`<path class="fl" d="M40 ${TP-2}V${B}H428" style="stroke-width:1.2"/>`;
@@ -1595,11 +1597,11 @@ const FIGURE=[
   o+=`<g clip-path="url(#dm-ca)"><path class="fw" d="${dd}"/></g><g clip-path="url(#dm-cb)"><path class="fw dash" d="${dd}" style="stroke:${A}"/></g>`;
   o+=T(430,TP+22,["poi cala in","alcuni giorni"],{a:"end",sm:true});
   /* intervalli */
-  const br=(a,b,y,col,dsh)=>`<path d="M${X(a)} ${y-3}V${y}H${X(b)}V${y-3}" style="fill:none;stroke:${col};stroke-width:1.3"/>`;
-  o+=br(12,48,B+30,"var(--muted)")+T((X(12)+X(48))/2,B+44,"comparsa: 12–48 h",{a:"middle",sm:true});
-  o+=br(24,72,B+56,A)+`<path d="M${X(72)} ${B+56}H${X(96)}" style="fill:none;stroke:${A};stroke-width:1.3;stroke-dasharray:3 3"/><path d="M${X(96)} ${B+53}V${B+56}" style="stroke:${A};stroke-width:1.3"/>`
-   +T((X(24)+X(96))/2,B+70,"picco: 24–72 h, a volte fino a 96 h",{a:"middle",sm:true});
-  return FT.svg(440,B+80,"Schema dei DOMS in tre colonne. Uno: contrazione eccentrica in un esercizio insolito, cioè muscolo stirato mentre si contrae; si disegna una fibra muscolare a strisce con nuclei, un segmento di sarcomeri allungati, e accanto una cellula satellite. Due: fibra e cellule satelliti producono due mediatori lungo due vie. Prima via: bradichinina, recettore B2, fattore di crescita nervoso NGF. Seconda via: COX-2 (ciclo-ossigenasi 2), fattore neurotrofico di derivazione gliale GDNF. Tre: le due vie raggiungono le terminazioni nervose del dolore (nocicettori), che si attivano e portano all'iperalgesia meccanica, cioè dolore alla pressione e al movimento. Messaggio chiave: il danno della fibra non è necessario, può esserci; NGF e GDNF hanno un ruolo cruciale (dati dal ratto, rassegna di Mizumura e Taguchi 2016). In basso la linea temporale schematica: il dolore compare dopo 12-48 ore dall'esercizio, ha il picco tra 24 e 72 ore, a volte fino a 96, poi cala in alcuni giorni.",o);
+  const br=(a,b,y,col)=>`<path d="M${X(a)} ${y-4}V${y}H${X(b)}V${y-4}" style="fill:none;stroke:${col};stroke-width:1.3"/>`;
+  o+=br(12,48,B+32,"var(--muted)")+T(X(12),B+50,"comparsa: 12–48 h",{sm:true});
+  o+=br(24,72,B+68,A)+`<path d="M${X(72)} ${B+68}H${X(96)}V${B+64}" style="fill:none;stroke:${A};stroke-width:1.3;stroke-dasharray:3 3"/>`
+   +T(X(24),B+86,"picco: 24–72 h, a volte fino a 96 h",{sm:true});
+  return FT.svg(440,B+96,"Schema dei DOMS in tre colonne. Uno: contrazione eccentrica in un esercizio insolito, cioè muscolo stirato mentre si contrae; si disegna una fibra muscolare a strisce con nuclei, un segmento di sarcomeri allungati, e accanto una cellula satellite. Due: fibra e cellule satelliti producono due mediatori lungo due vie. Prima via: bradichinina, recettore B2, fattore di crescita nervoso NGF. Seconda via: COX-2 (ciclo-ossigenasi 2), fattore neurotrofico di derivazione gliale GDNF. Tre: le due vie raggiungono le terminazioni nervose del dolore (nocicettori), che si attivano e portano all'iperalgesia meccanica, cioè dolore alla pressione e al movimento. Messaggio chiave: il danno della fibra non è necessario, può esserci; NGF e GDNF hanno un ruolo cruciale (dati dal ratto, rassegna di Mizumura e Taguchi 2016). In basso la linea temporale schematica: il dolore compare dopo 12-48 ore dall'esercizio, ha il picco tra 24 e 72 ore, a volte fino a 96, poi cala in alcuni giorni.",o);
  })()},
 {id:"fig-encefalo-regioni",t:"Encefalo: le grandi regioni e che cosa fanno",c:"Sezione sagittale mediana schematica, fronte a sinistra. I colori raggruppano le regioni per famiglia: verde e azzurro il telencefalo (corteccia con i quattro lobi, nuclei della base, ippocampo), rosso il diencefalo (talamo, ipotalamo con l'ipofisi), viola e arancio il tronco encefalico (mesencefalo, ponte, bulbo), oliva il cervelletto. Il lobo temporale, i nuclei della base e l'ippocampo stanno di lato alla linea mediana: sono accennati. Sotto il bulbo continua il midollo spinale.",
  enc:["encefalo-regioni","sistema-nervoso"],gl:["Talamo","Ipotalamo","Cervelletto","Tronco encefalico"],st:/encefal|talam|cervellet|tronco|ipotalam|regioni cerebr/i,
