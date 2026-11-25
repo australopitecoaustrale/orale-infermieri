@@ -3198,28 +3198,175 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   return FT.svg(380,Y+4,"Tavola sullo iodio e la tiroide. A: la tiroide davanti alla trachea, con due lobi e un ingrandimento dei follicoli con colloide e capillare. B: la via dello iodio da latte e latticini, pesce e sale iodato al sangue, alla tiroide, che produce T4 e T3 per metabolismo e sviluppo del sistema nervoso; pallini animati lungo il percorso. C: asse ipotalamo, ipofisi, tiroide con TSH; il feedback negativo lascia che l'eccesso di ormone inibisca la produzione, con frecce animate. D: tiroide normale e gozzo; segni da segnalare: difficoltà a deglutire o respirare, raucedine; difetto di ormoni è ipotiroidismo; in gravidanza il feto dipende dalla tiroxina materna per circa 20 settimane; ioduria mediana sufficiente da 100 microgrammi per litro, 150-249 in gravidanza; apporto proposto dagli autori 150 microgrammi al giorno, OMS 250 in gravidanza e allattamento.",o);
  })()},
 {id:"fig-poaf-monitoraggio",wide:1,t:"Fibrillazione atriale dopo il bypass: monitoraggio, ritmo e marcatori",c:"Tavola in quattro parti dal protocollo di studio. (a) il calendario del monitoraggio. (b) ritmo sinusale contro fibrillazione atriale, con il tracciato che si disegna. (c) i segni che l'infermiere osserva: parte di buona pratica, non dal protocollo. (d) i marcatori dello studio, senza risultati.",enc:["poaf"],gl:["POAF","Holter"],st:/fibrillazione|POAF|holter|aritmia postoperatoria|bypass/i,svg:`<svg viewBox="0 0 380 712" role="img" aria-label="Fibrillazione atriale dopo il bypass. (a) calendario del monitoraggio nel protocollo: base, giorno 0, 24 ore, 72 ore, giorni 4-5, giorno 5. (b) ritmo sinusale con onde P regolari e fibrillazione atriale senza onde P e con QRS irregolari. (c) che cosa osserva l'infermiere. (d) marcatori misurati nello studio, senza risultati."><rect class="fbx" x="4" y="10" width="372" height="262" rx="2"/><circle class="fbx k-info" cx="20" cy="30" r="10"/><text class="ft fb" x="20" y="34" text-anchor="middle">a</text><text class="ft fb" x="40" y="34">Il calendario del monitoraggio nel protocollo</text><line class="fl" x1="44" y1="62" x2="44" y2="230"/><circle class="fbx k-info" cx="44" cy="66" r="5"/><text class="ft fb" x="60" y="70">Base</text><text class="ft" x="60" y="84">Misure, esami del sangue, ecocardiogramma</text><circle class="fbx k-info" cx="44" cy="98" r="5"/><text class="ft fb" x="60" y="102">Giorno 0</text><text class="ft" x="60" y="116">Bypass aortocoronarico</text><circle class="fbx k-info" cx="44" cy="130" r="5"/><text class="ft fb" x="60" y="134">24 ore</text><text class="ft" x="60" y="148">Prelievo di sangue</text><circle class="fbx k-info" cx="44" cy="162" r="5"/><text class="ft fb" x="60" y="166">72 ore</text><text class="ft" x="60" y="180">Fine dell'Holter a 72 ore</text><circle class="fbx k-info" cx="44" cy="194" r="5"/><text class="ft fb" x="60" y="198">Giorni 4-5</text><text class="ft" x="60" y="212">ECG tre volte al giorno</text><circle class="fbx k-info" cx="44" cy="226" r="5"/><text class="ft fb" x="60" y="230">Giorno 5</text><text class="ft" x="60" y="244">Esami finali, ecocardiogramma, fine dello studio</text><circle class="fv anm" r="4" cx="0" cy="0"><animateMotion dur="9s" repeatCount="indefinite" begin="-2s" path="M44 66 L44 226"/></circle><rect class="fbx" x="4" y="282" width="372" height="190" rx="2"/><circle class="fbx k-info" cx="20" cy="302" r="10"/><text class="ft fb" x="20" y="306" text-anchor="middle">b</text><text class="ft fb" x="40" y="306">Il ritmo sul monitor: sinusale contro fibrillazione</text><defs><clipPath id="poaf-clip"><rect x="12" y="312" width="356" height="130"><animate attributeName="width" from="0" to="356" dur="6s" repeatCount="indefinite"/></rect></clipPath></defs><text class="ft fb" x="16" y="324">Ritmo sinusale</text><path class="etr" clip-path="url(#poaf-clip)" d="M16 350 L16 350 L22 350 L26 344 L30 350 L36 350 L39 354 L42 324 L46 357 L49 350 L56 350 L62 350 L66 342 L71 350 L74 350 L74 350 L80 350 L84 344 L88 350 L94 350 L97 354 L100 324 L104 357 L107 350 L114 350 L120 350 L124 342 L129 350 L132 350 L132 350 L138 350 L142 344 L146 350 L152 350 L155 354 L158 324 L162 357 L165 350 L172 350 L178 350 L182 342 L187 350 L190 350 L190 350 L196 350 L200 344 L204 350 L210 350 L213 354 L216 324 L220 357 L223 350 L230 350 L236 350 L240 342 L245 350 L248 350 L248 350 L254 350 L258 344 L262 350 L268 350 L271 354 L274 324 L278 357 L281 350 L288 350 L294 350 L298 342 L303 350 L306 350 L306 350 L312 350 L316 344 L320 350 L326 350 L329 354 L332 324 L336 357 L339 350 L346 350 L352 350 L356 342 L361 350 L364 350" style="stroke-width:2"/><text class="ft" x="16" y="372">Onde P prima di ogni QRS, intervalli regolari</text><text class="ft fb" x="16" y="398">Fibrillazione atriale</text><path class="etr" clip-path="url(#poaf-clip)" d="M20 432 L38 434.5 L42 429.5 L46 434.5 L50 429.5 L54 434.5 L58 429.5 L62 434.5 L66 429.5 L20 432 L23 436 L26 406 L30 440 L33 432 L82 434.5 L86 429.5 L90 434.5 L94 429.5 L98 434.5 L102 429.5 L106 434.5 L110 429.5 L114 434.5 L118 429.5 L122 434.5 L126 429.5 L130 434.5 L134 429.5 L138 434.5 L64 432 L67 436 L70 406 L74 440 L77 432 L153 434.5 L157 429.5 L161 434.5 L165 429.5 L169 434.5 L173 429.5 L135 432 L138 436 L141 406 L145 440 L148 432 L191 434.5 L195 429.5 L199 434.5 L203 429.5 L207 434.5 L211 429.5 L215 434.5 L219 429.5 L223 434.5 L227 429.5 L231 434.5 L235 429.5 L173 432 L176 436 L179 406 L183 440 L186 432 L253 434.5 L257 429.5 L261 434.5 L265 429.5 L269 434.5 L273 429.5 L277 434.5 L281 429.5 L285 434.5 L235 432 L238 436 L241 406 L245 440 L248 432 L302 434.5 L306 429.5 L310 434.5 L314 429.5 L318 434.5 L322 429.5 L326 434.5 L330 429.5 L334 434.5 L338 429.5 L342 434.5 L346 429.5 L350 434.5 L354 429.5 L358 434.5 L362 429.5 L284 432 L287 436 L290 406 L294 440 L297 432" style="stroke-width:2"/><text class="ft" x="16" y="456">Nessuna onda P distinta; QRS a intervalli irregolari</text><rect class="fbx" x="4" y="484" width="372" height="120" rx="2"/><circle class="fbx k-info" cx="20" cy="504" r="10"/><text class="ft fb" x="20" y="508" text-anchor="middle">c</text><text class="ft fb" x="40" y="508">Che cosa osserva l'infermiere</text><text class="ft" x="16" y="530">• Ritmo e frequenza sul monitor, con le onde P</text><text class="ft" x="16" y="548">• Pressione, perfusione, saturazione e respiro</text><text class="ft" x="16" y="566">• Potassio e magnesio: controllo clinico, non misurati nel protocollo</text><text class="ft" x="16" y="584">• Palpitazioni, dolore toracico o sincope: avvisare subito</text><rect class="fbx" x="4" y="616" width="372" height="90" rx="2"/><circle class="fbx k-info" cx="20" cy="636" r="10"/><text class="ft fb" x="20" y="640" text-anchor="middle">d</text><text class="ft fb" x="40" y="640">Che cosa misura lo studio (senza risultati)</text><text class="ft" x="16" y="662">• CK-MB e troponina I: prima, a 24 ore e a 5 giorni</text><text class="ft" x="16" y="680">• Holter e ECG: la fibrillazione atriale; ecocardiogramma a base e giorno 5</text><text class="ft k-warn" x="16" y="698">Non ancora noto se l'acido alfa-lipoico la riduce.</text></svg>`},
-{id:"fig-cefalea-freddo",t:"Mal di testa dopo il gelato: il percorso del freddo",c:"Schema dal video di divulgazione (spunto, non fonte). (a) il freddo sul palato e il possibile percorso verso il nervo che porta il dolore alla fronte. (b) grafico dimostrativo: il palato si raffredda più del cervello, che resta a 37 °C. (c) l'ipotesi sull'arteria non è dimostrata nelle fonti lette; i segni d'allarme di una cefalea sono un'altra cosa.",enc:["tri-cefalea"],gl:[],st:/gelato|freddo|cefalea da freddo|brain freeze/i,svg:`<svg viewBox="0 0 380 500" role="img" aria-label="Mal di testa dopo il gelato. (a) il freddo sul palato raffredda la zona vicino a un'arteria che passa accanto alla gola; il video ipotizza che l'arteria si dilati e che il nervo vicino porti il dolore alla fronte. (b) grafico dimostrativo: la temperatura del cervello resta a 37 gradi, quella del palato scende a circa 20 gradi e poi risale. (c) limiti del modello e segni d'allarme.">
-<rect class="fbx" x="4" y="8" width="372" height="186" rx="2"/><circle class="fbx k-info" cx="22" cy="28" r="10"/><text class="ft fb" x="22" y="32" text-anchor="middle">a</text><text class="ft fb" x="40" y="32">Gelato e mal di testa: il percorso del freddo</text>
-<rect class="fbx" x="18" y="48" width="106" height="50" rx="2"/><text class="ft" x="28" y="68">Gelato a −12 °C</text><text class="ft" x="28" y="86">sul palato</text>
-<line class="fl" x1="124" y1="73" x2="134" y2="73"/>
-<rect class="fbx k-info" x="136" y="48" width="106" height="50" rx="2"/><text class="ft" x="146" y="68">Palato freddo</text><text class="ft" x="146" y="86">circa 20 °C</text>
-<line class="fl" x1="242" y1="73" x2="252" y2="73"/>
-<rect class="fbx" x="254" y="48" width="106" height="50" rx="2"/><text class="ft" x="264" y="68">Arteria vicina</text><text class="ft" x="264" y="86">si dilata?</text>
-<text class="ft" x="18" y="122">Ipotesi del video: l'arteria dilatata preme sul nervo vicino.</text>
-<text class="ft" x="18" y="140">Il dolore viene percepito in fronte.</text>
-<text class="ft fsm" x="18" y="164">Ipotesi, non misura: vedi il punto (c).</text>
-<rect class="fbx" x="4" y="204" width="372" height="222" rx="2"/><circle class="fbx k-info" cx="22" cy="224" r="10"/><text class="ft fb" x="22" y="228" text-anchor="middle">b</text><text class="ft fb" x="40" y="228">Temperatura nel tempo (dimostrazione)</text>
-<line class="fl" x1="60" y1="240" x2="60" y2="360"/><line class="fl" x1="60" y1="360" x2="340" y2="360"/>
-<text class="ft" x="28" y="254">37</text><text class="ft" x="28" y="354">20</text>
-<path class="lead" d="M60 250 L340 250" style="stroke-width:2"/>
-<text class="ft" x="200" y="242">cervello: 37 °C</text>
-<path d="M60 255.88235294117646 L100 255.88235294117646 L130 350 L170 350 L210 255.88235294117646 L340 250" style="stroke:var(--scrub);stroke-width:2.6;fill:none"/>
-<circle class="fv anm" r="5" cx="0" cy="0"><animateMotion dur="7s" repeatCount="indefinite" begin="-1s" path="M60 255.88235294117646 L100 255.88235294117646 L130 350 L170 350 L210 255.88235294117646 L340 250"/></circle>
-<text class="ft fsm" x="60" y="384">Linea sopra: cervello. Linea che scende: palato.</text>
-<text class="ft" x="18" y="404">Ora 0: palato 36 °C, cervello 37 °C.</text>
-<text class="ft" x="18" y="422">Con il gelato il palato scende a circa 20 °C; poi risale.</text>
-<rect class="fbx" x="4" y="436" width="372" height="58" rx="2"/><circle class="fbx k-info" cx="22" cy="456" r="10"/><text class="ft fb" x="22" y="460" text-anchor="middle">c</text><text class="ft fb" x="40" y="460">I limiti e i segni d'allarme</text>
-<text class="ft fsm" x="18" y="478">Il grafico e il meccanismo sono un modello del video, non una misura.</text>
-<text class="ft fsm" x="18" y="492">Cefalea improvvisa e molto intensa, febbre o deficit: valutazione medica.</text>
-</svg>`}
+{id:"fig-cefalea-freddo",wide:1,t:"Mal di testa dopo il gelato: dal palato freddo alla fronte",c:"Tavola dal video di divulgazione (spunto, non fonte). (a) Sezione della testa: il gelato tocca il palato; vicino passano un'arteria e il nervo che porta il dolore alla fronte. (b) Ingrandimento del palato in sezione: strato freddo, arteria, nervo, osso. (c) Grafico dimostrativo: il cervello resta a 37 °C mentre il palato si raffredda; i valori sono illustrativi dal video, con un minimo assunto a 20 °C e tempo mostrato 3 volte più veloce. (d) Che cosa è dimostrato e che cosa no. Ipotesi del video, non confermata; meccanismo non chiarito; fonti: Chebini 2019 (PMID 31172287), Bonemazzi 2023 (PMID 37109502), Selekler 2004 (PMID 14631122).",enc:["tri-cefalea"],gl:[],st:/gelato|freddo|cefalea da freddo|brain freeze/i,
+ svg:(()=>{
+  const R=" repeatCount=\"indefinite\"",E=FT.e;
+  const S="var(--scrub)",A="var(--amber)",INK="var(--ink)",VT="var(--vital)",CD="#3a93d6";
+  const mx=(c,p,b)=>`color-mix(in srgb,${c} ${p}%,${b||"var(--paper)"})`;
+  const tx=(x,y,lines,o={})=>{lines=[].concat(lines);const lh=o.lh||(o.s?12.5:14.5),fs=o.fs||(o.s?11:12);
+    return `<text class="ft${o.s?" fsm":""}${o.b?" fb":""}${o.h?" halo":""}" x="${x}" y="${y}" text-anchor="${o.a||"start"}" style="font-size:${fs}px${o.st?";"+o.st:""}">${lines.map((t,i)=>`<tspan x="${x}" dy="${i?lh:0}">${E(t)}</tspan>`).join("")}</text>`;};
+  const ld=(d)=>`<path d="${d}" style="fill:none;stroke:${INK};stroke-opacity:.6;stroke-width:.8"/>`;
+  const dot=(x,y)=>`<circle cx="${x}" cy="${y}" r="1.8" style="fill:${INK};fill-opacity:.75"/>`;
+  const badge=(x,y,l)=>`<circle cx="${x}" cy="${y}" r="8" style="fill:var(--paper);stroke:${INK};stroke-width:1"/>`+tx(x,y+4,l,{a:"middle",b:1,s:1});
+  const frame=(y,h)=>`<rect class="fbx" x="8" y="${y}" width="364" height="${h}" rx="3"/>`;
+  const head=(y,l,t)=>badge(24,y+17,l)+tx(38,y+21,t,{b:1});
+  const an=(attr,v,keys,dur)=>{const a=v.join(";");return `<animate attributeName="${attr}" values="${a}" keyTimes="${keys}" dur="${dur||6}s"${R}/>`;};
+  const K1="0;.3;.65;.95;1";
+  let o="";
+  /* ---------- definizioni ---------- */
+  o+=`<defs>`
+   +`<radialGradient id="cf-br" cx=".45" cy=".4" r=".7"><stop offset="0" style="stop-color:${mx(VT,16)}"/><stop offset="1" style="stop-color:${mx(VT,34,INK)}"/></radialGradient>`
+   +`<linearGradient id="cf-sk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:${mx(A,20)}"/><stop offset="1" style="stop-color:${mx(A,9)}"/></linearGradient>`
+   +`<linearGradient id="cf-cold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:${CD};stop-opacity:.75"/><stop offset="1" style="stop-color:${CD};stop-opacity:.08"/></linearGradient>`
+   +`<pattern id="cf-bone" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(40)"><rect width="1" height="5" style="fill:${INK};fill-opacity:.16"/></pattern>`
+   +`<clipPath id="cf-lens"><circle cx="0" cy="0" r="62"/></clipPath>`
+   +`</defs>`;
+
+  /* ================= (a) sezione della testa ================= */
+  o+=frame(8,306)+head(8,"a","Sezione della testa: il gelato sul palato");
+  /* conversione: coordinate di disegno -> pagina */
+  const X=x=>+(0.96*x-45.5).toFixed(1),Y=y=>+(0.96*y).toFixed(1);
+  o+=`<g transform="translate(-45.5,0) scale(.96)">`;
+  /* profilo (pelle) */
+  o+=`<path d="M100 312C98 270 84 246 74 218C62 180 62 130 84 96C108 58 150 38 196 38C252 38 300 64 312 118C316 136 316 156 320 170C322 178 318 186 316 192C322 200 340 212 342 222C342 228 336 230 328 230C332 234 332 238 326 240L318 240L318 254L326 254C330 254 330 260 326 262C322 266 322 272 326 280C324 294 312 304 292 306L268 308C264 310 262 311 262 312Z" style="fill:url(#cf-sk);stroke:${mx(A,70,INK)};stroke-width:1.4;stroke-linejoin:round"/>`;
+  /* cranio */
+  o+=`<path d="M92 214C74 176 74 130 94 100C116 64 152 48 196 48C246 48 292 70 304 120C308 140 308 158 310 172L306 196C296 214 280 216 262 218L230 214C190 214 130 220 92 214Z" style="fill:${mx(INK,9)};stroke:${INK};stroke-opacity:.5;stroke-width:1.3"/>`;
+  /* encefalo */
+  o+=`<path d="M88 168C82 104 130 58 195 56C255 54 296 92 294 140C293 170 280 186 260 190C240 196 220 196 200 194C170 198 122 204 102 196C92 190 88 180 88 168Z" style="fill:url(#cf-br);stroke:${mx(VT,45,INK)};stroke-width:1.2"/>`;
+  o+=`<g style="fill:none;stroke:${INK};stroke-opacity:.3;stroke-width:1;stroke-linecap:round">`
+   +`<path d="M176 58C170 82 182 100 176 120C172 134 178 150 172 168"/>`
+   +`<path d="M118 130C130 112 148 116 154 128S178 146 190 130"/>`
+   +`<path d="M150 80C160 92 176 86 188 94S210 102 220 88"/>`
+   +`<path d="M198 126C210 114 228 118 236 130S254 144 266 128"/>`
+   +`<path d="M232 72C244 86 262 82 270 96S284 120 276 132"/>`
+   +`<path d="M104 162C122 154 136 164 150 158S176 152 190 162"/>`
+   +`<path d="M222 164C238 154 254 162 264 172S282 172 288 158"/>`
+   +`<path d="M104 104C114 96 122 100 128 94"/>`
+   +`</g>`;
+  /* cervelletto e tronco */
+  o+=`<path d="M92 190C96 174 128 170 150 180C162 188 158 204 140 206C116 210 92 206 92 190Z" style="fill:${mx(VT,26,INK)};fill-opacity:.55;stroke:${mx(VT,45,INK)};stroke-width:1"/>`
+   +`<path d="M104 190C122 184 138 188 150 196M104 198C120 194 134 197 146 203" style="fill:none;stroke:${INK};stroke-opacity:.3;stroke-width:.9"/>`
+   +`<path d="M170 192C172 214 176 232 178 250L194 250C194 232 192 212 196 194Z" style="fill:${mx(VT,26,INK)};fill-opacity:.55;stroke:${mx(VT,45,INK)};stroke-width:1"/>`
+   +`<path d="M184 250L182 310" style="fill:none;stroke:${mx(INK,40)};stroke-width:7;stroke-linecap:round;stroke-opacity:.5"/>`;
+  /* cavita della bocca e gola */
+  o+=`<path d="M318 240L304 236C286 232 262 231 246 235C236 238 230 246 232 262L226 270C222 290 222 304 224 312L252 312L254 292C254 282 252 272 256 262L318 254Z" style="fill:${mx(INK,15,"var(--paper)")};stroke:${INK};stroke-opacity:.55;stroke-width:1.1"/>`;
+  /* lingua */
+  o+=`<path d="M326 254C312 259 292 253 268 257C254 260 250 266 248 274L252 284C276 288 300 282 314 274C322 268 328 260 326 254Z" style="fill:${mx(VT,30)};stroke:${mx(VT,55,INK)};stroke-width:1.1"/>`
+   +`<path d="M312 262C296 262 280 264 262 270" style="fill:none;stroke:${INK};stroke-opacity:.25;stroke-width:.9"/>`;
+  /* palato osseo e strato freddo */
+  o+=`<path d="M310 232C288 228 262 227 244 232" style="fill:none;stroke:${mx(INK,25)};stroke-width:5;stroke-linecap:round;stroke-opacity:.6"/>`;
+  o+=`<path d="M308 236C288 232 262 231 246 236" style="fill:none;stroke:${CD};stroke-width:6;stroke-linecap:round;stroke-opacity:.85">${an("stroke-opacity",[".1",".1",".85",".85",".1"],"0;.3;.45;.95;1")}</path>`;
+  /* nervo (ambra) fino alla fronte */
+  o+=`<path d="M268 230C282 216 296 208 301 190C306 174 308 158 305 140" style="fill:none;stroke:${A};stroke-width:3;stroke-linecap:round"/>`
+   +`<path d="M268 230C282 216 296 208 301 190C306 174 308 158 305 140" style="fill:none;stroke:var(--paper);stroke-opacity:.5;stroke-width:.8;stroke-dasharray:3 3"/>`
+   +`<path d="M312 126l9-7M315 138l11-2M313 150l10 5" style="fill:none;stroke:${A};stroke-width:2;stroke-linecap:round"/>`;
+  /* arteria (rossa): tronco accanto alla gola e ramo verso il palato */
+  o+=`<path d="M206 312C206 290 208 268 214 250C220 232 224 214 226 196C228 184 232 170 238 156" style="fill:none;stroke:${VT};stroke-width:4.5;stroke-linecap:round"/>`
+   +`<path d="M216 246C232 238 244 232 262 230" style="fill:none;stroke:${VT};stroke-width:7;stroke-linecap:round">${an("stroke-width",["3","3","7","7","3"],"0;.4;.6;.95;1")}</path>`
+   +`<path d="M216 246C232 238 244 232 262 230" style="fill:none;stroke:var(--paper);stroke-opacity:.45;stroke-width:1.2"/>`;
+  o+=`</g>`;
+  /* richiami */
+  /* cervello */
+  o+=tx(X(190),Y(116),"cervello",{b:1,h:1,a:"middle"})+tx(X(190),Y(116)+14,"37 °C",{s:1,h:1,a:"middle"});
+  /* nervo trigemino */
+  o+=ld(`M286 120L${X(306)+4} ${Y(160)}`)+dot(X(306)+4,Y(160))+tx(288,Y(118)-14,["nervo trigemino","porta il dolore","alla fronte"],{s:1});
+  /* arteria */
+  o+=tx(24,Y(268)-4,["arteria vicina","si dilata?"],{s:1,h:1})+ld(`M${24+76} ${Y(268)} L${X(207)} ${Y(268)}`)+dot(X(207),Y(268));
+  /* gola */
+  o+=tx(214,Y(308)+4,"gola",{s:1})+ld(`M212 ${Y(308)} L${X(240)} ${Y(300)}`)+dot(X(240),Y(300));
+  /* palato */
+  o+=tx(X(256),Y(213),"palato",{s:1,h:1,a:"middle"})+ld(`M${X(256)} ${Y(216)} L${X(256)} ${Y(230)}`)+dot(X(256),Y(230));
+  /* ingrandimento: cerchio tratteggiato */
+  o+=`<circle cx="${X(275)}" cy="${Y(233)}" r="17" class="dash" style="fill:none;stroke:${INK};stroke-opacity:.7"/>`+badge(X(275)+2,Y(233)+36,"b");
+  /* cucchiaio con il gelato: coordinate animate (fuori, dentro, fermo, fuori) */
+  const by=Y(247),SI=212,SO=282;
+  const mvA=(a,vi,vo)=>an(a,[vo,vi,vi,vo,vo],K1);
+  o+=`<line x1="${SI+9}" y1="${by}" x2="${SI+61}" y2="${by+8}" style="stroke:${INK};stroke-width:2.6;stroke-linecap:round;stroke-opacity:.8">${mvA("x1",SI+9,SO+9)}${mvA("x2",SI+61,SO+61)}</line>`
+   +`<ellipse cx="${SI}" cy="${by}" rx="11" ry="3.6" style="fill:var(--paper);stroke:${INK};stroke-width:1.4">${mvA("cx",SI,SO)}</ellipse>`
+   +`<circle cx="${SI}" cy="${by-6.5}" r="6.8" style="fill:${mx(CD,22)};stroke:${CD};stroke-width:1.2">${mvA("cx",SI,SO)}</circle>`;
+  o+=tx(372,Y(300)+6,["gelato","a −12 °C"],{s:1,a:"end",h:1});
+
+  /* ================= (b) ingrandimento ================= */
+  const by0=322;
+  o+=frame(by0,196)+head(by0,"b","Ingrandimento del palato in sezione");
+  const cx=98,cy=by0+118;
+  o+=`<g transform="translate(${cx},${cy})"><g clip-path="url(#cf-lens)">`
+   +`<rect x="-64" y="-64" width="128" height="128" style="fill:${mx(INK,5)}"/>`
+   +`<rect x="-64" y="-8" width="128" height="40" style="fill:${mx(VT,13)}"/>`
+   +`<rect x="-64" y="-30" width="128" height="22" style="fill:${mx(VT,13)}"/>`
+   +`<rect x="-64" y="26" width="128" height="40" style="fill:${mx(INK,14)}"/><rect x="-64" y="26" width="128" height="40" style="fill:url(#cf-bone)"/>`
+   +`<path d="M-64 26H64" style="stroke:${INK};stroke-opacity:.5;stroke-width:2"/>`
+   +`<path d="M-64 -30H64" style="stroke:${mx(VT,55,INK)};stroke-opacity:.7;stroke-width:3"/>`
+   +`<rect x="-64" y="-30" width="128" height="24" style="fill:url(#cf-cold)">${an("height",["0","0","24","24","0"],"0;.3;.45;.95;1")}</rect>`
+   +`<circle cx="0" cy="-70" r="40" style="fill:${mx(CD,18)};stroke:${CD};stroke-width:1.6"/><path d="M-22 -64C-12 -58 -4 -62 6 -56" style="fill:none;stroke:${CD};stroke-opacity:.5;stroke-width:1.2"/>`
+   +`<g style="fill:none;stroke:${INK};stroke-opacity:.18;stroke-width:1"><path d="M-60 -2C-40 -8 -30 4 -8 -2S30 -8 60 0"/><path d="M-60 16C-44 10 -26 20 -4 16S34 10 60 18"/></g>`
+   +`<circle cx="-12" cy="6" r="10" class="dash" style="fill:none;stroke:${INK};stroke-opacity:.6"/>`
+   +`<circle cx="-12" cy="6" r="17" style="fill:${mx(VT,30)};stroke:${VT};stroke-width:3">${an("r",["10","10","17","17","10"],"0;.4;.6;.95;1")}</circle>`
+   +`<circle cx="26" cy="6" r="8" style="fill:${mx(A,25)};stroke:${A};stroke-width:2.4"/>`
+   +`<g style="fill:${A};fill-opacity:.8"><circle cx="23" cy="4" r="1.6"/><circle cx="28" cy="4" r="1.6"/><circle cx="25" cy="9" r="1.6"/><circle cx="29" cy="9" r="1.2"/></g>`
+   +`</g><circle r="62" style="fill:none;stroke:${INK};stroke-width:1.6"/></g>`;
+  /* richiami */
+  const lx=184;
+  o+=ld(`M${cx+14} ${cy-60}L${lx-4} ${cy-76}`)+dot(cx+14,cy-60)+tx(lx,cy-74,["gelato"],{s:1});
+  o+=ld(`M${cx+34} ${cy-22}L${lx-4} ${cy-50}`)+dot(cx+34,cy-22)+tx(lx,cy-52,["strato freddo","compare con il gelato"],{s:1});
+  o+=ld(`M${cx-12} ${cy-6}L${lx-4} ${cy-12}`)+dot(cx-12,cy-6)+tx(lx,cy-8,["arteria vicina","si dilata? (ipotesi del video)","tratteggio: prima"],{s:1});
+  o+=ld(`M${cx+30} ${cy+10}L${lx-4} ${cy+32}`)+dot(cx+30,cy+10)+tx(lx,cy+36,["nervo trigemino"],{s:1});
+  o+=ld(`M${cx+22} ${cy+46}L${lx-4} ${cy+58}`)+dot(cx+22,cy+46)+tx(lx,cy+62,["osso del palato"],{s:1});
+
+  /* ================= (c) grafico ================= */
+  const c0=by0+196+8;
+  o+=frame(c0,240)+head(c0,"c","Temperatura nel tempo");
+  o+=tx(364,c0+21,"valori illustrativi dal video",{s:1,a:"end"});
+  const gt=c0+44,SC=5.4,T=t=>+(gt+(41-t)*SC).toFixed(1),x0=56,x1=356;
+  /* assi */
+  o+=`<path class="fl" d="M${x0} ${gt-4}V${T(17)}H${x1}"/>`
+   +tx(x0-6,gt-2,"°C",{s:1,a:"end"})
+   +tx(x0-6,T(37)+4,"37",{s:1,a:"end"})+tx(x0-6,T(30)+4,"30",{s:1,a:"end"})+tx(x0-6,T(20)+4,"20",{s:1,a:"end"});
+  o+=`<path class="dash" d="M${x0} ${T(20)}H${x1}" style="stroke-opacity:.6"/>`;
+  o+=tx(x0+6,T(20)+13,"20 °C assunto",{s:1});
+  /* cervello 37 */
+  o+=`<path d="M${x0} ${T(37)}H${x1}" style="stroke:${INK};stroke-opacity:.7;stroke-width:2;fill:none"/>`+tx(x1,T(37)-6,"cervello 37 °C",{s:1,a:"end"});
+  /* curva palato */
+  const cv=`M72 ${T(36)}C100 ${T(36)} 124 ${T(29)} 140 ${T(25)}C156 ${T(22.5)} 172 ${T(21)} 190 ${T(21)}S214 ${T(20)} 232 ${T(20)}C262 ${T(20)} 300 ${T(30)} 344 ${T(36)}`;
+  o+=`<path d="${cv}" style="stroke:${S};stroke-width:2.6;fill:none;stroke-linecap:round"/>`
+   +tx(316,T(26)+14,"palato",{s:1,a:"middle",st:`fill:${S}`});
+  /* segni 1,2,3: differenza fra la riga del cervello e il palato */
+  const mk=[[72,36,"1"],[140,25,"2"],[190,21,"3"]];
+  mk.forEach(([x,t,l])=>{
+    o+=`<path d="M${x} ${T(37)}V${T(t)}" class="lead" style="stroke-dasharray:3 2"/><circle cx="${x}" cy="${T(t)}" r="3.5" style="fill:var(--paper);stroke:${S};stroke-width:2"/>`+badge(x,T(37)-13,l);
+  });
+  /* passi animati sul grafico */
+  mk.forEach(([x,t,l],i)=>{
+    o+=`<g class="ans${i?" s"+(i+1):""}"><path d="M${x} ${T(37)}V${T(t)}" style="stroke:${S};stroke-width:3.4;fill:none"/><circle cx="${x}" cy="${T(t)}" r="7" style="fill:none;stroke:${S};stroke-width:2.2"/></g>`;
+  });
+  /* pallino lungo la curva */
+  o+=`<circle class="fv anm" r="5" cx="0" cy="0" style="stroke:var(--paper);stroke-width:1.2"><animateMotion dur="7.5s" repeatCount="indefinite" begin="-1.5s" path="${cv}"/></circle>`;
+  /* asse x */
+  o+=tx((x0+x1)/2,T(17)+16,"tempo (mostrato 3 volte più veloce, non in scala)",{s:1,a:"middle"});
+  /* tre letture */
+  const cy2=T(17)+26,rd=[["1","37 − 36 = 1 °C"],["2","37 − 25 = 12 °C"],["3","37 − 21 = 16 °C"]];
+  rd.forEach(([l,t],i)=>{
+    const x=16+i*118;
+    o+=`<rect class="fbx" x="${x}" y="${cy2}" width="114" height="26" rx="2"/>`+badge(x+14,cy2+13,l)+tx(x+28,cy2+17,t,{s:1});
+    o+=`<g class="ans${i?" s"+(i+1):""}"><rect class="fbx k-info" x="${x}" y="${cy2}" width="114" height="26" rx="2" style="stroke-width:2"/>`+badge(x+14,cy2+13,l)+tx(x+28,cy2+17,t,{s:1,b:1})+`</g>`;
+  });
+
+  /* ================= (d) che cosa e dimostrato ================= */
+  const d0=c0+240+8;
+  const rows=[
+   ["info","Video",["Valori illustrativi dal video: palato a 20 °C","assunto, tempo mostrato 3 volte più veloce,","non in scala."]],
+   ["warn","Ipotesi",["Arteria che si dilata: ipotesi del video, non","confermata. Meccanismo non chiarito; esiste","anche l'ipotesi opposta (vasocostrizione)."]],
+   ["ok","Noto",["Cefalea da freddo: dura di solito pochi secondi","(meno di 30 s nella maggioranza dei casi),","legata allo stimolo freddo."]],
+   ["alarm","Allarme",["Cefalea improvvisa e molto intensa, febbre,","rigidità del collo o deficit neurologici:","valutazione medica."]]
+  ];
+  const rh=48;
+  o+=frame(d0,30+rows.length*rh+6)+head(d0,"d","Che cosa è dimostrato");
+  rows.forEach(([k,tag,ls],i)=>{
+    const y=d0+32+i*rh;
+    o+=`<rect class="fbx k-${k}" x="16" y="${y}" width="68" height="${rh-6}" rx="2"/>`+tx(50,y+(rh-6)/2+4,tag,{b:1,a:"middle",s:1})
+     +tx(94,y+13,ls,{s:1});
+  });
+  const H=d0+30+rows.length*rh+6+8;
+  return `<svg viewBox="0 0 380 ${H}" role="img" aria-label="Mal di testa dopo il gelato. (a) Sezione sagittale della testa: il cucchiaio con il gelato a meno 12 gradi tocca il palato; vicino passano un'arteria, che il video ipotizza si dilati, e il nervo trigemino che porta il dolore alla fronte. (b) Ingrandimento del palato in sezione con osso, arteria, nervo e uno strato freddo. (c) Grafico dimostrativo con valori illustrativi dal video: il cervello resta a 37 gradi, il palato scende a un minimo assunto di 20 gradi e poi risale; la differenza è 1, 12 e 16 gradi nei tre momenti. (d) Il grafico è del video, l'arteria è un'ipotesi non confermata, la cefalea da freddo dura di solito pochi secondi; cefalea improvvisa e molto intensa, febbre, rigidità del collo o deficit neurologici richiedono valutazione medica.">${o}</svg>`;
+ })()}
 ];

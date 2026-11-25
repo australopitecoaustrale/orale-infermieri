@@ -1,5 +1,5 @@
-// Service worker dell'Atlante di Infermieristica — versione baa5cb617d
-const C="atlante-baa5cb617d",RT="atlante-rt";
+// Service worker dell'Atlante di Infermieristica — versione a44034b2f0
+const C="atlante-a44034b2f0",RT="atlante-rt";
 const CORE=["./", "index.html", "pdfdata.js", "quizbank.js", "casebank.js", "enciclopedia.js", "glossario.js", "encquiz.js", "enccases.js", "figtpl.js", "figure.js", "simulatori.js", "categorie.js", "palestre.js", "ecg12.js", "vendor/gsap.min.js", "vendor/ScrollTrigger.min.js", "vendor/lenis.min.js", "vendor/lenis.css", "vendor/fonts/inter-tight-latin-wght-normal.woff2", "vendor/fonts/inter-tight-latin-wght-italic.woff2", "vendor/fonts/geist-mono-latin-wght-normal.woff2", "vendor/fonts/nanum-pen-script-latin-400-normal.woff2", "giorni.json", "manifest.webmanifest", "icon-192.png", "icon-512.png", "icon-180.png"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>Promise.all(CORE.map(u=>fetch(new Request(u,{cache:"reload"})).then(r=>{if(r.ok)return c.put(u,r)}).catch(()=>{})))).then(()=>self.skipWaiting()))});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C&&k!==RT).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
