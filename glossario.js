@@ -920,3 +920,8 @@ GLOSS.push(
 ["WADA","g","Agenzia mondiale antidoping, che pubblica l'elenco delle sostanze vietate.","World Anti-Doping Agency","sport-integratori-sicurezza-doping"],
 ["Epcidina","t","Ormone epatico che regola l'assorbimento intestinale del ferro; sale dopo l'esercizio.","Hepcidin","sport-ferro-vitamina-d"]
 );
+/* Fibrillazione atriale dopo il bypass (2026-11) */
+GLOSS.push(
+["POAF","t","Fibrillazione atriale postoperatoria: aritmia atriale che compare dopo un intervento, qui dopo bypass aortocoronarico.","Postoperative atrial fibrillation","poaf"],
+["Holter","t","Registrazione continua dell'ECG per uno o più giorni, con un apparecchio portatile che il paziente porta mentre svolge la vita normale.","Holter monitoring","poaf"]
+);
