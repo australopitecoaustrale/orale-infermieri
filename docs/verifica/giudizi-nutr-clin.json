@@ -1,0 +1,994 @@
+[
+ {
+  "id": "glim-screening-malnutrizione#p0",
+  "testo": "",
+  "fonte": "Cederholm 2019 PMID 30181091; Schuetz 2019 PMID 31030981",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "glim-screening-malnutrizione#p2",
+  "testo": "",
+  "fonte": "Cederholm 2019 PMID 30181091",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "glim-screening-malnutrizione#p5",
+  "testo": "",
+  "fonte": "Cederholm 2019 PMID 30181091",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "glim-screening-malnutrizione#p6",
+  "testo": "",
+  "fonte": "Cederholm 2019 PMID 30181091",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "glim-screening-malnutrizione#p7",
+  "testo": "",
+  "fonte": "Kondrup 2003 PMID 12765673",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "128 RCT"
+ },
+ {
+  "id": "glim-screening-malnutrizione#p8",
+  "testo": "",
+  "fonte": "Hersberger 2020 PMID 31882232",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "glim-screening-malnutrizione#p9",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "glim-screening-malnutrizione#v0",
+  "testo": "",
+  "fonte": "Cederholm 2019 PMID 30181091",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "glim-screening-malnutrizione#v1",
+  "testo": "",
+  "fonte": "Cederholm 2019 PMID 30181091",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "glim-screening-malnutrizione#v2",
+  "testo": "",
+  "fonte": "Cederholm 2019 PMID 30181091",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "glim-screening-malnutrizione#v3",
+  "testo": "",
+  "fonte": "Kondrup 2003; Schuetz 2019",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "glim-screening-malnutrizione#v4",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "OR aggiustato"
+ },
+ {
+  "id": "glim-screening-malnutrizione#v5",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "OR aggiustato"
+ },
+ {
+  "id": "glim-screening-malnutrizione#i0",
+  "testo": "",
+  "fonte": "nessuna",
+  "tipo": "manuale",
+  "stato": "da-verificare",
+  "nota": "finestra 24-48 h non letta in linea guida"
+ },
+ {
+  "id": "glim-screening-malnutrizione#q3",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "glim-screening-malnutrizione#q4",
+  "testo": "",
+  "fonte": "Hersberger 2020 PMID 31882232",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "glim-screening-malnutrizione#gl:Rischio nutrizionale",
+  "testo": "",
+  "fonte": "Kondrup 2003 PMID 12765673",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#p0",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#p1",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#p2",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#p3",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#p4",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#p5",
+  "testo": "",
+  "fonte": "Hersberger 2021 PMID 33958128",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#p7",
+  "testo": "",
+  "fonte": "Schuetz 2020 PMID 32147200",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "corretto: riduzione dei costi"
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#v0",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#v1",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#v2",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#v3",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#v4",
+  "testo": "",
+  "fonte": "Hersberger 2021 PMID 33958128",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#v5",
+  "testo": "",
+  "fonte": "Bauer 2013 PMID 23867520",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#q0",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#q1",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#q2",
+  "testo": "",
+  "fonte": "Hersberger 2021 PMID 33958128",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "supporto-nutrizionale-ricoverato#gl:EFFORT",
+  "testo": "",
+  "fonte": "Schuetz 2019 PMID 31030981",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#p0",
+  "testo": "",
+  "fonte": "Singer 2019 PMID 30348463; Singer 2023 PMID 37517372",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "contenuti numerici non letti, nota n"
+ },
+ {
+  "id": "nutrizione-paziente-critico#p1",
+  "testo": "",
+  "fonte": "Rice 2012 PMID 22307571",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#p3",
+  "testo": "",
+  "fonte": "Reignier 2018 PMID 29128300",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#p5",
+  "testo": "",
+  "fonte": "TARGET 2018 PMID 30346225",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#p6",
+  "testo": "",
+  "fonte": "Casaer 2011 PMID 21714640",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#p7",
+  "testo": "",
+  "fonte": "Fivez 2016 PMID 26975590",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#v0",
+  "testo": "",
+  "fonte": "Rice 2012 PMID 22307571",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#v1",
+  "testo": "",
+  "fonte": "Reignier 2018 PMID 29128300",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#v2",
+  "testo": "",
+  "fonte": "TARGET 2018 PMID 30346225",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#v3",
+  "testo": "",
+  "fonte": "Casaer 2011 PMID 21714640",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#q0",
+  "testo": "",
+  "fonte": "Rice 2012 PMID 22307571",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#q1",
+  "testo": "",
+  "fonte": "Reignier 2018 PMID 29128300",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#q2",
+  "testo": "",
+  "fonte": "TARGET 2018 PMID 30346225",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#q3",
+  "testo": "",
+  "fonte": "Casaer 2011 PMID 21714640",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-paziente-critico#gl:Nutrizione enterale trofica",
+  "testo": "",
+  "fonte": "Rice 2012 PMID 22307571",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "corretto: dose EDEN indicata come esempio"
+ },
+ {
+  "id": "nutrizione-paziente-critico#gl:Parenterale integrativa",
+  "testo": "",
+  "fonte": "Casaer 2011 PMID 21714640",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#d",
+  "testo": "",
+  "fonte": "Cichero 2017 PMID 27913916",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#p0",
+  "testo": "",
+  "fonte": "Cichero 2017 PMID 27913916",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#p2",
+  "testo": "",
+  "fonte": "Cichero 2017 PMID 27913916",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#p3",
+  "testo": "",
+  "fonte": "Cichero 2017 PMID 27913916",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#p4",
+  "testo": "",
+  "fonte": "IDDSI framework 2020",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "estremamente densi"
+ },
+ {
+  "id": "disfagia-iddsi#p5",
+  "testo": "",
+  "fonte": "IDDSI poster adulti 2020",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#p6",
+  "testo": "",
+  "fonte": "IDDSI scheda livello 6 adulti",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "corretto: pezzi massimo 1,5 cm, livello 6"
+ },
+ {
+  "id": "disfagia-iddsi#p7",
+  "testo": "",
+  "fonte": "IDDSI poster test di flusso 2024",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#p8",
+  "testo": "",
+  "fonte": "IDDSI scheda livello 6 adulti",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#v0",
+  "testo": "",
+  "fonte": "Cichero 2017 PMID 27913916",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#v1",
+  "testo": "",
+  "fonte": "IDDSI",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#v2",
+  "testo": "",
+  "fonte": "IDDSI",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#v3",
+  "testo": "",
+  "fonte": "IDDSI scheda livello 6 adulti",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "corretto etichetta"
+ },
+ {
+  "id": "disfagia-iddsi#v4",
+  "testo": "",
+  "fonte": "IDDSI poster 2024",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#q0",
+  "testo": "",
+  "fonte": "Cichero 2017 PMID 27913916",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#q1",
+  "testo": "",
+  "fonte": "IDDSI",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#q2",
+  "testo": "",
+  "fonte": "IDDSI poster 2024",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#q3",
+  "testo": "",
+  "fonte": "IDDSI scheda livello 6",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "disfagia-iddsi#gl:Test di flusso IDDSI",
+  "testo": "",
+  "fonte": "IDDSI poster 2024",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#p0",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019 PMID 30312372",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#p3",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019; Van Ancum 2020; Marini 2020",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "due fonti indipendenti"
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#p4",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019 PMID 30312372",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "tabella non riletta"
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#p5",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019; Marini 2020",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "SPPB non letto"
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#p6",
+  "testo": "",
+  "fonte": "nessuna",
+  "tipo": "manuale",
+  "stato": "da-verificare",
+  "nota": "studio singolo non letto"
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#p7",
+  "testo": "",
+  "fonte": "nessuna",
+  "tipo": "manuale",
+  "stato": "da-verificare",
+  "nota": "percentuali annue non trovate"
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#p8",
+  "testo": "",
+  "fonte": "Bauer 2013 PMID 23867520",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#p9",
+  "testo": "",
+  "fonte": "Volkert 2019 PMID 30005900",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#v0",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019; Van Ancum 2020",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#v1",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019 PMID 30312372",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "non riletto"
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#v2",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019; Marini 2020",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#v3",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019 PMID 30312372",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "non riletto"
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#v4",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019 PMID 30312372",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "non riletto"
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#v5",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019; Marini 2020",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#v6",
+  "testo": "",
+  "fonte": "Bauer 2013 PMID 23867520",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#v7",
+  "testo": "",
+  "fonte": "Bauer 2013 PMID 23867520",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#q0",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019 PMID 30312372",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#q1",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#q2",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019 PMID 30312372",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#q3",
+  "testo": "",
+  "fonte": "Bauer 2013 PMID 23867520",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#q4",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019; Marini 2020",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#gl:Sarcopenia",
+  "testo": "",
+  "fonte": "Cruz-Jentoft 2019 PMID 30312372",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sarcopenia-proteine-anziano#gl:SARC-F",
+  "testo": "",
+  "fonte": "Marini 2020 PMID 33155628",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#p0",
+  "testo": "",
+  "fonte": "Langer 2024 PMID 38345088",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#p1",
+  "testo": "",
+  "fonte": "Langer 2024 PMID 38345088",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#p2",
+  "testo": "",
+  "fonte": "Langer 2024 PMID 38345088",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#p6",
+  "testo": "",
+  "fonte": "Langer 2014 PMID 24919719",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#p7",
+  "testo": "",
+  "fonte": "Zhou 2024 PMID 39463024",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#p8",
+  "testo": "",
+  "fonte": "Langer 2014 PMID 24919719",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "contesto"
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#v0",
+  "testo": "",
+  "fonte": "Langer 2024 PMID 38345088",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#v1",
+  "testo": "",
+  "fonte": "Langer 2024 PMID 38345088",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#v2",
+  "testo": "",
+  "fonte": "Langer 2024 PMID 38345088",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#v3",
+  "testo": "",
+  "fonte": "Langer 2014 PMID 24919719",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#q0",
+  "testo": "",
+  "fonte": "Langer 2024 PMID 38345088",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#q1",
+  "testo": "",
+  "fonte": "Langer 2024 PMID 38345088",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#q2",
+  "testo": "",
+  "fonte": "Langer 2024 PMID 38345088",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#q4",
+  "testo": "",
+  "fonte": "Langer 2024 PMID 38345088",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#gl:Lesione da pressione",
+  "testo": "",
+  "fonte": "Langer 2014 PMID 24919719",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-lesioni-pressione#gl:Certezza dell'evidenza (GRADE)",
+  "testo": "",
+  "fonte": "Langer 2024 PMID 38345088",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-basi#p0",
+  "testo": "",
+  "fonte": "Cederholm 2015 PMID 25799486; Cederholm 2019 PMID 30181091",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-basi#p2",
+  "testo": "",
+  "fonte": "Gomes 2018 PMID 28802519; Bauer 2013",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "1,2-1,5 g/kg confermato solo per anziano malato"
+ },
+ {
+  "id": "nutrizione-basi#v0",
+  "testo": "",
+  "fonte": "OMS fonte web",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-basi#v1",
+  "testo": "",
+  "fonte": "BAPEN MUST; Stratton 2004 PMID 15533269",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-basi#v2",
+  "testo": "",
+  "fonte": "Kondrup 2003; Schuetz 2019",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-basi#v3",
+  "testo": "",
+  "fonte": "Vellas 1999 PMID 9990575",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-basi#q0",
+  "testo": "",
+  "fonte": "OMS fonte web",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-basi#q1",
+  "testo": "",
+  "fonte": "BAPEN MUST",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-basi#gl:NRS-2002",
+  "testo": "",
+  "fonte": "Kondrup 2003 PMID 12765673",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "nutrizione-enterale#p0",
+  "testo": "",
+  "fonte": "Bischoff 2020 PMID 31255350",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "soglia 4-6 settimane non letta"
+ },
+ {
+  "id": "nutrizione-enterale#p2",
+  "testo": "",
+  "fonte": "Boullata 2017 PMID 27815525",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "30-45° non letto"
+ },
+ {
+  "id": "nutrizione-enterale#p3",
+  "testo": "",
+  "fonte": "Boullata 2017 PMID 27815525",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "lavaggi non letti"
+ },
+ {
+  "id": "nutrizione-enterale#q0",
+  "testo": "",
+  "fonte": "Boullata 2017 PMID 27815525",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "come p2"
+ },
+ {
+  "id": "nutrizione-parenterale#p0",
+  "testo": "",
+  "fonte": "Pittiruti 2009 PMID 19464090",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "osmolarità non letta"
+ },
+ {
+  "id": "nutrizione-parenterale#p1",
+  "testo": "",
+  "fonte": "O'Grady 2011 PMID 21460264; CDC",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "set entro 24 h con lipidi"
+ },
+ {
+  "id": "nutrizione-parenterale#q0",
+  "testo": "",
+  "fonte": "O'Grady 2011 PMID 21460264; CDC",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ }
+]

@@ -1,0 +1,666 @@
+[
+ {
+  "id": "sale-sodio-pressione#p0",
+  "testo": "",
+  "fonte": "Zoccali 2016 PMID 27488353; OMS scheda Sodium reduction; ESC 2024 ipertensione",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "limite OMS confermato da due fonti; LARN e CREA non letti"
+ },
+ {
+  "id": "sale-sodio-pressione#p2",
+  "testo": "",
+  "fonte": "Huang 2020 BMJ PMID 32094151",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "1,10 e 0,33 mmHg per 50 mmol; 4,26 mmHg per 130 mmol"
+ },
+ {
+  "id": "sale-sodio-pressione#p3",
+  "testo": "",
+  "fonte": "Huang 2020 PMID 32094151",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "1,05 mmHg sotto 15 giorni, 2,13 mmHg oltre"
+ },
+ {
+  "id": "sale-sodio-pressione#p6",
+  "testo": "",
+  "fonte": "Filippou 2020 PMID 32330233",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: DASH −3,2 e −2,5 mmHg"
+ },
+ {
+  "id": "sale-sodio-pressione#p7",
+  "testo": "",
+  "fonte": "Filippou 2020 PMID 32330233",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "sotto i 50 anni riduce di più"
+ },
+ {
+  "id": "sale-sodio-pressione#v0",
+  "testo": "",
+  "fonte": "Zoccali 2016 PMID 27488353; OMS",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "due fonti indipendenti"
+ },
+ {
+  "id": "sale-sodio-pressione#v1",
+  "testo": "",
+  "fonte": "OMS scheda Sodium reduction",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "rapporto 2,5 coerente con la stechiometria"
+ },
+ {
+  "id": "sale-sodio-pressione#v2",
+  "testo": "",
+  "fonte": "Huang 2020 PMID 32094151",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "133 RCT, 12.197 partecipanti"
+ },
+ {
+  "id": "sale-sodio-pressione#v3",
+  "testo": "",
+  "fonte": "Huang 2020 PMID 32094151",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sale-sodio-pressione#v4",
+  "testo": "",
+  "fonte": "Filippou 2020 PMID 32330233",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "30 studi, 5545 persone"
+ },
+ {
+  "id": "sale-sodio-pressione#v5",
+  "testo": "",
+  "fonte": "Filippini 2021 Circulation PMID 33586450",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: rivista Circulation"
+ },
+ {
+  "id": "sale-sodio-pressione#i0",
+  "testo": "",
+  "fonte": "OMS scheda Sodium reduction",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "fattore 2,5 coerente"
+ },
+ {
+  "id": "sale-sodio-pressione#q0",
+  "testo": "",
+  "fonte": "Zoccali 2016 PMID 27488353; OMS",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sale-sodio-pressione#q2",
+  "testo": "",
+  "fonte": "Huang 2020 PMID 32094151",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sale-sodio-pressione#q4",
+  "testo": "",
+  "fonte": "Filippou 2020 PMID 32330233",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sale-sodio-pressione#gl:Sodio",
+  "testo": "",
+  "fonte": "OMS; Huang 2020 PMID 32094151",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "fibre-microbiota#d",
+  "testo": "",
+  "fonte": "Reynolds 2019 Lancet PMID 30638909",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "parte sugli acidi grassi a catena corta meccanicistica"
+ },
+ {
+  "id": "fibre-microbiota#p3",
+  "testo": "",
+  "fonte": "Reynolds 2019 PMID 30638909",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "fibre-microbiota#p5",
+  "testo": "",
+  "fonte": "Reynolds 2019 PMID 30638909",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "25-29 g al giorno"
+ },
+ {
+  "id": "fibre-microbiota#v0",
+  "testo": "",
+  "fonte": "Reynolds 2019 PMID 30638909",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "fibre-microbiota#v1",
+  "testo": "",
+  "fonte": "Reynolds 2019 PMID 30638909",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "dato di studi, non LARN"
+ },
+ {
+  "id": "fibre-microbiota#v2",
+  "testo": "",
+  "fonte": "Reynolds 2019 PMID 30638909",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "fibre-microbiota#i2",
+  "testo": "",
+  "fonte": "nessuna fonte letta",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "frequenza legumi da CREA 2018 non letta"
+ },
+ {
+  "id": "fibre-microbiota#q1",
+  "testo": "",
+  "fonte": "Reynolds 2019 PMID 30638909",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "fibre-microbiota#q2",
+  "testo": "",
+  "fonte": "Reynolds 2019 PMID 30638909",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#d",
+  "testo": "",
+  "fonte": "Lane 2024 BMJ PMID 38418082; Hall 2019 PMID 31105044; Te Morenga 2012 PMID 23321486",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#p0",
+  "testo": "",
+  "fonte": "Monteiro 2018 PMID 28322183",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "esempi per gruppo NOVA non letti"
+ },
+ {
+  "id": "ultraprocessati-zuccheri#p2",
+  "testo": "",
+  "fonte": "Te Morenga 2012 PMID 23321486",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#p4",
+  "testo": "",
+  "fonte": "Te Morenga 2012 PMID 23321486",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: coorti di bambini"
+ },
+ {
+  "id": "ultraprocessati-zuccheri#p5",
+  "testo": "",
+  "fonte": "Lane 2024 PMID 38418082",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#p6",
+  "testo": "",
+  "fonte": "Lane 2024 PMID 38418082",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#p8",
+  "testo": "",
+  "fonte": "Hall 2019 PMID 31105044",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": "RCT crossover"
+ },
+ {
+  "id": "ultraprocessati-zuccheri#v0",
+  "testo": "",
+  "fonte": "Breda 2019 PMID 30086553; OMS 2015",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "due fonti indipendenti"
+ },
+ {
+  "id": "ultraprocessati-zuccheri#v1",
+  "testo": "",
+  "fonte": "Te Morenga 2012 PMID 23321486",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#v2",
+  "testo": "",
+  "fonte": "Te Morenga 2012 PMID 23321486",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#v3",
+  "testo": "",
+  "fonte": "Te Morenga 2012 PMID 23321486",
+  "tipo": "studio",
+  "stato": "corretto",
+  "nota": "corretto: coorti di bambini"
+ },
+ {
+  "id": "ultraprocessati-zuccheri#v4",
+  "testo": "",
+  "fonte": "Lane 2024 PMID 38418082",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#v5",
+  "testo": "",
+  "fonte": "Lane 2024 PMID 38418082",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#v6",
+  "testo": "",
+  "fonte": "Hall 2019 PMID 31105044",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#i6",
+  "testo": "",
+  "fonte": "nessuna fonte letta",
+  "tipo": "manuale",
+  "stato": "da-verificare",
+  "nota": "durata del diario senza fonte"
+ },
+ {
+  "id": "ultraprocessati-zuccheri#q0",
+  "testo": "",
+  "fonte": "Monteiro 2018 PMID 28322183; Lane 2024",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#q1",
+  "testo": "",
+  "fonte": "Hall 2019 PMID 31105044",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#q2",
+  "testo": "",
+  "fonte": "Breda 2019 PMID 30086553; OMS 2015",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#q3",
+  "testo": "",
+  "fonte": "Lane 2024 PMID 38418082",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ultraprocessati-zuccheri#gl:NOVA",
+  "testo": "",
+  "fonte": "Monteiro 2018 PMID 28322183",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "digiuno-intermittente#d",
+  "testo": "",
+  "fonte": "Semnani-Azad 2025 BMJ PMID 40533200",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "rete di meta-analisi"
+ },
+ {
+  "id": "digiuno-intermittente#p0",
+  "testo": "",
+  "fonte": "Semnani-Azad 2025 PMID 40533200",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "finestra di 8 ore solo esempio"
+ },
+ {
+  "id": "digiuno-intermittente#p1",
+  "testo": "",
+  "fonte": "Semnani-Azad 2025 PMID 40533200",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "digiuno-intermittente#p2",
+  "testo": "",
+  "fonte": "Semnani-Azad 2025 PMID 40533200",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: confronto con restrizione continua"
+ },
+ {
+  "id": "digiuno-intermittente#p3",
+  "testo": "",
+  "fonte": "Semnani-Azad 2025 PMID 40533200",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "digiuno-intermittente#p4",
+  "testo": "",
+  "fonte": "Welton 2020 PMID 32060194",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "solo 18 su 27 RCT"
+ },
+ {
+  "id": "digiuno-intermittente#p5",
+  "testo": "",
+  "fonte": "Siles-Guerrero 2024 PMID 39458528",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "digiuno-intermittente#v0",
+  "testo": "",
+  "fonte": "Semnani-Azad 2025 PMID 40533200",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "digiuno-intermittente#v1",
+  "testo": "",
+  "fonte": "Semnani-Azad 2025 PMID 40533200",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "digiuno-intermittente#v2",
+  "testo": "",
+  "fonte": "Semnani-Azad 2025 PMID 40533200",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "digiuno-intermittente#v3",
+  "testo": "",
+  "fonte": "Siles-Guerrero 2024 PMID 39458528",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "digiuno-intermittente#v4",
+  "testo": "",
+  "fonte": "Siles-Guerrero 2024 PMID 39458528",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "digiuno-intermittente#v5",
+  "testo": "",
+  "fonte": "Welton 2020 PMID 32060194",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "digiuno-intermittente#i2",
+  "testo": "",
+  "fonte": "ADA Standards of Care 2025 PMID 39651981",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "educazione sanitaria"
+ },
+ {
+  "id": "digiuno-intermittente#q0",
+  "testo": "",
+  "fonte": "Semnani-Azad 2025 PMID 40533200",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: confronto esplicito"
+ },
+ {
+  "id": "digiuno-intermittente#gl:Digiuno intermittente",
+  "testo": "",
+  "fonte": "Semnani-Azad 2025 PMID 40533200",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#p0",
+  "testo": "",
+  "fonte": "Holick 2007 PMID 17634462",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "fisiologia consolidata"
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#p2",
+  "testo": "",
+  "fonte": "Yao 2019 PMID 31860103",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#p3",
+  "testo": "",
+  "fonte": "Yao 2019 PMID 31860103",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#p4",
+  "testo": "",
+  "fonte": "Yao 2019 PMID 31860103",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#p5",
+  "testo": "",
+  "fonte": "LeBoff 2022 VITAL PMID 35939577",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#p6",
+  "testo": "",
+  "fonte": "Zhao 2017 JAMA PMID 29279934",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: adulti oltre 50 anni in comunità"
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#p7",
+  "testo": "",
+  "fonte": "Weaver 2016 PMID 26510847",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#v0",
+  "testo": "",
+  "fonte": "Yao 2019 PMID 31860103",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#v1",
+  "testo": "",
+  "fonte": "Yao 2019 PMID 31860103",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#v2",
+  "testo": "",
+  "fonte": "Yao 2019 PMID 31860103",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#v3",
+  "testo": "",
+  "fonte": "Yao 2019 PMID 31860103",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#v4",
+  "testo": "",
+  "fonte": "Yao 2019 PMID 31860103",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "dosi degli studi, non prescrizione"
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#v5",
+  "testo": "",
+  "fonte": "LeBoff 2022 PMID 35939577",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#v6",
+  "testo": "",
+  "fonte": "Yao 2019 PMID 31860103",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#i4",
+  "testo": "",
+  "fonte": "EMA RCP Fosavance; EMA RCP Bonviva",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "corretto: alendronato 30 min, ibandronato 60 min"
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#q0",
+  "testo": "",
+  "fonte": "LeBoff 2022 PMID 35939577",
+  "tipo": "studio",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#q1",
+  "testo": "",
+  "fonte": "Yao 2019 PMID 31860103",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "vitamina-d-calcio-osteoporosi#q4",
+  "testo": "",
+  "fonte": "Yao 2019; LeBoff 2022",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ferro-anemia-carenziale#v3",
+  "testo": "",
+  "fonte": "Lopez 2016 PMID 26314490",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "gruppi a rischio"
+ },
+ {
+  "id": "dieta-mediterranea#p1",
+  "testo": "",
+  "fonte": "ESC 2024; ESC 2021; SODIUM-HF PMID 35381194",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "restrizione decisa dal medico"
+ },
+ {
+  "id": "dieta-mediterranea#q0",
+  "testo": "",
+  "fonte": "ESC 2021; SODIUM-HF",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "ferro-anemia-carenziale#d",
+  "testo": "",
+  "fonte": "Lopez 2016 PMID 26314490",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: anemia circa un terzo, metà per carenza di ferro"
+ }
+]

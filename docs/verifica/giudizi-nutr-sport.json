@@ -1,0 +1,914 @@
+[
+ {
+  "id": "sport-energia-red-s#d",
+  "testo": "",
+  "fonte": "Mountjoy 2023 PMID 37752011; Burke 2023 PMID 37752007",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "2014, maschi e femmine, continuum da LEA adattabile a problematica"
+ },
+ {
+  "id": "sport-energia-red-s#p2",
+  "testo": "",
+  "fonte": "PMID 37752007; PMID 37752011",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "continuum e variabilità individuale letti negli abstract"
+ },
+ {
+  "id": "sport-energia-red-s#p6",
+  "testo": "",
+  "fonte": "PMID 37752011",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "il CAT2 stratifica gravità e rischio"
+ },
+ {
+  "id": "sport-energia-red-s#v0",
+  "testo": "",
+  "fonte": "PMID 37752011",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "introdotto nel 2014"
+ },
+ {
+  "id": "sport-energia-red-s#v1",
+  "testo": "",
+  "fonte": "PMID 37752011",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "oltre 170 pubblicazioni"
+ },
+ {
+  "id": "sport-energia-red-s#v2",
+  "testo": "",
+  "fonte": "PMID 37752011",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "REDs Clinical Assessment Tool-Version 2"
+ },
+ {
+  "id": "sport-energia-red-s#q1",
+  "testo": "",
+  "fonte": "PMID 37752011",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "unica opzione corretta"
+ },
+ {
+  "id": "sport-energia-red-s#q4",
+  "testo": "",
+  "fonte": "PMID 37752011",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "strumento per detection e diagnosi clinica"
+ },
+ {
+  "id": "sport-carboidrati#d",
+  "testo": "",
+  "fonte": "Burke 2011 PMID 21660838; Kerksick 2017 PMID 28919842",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "30-60 g/h e fino a 90 g/h oltre 2,5 h"
+ },
+ {
+  "id": "sport-carboidrati#p1",
+  "testo": "",
+  "fonte": "PMID 28919842",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "8-12 g/kg/die"
+ },
+ {
+  "id": "sport-carboidrati#p2",
+  "testo": "",
+  "fonte": "PMID 21660838",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "risciacquo della bocca su sforzi di circa 1 h"
+ },
+ {
+  "id": "sport-carboidrati#p3",
+  "testo": "",
+  "fonte": "PMID 28919842; PMID 21660838",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "sforzo oltre 60 min e oltre il 70% del VO2max"
+ },
+ {
+  "id": "sport-carboidrati#p4",
+  "testo": "",
+  "fonte": "PMID 21660838",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "fino a 90 g/h con miscele di zuccheri"
+ },
+ {
+  "id": "sport-carboidrati#p5",
+  "testo": "",
+  "fonte": "PMID 28919842",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "1,2 g/kg/h, alto indice glicemico"
+ },
+ {
+  "id": "sport-carboidrati#p6",
+  "testo": "",
+  "fonte": "Burke 2017 PMID 27789774",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "dato per ora non letto"
+ },
+ {
+  "id": "sport-carboidrati#p7",
+  "testo": "",
+  "fonte": "PMID 27789774",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "tipo, forma e schema contano meno del totale"
+ },
+ {
+  "id": "sport-carboidrati#v0",
+  "testo": "",
+  "fonte": "PMID 28919842",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-carboidrati#v1",
+  "testo": "",
+  "fonte": "PMID 28919842; PMID 21660838",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-carboidrati#v2",
+  "testo": "",
+  "fonte": "PMID 21660838",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-carboidrati#v3",
+  "testo": "",
+  "fonte": "PMID 28919842",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-carboidrati#v4",
+  "testo": "",
+  "fonte": "PMID 28919842",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-carboidrati#v5",
+  "testo": "",
+  "fonte": "PMID 28919842",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "0,8 g/kg/h carboidrati e 0,2-0,4 g/kg/h proteine"
+ },
+ {
+  "id": "sport-carboidrati#q0",
+  "testo": "",
+  "fonte": "PMID 21660838",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-carboidrati#q1",
+  "testo": "",
+  "fonte": "PMID 28919842",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-carboidrati#q2",
+  "testo": "",
+  "fonte": "PMID 28919842",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-carboidrati#q3",
+  "testo": "",
+  "fonte": "PMID 27789774",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-proteine-sport-anziani#p0",
+  "testo": "",
+  "fonte": "Jäger 2017 PMID 28642676",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-proteine-sport-anziani#p1",
+  "testo": "",
+  "fonte": "PMID 28642676; Helms 2014 PMID 24092765",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "corretto: atleti di forza in dieta ipocalorica, g/kg/die"
+ },
+ {
+  "id": "sport-proteine-sport-anziani#p2",
+  "testo": "",
+  "fonte": "PMID 28642676; PMID 28919842",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-proteine-sport-anziani#p3",
+  "testo": "",
+  "fonte": "PMID 28642676",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "700-3000 mg di leucina"
+ },
+ {
+  "id": "sport-proteine-sport-anziani#p4",
+  "testo": "",
+  "fonte": "PMID 28642676",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "ogni 3-4 h"
+ },
+ {
+  "id": "sport-proteine-sport-anziani#p5",
+  "testo": "",
+  "fonte": "Bauer 2013 PMID 23867520",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "oltre 65 anni: almeno 1,0-1,2 g/kg/die"
+ },
+ {
+  "id": "sport-proteine-sport-anziani#p6",
+  "testo": "",
+  "fonte": "PMID 23867520",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "1,2 g/kg/die se attivi"
+ },
+ {
+  "id": "sport-proteine-sport-anziani#p7",
+  "testo": "",
+  "fonte": "PMID 23867520",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "eGFR sotto 30 non in dialisi: limitare con il medico"
+ },
+ {
+  "id": "sport-proteine-sport-anziani#p9",
+  "testo": "",
+  "fonte": "Askow 2025 PMID 40197715; Govindasamy 2025 PMID 40806155",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: almeno 30 g"
+ },
+ {
+  "id": "sport-proteine-sport-anziani#v0",
+  "testo": "",
+  "fonte": "PMID 28642676",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-proteine-sport-anziani#v1",
+  "testo": "",
+  "fonte": "Helms 2014 PMID 24092765",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "per kg di massa magra"
+ },
+ {
+  "id": "sport-proteine-sport-anziani#v2",
+  "testo": "",
+  "fonte": "PMID 28642676",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "per dose"
+ },
+ {
+  "id": "sport-proteine-sport-anziani#v3",
+  "testo": "",
+  "fonte": "PMID 28642676",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-proteine-sport-anziani#v4",
+  "testo": "",
+  "fonte": "PMID 23867520",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-proteine-sport-anziani#v5",
+  "testo": "",
+  "fonte": "PMID 23867520",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-proteine-sport-anziani#v6",
+  "testo": "",
+  "fonte": "PMID 40806155",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: almeno 30 g"
+ },
+ {
+  "id": "sport-proteine-sport-anziani#q0",
+  "testo": "",
+  "fonte": "PMID 28642676",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-proteine-sport-anziani#q1",
+  "testo": "",
+  "fonte": "PMID 28642676",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-proteine-sport-anziani#q2",
+  "testo": "",
+  "fonte": "PMID 23867520",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-proteine-sport-anziani#q3",
+  "testo": "",
+  "fonte": "PMID 40806155",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: almeno 30 g"
+ },
+ {
+  "id": "sport-proteine-sport-anziani#q4",
+  "testo": "",
+  "fonte": "Gielen 2021 PMID 32483625; Cuyul-Vásquez 2023 PMID 37571361",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "SMD 0,24; qualità da bassa a moderata"
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#d",
+  "testo": "",
+  "fonte": "WMS 2019 PMID 32044213; Hew-Butler 2017 PMID 28316971",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "sotto 135 mmol/L entro 24 h"
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#p0",
+  "testo": "",
+  "fonte": "Sawka 2007 PMID 17277604",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "posizione ACSM"
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#p3",
+  "testo": "",
+  "fonte": "PMID 32044213; WMS 2013 PMID 23590928",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "soglia in due documenti"
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#p7",
+  "testo": "",
+  "fonte": "Hew-Butler 2019 PMID 32097926",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "schema boli NaCl 3% non letto nel testo completo"
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#p9",
+  "testo": "",
+  "fonte": "Namineni 2022 PMID 34723866",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "studio trasversale, 210 maratoneti"
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#v0",
+  "testo": "",
+  "fonte": "PMID 32044213; PMID 23590928",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#v1",
+  "testo": "",
+  "fonte": "PMID 17277604",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#v2",
+  "testo": "",
+  "fonte": "PMID 32097926",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "come p7"
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#v4",
+  "testo": "",
+  "fonte": "PMID 34723866",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#q0",
+  "testo": "",
+  "fonte": "PMID 32044213",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#q3",
+  "testo": "",
+  "fonte": "PMID 32097926",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "schema dei boli da verificare"
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#q4",
+  "testo": "",
+  "fonte": "PMID 17277604",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-idratazione-iponatriemia#gl:Iponatriemia da esercizio (EAH)",
+  "testo": "",
+  "fonte": "PMID 32044213",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-caffeina#d",
+  "testo": "",
+  "fonte": "Guest 2021 PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "corretto: effetto da moderato a grande sulla resistenza aerobica"
+ },
+ {
+  "id": "sport-caffeina#p0",
+  "testo": "",
+  "fonte": "PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "corretto: resistenza muscolare, forza, velocità, sprint, salti e lanci"
+ },
+ {
+  "id": "sport-caffeina#p2",
+  "testo": "",
+  "fonte": "PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-caffeina#p3",
+  "testo": "",
+  "fonte": "PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "corretto",
+  "nota": "corretto: non sembrano necessarie"
+ },
+ {
+  "id": "sport-caffeina#p4",
+  "testo": "",
+  "fonte": "PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-caffeina#p5",
+  "testo": "",
+  "fonte": "PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-caffeina#p8",
+  "testo": "",
+  "fonte": "Jagim 2023 PMID 36862943",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "oltre 200 mg o oltre 3 mg/kg"
+ },
+ {
+  "id": "sport-caffeina#v0",
+  "testo": "",
+  "fonte": "PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-caffeina#v1",
+  "testo": "",
+  "fonte": "PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-caffeina#v2",
+  "testo": "",
+  "fonte": "PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-caffeina#v3",
+  "testo": "",
+  "fonte": "PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-caffeina#v4",
+  "testo": "",
+  "fonte": "PMID 36862943",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-caffeina#v5",
+  "testo": "",
+  "fonte": "PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-caffeina#q0",
+  "testo": "",
+  "fonte": "PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-caffeina#q1",
+  "testo": "",
+  "fonte": "PMID 33388079",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-tampone-nitrato#p0",
+  "testo": "",
+  "fonte": "Grgic 2021 PMID 34503527",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "da 30 s a 12 min"
+ },
+ {
+  "id": "sport-tampone-nitrato#p1",
+  "testo": "",
+  "fonte": "PMID 34503527",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-tampone-nitrato#p2",
+  "testo": "",
+  "fonte": "PMID 34503527",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "dose singola 60-180 min prima"
+ },
+ {
+  "id": "sport-tampone-nitrato#p5",
+  "testo": "",
+  "fonte": "Trexler 2015 PMID 26175657",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "prove a termine aperto o a cronometro"
+ },
+ {
+  "id": "sport-tampone-nitrato#p6",
+  "testo": "",
+  "fonte": "PMID 26175657",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "attribuito all'ISSN 2015"
+ },
+ {
+  "id": "sport-tampone-nitrato#p7",
+  "testo": "",
+  "fonte": "Shannon 2022 PMID 35604567",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "Delphi"
+ },
+ {
+  "id": "sport-tampone-nitrato#p8",
+  "testo": "",
+  "fonte": "PMID 35604567",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "Delphi"
+ },
+ {
+  "id": "sport-tampone-nitrato#v0",
+  "testo": "",
+  "fonte": "PMID 34503527",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-tampone-nitrato#v1",
+  "testo": "",
+  "fonte": "PMID 34503527",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-tampone-nitrato#v2",
+  "testo": "",
+  "fonte": "PMID 26175657",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-tampone-nitrato#v3",
+  "testo": "",
+  "fonte": "PMID 26175657",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-tampone-nitrato#v4",
+  "testo": "",
+  "fonte": "PMID 35604567",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "Delphi"
+ },
+ {
+  "id": "sport-tampone-nitrato#v5",
+  "testo": "",
+  "fonte": "PMID 35604567",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "Delphi"
+ },
+ {
+  "id": "sport-tampone-nitrato#v6",
+  "testo": "",
+  "fonte": "PMID 35604567",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "Delphi"
+ },
+ {
+  "id": "sport-tampone-nitrato#q0",
+  "testo": "",
+  "fonte": "PMID 34503527",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-tampone-nitrato#q3",
+  "testo": "",
+  "fonte": "PMID 35604567",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-tampone-nitrato#q4",
+  "testo": "",
+  "fonte": "PMID 35604567",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-integratori-sicurezza-doping#p0",
+  "testo": "",
+  "fonte": "Maughan 2018 PMID 29540367",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": "consenso CIO"
+ },
+ {
+  "id": "sport-integratori-sicurezza-doping#p5",
+  "testo": "",
+  "fonte": "Kozhuharov 2022 PMID 35496041",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "50 studi, 3132 integratori, oltre il 28% contaminati"
+ },
+ {
+  "id": "sport-integratori-sicurezza-doping#v0",
+  "testo": "",
+  "fonte": "PMID 29540367",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-integratori-sicurezza-doping#v1",
+  "testo": "",
+  "fonte": "PMID 35496041",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-integratori-sicurezza-doping#v2",
+  "testo": "",
+  "fonte": "PMID 35496041",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-integratori-sicurezza-doping#q0",
+  "testo": "",
+  "fonte": "PMID 35496041",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-integratori-sicurezza-doping#q1",
+  "testo": "",
+  "fonte": "PMID 29540367",
+  "tipo": "linea-guida",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-ferro-vitamina-d#p0",
+  "testo": "",
+  "fonte": "Sim 2019 PMID 31055680",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-ferro-vitamina-d#p1",
+  "testo": "",
+  "fonte": "PMID 39536912",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: dato di letteratura citato, non risultato"
+ },
+ {
+  "id": "sport-ferro-vitamina-d#p4",
+  "testo": "",
+  "fonte": "PMID 39536912",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "ferritina sotto 40 µg/L come criterio di inclusione"
+ },
+ {
+  "id": "sport-ferro-vitamina-d#p5",
+  "testo": "",
+  "fonte": "PMID 39536912",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "ferro parenterale in alternativa"
+ },
+ {
+  "id": "sport-ferro-vitamina-d#p7",
+  "testo": "",
+  "fonte": "Wyatt 2024 PMID 38188620",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "14 RCT, 482 atleti"
+ },
+ {
+  "id": "sport-ferro-vitamina-d#v0",
+  "testo": "",
+  "fonte": "PMID 31055680; PMID 39536912",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: 15-35% confermato"
+ },
+ {
+  "id": "sport-ferro-vitamina-d#v1",
+  "testo": "",
+  "fonte": "PMID 31055680",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-ferro-vitamina-d#v2",
+  "testo": "",
+  "fonte": "PMID 39536912",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-ferro-vitamina-d#v3",
+  "testo": "",
+  "fonte": "PMID 39536912",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-ferro-vitamina-d#v4",
+  "testo": "",
+  "fonte": "PMID 39536912",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "criterio di studio, non soglia diagnostica"
+ },
+ {
+  "id": "sport-ferro-vitamina-d#v5",
+  "testo": "",
+  "fonte": "—",
+  "tipo": "manuale",
+  "stato": "da-verificare",
+  "nota": "nessun valore indicato"
+ },
+ {
+  "id": "sport-ferro-vitamina-d#q0",
+  "testo": "",
+  "fonte": "PMID 39536912",
+  "tipo": "revisione",
+  "stato": "corretto",
+  "nota": "corretto: spiegazione"
+ },
+ {
+  "id": "sport-ferro-vitamina-d#q2",
+  "testo": "",
+  "fonte": "PMID 39536912",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-ferro-vitamina-d#q4",
+  "testo": "",
+  "fonte": "PMID 38188620",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": ""
+ },
+ {
+  "id": "sport-caffeina#i6",
+  "testo": "",
+  "fonte": "ISSN 2023 (Jagim 2023 PMID 36862943)",
+  "tipo": "linea-guida",
+  "stato": "da-verificare",
+  "nota": "soglia 400 mg per adolescenti e avvertenze per gravidanza: da confermare sul testo"
+ }
+]
