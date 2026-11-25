@@ -573,10 +573,14 @@ const FIGURE=[
 {id:"fig-bpco-livelli",wide:1,t:"BPCO su tre livelli: bronchiolo, alveoli, polmone intero",c:"Nel bronchiolo l'infiammazione ispessisce la parete e il muco riempie un lume già stretto (bronchite cronica). Negli alveoli l'elastasi dei neutrofili rompe l'elastina: i setti si distruggono, gli alveoli confluiscono in spazi grandi, la superficie di scambio e il ritorno elastico calano (enfisema). Senza la trazione dei setti la piccola via aerea si chiude in espirazione e l'aria resta intrappolata: il polmone si iperinfla e il diaframma si appiattisce. In basso gli stadi spirometrici GOLD. Disegno schematico, proporzioni indicative.",
  enc:["bpco"],gl:["BPCO","Iperinflazione dinamica"],st:/bpco|enfisema|bronchite cronica/i,
  svg:(()=>{
-  const T=FT.text,D="6s",R=" repeatCount=\"indefinite\"";
+  const D="6s",R=" repeatCount=\"indefinite\"",K=380/440,OFF=31.5;
   const r1=v=>Math.round(v*10)/10,P=(x,y)=>r1(x)+" "+r1(y);
   const pol=(cx,cy,r,a)=>[cx+r*Math.cos(a*Math.PI/180),cy+r*Math.sin(a*Math.PI/180)];
-  /* colori: solo variabili del tema (miscele) */
+  /* testo: TD = in coordinate 380; TB = in coordinate del corpo (440), mappato senza scalare il carattere */
+  const sty=t=>t.replace("<text ",'<text style="font-size:11px" ');
+  const TD=(x,y,l,op)=>(op&&op.sm?sty(FT.text(x,y,l,Object.assign({lh:13},op))):FT.text(x,y,l,op));
+  let txt="";
+  const TB=(x,y,l,op)=>{txt+=TD(r1(x*K),r1(OFF+y*K),l,Object.assign({sm:true},op||{}));return ""};
   const INK="color-mix(in srgb,var(--ink) 55%,var(--paper))";
   const FL=(c,p)=>`fill:color-mix(in srgb,var(--${c}) ${p}%,var(--paper))`;
   const ST=(w,c)=>`stroke:${c||INK};stroke-width:${w};stroke-linecap:round;stroke-linejoin:round`;
@@ -584,39 +588,40 @@ const FIGURE=[
   const NEU=`fill:var(--scrub);stroke:var(--paper);stroke-width:.6`;
   const MAC=`${FL("scrub",26)};stroke:var(--scrub);stroke-width:1`;
   const AMB=`${FL("amber",55)};stroke:var(--amber);stroke-width:1`;
-  /* spline chiusa e blob organici */
   const closed=pts=>{const n=pts.length;let d="M"+P(...pts[0]);for(let i=0;i<n;i++){const p0=pts[(i-1+n)%n],p1=pts[i],p2=pts[(i+1)%n],p3=pts[(i+2)%n];d+="C"+P(p1[0]+(p2[0]-p0[0])/6,p1[1]+(p2[1]-p0[1])/6)+" "+P(p2[0]-(p3[0]-p1[0])/6,p2[1]-(p3[1]-p1[1])/6)+" "+P(...p2)}return d+"Z"};
   const rad=(r,amp,n,ph,a)=>r*(1+amp*Math.sin(n*a*Math.PI/180+ph)+amp*.45*Math.sin((n+3)*a*Math.PI/180+ph*2));
   const blob=(cx,cy,r,amp,n,ph)=>closed(Array.from({length:30},(_,i)=>pol(cx,cy,rad(r,amp,n,ph,i*12),i*12)));
-  const LD=(x1,y1,x2,y2)=>`<path class="lead" d="M${P(x1,y1)}L${P(x2,y2)}"/><circle cx="${r1(x2)}" cy="${r1(y2)}" r="1.5" style="fill:var(--muted)"/>`;
+  const LD=(x1,y1,x2,y2)=>`<path class="lead" d="M${P(x1,y1)}L${P(x2,y2)}"/><circle cx="${r1(x2)}" cy="${r1(y2)}" r="1.6" style="fill:var(--muted)"/>`;
   const an=(vals,kt)=>`<animate attributeName="d" values="${vals.join(";")}" keyTimes="${kt}" dur="${D}"${R}/>`;
-  let o="";
+  const dotAppear=(x,y,rr,a,st)=>`<circle cx="${x}" cy="${y}" r="${rr}" class="ff" style="${st}" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;${a};${r1(a+.06)};.93;1" dur="${D}"${R}/></circle>`;
+  let o="",hd="",sep="";
 
-  /* ===== intestazione: ciclo del respiro ===== */
-  o+=T(8,20,"Ciclo del respiro",{sm:true});
-  o+=`<rect class="fbx" x="124" y="6" width="192" height="19" rx="2"/>`;
-  o+=`<rect class="fbx k-info" x="124" y="6" width="96" height="19" rx="2" opacity="1"><animate attributeName="opacity" values="1;0" keyTimes="0;.4" calcMode="discrete" dur="${D}"${R}/></rect>`;
-  o+=`<rect class="fbx k-info" x="220" y="6" width="96" height="19" rx="2" opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;.4" calcMode="discrete" dur="${D}"${R}/></rect>`;
-  o+=T(172,19,"inspirazione",{a:"middle",sm:true})+T(268,19,"espirazione",{a:"middle",sm:true});
-  /* colonne */
-  o+=`<rect class="fbx k-ok" x="8" y="34" width="208" height="20" rx="2"/>`+T(112,48,"Normale",{a:"middle",b:true});
-  o+=`<rect class="fbx k-alarm" x="224" y="34" width="208" height="20" rx="2"/>`+T(328,48,"BPCO",{a:"middle",b:true});
-  const level=(ty,n,title,sub)=>`<circle class="fbx k-info" cx="15" cy="${ty-4}" r="7.5"/>`+T(15,ty,String(n),{a:"middle",sm:true,b:true})+T(30,ty,title,{b:true})+T(432,ty,sub,{a:"end",sm:true})+`<path class="lead" d="M8 ${ty+7}H432" style="stroke-opacity:.55"/>`;
+  /* ===== intestazione (coordinate 380) ===== */
+  hd+=TD(8,14,"cosa vedi: il ciclo del respiro",{sm:true});
+  hd+=`<rect class="fbx" x="90" y="20" width="200" height="24" rx="2"/>`;
+  hd+=`<rect class="fbx k-info" x="90" y="20" width="100" height="24" rx="2" opacity="1"><animate attributeName="opacity" values="1;0" keyTimes="0;.4" calcMode="discrete" dur="${D}"${R}/></rect>`;
+  hd+=`<rect class="fbx k-info" x="190" y="20" width="100" height="24" rx="2" opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;.4" calcMode="discrete" dur="${D}"${R}/></rect>`;
+  hd+=TD(140,36,"inspirazione",{a:"middle"})+TD(240,36,"espirazione",{a:"middle"});
+  hd+=`<rect class="fbx k-ok" x="8" y="52" width="178" height="22" rx="2"/>`+TD(97,67,"Normale",{a:"middle",b:true});
+  hd+=`<rect class="fbx k-alarm" x="194" y="52" width="178" height="22" rx="2"/>`+TD(283,67,"BPCO",{a:"middle",b:true});
+  const level=(ty,n,title,sub)=>{const Y=r1(OFF+ty*K);
+    hd+=`<circle class="fbx k-info" cx="16" cy="${r1(Y-4)}" r="8"/>`+TD(16,r1(Y),String(n),{a:"middle",sm:true,b:true})+TD(31,Y,title,{b:true})+TD(372,Y,sub,{a:"end",sm:true})+`<path class="lead" d="M8 ${r1(Y+7)}H372" style="stroke-opacity:.55"/>`};
 
   /* ===== 1. Bronchiolo ===== */
   const t1=84,c1=t1+16,H1=128,cy1=c1+64;
-  o+=level(t1,1,"Bronchiolo in sezione","bronchite cronica");
+  level(t1,1,"Bronchiolo in sezione","bronchite cronica");
   { /* normale */
     const cx=62,cy=cy1;
     o+=`<path d="${blob(cx,cy,35,.025,3,.4)}" style="${TIS("ok",12)}"/>`;
     for(let a=0;a<360;a+=30){const p=pol(cx,cy,31,a+8),q=pol(cx,cy,31,a+26);o+=`<path d="M${P(...p)}A31 31 0 0 1 ${P(...q)}" style="${ST(1.3,"color-mix(in srgb,var(--ok) 70%,var(--paper))")};fill:none"/>`}
     o+=`<circle cx="${cx}" cy="${cy}" r="27" style="${TIS("ok",30)}"/>`;
     for(let a=0;a<360;a+=15){const p=pol(cx,cy,22,a),q=pol(cx,cy,27,a);o+=`<path d="M${P(...p)}L${P(...q)}" style="${ST(.6)};stroke-opacity:.6"/>`}
+    for(let a=7;a<360;a+=30){const p=pol(cx,cy,24.7,a);o+=`<ellipse cx="${r1(p[0])}" cy="${r1(p[1])}" rx="1.6" ry="1" transform="rotate(${a} ${r1(p[0])} ${r1(p[1])})" style="fill:${INK};stroke:none"/>`}
     o+=`<circle class="ff" cx="${cx}" cy="${cy}" r="22" style="${ST(1)}"/>`;
-    for(let a=0;a<360;a+=12){const p=pol(cx,cy,22,a),c=pol(cx,cy,20.5,a-5),q=pol(cx,cy,16.5,a+7);o+=`<path d="M${P(...p)}Q${P(...c)} ${P(...q)}" style="${ST(.8)};fill:none"/>`}
-    o+=T(112,c1+20,"parete sottile",{sm:true})+LD(109,c1+17,cx+23,cy-23);
-    o+=T(112,cy-1,["epitelio","con ciglia"],{sm:true})+LD(109,cy+3,cx+24.5,cy+3);
-    o+=T(112,c1+110,"lume ampio",{sm:true})+LD(109,c1+107,cx+9,cy+11);
+    for(let a=0;a<360;a+=10){const p=pol(cx,cy,22,a),c=pol(cx,cy,20.5,a-5),q=pol(cx,cy,16,a+7);o+=`<path d="M${P(...p)}Q${P(...c)} ${P(...q)}" style="${ST(.8)};fill:none"/>`}
+    o+=TB(112,c1+20,"parete sottile")+LD(109,c1+17,cx+23,cy-23);
+    o+=TB(112,cy-1,["epitelio","con ciglia"])+LD(109,cy+3,cx+24.5,cy+3);
+    o+=TB(112,c1+110,"lume ampio")+LD(109,c1+107,cx+9,cy+11);
   }
   { /* BPCO */
     const cx=276,cy=cy1;
@@ -625,48 +630,41 @@ const FIGURE=[
     o+=`<path d="${blob(cx,cy,29,.04,5,2)}" style="${TIS("vital",40)}"/>`;
     const LU=(a)=>rad(16,.24,5,.8,a);
     o+=`<path d="${closed(Array.from({length:30},(_,i)=>pol(cx,cy,LU(i*12),i*12)))}" class="ff" style="${ST(1)}"/>`;
-    /* muco */
     o+=`<path d="${blob(cx+1,cy+1,11.5,.2,3,2.5)}" style="${AMB}"/><circle cx="${cx-3}" cy="${cy-3}" r="2.2" class="ff" style="${ST(.6,"var(--amber)")}"/><circle cx="${cx+4}" cy="${cy+4}" r="1.5" class="ff" style="${ST(.6,"var(--amber)")}"/>`;
-    /* caliciformi */
-    [5,78,135,195,250,310].forEach((a,i)=>{const p=pol(cx,cy,27.5,a);o+=`<ellipse cx="${P(...p).split(" ")[0]}" cy="${P(...p).split(" ")[1]}" rx="2.7" ry="4.6" transform="rotate(${a+90} ${r1(p[0])} ${r1(p[1])})" style="${FL("amber",45)};stroke:var(--amber);stroke-width:.9"/>`});
-    /* ciglia rade e rotte */
-    [{a:78,b:1},{a:112,b:-1},{a:168,b:1},{a:290,b:-1}].forEach(({a,b})=>{const p=pol(cx,cy,LU(a)-.5,a),c=pol(cx,cy,LU(a)-3,a+6*b),q=pol(cx,cy,LU(a)-5,a+16*b);o+=`<path d="M${P(...p)}Q${P(...c)} ${P(...q)}" style="${ST(.9)};fill:none"/>`});
-    /* cellule infiammatorie */
+    [5,78,135,195,250,310].forEach(a=>{const p=pol(cx,cy,27.5,a);o+=`<ellipse cx="${r1(p[0])}" cy="${r1(p[1])}" rx="2.7" ry="4.6" transform="rotate(${a+90} ${r1(p[0])} ${r1(p[1])})" style="${FL("amber",45)};stroke:var(--amber);stroke-width:.9"/>`});
+    [{a:78,b:1},{a:112,b:-1},{a:168,b:1},{a:290,b:-1},{a:340,b:1}].forEach(({a,b})=>{const p=pol(cx,cy,LU(a)-.5,a),c=pol(cx,cy,LU(a)-3,a+6*b),q=pol(cx,cy,LU(a)-5,a+16*b);o+=`<path d="M${P(...p)}Q${P(...c)} ${P(...q)}" style="${ST(.9)};fill:none"/>`});
     [[10,40],[44,38],[86,40],[132,39],[172,41],[214,39],[256,41],[300,40],[336,38],[62,33],[198,33],[322,32]].forEach(([a,rr])=>{const p=pol(cx,cy,rr,a);o+=`<ellipse cx="${r1(p[0])}" cy="${r1(p[1])}" rx="2.6" ry="2.1" transform="rotate(${a} ${r1(p[0])} ${r1(p[1])})" style="${NEU}"/>`});
     [[-24,37],[150,35],[238,36]].forEach(([a,rr])=>{const p=pol(cx,cy,rr,a);o+=`<circle cx="${r1(p[0])}" cy="${r1(p[1])}" r="4.6" style="${MAC}"/><circle cx="${r1(p[0]+1)}" cy="${r1(p[1])}" r="1.8" style="fill:var(--scrub)"/>`});
     const X=334;
-    o+=T(X,c1+16,["parete spessa,","infiammata"],{sm:true})+LD(X-3,c1+13,...pol(cx,cy,40,-52));
-    o+=T(X,c1+48,["neutrofili,","macrofagi"],{sm:true})+LD(X-3,c1+45,...pol(cx,cy,37,-24));
-    o+=T(X,c1+80,"caliciformi ↑",{sm:true})+LD(X-3,c1+77,...pol(cx,cy,27.5,5));
-    o+=T(X,c1+98,"muco nel lume",{sm:true})+LD(X-3,c1+95,cx+10,cy+3);
-    o+=T(X,c1+116,"ciglia rotte",{sm:true})+LD(X-3,c1+113,...pol(cx,cy,LU(78)-4,78));
+    o+=TB(X,c1+16,["parete spessa,","infiammata"])+LD(X-3,c1+13,...pol(cx,cy,40,-52));
+    o+=TB(X,c1+48,["neutrofili,","macrofagi"])+LD(X-3,c1+45,...pol(cx,cy,37,-24));
+    o+=TB(X,c1+80,"caliciformi ↑")+LD(X-3,c1+77,...pol(cx,cy,27.5,5));
+    o+=TB(X,c1+98,"muco nel lume")+LD(X-3,c1+95,cx+10,cy+3);
+    o+=TB(X,c1+116,"ciglia rotte")+LD(X-3,c1+113,...pol(cx,cy,LU(78)-4,78));
   }
 
   /* ===== 2. Alveoli ===== */
-  const t2=c1+H1+24,c2=t2+24,H2=168,cy2=c2+54;
-  o+=level(t2,2,"Alveoli","enfisema");
+  const t2=c1+H1+24,c2=t2+24,H2=178,cy2=c2+54;
+  level(t2,2,"Alveoli","enfisema");
   { /* normale */
     o+=`<rect x="16" y="${cy2-37}" width="190" height="74" rx="16" style="${TIS("ok",20)}"/>`;
     const al=[[34,-21],[56,-21],[78,-21],[34,21],[56,21],[78,21]];
     [0,1,2,3,4].forEach(i=>(i%2?[-12,12]:[-24,0,24]).forEach(dy=>al.push([100+21*i,dy])));
-    /* via aerea */
     o+=`<path d="M14 ${cy2-6}H92M14 ${cy2+6}H92" style="${ST(1.5)};fill:none"/><rect class="ff" x="14" y="${cy2-5}" width="80" height="10"/>`;
-    al.forEach(([x,y])=>{o+=`<circle class="ff" cx="${x}" cy="${cy2+y}" r="${y===0&&x===100?11:10.5}" style="${ST(.9)}"><animate attributeName="r" values="${y===0&&x===100?"11;11.8;11":"10.5;11.2;10.5"}" keyTimes="0;.4;1" dur="${D}"${R}/></circle>`});
+    al.forEach(([x,y])=>{const c=y===0&&x===100;o+=`<circle class="ff" cx="${x}" cy="${cy2+y}" r="${c?11:10.5}" style="${ST(.9)}"><animate attributeName="r" values="${c?"11;11.8;11":"10.5;11.2;10.5"}" keyTimes="0;.4;1" dur="${D}"${R}/></circle>`});
     o+=`<rect class="ff" x="86" y="${cy2-5}" width="8" height="10"/>`;
-    /* fibre elastiche */
-    const sq=(x,y,ang,L)=>{const u=[Math.cos(ang),Math.sin(ang)],v=[-u[1],u[0]];let d="M"+P(x-u[0]*L/2,y-u[1]*L/2);for(let i=1;i<=6;i++){const k=i/6,s=(i%2?1:-1)*1.9;d+="L"+P(x+u[0]*L*(k-.5)+v[0]*s,y+u[1]*L*(k-.5)+v[1]*s)}return `<path d="${d}" style="${ST(.9,"var(--amber)")};fill:none"/>`};
-    [[110.5,cy2-18,-.52],[131.5,cy2-6,-.52],[131.5,cy2-18,.52],[152.5,cy2+6,.52],[110.5,cy2+18,.52],[173.5,cy2-6,.52]].forEach(([x,y,a])=>{o+=sq(x,y,a+Math.PI/2,8)});
-    o+=T(112,c2+9,"setti integri",{sm:true})+LD(128,c2+13,121,cy2-17);
-    o+=T(112,c2+104,"fibre elastiche",{sm:true})+LD(130,c2+93,131.5,cy2+4);
+    /* fibre elastiche: grandi, con alone del colore del foglio */
+    const sq=(x,y,ang,L)=>{const u=[Math.cos(ang),Math.sin(ang)],v=[-u[1],u[0]];let d="M"+P(x-u[0]*L/2,y-u[1]*L/2);for(let i=1;i<=7;i++){const k=i/7,s=(i%2?1:-1)*2.6;d+="L"+P(x+u[0]*L*(k-.5)+v[0]*s,y+u[1]*L*(k-.5)+v[1]*s)}return `<path d="${d}" style="fill:none;stroke:var(--paper);stroke-width:4.2;stroke-linejoin:round;stroke-opacity:.9"/><path d="${d}" style="fill:none;stroke:var(--amber);stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round"/>`};
+    [[110.5,cy2-18,-.52],[131.5,cy2-6,-.52],[131.5,cy2-18,.52],[152.5,cy2+6,.52],[110.5,cy2+18,.52],[173.5,cy2-6,.52]].forEach(([x,y,a])=>{o+=sq(x,y,a+Math.PI/2,11)});
+    o+=TB(112,c2+9,"setti integri")+LD(128,c2+13,121,cy2-17);
+    o+=TB(112,c2+110,"fibre elastiche")+LD(130,c2+99,131.5,cy2+4);
     o+=`<circle class="anm" style="fill:var(--scrub);stroke:var(--paper);stroke-width:1" r="3.4"><animateMotion dur="${D}"${R} calcMode="linear" keyPoints="0;1;0" keyTimes="0;.4;1" path="M20 ${cy2}H100"/></circle>`;
-    o+=T(12,c2+126,["i setti elastici tengono aperta","la via: l'aria entra ed esce,","buon ritorno elastico"],{sm:true});
+    o+=TB(12,c2+138,["i setti tengono aperta","la via: l'aria entra ed esce,","buon ritorno elastico"]);
   }
   { /* BPCO */
     const wall=p=>`M232 ${cy2-7}H250Q270 ${cy2-7+p} 290 ${cy2-7}H310`,wallB=p=>`M232 ${cy2+7}H250Q270 ${cy2+7-p} 290 ${cy2+7}H310`;
-    const kv=`keyTimes="0;.4;.6;.92;1"`,seq=f=>[0,0,10.5,10.5,0].map(f);
-    /* frammenti di setti: nessuna trazione sulla via aerea */
+    const seq=f=>[0,0,10.5,10.5,0].map(f);
     o+=`<path d="M238 ${cy2-18}a9 9 0 0 1 12 -6M284 ${cy2-22}a9 9 0 0 1 12 6M238 ${cy2+19}a9 9 0 0 0 11 6M286 ${cy2+24}a9 9 0 0 0 11 -7" style="${ST(2.4,"color-mix(in srgb,var(--vital) 45%,var(--paper))")};fill:none"/>`;
-    /* spazio confluito */
     const SP=[[336,cy2+2,28],[368,cy2-12,22],[370,cy2+20,18]],SM=[[409,cy2-28,7],[414,cy2+4,7]];
     const rim="color-mix(in srgb,var(--vital) 50%,var(--paper))";
     SP.concat(SM).forEach(([x,y,rr])=>{o+=`<circle cx="${x}" cy="${y}" r="${rr}" style="fill:none;stroke:${rim};stroke-width:7"/>`});
@@ -676,82 +674,86 @@ const FIGURE=[
       const c=[[mx+h*(y2-y1)/d,my-h*(x2-x1)/d],[mx-h*(y2-y1)/d,my+h*(x2-x1)/d]].sort((p,q)=>Math.hypot(q[0]-cen[0],q[1]-cen[1])-Math.hypot(p[0]-cen[0],p[1]-cen[1]))[0];
       const dx=cen[0]-c[0],dy=cen[1]-c[1],L=Math.hypot(dx,dy);
       o+=`<path d="M${P(c[0],c[1])}L${P(c[0]+8*dx/L,c[1]+8*dy/L)}" style="${ST(3,rim)}"/>`});
-    /* aria già intrappolata */
+    /* elastina spezzata sui moncherini */
+    [[318,cy2-24,.9],[392,cy2+6,2.6]].forEach(([x,y,a])=>{o+=`<path d="M${P(x,y)}l${r1(3*Math.cos(a))} ${r1(3*Math.sin(a))}M${P(x+5*Math.cos(a),y+5*Math.sin(a))}l${r1(2*Math.cos(a))} ${r1(2*Math.sin(a))}" style="${ST(1.3,"var(--amber)")};fill:none"/>`});
+    /* aria già intrappolata (fissa) e che si accumula (compare e resta) */
     [[334,cy2+8],[374,cy2-16],[372,cy2+22],[352,cy2-6]].forEach(([x,y])=>{o+=`<circle cx="${x}" cy="${y}" r="2.3" class="ff" style="${ST(.9,"var(--scrub)")}"/>`});
-    /* via aerea: tratteggio = chiusa in espirazione */
+    [[346,cy2+14,.12],[360,cy2-2,.2],[352,cy2+26,.28],[382,cy2+4,.36],[378,cy2-26,.44],[324,cy2-8,.5],[394,cy2+14,.56]].forEach(([x,y,a])=>{o+=dotAppear(x,y,2.3,a,ST(.9,"var(--scrub)"))});
     o+=`<rect class="ff" x="232" y="${cy2-6}" width="80" height="12"/>`;
     o+=`<path d="${wall(10.5)}${wallB(10.5)}" class="dash" style="fill:none;stroke-width:1"/>`;
-    o+=`<path d="${wall(0)}" style="${ST(1.7,"var(--vital)")};fill:none">${an(seq(wall),kv.slice(10,-1).replace('"','')&&"0;.4;.6;.92;1")}</path>`;
+    o+=`<path d="${wall(0)}" style="${ST(1.7,"var(--vital)")};fill:none">${an(seq(wall),"0;.4;.6;.92;1")}</path>`;
     o+=`<path d="${wallB(0)}" style="${ST(1.7,"var(--vital)")};fill:none">${an(seq(wallB),"0;.4;.6;.92;1")}</path>`;
     o+=`<circle class="anm" style="fill:var(--scrub);stroke:var(--paper);stroke-width:1" r="3.4"><animateMotion dur="${D}"${R} calcMode="linear" keyPoints="0;1;1" keyTimes="0;.4;1" path="M234 ${cy2}H312C326 ${cy2} 334 ${cy2+2} 344 ${cy2+2}C352 ${cy2-2} 360 ${cy2-8} 366 ${cy2-12}"/><animate attributeName="opacity" values="1;1;1;0;1" keyTimes="0;.4;.9;.96;1" dur="${D}"${R}/></circle>`;
-    /* neutrofilo che libera elastasi */
-    o+=`<circle cx="310" cy="${cy2-36}" r="4.8" style="${MAC}"/><circle cx="309" cy="${cy2-37}" r="1.4" style="fill:var(--scrub)"/><circle cx="312" cy="${cy2-36}" r="1.4" style="fill:var(--scrub)"/><circle cx="310.4" cy="${cy2-34}" r="1.4" style="fill:var(--scrub)"/>`;
-    o+=FT.arrow(314,cy2-32,319,cy2-23,{h:5});
-    o+=T(232,c2+8,["neutrofilo:","elastasi"],{sm:true});
-    o+=T(378,c2+9,"alveoli confluiti",{a:"middle",sm:true})+LD(368,c2+13,368,cy2-32);
-    o+=T(232,c2+98,["la via si chiude","in espirazione"],{sm:true})+LD(268,c2+86,268,cy2+8);
-    o+=T(232,c2+126,["setti distrutti: meno scambio","e meno ritorno elastico;","l'aria resta intrappolata"],{sm:true});
+    o+=`<circle cx="318" cy="${cy2-38}" r="4.8" style="${MAC}"/><circle cx="317" cy="${cy2-39}" r="1.4" style="fill:var(--scrub)"/><circle cx="320" cy="${cy2-38}" r="1.4" style="fill:var(--scrub)"/><circle cx="318.4" cy="${cy2-36}" r="1.4" style="fill:var(--scrub)"/>`;
+    o+=FT.arrow(321,cy2-34,324,cy2-26,{h:5});
+    o+=TB(232,c2+8,["neutrofilo:","elastasi"]);
+    o+=TB(366,c2+9,"alveoli confluiti",{a:"middle"})+LD(368,c2+13,368,cy2-32);
+    o+=TB(232,c2+90,["la via si chiude","in espirazione"])+LD(268,c2+80,268,cy2+8);
+    o+=TB(232,c2+138,["setti distrutti: meno scambio","e meno ritorno elastico;","l'aria resta intrappolata"]);
   }
 
   /* ===== 3. Polmone intero ===== */
   const t3=c2+H2+22,c3=t3+16,H3=140;
-  o+=level(t3,3,"Polmone intero","iperinflazione");
-  const lung=(mx,lx,ay,by,dome,n)=>{const s=lx<mx?-1:1,w=Math.abs(lx-mx),H=by-ay,Ax=mx+s*.45*w;
-    return `M${P(Ax,ay)}C${P(mx+s*1.0*w,ay-.01*H)} ${P(lx,ay+.08*H)} ${P(lx,ay+.4*H)}C${P(lx,ay+.7*H)} ${P(lx,by-.1*H)} ${P(lx,by)}Q${P((lx+mx)/2,dome)} ${P(mx,by-6)}C${P(mx+s*n,by-.3*H)} ${P(mx+s*n*.5,ay+.5*H)} ${P(mx,ay+.2*H)}C${P(mx,ay+.04*H)} ${P(Ax-s*.3*w,ay)} ${P(Ax,ay)}Z`};
-  const fis=(mx,lx,ay,by,dome,k)=>{const H=by-ay,e=(by+dome)/2;return k?`M${P(lx,ay+.36*H)}Q${P((lx+mx)/2,ay+.34*H)} ${P(mx,ay+.4*H)}`:`M${P(lx,ay+.62*H)}Q${P((lx+mx)/2,ay+.6*H)} ${P(mx,Math.min(by-.3*H+0,e-14))}`};
-  const dia=(a,b,by,dome)=>`M${P(a[1],by)}Q${P((a[1]+a[0])/2,dome)} ${P(a[0],by-6)}L${P(b[0],by-6)}Q${P((b[1]+b[0])/2,dome)} ${P(b[1],by)}`;
+  level(t3,3,"Polmone intero","iperinflazione");
+  /* cupola unica: quadratica dal bordo inferiore del torace; i polmoni poggiano su un suo tratto */
+  const dome=(a,b,y0,ctl)=>({y:t=>(1-t)*(1-t)*y0+2*t*(1-t)*ctl+t*t*y0,x:t=>a+(b-a)*t,a,b,y0,ctl,
+    sub:(t0,t1)=>{const f=t=>(1-t)*(1-t)*y0+2*t*(1-t)*ctl+t*t*y0;return {y0:f(t0),y1:f(t1),c:(1-t0)*(1-t1)*y0+((1-t0)*t1+t0*(1-t1))*ctl+t0*t1*y0,t0,t1}}});
+  const lung=(Dm,mx,lx,ay,n)=>{const s=lx<mx?-1:1,w=Math.abs(lx-mx),tl=(lx-Dm.a)/(Dm.b-Dm.a),tm=(mx-Dm.a)/(Dm.b-Dm.a),sb=Dm.sub(tl,tm),yl=sb.y0,ym=sb.y1,H=yl-ay,Ax=mx+s*.45*w;
+    return `M${P(Ax,ay)}C${P(mx+s*1.0*w,ay-.01*H)} ${P(lx,ay+.08*H)} ${P(lx,ay+.4*H)}C${P(lx,ay+.7*H)} ${P(lx,yl-.1*H)} ${P(lx,yl)}Q${P((lx+mx)/2,sb.c)} ${P(mx,ym)}C${P(mx+s*n,ym-.3*H)} ${P(mx+s*n*.5,ay+.5*H)} ${P(mx,ay+.2*H)}C${P(mx,ay+.04*H)} ${P(Ax-s*.3*w,ay)} ${P(Ax,ay)}Z`};
+  const fis=(Dm,mx,lx,ay,k)=>{const tl=(lx-Dm.a)/(Dm.b-Dm.a),tm=(mx-Dm.a)/(Dm.b-Dm.a),yl=Dm.y(tl),ym=Dm.y(tm),H=yl-ay;return k?`M${P(lx,ay+.36*H)}Q${P((lx+mx)/2,ay+.34*H)} ${P(mx,ay+.4*H)}`:`M${P(lx,ay+.62*H)}Q${P((lx+mx)/2,ay+.6*H)} ${P(mx,ym-.28*H)}`};
   const thorax=x=>`<rect x="${x}" y="${c3}" width="100" height="${H3-4}" rx="24" class="lead"/>`;
-  const tree=(tc,ty,L,Rr)=>{
-    let d=`M${tc} ${ty}V${ty+26}`;
-    [[-1,L],[1,Rr]].forEach(([s,[hx,hy,ex,ey]])=>{d+=`M${tc} ${ty+26}L${P(tc+s*10,ty+34)}L${P(hx,hy)}M${P(hx,hy)}Q${P(hx+s*8,hy+8)} ${P(ex,ey)}M${P(hx,hy)}L${P(hx+s*14,hy-10)}M${P(hx+s*6,hy+3)}L${P(hx+s*20,hy+10)}M${P(hx+s*8,hy+14)}L${P(hx+s*22,hy+28)}`});
-    return `<path d="${d}" style="${ST(1.2)};fill:none;stroke-opacity:.8"/>`};
-  const lungs=(tx,ax,by,doms,fill,stroke)=>{ /* ax: [lxL,mxL,mxR,lxR,ay] */
-    const [lxL,mxL,mxR,lxR,ay]=ax,kt="0;.4;1";let s="";
-    [[mxL,lxL,0],[mxR,lxR,22]].forEach(([mx,lx,n],i)=>{
-      s+=`<path d="${lung(mx,lx,ay,by,doms[0],n)}" style="${fill};${stroke}">${an(doms.map(d=>lung(mx,lx,ay,by,d,n)),kt)}</path>`;
-      s+=`<path d="${fis(mx,lx,ay,by,doms[0],0)}" style="${ST(.8)};fill:none;stroke-opacity:.7">${an(doms.map(d=>fis(mx,lx,ay,by,d,0)),kt)}</path>`;
-      if(!i)s+=`<path d="${fis(mx,lx,ay,by,doms[0],1)}" style="${ST(.8)};fill:none;stroke-opacity:.7"/>`});
+  const tree=(tc,ty,L,Rr)=>{let d=`M${tc} ${ty}V${ty+26}`;
+    [[-1,L],[1,Rr]].forEach(([s,[hx,hy,ex,ey]])=>{d+=`M${tc} ${ty+26}L${P(tc+s*10,ty+34)}L${P(hx,hy)}M${P(hx,hy)}Q${P(hx+s*8,hy+8)} ${P(ex,ey)}M${P(hx,hy)}L${P(hx+s*14,hy-10)}M${P(hx+s*6,hy+3)}L${P(hx+s*20,hy+10)}M${P(hx+s*8,hy+14)}L${P(hx+s*22,hy+28)}M${P(hx+s*14,hy-10)}l${s*5} -4M${P(hx+s*14,hy-10)}l${s*3} 5M${P(hx+s*20,hy+10)}l${s*5} -3M${P(hx+s*20,hy+10)}l${s*3} 5M${P(hx+s*22,hy+28)}l${s*5} -2M${P(hx+s*22,hy+28)}l${s*2} 5`});
+    return `<path d="${d}" style="${ST(1.1)};fill:none;stroke-opacity:.8"/>`};
+  const KT="0;.4;1";
+  const lungs=(tx,ax,ay,y0,vals,fill)=>{ /* vals: [[ctl,dx],...] */
+    const a=tx+1.5,b=tx+98.5,[lxL,mxL,mxR,lxR]=ax;let s="";
+    [[mxL,lxL,0,-1],[mxR,lxR,22,1]].forEach(([mx,lx,n,sg],i)=>{
+      const v=(c,dx)=>[dome(a,b,y0,c),mx,lx+sg*dx];
+      s+=`<path d="${lung(...v(...vals[0]).slice(0,1),mx,lx+sg*vals[0][1],ay,n)}" style="${fill};${ST(1)}">${an(vals.map(([c,dx])=>lung(dome(a,b,y0,c),mx,lx+sg*dx,ay,n)),KT)}</path>`;
+      s+=`<path d="${fis(dome(a,b,y0,vals[0][0]),mx,lx+sg*vals[0][1],ay,0)}" style="${ST(.8)};fill:none;stroke-opacity:.7">${an(vals.map(([c,dx])=>fis(dome(a,b,y0,c),mx,lx+sg*dx,ay,0)),KT)}</path>`;
+      if(!i)s+=`<path d="${fis(dome(a,b,y0,vals[0][0]),mx,lx+sg*vals[0][1],ay,1)}" style="${ST(.8)};fill:none;stroke-opacity:.7">${an(vals.map(([c,dx])=>fis(dome(a,b,y0,c),mx,lx+sg*dx,ay,1)),KT)}</path>`});
     return s};
+  const diaP=(tx,y0,c)=>`M${P(tx+1.5,y0)}Q${P(tx+50,c)} ${P(tx+98.5,y0)}`;
   { /* normale */
-    const tx=16,tc=tx+50,by=c3+104,doms=[c3+52,c3+96,c3+52];
+    const tx=16,tc=tx+50,y0=c3+118,vals=[[c3+76,0],[c3+108,3],[c3+76,0]];
     o+=thorax(tx);
-    o+=lungs(tx,[tx+10,tc-5,tc+5,tx+90,c3+14],by,doms,FL("ok",20),ST(1));
+    o+=lungs(tx,[tx+10,tc-5,tc+5,tx+90],c3+14,y0,vals,FL("ok",20));
     o+=tree(tc,c3+6,[tx+30,c3+46,tx+18,c3+72],[tx+70,c3+46,tx+82,c3+72]);
-    const dN=d=>`M${P(tx+10,by)}Q${P((tx+10+tc-5)/2,d)} ${P(tc-5,by-6)}L${P(tc+5,by-6)}Q${P((tx+90+tc+5)/2,d)} ${P(tx+90,by)}`;
-    o+=`<path class="fs" d="${dN(doms[0])}">${an(doms.map(dN),"0;.4;1")}</path>`;
-    o+=T(126,c3+30,["si svuota","in espirazione"],{sm:true})+LD(123,c3+27,tx+88,c3+40);
-    o+=T(126,c3+88,["diaframma","a cupola,","si muove bene"],{sm:true})+LD(123,c3+85,tx+76,c3+(104+52)/2+2);
+    o+=`<path class="fs" d="${diaP(tx,y0,vals[0][0])}">${an(vals.map(v=>diaP(tx,y0,v[0])),KT)}</path>`;
+    o+=TB(122,c3+30,["si svuota in","espirazione"])+LD(119,c3+27,tx+88,c3+40);
+    o+=TB(122,c3+84,["diaframma","a cupola,","si muove bene"])+LD(119,c3+81,tx+72,c3+(118+76)/2+4);
   }
   { /* BPCO */
-    const tx=232,tc=tx+50,by=c3+116,doms=[c3+116,c3+120,c3+116];
+    const tx=232,tc=tx+50,y0=c3+120,vals=[[c3+110,0],[c3+118,2],[c3+112,.8]];
+    const vals2=[vals[0],vals[1],vals[0]];
     o+=thorax(tx);
-    o+=lungs(tx,[tx+4,tc-5,tc+5,tx+96,c3+8],by,doms,`fill:color-mix(in srgb,var(--vital) 26%,color-mix(in srgb,var(--ink) 12%,var(--paper)))`,ST(1));
+    o+=lungs(tx,[tx+4,tc-5,tc+5,tx+96],c3+8,y0,[vals2[0],vals2[1],vals2[2]],`fill:color-mix(in srgb,var(--vital) 26%,color-mix(in srgb,var(--ink) 12%,var(--paper)))`);
     o+=tree(tc,c3+6,[tx+30,c3+46,tx+16,c3+74],[tx+70,c3+46,tx+84,c3+74]);
-    /* aria intrappolata */
     [[tx+20,c3+88],[tx+28,c3+96],[tx+36,c3+84],[tx+66,c3+92],[tx+76,c3+86],[tx+84,c3+98],[tx+30,c3+72],[tx+74,c3+70]].forEach(([x,y])=>{o+=`<circle cx="${x}" cy="${y}" r="1.7" style="fill:none;stroke:var(--scrub);stroke-width:.8"/>`});
-    /* bolle */
+    [[tx+14,c3+60,.1],[tx+24,c3+76,.18],[tx+40,c3+100,.26],[tx+60,c3+80,.34],[tx+80,c3+76,.42],[tx+70,c3+102,.5],[tx+88,c3+88,.58],[tx+16,c3+98,.64]].forEach(([x,y,a])=>{o+=dotAppear(x,y,1.7,a,"fill:none;stroke:var(--scrub);stroke-width:.8")});
     [[tx+14,c3+34,6.5],[tx+86,c3+30,6],[tx+82,c3+46,3.8]].forEach(([x,y,rr])=>{o+=`<circle class="ff" cx="${x}" cy="${y}" r="${rr}" style="${ST(.9)}"/><path d="M${P(x-rr*.5,y-rr*.35)}a${r1(rr*.6)} ${r1(rr*.6)} 0 0 1 ${r1(rr*.5)} ${r1(-rr*.3)}" style="${ST(.7)};fill:none;stroke-opacity:.6"/>`});
-    const dB=d=>`M${P(tx+4,by)}Q${P((tx+4+tc-5)/2,d)} ${P(tc-5,by-6)}L${P(tc+5,by-6)}Q${P((tx+96+tc+5)/2,d)} ${P(tx+96,by)}`;
-    o+=`<path class="fs" d="${dB(doms[0])}">${an(doms.map(dB),"0;.4;1")}</path>`;
-    const X=344;
-    o+=T(X,c3+24,"bolle",{sm:true})+LD(X-3,c3+21,tx+92,c3+29);
-    o+=T(X,c3+56,["aria","intrappolata"],{sm:true})+LD(X-3,c3+53,tx+85,c3+98-8);
-    o+=T(X,c3+96,["diaframma","piatto,","si muove poco"],{sm:true})+LD(X-3,c3+110,tx+92,c3+by-c3-2);
+    o+=`<path class="fs" d="${diaP(tx,y0,vals2[0][0])}">${an(vals2.map(v=>diaP(tx,y0,v[0])),KT)}</path>`;
+    const X=340;
+    o+=TB(X,c3+24,"bolle")+LD(X-3,c3+21,tx+92,c3+29);
+    o+=TB(X,c3+56,["aria","intrappolata"])+LD(X-3,c3+53,tx+85,c3+90);
+    o+=TB(X,c3+96,["diaframma","piatto,","si muove poco"])+LD(X-3,c3+110,tx+92,c3+116);
   }
 
-  /* ===== stadi GOLD ===== */
-  const t4=c3+H3+22,c4=t4+24;
-  o+=`<path d="M10 ${t4}v-5M15 ${t4}v-9M20 ${t4}v-13" style="${ST(2.4)};fill:none"/>`;
-  o+=T(30,t4,"Stadi GOLD",{b:true})+T(432,t4,"VEMS/CVF < 0,70 dopo broncodilatatore",{a:"end",sm:true})+`<path class="lead" d="M8 ${t4+7}H432" style="stroke-opacity:.55"/>`;
-  o+=T(8,t4+22,"VEMS in % del teorico",{sm:true});
-  [["GOLD 1","≥ 80%","lieve",""],["GOLD 2","50-79%","moderata","warn"],["GOLD 3","30-49%","grave","warn"],["GOLD 4","< 30%","molto grave","alarm"]].forEach(([g,v,s,k],i)=>{
-    const x=8+i*108;
-    o+=`<rect class="${k?"fbx k-"+k:"eyrow"}" x="${x}" y="${c4+6}" width="100" height="52" rx="2"/>`;
-    o+=T(x+50,c4+22,g,{a:"middle",b:true})+T(x+50,c4+37,v,{a:"middle"})+T(x+50,c4+51,s,{a:"middle",sm:true});
+  /* ===== stadi GOLD (coordinate 380) ===== */
+  const yB=r1(OFF+(c3+H3)*K+22);
+  hd+=`<path d="M10 ${yB}v-5M15 ${yB}v-9M20 ${yB}v-13" style="${ST(2.4)};fill:none"/>`;
+  hd+=TD(31,yB,"Stadi GOLD",{b:true})+TD(372,yB,"VEMS/CVF < 0,70 dopo broncodilatatore",{a:"end",sm:true})+`<path class="lead" d="M8 ${yB+7}H372" style="stroke-opacity:.55"/>`;
+  hd+=TD(8,yB+24,"VEMS in % del teorico",{sm:true});
+  const OR="color-mix(in srgb,var(--amber) 50%,var(--vital))";
+  [["GOLD 1","≥ 80%","lieve","fbx k-ok",""],["GOLD 2","50-79%","moderata","fbx k-warn",""],["GOLD 3","30-49%","grave","fbx",`fill:color-mix(in srgb,${OR} 22%,var(--paper));stroke:${OR}`],["GOLD 4","< 30%","molto grave","fbx k-alarm",""]].forEach(([g,v,sv,cl,stl],i)=>{
+    const x=8+i*92.5;
+    hd+=`<rect class="${cl}" x="${x}" y="${yB+32}" width="86.5" height="56" rx="2"${stl?` style="${stl}"`:""}/>`;
+    hd+=TD(x+43.25,yB+50,g,{a:"middle",b:true})+TD(x+43.25,yB+66,v,{a:"middle"})+TD(x+43.25,yB+81,sv,{a:"middle",sm:true});
   });
-  const H=c4+66;
-  o+=`<path class="lead" d="M220 62V${c3+H3-4}" style="stroke-opacity:.45"/>`;
-  return FT.svg(440,H,"Confronto tra polmone normale e BPCO su tre livelli. Bronchiolo in sezione: normale con parete sottile, epitelio con ciglia e lume ampio; nella BPCO parete spessa e infiammata con neutrofili e macrofagi, più cellule caliciformi, muco nel lume ristretto e ciglia rade e rotte. Alveoli: normali con setti integri e fibre elastiche che tengono aperta la piccola via aerea; nella BPCO setti distrutti, alveoli confluiti in spazi grandi per l'elastasi dei neutrofili, e la piccola via aerea che si chiude in espirazione intrappolando l'aria. Polmone intero: normale con diaframma a cupola che si muove bene; nella BPCO polmoni iperinflati con bolle, aria intrappolata e diaframma piatto che si muove poco. In basso gli stadi spirometrici GOLD da 1 a 4 in base al VEMS in percentuale del teorico (GOLD 1 almeno 80%, lieve; GOLD 2 50-79%, moderata; GOLD 3 30-49%, grave; GOLD 4 sotto 30%, molto grave), con VEMS/CVF sotto 0,70 dopo broncodilatatore. In alto la fase del respiro, inspirazione ed espirazione, che anima il disegno.",o);
+  const H=yB+98;
+  sep=`<path class="lead" d="M190 82V${r1(OFF+(c3+H3-4)*K)}" style="stroke-opacity:.45"/>`;
+  return FT.svg(380,H,"Confronto tra polmone normale e BPCO su tre livelli. Bronchiolo in sezione: normale con parete sottile, epitelio con ciglia e lume ampio; nella BPCO parete spessa e infiammata con neutrofili e macrofagi, più cellule caliciformi, muco nel lume ristretto e ciglia rade e rotte. Alveoli: normali con setti integri e fibre elastiche che tengono aperta la piccola via aerea; nella BPCO setti distrutti, alveoli confluiti in spazi grandi per l'elastasi dei neutrofili, e la piccola via aerea che si chiude in espirazione intrappolando l'aria. Polmone intero: normale con diaframma a cupola che si muove bene; nella BPCO polmoni iperinflati con bolle, aria intrappolata e diaframma piatto che si muove poco. In basso gli stadi spirometrici GOLD da 1 a 4 in base al VEMS in percentuale del teorico (GOLD 1 almeno 80%, lieve; GOLD 2 50-79%, moderata; GOLD 3 30-49%, grave; GOLD 4 sotto 30%, molto grave), con VEMS/CVF sotto 0,70 dopo broncodilatatore. In alto la fase del respiro, inspirazione ed espirazione, che anima il disegno.",sep+`<g transform="translate(0 ${OFF}) scale(${r1(K*1000)/1000})">${o}</g>`+hd+txt);
  })()},
 {id:"ossigeno-dispositivi",t:"Ossigeno: dispositivi, flussi e FiO₂",c:"Ogni dispositivo copre un intervallo diverso di FiO₂: si sceglie in base al bisogno e si titola sul bersaglio di SpO₂. La maschera di Venturi dà una FiO₂ precisa.",
  enc:["ossigenoterapia"],gl:[],st:/ossigen|respir|ipossi/i,
