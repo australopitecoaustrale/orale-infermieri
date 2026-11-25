@@ -2362,49 +2362,6 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+='<g class="ans s2"><rect x="3" y="155" width="284" height="84" rx="2" fill="none" stroke="var(--amber)" stroke-width="2" stroke-dasharray="7 4"/></g>';
   return FT.svg(440,244,"Tre stadi del diabete tipo 1 in fila. Stadio 1: almeno due autoanticorpi, glicemia normale, nessun sintomo. Stadio 2: almeno due autoanticorpi e disglicemia, nessun sintomo. Stadio 3: diagnosi clinica, di solito con sintomi. Sotto gli stadi 1 e 2 lo screening degli autoanticorpi; sotto lo stadio 3 le 4T: sete, bagno, stanchezza, dimagrimento.",o);
  })()},
-{id:"fig-iodio-tiroide",t:"Iodio: dal piatto alla tiroide, dalla madre al feto",c:"Lo iodio di latte e latticini, pesce e sale iodato serve alla tiroide per fare T4 e T3. In gravidanza il feto dipende dalla tiroxina materna per tutta la prima metà (circa 20 settimane), e il contributo materno continua anche dopo. La ioduria mediana misura lo stato di una popolazione, non del singolo: sufficienza da 100 µg/L in età scolare e negli adulti non in gravidanza, sufficienza in gravidanza 150-249 µg/L, sotto 50 µg/L carenza moderata-grave (indicativo).",
- enc:["iodio-carenza"],gl:[],st:/iodio|ioduria|sale iodato|gozzo|tiroxina/i,
- svg:(()=>{
-  const T=FT.text,B=FT.box,A=FT.arrow;let o='';
-  /* fonti */
-  o+=T(6,20,"Fonti di iodio",{sm:1,b:1});
-  o+=B(6,30,112,36,"Latte e latticini","","");
-  o+=B(6,72,112,36,"Pesce","","");
-  o+=B(6,114,112,36,"Sale iodato","","");
-  o+='<path class="fl" d="M118 48H136V132M118 90H136M118 132H136"/>'+A(136,90,156,90);
-  /* tiroide */
-  const TH="M175 64C160 60 154 78 156 96C158 114 170 120 180 112C184 108 196 108 200 112C210 120 222 114 224 96C226 78 220 60 205 64C198 66 196 80 190 82C184 80 182 66 175 64Z";
-  o+='<path d="'+TH+'" fill="var(--vital)" fill-opacity=".22" stroke="var(--vital)" stroke-width="1.6"/>';
-  o+='<path class="anp" d="'+TH+'" fill="none" stroke="var(--vital)" stroke-width="2.4"/>';
-  o+=T(190,134,"Tiroide",{a:"middle",b:1});
-  o+=A(226,90,244,90);
-  o+=B(246,70,56,40,"T4 / T3","ormoni","info");
-  /* gravidanza */
-  o+=T(6,164,"In gravidanza",{sm:1,b:1});
-  o+=B(6,172,110,36,"Madre","tiroxina (T4)","");
-  o+=A(118,190,190,190);
-  o+=T(154,182,"T4 materna",{a:"middle",sm:1});
-  o+=T(154,204,"placenta",{a:"middle",sm:1});
-  o+=B(192,172,110,36,"Feto","usa la T4 materna","");
-  o+='<rect class="eyrow" x="6" y="216" width="296" height="38" rx="2"/>';
-  o+=T(154,230,["Dipende dalla T4 materna fino a circa","20 settimane; poi il contributo continua"],{a:"middle",b:1,lh:14});
-  /* ioduria */
-  const yv=v=>230-v*0.9,bx=316,bw=16;
-  o+=T(bx-4,20,"Ioduria mediana",{sm:1,b:1});
-  o+=T(bx-4,33,"(µg/L)",{sm:1});
-  o+='<rect x="'+bx+'" y="'+yv(50)+'" width="'+bw+'" height="'+(yv(0)-yv(50))+'" fill="var(--vital)" fill-opacity=".55"/>';
-  o+='<rect x="'+bx+'" y="'+yv(100)+'" width="'+bw+'" height="'+(yv(50)-yv(100))+'" fill="var(--amber)" fill-opacity=".45"/>';
-  o+='<rect x="'+bx+'" y="'+yv(150)+'" width="'+bw+'" height="'+(yv(100)-yv(150))+'" fill="var(--ok)" fill-opacity=".35"/>';
-  o+='<rect x="'+bx+'" y="'+yv(200)+'" width="'+bw+'" height="'+(yv(150)-yv(200))+'" fill="var(--ok)" fill-opacity=".6"/>';
-  o+='<rect x="'+bx+'" y="'+yv(200)+'" width="'+bw+'" height="'+(yv(0)-yv(200))+'" fill="none" stroke="var(--ink)" stroke-width="1.2"/>';
-  [150,100,50].forEach(v=>{o+='<path class="fl" d="M'+(bx-4)+' '+yv(v)+'H'+(bx+bw+4)+'"/>';});
-  o+=T(bx+bw+8,yv(150)+4,["150-249 µg/L","sufficienza in","gravidanza"],{sm:1,lh:12});
-  o+=T(bx+bw+8,yv(100)+4,["100 µg/L","sufficienza: scuola,","adulti non gravide"],{sm:1,lh:12});
-  o+=T(bx+bw+8,yv(50)+4,["<50 µg/L","carenza moderata-","grave (indicativo)"],{sm:1,lh:12});
-  o+=T(bx-4,250,"valori di popolazione,",{sm:1});
-  o+=T(bx-4,262,"non per il singolo",{sm:1});
-  return FT.svg(440,270,"Flusso dello iodio: latte e latticini, pesce e sale iodato portano iodio alla tiroide, che produce T4 e T3. In gravidanza la madre passa la tiroxina al feto attraverso la placenta: il feto dipende dalla tiroxina materna per tutta la prima metà della gravidanza, circa 20 settimane, e il contributo materno continua anche dopo. A destra una barra della ioduria mediana: sotto 50 microgrammi per litro carenza moderata-grave, indicativo; da 100 sufficienza in età scolare e negli adulti non in gravidanza; da 150 a 249 sufficienza in gravidanza. Valori di popolazione, non per il singolo.",o);
- })()},
 {id:"fig-obesita-percorso",t:"Obesità: una scala di terapie, cinque competenze, un team",c:"L'obesità è una malattia cronica recidivante: la cura sale e scende lungo una scala di intensità (stile di vita sempre, poi farmaci agonisti del GLP-1 o doppi agonisti GIP/GLP-1, terapie endoscopiche, chirurgia bariatrica) e le terapie si possono intensificare, combinare o mettere in sequenza, sempre con un follow-up a lungo termine. Per IFSO chi prescrive i farmaci deve dimostrare competenza in cinque domini, non basta il titolo di specialità. L'infermiere cura la titolazione e il triage degli effetti avversi e, prima di sedazione o intervento, segnala il farmaco all'anestesista: lo stomaco si svuota lentamente.",
  enc:["farmaci-obesita"],gl:["Agonista del recettore del GLP-1","Doppio agonista incretinico","IFSO"],st:/obesit|GLP-1|tirzepatide|semaglutide|liraglutide|bariatric|IFSO/i,
  svg:(()=>{
@@ -2661,5 +2618,583 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
 <path d="M130 24V392" class="fs" style="stroke-width:1.5" opacity="0"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.6;.62;1" dur="6s" repeatCount="indefinite"/><animateMotion path="M0 0H160H160" keyPoints="0;1;1" keyTimes="0;.6;1" calcMode="linear" dur="6s" repeatCount="indefinite"/></path>
 <path d="M130 406H290" class="fl"/><path d="M130 402V410" class="fl" style="stroke-width:1"/><path d="M162 402V406" class="fl" style="stroke-width:1"/><path d="M194 402V406" class="fl" style="stroke-width:1"/><path d="M226 402V406" class="fl" style="stroke-width:1"/><path d="M258 402V406" class="fl" style="stroke-width:1"/><path d="M290 402V410" class="fl" style="stroke-width:1"/><path d="M130 406H162" class="fs" style="stroke-width:3"/><text x="130" y="422" class="ft fsm">0</text><text x="162" y="422" class="ft fsm" text-anchor="middle">200 ms</text><text x="290" y="422" class="ft fsm" text-anchor="end">1 s</text><text x="10" y="410" class="ft fsm">Scala del tempo</text><text x="300" y="404" class="ft fsm">Punta: meno di ⅓ di tacca;</text><text x="300" y="417" class="ft fsm">onda aguzza: da ⅓ a 1 tacca</text><rect x="4" y="430" width="432" height="24" rx="2" class="fbx"/><text x="220" y="446" class="ft fb" text-anchor="middle">L'EEG si legge sempre con la clinica</text>
 <rect x="4.5" y="24.5" width="431" height="43" rx="2" class="fx vf k1" style="stroke-width:1.5"/><rect x="4.5" y="68.5" width="431" height="43" rx="2" class="fx vf k1" style="stroke-width:1.5"/><rect x="4.5" y="112.5" width="431" height="43" rx="2" class="fx vf k1" style="stroke-width:1.5"/><rect x="4.5" y="156.5" width="431" height="43" rx="2" class="fx vf k2" style="stroke-width:1.5"/><rect x="4.5" y="200.5" width="431" height="43" rx="2" class="fx vf k3" style="stroke-width:1.5"/><rect x="4.5" y="288.5" width="431" height="43" rx="2" class="fx vf k3" style="stroke-width:1.5"/><rect x="4.5" y="244.5" width="431" height="43" rx="2" class="fx vf k4" style="stroke-width:1.5"/><rect x="4.5" y="332.5" width="431" height="59" rx="2" class="fx vf k5" style="stroke-width:1.5"/><rect x="4.5" y="394" width="431" height="30" rx="2" class="fx vf k6" style="stroke-width:1.5"/>
-</svg>`}
+</svg>`},
+{id:"fig-nutrizione-basi",wide:1,t:"Valutazione nutrizionale: misure, screening, BMI e segnali",c:"Tavola in quattro parti. (a) Le misure al letto: altezza e peso, da cui il BMI (peso / altezza² in kg/m²), e il calo di peso involontario (significativo se > 5% in 3 mesi o > 10% in 6 mesi). (b) Lo schema di screening in tre passi (BMI, calo di peso, malattia e appetito): la somma dei punteggi dà il rischio, nel MUST per gli adulti 0 basso, 1 medio, ≥ 2 alto; per i ricoverati NRS-2002 ≥ 3 indica rischio nutrizionale; per gli anziani il MNA (24-30 normale, 17-23,5 rischio, < 17 malnutrizione). (c) La bilancia del BMI con le fasce: < 18,5 sottopeso, 18,5-24,9 normale, 25-29,9 sovrappeso, ≥ 30 obesità. (d) I segnali da osservare (cute, capelli, edemi, massa muscolare ridotta) e il ruolo dell'infermiere; dopo lo screening: fabbisogno e proteine, albumina e prealbumina, criteri GLIM. Segnali e compiti dell'infermiere sono qualitativi (dato mio da verificare); disegno originale.",
+ enc:["nutrizione-basi"],gl:["MUST","NRS-2002"],st:/malnutrizione|nutrizional|BMI|MUST|NRS|MNA|screening nutriz/i,
+ svg:(()=>{
+  const R=" repeatCount=\"indefinite\"",E=FT.e;
+  const S="var(--scrub)",A="var(--amber)",V="var(--va)",INK="var(--ink)";
+  const mx=(c,p,b)=>`color-mix(in srgb,${c} ${p}%,${b||"var(--paper)"})`;
+  const tx=(x,y,lines,o={})=>{lines=[].concat(lines);const lh=o.lh||(o.s?12.5:14.5),fs=o.fs||(o.s?11:12);
+    return `<text class="ft${o.s?" fsm":""}${o.b?" fb":""}" x="${x}" y="${y}" text-anchor="${o.a||"start"}" style="font-size:${fs}px${o.st?";"+o.st:""}">${lines.map((t,i)=>`<tspan x="${x}" dy="${i?lh:0}">${E(t)}</tspan>`).join("")}</text>`;};
+  const ld=(d,o="")=>`<path d="${d}" style="fill:none;stroke:${INK};stroke-opacity:.55;stroke-width:.75;${o}"/>`;
+  const dot=(x,y)=>`<circle cx="${x}" cy="${y}" r="1.8" style="fill:${INK};fill-opacity:.7"/>`;
+  const badge=(x,y,l)=>`<circle cx="${x}" cy="${y}" r="7.5" style="fill:var(--paper);stroke:${INK};stroke-width:1"/>`+tx(x,y+4,l,{a:"middle",b:1,s:1});
+  const frame=(y,h)=>`<rect x="8" y="${y}" width="364" height="${h}" rx="3" style="fill:var(--paper);stroke:${INK};stroke-opacity:.25;stroke-width:1"/>`;
+  const head=(l,t)=>badge(20,14,l)+tx(32,18,t,{s:1,b:1,st:`fill:${INK}`});
+  /* riquadro con titolo e righe piccole (11), centrati */
+  const bx=(x,y,w,h,k,t,s)=>{t=[].concat(t);s=s?[].concat(s):[];const th=14.5,sh=12.5,tot=t.length*th+(s.length?s.length*sh+3:0);let ty=y+(h-tot)/2+11;
+    return `<rect class="fbx${k?" k-"+k:""}" x="${x}" y="${y}" width="${w}" height="${h}" rx="2"/>`+tx(x+w/2,ty.toFixed(1),t,{a:"middle",b:1})+(s.length?tx(x+w/2,(ty+t.length*th+3).toFixed(1),s,{a:"middle",s:1}):"");};
+  const la=(x1,y1,x2,y2)=>{const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L,bx_=x2-ux*7,by=y2-uy*7;
+    return `<path class="fs" d="M${x1} ${y1}L${bx_.toFixed(1)} ${by.toFixed(1)}"/><path d="M${x2} ${y2}L${(bx_-uy*3.5).toFixed(1)} ${(by+ux*3.5).toFixed(1)}L${(bx_+uy*3.5).toFixed(1)} ${(by-ux*3.5).toFixed(1)}Z" style="fill:${S}"/>`;};
+  let o=`<defs><linearGradient id="nb-g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" style="stop-color:${mx(V,42)}"/><stop offset="1" style="stop-color:${mx(V,12)}"/></linearGradient>`
+   +`<linearGradient id="nb-p" x1="0" x2="0" y1="0" y2="1"><stop offset="0" style="stop-color:${mx(INK,22)}"/><stop offset="1" style="stop-color:${mx(INK,8)}"/></linearGradient></defs>`;
+  const OUT=`stroke:${mx(V,70,INK)};stroke-width:1.2`;
+
+  /* ================= (a) misure ================= */
+  o+=`<g>`+frame(0,218)+head("a","le misure al letto");
+  /* sagoma precedente (tratteggiata) e sagoma attuale */
+  o+=`<path d="M82 64Q104 54 126 64L130 130Q104 138 78 130Z" style="fill:none;stroke:${INK};stroke-opacity:.55;stroke-dasharray:3 3;stroke-width:1"/>`;
+  o+=`<path d="M82 68L77 118M126 68L131 118" style="fill:none;stroke:${mx(V,45)};stroke-width:8;stroke-linecap:round"/>`;
+  o+=`<path d="M96 130L94 190M112 130L114 190" style="fill:none;stroke:${mx(V,45)};stroke-width:10;stroke-linecap:round"/>`;
+  o+=`<rect x="99" y="54" width="10" height="9" style="fill:${mx(V,35)}"/>`;
+  o+=`<path d="M88 66Q104 59 120 66L117 128Q104 133 91 128Z" style="fill:url(#nb-g);${OUT}"/>`;
+  o+=`<circle cx="104" cy="44" r="12" style="fill:url(#nb-g);${OUT}"/>`;
+  /* bilancia */
+  o+=`<rect x="70" y="194" width="68" height="10" rx="2" style="fill:url(#nb-p);stroke:${INK};stroke-opacity:.55;stroke-width:1"/><rect x="96" y="197" width="16" height="4" rx="1" style="fill:${S};fill-opacity:.55"/>`;
+  /* altezza */
+  o+=ld("M56 32H94","stroke-dasharray:2 3")+ld("M56 194H70","stroke-dasharray:2 3");
+  o+=FT.arrow(56,113,56,32)+FT.arrow(56,113,56,194);
+  o+=tx(50,116,"altezza",{s:1,a:"end"});
+  o+=`<circle class="anm" r="3.4" style="fill:${S};stroke:var(--paper);stroke-width:1"><animateMotion dur="3.6s" begin="-1s"${R} calcMode="linear" path="M56 36V190"/></circle>`;
+  /* riquadri e richiami */
+  o+=bx(152,16,214,40,"","Altezza","in metri, misurata o chiesta");
+  o+=bx(152,62,214,40,"info","BMI = peso / altezza²","in kg/m²");
+  o+=bx(152,108,214,44,"warn","Calo di peso involontario","> 5% in 3 mesi o > 10% in 6 mesi");
+  o+=bx(152,158,214,40,"","Peso","sulla bilancia, stesse condizioni");
+  o+=ld("M152 36L116 40")+`<circle class="anp" cx="116" cy="40" r="3" style="fill:${S}"/>`;
+  o+=ld("M152 130L129 106")+`<circle class="anp" cx="129" cy="106" r="3" style="fill:${S}"/>`;
+  o+=ld("M152 178L139 199")+`<circle class="anp" cx="139" cy="199" r="3" style="fill:${S}"/>`;
+  o+=tx(104,172,"",{s:1});
+  o+=`</g>`;
+
+  /* ================= (b) screening ================= */
+  o+=`<g transform="translate(0,226)">`+frame(0,270)+head("b","screening in tre passi (MUST)");
+  const xs=[16,138,260];
+  o+=bx(xs[0],28,104,60,"","1 · BMI","peso e altezza");
+  o+=bx(xs[1],28,104,60,"","2 · Calo di peso",["> 5% in 3 mesi","o > 10% in 6 mesi"]);
+  o+=bx(xs[2],28,104,60,"","3 · Appetito","e malattia acuta");
+  o+=FT.arrow(120,58,136,58,{h:5})+FT.arrow(242,58,258,58,{h:5});
+  o+=`<rect class="fbx k-info" x="16" y="106" width="348" height="24" rx="2"/>`+tx(190,123,"Somma dei punteggi",{a:"middle",b:1});
+  xs.forEach((x,i)=>{o+=FT.arrow(x+52,88,x+52,106,{h:6});});
+  [["ok","Rischio basso","punteggio 0"],["warn","Rischio medio","punteggio 1"],["alarm","Rischio alto","punteggio ≥ 2"]].forEach((r,i)=>{
+    o+=FT.arrow(xs[i]+52,130,xs[i]+52,148,{h:6})+bx(xs[i],148,104,46,r[0],r[1],r[2]);});
+  /* accensione in sequenza dei tre passi */
+  xs.forEach((x,i)=>{const c=i?`ans s${i+1}`:"ans";
+    o+=`<g class="${c}"><rect x="${x}" y="28" width="104" height="60" rx="2" style="fill:${mx(S,10)};fill-opacity:.55;stroke:${S};stroke-width:2.2"/>`+la(x+52,88,x+52,106)+(i<2?la(x+104,58,x+122,58):"")+`</g>`;});
+  o+=`<path class="lead" d="M16 206H364" style="stroke-opacity:.35"/>`;
+  o+=tx(16,224,"NRS-2002",{b:1,s:1,st:`fill:${INK}`})+tx(88,224,"ricoverati: ≥ 3 rischio nutrizionale",{s:1});
+  o+=tx(16,240,"MNA",{b:1,s:1,st:`fill:${INK}`})+tx(88,240,"anziani: 24-30 normale, 17-23,5 rischio,",{s:1})+tx(88,253,"< 17 malnutrizione",{s:1});
+  o+=`</g>`;
+
+  /* ================= (c) bilancia del BMI ================= */
+  o+=`<g transform="translate(0,504)">`+frame(0,112)+head("c","bilancia del BMI");
+  const X=v=>(20+(v-14)*13.08).toFixed(1);
+  const seg=[[14,18.5,"warn","< 18,5","sottopeso"],[18.5,25,"ok","18,5-24,9","normale"],[25,30,"warn","25-29,9","sovrappeso"],[30,40,"alarm","≥ 30","obesità"]];
+  seg.forEach(s=>{const x=+X(s[0]),w=+X(s[1])-x;
+    o+=`<rect class="fbx k-${s[2]}" x="${x}" y="42" width="${w.toFixed(1)}" height="24" rx="0"/>`+tx((x+w/2).toFixed(1),58,s[3],{a:"middle",s:1,b:1,st:`fill:${INK}`})+tx((x+w/2).toFixed(1),83,s[4],{a:"middle",s:1});});
+  o+=`<rect x="20" y="42" width="340" height="24" rx="2" style="fill:none;stroke:${INK};stroke-opacity:.5;stroke-width:1"/>`;
+  const mv=`values="121;40;195;300;121" keyTimes="0;.25;.5;.75;1" dur="10s"${R}`;
+  o+=`<path d="M121 36V42" style="fill:none;stroke:${S};stroke-width:2"><animate attributeName="d" values="M121 36V42;M40 36V42;M195 36V42;M300 36V42;M121 36V42" keyTimes="0;.25;.5;.75;1" dur="10s"${R}/></path>`;
+  o+=`<circle cx="121" cy="30" r="5.5" style="fill:${S};stroke:var(--paper);stroke-width:1.5"><animate attributeName="cx" ${mv}/></circle>`;
+  o+=tx(20,102,"BMI = peso / altezza² (kg/m²)",{b:1,s:1,st:`fill:${INK}`})+tx(360,102,"da solo non basta: conta il calo di peso",{s:1,a:"end"});
+  o+=`</g>`;
+
+  /* ================= (d) segnali e ruolo ================= */
+  o+=`<g transform="translate(0,624)">`+frame(0,336)+head("d","segnali di malnutrizione e ruolo dell'infermiere");
+  const cards=[["Cute","secca, fragile"],["Capelli","radi, fragili"],["Edemi","alle caviglie"],["Sarcopenia","meno muscolo"]];
+  cards.forEach((c,i)=>{const x=16+i*88,cx=x+41;
+    o+=`<rect class="fbx" x="${x}" y="28" width="82" height="88" rx="2"/>`+tx(cx,93,c[0],{a:"middle",b:1})+tx(cx,106,c[1],{a:"middle",s:1});
+    if(i==0){ /* cute secca */
+      o+=`<rect x="${cx-26}" y="36" width="52" height="36" rx="10" style="fill:url(#nb-g);${OUT}"/>`
+       +`<path d="M${cx-18} 46l8 6l-4 6l9 5M${cx+4} 42l7 7l-6 4l8 8M${cx-4} 66l5 -3" style="fill:none;stroke:${INK};stroke-opacity:.6;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round"/>`;
+    }
+    if(i==1){ /* capelli radi */
+      o+=`<circle cx="${cx}" cy="62" r="15" style="fill:url(#nb-g);${OUT}"/>`
+       +`<path d="M${cx-8} 48Q${cx-12} 40 ${cx-18} 38M${cx} 47Q${cx} 38 ${cx+2} 34M${cx+9} 49Q${cx+14} 42 ${cx+20} 41" style="fill:none;stroke:${INK};stroke-opacity:.7;stroke-width:1.4;stroke-linecap:round"/>`
+       +`<path d="M${cx-4} 47Q${cx-6} 40 ${cx-10} 36M${cx+5} 47Q${cx+8} 40 ${cx+10} 35" class="dash" style="fill:none;stroke-width:1.1;stroke-dasharray:2 3"/>`;
+    }
+    if(i==2){ /* edema con fovea */
+      o+=`<path d="M${cx-12} 34H${cx+10}V58Q${cx+16} 62 ${cx+14} 68L${cx+24} 72Q${cx+32} 76 ${cx+28} 82H${cx-12}Z" style="fill:url(#nb-g);${OUT}"/>`
+       +`<circle cx="${cx}" cy="52" r="6" style="fill:none;stroke:${INK};stroke-width:1.1;stroke-dasharray:2 2"/><circle cx="${cx}" cy="52" r="2.2" style="fill:${INK};fill-opacity:.55"/>`;
+    }
+    if(i==3){ /* sarcopenia */
+      o+=`<path d="M${cx-28} 74Q${cx-26} 40 ${cx} 40Q${cx+26} 40 ${cx+28} 74" style="fill:none;stroke:${INK};stroke-opacity:.6;stroke-width:1;stroke-dasharray:3 3"/>`
+       +`<path d="M${cx-20} 74Q${cx-16} 54 ${cx} 54Q${cx+16} 54 ${cx+20} 74Z" style="fill:url(#nb-g);${OUT}"/>`
+       +`<path d="M${cx-30} 74H${cx+30}" style="fill:none;stroke:${INK};stroke-opacity:.5;stroke-width:1"/>`;
+    }
+  });
+  o+=`<rect class="fbx k-info" x="16" y="124" width="348" height="104" rx="2"/>`+tx(28,142,"Ruolo dell'infermiere",{b:1});
+  ["misura peso e altezza e calcola il BMI","chiede il calo di peso e l'appetito","applica lo screening e segnala il rischio","osserva cute, capelli, edemi e massa muscolare"].forEach((t,i)=>{
+    const y=160+i*16;o+=`<circle cx="30" cy="${y-4}" r="2.4" style="fill:${S}"/>`+tx(40,y,t,{s:1,st:`fill:${INK}`});});
+  o+=`<path class="lead" d="M16 240H364" style="stroke-opacity:.35"/>`;
+  o+=tx(16,257,"Dopo lo screening",{b:1,s:1,st:`fill:${INK}`});
+  o+=tx(16,272,["Energia circa 25-30 kcal/kg/die; proteine circa","1-1,5 g/kg/die nel malato."],{s:1,lh:13})
+   +tx(16,303,["Albumina: risente di infiammazione e idratazione;","la prealbumina è più sensibile alle variazioni recenti."],{s:1,lh:13})
+   +tx(16,331,"Diagnosi di malnutrizione: criteri GLIM.",{s:1});
+  o+=`</g>`;
+  return FT.svg(380,968,"Tavola sulla valutazione nutrizionale. a: sagoma con altezza misurata e peso sulla bilancia, da cui si calcola il BMI = peso / altezza² in kg/m²; il calo di peso involontario è significativo se oltre il 5% in 3 mesi o oltre il 10% in 6 mesi. b: schema di screening in tre passi, BMI, calo di peso, appetito e malattia acuta, che si accendono in sequenza; la somma dei punteggi dà rischio basso (0), medio (1) o alto (2 o più) nel MUST; NRS-2002 da 3 in su indica rischio nutrizionale nei ricoverati; MNA negli anziani: 24-30 normale, 17-23,5 rischio, sotto 17 malnutrizione. c: bilancia del BMI a fasce, sotto 18,5 sottopeso, 18,5-24,9 normale, 25-29,9 sovrappeso, 30 o più obesità, con un indicatore che scorre. d: segnali da osservare, cute secca, capelli radi, edemi, sarcopenia, e ruolo dell'infermiere; dopo lo screening fabbisogno energetico circa 25-30 kcal/kg/die e proteine circa 1-1,5 g/kg/die nel malato, albumina e prealbumina, criteri GLIM.",o);
+ })()},
+{id:"fig-rialimentazione",wide:1,t:"Sindrome da rialimentazione: che cosa succede e che cosa controllare",c:"Tavola in quattro parti. (a) Dopo un lungo digiuno o una grave malnutrizione, quando si riprende la nutrizione glucosio e insulina rientrano. (b) Gli ioni (fosfato, potassio, magnesio) entrano nelle cellule e il plasma si svuota: segno principale l'ipofosfatemia, anche con ipopotassiemia e ipomagnesiemia. (c) Rischi: aritmie, insufficienza cardiaca e respiratoria, confusione, nei casi gravi morte. (d) Prevenzione nel tempo: tiamina prima di iniziare, rialimentazione graduale, controllo quotidiano degli elettroliti. Il meccanismo (insulina che spinge gli ioni nelle cellule) e la fase di maggiore attenzione sono dati miei da verificare; disegno originale.",
+ enc:["sindrome-rialimentazione"],gl:[],st:/rialimentazione|digiuno prolungato|ipofosfatemia/i,
+ svg:(()=>{
+  const R=" repeatCount=\"indefinite\"",E=FT.e;
+  const S="var(--scrub)",A="var(--amber)",V="var(--va)",INK="var(--ink)",VT="var(--vital)";
+  const mx=(c,p,b)=>`color-mix(in srgb,${c} ${p}%,${b||"var(--paper)"})`;
+  const tx=(x,y,lines,o={})=>{lines=[].concat(lines);const lh=o.lh||(o.s?12.5:14.5),fs=o.fs||(o.s?11:12);
+    return `<text class="ft${o.s?" fsm":""}${o.b?" fb":""}" x="${x}" y="${y}" text-anchor="${o.a||"start"}" style="font-size:${fs}px${o.st?";"+o.st:""}">${lines.map((t,i)=>`<tspan x="${x}" dy="${i?lh:0}">${E(t)}</tspan>`).join("")}</text>`;};
+  const ld=(d,o="")=>`<path d="${d}" style="fill:none;stroke:${INK};stroke-opacity:.55;stroke-width:.75;${o}"/>`;
+  const badge=(x,y,l)=>`<circle cx="${x}" cy="${y}" r="7.5" style="fill:var(--paper);stroke:${INK};stroke-width:1"/>`+tx(x,y+4,l,{a:"middle",b:1,s:1});
+  const frame=(y,h)=>`<rect x="8" y="${y}" width="364" height="${h}" rx="3" style="fill:var(--paper);stroke:${INK};stroke-opacity:.25;stroke-width:1"/>`;
+  const head=(l,t)=>badge(20,14,l)+tx(32,18,t,{s:1,b:1,st:`fill:${INK}`});
+  const bx=(x,y,w,h,k,t,s)=>{t=[].concat(t);s=s?[].concat(s):[];const th=14.5,sh=12.5,tot=t.length*th+(s.length?s.length*sh+3:0);let ty=y+(h-tot)/2+11;
+    return `<rect class="fbx${k?" k-"+k:""}" x="${x}" y="${y}" width="${w}" height="${h}" rx="2"/>`+tx(x+w/2,ty.toFixed(1),t,{a:"middle",b:1})+(s.length?tx(x+w/2,(ty+t.length*th+3).toFixed(1),s,{a:"middle",s:1}):"");};
+  const an=(a,b)=>`values="${a};${a};${b};${b};${a}" keyTimes="0;.2;.5;.8;1" dur="6s"${R}`;
+  const OUT=`stroke:${mx(V,70,INK)};stroke-width:1.2`;
+  let o=`<defs><linearGradient id="ri-g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" style="stop-color:${mx(V,42)}"/><stop offset="1" style="stop-color:${mx(V,12)}"/></linearGradient>`
+   +`<linearGradient id="ri-c" x1="0" x2="1" y1="0" y2="1"><stop offset="0" style="stop-color:${mx(V,26)}"/><stop offset="1" style="stop-color:${mx(V,8)}"/></linearGradient>`
+   +`<linearGradient id="ri-r" x1="0" x2="0" y1="0" y2="1"><stop offset="0" style="stop-color:${mx(VT,55)}"/><stop offset="1" style="stop-color:${mx(VT,22)}"/></linearGradient></defs>`;
+
+  /* ================= (a) digiuno -> rialimentazione ================= */
+  o+=`<g>`+frame(0,164)+head("a","dal digiuno alla rialimentazione");
+  o+=`<rect class="fbx" x="16" y="28" width="134" height="112" rx="2"/>`+tx(83,45,"Digiuno prolungato",{a:"middle",b:1});
+  o+=`<rect class="fbx k-info" x="230" y="28" width="134" height="112" rx="2"/>`+tx(297,45,"Rialimentazione",{a:"middle",b:1});
+  o+=`<path d="M26 118H140M240 118H354" style="fill:none;stroke:${INK};stroke-opacity:.5;stroke-width:1"/>`;
+  /* barre: a sinistra basse, a destra alte (animate: salgono) */
+  [[34,"glucosio",54],[92,"insulina",60]].forEach(b=>{o+=`<rect x="${b[0]}" y="106" width="26" height="12" rx="1" style="fill:${mx(INK,26)}"/>`+tx(b[0]+13,132,b[1],{a:"middle",s:1});});
+  [[250,"glucosio",52],[308,"insulina",60]].forEach(b=>{const y=118-b[2];
+    o+=`<rect x="${b[0]}" y="${y}" width="26" height="${b[2]}" rx="1" style="fill:${mx(S,62)}"><animate attributeName="y" values="106;106;${y};${y};106" keyTimes="0;.2;.5;.8;1" dur="6s"${R}/><animate attributeName="height" values="12;12;${b[2]};${b[2]};12" keyTimes="0;.2;.5;.8;1" dur="6s"${R}/></rect>`+tx(b[0]+13,132,b[1],{a:"middle",s:1});});
+  o+=tx(190,74,["si riprende","la nutrizione"],{a:"middle",s:1})+FT.arrow(160,100,220,100);
+  o+=tx(190,155,"glucosio e insulina rientrano: gli ioni vanno nelle cellule",{a:"middle",s:1});
+  o+=`</g>`;
+
+  /* ================= (b) cellula e plasma ================= */
+  o+=`<g transform="translate(0,172)">`+frame(0,222)+head("b","fosfato, potassio e magnesio entrano nella cellula");
+  o+=tx(16,44,"plasma",{b:1,s:1,st:`fill:${INK}`})+tx(280,44,"cellula",{a:"middle",b:1,s:1,st:`fill:${INK}`});
+  /* cellula */
+  o+=`<rect x="196" y="52" width="168" height="124" rx="34" style="fill:url(#ri-c);stroke:${mx(V,70,INK)};stroke-width:2"/>`;
+  o+=`<ellipse cx="318" cy="114" rx="28" ry="24" style="fill:${mx(V,40,INK)};fill-opacity:.55;stroke:var(--paper);stroke-width:1"/><ellipse cx="318" cy="114" rx="9" ry="8" style="fill:${mx(V,60,INK)};fill-opacity:.7"/>`;
+  o+=`<ellipse cx="270" cy="156" rx="14" ry="6" style="fill:${mx(A,35)};stroke:${mx(A,70,INK)};stroke-width:.9"/><ellipse cx="344" cy="64" rx="10" ry="5" style="fill:${mx(A,35)};stroke:${mx(A,70,INK)};stroke-width:.9"/>`;
+  [["fosfato",80],["potassio",116],["magnesio",152]].forEach((r,i)=>{const cy=r[1];
+    o+=tx(16,cy+4,r[0],{s:1})+`<rect class="fbx" x="74" y="${cy-8}" width="78" height="16" rx="2"/>`
+     +`<rect x="75" y="${cy-7}" width="76" height="14" rx="1" style="fill:${mx(S,50)}"><animate attributeName="width" values="76;76;26;26;76" keyTimes="0;.2;.5;.8;1" dur="6s"${R}/></rect>`;
+    o+=`<rect x="75" y="${cy-7}" width="26" height="14" rx="1" style="fill:none"/>`;
+    o+=FT.arrow(158,cy,208,cy,{h:6});
+    [0,1,2].forEach(k=>{o+=`<circle cx="${220+k*11}" cy="${cy+(k%2?-5:4)}" r="3.4" style="fill:${mx(S,70)};stroke:var(--paper);stroke-width:.8"/>`;});
+    [0,-1.2,-2.4].forEach(b=>{const m=`<animateMotion dur="3.6s" begin="${b}s"${R} calcMode="linear" path="M158 ${cy}H210"/>`;
+      o+=`<circle class="anm" r="3.6" style="fill:${S};stroke:var(--paper);stroke-width:1">${m}</circle>`;});
+  });
+  o+=ld("M110 62V68","stroke-opacity:0");
+  o+=tx(190,200,"il plasma si svuota: ipofosfatemia (segno principale),",{a:"middle",s:1})+tx(190,213,"anche con ipopotassiemia e ipomagnesiemia",{a:"middle",s:1});
+  o+=`</g>`;
+
+  /* ================= (c) organi bersaglio ================= */
+  o+=`<g transform="translate(0,402)">`+frame(0,204)+head("c","dove colpisce");
+  const cards=[["Cuore",["aritmie","insufficienza","cardiaca"]],["Respiro",["insufficienza","respiratoria"]],["Sistema nervoso",["confusione"]]];
+  cards.forEach((c,i)=>{const x=16+i*118,cx=x+56;
+    o+=`<rect class="fbx" x="${x}" y="28" width="112" height="124" rx="2"/>`+tx(cx,100,c[0],{a:"middle",b:1})+tx(cx,114,c[1],{a:"middle",s:1});
+    if(i==0){
+      o+=`<g class="anp"><path d="M${cx} 80C${cx-30} 60 ${cx-26} 36 ${cx-12} 38C${cx-4} 38 ${cx} 44 ${cx} 48C${cx} 44 ${cx+4} 38 ${cx+12} 38C${cx+26} 36 ${cx+30} 60 ${cx} 80Z" style="fill:url(#ri-r);stroke:${mx(VT,70,INK)};stroke-width:1.2"/></g>`
+       +`<path d="M${cx-28} 58H${cx-12}L${cx-7} 48L${cx} 70L${cx+6} 44L${cx+10} 58H${cx+28}" style="fill:none;stroke:${INK};stroke-width:1.4;stroke-linejoin:round"/>`;
+    }
+    if(i==1){
+      o+=`<path d="M${cx-4} 42C${cx-12} 40 ${cx-26} 54 ${cx-28} 70Q${cx-28} 78 ${cx-20} 78Q${cx-8} 78 ${cx-4} 68Z" style="fill:url(#ri-g);${OUT}"/>`
+       +`<path d="M${cx+4} 42C${cx+12} 40 ${cx+26} 54 ${cx+28} 70Q${cx+28} 78 ${cx+20} 78Q${cx+8} 78 ${cx+4} 68Z" style="fill:url(#ri-g);${OUT}"/>`
+       +`<path d="M${cx} 34V50M${cx} 50L${cx-9} 60M${cx} 50L${cx+9} 60" style="fill:none;stroke:${INK};stroke-width:1.3;stroke-linecap:round"/>`
+       +`<path d="M${cx-34} 86Q${cx} 70 ${cx+34} 86" style="fill:none;stroke:${S};stroke-width:2.2;stroke-linecap:round"><animate attributeName="d" values="M${cx-34} 86Q${cx} 70 ${cx+34} 86;M${cx-34} 86Q${cx} 82 ${cx+34} 86;M${cx-34} 86Q${cx} 70 ${cx+34} 86" keyTimes="0;.5;1" dur="3.6s"${R}/></path>`;
+    }
+    if(i==2){
+      o+=`<path d="M${cx-26} 60C${cx-30} 42 ${cx-10} 34 ${cx} 42C${cx+10} 34 ${cx+30} 42 ${cx+26} 60C${cx+26} 72 ${cx+10} 80 ${cx} 74C${cx-10} 80 ${cx-26} 72 ${cx-26} 60Z" style="fill:url(#ri-g);${OUT}"/>`
+       +`<path d="M${cx} 42V74M${cx-18} 54Q${cx-8} 60 ${cx-4} 50M${cx+18} 54Q${cx+8} 60 ${cx+4} 50M${cx-16} 66Q${cx-8} 70 ${cx-4} 64M${cx+16} 66Q${cx+8} 70 ${cx+4} 64" style="fill:none;stroke:${INK};stroke-opacity:.6;stroke-width:1;stroke-linecap:round"/>`
+       +`<circle class="anp" cx="${cx+30}" cy="40" r="3" style="fill:${A}"/><circle class="anp" cx="${cx-32}" cy="46" r="2.4" style="fill:${A}"/>`;
+    }
+  });
+  o+=`<rect class="fbx k-alarm" x="16" y="162" width="348" height="30" rx="2"/>`+tx(190,181,"Nei casi più gravi: morte",{a:"middle",b:1});
+  o+=`</g>`;
+
+  /* ================= (d) linea del tempo ================= */
+  o+=`<g transform="translate(0,614)">`+frame(0,188)+head("d","nel tempo: che cosa fare e controllare");
+  o+=`<rect x="124" y="28" width="108" height="78" style="fill:${A};fill-opacity:.12"/>`;
+  o+=`<path class="lead" d="M124 28V150M232 28V150" style="stroke-opacity:.5;stroke-dasharray:3 3"/>`;
+  o+=tx(70,43,"Prima",{a:"middle",b:1})+tx(178,43,"Inizio graduale",{a:"middle",b:1})+tx(298,43,"Poi si sale piano",{a:"middle",b:1});
+  o+=tx(178,62,"più attenzione",{a:"middle",s:1});
+  o+=bx(24,54,92,48,"ok","Tiamina",["prima di","iniziare"]);
+  [[130,10],[166,16],[202,22]].forEach(b=>{o+=`<rect x="${b[0]}" y="${104-b[1]}" width="26" height="${b[1]}" rx="1" style="fill:${mx(S,45)}"/>`;});
+  [[240,30],[272,36],[304,42],[336,48]].forEach(b=>{o+=`<rect x="${b[0]}" y="${104-b[1]}" width="24" height="${b[1]}" rx="1" style="fill:${mx(S,62)}"/>`;});
+  o+=FT.arrow(16,104,364,104)+tx(364,120,"tempo",{a:"end",s:1})+tx(124,120,"apporto di nutrizione",{s:1});
+  /* controllo quotidiano */
+  o+=`<path d="M124 138H364" style="fill:none;stroke:${INK};stroke-opacity:.45;stroke-width:1"/>`;
+  for(let x=136;x<=352;x+=24)o+=`<circle cx="${x}" cy="138" r="4.4" style="fill:var(--paper);stroke:${S};stroke-width:1.5"/>`;
+  o+=`<circle class="anm" r="4.6" style="fill:${S};stroke:var(--paper);stroke-width:1.2"><animateMotion dur="6s" begin="-1s"${R} calcMode="linear" path="M136 138H352"/></circle>`;
+  o+=tx(16,142,"ogni giorno",{b:1,s:1,st:`fill:${INK}`});
+  o+=tx(244,165,"controllo quotidiano degli elettroliti",{a:"middle",b:1})+tx(244,179,"fosfato, potassio, magnesio",{a:"middle",s:1});
+  o+=`</g>`;
+  return FT.svg(380,806,"Tavola sulla sindrome da rialimentazione. a: dopo un lungo digiuno, quando si riprende la nutrizione, glucosio e insulina rientrano; le barre salgono. b: gli ioni fosfato, potassio e magnesio entrano nella cellula, con frecce animate, e le barre del plasma calano; segno principale l'ipofosfatemia, anche con ipopotassiemia e ipomagnesiemia. c: organi bersaglio: cuore con aritmie e insufficienza cardiaca, respiro con insufficienza respiratoria, sistema nervoso con confusione; nei casi gravi la morte. d: linea del tempo: tiamina prima di iniziare, inizio graduale della nutrizione con più attenzione, poi si sale piano, con controllo quotidiano degli elettroliti.",o);
+ })()},
+{id:"fig-nutrizione-enterale",wide:1,t:"Nutrizione enterale: accessi, posizione, pompa e complicanze",c:"Tavola in quattro parti. (a) Sezione schematica di testa e tronco con i tre accessi: sondino naso-gastrico (o naso-digiunale, tratteggio) per la breve durata, meno di 4-6 settimane; PEG e digiunostomia per i tempi lunghi. I pallini mostrano il percorso del nutriente. (b) Scelta dell'accesso in base alla durata. (c) Testata a 30-45° durante e per almeno 30-60 minuti dopo. (d) Sacca, pompa e sonda; ostruzione (lavaggio con circa 30 ml di acqua prima e dopo nutrizione e farmaci, ogni 4-6 ore nella continua), aspirazione, diarrea e buried bumper nella PEG con il ruolo dell'infermiere. Disegno originale.",
+ enc:["nutrizione-enterale"],gl:["PEG","Ristagno gastrico"],st:/nutrizione enterale|sondino|PEG|gastrostomia|digiunostomia/i,
+ svg:(()=>{
+  const R=" repeatCount=\"indefinite\"",E=FT.e;
+  const S="var(--scrub)",A="var(--amber)",W="var(--vital)",K="var(--ok)",INK="var(--ink)";
+  const mx=(c,p,b)=>`color-mix(in srgb,${c} ${p}%,${b||"var(--paper)"})`;
+  const tx=(x,y,lines,o={})=>{lines=[].concat(lines);const lh=o.lh||13.5,fs=o.fs||(o.s?11:12);
+    return `<text class="ft${o.s?" fsm":""}${o.b?" fb":""}${o.h?" halo":""}" x="${x}" y="${y}" text-anchor="${o.a||"start"}" style="font-size:${fs}px${o.st?";"+o.st:""}">${lines.map((t,i)=>`<tspan x="${x}" dy="${i?lh:0}">${E(t)}</tspan>`).join("")}</text>`;};
+  const badge=(x,y,l)=>`<circle cx="${x}" cy="${y}" r="8" style="fill:var(--paper);stroke:${INK};stroke-width:1.2"/>`+tx(x,y+4,l,{a:"middle",b:1,fs:11});
+  const panel=(y,h,l,t)=>`<rect class="fbx" x="8" y="${y}" width="364" height="${h}" rx="2"/>`+badge(24,y+17,l)+tx(38,y+21,t,{b:1});
+  const dots=(d,n,dur,r)=>Array.from({length:n},(_,i)=>`<circle class="fdrop anm" r="${r||2.6}" style="fill:${S}"><animateMotion dur="${dur}s" begin="-${(dur/n*i).toFixed(2)}s"${R} path="${d}"/></circle>`).join("");
+  const tube=(d,w,col)=>`<path d="${d}" style="fill:none;stroke:${INK};stroke-opacity:.45;stroke-width:${w+1.6};stroke-linecap:round;stroke-linejoin:round"/><path d="${d}" style="fill:none;stroke:${col};stroke-width:${w};stroke-linecap:round;stroke-linejoin:round"/>`;
+  const line=(d,o="")=>`<path d="${d}" style="fill:none;stroke:${INK};stroke-opacity:.55;stroke-width:1;${o}"/>`;
+  const chip=(x,y,w,l,c)=>`<rect class="fbx ${c||""}" x="${x}" y="${y}" width="${w}" height="20" rx="2"/>`+tx(x+w/2,y+14,l,{a:"middle",fs:11});
+  let o="";
+  o+=`<defs><linearGradient id="ne-sk" x1="0" x2="1"><stop offset="0" style="stop-color:${mx(INK,5)}"/><stop offset="1" style="stop-color:${mx(INK,15)}"/></linearGradient>`
+   +`<linearGradient id="ne-or" x1="0" x2="0" y1="0" y2="1"><stop offset="0" style="stop-color:${mx(W,34)}"/><stop offset="1" style="stop-color:${mx(W,12)}"/></linearGradient>`
+   +`<linearGradient id="ne-bg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" style="stop-color:${mx(S,8)}"/><stop offset="1" style="stop-color:${mx(S,44)}"/></linearGradient></defs>`;
+  /* ---------- a ---------- */
+  o+=panel(8,256,"a","Tre accessi, un percorso");
+  const body="M40 256L42 118C46 104 76 102 90 100L102 100C116 102 146 104 150 118L152 256";
+  o+=`<rect x="88" y="84" width="16" height="20" style="fill:${mx(INK,12)}"/>`;
+  o+=`<path d="${body}Z" style="fill:url(#ne-sk);stroke:none"/><path d="${body}" style="fill:none;stroke:${INK};stroke-opacity:.5;stroke-width:1.2"/>`;
+  o+=`<ellipse cx="96" cy="62" rx="20" ry="25" style="fill:${mx(INK,9)};stroke:${INK};stroke-opacity:.5;stroke-width:1.2"/>`;
+  o+=`<path d="M115 58L123 70L115 72" style="fill:${mx(INK,9)};stroke:${INK};stroke-opacity:.5;stroke-width:1.2;stroke-linejoin:round"/><circle cx="106" cy="54" r="1.6" style="fill:${INK};fill-opacity:.6"/>`;
+  o+=tube("M97 96V136",5,mx(W,40));
+  o+=`<path d="M94 134C112 128 134 138 130 162C126 184 100 188 94 170C90 160 102 154 100 148C98 142 94 142 94 134Z" style="fill:url(#ne-or);stroke:${INK};stroke-opacity:.5;stroke-width:1.2"/>`;
+  const coil="M106 184C98 186 94 190 96 196C100 202 124 200 126 208C128 216 94 214 94 222C94 232 124 228 122 240";
+  o+=tube(coil,7,mx(W,26));
+  o+=tx(48,166,"stomaco",{s:1,h:1})+tx(46,222,"digiuno",{s:1,h:1});
+  /* sondino */
+  const ng="M116 71C106 72 98 80 97 96L97 134C98 146 106 154 112 160";
+  const nd="M112 160C112 172 106 180 100 188C97 192 96 194 97 197";
+  const peg="M160 150L118 157",jej="M160 206L122 208";
+  o+=`<path class="fs" d="${nd}" style="stroke-dasharray:3 3"/><path class="fs" d="${ng}"/><path class="fs" d="${peg}"/><path class="fs" d="${jej}"/>`;
+  o+=`<rect x="119" y="151" width="4" height="11" rx="1" style="fill:${S}"/><rect x="148" y="144" width="4" height="12" rx="1" style="fill:${S}"/>`;
+  o+=`<rect x="121" y="203" width="4" height="10" rx="1" style="fill:${S}"/><rect x="148" y="200" width="4" height="12" rx="1" style="fill:${S}"/>`;
+  o+=`<circle cx="161" cy="150" r="2.6" class="fl" style="fill:var(--paper)"/><circle cx="161" cy="206" r="2.6" class="fl" style="fill:var(--paper)"/>`;
+  o+=line("M124 68L164 66","stroke-dasharray:3 3");
+  o+=badge(173,66,"1")+badge(173,150,"2")+badge(173,206,"3");
+  o+=dots(ng+nd.replace("M112 160","L112 160"),3,6)+dots(peg,2,3.2)+dots(jej,2,3.2);
+  o+=tx(188,50,"Sondino naso-gastrico",{b:1})+tx(188,64,"o naso-digiunale (tratteggio)")+tx(188,79,["breve durata: meno di","4-6 settimane"],{s:1});
+  o+=`<path class="lead" d="M188 104H366"/>`;
+  o+=tx(188,128,"PEG",{b:1})+tx(188,142,["gastrostomia endoscopica","percutanea"])+tx(188,170,"tempi lunghi",{s:1});
+  o+=`<path class="lead" d="M188 184H366"/>`;
+  o+=tx(188,200,"Digiunostomia",{b:1})+tx(188,214,"nel digiuno")+tx(188,229,"tempi lunghi",{s:1});
+  o+=`<circle cx="193" cy="249" r="2.6" style="fill:${S}"/>`+tx(202,253,"percorso del nutriente",{s:1});
+  /* ---------- b ---------- */
+  o+=panel(272,128,"b","Quale accesso, per quanto tempo");
+  o+=`<rect class="eyrow" x="20" y="300" width="170" height="66" rx="2"/><rect class="fbx k-info" x="190" y="300" width="170" height="66" rx="2"/>`;
+  o+=tx(28,314,"Breve durata",{b:1})+tx(198,314,"Tempi lunghi",{b:1});
+  o+=chip(28,319,96,"Naso-gastrico")+chip(28,342,100,"Naso-digiunale")+chip(198,319,48,"PEG")+chip(198,342,100,"Digiunostomia");
+  o+=`<path class="fl" d="M20 374H354"/><path class="fl" d="M348 370L355 374L348 378" style="stroke-linecap:round"/><path class="lead" d="M190 368V380"/>`;
+  o+=tx(190,394,"4-6 settimane",{a:"middle",s:1})+tx(20,394,"inizio",{s:1})+tx(360,394,"durata",{a:"end",s:1});
+  /* ---------- c ---------- */
+  o+=panel(408,124,"c","Posizione del paziente");
+  const hx=96,hy=506;
+  o+=`<path d="M${hx} ${hy}L196 ${hy}" style="fill:none;stroke:${INK};stroke-opacity:.14;stroke-width:15;stroke-linecap:round"/><path d="M${hx} ${hy}L34 458" style="fill:none;stroke:${INK};stroke-opacity:.14;stroke-width:15;stroke-linecap:round"/>`;
+  o+=`<path d="M${hx} ${hy}L184 ${hy}" style="fill:none;stroke:${mx(INK,24)};stroke-width:9;stroke-linecap:round"/><path d="M${hx} ${hy}L43 462" style="fill:none;stroke:${mx(INK,24)};stroke-width:9;stroke-linecap:round"/>`;
+  o+=`<circle cx="31" cy="450" r="9" style="fill:${mx(INK,12)};stroke:${INK};stroke-opacity:.5;stroke-width:1.2"/>`;
+  o+=`<path class="lead" d="M26 520H200M40 520V528M184 520V528"/><circle cx="${hx}" cy="${hy}" r="2.5" style="fill:${INK}"/>`;
+  o+=`<path class="dash" d="M24 ${hy}H${hx}" style="stroke-dasharray:3 3;stroke-width:1"/><path d="M62 ${hy}A34 34 0 0 1 70 483" style="fill:none;stroke:${S};stroke-width:1.8"/>`;
+  o+=tx(20,498,"30-45°",{b:1,fs:11,h:1});
+  o+=tx(214,448,"Testata a 30-45°",{b:1});
+  o+=`<rect class="fbx k-info" x="214" y="456" width="68" height="16" rx="2"/><rect class="dashbox" x="282" y="456" width="82" height="16" rx="2"/>`;
+  o+=tx(248,468,"durante",{a:"middle",fs:11})+tx(323,468,"dopo",{a:"middle",fs:11});
+  o+=tx(248,488,"la nutrizione",{a:"middle",s:1})+tx(323,488,["almeno 30-60","min dopo"],{a:"middle",s:1});
+  o+=tx(214,514,["Controlla l'angolo della","testata e la posizione"],{s:1});
+  /* ---------- d ---------- */
+  o+=panel(540,282,"d","Pompa, sacca e ruolo dell'infermiere");
+  o+=`<path class="lead" d="M46 573V578"/><circle cx="46" cy="571" r="2.4" class="fl" style="fill:var(--paper)"/>`;
+  o+=`<path d="M30 578H62C66 578 68 582 68 586V622C68 628 64 632 58 632H34C28 632 24 628 24 622V586C24 582 26 578 30 578Z" style="fill:url(#ne-bg);stroke:${INK};stroke-opacity:.55;stroke-width:1.2"/>`;
+  o+=`<path d="M26 596H66" style="stroke:${INK};stroke-opacity:.3;stroke-width:1;stroke-dasharray:3 3"/>`;
+  o+=tx(74,604,"sacca",{s:1});
+  o+=`<path class="lead" d="M46 632V638"/><rect x="40" y="638" width="12" height="18" rx="3" style="fill:var(--paper);stroke:${INK};stroke-opacity:.55"/>`;
+  const pl="M46 656V684H76";
+  o+=`<path class="fl" d="${pl}" style="stroke-width:1.2"/>`;
+  o+=`<rect x="76" y="656" width="96" height="68" rx="4" style="fill:${mx(INK,6)};stroke:${INK};stroke-opacity:.6;stroke-width:1.2"/>`;
+  o+=`<rect class="eyrow" x="84" y="664" width="80" height="24" rx="2"/>`+tx(124,681,"ml/h",{a:"middle",b:1,fs:12});
+  o+=tx(124,706,"continua / boli",{a:"middle",s:1});
+  o+=tx(124,650,"pompa",{a:"middle",s:1,h:1});
+  const out="M124 724V756";
+  o+=`<path class="fl" d="${out}" style="stroke-width:1.6"/><path class="fl" d="M119 750L124 757L129 750"/>`;
+  o+=tx(124,774,"alla sonda",{a:"middle",s:1});
+  o+=dots(pl,2,3.6,2.4)+dots(out,2,2.6,2.4);
+  const cd=(y,h,cls,t,ls)=>`<rect class="fbx ${cls}" x="184" y="${y}" width="180" height="${h}" rx="2"/>`+tx(192,y+17,t,{b:1})+tx(192,y+32,ls,{fs:11,lh:13});
+  o+=cd(572,64,"k-warn","Ostruzione",["lavaggio con acqua (circa","30 ml) prima e dopo nutrizione","e farmaci; ogni 4-6 h se continua"]);
+  o+=cd(644,50,"k-alarm","Aspirazione",["testata a 30-45° durante e per","almeno 30-60 min dopo"]);
+  o+=cd(702,50,"k-warn","Diarrea",["osservare e segnalare la","comparsa"]);
+  o+=cd(760,64,"k-warn","PEG: buried bumper",["ruotare e mobilizzare la sonda","dopo la guarigione dello stoma"]).replace("<rect","<rect");
+  o+=`<rect class="eyrow" x="20" y="780" width="150" height="38" rx="2"/>`+tx(28,796,["anche dislocazione,","iperglicemia"],{fs:11,lh:13}).replace("x=\"28\"","x=\"28\"");
+  return FT.svg(380,832,"Tavola sulla nutrizione enterale. a: sezione schematica di testa e tronco con i tre accessi: sondino naso-gastrico o naso-digiunale per la breve durata, cioè meno di 4-6 settimane; gastrostomia endoscopica percutanea (PEG) e digiunostomia per i tempi lunghi; i pallini animati mostrano il percorso del nutriente fino allo stomaco o al digiuno. b: scelta dell'accesso in base alla durata. c: paziente con la testata a 30-45 gradi durante la nutrizione e per almeno 30-60 minuti dopo. d: sacca, pompa e sonda; complicanze con la risposta dell'infermiere: ostruzione, lavaggio con circa 30 ml di acqua prima e dopo nutrizione e farmaci e ogni 4-6 ore nella nutrizione continua; aspirazione, testata alzata; diarrea, osservare e segnalare; PEG, rotazione e mobilizzazione della sonda per evitare il buried bumper; anche dislocazione e iperglicemia.",o);
+ })()},
+{id:"fig-nutrizione-parenterale",wide:1,t:"Nutrizione parenterale: accessi, sacca, complicanze e controlli",c:"Tavola in quattro parti. (a) Accesso periferico (bassa osmolarità, meno di 800-900 mOsm/L) o centrale con CVC o PICC (alta osmolarità), con il percorso della miscela dalla sacca. (b) Sacca a più scomparti: glucosio, aminoacidi, lipidi, con elettroliti e vitamine aggiunti; proporzioni qualitative. (c) Complicanze con il controllo associato: infezione del catetere, iperglicemia, squilibri elettrolitici, danno epatico, ipoglicemia se si interrompe bruscamente. (d) Controlli infermieristici: asepsi, linea dedicata, glicemia ed esami, peso e bilancio. Disegno originale.",
+ enc:["nutrizione-parenterale"],gl:[],st:/nutrizione parenterale|parenterale|NPT|catetere venoso centrale/i,
+ svg:(()=>{
+  const R=" repeatCount=\"indefinite\"",E=FT.e;
+  const S="var(--scrub)",A="var(--amber)",W="var(--vital)",K="var(--ok)",INK="var(--ink)";
+  const mx=(c,p,b)=>`color-mix(in srgb,${c} ${p}%,${b||"var(--paper)"})`;
+  const tx=(x,y,lines,o={})=>{lines=[].concat(lines);const lh=o.lh||13.5,fs=o.fs||(o.s?11:12);
+    return `<text class="ft${o.s?" fsm":""}${o.b?" fb":""}${o.h?" halo":""}" x="${x}" y="${y}" text-anchor="${o.a||"start"}" style="font-size:${fs}px${o.st?";"+o.st:""}">${lines.map((t,i)=>`<tspan x="${x}" dy="${i?lh:0}">${E(t)}</tspan>`).join("")}</text>`;};
+  const badge=(x,y,l)=>`<circle cx="${x}" cy="${y}" r="8" style="fill:var(--paper);stroke:${INK};stroke-width:1.2"/>`+tx(x,y+4,l,{a:"middle",b:1,fs:11});
+  const panel=(y,h,l,t)=>`<rect class="fbx" x="8" y="${y}" width="364" height="${h}" rx="2"/>`+badge(24,y+17,l)+tx(38,y+21,t,{b:1});
+  const dots=(d,n,dur,r)=>Array.from({length:n},(_,i)=>`<circle class="fdrop anm" r="${r||2.6}" style="fill:${S}"><animateMotion dur="${dur}s" begin="-${(dur/n*i).toFixed(2)}s"${R} path="${d}"/></circle>`).join("");
+  const tube=(d,w,col)=>`<path d="${d}" style="fill:none;stroke:${INK};stroke-opacity:.45;stroke-width:${w+1.6};stroke-linecap:round;stroke-linejoin:round"/><path d="${d}" style="fill:none;stroke:${col};stroke-width:${w};stroke-linecap:round;stroke-linejoin:round"/>`;
+  const line=(d,o="")=>`<path d="${d}" style="fill:none;stroke:${INK};stroke-opacity:.55;stroke-width:1;${o}"/>`;
+  const chip=(x,y,w,l,c)=>`<rect class="fbx ${c||""}" x="${x}" y="${y}" width="${w}" height="20" rx="2"/>`+tx(x+w/2,y+14,l,{a:"middle",fs:11});
+  let o="";
+  o+=`<defs><linearGradient id="np-sk" x1="0" x2="1"><stop offset="0" style="stop-color:${mx(INK,5)}"/><stop offset="1" style="stop-color:${mx(INK,15)}"/></linearGradient>`
+   +`<linearGradient id="np-ht" x1="0" x2="0" y1="0" y2="1"><stop offset="0" style="stop-color:${mx(W,34)}"/><stop offset="1" style="stop-color:${mx(W,12)}"/></linearGradient>`
+   +`<linearGradient id="np-bg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" style="stop-color:${mx(S,8)}"/><stop offset="1" style="stop-color:${mx(S,44)}"/></linearGradient></defs>`;
+  const sk=`fill:url(#np-sk);stroke:${INK};stroke-opacity:.5;stroke-width:1.2`;
+  const tile=(x,y,cls,g)=>`<rect class="fbx ${cls}" x="${x}" y="${y}" width="28" height="28" rx="2"/><g style="fill:none;stroke:${INK};stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round" transform="translate(${x+14} ${y+14})">${g}</g>`;
+  const drop="M0 -9C5 -2 7 1 7 4C7 8 4 10 0 10C-4 10 -7 8 -7 4C-7 1 -5 -2 0 -9Z";
+  const G={
+   inf:`<path d="M-8 8L2 -2"/><circle cx="5" cy="-5" r="4"/><path d="M5 -11V-9M11 -5H9M9 -11L8 -9M1 -11L2 -9"/>`,
+   hyper:`<path d="${drop}" transform="translate(-2 1) scale(.8)"/><path d="M8 -2V-9M5 -6L8 -9L11 -6"/>`,
+   hypo:`<path d="${drop}" transform="translate(-2 -1) scale(.8)"/><path d="M8 -9V-2M5 -5L8 -2L11 -5"/>`,
+   ion:`<circle cx="-4" cy="0" r="5"/><circle cx="6" cy="0" r="4"/><path d="M-6 0H-2M-4 -2V2"/><path d="M4 0H8"/>`,
+   liv:`<path d="M-10 -3C-6 -8 4 -8 10 -3C10 4 4 8 -2 7C-8 6 -10 2 -10 -3Z"/><path d="M0 -6C1 -2 0 2 -3 4"/>`,
+   shield:`<path d="M0 -9L8 -6V1C8 6 4 9 0 10C-4 9 -8 6 -8 1V-6Z"/><path d="M-3 1L-1 3L4 -3"/>`,
+   lines:`<path d="M-9 -4H9M-9 4H9"/><path d="M-9 4H9" style="stroke:${S};stroke-width:2.6"/>`,
+   sugar:`<path d="${drop}" transform="translate(0 0) scale(.9)"/><path d="M-3 4H3"/>`,
+   scale:`<path d="M0 -8V8M-5 8H5M-9 -3H9"/><path d="M-9 -3L-11 3H-7ZM9 -3L7 3H11Z"/>`
+  };
+  /* ---------- a ---------- */
+  o+=panel(8,260,"a","Accessi venosi");o+=`<g transform="translate(0 10)">`;
+  o+=`<path d="M56 250L56 96C56 82 74 78 86 78H98C110 78 128 82 128 96L128 250Z" style="${sk};stroke:none"/>`;
+  const arm1="M60 92L40 150L34 210",arm2="M124 92L146 150L152 208";
+  [arm1,arm2].forEach(a=>{o+=`<path d="${a}" style="fill:none;stroke:${INK};stroke-opacity:.45;stroke-width:16;stroke-linecap:round;stroke-linejoin:round"/><path d="${a}" style="fill:none;stroke:${mx(INK,12)};stroke-width:14;stroke-linecap:round;stroke-linejoin:round"/>`});
+  o+=`<path d="M56 250L56 96C56 82 74 78 86 78H98C110 78 128 82 128 96L128 250" style="fill:none;stroke:${INK};stroke-opacity:.5;stroke-width:1.2"/>`;
+  o+=`<rect x="85" y="60" width="14" height="20" style="fill:${mx(INK,12)}"/><circle cx="92" cy="44" r="18" style="${sk}"/>`;
+  o+=`<path d="M82 112C92 104 106 110 106 122C106 138 96 150 90 158C82 150 76 140 76 128C76 118 78 114 82 112Z" style="fill:url(#np-ht);stroke:${INK};stroke-opacity:.5;stroke-width:1.2"/>`;
+  const vein=(d,w)=>`<path d="${d}" style="fill:none;stroke:${mx(S,55)};stroke-width:${w};stroke-linecap:round;stroke-linejoin:round"/>`;
+  o+=vein("M88 78V114",6)+vein("M32 196L38 148C42 118 54 98 70 92L88 88",3)+vein("M150 150L148 196",3);
+  const picc="M34 200L38 148C42 118 54 98 70 92L88 90",cvc="M102 70C94 72 88 84 88 92V116";
+  o+=`<path d="${picc}" style="fill:none;stroke:${INK};stroke-width:1.8;stroke-dasharray:5 3;stroke-linecap:round"/><path d="${cvc}" class="fs"/><circle cx="88" cy="116" r="2.6" style="fill:${S}"/>`;
+  o+=`<rect x="30" y="196" width="8" height="6" rx="1" style="fill:var(--paper);stroke:${INK};stroke-width:1.2"/>`;
+  o+=`<path d="M150 176L156 168" style="stroke:${INK};stroke-width:2;stroke-linecap:round"/><circle cx="156" cy="167" r="2.6" class="fl" style="fill:var(--paper)"/>`;
+  o+=badge(138,184,"1")+badge(112,96,"2");
+  /* sacca */
+  o+=`<path class="lead" d="M196 16V24"/><circle cx="196" cy="14" r="3" class="fl" style="fill:var(--paper)"/>`;
+  o+=`<path d="M182 28H210C214 28 216 31 216 35V72C216 78 212 82 206 82H186C180 82 176 78 176 72V35C176 31 178 28 182 28Z" style="fill:url(#np-bg);stroke:${INK};stroke-opacity:.55;stroke-width:1.2"/>`;
+  const pc="M176 52C150 52 126 62 102 70",pp="M196 82C196 140 180 168 158 172";
+  o+=`<path d="${pc}" style="fill:none;stroke:${INK};stroke-opacity:.6;stroke-width:1.2"/><path d="${pp}" style="fill:none;stroke:${INK};stroke-opacity:.6;stroke-width:1.2"/>`;
+  o+=dots(pc,3,4.5)+dots(pp,3,5);
+  o+=tx(226,46,["Sacca: la via dipende","dall'osmolarità"],{fs:11});
+  o+=`<path class="lead" d="M176 104H366"/>`;
+  o+=badge(186,126,"1")+tx(202,122,"Vena periferica",{b:1})+tx(202,136,["bassa osmolarità:","< 800-900 mOsm/L"],{s:1});
+  o+=`<path class="lead" d="M176 168H366"/>`;
+  o+=badge(186,190,"2")+tx(202,186,"Catetere centrale",{b:1})+tx(202,200,["CVC o PICC, punta in vena","cava; alta osmolarità"],{s:1});
+  o+=`<circle cx="186" cy="238" r="2.6" style="fill:${S}"/>`+tx(196,242,"percorso della miscela",{s:1});o+=`</g>`;
+  /* ---------- b ---------- */
+  o+=panel(276,168,"b","Sacca a più scomparti");
+  o+=`<path d="M190 296V306" class="lead"/><circle cx="190" cy="294" r="3" class="fl" style="fill:var(--paper)"/>`;
+  o+=`<rect x="24" y="306" width="332" height="74" rx="8" style="fill:${mx(INK,4)};stroke:${INK};stroke-opacity:.55;stroke-width:1.2"/>`;
+  [["Glucosio",A,34],["Aminoacidi",S,36],["Lipidi",A,12]].forEach((c,i)=>{const x=32+i*108;o+=`<rect x="${x}" y="314" width="100" height="58" rx="5" style="fill:${mx(c[1],c[2])};stroke:${INK};stroke-opacity:.35"/>`+tx(x+50,347,c[0],{a:"middle",b:1,fs:12});});
+  o+=chip(24,388,104,"+ Elettroliti")+chip(134,388,92,"+ Vitamine");
+  o+=tx(24,424,["Proporzioni variabili con la prescrizione.","Set cambiato di norma ogni 24 h se c'è lipide."],{s:1});
+  /* ---------- c ---------- */
+  o+=panel(452,208,"c","Complicanze e controllo associato");
+  const rows=[["Infezione del","catetere","tecnica asettica, cambio del","set secondo protocollo","inf","k-warn"],["Iperglicemia","","controllo della glicemia","","hyper","k-warn"],["Squilibri","elettrolitici","controllo degli elettroliti","","ion","k-warn"],["Danno epatico","","funzione epatica","e trigliceridi","liv","k-warn"],["Ipoglicemia","(stop brusco)","non interrompere","bruscamente la nutrizione","hypo","k-alarm"]];
+  rows.forEach((r,i)=>{const y=482+i*34;o+=tile(16,y,r[5],G[r[4]])+tx(52,y+12,[r[0]].concat(r[1]?[r[1]]:[]),{b:1,fs:11,lh:12})+`<path class="fl" d="M168 ${y+14}H180M176 ${y+10}L180 ${y+14}L176 ${y+18}" style="stroke-width:1.2"/>`+tx(190,y+12,[r[2]].concat(r[3]?[r[3]]:[]),{fs:11,lh:12});});
+  /* ---------- d ---------- */
+  o+=panel(668,176,"d","Controlli dell'infermiere");
+  const cr=[["Asepsi","tecnica asettica; set cambiato","a protocollo (24 h con lipidi)","shield"],["Linea dedicata","lume del catetere dedicato","alla nutrizione","lines"],["Glicemia ed esami","glicemia, elettroliti, funzione","epatica, trigliceridi","sugar"],["Peso e bilancio","peso e bilancio idrico","controllati nel tempo","scale"]];
+  cr.forEach((r,i)=>{const y=696+i*36;o+=tile(16,y,"eyrow",G[r[3]])+tx(52,y+18,r[0],{b:1,fs:11})+tx(160,y+12,[r[1],r[2]],{fs:11,lh:12});});
+  return FT.svg(380,856,"Tavola sulla nutrizione parenterale. a: corpo con accesso venoso periferico nell'avambraccio, per miscele a bassa osmolarità (meno di 800-900 mOsm/L), e catetere venoso centrale, CVC o PICC, con la punta nella vena cava, per miscele ad alta osmolarità; i pallini animati mostrano il percorso della miscela dalla sacca. b: sacca a più scomparti con glucosio, aminoacidi e lipidi, più elettroliti e vitamine aggiunti; set cambiato di norma ogni 24 ore se c'è lipide. c: complicanze con il controllo associato: infezione del catetere, iperglicemia, squilibri elettrolitici, danno epatico, ipoglicemia se si interrompe bruscamente. d: controlli infermieristici: asepsi, linea dedicata, glicemia ed esami, peso e bilancio idrico.",o);
+ })()},
+{id:"fig-dieta-mediterranea",wide:1,t:"Il piatto mediterraneo e le diete terapeutiche",c:"Tavola in tre parti. (a) Il piatto mediterraneo: verdura, frutta, cereali integrali, legumi, olio extravergine e pesce da privilegiare, disegnati in sei spicchi uguali. (b) Dal molto al poco: gli stessi sei gruppi in verde, poca carne rossa e pochi zuccheri in ambra; l'indicatore scorre sugli otto gruppi, ognuno con lo stesso spazio (schema qualitativo: la voce non indica porzioni né frequenze). (c) Le diete terapeutiche citate nella voce: iposodica (< 5 g di sale al giorno, scompenso e ipertensione), ipoproteica (malattia renale cronica avanzata), senza glutine (celiachia), per il diabete (carboidrati complessi, distribuzione regolare, fibre). L'alimentazione è parte della prevenzione e della cura di molte malattie; riferimento: linee guida CREA. Disegno originale.",
+ enc:["dieta-mediterranea"],gl:[],st:/dieta mediterranea|mediterranea|iposodica|celiachia|senza glutine|alimentazione sana/i,
+ svg:(()=>{
+  const R=" repeatCount=\"indefinite\"",E=FT.e;
+  const S="var(--scrub)",A="var(--amber)",INK="var(--ink)",OK="var(--ok)",VT="var(--vital)";
+  const mx=(c,p,b)=>`color-mix(in srgb,${c} ${p}%,${b||"var(--paper)"})`;
+  const tx=(x,y,lines,o={})=>{lines=[].concat(lines);const lh=o.lh||(o.s?12.5:14.5),fs=o.fs||(o.s?11:12);
+    return `<text class="ft${o.s?" fsm":""}${o.b?" fb":""}${o.h?" halo":""}" x="${x}" y="${y}" text-anchor="${o.a||"start"}" style="font-size:${fs}px${o.st?";"+o.st:""}">${lines.map((t,i)=>`<tspan x="${x}" dy="${i?lh:0}">${E(t)}</tspan>`).join("")}</text>`;};
+  const ld=(d,o="")=>`<path d="${d}" style="fill:none;stroke:${INK};stroke-opacity:.55;stroke-width:.75;${o}"/>`;
+  const dot=(x,y)=>`<circle cx="${x}" cy="${y}" r="1.6" style="fill:${INK};fill-opacity:.7"/>`;
+  const badge=(x,y,l)=>`<circle cx="${x}" cy="${y}" r="7.5" style="fill:var(--paper);stroke:${INK};stroke-width:1"/>`+tx(x,y+4,l,{a:"middle",b:1,s:1});
+  const frame=(y,h)=>`<rect x="8" y="${y}" width="364" height="${h}" rx="3" style="fill:var(--paper);stroke:${INK};stroke-opacity:.25;stroke-width:1"/>`;
+  const sk=(c,pf,ps)=>`fill:${mx(c,pf)};stroke:${mx(c,ps||80,INK)};stroke-width:.9;stroke-linejoin:round`;
+  const mv=(path,dur,b,r,c)=>{const m=`<animateMotion dur="${dur}s" begin="${b}s"${R} calcMode="linear" path="${path}"/>`;
+    return `<circle class="anm" r="${r+3.4}" style="fill:${c};fill-opacity:.22">${m}</circle><circle class="anm" r="${r}" style="fill:${c};stroke:var(--paper);stroke-width:1">${m}</circle>`;};
+  const GR="#3f8f4a",RD="#c0463c",GO="#c9a227",LG="#7f9a2e",BL="#3b7ea8",BR="#a8453b",PK="#d46a98",OR="#c98d4b",TL="#1f8a85";
+  const ic=(n,x,y,s)=>{let g="";
+   if(n==="verdura")g=`<rect x="-3" y="3" width="6" height="9" rx="1.5" style="${sk(GR,35)}"/><circle cx="-6.5" cy="-1" r="6" style="${sk(GR,70)}"/><circle cx="6.5" cy="-1" r="6" style="${sk(GR,70)}"/><circle cx="0" cy="-5.5" r="7" style="${sk(GR,78)}"/>`;
+   if(n==="frutta")g=`<circle cx="-4" cy="2.5" r="8" style="${sk(RD,75)}"/><circle cx="4" cy="2.5" r="8" style="${sk(RD,75)}"/><path d="M0 -5Q1 -9 3 -11" style="fill:none;stroke:${mx(BR,80,INK)};stroke-width:1.4;stroke-linecap:round"/><ellipse cx="6" cy="-8" rx="4.5" ry="2.2" transform="rotate(-25 6 -8)" style="${sk(GR,80)}"/>`;
+   if(n==="cereali")g=`<path d="M0 13V-11" style="fill:none;stroke:${mx(GO,80,INK)};stroke-width:1.3"/>`+[-9,-3,3].map(y=>`<ellipse cx="-4.2" cy="${y+1.5}" rx="2.6" ry="4.6" transform="rotate(28 -4.2 ${y+1.5})" style="${sk(GO,80)}"/><ellipse cx="4.2" cy="${y+1.5}" rx="2.6" ry="4.6" transform="rotate(-28 4.2 ${y+1.5})" style="${sk(GO,80)}"/>`).join("")+`<ellipse cx="0" cy="-12" rx="2.4" ry="4" style="${sk(GO,80)}"/>`;
+   if(n==="legumi")g=`<path d="M-12 -3C-7 -13 9 -9 12 4C4 10 -9 7 -12 -3Z" style="${sk(GR,60)}"/>`+[[-5.5,-1],[0,1.5],[5.5,3]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="3.2" style="${sk(LG,85)}"/>`).join("");
+   if(n==="olio")g=`<path d="M-3 -12h6v5l3.5 4v12.5a2 2 0 0 1 -2 2h-9a2 2 0 0 1 -2 -2v-12.5l3.5 -4z" style="${sk(LG,70)}"/><rect x="-4.5" y="2" width="9" height="6" rx="1" style="fill:var(--paper);fill-opacity:.55"/><rect x="-3.2" y="-14" width="6.4" height="3" rx="1" style="${sk(BR,60)}"/>`;
+   if(n==="pesce")g=`<path d="M-12 0C-7 -9 5 -9 9 0C5 9 -7 9 -12 0Z" style="${sk(BL,70)}"/><path d="M8 0L14 -6V6Z" style="${sk(BL,70)}"/><circle cx="-7" cy="-1.6" r="1.3" style="fill:${INK}"/><path d="M-2 -5Q1 0 -2 5" style="fill:none;stroke:${mx(BL,80,INK)};stroke-width:.9"/>`;
+   if(n==="carne")g=`<path d="M-12 -2C-13 -10 -3 -12 3 -10C11 -9 14 -2 12 4C10 11 0 13 -6 10C-11 8 -12 3 -12 -2Z" style="${sk(BR,65)}"/><circle cx="3" cy="0" r="3.4" style="fill:var(--paper);stroke:${mx(BR,80,INK)};stroke-width:.9"/><path d="M-8 -3Q-5 -6 -2 -4" style="fill:none;stroke:var(--paper);stroke-opacity:.7;stroke-width:1.2"/>`;
+   if(n==="dolci")g=`<path d="M-9 2L9 2L6 12H-6Z" style="${sk(OR,75)}"/><path d="M-10 2C-12 -4 -6 -6 -4 -8C-3 -12 3 -12 4 -8C8 -6 12 -3 10 2Z" style="${sk(PK,75)}"/><circle cx="0" cy="-12" r="2.3" style="${sk(RD,90)}"/>`;
+   if(n==="sale")g=`<path d="M-6 -6C-6 -12 6 -12 6 -6V11a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2Z" style="${sk(BL,25)}"/><path d="M-6 -6H6" style="stroke:${mx(INK,50)};stroke-width:.8"/>`+[[-2.5,-9],[0,-9.5],[2.5,-9],[0,-7.5]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r=".8" style="fill:${INK}"/>`).join("");
+   if(n==="rene")g=`<path d="M-3 -12C-11 -12 -13 -2 -10 5C-8 11 -2 12 1 8C-2 6 -3 3 -2 0C-3 -3 -1 -5 3 -6C2 -10 0 -12 -3 -12Z" style="${sk(BR,60)}" transform="rotate(20)"/>`;
+   if(n==="glutine")g=ic("cereali",0,0,1)+`<path d="M-12 12L12 -12" style="stroke:${VT};stroke-width:2.2;stroke-linecap:round"/>`;
+   if(n==="goccia")g=`<path d="M0 -12C5 -4 9 0 9 5A9 9 0 0 1 -9 5C-9 0 -5 -4 0 -12Z" style="${sk(VT,60)}"/><path d="M-4 5Q-3 8 0 8.5" style="fill:none;stroke:var(--paper);stroke-opacity:.8;stroke-width:1.3;stroke-linecap:round"/>`;
+   return `<g transform="translate(${x},${y}) scale(${s||1})">${g}</g>`;};
+  const IT=[["verdura","Verdura",GR],["frutta","Frutta",RD],["cereali","Cereali integrali",GO],["legumi","Legumi",LG],["olio","Olio extravergine",LG],["pesce","Pesce",BL]];
+  let o="";
+  /* ---------- a: il piatto ---------- */
+  let Y=0;
+  o+=frame(Y,232)+badge(20,Y+14,"a")+tx(32,Y+18,"il piatto mediterraneo",{s:1,b:1,st:`fill:${INK}`});
+  const cx=106,cy=Y+130,RO=84,RI=72;
+  o+=`<circle cx="${cx}" cy="${cy}" r="${RO}" style="fill:${mx(INK,5)};stroke:${INK};stroke-opacity:.45;stroke-width:1.1"/><circle cx="${cx}" cy="${cy}" r="${RI}" style="fill:var(--paper);stroke:${INK};stroke-opacity:.3;stroke-width:.8"/>`;
+  const pt=(r,a)=>[cx+r*Math.cos(a*Math.PI/180),cy+r*Math.sin(a*Math.PI/180)];
+  IT.forEach((it,i)=>{const a0=-90+60*i,a1=a0+60,p0=pt(RI-2,a0),p1=pt(RI-2,a1);
+    o+=`<path d="M${cx} ${cy}L${p0[0].toFixed(1)} ${p0[1].toFixed(1)}A${RI-2} ${RI-2} 0 0 1 ${p1[0].toFixed(1)} ${p1[1].toFixed(1)}Z" style="fill:${mx(it[2],17)};stroke:var(--paper);stroke-width:2.2"/>`;});
+  IT.forEach((it,i)=>{const am=-60+60*i,p=pt(40,am),b=pt(60,am);o+=ic(it[0],p[0].toFixed(1),p[1].toFixed(1),1.05);o+=badge(b[0].toFixed(1),b[1].toFixed(1),i+1);});
+  o+=tx(204,Y+36,"Da privilegiare",{b:1});
+  IT.forEach((it,i)=>{const y=Y+60+i*23;o+=badge(214,y-4,i+1)+tx(228,y,it[1]);});
+  o+=`<path class="lead" d="M204 ${Y+44}H366" style="stroke-opacity:.5"/>`;
+  o+=tx(204,Y+206,["spicchi uguali: schema,","la voce non dà le porzioni"],{s:1,lh:12.5});
+  Y+=240;
+  /* ---------- b: poco spazio ---------- */
+  const H2=166;
+  o+=frame(Y,H2)+badge(20,Y+14,"b")+tx(32,Y+18,"dal molto al poco",{s:1,b:1,st:`fill:${INK}`});
+  const bx=20,bw=340,cw=bw/8,by=Y+32,bh=40;
+  o+=`<rect x="${bx}" y="${by}" width="${cw*6}" height="${bh}" rx="3" style="fill:${mx(OK,16)};stroke:${OK};stroke-width:1.1"/>`;
+  o+=`<rect x="${bx+cw*6}" y="${by}" width="${cw*2}" height="${bh}" rx="3" style="fill:${mx(A,16)};stroke:${A};stroke-width:1.1"/>`;
+  [["verdura"],["frutta"],["cereali"],["legumi"],["olio"],["pesce"],["carne"],["dolci"]].forEach((it,i)=>{
+    const x=bx+cw*i+cw/2;o+=ic(it[0],x.toFixed(1),by+bh/2,.9);
+    if(i>0&&i!=6)o+=`<path d="M${bx+cw*i} ${by+6}V${by+bh-6}" style="stroke:${INK};stroke-opacity:.18;stroke-width:.8"/>`;
+    if(i<6)o+=tx(x.toFixed(1),by+bh+14,i+1,{a:"middle",s:1});});
+  /* barra animata: l'evidenziazione scorre sugli otto gruppi, ognuno con lo stesso spazio */
+  const xs=[...Array(8)].map((_,i)=>bx+cw*i);
+  o+=`<rect x="${bx}" y="${by+bh+3}" width="${cw}" height="3" rx="1.5" style="fill:${S}"><animate attributeName="x" values="${xs.map(v=>v.toFixed(1)).join(";")}" calcMode="discrete" dur="9.6s"${R}/></rect>`;
+  o+=tx(bx+cw*3,by+bh+30,"da privilegiare",{a:"middle",b:1,s:1,st:`fill:${OK}`});
+  o+=tx(bx+cw*7,by+bh+14,["poca carne","rossa, pochi","zuccheri"],{a:"middle",s:1,lh:12.5,st:`fill:${INK}`});
+  o+=tx(bx,by+bh+66,["Ogni gruppo ha lo stesso spazio:","schema qualitativo, non una misura."],{s:1});
+  Y+=H2+8;
+  /* ---------- c: diete terapeutiche ---------- */
+  const H3=246;
+  o+=frame(Y,H3)+badge(20,Y+14,"c")+tx(32,Y+18,"diete terapeutiche",{s:1,b:1,st:`fill:${INK}`});
+  const cards=[["sale","Iposodica",["scompenso e","ipertensione: < 5 g","di sale al giorno"]],["rene","Ipoproteica",["malattia renale","cronica avanzata"]],["glutine","Senza glutine",["celiachia"]],["goccia","Per il diabete",["carboidrati complessi,","distribuzione regolare,","fibre"]]];
+  cards.forEach((c,i)=>{const x=16+(i%2)*182,y=Y+32+Math.floor(i/2)*88;
+    o+=`<rect class="fbx" x="${x}" y="${y}" width="170" height="80" rx="2"/>`+`<circle cx="${x+24}" cy="${y+40}" r="17" style="fill:${mx(INK,5)};stroke:${INK};stroke-opacity:.2"/>`+ic(c[0],x+24,y+40,.95);
+    o+=tx(x+48,y+18,c[1],{b:1,fs:12})+tx(x+48,y+33,c[2],{s:1,lh:12});});
+  o+=`<rect class="fbx k-info" x="16" y="${Y+H3-34}" width="346" height="26" rx="2"/>`+tx(189,Y+H3-17,"Linee guida per una sana alimentazione: CREA",{a:"middle",s:1,st:`fill:${INK}`});
+  Y+=H3+8;
+  /* ---------- messaggio ---------- */
+  o+=`<rect class="fbx k-info" x="8" y="${Y}" width="364" height="58" rx="2" style="stroke-width:1.6"/>`;
+  o+=tx(22,Y+23,"Mangiare bene è cura e prevenzione",{b:1,fs:13})+tx(22,Y+42,"l'alimentazione fa parte di entrambe, per molte malattie",{s:1,st:`fill:${INK}`});
+  Y+=58;
+  return FT.svg(380,Y+4,"Tavola dell'alimentazione mediterranea e delle diete terapeutiche. A: un piatto diviso in sei spicchi uguali con verdura, frutta, cereali integrali, legumi, olio extravergine e pesce, da privilegiare. B: una barra con gli stessi sei gruppi e, in ambra, poca carne rossa e pochi zuccheri; un indicatore scorre sugli otto gruppi, ognuno con lo stesso spazio, schema qualitativo senza porzioni. C: quattro diete terapeutiche: iposodica con meno di 5 grammi di sale al giorno per scompenso e ipertensione, ipoproteica nella malattia renale cronica avanzata, senza glutine nella celiachia, per il diabete carboidrati complessi, distribuzione regolare e fibre. In basso: l'alimentazione è parte della prevenzione e della cura di molte malattie.",o);
+ })()},
+{id:"fig-iodio-tiroide",wide:1,t:"Iodio: dal piatto alla tiroide, dall'asse ormonale al gozzo",c:"Tavola in quattro parti. (a) La tiroide davanti alla trachea, con due lobi uniti da un istmo, e un ingrandimento dei follicoli. (b) La via dello iodio: latte e latticini, pesce e sale iodato portano iodio nel sangue; la tiroide lo usa per fare T4 e T3, che regolano il metabolismo e servono allo sviluppo del sistema nervoso. (c) L'asse: ipotalamo e ipofisi comandano la tiroide con il TSH; l'eccesso di ormone inibisce la sua produzione (feedback negativo). (d) Con la carenza compare il gozzo, tumefazione anteriore del collo (da segnalare se ci sono difficoltà a deglutire o respirare, raucedine); il difetto di ormoni è l'ipotiroidismo. In gravidanza il feto dipende dalla tiroxina materna per tutta la prima metà (circa 20 settimane). Ioduria mediana: sufficienza da 100 µg/L in età scolare e negli adulti non in gravidanza, 150-249 µg/L in gravidanza; vale per la popolazione, non per il singolo. Apporto: gli autori propongono 150 µg/die, l'OMS 250 µg/die in gravidanza e allattamento. Disegno originale.",
+ enc:["iodio-carenza"],gl:[],st:/iodio|ioduria|sale iodato|gozzo|tiroxina|tiroide/i,
+ svg:(()=>{
+  const R=" repeatCount=\"indefinite\"",E=FT.e;
+  const S="var(--scrub)",A="var(--amber)",INK="var(--ink)",OK="var(--ok)",VT="var(--vital)";
+  const mx=(c,p,b)=>`color-mix(in srgb,${c} ${p}%,${b||"var(--paper)"})`;
+  const tx=(x,y,lines,o={})=>{lines=[].concat(lines);const lh=o.lh||(o.s?12.5:14.5),fs=o.fs||(o.s?11:12);
+    return `<text class="ft${o.s?" fsm":""}${o.b?" fb":""}${o.h?" halo":""}" x="${x}" y="${y}" text-anchor="${o.a||"start"}" style="font-size:${fs}px${o.st?";"+o.st:""}">${lines.map((t,i)=>`<tspan x="${x}" dy="${i?lh:0}">${E(t)}</tspan>`).join("")}</text>`;};
+  const ld=(d,o="")=>`<path d="${d}" style="fill:none;stroke:${INK};stroke-opacity:.55;stroke-width:.75;${o}"/>`;
+  const dot=(x,y)=>`<circle cx="${x}" cy="${y}" r="1.6" style="fill:${INK};fill-opacity:.7"/>`;
+  const badge=(x,y,l)=>`<circle cx="${x}" cy="${y}" r="7.5" style="fill:var(--paper);stroke:${INK};stroke-width:1"/>`+tx(x,y+4,l,{a:"middle",b:1,s:1});
+  const frame=(y,h)=>`<rect x="8" y="${y}" width="364" height="${h}" rx="3" style="fill:var(--paper);stroke:${INK};stroke-opacity:.25;stroke-width:1"/>`;
+  const sk=(c,pf,ps)=>`fill:${mx(c,pf)};stroke:${mx(c,ps||80,INK)};stroke-width:.9;stroke-linejoin:round`;
+  const mv=(path,dur,b,r,c)=>{const m=`<animateMotion dur="${dur}s" begin="${b}s"${R} calcMode="linear" path="${path}"/>`;
+    return `<circle class="anm" r="${r+3.4}" style="fill:${c};fill-opacity:.22">${m}</circle><circle class="anm" r="${r}" style="fill:${c};stroke:var(--paper);stroke-width:1">${m}</circle>`;};
+  const BL="#3b7ea8",GO="#c9a227",GR="#3f8f4a",RD="#c0463c",PK="#d46a98",BR="#a8453b";
+  let o="";
+  /* tiroide: due lobi e istmo, k = scala */
+  const thy=(cx,cy,k,col,anim)=>{const l=(sg)=>`<ellipse cx="${cx+sg*17*k}" cy="${cy}" rx="${10.5*k}" ry="${25*k}" transform="rotate(${-sg*9} ${cx+sg*17*k} ${cy})" style="${sk(col,55)}"/>`;
+    return l(-1)+l(1)+`<rect x="${cx-9*k}" y="${cy+3*k}" width="${18*k}" height="${9*k}" rx="${3*k}" style="${sk(col,55)}"/>`+(anim?`<ellipse cx="${cx-17*k}" cy="${cy}" rx="${10.5*k}" ry="${25*k}" transform="rotate(9 ${cx-17*k} ${cy})" class="anp" style="fill:none;stroke:${mx(col,85,INK)};stroke-width:1.6"/><ellipse cx="${cx+17*k}" cy="${cy}" rx="${10.5*k}" ry="${25*k}" transform="rotate(-9 ${cx+17*k} ${cy})" class="anp" style="fill:none;stroke:${mx(col,85,INK)};stroke-width:1.6"/>`:"");};
+  const trachea=(cx,y0,y1)=>`<rect x="${cx-7}" y="${y0}" width="14" height="${y1-y0}" rx="3" style="fill:${mx(INK,9)};stroke:${INK};stroke-opacity:.45;stroke-width:.9"/>`+[...Array(Math.floor((y1-y0-8)/8))].map((_,i)=>`<path d="M${cx-7} ${y0+8+i*8}H${cx+7}" style="stroke:${INK};stroke-opacity:.3;stroke-width:.8"/>`).join("");
+  /* ---------- a: la tiroide ---------- */
+  let Y=0;const HA=178;
+  o+=`<defs><clipPath id="io-cz"><circle cx="250" cy="${Y+100}" r="62"/></clipPath></defs>`;
+  o+=frame(Y,HA)+badge(20,Y+14,"a")+tx(32,Y+18,"la tiroide e i suoi follicoli",{s:1,b:1,st:`fill:${INK}`});
+  const ax=92,ay=Y+100;
+  o+=trachea(ax,Y+44,Y+160)+thy(ax,ay,1,VT);
+  o+=`<path d="M${ax-4} ${ay-20}Q${ax} ${ay-16} ${ax+4} ${ay-20}" style="fill:none;stroke:${INK};stroke-opacity:.35;stroke-width:.8"/>`;
+  o+=tx(52,ay-18,"tiroide",{a:"end",b:1,fs:12})+ld(`M56 ${ay-22}L${ax-26} ${ay-12}`)+dot(ax-26,ay-12);
+  o+=tx(76,Y+160,"trachea",{a:"end",s:1})+ld(`M${ax-6} ${Y+156}H78`)+dot(ax-6,Y+156);
+  /* ingrandimento */
+  const zc=[250,Y+100];
+  o+=ld(`M${ax+24} ${ay-26}L${zc[0]-30} ${zc[1]-54}`)+ld(`M${ax+24} ${ay+22}L${zc[0]-30} ${zc[1]+54}`);
+  o+=`<circle cx="${zc[0]}" cy="${zc[1]}" r="62" style="fill:${mx(VT,9)};stroke:${INK};stroke-width:1.2"/><g clip-path="url(#io-cz)">`;
+  const FO=[[-24,-18,16],[18,-24,14],[-4,16,17],[34,10,13],[-40,22,11]];
+  FO.forEach(f=>{const x=zc[0]+f[0],y=zc[1]+f[1],r=f[2];
+    o+=`<circle cx="${x}" cy="${y}" r="${r}" style="fill:${mx(GO,38)};stroke:${mx(VT,55,INK)};stroke-width:5;stroke-dasharray:5.6 1.3"/><circle cx="${x}" cy="${y}" r="${r-3.4}" style="fill:${mx(GO,44)};stroke:${mx(GO,60,INK)};stroke-opacity:.5;stroke-width:.7"/><ellipse cx="${x-r*.28}" cy="${y-r*.32}" rx="${r*.28}" ry="${r*.16}" style="fill:var(--paper);fill-opacity:.55"/>`;});
+  o+=`<path d="M190 138C214 152 236 146 258 152S294 144 312 130" style="fill:none;stroke:${mx(VT,35)};stroke-width:7;stroke-linecap:round"/><path d="M190 138C214 152 236 146 258 152S294 144 312 130" style="fill:none;stroke:${mx(VT,75)};stroke-width:3.6;stroke-linecap:round"/>`;
+  [[210,148],[240,148],[270,150],[298,140]].forEach(p=>o+=`<ellipse cx="${p[0]}" cy="${p[1]}" rx="2.6" ry="1.7" style="fill:var(--paper);fill-opacity:.7"/>`);
+  o+=`</g><circle cx="${zc[0]}" cy="${zc[1]}" r="62" style="fill:none;stroke:${INK};stroke-width:1.2"/>`;
+  o+=tx(318,Y+58,"follicolo",{s:1})+ld(`M315 ${Y+54}L284 ${Y+68}`)+dot(284,Y+68);
+  o+=tx(318,Y+102,"colloide",{s:1})+ld(`M315 ${Y+98}L${zc[0]+36} ${Y+108}`)+dot(zc[0]+36,Y+108);
+  o+=tx(318,Y+146,"capillare",{s:1})+ld(`M315 ${Y+142}L306 ${Y+134}`)+dot(306,Y+134);
+  Y+=HA+8;
+  /* ---------- b: la via dello iodio ---------- */
+  const HB=124;
+  o+=frame(Y,HB)+badge(20,Y+14,"b")+tx(32,Y+18,"la via dello iodio",{s:1,b:1,st:`fill:${INK}`});
+  const ny=Y+32,nh=48,cyb=ny+nh/2;
+  const nb=(x,w,k)=>`<rect class="fbx${k?" k-"+k:""}" x="${x}" y="${ny}" width="${w}" height="${nh}" rx="2"/>`;
+  o+=nb(14,98)+nb(130,58)+nb(204,78)+nb(298,70,"info");
+  /* alimenti: latte, pesce, sale */
+  o+=`<g transform="translate(34,${cyb}) scale(.95)"><path d="M-5 -12h10l3 5v17a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-17z" style="${sk("#8fb4d6",45)}"/><rect x="-5.5" y="-3" width="11" height="8" rx="1" style="fill:var(--paper);fill-opacity:.65"/></g>`;
+  o+=`<g transform="translate(63,${cyb}) scale(.95)"><path d="M-12 0C-7 -9 5 -9 9 0C5 9 -7 9 -12 0Z" style="${sk(BL,70)}"/><path d="M8 0L14 -6V6Z" style="${sk(BL,70)}"/><circle cx="-7" cy="-1.6" r="1.3" style="fill:${INK}"/></g>`;
+  o+=`<g transform="translate(92,${cyb}) scale(.95)"><path d="M-6 -6C-6 -12 6 -12 6 -6V11a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2Z" style="${sk(BL,25)}"/><path d="M-6 -6H6" style="stroke:${mx(INK,50)};stroke-width:.8"/><circle cx="0" cy="-9" r=".9" style="fill:${INK}"/><circle cx="-2.4" cy="-8.6" r=".8" style="fill:${INK}"/><circle cx="2.4" cy="-8.6" r=".8" style="fill:${INK}"/></g>`;
+  /* sangue: vaso con globuli e iodio */
+  o+=`<path d="M130 ${cyb-12}H188M130 ${cyb+12}H188" style="stroke:${mx(VT,70,INK)};stroke-width:1.3;fill:none"/><rect x="131" y="${cyb-11}" width="56" height="22" style="fill:${mx(VT,13)}"/>`;
+  [[142,-4],[158,5],[174,-3]].forEach(p=>o+=`<ellipse cx="${p[0]}" cy="${cyb+p[1]}" rx="5" ry="3.3" style="fill:${mx(VT,60)};stroke:${mx(VT,80,INK)};stroke-width:.7"/>`);
+  [[150,-6],[166,4],[181,6]].forEach(p=>o+=`<circle cx="${p[0]}" cy="${cyb+p[1]}" r="2.4" style="fill:${S}"/>`);
+  /* tiroide: cellula + colloide */
+  o+=`<circle cx="243" cy="${cyb}" r="19" style="fill:${mx(GO,40)};stroke:${mx(VT,55,INK)};stroke-width:6;stroke-dasharray:6.4 1.4"/><circle cx="243" cy="${cyb}" r="15.6" style="fill:${mx(GO,44)};stroke:${mx(GO,60,INK)};stroke-opacity:.5;stroke-width:.7"/>`;
+  [[236,-5],[246,2],[240,7]].forEach(p=>o+=`<circle cx="${p[0]}" cy="${cyb+p[1]}" r="2.4" style="fill:${S}"/>`);
+  /* T4, T3 */
+  [["T4",318,-8],["T3",348,8]].forEach(t=>{o+=`<circle cx="${t[1]}" cy="${cyb+t[2]}" r="12" style="fill:${mx(S,18)};stroke:${S};stroke-width:1.4"/>`+tx(t[1],cyb+t[2]+4,t[0],{a:"middle",b:1,s:1});});
+  /* frecce */
+  o+=FT.arrow(112,cyb,130,cyb)+FT.arrow(188,cyb,204,cyb)+FT.arrow(282,cyb,298,cyb);
+  /* pallini */
+  o+=mv(`M60 ${cyb}H340`,6,0,3.4,S)+mv(`M60 ${cyb}H340`,6,-2,3.4,S)+mv(`M60 ${cyb}H340`,6,-4,3.4,S);
+  const sy=ny+nh+14;
+  o+=tx(63,sy,["latte e latticini,","pesce, sale iodato"],{a:"middle",s:1,lh:12})+tx(159,sy,["lo iodio","circola"],{a:"middle",s:1,lh:12})+tx(243,sy,["capta lo iodio","e fa T4 e T3"],{a:"middle",s:1,lh:12})+tx(333,sy,["metabolismo","e sviluppo","nervoso"],{a:"middle",s:1,lh:12});
+  Y+=HB+8;
+  /* ---------- c: asse e feedback ---------- */
+  const HC=156;
+  o+=frame(Y,HC)+badge(20,Y+14,"c")+tx(32,Y+18,"asse ipotalamo-ipofisi-tiroide",{s:1,b:1,st:`fill:${INK}`});
+  const by=Y+34;
+  o+=FT.box(14,by,96,32,"Ipotalamo","","")+FT.box(142,by,96,32,"Ipofisi","","")+FT.box(270,by,96,32,"Tiroide","","info");
+  o+=FT.arrow(110,by+16,142,by+16)+FT.arrow(238,by+16,270,by+16);
+  o+=tx(254,by+11,"TSH",{a:"middle",b:1,s:1});
+  o+=FT.arrow(318,by+32,318,by+74);
+  o+=tx(312,by+46,"T4, T3",{a:"end",s:1});
+  o+=FT.elbow([[318,by+54],[190,by+54],[190,by+34]],{dash:1});
+  o+=tx(142,by+70,["feedback negativo:","l'eccesso di ormone","inibisce la produzione"],{s:1,lh:12});
+  o+=FT.box(276,by+76,90,34,"Tessuti","metabolismo","");
+  o+=mv(`M112 ${by+16}H140`,1.8,0,2.8,S)+mv(`M112 ${by+16}H140`,1.8,-.9,2.8,S)+mv(`M240 ${by+16}H268`,1.8,0,2.8,S)+mv(`M240 ${by+16}H268`,1.8,-.9,2.8,S)+mv(`M318 ${by+34}V${by+72}`,2,0,2.8,S)+mv(`M318 ${by+34}V${by+72}`,2,-1,2.8,S);
+  o+=mv(`M318 ${by+54}H190V${by+36}`,3.6,0,2.8,A)+mv(`M318 ${by+54}H190V${by+36}`,3.6,-1.8,2.8,A);
+  Y+=HC+8;
+  /* ---------- d: carenza ---------- */
+  const HD=316;
+  o+=frame(Y,HD)+badge(20,Y+14,"d")+tx(32,Y+18,"se lo iodio manca",{s:1,b:1,st:`fill:${INK}`});
+  const ty=Y+78;
+  o+=`<path class="lead" d="M190 ${Y+30}V${Y+120}" style="stroke-opacity:.35"/>`;
+  o+=trachea(54,Y+36,Y+110)+thy(54,ty,.8,VT)+tx(54,Y+126,"tiroide normale",{a:"middle",s:1});
+  o+=trachea(138,Y+36,Y+110)+thy(138,ty,1.28,A,1)+tx(138,Y+126,"gozzo",{a:"middle",b:1,s:1,st:`fill:${A}`});
+  o+=tx(204,Y+40,"gozzo: tumefazione",{s:1,b:1})+tx(204,Y+53,"anteriore del collo",{s:1,b:1});
+  o+=tx(204,Y+72,["da segnalare:","difficoltà a deglutire","o respirare, raucedine"],{s:1,lh:12.5});
+  o+=`<rect class="fbx k-warn" x="204" y="${Y+104}" width="160" height="34" rx="2"/>`+tx(284,Y+118,"Difetto di ormoni:",{a:"middle",b:1,s:1})+tx(284,Y+131,"ipotiroidismo",{a:"middle",s:1});
+  /* gravidanza */
+  let gy=Y+152;
+  o+=`<path class="lead" d="M16 ${gy}H364" style="stroke-opacity:.35"/>`;
+  o+=tx(16,gy+16,"In gravidanza",{b:1,s:1});
+  o+=`<rect x="16" y="${gy+24}" width="170" height="16" rx="2" style="fill:${mx(S,28)};stroke:${S};stroke-width:1.1"/><rect x="186" y="${gy+24}" width="170" height="16" rx="2" class="eyrow"/>`;
+  o+=tx(101,gy+36,"circa 20 settimane",{a:"middle",s:1,b:1,st:`fill:${INK}`})+tx(271,gy+36,"seconda metà",{a:"middle",s:1});
+  o+=tx(16,gy+56,"il feto dipende dalla T4 materna per tutta la prima metà;",{s:1})+tx(16,gy+69,"poi il contributo materno continua",{s:1});
+  /* ioduria */
+  gy=Y+232;
+  o+=`<path class="lead" d="M16 ${gy}H364" style="stroke-opacity:.35"/>`;
+  o+=tx(16,gy+16,"Ioduria mediana (µg/L), valore di popolazione",{b:1,s:1});
+  const ux=v=>16+v*1.15;
+  o+=`<rect x="${ux(100)}" y="${gy+24}" width="${ux(300)-ux(100)}" height="16" rx="2" style="fill:${mx(OK,24)};stroke:${OK};stroke-width:1"/><rect x="${ux(150)}" y="${gy+44}" width="${ux(250)-ux(150)}" height="16" rx="2" style="fill:${mx(OK,40)};stroke:${OK};stroke-width:1"/>`;
+  o+=tx(ux(200),gy+36,"≥ 100: sufficienza",{a:"middle",s:1,st:`fill:${INK}`})+tx(ux(200),gy+56,"150-249",{a:"middle",s:1,b:1,st:`fill:${INK}`});
+  o+=tx(ux(100)-6,gy+36,"non gravide",{a:"end",s:1})+tx(ux(150)-6,gy+56,"gravidanza",{a:"end",s:1});
+  o+=`<path class="fl" d="M16 ${gy+64}H${ux(300)}"/>`+[0,50,100,150,250].map(v=>`<path class="fl" d="M${ux(v)} ${gy+64}v4"/>`+tx(ux(v),gy+80,v,{a:"middle",s:1})).join("");
+  /* apporto */
+  o+=`<rect class="eyrow" x="16" y="${gy+88}" width="348" height="38" rx="2"/>`+tx(24,gy+103,"Apporto: gli autori propongono 150 µg/die;",{s:1})+tx(24,gy+116,"l'OMS 250 µg/die in gravidanza e allattamento",{s:1});
+  Y+=HD+8;
+  /* messaggio */
+  o+=`<rect class="fbx k-info" x="8" y="${Y}" width="364" height="58" rx="2" style="stroke-width:1.6"/>`+tx(22,Y+23,"Poco sale, ma iodato",{b:1,fs:13})+tx(22,Y+42,"latte, pesce e sale iodato: lo iodio serve per T4 e T3",{s:1,st:`fill:${INK}`});
+  Y+=58;
+  return FT.svg(380,Y+4,"Tavola sullo iodio e la tiroide. A: la tiroide davanti alla trachea, con due lobi e un ingrandimento dei follicoli con colloide e capillare. B: la via dello iodio da latte e latticini, pesce e sale iodato al sangue, alla tiroide, che produce T4 e T3 per metabolismo e sviluppo del sistema nervoso; pallini animati lungo il percorso. C: asse ipotalamo, ipofisi, tiroide con TSH; il feedback negativo lascia che l'eccesso di ormone inibisca la produzione, con frecce animate. D: tiroide normale e gozzo; segni da segnalare: difficoltà a deglutire o respirare, raucedine; difetto di ormoni è ipotiroidismo; in gravidanza il feto dipende dalla tiroxina materna per circa 20 settimane; ioduria mediana sufficiente da 100 microgrammi per litro, 150-249 in gravidanza; apporto proposto dagli autori 150 microgrammi al giorno, OMS 250 in gravidanza e allattamento.",o);
+ })()}
 ];
