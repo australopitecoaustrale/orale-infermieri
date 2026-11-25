@@ -33,11 +33,11 @@
  },
  {
   "id": "doms#v0",
-  "testo": "Comparsa e picco: dolore che compare nelle ore successive e di solito raggiunge il picco tra 24 e 72 ore (in uno studio sull'uomo, tra 48 e 72 ore)",
-  "fonte": "Mizumura 2016 (ratto); Stone MB et al. Clin J Sport Med 2002, PMID 12466693 (uomo)",
+  "testo": "Comparsa e picco: dolore che compare nelle ore successive e di solito raggiunge il picco tra 24 e 72 ore, a volte fino a 96 ore; il tempo varia con il tipo di esercizio",
+  "fonte": "Stone MB 2002 PMID 12466693 (48-72 h); Cleak MJ, Eston RG 1992 PMID 1490222 (24-96 h); Vickers AJ 2001 PMID 11701094 (24-48 h)",
   "tipo": "studio",
-  "stato": "da-verificare",
-  "nota": "Un solo RCT sull uomo, un gruppo muscolare; scritto nella nota n"
+  "stato": "confermato",
+  "nota": "Tre studi indipendenti sull'uomo, intervalli compatibili con 24-72 h (fino a 96 h); nessuna meta-analisi"
  },
  {
   "id": "doms#v1",
