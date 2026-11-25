@@ -1505,103 +1505,107 @@ const FIGURE=[
   return FT.svg(440,320,"Tre strisce ECG schematiche di flutter atriale con onde F a circa 300 al minuto e QRS stretti: conduzione 2 a 1 a circa 150 al minuto, 3 a 1 a circa 100, 4 a 1 a circa 75",o)})()},
 {id:"fig-doms",wide:1,t:"DOMS: due vie dal muscolo stirato al nocicettore",c:"A sinistra la fibra muscolare, con una cellula satellite accanto, dopo una contrazione eccentrica in un esercizio insolito (muscolo stirato mentre si contrae). Fibra e cellule satelliti producono due mediatori lungo due vie: la bradichinina, che agisce sul recettore B2 e porta al fattore di crescita nervoso (NGF), e la COX-2 (ciclo-ossigenasi 2), che porta al fattore neurotrofico di derivazione gliale (GDNF). NGF e GDNF raggiungono le terminazioni nervose del dolore (nocicettori) e portano all'iperalgesia meccanica, cioè dolore alla pressione e al movimento. Il danno della fibra non è necessario (può esserci): NGF e GDNF hanno un ruolo cruciale. In basso l'andamento nel tempo, schematico: il dolore compare dopo 12-48 ore, ha il picco tra 24 e 72 ore (a volte fino a 96) e poi cala in alcuni giorni. Dati soprattutto dal ratto (rassegna di Mizumura e Taguchi, J Physiol Sci 2016); disegno originale.",
  enc:["doms"],gl:[],st:/doms|dolore muscolare tardivo|indolenzimento/i,
+
  svg:(()=>{
-  const T=FT.text,R=" repeatCount=\"indefinite\"";
-  const S="var(--scrub)",A="var(--amber)";
+  const R=" repeatCount=\"indefinite\"",E=FT.e;
+  const S="var(--scrub)",A="var(--amber)",V="var(--va)",INK="var(--ink)";
   const mx=(c,p,b)=>`color-mix(in srgb,${c} ${p}%,${b||"var(--paper)"})`;
-  const nuc=`fill:${mx(S,25,"var(--ink)")};stroke:var(--paper);stroke-width:.9`;
+  const tx=(x,y,lines,o={})=>{lines=[].concat(lines);const lh=o.lh||(o.s?12.5:14.5),fs=o.fs||(o.s?11:12);
+    return `<text class="ft${o.s?" fsm":""}${o.b?" fb":""}" x="${x}" y="${y}" text-anchor="${o.a||"start"}"${o.rot?` transform="${o.rot}"`:""} style="font-size:${fs}px${o.st?";"+o.st:""}">${lines.map((t,i)=>`<tspan x="${x}" dy="${i?lh:0}">${E(t)}</tspan>`).join("")}</text>`;};
+  const nucS=`fill:${mx(V,38,INK)};stroke:var(--paper);stroke-width:.9`;
+  const zl=`fill:${mx(V,60,INK)};fill-opacity:.7`,ab=`fill:${INK};fill-opacity:.13`;
   let o="";
-  /* definizioni: volume della fibra (solo nel disegno anatomico) */
-  o+=`<defs><linearGradient id="dm-g" x1="0" x2="1" y1="0" y2="0"><stop offset="0" style="stop-color:${mx(S,44)}"/><stop offset=".42" style="stop-color:${mx(S,8)}"/><stop offset="1" style="stop-color:${mx(S,38)}"/></linearGradient>`
-   +`<pattern id="dm-p1" x="28" y="64" width="48" height="9" patternUnits="userSpaceOnUse"><rect width="48" height="1.9" style="fill:${S};fill-opacity:.75"/><rect y="2.6" width="48" height="4.4" style="fill:var(--ink);fill-opacity:.15"/></pattern>`
-   +`<pattern id="dm-p2" x="28" y="118" width="48" height="13" patternUnits="userSpaceOnUse"><rect width="48" height="1.9" style="fill:${S};fill-opacity:.75"/><rect y="4.4" width="48" height="4.4" style="fill:var(--ink);fill-opacity:.15"/></pattern>`
-   +`<pattern id="dm-p3" x="28" y="166" width="48" height="9" patternUnits="userSpaceOnUse"><rect width="48" height="1.9" style="fill:${S};fill-opacity:.75"/><rect y="2.6" width="48" height="4.4" style="fill:var(--ink);fill-opacity:.15"/></pattern>`
-   +`<clipPath id="dm-c"><rect x="28" y="64" width="48" height="140" rx="12"/></clipPath>`
-   +`<clipPath id="dm-ca"><rect x="30" y="470" width="183" height="100"/></clipPath><clipPath id="dm-cb"><rect x="213" y="470" width="220" height="100"/></clipPath></defs>`;
-  /* intestazioni di colonna */
-  const hd=(x,w,s)=>T(x,14,s,{sm:true,b:true,c:"dm-h"})+`<path class="lead" d="M${x} 21H${x+w}" style="stroke-opacity:.6"/>`;
-  o+=hd(8,150,"1 · Contrazione eccentrica")+hd(168,122,"2 · Due vie")+hd(300,132,"3 · Nocicettore");
-  /* 1. fibra muscolare */
-  o+=T(66,40,["esercizio insolito: muscolo stirato","mentre si contrae"],{sm:true});
-  o+=FT.arrow(52,62,52,44)+FT.arrow(52,206,52,224);
-  o+=`<g clip-path="url(#dm-c)"><rect x="28" y="64" width="48" height="140" fill="url(#dm-g)"/>`
-   +`<rect x="28" y="64" width="48" height="54" fill="url(#dm-p1)"/><rect x="28" y="118" width="48" height="48" fill="url(#dm-p2)"/><rect x="28" y="166" width="48" height="38" fill="url(#dm-p3)"/>`
-   +`<rect x="37" y="64" width="3" height="140" style="fill:var(--paper);fill-opacity:.4"/>`
-   +[[33,88],[33,142],[33,188]].map(p=>`<ellipse cx="${p[0]}" cy="${p[1]}" rx="3.8" ry="7" style="${nuc}"/>`).join("")
-   +`</g><rect x="28" y="64" width="48" height="140" rx="12" style="fill:none;stroke:${S};stroke-width:1.7"/>`;
-  o+=`<path class="lead" d="M24 118H20V166H24"/><text class="ft fsm" transform="rotate(-90 12 142)" x="12" y="142" text-anchor="middle">sarcomeri allungati</text>`;
-  /* cellula satellite accanto alla fibra */
-  o+=`<ellipse cx="83" cy="168" rx="9.5" ry="15.5" style="fill:${mx(S,62)};stroke:var(--ink);stroke-width:1.4"/><ellipse cx="84" cy="168" rx="5.2" ry="9.6" style="${nuc}"/>`;
-  o+=`<path class="lead" d="M92 170H98"/>`+T(101,174,"cellula satellite",{sm:true});
-  o+=`<path class="lead" d="M34 228V198"/><circle cx="34" cy="198" r="1.8" style="fill:${S}"/>`+T(8,240,"fibra muscolare",{sm:true});
-  /* 3. terminazione nervosa (nocicettore) */
-  const nv=mx("var(--ink)",52);
-  o+=`<path d="M436 118H388" style="fill:none;stroke:${mx("var(--ink)",10)};stroke-width:8;stroke-linecap:round"/>`
-   +`<path d="M436 118H388M388 118C368 118 360 88 330 88H312M388 118C368 118 360 148 330 148H312M388 118H324" style="fill:none;stroke:${nv};stroke-width:2;stroke-linecap:round;stroke-linejoin:round"/>`
-   +`<path d="M436 118H394" style="fill:none;stroke:${nv};stroke-width:3.6;stroke-linecap:round"/>`;
-  /* alone di attivazione sui due apici */
-  [88,148].forEach(y=>{
-    o+=`<circle cx="312" cy="${y}" r="11" style="fill:${A};fill-opacity:.2"><animate attributeName="r" values="9;14;9" dur="2.4s"${R}/><animate attributeName="fill-opacity" values=".3;.1;.3" dur="2.4s"${R}/></circle>`;
+  o+=`<defs><linearGradient id="dm-g" x1="0" x2="1" y1="0" y2="0"><stop offset="0" style="stop-color:${mx(V,48)}"/><stop offset=".4" style="stop-color:${mx(V,12)}"/><stop offset="1" style="stop-color:${mx(V,40)}"/></linearGradient>`
+   +`<pattern id="dm-p1" x="24" y="62" width="46" height="9" patternUnits="userSpaceOnUse"><rect width="46" height="1.9" style="${zl}"/><rect y="2.7" width="46" height="4.3" style="${ab}"/></pattern>`
+   +`<pattern id="dm-p2" x="24" y="116" width="46" height="12" patternUnits="userSpaceOnUse"><rect width="46" height="1.9" style="${zl}"/><rect y="4" width="46" height="4.3" style="${ab}"/></pattern>`
+   +`<pattern id="dm-p3" x="24" y="164" width="46" height="8" patternUnits="userSpaceOnUse"><rect width="46" height="1.9" style="${zl}"/><rect y="2.4" width="46" height="3.6" style="${ab}"/></pattern>`
+   +`<clipPath id="dm-c"><rect x="24" y="62" width="46" height="150" rx="12"/></clipPath>`
+   +`<clipPath id="dm-ca"><rect x="30" y="440" width="153" height="110"/></clipPath><clipPath id="dm-cb"><rect x="183" y="440" width="200" height="110"/></clipPath></defs>`;
+  /* intestazioni */
+  const hd=(x,w,s)=>tx(x,13,s,{s:1,b:1,st:`fill:${INK}`})+`<path class="lead" d="M${x} 20H${x+w}" style="stroke-opacity:.6"/>`;
+  o+=hd(8,158,"1 · Contrazione eccentrica")+hd(176,80,"2 · Due vie")+hd(266,106,"3 · Nocicettore");
+  /* 1. fibra */
+  o+=tx(56,37,["esercizio insolito: muscolo stirato","mentre si contrae"],{s:1});
+  o+=FT.arrow(47,60,47,42)+FT.arrow(47,214,47,230);
+  o+=`<g clip-path="url(#dm-c)"><rect x="24" y="62" width="46" height="150" fill="url(#dm-g)"/>`
+   +`<rect x="24" y="62" width="46" height="54" fill="url(#dm-p1)"/><rect x="24" y="116" width="46" height="48" fill="url(#dm-p2)"/><rect x="24" y="164" width="46" height="48" fill="url(#dm-p3)"/>`
+   +[35,47,59].map(x=>`<path d="M${x} 62V212" style="stroke:${INK};stroke-opacity:.12;stroke-width:.8;fill:none"/>`).join("")
+   +`<rect x="33" y="62" width="3" height="150" style="fill:var(--paper);fill-opacity:.38"/>`
+   +[[30,84],[64,106],[30,138],[64,176],[30,196]].map(p=>`<ellipse cx="${p[0]}" cy="${p[1]}" rx="3.6" ry="7" style="${nucS}"/>`).join("")
+   +`</g><rect x="24" y="62" width="46" height="150" rx="12" style="fill:none;stroke:${mx(V,75,INK)};stroke-width:1.7"/>`;
+  o+=`<path class="lead" d="M22 116H18V164H22"/>`+tx(10,140,"sarcomeri allungati",{s:1,a:"middle",rot:"rotate(-90 10 140)"});
+  /* cellula satellite aderente alla fibra */
+  o+=`<ellipse cx="75.5" cy="152" rx="8" ry="14" style="fill:${mx(V,62)};stroke:${mx(V,70,INK)};stroke-width:1.5"/><ellipse cx="76" cy="152" rx="4.4" ry="8.4" style="${nucS}"/>`;
+  o+=`<path class="lead" d="M79 167V186H88"/>`+tx(91,190,"cellula satellite",{s:1});
+  o+=`<path class="lead" d="M32 236V204"/><circle cx="32" cy="204" r="1.8" style="fill:${mx(V,75,INK)}"/>`+tx(8,248,"fibra muscolare",{s:1});
+  /* 3. nervo */
+  const nv=mx(INK,55);
+  o+=`<path d="M380 115H336M336 115C318 115 312 88 292 88H272M336 115C318 115 312 142 292 142H272M336 115H286" style="fill:none;stroke:${nv};stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round"/>`
+   +`<path d="M380 115H340" style="fill:none;stroke:${nv};stroke-width:3;stroke-linecap:round"/>`
+   +[[346,26]].map(r=>`<rect x="${r[0]}" y="110" width="${r[1]}" height="10" rx="5" style="fill:${mx(INK,9)};stroke:${nv};stroke-width:1"/>`).join("");
+  [88,142].forEach(y=>{
     const d=y<100?-1:1;
-    o+=`<path d="M318 ${y+d*11}l3 ${d*5}M306 ${y+d*11}l-3 ${d*5}" style="fill:none;stroke:${A};stroke-width:1.5;stroke-linecap:round"/>`;
-    o+=`<circle cx="312" cy="${y}" r="4.2" style="fill:${A};stroke:var(--paper);stroke-width:1.2"/>`;
+    o+=`<circle cx="272" cy="${y}" r="11" style="fill:${A};fill-opacity:.2"><animate attributeName="fill-opacity" values=".4;.12;.12;.4" keyTimes="0;.3;.88;1" dur="1.2s"${R}/><animate attributeName="r" values="13;10;10;13" keyTimes="0;.3;.88;1" dur="1.2s"${R}/></circle>`;
+    o+=`<path d="M278 ${y+d*12}l3 ${d*5}M266 ${y+d*12}l-3 ${d*5}" style="fill:none;stroke:${A};stroke-width:1.5;stroke-linecap:round"/>`;
+    o+=`<circle cx="272" cy="${y}" r="4.4" style="fill:${A};stroke:var(--paper);stroke-width:1.2"/>`;
   });
-  o+=`<circle cx="324" cy="118" r="3.6" style="fill:${nv};stroke:var(--paper);stroke-width:1.2"/>`;
-  o+=T(300,38,["terminazioni nervose","del dolore","(nocicettori)"],{sm:true,lh:13});
-  o+=`<path class="lead" d="M424 66V112"/><circle cx="424" cy="115" r="1.8" style="fill:var(--muted)"/>`;
-  /* 2. le due vie */
-  const L1="M100 118C110 118 112 88 140 88H300",L2="M100 118C110 118 112 148 140 148H300";
+  o+=`<circle cx="286" cy="115" r="3.6" style="fill:${nv};stroke:var(--paper);stroke-width:1.2"/>`;
+  o+=tx(268,36,["terminazioni","nervose del dolore","(nocicettori)"],{s:1});
+  o+=`<path class="lead" d="M362 66V111"/><circle cx="362" cy="113" r="1.8" style="fill:var(--muted)"/>`;
+  /* 2. vie */
+  const L1="M96 115C106 115 108 88 126 88H258",L2="M96 115C106 115 108 142 126 142H258";
   const lane=d=>`<path d="${d}" style="fill:none;stroke:${S};stroke-width:1.5;stroke-linecap:round"/>`;
-  o+=`<path d="M76 112C88 112 92 118 100 118M91 158C99 154 98 124 100 118" style="fill:none;stroke:${S};stroke-width:1.5;stroke-linecap:round"/>`;
+  o+=`<path d="M70 112C82 112 88 115 96 115M83 146C92 142 93 122 96 115" style="fill:none;stroke:${S};stroke-width:1.5;stroke-linecap:round"/>`;
   o+=lane(L1)+lane(L2);
   const ah=(x,y)=>`<path d="M${x} ${y}l-6.5 -3.4v6.8z" style="fill:${S}"/>`;
-  [[180,88],[250,88],[300,88],[300,148],[250,148]].forEach(p=>o+=ah(p[0],p[1]));
+  [[160,88],[214,88],[258,88],[181,142],[258,142]].forEach(p=>o+=ah(p[0],p[1]));
+  /* alone dei nodi NGF e GDNF: si accende prima del nocicettore */
+  [88,142].forEach(y=>{o+=`<circle cx="236" cy="${y}" r="12" style="fill:${S};fill-opacity:0"><animate attributeName="fill-opacity" values="0;0;.3;0;0" keyTimes="0;.4;.58;.78;1" dur="1.2s"${R}/></circle>`;});
   const nd=(x,y)=>`<circle cx="${x}" cy="${y}" r="4.6" style="fill:${mx(S,18)};stroke:${S};stroke-width:1.5"/>`;
-  const big=(x,y)=>`<circle cx="${x}" cy="${y}" r="7" style="fill:${S};stroke:var(--paper);stroke-width:1.5"/>`;
-  o+=nd(140,88)+nd(140,148)+big(270,88)+big(270,148);
-  o+=`<path d="M206 81.5l6.5 6.5l-6.5 6.5l-6.5 -6.5z" style="fill:${mx(S,18)};stroke:${S};stroke-width:1.5;stroke-linejoin:round"/>`;
-  o+=T(140,74,"Bradichinina",{a:"middle",b:true})+T(206,74,"B2",{a:"middle",b:true})+T(206,111,"recettore",{a:"middle",sm:true})+T(270,72,"NGF",{a:"middle",b:true})
-   +T(140,132,"COX-2",{a:"middle",b:true})+T(270,132,"GDNF",{a:"middle",b:true});
-  /* pallini lungo le due vie */
-  [L1,L2].forEach(d=>{[0,-1.4,-2.8].forEach(b=>{
-    o+=`<circle class="anm" r="3" style="fill:${S};stroke:var(--paper);stroke-width:1"><animateMotion dur="4.2s" begin="${b}s"${R} calcMode="linear" path="${d}"/></circle>`;
-  });});
+  const big=(x,y)=>`<circle cx="${x}" cy="${y}" r="6.5" style="fill:${S};stroke:var(--paper);stroke-width:1.5"/>`;
+  o+=nd(126,88)+nd(126,142)+big(236,88)+big(236,142);
+  o+=`<path d="M186 81.5l6.5 6.5l-6.5 6.5l-6.5 -6.5z" style="fill:${mx(S,18)};stroke:${S};stroke-width:1.5;stroke-linejoin:round"/>`;
+  o+=tx(126,73,"Bradichinina",{a:"middle",b:1})+tx(186,73,"B2",{a:"middle",b:1})+tx(186,106,"recettore",{a:"middle",s:1})+tx(236,72,"NGF",{a:"middle",b:1})
+   +tx(126,161,"COX-2",{a:"middle",b:1})+tx(236,162,"GDNF",{a:"middle",b:1});
+  /* impulso: pallini lungo le vie, uno ogni 1,2 s */
+  [L1,L2].forEach(d=>{[0,-1.2,-2.4].forEach(b=>{const m=`<animateMotion dur="3.6s" begin="${b}s"${R} calcMode="linear" path="${d}"/>`;
+    o+=`<circle class="anm" r="7" style="fill:${S};fill-opacity:.22">${m}</circle><circle class="anm" r="3.4" style="fill:${S};stroke:var(--paper);stroke-width:1">${m}</circle>`;});});
   /* iperalgesia */
-  o+=FT.arrow(366,170,366,190,{});
-  o+=FT.box(296,194,136,76,["Iperalgesia","meccanica"],["dolore alla","pressione e","al movimento"],"warn");
-  /* legenda delle sigle */
-  const ky=292;
-  o+=`<path class="lead" d="M8 ${ky}H432" style="stroke-opacity:.6"/>`;
+  o+=FT.arrow(322,162,322,192);
+  o+=`<rect class="fbx k-warn" x="200" y="194" width="172" height="56" rx="2"/>`
+   +tx(286,213,"Iperalgesia meccanica",{a:"middle",b:1})+tx(286,229,["dolore alla pressione","e al movimento"],{a:"middle",s:1});
+  /* legenda */
+  const ky=270;
+  o+=`<path class="lead" d="M8 ${ky}H372" style="stroke-opacity:.6"/>`;
   [["B2","recettore della bradichinina"],["NGF","fattore di crescita nervoso"],["COX-2","ciclo-ossigenasi 2"],["GDNF","fattore neurotrofico di derivazione gliale"]].forEach((r,i)=>{
-    const y=ky+i*16;
-    o+=T(8,y+12,r[0],{sm:true,b:true,c:"dm-k"})+T(60,y+12,r[1],{sm:true});
-    if(i<3)o+=`<path class="lead" d="M8 ${y+16}H432" style="stroke-opacity:.25"/>`;
+    const y=ky+i*15;
+    o+=tx(8,y+11.5,r[0],{b:1})+tx(56,y+11.5,r[1],{s:1,st:`fill:${INK};fill-opacity:.82`});
+    if(i<3)o+=`<path class="lead" d="M8 ${y+15}H372" style="stroke-opacity:.25"/>`;
   });
   /* messaggio chiave */
-  o+=`<rect x="8" y="372" width="424" height="76" rx="2" style="fill:${mx(S,5)};stroke:${mx(S,55)};stroke-width:1"/>`;
-  o+=T(22,393,"Il danno della fibra non è necessario",{b:true});
-  o+=T(22,410,"può esserci, ma NGF e GDNF hanno un ruolo cruciale",{sm:true});
-  o+=`<path class="lead" d="M22 420H418" style="stroke-opacity:.35"/>`;
-  o+=T(22,438,"fonte: dati dal ratto · Mizumura e Taguchi, 2016",{sm:true,c:"dm-src"});
+  o+=`<rect class="fbx k-info" x="8" y="344" width="364" height="70" rx="2" style="stroke-width:1.6;fill:${mx(V,9)}"/>`;
+  o+=tx(22,366,"Il danno della fibra non è necessario",{b:1,fs:13});
+  o+=tx(22,383,"può esserci, ma NGF e GDNF hanno un ruolo cruciale",{s:1,st:`fill:${INK}`});
+  o+=`<path class="lead" d="M22 392H358" style="stroke-opacity:.35"/>`;
+  o+=tx(22,406,"fonte: dati dal ratto · Mizumura e Taguchi, 2016",{s:1});
   /* linea temporale */
-  const X=h=>40+h*3.6,B=552,TP=490;
-  o+=T(8,470,"Andamento del dolore nel tempo (schematico)",{sm:true,b:true});
+  const X=h=>34+h*3.1,B=524,TP=456;
+  o+=tx(8,438,"Andamento del dolore nel tempo (schematico)",{s:1,b:1,st:`fill:${INK}`});
   o+=`<rect x="${X(24)}" y="${TP}" width="${X(72)-X(24)}" height="${B-TP}" style="fill:${A};fill-opacity:.11"/>`;
   o+=`<path class="dash" d="M${X(24)} ${B}V${TP}M${X(72)} ${B}V${TP}" style="stroke-opacity:.6"/>`;
-  o+=`<path class="fl" d="M40 ${TP-2}V${B}H428" style="stroke-width:1.2"/>`;
-  [0,12,24,48,72,96].forEach(h=>{o+=`<path class="lead" d="M${X(h)} ${B}v4"/>`+T(X(h),B+16,h?h+" h":"0",{a:"middle",sm:true});});
-  o+=T(46,TP+8,"dolore",{sm:true})+T(48,B-12,"esercizio",{sm:true});
-  const all=FT.curve([[40,B-1],[X(12),B-4],[X(24),B-22],[X(48),B-54],[X(72),B-38],[X(96),B-13],[424,B-3]],"fw");
+  o+=`<path class="fl" d="M34 ${TP-2}V${B}H374" style="stroke-width:1.2"/>`;
+  [0,12,24,48,72,96].forEach(h=>{o+=`<path class="lead" d="M${X(h)} ${B}v4"/>`+tx(X(h),B+16,h?h+" h":"0",{a:"middle",s:1});});
+  o+=tx(40,TP+10,"dolore",{s:1})+tx(40,B-18,"esercizio",{s:1});
+  const all=FT.curve([[34,B-1],[X(12),B-4],[X(24),B-22],[X(48),B-54],[X(72),B-38],[X(96),B-13],[368,B-3]],"fw");
   const dd=all.match(/d="([^"]+)"/)[1];
-  o+=`<path d="${dd}L424 ${B}L40 ${B}Z" style="fill:${A};fill-opacity:.1;stroke:none"/>`;
+  o+=`<path d="${dd}L368 ${B}L34 ${B}Z" style="fill:${A};fill-opacity:.1;stroke:none"/>`;
   o+=`<g clip-path="url(#dm-ca)"><path class="fw" d="${dd}"/></g><g clip-path="url(#dm-cb)"><path class="fw dash" d="${dd}" style="stroke:${A}"/></g>`;
-  o+=T(430,TP+22,["poi cala in","alcuni giorni"],{a:"end",sm:true});
-  /* intervalli */
+  o+=tx(372,TP+16,["poi cala in","alcuni giorni"],{a:"end",s:1});
   const br=(a,b,y,col)=>`<path d="M${X(a)} ${y-4}V${y}H${X(b)}V${y-4}" style="fill:none;stroke:${col};stroke-width:1.3"/>`;
-  o+=br(12,48,B+32,"var(--muted)")+T(X(12),B+50,"comparsa: 12–48 h",{sm:true});
-  o+=br(24,72,B+68,A)+`<path d="M${X(72)} ${B+68}H${X(96)}V${B+64}" style="fill:none;stroke:${A};stroke-width:1.3;stroke-dasharray:3 3"/>`
-   +T(X(24),B+86,"picco: 24–72 h, a volte fino a 96 h",{sm:true});
-  return FT.svg(440,B+96,"Schema dei DOMS in tre colonne. Uno: contrazione eccentrica in un esercizio insolito, cioè muscolo stirato mentre si contrae; si disegna una fibra muscolare a strisce con nuclei, un segmento di sarcomeri allungati, e accanto una cellula satellite. Due: fibra e cellule satelliti producono due mediatori lungo due vie. Prima via: bradichinina, recettore B2, fattore di crescita nervoso NGF. Seconda via: COX-2 (ciclo-ossigenasi 2), fattore neurotrofico di derivazione gliale GDNF. Tre: le due vie raggiungono le terminazioni nervose del dolore (nocicettori), che si attivano e portano all'iperalgesia meccanica, cioè dolore alla pressione e al movimento. Messaggio chiave: il danno della fibra non è necessario, può esserci; NGF e GDNF hanno un ruolo cruciale (dati dal ratto, rassegna di Mizumura e Taguchi 2016). In basso la linea temporale schematica: il dolore compare dopo 12-48 ore dall'esercizio, ha il picco tra 24 e 72 ore, a volte fino a 96, poi cala in alcuni giorni.",o);
+  o+=br(12,48,B+28,"var(--muted)")+tx(X(12),B+45,"comparsa: 12–48 h",{s:1});
+  o+=br(24,72,B+54,A)+`<path d="M${X(72)} ${B+54}H${X(96)}" style="fill:none;stroke:${A};stroke-width:1.3;stroke-dasharray:3 3"/><path d="M${X(96)} ${B+50}V${B+54}" style="fill:none;stroke:${A};stroke-width:1.3"/>`
+   +tx(X(24),B+71,"picco: 24–72 h, a volte fino a 96 h",{s:1});
+  return FT.svg(380,B+80,"Schema dei DOMS in tre colonne. Uno: contrazione eccentrica in un esercizio insolito, cioè muscolo stirato mentre si contrae; si disegna una fibra muscolare a strisce con nuclei, un segmento di sarcomeri allungati, e accanto una cellula satellite. Due: fibra e cellule satelliti producono due mediatori lungo due vie. Prima via: bradichinina, recettore B2, fattore di crescita nervoso NGF. Seconda via: COX-2 (ciclo-ossigenasi 2), fattore neurotrofico di derivazione gliale GDNF. Tre: le due vie raggiungono le terminazioni nervose del dolore (nocicettori), che si attivano e portano all'iperalgesia meccanica, cioè dolore alla pressione e al movimento. Messaggio chiave: il danno della fibra non è necessario, può esserci; NGF e GDNF hanno un ruolo cruciale (dati dal ratto, rassegna di Mizumura e Taguchi 2016). In basso la linea temporale schematica: il dolore compare dopo 12-48 ore dall'esercizio, ha il picco tra 24 e 72 ore, a volte fino a 96, poi cala in alcuni giorni.",o);
  })()},
 {id:"fig-encefalo-regioni",t:"Encefalo: le grandi regioni e che cosa fanno",c:"Sezione sagittale mediana schematica, fronte a sinistra. I colori raggruppano le regioni per famiglia: verde e azzurro il telencefalo (corteccia con i quattro lobi, nuclei della base, ippocampo), rosso il diencefalo (talamo, ipotalamo con l'ipofisi), viola e arancio il tronco encefalico (mesencefalo, ponte, bulbo), oliva il cervelletto. Il lobo temporale, i nuclei della base e l'ippocampo stanno di lato alla linea mediana: sono accennati. Sotto il bulbo continua il midollo spinale.",
  enc:["encefalo-regioni","sistema-nervoso"],gl:["Talamo","Ipotalamo","Cervelletto","Tronco encefalico"],st:/encefal|talam|cervellet|tronco|ipotalam|regioni cerebr/i,
