@@ -1,0 +1,10 @@
+[
+{"id":"poaf#d","testo":"Aritmia atriale che compare dopo un intervento di bypass aortocoronarico (CABG), di solito nei primi giorni. Definizione del protocollo: QRS irregolari oltre 30 secondi","fonte":"Salari-baghoonabad 2026, Trials 27:662, PMID 43021372 (protocollo, nessun risultato)","tipo":"studio","stato":"da-verificare","nota":"soglia di 30 secondi e tempistica da verificare: scritto nella nota n"},
+{"id":"poaf#p3","testo":"Holter per le prime 72 ore e ECG tre volte al giorno nei giorni 4 e 5","fonte":"PMID 43021372 (protocollo)","tipo":"studio","stato":"confermato","nota":"confermato dall'abstract; numero di derivazioni non nell'abstract, tolto"},
+{"id":"poaf#p4","testo":"CK-MB e troponina I al basale, a 24 ore e a 5 giorni","fonte":"PMID 43021372 (protocollo)","tipo":"studio","stato":"corretto","nota":"aggiunto il basale"},
+{"id":"poaf#v0","testo":"Holter 72 ore; ECG 3 volte al giorno nei giorni 4-5","fonte":"PMID 43021372 (protocollo)","tipo":"studio","stato":"corretto","nota":"senza numero di derivazioni"},
+{"id":"poaf#v1","testo":"CK-MB e troponina I al basale, a 24 ore e a 5 giorni","fonte":"PMID 43021372 (protocollo)","tipo":"studio","stato":"corretto","nota":"aggiunto il basale"},
+{"id":"poaf#v2","testo":"Definizione nel protocollo: assenza di onde P distinte; QRS irregolari oltre 30 secondi","fonte":"PMID 43021372 (definizione non nell'abstract)","tipo":"studio","stato":"da-verificare","nota":"soglia di 30 secondi da verificare nel testo completo"},
+{"id":"poaf#q1","testo":"Holter per le prime 72 ore dopo l'intervento","fonte":"PMID 43021372 (protocollo)","tipo":"studio","stato":"corretto","nota":"spiegazione corretta: senza inizio a 24 ore"},
+{"id":"poaf#q2","testo":"CK-MB e troponina I come marcatori del danno miocardico","fonte":"PMID 43021372 (protocollo)","tipo":"studio","stato":"corretto","nota":"spiegazione con il basale"}
+]
