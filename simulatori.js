@@ -843,3 +843,141 @@ SIM.push({id:"sim-epatopatie",enc:["epatopatie"],t:"Simulatore: dal fegato sano 
  legenda:[[EP,"Epatociti"],[FAT,"Gocce di grasso"],[STL,"Cellule stellate attivate"],[COL,"Collagene, setti fibrosi"],[VEN,"Vene (porta e collaterali)"],[ART,"Sangue, arteria epatica"],[BIL,"Dotto biliare, ammoniaca"],[ASC,"Ascite"],[GIA,"Ittero"]],
  n:"Ginès P et al. Liver cirrhosis. Lancet 2021 (PMID 34543610); EASL Clinical Practice Guidelines for the management of patients with decompensated cirrhosis, J Hepatol 2018 (PMID 29653741); Tsochatzis EA, Bosch J, Burroughs AK. Liver cirrhosis. Lancet 2014 (PMID 24480518); Baveno VII (PMID 35120736); Tripodi A, Mannucci PM. N Engl J Med 2011 (PMID 21751907)."});
 })();
+
+/* ---- Creatina ---- */
+
+/* ---- Creatina monoidrato nel tempo (disegno originale) ---- */
+(function(){
+const W=440,H=250,f=n=>+n.toFixed(1);
+const head=(lab,body)=>`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${lab}">${body}</svg>`;
+const rnd=k=>{let x=Math.sin(k*999)*1e4;return x-Math.floor(x)};
+// colori semantici
+const CR="#8e63c9",PCR="#e08a2e",ATP="#2e9e5b",H2O="#3aa0d8",MU="#d9637b",CRN="#9c6b3c",KID="#b5534f";
+const BODY="color-mix(in srgb,var(--ink) 11%,var(--paper))";
+const ST=["senza integratore","fase di carico","mantenimento","settimane con allenamento di forza","sospensione"];
+// grandezze per stadio (schematiche, senza unità)
+const RS=[.4,.75,.92,.95,.55],   // riserva di creatina e fosfocreatina
+ WA=[.3,.7,.75,.8,.4],           // acqua nella cellula
+ NIN=[1,4,2,2,1],                // pallini di creatina che entrano
+ NBL=[2,6,4,4,1];                // creatina nel sangue
+const bar=(x,y,w,v,col,b)=>`<rect x="${x}" y="${y}" width="${w}" height="9" rx="2" class="eyrow"/><rect x="${x}" y="${y+2}" width="${f(v*w)}" height="5" rx="1" fill="${col}"/>${b!=null?`<path d="M${f(x+b*w)} ${y-3}V${y+12}" stroke="var(--ink)" stroke-width="1.2" stroke-dasharray="2 2"/>`:""}`;
+
+/* Livello 1: cellula muscolare e ciclo della fosfocreatina */
+const cel=s=>{const rs=RS[s],wa=WA[s],cw=f(176+10*wa);
+ const tk={x:34,y:76,w:62,h:58},lvY=f(tk.y+tk.h*(1-rs)),bY=f(tk.y+tk.h*(1-RS[0]));
+ let blood="";for(let i=0;i<NBL[s];i++)blood+=`<circle class="anm" r="3" fill="${CR}"><animateMotion path="M24 42H160" dur="4s" begin="${f(-i*4/NBL[s]-.3)}s" repeatCount="indefinite"/></circle>`;
+ let ent="";for(let i=0;i<NIN[s];i++)ent+=`<circle class="anm" r="3" fill="${CR}"><animateMotion path="M65 42V${f(+lvY+6)}" dur="2s" begin="${f(-i*2/NIN[s]-.2)}s" repeatCount="indefinite"/></circle>`;
+ // molecole nella riserva: PCr (arancio) e Cr (viola)
+ let mol="";const nm=Math.round(4+rs*10);for(let i=0;i<nm;i++){const px=f(tk.x+6+rnd(i+3)*(tk.w-12)),py=f(+lvY+5+rnd(i+11)*(tk.y+tk.h-lvY-10));mol+=i%3?`<rect x="${px-2.5}" y="${py-2.5}" width="5" height="5" rx="1" fill="${PCR}"/>`:`<circle cx="${px}" cy="${py}" r="2.6" fill="${CR}"/>`}
+ let dr="";const nd=Math.round(3+wa*9);for(let i=0;i<nd;i++){const px=f(120+rnd(i+21)*76),py=f(78+rnd(i+31)*52);dr+=`<path d="M${px} ${py-4}q3.2 4 0 6.4q-3.2-2.4 0-6.4z" fill="${H2O}" opacity=".85"/>`}
+ let fib="";for(let j=0;j<3;j++){const y=158+j*11;fib+=`<path d="M32 ${y}H${f(20+ +cw-12)}" stroke="${MU}" stroke-width="3" opacity=".45"/>`;for(let k=0;k<9;k++)fib+=`<path d="M${36+k*19} ${y-3}v6" class="lead"/>`}
+ // ciclo
+ const cx=322,cy=116,r=48,rp=f(10+10*rs);
+ const arcL=`M${cx} ${cy-r}A${r} ${r} 0 0 0 ${cx} ${cy+r}`,arcR=`M${cx} ${cy+r}A${r} ${r} 0 0 0 ${cx} ${cy-r}`;
+ const blink=(a,b)=>`<animate attributeName="opacity" values="${a};${b}" keyTimes="0;.5" calcMode="discrete" dur="4s" begin="-4s" repeatCount="indefinite"/>`;
+ return head(`Cellula muscolare, ${ST[s]}: riserva di creatina e fosfocreatina ${["di base","che si riempie","piena","piena","che torna al valore di base"][s]}, acqua nella cellula ${["di base","in aumento","aumentata","aumentata","che torna al valore di base"][s]}; a destra il ciclo in cui la fosfocreatina rigenera l'ATP`,
+ `<text x="20" y="24" class="ft fb">Cellula muscolare</text><text x="232" y="24" class="ft fb">Il ciclo della fosfocreatina</text>
+ <path d="M216 36V${H-8}" class="lead"/>
+ <rect x="20" y="34" width="146" height="16" rx="8" fill="${MU}" opacity=".14" stroke="${MU}"/><text x="172" y="46" class="ft fsm">sangue</text>${blood}
+ <rect x="20" y="60" width="${cw}" height="136" rx="16" fill="${MU}" opacity=".1" stroke="${MU}" stroke-width="1.4"/>
+ <rect x="60" y="57" width="10" height="6" rx="2" fill="${CR}" opacity=".8"/>
+ <rect x="${tk.x}" y="${tk.y}" width="${tk.w}" height="${tk.h}" rx="3" class="ff" stroke="var(--ink)"/>
+ <rect x="${tk.x}" y="${lvY}" width="${tk.w}" height="${f(tk.y+tk.h-lvY)}" rx="2" fill="${PCR}" opacity=".22"/>${mol}
+ <path d="M${tk.x-4} ${bY}H${tk.x+tk.w+4}" stroke="var(--ink)" stroke-width="1.2" stroke-dasharray="3 2"/><text x="${tk.x+tk.w+6}" y="${f(+bY+3)}" class="ft fsm">base</text>
+ ${ent}${dr}${fib}
+ <text x="${tk.x+tk.w/2}" y="148" class="ft fsm" text-anchor="middle">riserva Cr + PCr</text><text x="160" y="148" class="ft fsm" text-anchor="middle">acqua</text>
+ <text x="20" y="${H-28}" class="ft fsm">Ingresso: ${["solo dieta e sintesi","molta creatina (carico)","moderato (mantenimento)","moderato (mantenimento)","solo dieta e sintesi"][s]}</text>
+ <text x="20" y="${H-12}" class="ft fsm">Acqua nella cellula: ${["di base","in aumento","aumentata","aumentata","torna alla base"][s]}</text>
+ <path d="${arcL}" fill="none" stroke="${PCR}" stroke-width="2.2"/><path d="${arcR}" fill="none" stroke="${ATP}" stroke-width="2.2"/>
+ <path d="M${cx-r-4} ${cy-2}l4 7l4-7z" fill="${PCR}"/><path d="M${cx+r-4} ${cy+2}l4-7l4 7z" fill="${ATP}"/>
+ <circle cx="${cx}" cy="${cy-r}" r="${rp}" fill="${PCR}" opacity=".9"/><text x="${cx}" y="${cy-r+4}" class="ft fb" text-anchor="middle" style="fill:#2b1700">PCr</text>
+ <circle cx="${cx}" cy="${cy+r}" r="13" fill="${CR}" opacity=".9"/><text x="${cx}" y="${cy+r+4}" class="ft fb" text-anchor="middle" style="fill:#fff">Cr</text>
+ <text x="${cx-r-8}" y="${cy+4}" class="ft fsm" text-anchor="end">sforzo</text><text x="${cx+r+8}" y="${cy+4}" class="ft fsm">recupero</text>
+ <g>${blink(1,.35)}<text x="${cx-22}" y="${cy-4}" class="ft fsm" text-anchor="middle">ADP</text><path d="M${cx-22} ${cy}v8" class="fl"/><text x="${cx-22}" y="${cy+20}" class="ft fb" text-anchor="middle" style="fill:${ATP}">ATP</text></g>
+ <g>${blink(.35,1)}<text x="${cx+22}" y="${cy-4}" class="ft fsm" text-anchor="middle">ATP</text><path d="M${cx+22} ${cy}v8" class="fl"/><text x="${cx+22}" y="${cy+20}" class="ft fsm" text-anchor="middle">ADP</text></g>
+ <circle class="anm" r="4" fill="${PCR}" stroke="var(--paper)"><animateMotion path="${arcL}${arcR.replace(/^M[^A]*/,"")}" dur="4s" begin="-4s" repeatCount="indefinite"/></circle>
+ <text x="232" y="${H-28}" class="ft fsm">Sforzo: PCr + ADP → Cr + ATP</text>
+ <text x="232" y="${H-12}" class="ft fsm">Recupero (mitocondri): Cr + ATP → PCr</text>`)};
+
+/* Livello 2: muscolo e prestazione */
+const mus=s=>{const wa=WA[s],rs=RS[s],tr=s===3;
+ const ex=f(15+5*wa);let dr="";const nd=Math.round(2+wa*7);for(let i=0;i<nd;i++){const a=rnd(i+41)*6.283,q=.25+.6*rnd(i+47),px=f(84+ex*.7*q*Math.cos(a)),py=f(110+32*q*Math.sin(a));dr+=`<path d="M${px} ${py-3.5}q2.8 3.5 0 5.6q-2.8-2.1 0-5.6z" fill="${H2O}"/>`}
+ const fore=`<path d="M70 160L156 160" stroke="${BODY}" stroke-width="14" stroke-linecap="round"/><circle cx="160" cy="160" r="9" fill="${BODY}"/>
+ <path d="M160 140V180" stroke="var(--ink)" stroke-width="3"/><rect x="153" y="134" width="14" height="10" rx="2" fill="var(--ink)" opacity=".75"/><rect x="153" y="176" width="14" height="10" rx="2" fill="var(--ink)" opacity=".75"/>`;
+ const arm=tr?`<g transform="rotate(-25 70 160)"><g><animateTransform attributeName="transform" type="rotate" values="20 70 160;-30 70 160;20 70 160" dur="4s" begin="-2s" repeatCount="indefinite"/>${fore}</g></g>`:fore;
+ const rows=[["Riserva di fosfocreatina",[[rs,PCR]],["di base","si riempie","piena","piena","torna alla base"]],
+  ["Sforzi brevi e intensi",[[[.4,.46,.52,.52,.42][s],PCR]],["di base","più scorta di energia","più scorta di energia","più scorta di energia","scorta che cala"]],
+  ["Forza",[[.4,"var(--muted)"],[[0,0,0,.14,.14][s],"var(--ink)"],[[0,0,0,.07,0][s],CR]],["di base","senza allenamento: non dimostrato","senza allenamento: non dimostrato","un poco più del solo allenamento","resta quella dell'allenamento"]],
+  ["Peso corporeo",[[.4,"var(--muted)"],[[0,.12,.13,.14,.03][s],H2O]],["di base","+ acqua nelle cellule, non grasso","+ acqua nelle cellule, non grasso","+ acqua nelle cellule, non grasso","l'acqua in più si perde"]]];
+ const bx=232,bw=180;let pan="";
+ rows.forEach((r,i)=>{const y=44+i*44;let x=bx,segs="";r[1].forEach(([v,c])=>{if(v>0){segs+=`<rect x="${f(x)}" y="${y+7}" width="${f(v*bw-1.5)}" height="5" fill="${c}"${c==="var(--ink)"?' opacity=".55"':""}/>`;x+=v*bw}});
+  pan+=`<text x="${bx}" y="${y}" class="ft">${r[0]}</text><rect x="${bx}" y="${y+5}" width="${bw}" height="9" rx="2" class="eyrow"/>${segs}
+  <path d="M${f(bx+.4*bw)} ${y+2}V${y+17}" stroke="var(--ink)" stroke-width="1.2" stroke-dasharray="2 2"/><text x="${bx}" y="${y+27}" class="ft fsm">${r[2][s]}</text>`});
+ return head(`Muscolo e prestazione, ${ST[s]}: riserva di fosfocreatina ${rows[0][2][s]}; forza ${rows[2][2][s]}; peso ${rows[3][2][s]}`,
+ `<text x="20" y="24" class="ft fb">Muscolo</text><text x="232" y="24" class="ft fb">Prestazione (schema)</text>
+ <path d="M216 36V${H-8}" class="lead"/>
+ <circle cx="70" cy="52" r="10" fill="${BODY}"/><path d="M70 60V160" stroke="${BODY}" stroke-width="16" stroke-linecap="round"/>
+ <ellipse cx="84" cy="110" rx="${ex}" ry="34" fill="${MU}" opacity=".75"/>${dr}
+ ${arm}<circle cx="70" cy="160" r="8" fill="${BODY}"/>
+ <path d="M${f(84+ex)} 90L128 70" class="lead"/><text x="130" y="68" class="ft fsm">bicipite</text>
+ <text x="130" y="82" class="ft fsm">${s===0?"riserva di base":s===4?"si svuota piano":"riserva piena"}</text>
+ <text x="20" y="${H-28}" class="ft fsm">${tr?"Allenamento di forza regolare":"Senza allenamento di forza"}</text>
+ <text x="20" y="${H-12}" class="ft fsm">Peso in più: ${s===0?"nessuno":s===4?"in calo":"acqua, non grasso"}</text>
+ ${pan}<text x="${bx}" y="${H-12}" class="ft fsm">Tratteggio: valore di base · viola: creatina</text>`)};
+
+/* Livello 3: sangue, reni ed esami */
+const ren=s=>{const nb=[3,5,5,6,3][s];
+ const path="M56 98H176C181 98 184 104 184 112V186";
+ let mov="";for(let i=0;i<3;i++)mov+=`<circle class="anm" r="3" fill="${CRN}"><animateMotion path="${path}" dur="4s" begin="${f(-i*4/3-.2)}s" repeatCount="indefinite"/></circle>`;
+ let st="";for(let i=0;i<nb;i++)st+=`<circle cx="${f(70+i*(70/nb)+rnd(i+5)*6)}" cy="${f(94+rnd(i+9)*8)}" r="2.6" fill="${CRN}" opacity=".85"/>`;
+ let mc="";const nm=Math.round(4+RS[s]*8);for(let i=0;i<nm;i++)mc+=`<circle cx="${f(28+rnd(i+61)*22)}" cy="${f(70+rnd(i+67)*52)}" r="2.4" fill="${i%3?PCR:CR}"/>`;
+ const kid=`<path d="M186 68C208 68 210 124 186 124C172 124 170 112 175 105C178 101 178 95 175 91C170 82 172 68 186 68Z" fill="${KID}" opacity=".75"/>`;
+ const rows=[["Creatininemia",[.35,.48,.5,.55,.38][s],["di base","↑ un poco","↑ circa +0,13 mg/dL","↑ un poco di più con lo sforzo","torna verso la base"][s],s&&s<4?"var(--amber)":"var(--ok)"],
+  ["eGFR calcolato dalla creatinina",[.7,.6,.58,.55,.67][s],["di base","↓ solo in apparenza","↓ solo in apparenza","↓ solo in apparenza","torna verso la base"][s],s&&s<4?"var(--amber)":"var(--ok)"],
+  ["Danno renale (adulti sani)",[0,0,0,0,0][s],s?"non dimostrato":"nessuno (adulto sano)","var(--ok)"]];
+ const bx=232,bw=180;let pan="";
+ rows.forEach((r,i)=>{const y=44+i*42;pan+=`<text x="${bx}" y="${y}" class="ft">${r[0]}</text>${i<2?bar(bx,y+5,bw,r[1],r[3],[.35,.7][i]):`<rect x="${bx}" y="${y+5}" width="9" height="9" rx="2" class="k-ok"/>`}<text x="${i<2?bx:bx+14}" y="${i<2?y+27:y+13}" class="ft fsm">${r[2]}</text>`});
+ return head(`Sangue, reni ed esami, ${ST[s]}: la creatina del muscolo diventa creatinina; creatininemia ${rows[0][2]}, eGFR ${rows[1][2]}, danno renale negli adulti sani non dimostrato; l'infermiere annota l'integratore e avvisa il medico`,
+ `<text x="20" y="24" class="ft fb">Dal muscolo alle urine</text><text x="232" y="24" class="ft fb">Esami (schema)</text>
+ <path d="M216 36V${H-8}" class="lead"/>
+ <rect x="20" y="62" width="38" height="68" rx="10" fill="${MU}" opacity=".18" stroke="${MU}"/>${mc}<text x="39" y="144" class="ft fsm" text-anchor="middle">muscolo</text>
+ <rect x="58" y="88" width="118" height="20" rx="10" fill="${MU}" opacity=".12" stroke="${MU}"/>${st}
+ <text x="106" y="82" class="ft fsm" text-anchor="middle">sangue: creatinina</text>
+ ${kid}<path d="M184 120V184" stroke="${KID}" stroke-width="3" opacity=".6"/><text x="186" y="62" class="ft fsm" text-anchor="middle">rene</text>
+ <path d="M172 184h24v14a12 12 0 0 1-24 0z" fill="#e8c020" fill-opacity=".25" stroke="#c9a227"/><text x="164" y="200" class="ft fsm" text-anchor="end">urine</text>
+ ${mov}
+ <text x="20" y="${H-28}" class="ft fsm">Cr → creatinina: spontanea, ogni giorno</text>
+ <text x="20" y="${H-12}" class="ft fsm">Creatinina prodotta: ${["di base","di più","di più","di più","torna alla base"][s]}</text>
+ ${pan}
+ <rect x="${bx}" y="176" width="${bw}" height="58" rx="2" class="fbx k-info"/>
+ <text x="${bx+8}" y="192" class="ft fsm">Infermiere: annota l'integratore</text>
+ <text x="${bx+8}" y="206" class="ft fsm">in anamnesi e avvisa il medico</text>
+ <text x="${bx+8}" y="220" class="ft fsm">quando legge creatinina ed eGFR</text>`)};
+
+SIM.push({id:"sim-creatina",enc:["creatina-adulti"],t:"Simulatore: la creatina monoidrato nel tempo",d:"Scegli il momento dell'integrazione e il livello da osservare, dalla cellula muscolare agli esami del sangue. Il disegno è schematico: le proporzioni servono a capire, non a misurare, e i tempi sono indicativi.",
+ stadi:["Senza integratore","Fase di carico (5-7 giorni)","Mantenimento 3-5 g al giorno","Settimane con allenamento di forza","Sospensione"],dur:"4s",fasi:["Sforzo: la PCr rigenera l'ATP","Recupero: si riforma la PCr"],
+ livelli:[
+  {t:"Cellula muscolare",sub:"fosfocreatina e ATP",svg:cel,
+   val:["Riserva di base","Riserva che si riempie","Riserva piena","Riserva piena","Ritorno al valore di base"],
+   testo:["Senza integratore la creatina arriva solo dalla dieta (carne, pesce) e dalla sintesi di rene e fegato. Nel muscolo una parte diventa fosfocreatina (PCr), una riserva rapida che rigenera l'ATP durante lo sforzo.",
+    "Nella fase di carico, facoltativa (circa 0,3 g/kg al giorno per 5-7 giorni), molta creatina passa dal sangue nella cellula: la riserva di creatina e fosfocreatina si riempie in pochi giorni e la cellula trattiene più acqua.",
+    "Con il mantenimento (3-5 g al giorno) la riserva resta piena. Senza la fase di carico si arriva allo stesso punto, ma più lentamente, in alcune settimane.",
+    "Durante lo sforzo la fosfocreatina cede il suo fosfato all'ADP e riforma ATP; nel recupero i mitocondri ricostruiscono la fosfocreatina. Con la riserva piena il ciclo ha più scorta per gli sforzi brevi.",
+    "Alla sospensione non arriva più creatina in più: la riserva cala lentamente e in alcune settimane torna al valore di base, e con lei l'acqua in più nella cellula."]},
+  {t:"Muscolo e prestazione",fasi:false,sub:"forza e peso",svg:mus,
+   val:["Prestazione di base","Peso un po' più alto (acqua)","Riserva piena","Forza un poco più alta","Vantaggio che si riduce"],
+   testo:["La fosfocreatina del muscolo basta per pochi secondi di sforzo molto intenso; poi lavorano altri sistemi energetici. Forza e peso sono quelli di partenza.",
+    "Nei primi giorni il peso può salire: è acqua trattenuta dentro le cellule del muscolo, non grasso. Negli anziani, senza allenamento, un effetto sulla forza non è dimostrato.",
+    "Con la riserva piena il muscolo ha più scorta per sforzi brevi e intensi, come scatti e serie di ripetizioni. La creatina non sostituisce l'allenamento né una buona alimentazione proteica.",
+    "Con l'allenamento di forza la creatina aumenta la forza un poco più del solo allenamento (meta-analisi negli over 60, certezza moderata); sulla massa muscolare e sulla funzione negli anziani le prove sono incerte.",
+    "Dopo la sospensione riserva e acqua in più tornano al valore di base in alcune settimane e il peso cala un poco; resta il beneficio dell'allenamento, se si continua ad allenarsi."]},
+  {t:"Sangue, reni ed esami",fasi:false,sub:"creatinina ed eGFR",svg:ren,
+   val:["Creatininemia di base","Creatininemia un poco più alta","Creatininemia circa +0,13 mg/dL","eGFR più basso solo in apparenza","Ritorno al valore di base"],
+   testo:["Ogni giorno una parte della creatina del muscolo si trasforma spontaneamente in creatinina, che passa nel sangue e il rene elimina con le urine. La creatininemia di base dipende soprattutto dalla massa muscolare.",
+    "Con più creatina nell'organismo si forma più creatinina: la creatininemia sale un poco. Un aumento isolato non dimostra che i reni filtrino meno.",
+    "Nelle meta-analisi la creatininemia sale di circa 0,13 mg/dL e l'eGFR calcolato dalla creatinina sembra più basso, ma negli adulti sani un danno renale non è dimostrato. L'infermiere annota l'integratore in anamnesi e avvisa il medico quando legge gli esami.",
+    "L'allenamento può alzare ancora un poco la creatininemia. Per distinguere, il medico può usare un indicatore che non dipende dal muscolo, come la cistatina C. Nelle malattie renali o con farmaci nefrotossici decide il medico se assumere creatina.",
+    "Dopo la sospensione la creatinina prodotta torna al valore di base in alcune settimane, e con lei la creatininemia. Segnalare al medico anche la sospensione aiuta a leggere gli esami successivi."]}],
+ legenda:[["#8e63c9","Creatina (Cr)"],["#e08a2e","Fosfocreatina (PCr)"],["#2e9e5b","ATP"],["#3aa0d8","Acqua nella cellula"],["#d9637b","Muscolo"],["#9c6b3c","Creatinina"],["#b5534f","Rene"]],
+ n:"Kreider RB et al., ISSN position stand 2017 (PMID 28615996): dose 3-5 g al giorno e carico di circa 0,3 g/kg al giorno per 5-7 giorni; Antonio J et al., J Int Soc Sports Nutr 2021 (PMID 33557850): acqua intracellulare, creatinina e falsi miti; meta-analisi sulla creatininemia (PMID 42035842): circa +0,13 mg/dL senza differenza significativa del filtrato stimato. Forza negli over 60: meta-analisi citata nella voce creatina-adulti (PMID 42712402). Da verificare: i tempi qualitativi (riempimento in alcune settimane senza carico, ritorno al valore di base di riserva, acqua e creatininemia in alcune settimane dopo la sospensione) e l'aumento ulteriore della creatininemia con l'allenamento, descritto nella voce per un solo trial."});
+})();
