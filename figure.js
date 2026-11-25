@@ -2681,7 +2681,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
     o+=FT.arrow(xs[i]+52,130,xs[i]+52,148,{h:6})+bx(xs[i],148,104,46,r[0],r[1],r[2]);});
   /* accensione in sequenza dei tre passi */
   xs.forEach((x,i)=>{const c=i?`ans s${i+1}`:"ans";
-    o+=`<g class="${c}"><rect x="${x}" y="28" width="104" height="60" rx="2" style="fill:${mx(S,10)};fill-opacity:.55;stroke:${S};stroke-width:2.2"/>`+la(x+52,88,x+52,106)+(i<2?la(x+104,58,x+122,58):"")+`</g>`;});
+    o+=`<g class="${c}"><rect x="${x}" y="28" width="104" height="60" rx="2" style="fill:none;stroke:${S};stroke-width:2.2"/>`+la(x+52,88,x+52,106)+(i<2?la(x+104,58,x+122,58):"")+`</g>`;});
   o+=`<path class="lead" d="M16 206H364" style="stroke-opacity:.35"/>`;
   o+=tx(16,224,"NRS-2002",{b:1,s:1,st:`fill:${INK}`})+tx(88,224,"ricoverati: ≥ 3 rischio nutrizionale",{s:1});
   o+=tx(16,240,"MNA",{b:1,s:1,st:`fill:${INK}`})+tx(88,240,"anziani: 24-30 normale, 17-23,5 rischio,",{s:1})+tx(88,253,"< 17 malnutrizione",{s:1});
@@ -2900,7 +2900,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=tx(248,488,"la nutrizione",{a:"middle",s:1})+tx(323,488,["almeno 30-60","min dopo"],{a:"middle",s:1});
   o+=tx(214,514,["Controlla l'angolo della","testata e la posizione"],{s:1});
   /* ---------- d ---------- */
-  o+=panel(540,282,"d","Pompa, sacca e ruolo dell'infermiere");
+  o+=panel(540,292,"d","Pompa, sacca e ruolo dell'infermiere");
   o+=`<path class="lead" d="M46 573V578"/><circle cx="46" cy="571" r="2.4" class="fl" style="fill:var(--paper)"/>`;
   o+=`<path d="M30 578H62C66 578 68 582 68 586V622C68 628 64 632 58 632H34C28 632 24 628 24 622V586C24 582 26 578 30 578Z" style="fill:url(#ne-bg);stroke:${INK};stroke-opacity:.55;stroke-width:1.2"/>`;
   o+=`<path d="M26 596H66" style="stroke:${INK};stroke-opacity:.3;stroke-width:1;stroke-dasharray:3 3"/>`;
@@ -2922,7 +2922,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=cd(702,50,"k-warn","Diarrea",["osservare e segnalare la","comparsa"]);
   o+=cd(760,64,"k-warn","PEG: buried bumper",["ruotare e mobilizzare la sonda","dopo la guarigione dello stoma"]).replace("<rect","<rect");
   o+=`<rect class="eyrow" x="20" y="780" width="150" height="38" rx="2"/>`+tx(28,796,["anche dislocazione,","iperglicemia"],{fs:11,lh:13}).replace("x=\"28\"","x=\"28\"");
-  return FT.svg(380,832,"Tavola sulla nutrizione enterale. a: sezione schematica di testa e tronco con i tre accessi: sondino naso-gastrico o naso-digiunale per la breve durata, cioè meno di 4-6 settimane; gastrostomia endoscopica percutanea (PEG) e digiunostomia per i tempi lunghi; i pallini animati mostrano il percorso del nutriente fino allo stomaco o al digiuno. b: scelta dell'accesso in base alla durata. c: paziente con la testata a 30-45 gradi durante la nutrizione e per almeno 30-60 minuti dopo. d: sacca, pompa e sonda; complicanze con la risposta dell'infermiere: ostruzione, lavaggio con circa 30 ml di acqua prima e dopo nutrizione e farmaci e ogni 4-6 ore nella nutrizione continua; aspirazione, testata alzata; diarrea, osservare e segnalare; PEG, rotazione e mobilizzazione della sonda per evitare il buried bumper; anche dislocazione e iperglicemia.",o);
+  return FT.svg(380,840,"Tavola sulla nutrizione enterale. a: sezione schematica di testa e tronco con i tre accessi: sondino naso-gastrico o naso-digiunale per la breve durata, cioè meno di 4-6 settimane; gastrostomia endoscopica percutanea (PEG) e digiunostomia per i tempi lunghi; i pallini animati mostrano il percorso del nutriente fino allo stomaco o al digiuno. b: scelta dell'accesso in base alla durata. c: paziente con la testata a 30-45 gradi durante la nutrizione e per almeno 30-60 minuti dopo. d: sacca, pompa e sonda; complicanze con la risposta dell'infermiere: ostruzione, lavaggio con circa 30 ml di acqua prima e dopo nutrizione e farmaci e ogni 4-6 ore nella nutrizione continua; aspirazione, testata alzata; diarrea, osservare e segnalare; PEG, rotazione e mobilizzazione della sonda per evitare il buried bumper; anche dislocazione e iperglicemia.",o);
  })()},
 {id:"fig-nutrizione-parenterale",wide:1,t:"Nutrizione parenterale: accessi, sacca, complicanze e controlli",c:"Tavola in quattro parti. (a) Accesso periferico (bassa osmolarità, meno di 800-900 mOsm/L) o centrale con CVC o PICC (alta osmolarità), con il percorso della miscela dalla sacca. (b) Sacca a più scomparti: glucosio, aminoacidi, lipidi, con elettroliti e vitamine aggiunti; proporzioni qualitative. (c) Complicanze con il controllo associato: infezione del catetere, iperglicemia, squilibri elettrolitici, danno epatico, ipoglicemia se si interrompe bruscamente. (d) Controlli infermieristici: asepsi, linea dedicata, glicemia ed esami, peso e bilancio. Disegno originale.",
  enc:["nutrizione-parenterale"],gl:[],st:/nutrizione parenterale|parenterale|NPT|catetere venoso centrale/i,
@@ -2993,7 +2993,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   /* ---------- c ---------- */
   o+=panel(452,208,"c","Complicanze e controllo associato");
   const rows=[["Infezione del","catetere","tecnica asettica, cambio del","set secondo protocollo","inf","k-warn"],["Iperglicemia","","controllo della glicemia","","hyper","k-warn"],["Squilibri","elettrolitici","controllo degli elettroliti","","ion","k-warn"],["Danno epatico","","funzione epatica","e trigliceridi","liv","k-warn"],["Ipoglicemia","(stop brusco)","non interrompere","bruscamente la nutrizione","hypo","k-alarm"]];
-  rows.forEach((r,i)=>{const y=482+i*34;o+=tile(16,y,r[5],G[r[4]])+tx(52,y+12,[r[0]].concat(r[1]?[r[1]]:[]),{b:1,fs:11,lh:12})+`<path class="fl" d="M168 ${y+14}H180M176 ${y+10}L180 ${y+14}L176 ${y+18}" style="stroke-width:1.2"/>`+tx(190,y+12,[r[2]].concat(r[3]?[r[3]]:[]),{fs:11,lh:12});});
+  rows.forEach((r,i)=>{const y=482+i*34;o+=tile(16,y,r[5],G[r[4]])+tx(52,y+(r[1]?12:18),[r[0]].concat(r[1]?[r[1]]:[]),{b:1,fs:11,lh:12})+`<path class="fl" d="M168 ${y+14}H180M176 ${y+10}L180 ${y+14}L176 ${y+18}" style="stroke-width:1.2"/>`+tx(190,y+(r[3]?12:18),[r[2]].concat(r[3]?[r[3]]:[]),{fs:11,lh:12});});
   /* ---------- d ---------- */
   o+=panel(668,176,"d","Controlli dell'infermiere");
   const cr=[["Asepsi","tecnica asettica; set cambiato","a protocollo (24 h con lipidi)","shield"],["Linea dedicata","lume del catetere dedicato","alla nutrizione","lines"],["Glicemia ed esami","glicemia, elettroliti, funzione","epatica, trigliceridi","sugar"],["Peso e bilancio","peso e bilancio idrico","controllati nel tempo","scale"]];
@@ -3040,7 +3040,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   const pt=(r,a)=>[cx+r*Math.cos(a*Math.PI/180),cy+r*Math.sin(a*Math.PI/180)];
   IT.forEach((it,i)=>{const a0=-90+60*i,a1=a0+60,p0=pt(RI-2,a0),p1=pt(RI-2,a1);
     o+=`<path d="M${cx} ${cy}L${p0[0].toFixed(1)} ${p0[1].toFixed(1)}A${RI-2} ${RI-2} 0 0 1 ${p1[0].toFixed(1)} ${p1[1].toFixed(1)}Z" style="fill:${mx(it[2],17)};stroke:var(--paper);stroke-width:2.2"/>`;});
-  IT.forEach((it,i)=>{const am=-60+60*i,p=pt(40,am),b=pt(60,am);o+=ic(it[0],p[0].toFixed(1),p[1].toFixed(1),1.05);o+=badge(b[0].toFixed(1),b[1].toFixed(1),i+1);});
+  IT.forEach((it,i)=>{const am=-60+60*i,p=pt(40,am),b=pt(65,am);o+=ic(it[0],p[0].toFixed(1),p[1].toFixed(1),1.05);o+=badge(b[0].toFixed(1),b[1].toFixed(1),i+1);});
   o+=tx(204,Y+36,"Da privilegiare",{b:1});
   IT.forEach((it,i)=>{const y=Y+60+i*23;o+=badge(214,y-4,i+1)+tx(228,y,it[1]);});
   o+=`<path class="lead" d="M204 ${Y+44}H366" style="stroke-opacity:.5"/>`;
@@ -3154,7 +3154,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   const by=Y+34;
   o+=FT.box(14,by,96,32,"Ipotalamo","","")+FT.box(142,by,96,32,"Ipofisi","","")+FT.box(270,by,96,32,"Tiroide","","info");
   o+=FT.arrow(110,by+16,142,by+16)+FT.arrow(238,by+16,270,by+16);
-  o+=tx(254,by+11,"TSH",{a:"middle",b:1,s:1});
+  o+=tx(254,by+2,"TSH",{a:"middle",b:1,s:1})+tx(126,by+2,"TRH",{a:"middle",b:1,s:1});
   o+=FT.arrow(318,by+32,318,by+74);
   o+=tx(312,by+46,"T4, T3",{a:"end",s:1});
   o+=FT.elbow([[318,by+54],[190,by+54],[190,by+34]],{dash:1});
@@ -3164,7 +3164,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
   o+=mv(`M318 ${by+54}H190V${by+36}`,3.6,0,2.8,A)+mv(`M318 ${by+54}H190V${by+36}`,3.6,-1.8,2.8,A);
   Y+=HC+8;
   /* ---------- d: carenza ---------- */
-  const HD=316;
+  const HD=368;
   o+=frame(Y,HD)+badge(20,Y+14,"d")+tx(32,Y+18,"se lo iodio manca",{s:1,b:1,st:`fill:${INK}`});
   const ty=Y+78;
   o+=`<path class="lead" d="M190 ${Y+30}V${Y+120}" style="stroke-opacity:.35"/>`;
