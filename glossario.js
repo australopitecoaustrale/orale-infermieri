@@ -874,5 +874,9 @@ GLOSS.push(
 ["Enfisema polmonare","d","Distruzione permanente dei setti alveolari, che fa confluire gli alveoli in spazi più grandi: meno superficie di scambio e meno ritorno elastico. È una delle componenti della BPCO.","Pulmonary emphysema","bpco"],
 ["Iperinflazione dinamica","t","Aumento progressivo del volume di aria nei polmoni, atto dopo atto, perché l'espirazione non fa in tempo a completarsi; tipica della BPCO sotto sforzo.","Dynamic hyperinflation","bpco"],
 ["Elastasi dei neutrofili","t","Enzima delle cellule infiammatorie che digerisce l'elastina; quando prevale sulle antiproteasi distrugge i setti alveolari (enfisema).","Neutrophil elastase","bpco"],
-["Bronchite cronica","d","Tosse con espettorato per almeno tre mesi all'anno per due anni consecutivi; nella BPCO corrisponde a infiammazione e ipersecrezione di muco nelle vie aeree.","Chronic bronchitis","bpco"]
+["Bronchite cronica","d","Tosse con espettorato per almeno tre mesi all'anno per due anni consecutivi; nella BPCO corrisponde a infiammazione e ipersecrezione di muco nelle vie aeree.","Chronic bronchitis","bpco"],
+["DOMS","t","Dolore muscolare a insorgenza ritardata: indolenzimento che compare ore o giorni dopo un esercizio insolito, soprattutto eccentrico, con aumento della sensibilità dolorosa alla pressione e al movimento.","Delayed onset muscle soreness","doms"],
+["Iperalgesia meccanica","t","Aumento della sensibilità dolorosa a uno stimolo meccanico (pressione, movimento): è il segno tipico dei DOMS.","Mechanical hyperalgesia","doms"],
+["Contrazione eccentrica","t","Contrazione in cui il muscolo si allunga mentre sviluppa forza (per esempio scendere le scale o abbassare un peso); è quella che più spesso provoca i DOMS.","Eccentric contraction","doms"],
+["NGF e GDNF","t","Fattore di crescita nervoso e fattore neurotrofico di derivazione gliale: proteine prodotte da fibre muscolari e/o cellule satelliti che, nei ratti, hanno un ruolo importante nell'iperalgesia meccanica dei DOMS.","Nerve growth factor and glial cell line-derived neurotrophic factor","doms"]
 );
