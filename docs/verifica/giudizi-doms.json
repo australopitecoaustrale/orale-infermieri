@@ -33,11 +33,11 @@
  },
  {
   "id": "doms#v0",
-  "testo": "Comparsa e picco: dolore che compare nelle ore successive e di solito raggiunge il picco tra 24 e 72 ore, a volte fino a 96 ore; il tempo varia con il tipo di esercizio",
-  "fonte": "Stone MB 2002 PMID 12466693 (48-72 h); Cleak MJ, Eston RG 1992 PMID 1490222 (24-96 h); Vickers AJ 2001 PMID 11701094 (24-48 h)",
-  "tipo": "studio",
-  "stato": "confermato",
-  "nota": "Tre studi indipendenti sull'uomo, intervalli compatibili con 24-72 h (fino a 96 h); nessuna meta-analisi"
+  "testo": "Comparsa e picco: dolore che compare di solito tra 12 e 48 ore dopo l'esercizio, raggiunge il picco tra 24 e 72 ore (a volte fino a 96) e passa da solo in alcuni giorni, indicativamente entro circa una settimana; i tempi variano con il tipo di esercizio",
+  "fonte": "Stone 2002 PMID 12466693; Cleak 1992 PMID 1490222; Vickers 2001 PMID 11701094; Bakowski 2008 PMID 18847018; MacIntyre 1995 PMID 7481277; Pen 1994 PMID 7871293; Meira 2026 PMID 41172137",
+  "tipo": "revisione",
+  "stato": "da-verificare",
+  "nota": "Comparsa 12-48 h e picco 24-72 h confermati da fonti indipendenti; risoluzione (4-6 giorni, 8-10 giorni, 72 h) non concorde: da verificare, scritto nella nota n"
  },
  {
   "id": "doms#v1",
