@@ -913,7 +913,7 @@ GLOSS.push(
 ["Iponatriemia da esercizio (EAH)","t","Sodio sierico inferiore a 135 mmol/L durante o fino a 24 ore dopo uno sforzo prolungato, spesso per eccesso di acqua.","Exercise-associated hyponatremia","sport-idratazione-iponatriemia"],
 ["Vasopressina non osmotica","t","Rilascio dell'ormone antidiuretico non legato all'osmolarità, che trattiene acqua e favorisce la diluizione del sodio.","Non-osmotic vasopressin","sport-idratazione-iponatriemia"],
 ["Ergogenico","t","Sostanza o metodo che migliora la prestazione fisica.","Ergogenic aid","sport-caffeina"],
-["Mg/kg","g","Sigla di dose in milligrammi per chilogrammo di peso corporeo, usata per la caffeina e altri integratori.","mg/kg body mass","sport-caffeina"],
+["mg/kg","g","Sigla di dose in milligrammi per chilogrammo di peso corporeo, usata per la caffeina e altri integratori.","mg/kg body mass","sport-caffeina"],
 ["Tampone (buffer)","t","Sostanza che attenua le variazioni di pH; il bicarbonato agisce nel sangue, la carnosina nel muscolo.","Buffering agent","sport-tampone-nitrato"],
 ["Parestesia","t","Formicolio o intorpidimento, effetto avverso tipico della beta-alanina.","Paraesthesia","sport-tampone-nitrato"],
 ["Doping involontario","t","Positività a sostanze vietate dovuta a contaminazione o ingredienti non dichiarati di un integratore.","Inadvertent doping","sport-integratori-sicurezza-doping"],
