@@ -897,7 +897,7 @@ const cel=s=>{const rs=RS[s],wa=WA[s],cw=f(176+10*wa);
  <g>${blink(.35,1)}<text x="${cx+22}" y="${cy-4}" class="ft fsm" text-anchor="middle">ATP</text><path d="M${cx+22} ${cy}v8" class="fl"/><text x="${cx+22}" y="${cy+20}" class="ft fsm" text-anchor="middle">ADP</text></g>
  <circle class="anm" r="4" fill="${PCR}" stroke="var(--paper)"><animateMotion path="${arcL}${arcR.replace(/^M[^A]*/,"")}" dur="4s" begin="-4s" repeatCount="indefinite"/></circle>
  <text x="232" y="${H-28}" class="ft fsm">Sforzo: PCr + ADP → Cr + ATP</text>
- <text x="232" y="${H-12}" class="ft fsm">Recupero (mitocondri): Cr + ATP → PCr</text>`)};
+ <text x="232" y="${H-12}" class="ft fsm">Recupero: Cr + ATP → PCr + ADP</text>`)};
 
 /* Livello 2: muscolo e prestazione */
 const mus=s=>{const wa=WA[s],rs=RS[s],tr=s===3;
@@ -907,7 +907,7 @@ const mus=s=>{const wa=WA[s],rs=RS[s],tr=s===3;
  const arm=tr?`<g transform="rotate(-25 70 160)"><g><animateTransform attributeName="transform" type="rotate" values="20 70 160;-30 70 160;20 70 160" dur="4s" begin="-2s" repeatCount="indefinite"/>${fore}</g></g>`:fore;
  const rows=[["Riserva di fosfocreatina",[[rs,PCR]],["di base","si riempie","piena","piena","torna alla base"]],
   ["Sforzi brevi e intensi",[[[.4,.46,.52,.52,.42][s],PCR]],["di base","più scorta di energia","più scorta di energia","più scorta di energia","scorta che cala"]],
-  ["Forza",[[.4,"var(--muted)"],[[0,0,0,.14,.14][s],"var(--ink)"],[[0,0,0,.07,0][s],CR]],["di base","senza allenamento: non dimostrato","senza allenamento: non dimostrato","un poco più del solo allenamento","resta quella dell'allenamento"]],
+  ["Forza",[[.4,"var(--muted)"],[[0,0,0,.14,.14][s],"var(--ink)"],[[0,0,0,.07,0][s],CR]],["di base","senza allenamento: prove scarse","senza allenamento: prove scarse","un poco più del solo allenamento","resta quella dell'allenamento"]],
   ["Peso corporeo",[[.4,"var(--muted)"],[[0,.12,.13,.14,.03][s],H2O]],["di base","+ acqua nelle cellule, non grasso","+ acqua nelle cellule, non grasso","+ acqua nelle cellule, non grasso","l'acqua in più si perde"]]];
  const bx=232,bw=180;let pan="";
  rows.forEach((r,i)=>{const y=44+i*44;let x=bx,segs="";r[1].forEach(([v,c])=>{if(v>0){segs+=`<rect x="${f(x)}" y="${y+7}" width="${f(v*bw-1.5)}" height="5" fill="${c}"${c==="var(--ink)"?' opacity=".55"':""}/>`;x+=v*bw}});
@@ -923,7 +923,7 @@ const mus=s=>{const wa=WA[s],rs=RS[s],tr=s===3;
  <text x="130" y="82" class="ft fsm">${s===0?"riserva di base":s===4?"si svuota piano":"riserva piena"}</text>
  <text x="20" y="${H-28}" class="ft fsm">${tr?"Allenamento di forza regolare":"Senza allenamento di forza"}</text>
  <text x="20" y="${H-12}" class="ft fsm">Peso in più: ${s===0?"nessuno":s===4?"in calo":"acqua, non grasso"}</text>
- ${pan}<text x="${bx}" y="${H-12}" class="ft fsm">Tratteggio: valore di base · viola: creatina</text>`)};
+ ${pan}<text x="${bx}" y="${H-12}" class="ft fsm">Tratteggio: base · viola: creatina</text>`)};
 
 /* Livello 3: sangue, reni ed esami */
 const ren=s=>{const nb=[3,5,5,6,3][s];
@@ -932,8 +932,8 @@ const ren=s=>{const nb=[3,5,5,6,3][s];
  let st="";for(let i=0;i<nb;i++)st+=`<circle cx="${f(70+i*(70/nb)+rnd(i+5)*6)}" cy="${f(94+rnd(i+9)*8)}" r="2.6" fill="${CRN}" opacity=".85"/>`;
  let mc="";const nm=Math.round(4+RS[s]*8);for(let i=0;i<nm;i++)mc+=`<circle cx="${f(28+rnd(i+61)*22)}" cy="${f(70+rnd(i+67)*52)}" r="2.4" fill="${i%3?PCR:CR}"/>`;
  const kid=`<path d="M186 68C208 68 210 124 186 124C172 124 170 112 175 105C178 101 178 95 175 91C170 82 172 68 186 68Z" fill="${KID}" opacity=".75"/>`;
- const rows=[["Creatininemia",[.35,.48,.5,.55,.38][s],["di base","↑ un poco","↑ circa +0,13 mg/dL","↑ un poco di più con lo sforzo","torna verso la base"][s],s&&s<4?"var(--amber)":"var(--ok)"],
-  ["eGFR calcolato dalla creatinina",[.7,.6,.58,.55,.67][s],["di base","↓ solo in apparenza","↓ solo in apparenza","↓ solo in apparenza","torna verso la base"][s],s&&s<4?"var(--amber)":"var(--ok)"],
+ const rows=[["Creatininemia",[.35,.48,.5,.55,.38][s],["di base","↑ un poco","↑ circa +0,13 mg/dL","↑ di più con allenamento (1 trial)","torna verso la base"][s],s&&s<4?"var(--amber)":"var(--ok)"],
+  ["eGFR calcolato dalla creatinina",[.7,.6,.58,.55,.67][s],["di base","↓ possibile, non prova un danno","↓ possibile, non prova un danno","↓ possibile, non prova un danno","torna verso la base"][s],s&&s<4?"var(--amber)":"var(--ok)"],
   ["Danno renale (adulti sani)",[0,0,0,0,0][s],s?"non dimostrato":"nessuno (adulto sano)","var(--ok)"]];
  const bx=232,bw=180;let pan="";
  rows.forEach((r,i)=>{const y=44+i*42;pan+=`<text x="${bx}" y="${y}" class="ft">${r[0]}</text>${i<2?bar(bx,y+5,bw,r[1],r[3],[.35,.7][i]):`<rect x="${bx}" y="${y+5}" width="9" height="9" rx="2" class="k-ok"/>`}<text x="${i<2?bx:bx+14}" y="${i<2?y+27:y+13}" class="ft fsm">${r[2]}</text>`});
@@ -961,23 +961,23 @@ SIM.push({id:"sim-creatina",enc:["creatina-adulti"],t:"Simulatore: la creatina m
    val:["Riserva di base","Riserva che si riempie","Riserva piena","Riserva piena","Ritorno al valore di base"],
    testo:["Senza integratore la creatina arriva solo dalla dieta (carne, pesce) e dalla sintesi di rene e fegato. Nel muscolo una parte diventa fosfocreatina (PCr), una riserva rapida che rigenera l'ATP durante lo sforzo.",
     "Nella fase di carico, facoltativa (circa 0,3 g/kg al giorno per 5-7 giorni), molta creatina passa dal sangue nella cellula: la riserva di creatina e fosfocreatina si riempie in pochi giorni e la cellula trattiene più acqua.",
-    "Con il mantenimento (3-5 g al giorno) la riserva resta piena. Senza la fase di carico si arriva allo stesso punto, ma più lentamente, in alcune settimane.",
+    "Con il mantenimento (3-5 g al giorno) la riserva resta piena. Senza la fase di carico si arriva allo stesso punto, ma più lentamente, in circa 4 settimane (con 3 g al giorno).",
     "Durante lo sforzo la fosfocreatina cede il suo fosfato all'ADP e riforma ATP; nel recupero i mitocondri ricostruiscono la fosfocreatina. Con la riserva piena il ciclo ha più scorta per gli sforzi brevi.",
-    "Alla sospensione non arriva più creatina in più: la riserva cala lentamente e in alcune settimane torna al valore di base, e con lei l'acqua in più nella cellula."]},
+    "Alla sospensione non arriva più creatina in più: la riserva cala lentamente e in circa 4 settimane torna al valore di base; si riduce anche l'acqua in più nella cellula."]},
   {t:"Muscolo e prestazione",fasi:false,sub:"forza e peso",svg:mus,
    val:["Prestazione di base","Peso un po' più alto (acqua)","Riserva piena","Forza un poco più alta","Vantaggio che si riduce"],
-   testo:["La fosfocreatina del muscolo basta per pochi secondi di sforzo molto intenso; poi lavorano altri sistemi energetici. Forza e peso sono quelli di partenza.",
-    "Nei primi giorni il peso può salire: è acqua trattenuta dentro le cellule del muscolo, non grasso. Negli anziani, senza allenamento, un effetto sulla forza non è dimostrato.",
+   testo:["La fosfocreatina del muscolo basta per pochi secondi di sforzo molto intenso; e insieme lavorano gli altri sistemi energetici. Forza e peso sono quelli di partenza.",
+    "Nei primi giorni il peso può salire: è acqua trattenuta dentro le cellule del muscolo, non grasso. Senza allenamento le prove sono scarse: un trial a 45-65 anni (10 g al giorno per 12 settimane) ha visto più forza e massa magra anche senza esercizio, ma negli over 60 mancano prove solide.",
     "Con la riserva piena il muscolo ha più scorta per sforzi brevi e intensi, come scatti e serie di ripetizioni. La creatina non sostituisce l'allenamento né una buona alimentazione proteica.",
     "Con l'allenamento di forza la creatina aumenta la forza un poco più del solo allenamento (meta-analisi negli over 60, certezza moderata); sulla massa muscolare e sulla funzione negli anziani le prove sono incerte.",
-    "Dopo la sospensione riserva e acqua in più tornano al valore di base in alcune settimane e il peso cala un poco; resta il beneficio dell'allenamento, se si continua ad allenarsi."]},
+    "Dopo la sospensione la riserva torna al valore di base in circa 4 settimane, si riduce anche l'acqua in più e il peso cala un poco; resta il beneficio dell'allenamento, se si continua ad allenarsi."]},
   {t:"Sangue, reni ed esami",fasi:false,sub:"creatinina ed eGFR",svg:ren,
-   val:["Creatininemia di base","Creatininemia un poco più alta","Creatininemia circa +0,13 mg/dL","eGFR più basso solo in apparenza","Ritorno al valore di base"],
+   val:["Creatininemia di base","Creatininemia un poco più alta","Creatininemia circa +0,13 mg/dL","eGFR forse più basso, senza prova di danno","Ritorno al valore di base"],
    testo:["Ogni giorno una parte della creatina del muscolo si trasforma spontaneamente in creatinina, che passa nel sangue e il rene elimina con le urine. La creatininemia di base dipende soprattutto dalla massa muscolare.",
     "Con più creatina nell'organismo si forma più creatinina: la creatininemia sale un poco. Un aumento isolato non dimostra che i reni filtrino meno.",
-    "Nelle meta-analisi la creatininemia sale di circa 0,13 mg/dL e l'eGFR calcolato dalla creatinina sembra più basso, ma negli adulti sani un danno renale non è dimostrato. L'infermiere annota l'integratore in anamnesi e avvisa il medico quando legge gli esami.",
+    "Nelle meta-analisi la creatininemia sale di circa 0,13 mg/dL; l'eGFR calcolato dalla creatinina non risulta significativamente diverso (stima imprecisa, un piccolo calo non è escluso), e negli adulti sani un danno renale non è dimostrato. L'infermiere annota l'integratore in anamnesi e avvisa il medico quando legge gli esami.",
     "L'allenamento può alzare ancora un poco la creatininemia. Per distinguere, il medico può usare un indicatore che non dipende dal muscolo, come la cistatina C. Nelle malattie renali o con farmaci nefrotossici decide il medico se assumere creatina.",
-    "Dopo la sospensione la creatinina prodotta torna al valore di base in alcune settimane, e con lei la creatininemia. Segnalare al medico anche la sospensione aiuta a leggere gli esami successivi."]}],
+    "Dopo la sospensione la riserva del muscolo torna al valore di base in circa 4 settimane; poi tornano verso la base anche la creatinina prodotta e la creatininemia. Segnalare al medico anche la sospensione aiuta a leggere gli esami successivi."]}],
  legenda:[["#8e63c9","Creatina (Cr)"],["#e08a2e","Fosfocreatina (PCr)"],["#2e9e5b","ATP"],["#3aa0d8","Acqua nella cellula"],["#d9637b","Muscolo"],["#9c6b3c","Creatinina"],["#b5534f","Rene"]],
- n:"Kreider RB et al., ISSN position stand 2017 (PMID 28615996): dose 3-5 g al giorno e carico di circa 0,3 g/kg al giorno per 5-7 giorni; Antonio J et al., J Int Soc Sports Nutr 2021 (PMID 33557850): acqua intracellulare, creatinina e falsi miti; meta-analisi sulla creatininemia (PMID 42035842): circa +0,13 mg/dL senza differenza significativa del filtrato stimato. Forza negli over 60: meta-analisi citata nella voce creatina-adulti (PMID 42712402). Da verificare: i tempi qualitativi (riempimento in alcune settimane senza carico, ritorno al valore di base di riserva, acqua e creatininemia in alcune settimane dopo la sospensione) e l'aumento ulteriore della creatininemia con l'allenamento, descritto nella voce per un solo trial."});
+ n:"Kreider RB et al., ISSN position stand 2017 (PMID 28615996): dose 3-5 g al giorno; Antonio J et al., «Common questions and misconceptions about creatine supplementation», J Int Soc Sports Nutr 2021 (PMID 33557850): acqua intracellulare, creatinina e falsi miti; Hultman E et al., J Appl Physiol 1996 (PMID 8828669): riempimento della riserva in circa 4 settimane con 3 g al giorno e ritorno al valore di base circa 4 settimane dopo la sospensione; Vandenberghe K et al., J Appl Physiol 1997 (PMID 9390981); Dawson B et al., Scand J Med Sci Sports 1997 (PMID 9241025); Tsiaras A et al., J Ren Nutr 2026 (PMID 42035842): meta-analisi, creatininemia circa +0,13 mg/dL senza differenza significativa dell'eGFR; Chun J et al. 2026 (PMID 42578920); Yao L et al., Front Nutr 2026 (PMID 42712402): forza negli over 60. Da verificare: carico 0,3 g/kg per 5-7 giorni (ISSN, testo completo non letto; nei trial 20 g al giorno per 4-6 giorni); i tempi di ritorno al valore di base di creatininemia e acqua nella cellula dopo la sospensione; l'aumento ulteriore della creatininemia con l'allenamento, descritto nella voce per un solo trial."});
 })();
