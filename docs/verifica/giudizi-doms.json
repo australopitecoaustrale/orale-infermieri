@@ -1,0 +1,90 @@
+[
+ {
+  "id": "doms#p1",
+  "testo": "Teoria classica: microdanni del muscolo e infiammazione. Rassegna di Mizumura e Taguchi: nei ratti, 1-3 giorni dopo contrazioni eccentriche c'è iperalgesia meccanica senza danno microscopico evidente né segni di infiammazione",
+  "fonte": "Mizumura K, Taguchi T. J Physiol Sci 2016, PMID 26467448 (abstract)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Rassegna del gruppo degli stessi autori; dati dal ratto"
+ },
+ {
+  "id": "doms#p2",
+  "testo": "Due vie biochimiche (nei ratti): recettore B2 della bradichinina → NGF (fattore di crescita nervoso) e COX-2 → GDNF (fattore neurotrofico di derivazione gliale), prodotti da fibre muscolari e/o cellule satelliti; sono coinvolti nell'iperalgesia meccanica",
+  "fonte": "Mizumura K, Taguchi T. J Physiol Sci 2016, PMID 26467448 (abstract)",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Vie B2-NGF e COX-2-GDNF da fibre muscolari e/o cellule satelliti, ratto; testo ridotto a quanto sta nell abstract"
+ },
+ {
+  "id": "doms#p5",
+  "testo": "Trattamento (rassegna di Cheung 2003): i FANS hanno effetti che dipendono da dose e momento di assunzione; il massaggio dà risultati variabili; stretching, omeopatia, ultrasuoni e correnti non hanno mostrato effetto; per la crioterapia la rassegna del 2003 non vedeva effetto, ma una Cochrane del 2012 trova qualche prova, di bassa qualità, per l'immersione in acqua fredda; l'esercizio è il mezzo più efficace per alleviare il dolore, ma l'effetto è temporaneo",
+  "fonte": "Cheung 2003 PMID 12617692; Bleakley Cochrane 2012 PMID 22336838; Afonso 2021 PMID 34025459",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Crioterapia: Cheung 2003 senza effetto, Cochrane 2012 qualche prova di bassa qualità; scritto nel testo"
+ },
+ {
+  "id": "doms#p7",
+  "testo": "Prevenzione: introdurre esercizi nuovi o eccentrici in modo progressivo, in 1-2 settimane; ripetere sedute sub-massimali con intensità crescente (revisione di Hody 2019)",
+  "fonte": "Cheung 2003 PMID 12617692; Hody 2019 PMID 31130877",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "1-2 settimane da Cheung; sedute sub-massimali progressive da Hody"
+ },
+ {
+  "id": "doms#v0",
+  "testo": "Comparsa e picco: dolore che compare nelle ore successive e di solito raggiunge il picco tra 24 e 72 ore (in uno studio sull'uomo, tra 48 e 72 ore)",
+  "fonte": "Mizumura 2016 (ratto); Stone MB et al. Clin J Sport Med 2002, PMID 12466693 (uomo)",
+  "tipo": "studio",
+  "stato": "da-verificare",
+  "nota": "Un solo RCT sull uomo, un gruppo muscolare; scritto nella nota n"
+ },
+ {
+  "id": "doms#v1",
+  "testo": "Per chi si allena ogni giorno, dopo un esercizio intenso (Cheung 2003): ridurre intensità e durata per 1-2 giorni, o allenare le parti meno colpite",
+  "fonte": "Cheung 2003 PMID 12617692",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Per atleti che si allenano ogni giorno"
+ },
+ {
+  "id": "doms#v2",
+  "testo": "Esercizi nuovi o eccentrici (Cheung 2003): in genere introdurli in 1-2 settimane",
+  "fonte": "Cheung 2003 PMID 12617692",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Atleti a inizio o durante la stagione"
+ },
+ {
+  "id": "doms#i2",
+  "testo": "Educa a riprendere gradualmente, con attività leggera e senza sforzi intensi nei 1-2 giorni successivi",
+  "fonte": "Cheung 2003 PMID 12617692; Mohaupt 2003 PMID 12956032",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "1-2 giorni confermato; triade della rabdomiolisi rara"
+ },
+ {
+  "id": "doms#q2",
+  "testo": "Quali mediatori, secondo la rassegna di Mizumura e Taguchi, sono coinvolti nell'iperalgesia meccanica dei DOMS (nei ratti)? → NGF e GDNF (Due vie: recettore B2 della bradichinina → NGF e COX-2 → GDNF, prodotti da fibre muscolari e/o cellule satelliti.)",
+  "fonte": "Mizumura 2016 PMID 26467448",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Risposta unica"
+ },
+ {
+  "id": "doms#q4",
+  "testo": "Quale intervento non ha mostrato effetto sul dolore dei DOMS nella rassegna di Cheung 2003? → Stretching (Stretching, omeopatia, ultrasuoni e correnti non hanno mostrato effetto; l'esercizio aiuta, ma solo per poco. Per la crioterapia Cheung 2003 non vedeva effetto, ma la Cochrane 2012 trova qualche prova di bassa qualità.)",
+  "fonte": "Cheung 2003 PMID 12617692; Afonso 2021 PMID 34025459",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Stretching senza effetto"
+ },
+ {
+  "id": "doms#q6",
+  "testo": "Come si riducono i DOMS in chi inizia un'attività nuova o eccentrica? → Introducendo gli esercizi in modo progressivo, in 1-2 settimane (La progressività, con sedute sub-massimali a intensità crescente, è la strategia preventiva più utile secondo Hody 2019; i tempi di 1-2 settimane vengono da Cheung 2003.)",
+  "fonte": "Hody 2019 PMID 31130877; Cheung 2003",
+  "tipo": "revisione",
+  "stato": "confermato",
+  "nota": "Risposta unica"
+ }
+]

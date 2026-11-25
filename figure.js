@@ -1467,6 +1467,43 @@ const FIGURE=[
    o+='<g class="ans'+(i?" s"+(i+1):"")+'"><rect x="8" y="'+(y-2)+'" width="424" height="68" rx="2" fill="none" stroke="var(--scrub)" stroke-width="2"/>'+count(y,s[1])+'</g>'});
   o+=FT.text(220,312,"schema illustrativo · a 25 mm/s un'onda F per quadrato grande",{a:"middle",sm:true});
   return FT.svg(440,320,"Tre strisce ECG schematiche di flutter atriale con onde F a circa 300 al minuto e QRS stretti: conduzione 2 a 1 a circa 150 al minuto, 3 a 1 a circa 100, 4 a 1 a circa 75",o)})()},
+{id:"fig-doms",t:"DOMS: la via biochimica dal muscolo al nocicettore",c:"Dopo una contrazione eccentrica in un esercizio insolito, la fibra muscolare e le cellule satelliti producono due mediatori lungo due vie: la bradichinina, che agisce sul recettore B2 e porta al fattore di crescita nervoso (NGF), e la COX-2, che porta al fattore neurotrofico gliale (GDNF). NGF e GDNF hanno un ruolo importante nell'iperalgesia meccanica, cioè dolore alla pressione e al movimento. Il danno della fibra muscolare non è necessario (può esserci): contano NGF e GDNF. In basso l'andamento nel tempo, schematico: il dolore sale, ha il picco tra circa 24 e 72 ore, poi cala. Schema ripreso dalla rassegna di Mizumura e Taguchi (J Physiol Sci 2016), in gran parte su modelli animali; disegno originale.",
+ enc:["doms"],gl:[],st:/doms|dolore muscolare tardivo|indolenzimento/i,
+ svg:(()=>{
+  const T=FT.text,R=" repeatCount=\"indefinite\"";
+  let o="";
+  o+=FT.box(120,8,200,50,"Contrazione eccentrica",["esercizio insolito: muscolo stirato","mentre si contrae"]);
+  o+=FT.arrow(220,58,220,78);
+  o+=FT.box(60,78,320,44,"Fibra muscolare e cellule satelliti","producono due mediatori, su due vie");
+  /* vie */
+  o+=FT.arrow(120,122,120,146)+FT.arrow(320,122,320,146);
+  o+=FT.box(30,146,180,40,"Bradichinina","recettore B2");
+  o+=FT.box(230,146,180,40,"COX-2","ciclo-ossigenasi 2");
+  o+=FT.arrow(120,186,120,210)+FT.arrow(320,186,320,210);
+  o+=FT.box(30,210,180,40,"NGF","fattore di crescita nervoso");
+  o+=FT.box(230,210,180,40,"GDNF","fattore neurotrofico gliale");
+  o+=FT.arrow(120,250,120,278)+FT.arrow(320,250,320,278);
+  o+=FT.box(60,278,320,44,"Terminazioni nervose del dolore","nocicettori");
+  o+=FT.arrow(220,322,220,342);
+  o+=FT.box(60,342,320,44,"Iperalgesia meccanica","dolore alla pressione e al movimento","warn");
+  o+=FT.box(8,402,424,48,"Il danno della fibra non è necessario","può esserci, ma il dolore dipende da NGF e GDNF","info");
+  /* pallini animati lungo le due vie */
+  [120,320].forEach(x=>{[0,-2].forEach(b=>{
+    o+=`<circle class="fv anm" r="3.5"><animateMotion dur="4s" begin="${b}s"${R} calcMode="linear" path="M${x} 122V300"/></circle>`;
+  });});
+  /* linea temporale */
+  o+=T(8,466,"Andamento del dolore nel tempo (schematico)",{sm:true,b:true});
+  const X0=40,Y0=574,W=380,H=86;
+  o+=`<rect class="eyrow" x="170" y="${Y0-H+4}" width="120" height="${H-4}"/>`;
+  o+=FT.axes(X0,Y0,W,H,"tempo","dolore");
+  o+=`<path class="lead" d="M170 ${Y0}V${Y0-H+4}M290 ${Y0}V${Y0-H+4}"/>`;
+  o+=FT.curve([[X0+4,Y0-2],[100,Y0-6],[150,Y0-30],[200,Y0-48],[230,Y0-52]],"fs");
+  o+=FT.curve([[230,Y0-52],[290,Y0-42],[350,Y0-18],[412,Y0-4]],"fl dash").replace('class="fl dash"','class="fl dash" style="fill:none"');
+  o+=T(230,Y0-H+14,"picco",{a:"middle",sm:true});
+  o+=T(X0+8,Y0+16,"0 (esercizio)",{a:"middle",sm:true})+T(170,Y0+16,"24 h",{a:"middle",sm:true})+T(290,Y0+16,"72 h",{a:"middle",sm:true});
+  
+  return FT.svg(440,Y0+24,"Schema della via biochimica dei DOMS. Una contrazione eccentrica in un esercizio insolito stimola la fibra muscolare e le cellule satelliti, che producono due mediatori lungo due vie: bradichinina con recettore B2 che porta al fattore di crescita nervoso NGF, e COX-2 che porta al fattore neurotrofico gliale GDNF. NGF e GDNF hanno un ruolo importante nell'iperalgesia meccanica, e producono iperalgesia meccanica, cioè dolore alla pressione e al movimento. Il danno della fibra muscolare non è necessario, può esserci. In basso una linea temporale schematica: dolore che sale dopo l'esercizio, picco tra circa 24 e 72 ore, poi calo tratteggiato.",o);
+ })()},
 {id:"fig-encefalo-regioni",t:"Encefalo: le grandi regioni e che cosa fanno",c:"Sezione sagittale mediana schematica, fronte a sinistra. I colori raggruppano le regioni per famiglia: verde e azzurro il telencefalo (corteccia con i quattro lobi, nuclei della base, ippocampo), rosso il diencefalo (talamo, ipotalamo con l'ipofisi), viola e arancio il tronco encefalico (mesencefalo, ponte, bulbo), oliva il cervelletto. Il lobo temporale, i nuclei della base e l'ippocampo stanno di lato alla linea mediana: sono accennati. Sotto il bulbo continua il midollo spinale.",
  enc:["encefalo-regioni","sistema-nervoso"],gl:["Talamo","Ipotalamo","Cervelletto","Tronco encefalico"],st:/encefal|talam|cervellet|tronco|ipotalam|regioni cerebr/i,
  svg:(()=>{
