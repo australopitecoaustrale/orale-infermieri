@@ -886,7 +886,7 @@ GLOSS.push(
 ["Rischio nutrizionale","n","Probabilità che una persona sviluppi complicanze legate a malnutrizione o alla malattia; si individua con lo screening (per esempio NRS-2002).","Nutritional risk","glim-screening-malnutrizione"],
 ["Supporto nutrizionale individualizzato","n","Piano con obiettivi di energia e proteine fissati per il singolo paziente e avviato presto, come nello studio EFFORT.","Individualised nutritional support","supporto-nutrizionale-ricoverato"],
 ["EFFORT","g","Trial svizzero su 2088 pazienti medici a rischio nutrizionale che ha mostrato meno esiti avversi con il supporto individualizzato.","EFFORT trial","supporto-nutrizionale-ricoverato"],
-["Nutrizione enterale trofica","n","Somministrazione di piccole quantità di nutrizione enterale, circa 400 kcal/die, per mantenere la funzione intestinale nei primi giorni.","Trophic enteral feeding","nutrizione-paziente-critico"],
+["Nutrizione enterale trofica","n","Somministrazione di piccole quantità (nello studio EDEN circa 400 kcal/die) di nutrizione enterale, per mantenere la funzione intestinale nei primi giorni.","Trophic enteral feeding","nutrizione-paziente-critico"],
 ["Parenterale integrativa","n","Nutrizione per vena usata per completare l'enterale quando non raggiunge gli obiettivi; nello studio EPaNIC iniziarla tardi (dopo il giorno 8) ha dato meno infezioni.","Supplemental parenteral nutrition","nutrizione-paziente-critico"],
 ["Test di flusso IDDSI","d","Prova con siringa da 10 mL: si osserva quanto liquido resta dopo 10 secondi per classificare la densità.","IDDSI Flow Test","disfagia-iddsi"],
 ["Sarcopenia","p","Malattia del muscolo con perdita di forza e di massa; per EWGSOP2 la forza bassa è il criterio principale.","Sarcopenia","sarcopenia-proteine-anziano"],
