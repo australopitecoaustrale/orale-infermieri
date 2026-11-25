@@ -823,6 +823,8 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px;margin:4px 0}
 .fig{margin:0;display:flex;flex-direction:column;gap:8px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--paper);cursor:zoom-in;transition:box-shadow .2s}
 .fig:hover{box-shadow:var(--shadow)}
+.fig.wide{grid-column:1/-1}.fig.wide .fig-svg{max-width:640px;margin:0 auto;width:100%}
+@media (max-width:600px){.fig.wide{padding:10px 4px;border-radius:8px}.fig.wide figcaption{padding:0 8px}.fig.wide .fig-svg .fsm{font-size:11.5px}}
 .fig.big{grid-column:1/-1;cursor:zoom-out}.fig.big .fig-svg{max-width:760px;margin:0 auto;width:100%}
 .fig-svg svg{width:100%;height:auto;display:block}
 .fig figcaption{font-size:.88rem;line-height:1.45;color:var(--ink)}
@@ -3833,7 +3835,7 @@ function scenaSol(c){const sc=c.scena;if(!sc)return "";
   return `<div class="trace-sol"><span class="eyebrow">Cartellini di triage compilati</span><div class="tags">${sc.v.map(v=>`<div class="ttag done" style="--tc:${TAGCOL[v.c]||"#999"}"><span class="tt-hole"></span><span class="tt-k">TRIAGE</span><b class="tt-n">${esc(v.n)}</b><span class="tt-d">${esc(v.d)}</span><span class="tt-code">${v.c.toUpperCase()}</span>${v.nota?`<span class="tt-note">${esc(v.nota)}</span>`:""}</div>`).join("")}</div></div>`}
 /* ============ ENCICLOPEDIA E GLOSSARIO ============ */
 const FIGS=typeof FIGURE!=="undefined"?FIGURE:[];
-let FIG_N=0;const FIG_STILL=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;function figHtml(f){const u="_"+(++FIG_N),svg=(FIG_STILL?f.svg.replace(/<circle class="[^"]*anm"[^>]*>.*?<\/circle>/g,"").replace(/<animate\b[^>]*\/>/g,""):f.svg).replace(/id="([\w-]+)"/g,(m,a)=>`id="${a}${u}"`).replace(/url\(#([\w-]+)\)/g,(m,a)=>`url(#${a}${u})`);return `<figure class="fig"><div class="fig-svg">${svg}</div><figcaption><b>${esc(f.t)}.</b> ${esc(f.c)}</figcaption></figure>`}
+let FIG_N=0;const FIG_STILL=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;function figHtml(f){const u="_"+(++FIG_N),svg=(FIG_STILL?f.svg.replace(/<circle class="[^"]*anm"[^>]*>.*?<\/circle>/g,"").replace(/<animate\b[^>]*\/>/g,""):f.svg).replace(/id="([\w-]+)"/g,(m,a)=>`id="${a}${u}"`).replace(/url\(#([\w-]+)\)/g,(m,a)=>`url(#${a}${u})`);return `<figure class="fig${f.wide?" wide":""}"><div class="fig-svg">${svg}</div><figcaption><b>${esc(f.t)}.</b> ${esc(f.c)}</figcaption></figure>`}
 function simSvg(sim,st,lv){const u="_s"+(++FIG_N);let v=sim.livelli[lv].svg(st);if(FIG_STILL)v=v.replace(/<circle class="[^"]*anm"[^>]*>.*?<\/circle>/g,"").replace(/<animate(Motion|Transform)?\b[^>]*\/>/g,"");return v.replace(/id="([\w-]+)"/g,(m,a)=>`id="${a}${u}"`).replace(/url\(#([\w-]+)\)/g,(m,a)=>`url(#${a}${u})`)}
 function simBody(sim,st,lv){const L=sim.livelli[lv],F=L.fasi===false?null:(L.fasi||sim.fasi),d=L.dur||sim.dur||"4s",v=L.val?L.val[st]:"",al=v.startsWith("!");
  const bar=FIG_STILL?"":`<div class="sim-bar">${F?`<span class="sim-ph" style="--d:${d}"><i></i><span class="pw"><span class="p1">${esc(F[0])}</span><span class="p2">${esc(F[1])}</span></span></span>`:"<span></span>"}<button class="chip" data-sim-pause aria-pressed="false">Pausa</button></div>`;

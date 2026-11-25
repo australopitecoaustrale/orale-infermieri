@@ -570,152 +570,188 @@ const FIGURE=[
   +FT.box(8,198,100,48,"1 · pH",["< 7,35 acidosi","> 7,45 alcalosi"],"info")+FT.box(116,198,100,48,"2 · PaCO₂",["componente","respiratoria"],"")
   +FT.box(224,198,100,48,"3 · HCO₃⁻",["componente","metabolica"],"")+FT.box(332,198,100,48,"4 · Compenso",["l'altro sistema","tenta di correggere"],"")
   +FT.text(8,264,"Lattati normali < 2 mmol/L · prelievo arterioso radiale dopo il test di Allen",{sm:true}))},
-{id:"fig-bpco-livelli",t:"BPCO su tre livelli: bronchiolo, alveoli, polmone intero",c:"Nel bronchiolo l'infiammazione ispessisce la parete e il muco riempie un lume già stretto (bronchite cronica). Negli alveoli l'elastasi dei neutrofili rompe l'elastina: i setti si distruggono, gli alveoli confluiscono in spazi grandi, la superficie di scambio e il ritorno elastico calano (enfisema). Senza la trazione dei setti la piccola via aerea si chiude in espirazione e l'aria resta intrappolata: il polmone si iperinflaziona e il diaframma si appiattisce. In basso gli stadi spirometrici GOLD. Disegno schematico, proporzioni indicative.",
+{id:"fig-bpco-livelli",wide:1,t:"BPCO su tre livelli: bronchiolo, alveoli, polmone intero",c:"Nel bronchiolo l'infiammazione ispessisce la parete e il muco riempie un lume già stretto (bronchite cronica). Negli alveoli l'elastasi dei neutrofili rompe l'elastina: i setti si distruggono, gli alveoli confluiscono in spazi grandi, la superficie di scambio e il ritorno elastico calano (enfisema). Senza la trazione dei setti la piccola via aerea si chiude in espirazione e l'aria resta intrappolata: il polmone si iperinfla e il diaframma si appiattisce. In basso gli stadi spirometrici GOLD. Disegno schematico, proporzioni indicative.",
  enc:["bpco"],gl:["BPCO","Iperinflazione dinamica"],st:/bpco|enfisema|bronchite cronica/i,
  svg:(()=>{
   const T=FT.text,D="6s",R=" repeatCount=\"indefinite\"";
-  /* colori fissi semitrasparenti (anatomia): reggono chiaro e scuro */
-  const TIS="fill:#d46a6a;fill-opacity:.28;stroke:#b55454;stroke-width:1",
-        INF="fill:#d9443f;fill-opacity:.45;stroke:#a83a36;stroke-width:1",
-        EPI="fill:#d46a6a;fill-opacity:.5;stroke:none",
-        MUC="fill:#cbb24a;fill-opacity:.8;stroke:#9c8429;stroke-width:1",
-        ALV="fill:var(--paper);stroke:#b55454;stroke-width:1.4",
-        ELA="fill:none;stroke:#c9961c;stroke-width:1.3",
-        NEU="fill:#7a5cb8;stroke:none",
-        MAC="fill:#a58bd6;fill-opacity:.8;stroke:#6a4fa6;stroke-width:1",
-        LUN="fill:#d46a6a;fill-opacity:.24;stroke:#b55454;stroke-width:1.2",
-        LUB="fill:#d46a6a;fill-opacity:.12;stroke:#b55454;stroke-width:1.2",
-        LEAD=(x1,y1,x2,y2)=>`<path class="lead" d="M${x1} ${y1}L${x2} ${y2}"/>`;
-  const r1=v=>Math.round(v*10)/10,pol=(cx,cy,r,a)=>[r1(cx+r*Math.cos(a*Math.PI/180)),r1(cy+r*Math.sin(a*Math.PI/180))];
+  const r1=v=>Math.round(v*10)/10,P=(x,y)=>r1(x)+" "+r1(y);
+  const pol=(cx,cy,r,a)=>[cx+r*Math.cos(a*Math.PI/180),cy+r*Math.sin(a*Math.PI/180)];
+  /* colori: solo variabili del tema (miscele) */
+  const INK="color-mix(in srgb,var(--ink) 55%,var(--paper))";
+  const FL=(c,p)=>`fill:color-mix(in srgb,var(--${c}) ${p}%,var(--paper))`;
+  const ST=(w,c)=>`stroke:${c||INK};stroke-width:${w};stroke-linecap:round;stroke-linejoin:round`;
+  const TIS=(c,p,w)=>`${FL(c,p)};${ST(w||1)}`;
+  const NEU=`fill:var(--scrub);stroke:var(--paper);stroke-width:.6`;
+  const MAC=`${FL("scrub",26)};stroke:var(--scrub);stroke-width:1`;
+  const AMB=`${FL("amber",55)};stroke:var(--amber);stroke-width:1`;
+  /* spline chiusa e blob organici */
+  const closed=pts=>{const n=pts.length;let d="M"+P(...pts[0]);for(let i=0;i<n;i++){const p0=pts[(i-1+n)%n],p1=pts[i],p2=pts[(i+1)%n],p3=pts[(i+2)%n];d+="C"+P(p1[0]+(p2[0]-p0[0])/6,p1[1]+(p2[1]-p0[1])/6)+" "+P(p2[0]-(p3[0]-p1[0])/6,p2[1]-(p3[1]-p1[1])/6)+" "+P(...p2)}return d+"Z"};
+  const rad=(r,amp,n,ph,a)=>r*(1+amp*Math.sin(n*a*Math.PI/180+ph)+amp*.45*Math.sin((n+3)*a*Math.PI/180+ph*2));
+  const blob=(cx,cy,r,amp,n,ph)=>closed(Array.from({length:30},(_,i)=>pol(cx,cy,rad(r,amp,n,ph,i*12),i*12)));
+  const LD=(x1,y1,x2,y2)=>`<path class="lead" d="M${P(x1,y1)}L${P(x2,y2)}"/><circle cx="${r1(x2)}" cy="${r1(y2)}" r="1.5" style="fill:var(--muted)"/>`;
+  const an=(vals,kt)=>`<animate attributeName="d" values="${vals.join(";")}" keyTimes="${kt}" dur="${D}"${R}/>`;
   let o="";
-  /* fase del respiro (animata); a riposo i due riquadri sono neutri */
-  o+=T(8,21,"Ciclo del respiro",{sm:true});
-  [["inspirazione",132,"1;0"],["espirazione",284,"0;1"]].forEach(([s,x,v])=>{
-    o+=`<rect class="fbx" x="${x}" y="8" width="120" height="18" rx="2"/>`;
-    o+=`<rect class="fbx k-info" x="${x}" y="8" width="120" height="18" rx="2" opacity="0"><animate attributeName="opacity" values="${v}" keyTimes="0;.4" calcMode="discrete" dur="${D}"${R}/></rect>`;
-    o+=T(x+60,21,s,{a:"middle",sm:true});
-  });
-  o+=FT.arrow(254,17,282,17,{h:6});
-  /* intestazioni delle colonne */
+
+  /* ===== intestazione: ciclo del respiro ===== */
+  o+=T(8,20,"Ciclo del respiro",{sm:true});
+  o+=`<rect class="fbx" x="124" y="6" width="192" height="19" rx="2"/>`;
+  o+=`<rect class="fbx k-info" x="124" y="6" width="96" height="19" rx="2" opacity="0"><animate attributeName="opacity" values="1;0" keyTimes="0;.4" calcMode="discrete" dur="${D}"${R}/></rect>`;
+  o+=`<rect class="fbx k-info" x="220" y="6" width="96" height="19" rx="2" opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;.4" calcMode="discrete" dur="${D}"${R}/></rect>`;
+  o+=T(172,19,"inspirazione",{a:"middle",sm:true})+T(268,19,"espirazione",{a:"middle",sm:true});
+  /* colonne */
   o+=`<rect class="fbx k-ok" x="8" y="34" width="208" height="20" rx="2"/>`+T(112,48,"Normale",{a:"middle",b:true});
   o+=`<rect class="fbx k-alarm" x="224" y="34" width="208" height="20" rx="2"/>`+T(328,48,"BPCO",{a:"middle",b:true});
-  const panel=(y,h)=>`<rect class="fbx" x="8" y="${y}" width="208" height="${h}" rx="2"/><rect class="fbx" x="224" y="${y}" width="208" height="${h}" rx="2"/>`;
+  const level=(ty,n,title,sub)=>`<circle class="fbx k-info" cx="15" cy="${ty-4}" r="7.5"/>`+T(15,ty,String(n),{a:"middle",sm:true,b:true})+T(30,ty,title,{b:true})+T(432,ty,sub,{a:"end",sm:true})+`<path class="lead" d="M8 ${ty+7}H432" style="stroke-opacity:.55"/>`;
 
   /* ===== 1. Bronchiolo ===== */
-  const Y1=78,H1=122;
-  o+=T(8,Y1-6,"1  Bronchiolo in sezione: bronchite cronica",{sm:true,b:true});
-  o+=panel(Y1,H1);
+  const t1=84,c1=t1+16,H1=128,cy1=c1+64;
+  o+=level(t1,1,"Bronchiolo in sezione","bronchite cronica");
   { /* normale */
-    const cx=66,cy=Y1+61;
-    o+=`<circle cx="${cx}" cy="${cy}" r="38" style="${TIS}"/><circle cx="${cx}" cy="${cy}" r="31" style="${EPI}"/><circle class="ff" cx="${cx}" cy="${cy}" r="27"/>`;
-    for(let a=0;a<360;a+=12){const p=pol(cx,cy,27,a),q=pol(cx,cy,22.5,a);o+=`<path d="M${p[0]} ${p[1]}L${q[0]} ${q[1]}" style="stroke:#a04646;stroke-width:1"/>`;}
-    o+=T(118,Y1+22,"parete sottile",{sm:true})+LEAD(114,Y1+19,r1(cx+25),r1(cy-26));
-    o+=T(118,Y1+52,["epitelio","con ciglia"],{sm:true})+LEAD(114,Y1+54,cx+24,cy);
-    o+=T(118,Y1+92,"lume ampio",{sm:true})+LEAD(114,Y1+89,cx+6,cy+10);
+    const cx=62,cy=cy1;
+    o+=`<path d="${blob(cx,cy,35,.025,3,.4)}" style="${TIS("ok",12)}"/>`;
+    for(let a=0;a<360;a+=30){const p=pol(cx,cy,31,a+8),q=pol(cx,cy,31,a+26);o+=`<path d="M${P(...p)}A31 31 0 0 1 ${P(...q)}" style="${ST(1.3,"color-mix(in srgb,var(--ok) 70%,var(--paper))")};fill:none"/>`}
+    o+=`<circle cx="${cx}" cy="${cy}" r="27" style="${TIS("ok",30)}"/>`;
+    for(let a=0;a<360;a+=15){const p=pol(cx,cy,22,a),q=pol(cx,cy,27,a);o+=`<path d="M${P(...p)}L${P(...q)}" style="${ST(.6)};stroke-opacity:.6"/>`}
+    o+=`<circle class="ff" cx="${cx}" cy="${cy}" r="22" style="${ST(1)}"/>`;
+    for(let a=0;a<360;a+=12){const p=pol(cx,cy,22,a),c=pol(cx,cy,20.5,a-5),q=pol(cx,cy,16.5,a+7);o+=`<path d="M${P(...p)}Q${P(...c)} ${P(...q)}" style="${ST(.8)};fill:none"/>`}
+    o+=T(112,c1+20,"parete sottile",{sm:true})+LD(109,c1+17,cx+23,cy-23);
+    o+=T(112,cy-1,["epitelio","con ciglia"],{sm:true})+LD(109,cy+3,cx+24.5,cy+3);
+    o+=T(112,c1+110,"lume ampio",{sm:true})+LD(109,c1+107,cx+9,cy+11);
   }
   { /* BPCO */
-    const cx=282,cy=Y1+61;
-    o+=`<circle cx="${cx}" cy="${cy}" r="47" style="${INF}"/><circle cx="${cx}" cy="${cy}" r="29" style="${EPI}"/>`;
-    /* lume ristretto irregolare, quasi tutto muco */
-    let d="";for(let a=0;a<360;a+=30){const rr=a%60?17:21,p=pol(cx,cy,rr,a);d+=(a?"L":"M")+p[0]+" "+p[1];}
-    o+=`<path class="ff" d="${d}Z" style="stroke:#a04646;stroke-width:1;stroke-linejoin:round"/>`;
-    o+=`<path d="M${cx-14} ${cy-4}C${cx-12} ${cy-16} ${cx+8} ${cy-18} ${cx+14} ${cy-6}C${cx+19} ${cy+6} ${cx+8} ${cy+16} ${cx-2} ${cy+15}C${cx-12} ${cy+14} ${cx-16} ${cy+6} ${cx-14} ${cy-4}Z" style="${MUC}"/>`;
-    o+=`<ellipse class="ff" cx="${cx-4}" cy="${cy-3}" rx="4" ry="3"/>`;
-    /* cellule caliciformi */
-    [15,75,135,195,255,315].forEach(a=>{const p=pol(cx,cy,24,a);o+=`<ellipse cx="${p[0]}" cy="${p[1]}" rx="3.2" ry="5.2" transform="rotate(${a+90} ${p[0]} ${p[1]})" style="fill:#efe2a6;stroke:#9c8429;stroke-width:1"/>`;});
+    const cx=276,cy=cy1;
+    o+=`<path d="${blob(cx,cy,44,.035,3,1.2)}" style="${TIS("vital",13)}"/>`;
+    o+=`<path d="${blob(cx,cy,36,.04,4,.3)}" style="${TIS("vital",26)}"/>`;
+    o+=`<path d="${blob(cx,cy,29,.04,5,2)}" style="${TIS("vital",40)}"/>`;
+    const LU=(a)=>rad(16,.24,5,.8,a);
+    o+=`<path d="${closed(Array.from({length:30},(_,i)=>pol(cx,cy,LU(i*12),i*12)))}" class="ff" style="${ST(1)}"/>`;
+    /* muco */
+    o+=`<path d="${blob(cx+1,cy+1,11.5,.2,3,2.5)}" style="${AMB}"/><circle cx="${cx-3}" cy="${cy-3}" r="2.2" class="ff" style="${ST(.6,"var(--amber)")}"/><circle cx="${cx+4}" cy="${cy+4}" r="1.5" class="ff" style="${ST(.6,"var(--amber)")}"/>`;
+    /* caliciformi */
+    [5,78,135,195,250,310].forEach((a,i)=>{const p=pol(cx,cy,27.5,a);o+=`<ellipse cx="${P(...p).split(" ")[0]}" cy="${P(...p).split(" ")[1]}" rx="2.7" ry="4.6" transform="rotate(${a+90} ${r1(p[0])} ${r1(p[1])})" style="${FL("amber",45)};stroke:var(--amber);stroke-width:.9"/>`});
     /* ciglia rade e rotte */
-    [45,105,165,285].forEach(a=>{const p=pol(cx,cy,20,a),q=pol(cx,cy,17,a+14);o+=`<path d="M${p[0]} ${p[1]}L${q[0]} ${q[1]}" style="stroke:#a04646;stroke-width:1"/>`;});
-    /* neutrofili e macrofagi nella parete */
-    [[20,38],[70,36],[110,41],[160,37],[200,42],[230,36],[300,40],[340,35]].forEach(([a,rr])=>{const p=pol(cx,cy,rr,a);o+=`<circle cx="${p[0]}" cy="${p[1]}" r="2.6" style="${NEU}"/>`;});
-    [[0,39],[130,39],[250,40]].forEach(([a,rr])=>{const p=pol(cx,cy,rr,a);o+=`<circle cx="${p[0]}" cy="${p[1]}" r="4.4" style="${MAC}"/>`;});
-    const X=340;
-    o+=T(X,Y1+14,["parete spessa,","infiammata"],{sm:true})+LEAD(X-4,Y1+16,r1(cx+30),r1(cy-32));
-    o+=T(X,Y1+44,["neutrofili,","macrofagi"],{sm:true})+LEAD(X-4,Y1+50,cx+44,cy);
-    o+=T(X,Y1+76,"caliciformi ↑",{sm:true})+LEAD(X-4,Y1+73,r1(cx+27),r1(cy+7));
-    o+=T(X,Y1+94,"muco nel lume",{sm:true})+LEAD(X-4,Y1+91,cx+10,cy+8);
-    o+=T(X,Y1+112,"ciglia rotte",{sm:true})+LEAD(X-4,Y1+109,r1(cx+11),r1(cy+18));
+    [{a:50,b:1},{a:112,b:-1},{a:168,b:1},{a:290,b:-1}].forEach(({a,b})=>{const p=pol(cx,cy,LU(a)-.5,a),c=pol(cx,cy,LU(a)-3,a+6*b),q=pol(cx,cy,LU(a)-5,a+16*b);o+=`<path d="M${P(...p)}Q${P(...c)} ${P(...q)}" style="${ST(.9)};fill:none"/>`});
+    /* cellule infiammatorie */
+    [[10,40],[44,38],[86,40],[132,39],[172,41],[214,39],[256,41],[300,40],[336,38],[62,33],[198,33],[322,32]].forEach(([a,rr])=>{const p=pol(cx,cy,rr,a);o+=`<ellipse cx="${r1(p[0])}" cy="${r1(p[1])}" rx="2.6" ry="2.1" transform="rotate(${a} ${r1(p[0])} ${r1(p[1])})" style="${NEU}"/>`});
+    [[-24,37],[150,35],[238,36]].forEach(([a,rr])=>{const p=pol(cx,cy,rr,a);o+=`<circle cx="${r1(p[0])}" cy="${r1(p[1])}" r="4.6" style="${MAC}"/><circle cx="${r1(p[0]+1)}" cy="${r1(p[1])}" r="1.8" style="fill:var(--scrub)"/>`});
+    const X=334;
+    o+=T(X,c1+16,["parete spessa,","infiammata"],{sm:true})+LD(X-3,c1+13,...pol(cx,cy,40,-52));
+    o+=T(X,c1+48,["neutrofili,","macrofagi"],{sm:true})+LD(X-3,c1+45,...pol(cx,cy,37,-24));
+    o+=T(X,c1+80,"caliciformi ↑",{sm:true})+LD(X-3,c1+77,...pol(cx,cy,27.5,5));
+    o+=T(X,c1+98,"muco nel lume",{sm:true})+LD(X-3,c1+95,cx+8,cy+5);
+    o+=T(X,c1+116,"ciglia rotte",{sm:true})+LD(X-3,c1+113,...pol(cx,cy,LU(50)-4,50));
   }
 
   /* ===== 2. Alveoli ===== */
-  const Y2=Y1+H1+22,H2=172,cy2=Y2+58;
-  o+=T(8,Y2-6,"2  Alveoli: enfisema e aria intrappolata",{sm:true,b:true});
-  o+=panel(Y2,H2);
+  const t2=c1+H1+24,c2=t2+16,H2=170,cy2=c2+54;
+  o+=level(t2,2,"Alveoli","enfisema");
   { /* normale */
-    /* setti attorno alla piccola via aerea: la tengono aperta */
-    [[30,cy2-19],[52,cy2-19],[30,cy2+19],[52,cy2+19]].forEach(([x,y])=>{o+=`<circle cx="${x}" cy="${y}" r="12" style="${ALV}"/>`;});
-    o+=`<rect class="ff" x="16" y="${cy2-7}" width="58" height="14"/><path d="M16 ${cy2-7}H72M16 ${cy2+7}H72" style="stroke:#b55454;stroke-width:1.6;fill:none"/>`;
-    const C=[];[[104,126,148],[93,115,137,159],[82,104,126,148,170],[93,115,137,159],[104,126,148]].forEach((row,i)=>row.forEach(x=>C.push([x,cy2-42+i*21])));
-    C.forEach(([x,y])=>{o+=`<circle cx="${x}" cy="${y}" r="11.5" style="${ALV}"><animate attributeName="r" values="11.5;12.6;11.5" keyTimes="0;.4;1" dur="${D}"${R}/></circle>`;});
-    /* fibre elastiche negli interstizi */
-    [[104,cy2-29],[137,cy2-29],[93,cy2-8],[148,cy2-8],[115,cy2+13],[159,cy2+13],[126,cy2+34]].forEach(([x,y])=>{o+=`<path d="M${x-5} ${y}q1.25 -2.5 2.5 0t2.5 0t2.5 0t2.5 0" style="${ELA}"/>`;});
-    o+=`<circle class="fv anm" r="3.5"><animateMotion dur="${D}"${R} calcMode="linear" keyPoints="0;1;0" keyTimes="0;.4;1" path="M18 ${cy2}H126"/></circle>`;
-    o+=T(16,Y2+H2-44,["setti integri, fibre elastiche","i setti tengono aperta la via aerea","l'aria entra ed esce","buon ritorno elastico"],{sm:true});
+    o+=`<rect x="16" y="${cy2-37}" width="190" height="74" rx="16" style="${TIS("ok",20)}"/>`;
+    const al=[[34,-21],[56,-21],[78,-21],[34,21],[56,21],[78,21]];
+    [0,1,2,3,4].forEach(i=>(i%2?[-12,12]:[-24,0,24]).forEach(dy=>al.push([100+21*i,dy])));
+    /* via aerea */
+    o+=`<path d="M14 ${cy2-6}H92M14 ${cy2+6}H92" style="${ST(1.5)};fill:none"/><rect class="ff" x="14" y="${cy2-5}" width="80" height="10"/>`;
+    al.forEach(([x,y])=>{o+=`<circle class="ff" cx="${x}" cy="${cy2+y}" r="${y===0&&x===100?11:10.5}" style="${ST(.9)}"><animate attributeName="r" values="${y===0&&x===100?"11;11.8;11":"10.5;11.2;10.5"}" keyTimes="0;.4;1" dur="${D}"${R}/></circle>`});
+    o+=`<rect class="ff" x="86" y="${cy2-5}" width="8" height="10"/>`;
+    /* fibre elastiche */
+    const sq=(x,y,ang,L)=>{const u=[Math.cos(ang),Math.sin(ang)],v=[-u[1],u[0]];let d="M"+P(x-u[0]*L/2,y-u[1]*L/2);for(let i=1;i<=6;i++){const k=i/6,s=(i%2?1:-1)*1.9;d+="L"+P(x+u[0]*L*(k-.5)+v[0]*s,y+u[1]*L*(k-.5)+v[1]*s)}return `<path d="${d}" style="${ST(.9,"var(--amber)")};fill:none"/>`};
+    [[110.5,cy2-18,-.52],[131.5,cy2-6,-.52],[131.5,cy2-18,.52],[152.5,cy2+6,.52],[110.5,cy2+18,.52],[173.5,cy2-6,.52]].forEach(([x,y,a])=>{o+=sq(x,y,a+Math.PI/2,8)});
+    o+=T(112,c2+9,"setti integri",{sm:true})+LD(128,c2+13,121,cy2-17);
+    o+=T(112,c2+104,"fibre elastiche",{sm:true})+LD(130,c2+93,131.5,cy2+4);
+    o+=`<circle class="anm" style="fill:var(--scrub);stroke:var(--paper);stroke-width:1" r="3.4"><animateMotion dur="${D}"${R} calcMode="linear" keyPoints="0;1;0" keyTimes="0;.4;1" path="M20 ${cy2}H100"/></circle>`;
+    o+=T(12,c2+126,["i setti elastici tengono aperta","la via aerea: l'aria entra ed esce,","buon ritorno elastico"],{sm:true});
   }
   { /* BPCO */
-    const bx=346,by=cy2+2;
-    /* frammenti di setti rotti attorno alla via aerea: niente trazione */
-    o+=`<path d="M238 ${cy2-22}a11 11 0 0 1 16 -4M262 ${cy2-24}a11 11 0 0 1 14 6M240 ${cy2+22}a11 11 0 0 0 15 4M266 ${cy2+26}a11 11 0 0 0 12 -8" style="fill:none;stroke:#b55454;stroke-width:1.4"/>`;
-    /* spazi confluiti e pochi alveoli rimasti */
-    o+=`<circle cx="${bx}" cy="${by}" r="34" style="${ALV}"/><circle cx="398" cy="${cy2-18}" r="19" style="${ALV}"/><circle cx="402" cy="${cy2+24}" r="11" style="${ALV}"/><circle cx="380" cy="${cy2+38}" r="9" style="${ALV}"/>`;
-    /* moncherini dei setti distrutti */
-    [[200,9],[250,8],[95,9],[40,7]].forEach(([a,l])=>{const p=pol(bx,by,34,a),q=pol(bx,by,34-l,a);o+=`<path d="M${p[0]} ${p[1]}L${q[0]} ${q[1]}" style="stroke:#b55454;stroke-width:1.6"/>`;});
-    /* elastina frammentata */
-    [[338,by+28],[368,by-24]].forEach(([x,y])=>{o+=`<path d="M${x-6} ${y}q1.25 -2.5 2.5 0M${x+2} ${y}q1.25 -2.5 2.5 0" style="${ELA}"/>`;});
+    const wall=p=>`M232 ${cy2-7}H250Q270 ${cy2-7+p} 290 ${cy2-7}H310`,wallB=p=>`M232 ${cy2+7}H250Q270 ${cy2+7-p} 290 ${cy2+7}H310`;
+    const kv=`keyTimes="0;.4;.6;.92;1"`,seq=f=>[0,0,10.5,10.5,0].map(f);
+    /* frammenti di setti: nessuna trazione sulla via aerea */
+    o+=`<path d="M238 ${cy2-18}a9 9 0 0 1 12 -6M284 ${cy2-22}a9 9 0 0 1 12 6M238 ${cy2+19}a9 9 0 0 0 11 6M286 ${cy2+24}a9 9 0 0 0 11 -7" style="${ST(2.4,"color-mix(in srgb,var(--vital) 45%,var(--paper))")};fill:none"/>`;
+    /* spazio confluito */
+    const SP=[[336,cy2+2,28],[368,cy2-12,22],[370,cy2+20,18]],SM=[[409,cy2-28,7],[414,cy2+4,7]];
+    const rim="color-mix(in srgb,var(--vital) 50%,var(--paper))";
+    SP.concat(SM).forEach(([x,y,rr])=>{o+=`<circle cx="${x}" cy="${y}" r="${rr}" style="fill:none;stroke:${rim};stroke-width:7"/>`});
+    SP.concat(SM).forEach(([x,y,rr])=>{o+=`<circle class="ff" cx="${x}" cy="${y}" r="${rr}"/>`});
+    const cen=[360,cy2+4];
+    [[0,1],[0,2],[1,2]].forEach(([i,j])=>{const [x1,y1,r1_]=SP[i],[x2,y2,r2_]=SP[j],d=Math.hypot(x2-x1,y2-y1),a=(r1_*r1_-r2_*r2_+d*d)/(2*d),h=Math.sqrt(Math.max(0,r1_*r1_-a*a)),mx=x1+a*(x2-x1)/d,my=y1+a*(y2-y1)/d;
+      const c=[[mx+h*(y2-y1)/d,my-h*(x2-x1)/d],[mx-h*(y2-y1)/d,my+h*(x2-x1)/d]].sort((p,q)=>Math.hypot(q[0]-cen[0],q[1]-cen[1])-Math.hypot(p[0]-cen[0],p[1]-cen[1]))[0];
+      const dx=cen[0]-c[0],dy=cen[1]-c[1],L=Math.hypot(dx,dy);
+      o+=`<path d="M${P(c[0],c[1])}L${P(c[0]+8*dx/L,c[1]+8*dy/L)}" style="${ST(3,rim)}"/>`});
+    /* aria già intrappolata */
+    [[334,cy2+8],[374,cy2-16],[372,cy2+22],[352,cy2-6]].forEach(([x,y])=>{o+=`<circle cx="${x}" cy="${y}" r="2.3" class="ff" style="${ST(.9,"var(--scrub)")}"/>`});
+    /* via aerea: tratteggio = chiusa in espirazione */
+    o+=`<rect class="ff" x="232" y="${cy2-6}" width="80" height="12"/>`;
+    o+=`<path d="${wall(10.5)}${wallB(10.5)}" class="dash" style="fill:none;stroke-width:1"/>`;
+    o+=`<path d="${wall(0)}" style="${ST(1.7,"var(--vital)")};fill:none">${an(seq(wall),kv.slice(10,-1).replace('"','')&&"0;.4;.6;.92;1")}</path>`;
+    o+=`<path d="${wallB(0)}" style="${ST(1.7,"var(--vital)")};fill:none">${an(seq(wallB),"0;.4;.6;.92;1")}</path>`;
+    o+=`<circle class="anm" style="fill:var(--scrub);stroke:var(--paper);stroke-width:1" r="3.4"><animateMotion dur="${D}"${R} calcMode="linear" keyPoints="0;1;1" keyTimes="0;.4;1" path="M234 ${cy2}H312C326 ${cy2} 334 ${cy2+2} 344 ${cy2+2}C352 ${cy2-2} 360 ${cy2-8} 366 ${cy2-12}"/><animate attributeName="opacity" values="1;1;1;0;1" keyTimes="0;.4;.9;.96;1" dur="${D}"${R}/></circle>`;
     /* neutrofilo che libera elastasi */
-    o+=`<circle cx="298" cy="${cy2-40}" r="4.2" style="${MAC}"/><circle cx="296.6" cy="${cy2-41}" r="1.3" style="${NEU}"/><circle cx="299.6" cy="${cy2-40.5}" r="1.3" style="${NEU}"/><circle cx="297.8" cy="${cy2-38.2}" r="1.3" style="${NEU}"/>`;
-    o+=T(234,cy2-44,["neutrofilo:","elastasi"],{sm:true});
-    o+=FT.arrow(303,cy2-37,316,cy2-28,{h:5});
-    /* piccola via aerea che collassa in espirazione */
-    const wall=(p)=>`M232 ${cy2-7}H252Q266 ${cy2-7+p} 280 ${cy2-7}H313`,wallB=(p)=>`M232 ${cy2+7}H252Q266 ${cy2+7-p} 280 ${cy2+7}H313`;
-    const kv=`keyTimes="0;.4;.6;.92;1" dur="${D}"${R}`;
-    o+=`<rect class="ff" x="232" y="${cy2-6}" width="84" height="12" />`;
-    o+=`<path d="${wall(0)}" style="stroke:var(--vital);stroke-width:1.8;fill:none"><animate attributeName="d" values="${[0,0,6.2,6.2,0].map(wall).join(";")}" ${kv}/></path>`;
-    o+=`<path d="${wallB(0)}" style="stroke:var(--vital);stroke-width:1.8;fill:none"><animate attributeName="d" values="${[0,0,6.2,6.2,0].map(wallB).join(";")}" ${kv}/></path>`;
-    /* aria che entra ma non esce: resta nello spazio enfisematoso */
-    o+=`<circle class="fv anm" r="3.5"><animateMotion dur="${D}"${R} calcMode="linear" keyPoints="0;.42;1" keyTimes="0;.4;1" path="M234 ${cy2}H330C334 ${cy2-14} 356 ${cy2-16} 362 ${cy2-2}C368 ${cy2+12} 352 ${cy2+20} 340 ${cy2+12}C330 ${cy2+6} 334 ${cy2-6} 346 ${cy2-6}"/></circle>`;
-    o+=T(232,Y2+H2-44,["setti distrutti: alveoli confluiti","meno scambio, meno ritorno elastico","in espirazione la via si chiude:","l'aria resta intrappolata"],{sm:true});
+    o+=`<circle cx="304" cy="${cy2-34}" r="4.8" style="${MAC}"/><circle cx="303" cy="${cy2-35}" r="1.4" style="fill:var(--scrub)"/><circle cx="306" cy="${cy2-34}" r="1.4" style="fill:var(--scrub)"/><circle cx="304.4" cy="${cy2-32}" r="1.4" style="fill:var(--scrub)"/>`;
+    o+=FT.arrow(309,cy2-31,316,cy2-22,{h:5});
+    o+=T(232,c2+8,["neutrofilo:","elastasi"],{sm:true});
+    o+=T(340,c2+9,"alveoli confluiti",{sm:true})+LD(368,c2+13,368,cy2-32);
+    o+=T(232,c2+98,["la via si chiude","in espirazione"],{sm:true})+LD(268,c2+86,268,cy2+8);
+    o+=T(232,c2+126,["setti distrutti: alveoli confluiti,","meno scambio e meno ritorno elastico;","in espirazione la via si chiude:","l'aria resta intrappolata"],{sm:true});
   }
 
   /* ===== 3. Polmone intero ===== */
-  const Y3=Y2+H2+22,H3=132;
-  o+=T(8,Y3-6,"3  Polmone intero: iperinflazione",{sm:true,b:true});
-  o+=panel(Y3,H3);
-  const lung=(ax,ay,lx,mx,by,dome)=>`M${ax} ${ay}C${lx+(lx<mx?4:-4)} ${ay+4} ${lx} ${by-40} ${lx} ${by}Q${(lx+mx)/2} ${dome} ${mx} ${by-4}C${mx} ${by-30} ${mx+(lx<mx?-2:2)} ${ay+16} ${ax} ${ay}Z`;
-  const dia=(L1,M1,M2,L2,by,dome)=>`M${L1} ${by}Q${(L1+M1)/2} ${dome} ${M1} ${by-4}L${M2} ${by-4}Q${(L2+M2)/2} ${dome} ${L2} ${by}`;
-  const anD=(f,vals)=>`<animate attributeName="d" values="${vals.map(f).join(";")}" keyTimes="0;.4;1" dur="${D}"${R}/>`;
-  const thorax=x=>`<rect x="${x}" y="${Y3+8}" width="112" height="${H3-14}" rx="18" class="lead"/>`;
-  const trach=x=>`<path class="fl" d="M${x} ${Y3+4}V${Y3+30}M${x} ${Y3+30}L${x-10} ${Y3+40}M${x} ${Y3+30}L${x+10} ${Y3+40}"/>`;
-  { /* normale: diaframma a cupola, ampia escursione */
-    const by=Y3+106,dv=[Y3+68,Y3+86,Y3+68];
-    o+=thorax(21);
-    o+=`<path d="${lung(56,Y3+16,30,72,by,dv[0])}" style="${LUN}">${anD(d=>lung(56,Y3+16,30,72,by,d),dv)}</path>`;
-    o+=`<path d="${lung(98,Y3+16,124,82,by,dv[0])}" style="${LUN}">${anD(d=>lung(98,Y3+16,124,82,by,d),dv)}</path>`;
-    o+=trach(77);
-    o+=`<path class="fs" d="${dia(30,72,82,124,by,dv[0])}">${anD(d=>dia(30,72,82,124,by,d),dv)}</path>`;
-    o+=T(144,Y3+72,["diaframma","a cupola,","si muove bene"],{sm:true})+LEAD(140,Y3+80,114,Y3+92);
-    o+=T(144,Y3+28,["si svuota","in espirazione"],{sm:true})+LEAD(140,Y3+30,112,Y3+44);
+  const t3=c2+H2+22,c3=t3+16,H3=140;
+  o+=level(t3,3,"Polmone intero","iperinflazione");
+  const lung=(mx,lx,ay,by,dome,n)=>{const s=lx<mx?-1:1,w=Math.abs(lx-mx),H=by-ay,Ax=mx+s*.45*w;
+    return `M${P(Ax,ay)}C${P(mx+s*1.0*w,ay-.01*H)} ${P(lx,ay+.08*H)} ${P(lx,ay+.4*H)}C${P(lx,ay+.7*H)} ${P(lx,by-.1*H)} ${P(lx,by)}Q${P((lx+mx)/2,dome)} ${P(mx,by-6)}C${P(mx+s*n,by-.3*H)} ${P(mx+s*n*.5,ay+.5*H)} ${P(mx,ay+.2*H)}C${P(mx,ay+.04*H)} ${P(Ax-s*.3*w,ay)} ${P(Ax,ay)}Z`};
+  const fis=(mx,lx,ay,by,dome,k)=>{const H=by-ay,e=(by+dome)/2;return k?`M${P(lx,ay+.36*H)}Q${P((lx+mx)/2,ay+.34*H)} ${P(mx,ay+.4*H)}`:`M${P(lx,ay+.62*H)}Q${P((lx+mx)/2,ay+.6*H)} ${P(mx,Math.min(by-.3*H+0,e-14))}`};
+  const dia=(a,b,by,dome)=>`M${P(a[1],by)}Q${P((a[1]+a[0])/2,dome)} ${P(a[0],by-6)}L${P(b[0],by-6)}Q${P((b[1]+b[0])/2,dome)} ${P(b[1],by)}`;
+  const thorax=x=>`<rect x="${x}" y="${c3}" width="100" height="${H3-4}" rx="24" class="lead"/>`;
+  const tree=(tc,ty,L,Rr)=>{
+    let d=`M${tc} ${ty}V${ty+26}`;
+    [[-1,L],[1,Rr]].forEach(([s,[hx,hy,ex,ey]])=>{d+=`M${tc} ${ty+26}L${P(tc+s*10,ty+34)}L${P(hx,hy)}M${P(hx,hy)}Q${P(hx+s*8,hy+8)} ${P(ex,ey)}M${P(hx,hy)}L${P(hx+s*14,hy-10)}M${P(hx+s*6,hy+3)}L${P(hx+s*20,hy+10)}M${P(hx+s*8,hy+14)}L${P(hx+s*22,hy+28)}`});
+    return `<path d="${d}" style="${ST(1.2)};fill:none;stroke-opacity:.8"/>`};
+  const lungs=(tx,ax,by,doms,fill,stroke)=>{ /* ax: [lxL,mxL,mxR,lxR,ay] */
+    const [lxL,mxL,mxR,lxR,ay]=ax,kt="0;.4;1";let s="";
+    [[mxL,lxL,0],[mxR,lxR,22]].forEach(([mx,lx,n],i)=>{
+      s+=`<path d="${lung(mx,lx,ay,by,doms[0],n)}" style="${fill};${stroke}">${an(doms.map(d=>lung(mx,lx,ay,by,d,n)),kt)}</path>`;
+      s+=`<path d="${fis(mx,lx,ay,by,doms[0],0)}" style="${ST(.8)};fill:none;stroke-opacity:.7">${an(doms.map(d=>fis(mx,lx,ay,by,d,0)),kt)}</path>`;
+      if(!i)s+=`<path d="${fis(mx,lx,ay,by,doms[0],1)}" style="${ST(.8)};fill:none;stroke-opacity:.7"/>`});
+    return s};
+  { /* normale */
+    const tx=16,tc=tx+50,by=c3+104,doms=[c3+70,c3+98,c3+70];
+    o+=thorax(tx);
+    o+=lungs(tx,[tx+10,tc-5,tc+5,tx+90,c3+14],by,doms,FL("ok",13),ST(1));
+    o+=tree(tc,c3+6,[tx+30,c3+46,tx+18,c3+72],[tx+70,c3+46,tx+82,c3+72]);
+    const dN=d=>`M${P(tx+10,by)}Q${P((tx+10+tc-5)/2,d)} ${P(tc-5,by-6)}L${P(tc+5,by-6)}Q${P((tx+90+tc+5)/2,d)} ${P(tx+90,by)}`;
+    o+=`<path class="fs" d="${dN(doms[0])}">${an(doms.map(dN),"0;.4;1")}</path>`;
+    o+=T(126,c3+30,["si svuota","in espirazione"],{sm:true})+LD(123,c3+27,tx+88,c3+40);
+    o+=T(126,c3+88,["diaframma","a cupola,","si muove bene"],{sm:true})+LD(123,c3+85,tx+76,c3+(104+70)/2+2);
   }
-  { /* BPCO: polmoni grandi, bolle, diaframma piatto */
-    const by=Y3+114,dv=[Y3+110,Y3+113,Y3+110];
-    o+=thorax(237);
-    o+=`<path d="${lung(268,Y3+11,242,286,by,dv[0])}" style="${LUB}">${anD(d=>lung(268,Y3+11,242,286,by,d),dv)}</path>`;
-    o+=`<path d="${lung(318,Y3+11,344,300,by,dv[0])}" style="${LUB}">${anD(d=>lung(318,Y3+11,344,300,by,d),dv)}</path>`;
-    o+=trach(293);
-    o+=`<circle class="ff" cx="258" cy="${Y3+30}" r="7" style="stroke:#b55454;stroke-width:1.2;stroke-dasharray:3 2"/><circle class="ff" cx="328" cy="${Y3+26}" r="6.5" style="stroke:#b55454;stroke-width:1.2;stroke-dasharray:3 2"/><circle class="ff" cx="322" cy="${Y3+41}" r="4" style="stroke:#b55454;stroke-width:1.2;stroke-dasharray:3 2"/>`;
-    o+=`<path class="fs" d="${dia(242,286,300,344,by,dv[0])}">${anD(d=>dia(242,286,300,344,by,d),dv)}</path>`;
-    const X=358;
-    o+=T(X,Y3+22,"bolle",{sm:true})+LEAD(X-4,Y3+19,335,Y3+24);
-    o+=T(X,Y3+52,["aria","intrappolata"],{sm:true})+LEAD(X-4,Y3+55,330,Y3+64);
-    o+=T(X,Y3+92,["diaframma","piatto,","si muove poco"],{sm:true})+LEAD(X-4,Y3+102,338,Y3+110);
+  { /* BPCO */
+    const tx=232,tc=tx+50,by=c3+116,doms=[c3+116,c3+120,c3+116];
+    o+=thorax(tx);
+    o+=lungs(tx,[tx+4,tc-5,tc+5,tx+96,c3+8],by,doms,FL("vital",10),ST(1));
+    o+=tree(tc,c3+6,[tx+30,c3+46,tx+16,c3+74],[tx+70,c3+46,tx+84,c3+74]);
+    /* aria intrappolata */
+    [[tx+20,c3+88],[tx+28,c3+96],[tx+36,c3+84],[tx+66,c3+92],[tx+76,c3+86],[tx+84,c3+98],[tx+30,c3+72],[tx+74,c3+70]].forEach(([x,y])=>{o+=`<circle cx="${x}" cy="${y}" r="1.7" style="fill:none;stroke:var(--scrub);stroke-width:.8"/>`});
+    /* bolle */
+    [[tx+14,c3+34,6.5],[tx+86,c3+30,6],[tx+82,c3+46,3.8]].forEach(([x,y,rr])=>{o+=`<circle class="ff" cx="${x}" cy="${y}" r="${rr}" style="${ST(.9)}"/><path d="M${P(x-rr*.5,y-rr*.35)}a${r1(rr*.6)} ${r1(rr*.6)} 0 0 1 ${r1(rr*.5)} ${r1(-rr*.3)}" style="${ST(.7)};fill:none;stroke-opacity:.6"/>`});
+    const dB=d=>`M${P(tx+4,by)}Q${P((tx+4+tc-5)/2,d)} ${P(tc-5,by-6)}L${P(tc+5,by-6)}Q${P((tx+96+tc+5)/2,d)} ${P(tx+96,by)}`;
+    o+=`<path class="fs" d="${dB(doms[0])}">${an(doms.map(dB),"0;.4;1")}</path>`;
+    const X=344;
+    o+=T(X,c3+24,"bolle",{sm:true})+LD(X-3,c3+21,tx+92,c3+29);
+    o+=T(X,c3+56,["aria","intrappolata"],{sm:true})+LD(X-3,c3+53,tx+85,c3+98-8);
+    o+=T(X,c3+96,["diaframma","piatto,","si muove poco"],{sm:true})+LD(X-3,c3+110,tx+92,c3+by-c3-2);
   }
 
   /* ===== stadi GOLD ===== */
-  const YG=Y3+H3+22;
-  o+=T(8,YG-6,"Stadi spirometrici GOLD: VEMS/CVF < 0,70 dopo broncodilatatore",{sm:true,b:true});
-  o+=T(8,YG+8,"VEMS in % del teorico",{sm:true});
-  [["GOLD 1",["≥ 80%","lieve"],""],["GOLD 2",["50-79%","moderata"],"warn"],["GOLD 3",["30-49%","grave"],"warn"],["GOLD 4",["< 30%","molto grave"],"alarm"]].forEach((g,i)=>{o+=FT.box(8+i*106,YG+16,100,46,g[0],g[1],g[2]);});
-  const H=YG+70;
-  return FT.svg(440,H,"Confronto tra polmone normale e BPCO su tre livelli. Bronchiolo in sezione: normale con parete sottile, epitelio con ciglia e lume ampio; nella BPCO parete spessa e infiammata con neutrofili e macrofagi, più cellule caliciformi, muco nel lume ristretto e ciglia rotte. Alveoli: normali con setti integri e fibre elastiche che tengono aperta la piccola via aerea; nella BPCO setti distrutti, alveoli confluiti in spazi grandi per l'elastasi dei neutrofili, e la piccola via aerea che si chiude in espirazione intrappolando l'aria. Polmone intero: normale con diaframma a cupola che si muove bene; nella BPCO polmoni iperinflati con bolle e diaframma piatto che si muove poco. In basso gli stadi spirometrici GOLD da 1 a 4 in base al VEMS in percentuale del teorico, con VEMS/CVF sotto 0,70 dopo broncodilatatore.",o);
+  const t4=c3+H3+22,c4=t4+24;
+  o+=`<path d="M10 ${t4}v-5M15 ${t4}v-9M20 ${t4}v-13" style="${ST(2.4)};fill:none"/>`;
+  o+=T(30,t4,"Stadi GOLD",{b:true})+T(432,t4,"VEMS/CVF < 0,70 dopo broncodilatatore",{a:"end",sm:true})+`<path class="lead" d="M8 ${t4+7}H432" style="stroke-opacity:.55"/>`;
+  o+=T(8,t4+22,"VEMS in % del teorico",{sm:true});
+  [["GOLD 1","≥ 80%","lieve",""],["GOLD 2","50-79%","moderata","warn"],["GOLD 3","30-49%","grave","warn"],["GOLD 4","< 30%","molto grave","alarm"]].forEach(([g,v,s,k],i)=>{
+    const x=8+i*108;
+    o+=`<rect class="${k?"fbx k-"+k:"eyrow"}" x="${x}" y="${c4+6}" width="100" height="52" rx="2"/>`;
+    o+=T(x+50,c4+22,g,{a:"middle",b:true})+T(x+50,c4+37,v,{a:"middle"})+T(x+50,c4+51,s,{a:"middle",sm:true});
+  });
+  const H=c4+66;
+  o+=`<path class="lead" d="M220 62V${c3+H3-4}" style="stroke-opacity:.45"/>`;
+  return FT.svg(440,H,"Confronto tra polmone normale e BPCO su tre livelli. Bronchiolo in sezione: normale con parete sottile, epitelio con ciglia e lume ampio; nella BPCO parete spessa e infiammata con neutrofili e macrofagi, più cellule caliciformi, muco nel lume ristretto e ciglia rade e rotte. Alveoli: normali con setti integri e fibre elastiche che tengono aperta la piccola via aerea; nella BPCO setti distrutti, alveoli confluiti in spazi grandi per l'elastasi dei neutrofili, e la piccola via aerea che si chiude in espirazione intrappolando l'aria. Polmone intero: normale con diaframma a cupola che si muove bene; nella BPCO polmoni iperinflati con bolle, aria intrappolata e diaframma piatto che si muove poco. In basso gli stadi spirometrici GOLD da 1 a 4 in base al VEMS in percentuale del teorico (GOLD 1 almeno 80%, lieve; GOLD 2 50-79%, moderata; GOLD 3 30-49%, grave; GOLD 4 sotto 30%, molto grave), con VEMS/CVF sotto 0,70 dopo broncodilatatore. In alto la fase del respiro, inspirazione ed espirazione, che anima il disegno.",o);
  })()},
 {id:"ossigeno-dispositivi",t:"Ossigeno: dispositivi, flussi e FiO₂",c:"Ogni dispositivo copre un intervallo diverso di FiO₂: si sceglie in base al bisogno e si titola sul bersaglio di SpO₂. La maschera di Venturi dà una FiO₂ precisa.",
  enc:["ossigenoterapia"],gl:[],st:/ossigen|respir|ipossi/i,
@@ -1467,42 +1503,103 @@ const FIGURE=[
    o+='<g class="ans'+(i?" s"+(i+1):"")+'"><rect x="8" y="'+(y-2)+'" width="424" height="68" rx="2" fill="none" stroke="var(--scrub)" stroke-width="2"/>'+count(y,s[1])+'</g>'});
   o+=FT.text(220,312,"schema illustrativo · a 25 mm/s un'onda F per quadrato grande",{a:"middle",sm:true});
   return FT.svg(440,320,"Tre strisce ECG schematiche di flutter atriale con onde F a circa 300 al minuto e QRS stretti: conduzione 2 a 1 a circa 150 al minuto, 3 a 1 a circa 100, 4 a 1 a circa 75",o)})()},
-{id:"fig-doms",t:"DOMS: la via biochimica dal muscolo al nocicettore",c:"Dopo una contrazione eccentrica in un esercizio insolito, la fibra muscolare e le cellule satelliti producono due mediatori lungo due vie: la bradichinina, che agisce sul recettore B2 e porta al fattore di crescita nervoso (NGF), e la COX-2, che porta al fattore neurotrofico gliale (GDNF). NGF e GDNF hanno un ruolo importante nell'iperalgesia meccanica, cioè dolore alla pressione e al movimento. Il danno della fibra muscolare non è necessario (può esserci): contano NGF e GDNF. In basso l'andamento nel tempo, schematico: il dolore sale, ha il picco tra circa 24 e 72 ore, poi cala. Schema ripreso dalla rassegna di Mizumura e Taguchi (J Physiol Sci 2016), in gran parte su modelli animali; disegno originale.",
+{id:"fig-doms",wide:1,t:"DOMS: due vie dal muscolo stirato al nocicettore",c:"A sinistra la fibra muscolare, con una cellula satellite accanto, dopo una contrazione eccentrica in un esercizio insolito (muscolo stirato mentre si contrae). Fibra e cellule satelliti producono due mediatori lungo due vie: la bradichinina, che agisce sul recettore B2 e porta al fattore di crescita nervoso (NGF), e la COX-2 (ciclo-ossigenasi 2), che porta al fattore neurotrofico di derivazione gliale (GDNF). NGF e GDNF raggiungono le terminazioni nervose del dolore (nocicettori) e portano all'iperalgesia meccanica, cioè dolore alla pressione e al movimento. Il danno della fibra non è necessario (può esserci): NGF e GDNF hanno un ruolo cruciale. In basso l'andamento nel tempo, schematico: il dolore compare dopo 12-48 ore, ha il picco tra 24 e 72 ore (a volte fino a 96) e poi cala in alcuni giorni. Dati soprattutto dal ratto (rassegna di Mizumura e Taguchi, J Physiol Sci 2016); disegno originale.",
  enc:["doms"],gl:[],st:/doms|dolore muscolare tardivo|indolenzimento/i,
  svg:(()=>{
   const T=FT.text,R=" repeatCount=\"indefinite\"";
+  const S="var(--scrub)",A="var(--amber)";
+  const mx=(c,p,b)=>`color-mix(in srgb,${c} ${p}%,${b||"var(--paper)"})`;
+  const nuc=`fill:${mx(S,65,"var(--ink)")};fill-opacity:.8`;
   let o="";
-  o+=FT.box(120,8,200,50,"Contrazione eccentrica",["esercizio insolito: muscolo stirato","mentre si contrae"]);
-  o+=FT.arrow(220,58,220,78);
-  o+=FT.box(60,78,320,44,"Fibra muscolare e cellule satelliti","producono due mediatori, su due vie");
-  /* vie */
-  o+=FT.arrow(120,122,120,146)+FT.arrow(320,122,320,146);
-  o+=FT.box(30,146,180,40,"Bradichinina","recettore B2");
-  o+=FT.box(230,146,180,40,"COX-2","ciclo-ossigenasi 2");
-  o+=FT.arrow(120,186,120,210)+FT.arrow(320,186,320,210);
-  o+=FT.box(30,210,180,40,"NGF","fattore di crescita nervoso");
-  o+=FT.box(230,210,180,40,"GDNF","fattore neurotrofico gliale");
-  o+=FT.arrow(120,250,120,278)+FT.arrow(320,250,320,278);
-  o+=FT.box(60,278,320,44,"Terminazioni nervose del dolore","nocicettori");
-  o+=FT.arrow(220,322,220,342);
-  o+=FT.box(60,342,320,44,"Iperalgesia meccanica","dolore alla pressione e al movimento","warn");
-  o+=FT.box(8,402,424,48,"Il danno della fibra non è necessario","può esserci, ma il dolore dipende da NGF e GDNF","info");
-  /* pallini animati lungo le due vie */
-  [120,320].forEach(x=>{[0,-2].forEach(b=>{
-    o+=`<circle class="fv anm" r="3.5"><animateMotion dur="4s" begin="${b}s"${R} calcMode="linear" path="M${x} 122V300"/></circle>`;
+  /* definizioni: volume della fibra (solo nel disegno anatomico) */
+  o+=`<defs><linearGradient id="dm-g" x1="0" x2="1" y1="0" y2="0"><stop offset="0" style="stop-color:${mx(S,36)}"/><stop offset=".42" style="stop-color:${mx(S,10)}"/><stop offset="1" style="stop-color:${mx(S,30)}"/></linearGradient>`
+   +`<pattern id="dm-p1" x="28" y="64" width="48" height="9" patternUnits="userSpaceOnUse"><rect width="48" height="1.6" style="fill:${S};fill-opacity:.45"/><rect y="2.6" width="48" height="4.4" style="fill:var(--ink);fill-opacity:.07"/></pattern>`
+   +`<pattern id="dm-p2" x="28" y="118" width="48" height="13" patternUnits="userSpaceOnUse"><rect width="48" height="1.6" style="fill:${S};fill-opacity:.45"/><rect y="4.4" width="48" height="4.4" style="fill:var(--ink);fill-opacity:.07"/></pattern>`
+   +`<pattern id="dm-p3" x="28" y="166" width="48" height="9" patternUnits="userSpaceOnUse"><rect width="48" height="1.6" style="fill:${S};fill-opacity:.45"/><rect y="2.6" width="48" height="4.4" style="fill:var(--ink);fill-opacity:.07"/></pattern>`
+   +`<clipPath id="dm-c"><rect x="28" y="64" width="48" height="140" rx="12"/></clipPath>`
+   +`<clipPath id="dm-ca"><rect x="30" y="420" width="183" height="100"/></clipPath><clipPath id="dm-cb"><rect x="213" y="420" width="220" height="100"/></clipPath></defs>`;
+  /* intestazioni di colonna */
+  const hd=(x,w,s)=>T(x,14,s,{sm:true,b:true,c:"dm-h"})+`<path class="lead" d="M${x} 21H${x+w}" style="stroke-opacity:.6"/>`;
+  o+=hd(8,150,"1 · Contrazione eccentrica")+hd(168,122,"2 · Due vie")+hd(300,132,"3 · Nocicettore");
+  /* 1. fibra muscolare */
+  o+=T(66,40,["esercizio insolito: muscolo stirato","mentre si contrae"],{sm:true});
+  o+=FT.arrow(52,62,52,44)+FT.arrow(52,206,52,224);
+  o+=`<g clip-path="url(#dm-c)"><rect x="28" y="64" width="48" height="140" fill="url(#dm-g)"/>`
+   +`<rect x="28" y="64" width="48" height="54" fill="url(#dm-p1)"/><rect x="28" y="118" width="48" height="48" fill="url(#dm-p2)"/><rect x="28" y="166" width="48" height="38" fill="url(#dm-p3)"/>`
+   +`<rect x="37" y="64" width="3" height="140" style="fill:var(--paper);fill-opacity:.4"/>`
+   +[[33,88],[33,142],[33,188]].map(p=>`<ellipse cx="${p[0]}" cy="${p[1]}" rx="3.4" ry="6.5" style="${nuc}"/>`).join("")
+   +`</g><rect x="28" y="64" width="48" height="140" rx="12" style="fill:none;stroke:${S};stroke-width:1.4"/>`;
+  o+=`<path class="lead" d="M24 118H20V166H24"/><text class="ft fsm" transform="rotate(-90 12 142)" x="12" y="142" text-anchor="middle">sarcomeri allungati</text>`;
+  /* cellula satellite accanto alla fibra */
+  o+=`<ellipse cx="83" cy="168" rx="9" ry="15" style="fill:${mx(S,30)};stroke:${S};stroke-width:1.3"/><ellipse cx="84" cy="168" rx="4.6" ry="8.6" style="${nuc}"/>`;
+  o+=`<path class="lead" d="M92 170H98"/>`+T(101,174,"cellula satellite",{sm:true});
+  o+=`<path class="lead" d="M34 228V198"/><circle cx="34" cy="198" r="1.8" style="fill:${S}"/>`+T(8,240,"fibra muscolare",{sm:true});
+  /* 3. terminazione nervosa (nocicettore) */
+  const nv=mx("var(--ink)",52);
+  o+=`<path d="M436 118H388" style="fill:none;stroke:${mx("var(--ink)",10)};stroke-width:8;stroke-linecap:round"/>`
+   +`<path d="M436 118H388M388 118C368 118 360 88 330 88H312M388 118C368 118 360 148 330 148H312M388 118H324" style="fill:none;stroke:${nv};stroke-width:2;stroke-linecap:round;stroke-linejoin:round"/>`
+   +`<path d="M436 118H394" style="fill:none;stroke:${nv};stroke-width:3.6;stroke-linecap:round"/>`;
+  /* alone di attivazione sui due apici */
+  [88,148].forEach(y=>{
+    o+=`<circle cx="312" cy="${y}" r="11" style="fill:${A};fill-opacity:.2"><animate attributeName="r" values="9;14;9" dur="2.4s"${R}/><animate attributeName="fill-opacity" values=".3;.1;.3" dur="2.4s"${R}/></circle>`;
+    const d=y<100?-1:1;
+    o+=`<path d="M318 ${y+d*11}l3 ${d*5}M306 ${y+d*11}l-3 ${d*5}" style="fill:none;stroke:${A};stroke-width:1.5;stroke-linecap:round"/>`;
+    o+=`<circle cx="312" cy="${y}" r="4.2" style="fill:${A};stroke:var(--paper);stroke-width:1.2"/>`;
+  });
+  o+=`<circle cx="324" cy="118" r="3.6" style="fill:${nv};stroke:var(--paper);stroke-width:1.2"/>`;
+  o+=T(300,40,["terminazioni nervose","del dolore (nocicettori)"],{sm:true});
+  o+=`<path class="lead" d="M376 53V108"/><circle cx="376" cy="113" r="1.8" style="fill:var(--muted)"/>`;
+  /* 2. le due vie */
+  const L1="M100 118C110 118 112 88 140 88H300",L2="M100 118C110 118 112 148 140 148H300";
+  const lane=d=>`<path d="${d}" style="fill:none;stroke:${S};stroke-width:1.5;stroke-linecap:round"/>`;
+  o+=`<path d="M76 112C88 112 92 118 100 118M91 158C99 154 98 124 100 118" style="fill:none;stroke:${S};stroke-width:1.5;stroke-linecap:round"/>`;
+  o+=lane(L1)+lane(L2);
+  const ah=(x,y)=>`<path d="M${x} ${y}l-6.5 -3.4v6.8z" style="fill:${S}"/>`;
+  [[180,88],[250,88],[300,88],[300,148],[250,148]].forEach(p=>o+=ah(p[0],p[1]));
+  const nd=(x,y)=>`<circle cx="${x}" cy="${y}" r="4.6" style="fill:${mx(S,18)};stroke:${S};stroke-width:1.5"/>`;
+  const big=(x,y)=>`<circle cx="${x}" cy="${y}" r="7" style="fill:${S};stroke:var(--paper);stroke-width:1.5"/>`;
+  o+=nd(140,88)+nd(140,148)+big(270,88)+big(270,148);
+  o+=`<path d="M206 81.5l6.5 6.5l-6.5 6.5l-6.5 -6.5z" style="fill:${mx(S,18)};stroke:${S};stroke-width:1.5;stroke-linejoin:round"/>`;
+  o+=T(140,74,"Bradichinina",{a:"middle",b:true})+T(206,74,"B2",{a:"middle",b:true})+T(206,111,"recettore",{a:"middle",sm:true})+T(270,72,"NGF",{a:"middle",b:true})
+   +T(140,132,"COX-2",{a:"middle",b:true})+T(270,132,"GDNF",{a:"middle",b:true});
+  /* pallini lungo le due vie */
+  [L1,L2].forEach(d=>{[0,-1.4,-2.8].forEach(b=>{
+    o+=`<circle class="anm" r="3" style="fill:${S};stroke:var(--paper);stroke-width:1"><animateMotion dur="4.2s" begin="${b}s"${R} calcMode="linear" path="${d}"/></circle>`;
   });});
+  /* iperalgesia */
+  o+=FT.arrow(366,168,366,184,{});
+  o+=FT.box(300,186,132,62,["Iperalgesia","meccanica"],["dolore alla pressione","e al movimento"],"warn");
+  /* legenda delle sigle */
+  const ky=262;
+  o+=`<path class="lead" d="M8 ${ky}H432" style="stroke-opacity:.6"/>`;
+  [["B2","recettore della bradichinina"],["NGF","fattore di crescita nervoso"],["COX-2","ciclo-ossigenasi 2"],["GDNF","fattore neurotrofico di derivazione gliale"]].forEach((r,i)=>{
+    const y=ky+i*16;
+    o+=T(8,y+12,r[0],{sm:true,b:true,c:"dm-k"})+T(60,y+12,r[1],{sm:true});
+    if(i<3)o+=`<path class="lead" d="M8 ${y+16}H432" style="stroke-opacity:.25"/>`;
+  });
+  /* messaggio chiave */
+  o+=`<rect class="fbx k-info" x="8" y="338" width="424" height="58" rx="2"/><rect x="8" y="338" width="4" height="58" style="fill:${S}"/>`;
+  o+=T(24,358,"Il danno della fibra non è necessario",{b:true});
+  o+=T(24,374,["può esserci, ma NGF e GDNF hanno un ruolo cruciale","dati dal ratto · rassegna di Mizumura e Taguchi, 2016"],{sm:true});
   /* linea temporale */
-  o+=T(8,466,"Andamento del dolore nel tempo (schematico)",{sm:true,b:true});
-  const X0=40,Y0=574,W=380,H=86;
-  o+=`<rect class="eyrow" x="170" y="${Y0-H+4}" width="120" height="${H-4}"/>`;
-  o+=FT.axes(X0,Y0,W,H,"tempo","dolore");
-  o+=`<path class="lead" d="M170 ${Y0}V${Y0-H+4}M290 ${Y0}V${Y0-H+4}"/>`;
-  o+=FT.curve([[X0+4,Y0-2],[100,Y0-6],[150,Y0-30],[200,Y0-48],[230,Y0-52]],"fs");
-  o+=FT.curve([[230,Y0-52],[290,Y0-42],[350,Y0-18],[412,Y0-4]],"fl dash").replace('class="fl dash"','class="fl dash" style="fill:none"');
-  o+=T(230,Y0-H+14,"picco",{a:"middle",sm:true});
-  o+=T(X0+8,Y0+16,"0 (esercizio)",{a:"middle",sm:true})+T(170,Y0+16,"24 h",{a:"middle",sm:true})+T(290,Y0+16,"72 h",{a:"middle",sm:true});
-  
-  return FT.svg(440,Y0+24,"Schema della via biochimica dei DOMS. Una contrazione eccentrica in un esercizio insolito stimola la fibra muscolare e le cellule satelliti, che producono due mediatori lungo due vie: bradichinina con recettore B2 che porta al fattore di crescita nervoso NGF, e COX-2 che porta al fattore neurotrofico gliale GDNF. NGF e GDNF hanno un ruolo importante nell'iperalgesia meccanica, e producono iperalgesia meccanica, cioè dolore alla pressione e al movimento. Il danno della fibra muscolare non è necessario, può esserci. In basso una linea temporale schematica: dolore che sale dopo l'esercizio, picco tra circa 24 e 72 ore, poi calo tratteggiato.",o);
+  const X=h=>40+h*3.6,B=500,TP=438;
+  o+=T(8,418,"Andamento del dolore nel tempo (schematico)",{sm:true,b:true});
+  o+=`<rect x="${X(24)}" y="${TP}" width="${X(72)-X(24)}" height="${B-TP}" style="fill:${A};fill-opacity:.11"/>`;
+  o+=`<path class="dash" d="M${X(24)} ${B}V${TP}M${X(72)} ${B}V${TP}" style="stroke-opacity:.6"/>`;
+  o+=`<path class="fl" d="M40 ${TP-2}V${B}H428" style="stroke-width:1.2"/>`;
+  [0,12,24,48,72,96].forEach(h=>{o+=`<path class="lead" d="M${X(h)} ${B}v4"/>`+T(X(h),B+16,h?h+" h":"0",{a:"middle",sm:true});});
+  o+=T(46,TP+8,"dolore",{sm:true})+T(48,B-12,"esercizio",{sm:true});
+  const all=FT.curve([[40,B-1],[X(12),B-4],[X(24),B-22],[X(48),B-54],[X(72),B-38],[X(96),B-13],[424,B-3]],"fw");
+  const dd=all.match(/d="([^"]+)"/)[1];
+  o+=`<path d="${dd}L424 ${B}L40 ${B}Z" style="fill:${A};fill-opacity:.1;stroke:none"/>`;
+  o+=`<g clip-path="url(#dm-ca)"><path class="fw" d="${dd}"/></g><g clip-path="url(#dm-cb)"><path class="fw dash" d="${dd}" style="stroke:${A}"/></g>`;
+  o+=T(430,TP+22,["poi cala in","alcuni giorni"],{a:"end",sm:true});
+  /* intervalli */
+  const br=(a,b,y,col,dsh)=>`<path d="M${X(a)} ${y-3}V${y}H${X(b)}V${y-3}" style="fill:none;stroke:${col};stroke-width:1.3"/>`;
+  o+=br(12,48,B+30,"var(--muted)")+T((X(12)+X(48))/2,B+44,"comparsa: 12–48 h",{a:"middle",sm:true});
+  o+=br(24,72,B+56,A)+`<path d="M${X(72)} ${B+56}H${X(96)}" style="fill:none;stroke:${A};stroke-width:1.3;stroke-dasharray:3 3"/><path d="M${X(96)} ${B+53}V${B+56}" style="stroke:${A};stroke-width:1.3"/>`
+   +T((X(24)+X(96))/2,B+70,"picco: 24–72 h, a volte fino a 96 h",{a:"middle",sm:true});
+  return FT.svg(440,B+80,"Schema dei DOMS in tre colonne. Uno: contrazione eccentrica in un esercizio insolito, cioè muscolo stirato mentre si contrae; si disegna una fibra muscolare a strisce con nuclei, un segmento di sarcomeri allungati, e accanto una cellula satellite. Due: fibra e cellule satelliti producono due mediatori lungo due vie. Prima via: bradichinina, recettore B2, fattore di crescita nervoso NGF. Seconda via: COX-2 (ciclo-ossigenasi 2), fattore neurotrofico di derivazione gliale GDNF. Tre: le due vie raggiungono le terminazioni nervose del dolore (nocicettori), che si attivano e portano all'iperalgesia meccanica, cioè dolore alla pressione e al movimento. Messaggio chiave: il danno della fibra non è necessario, può esserci; NGF e GDNF hanno un ruolo cruciale (dati dal ratto, rassegna di Mizumura e Taguchi 2016). In basso la linea temporale schematica: il dolore compare dopo 12-48 ore dall'esercizio, ha il picco tra 24 e 72 ore, a volte fino a 96, poi cala in alcuni giorni.",o);
  })()},
 {id:"fig-encefalo-regioni",t:"Encefalo: le grandi regioni e che cosa fanno",c:"Sezione sagittale mediana schematica, fronte a sinistra. I colori raggruppano le regioni per famiglia: verde e azzurro il telencefalo (corteccia con i quattro lobi, nuclei della base, ippocampo), rosso il diencefalo (talamo, ipotalamo con l'ipofisi), viola e arancio il tronco encefalico (mesencefalo, ponte, bulbo), oliva il cervelletto. Il lobo temporale, i nuclei della base e l'ippocampo stanno di lato alla linea mediana: sono accennati. Sotto il bulbo continua il midollo spinale.",
  enc:["encefalo-regioni","sistema-nervoso"],gl:["Talamo","Ipotalamo","Cervelletto","Tronco encefalico"],st:/encefal|talam|cervellet|tronco|ipotalam|regioni cerebr/i,
