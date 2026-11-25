@@ -787,6 +787,11 @@ h1,h2{color:color-mix(in srgb,var(--ink) 88%,var(--va))}
 .enc-area{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:12px;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--c);box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
 .enc-area:hover,.enc-area:focus-visible{transform:translateY(-2px);border-color:var(--c)}
 .enc-area[aria-pressed="true"]{background:color-mix(in srgb,var(--c) 10%,var(--paper))}
+.enc-cats{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--ink) 3%,var(--paper))}
+.enc-cats label{display:flex;flex-direction:column;gap:4px;flex:1 1 220px;min-width:0}
+.enc-cats label span{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.enc-cats select{width:100%;text-align:left}
+.enc-cats .enc-path{flex:1 1 100%;margin:0;color:var(--muted)}
 .enc-area b{font-family:var(--f-display);font-size:15px;line-height:1.25}
 .enc-area span{font-size:12.5px;color:var(--muted)}
 .enc-list{display:flex;flex-direction:column;gap:10px}
@@ -1620,6 +1625,7 @@ body::after{display:none}
 <script src="figtpl.js"></script>
 <script src="figure.js"></script>
 <script src="simulatori.js"></script>
+<script src="categorie.js"></script>
 <script src="palestre.js"></script>
 <script src="ecg12.js"></script>
 <script>
@@ -4245,7 +4251,17 @@ function enciclopedia(v){
   const dirT=area==="diritto"&&DT[state.dirTipo]?state.dirTipo:"";
   const ET=typeof ES_TIPI!=="undefined"?ES_TIPI:{},EX=typeof ES_EXTRA!=="undefined"?ES_EXTRA:{};
   const esT=area==="esami"&&ET[state.esTipo]?state.esTipo:"";
-  const list=ENCY.filter(e=>(area==="tutte"||e.a===area)&&(!dirT||e.k===dirT||(DX[e.id]&&DX[e.id][0]===dirT))&&(!esT||e.k===esT));
+  const CT=(typeof ENC_CAT!=="undefined"&&ENC_CAT[area])||null;
+  let catId=CT&&state.encCat&&CT.cat.some(c=>c.id===state.encCat)?state.encCat:"";
+  if(fe&&CT){const lf=encLeaf(fe.id);catId=lf?lf[0]:"";state.encSub=lf&&lf[1]||""}
+  const catO=catId?CT.cat.find(c=>c.id===catId):null;
+  const subO=catO&&catO.sub&&state.encSub?catO.sub.find(s=>s.id===state.encSub):null;
+  state.encCat=catId;state.encSub=subO?subO.id:"";
+  const catIds=!CT||!catO?null:subO?subO.v:(catO.sub?catO.sub.flatMap(s=>s.v):catO.v);
+  const catN=c=>c.sub?c.sub.reduce((a,s)=>a+s.v.length,0):c.v.length;
+  const catUI=CT?`<div class="enc-cats" role="group" aria-label="Categorie dell'area"><label><span>Categoria</span><select class="btn" id="enc-cat"><option value="">Tutte le categorie (${CT.cat.reduce((a,c)=>a+catN(c),0)})</option>${CT.cat.map(c=>`<option value="${c.id}"${c.id===catId?" selected":""}>${esc(c.n)} (${catN(c)})</option>`).join("")}</select></label>${catO&&catO.sub?`<label><span>Sottocategoria</span><select class="btn" id="enc-sub"><option value="">Tutte (${catN(catO)})</option>${catO.sub.map(s=>`<option value="${s.id}"${subO&&s.id===subO.id?" selected":""}>${esc(s.n)} (${s.v.length})</option>`).join("")}</select></label>`:""}<p class="enc-path small">${esc((EAREE[area]||{}).n||"")}${catO?` › ${esc(catO.n)}`:""}${subO?` › ${esc(subO.n)}`:""} · ${catIds?catIds.length:list0n()} voci</p></div>`:"";
+  function list0n(){return ENCY.filter(e=>e.a===area).length}
+  const list=ENCY.filter(e=>(area==="tutte"||e.a===area)&&(!dirT||e.k===dirT||(DX[e.id]&&DX[e.id][0]===dirT))&&(!esT||e.k===esT)&&(!catIds||catIds.includes(e.id)));
   const esIdx=()=>{const all=ENCY.filter(e=>e.a==="esami").map(e=>({id:e.id,k:e.k,s:e.s,t:e.t,x:e.x})).concat(Object.entries(EX).filter(([id])=>ENC_BY[id]).map(([id,x])=>({id,k:x[0],s:x[1],t:ENC_BY[id].t,ext:1})));
     const grp=Object.keys(ET).filter(k=>!esT||k===esT).map(k=>[k,all.filter(x=>x.k===k)]).filter(g=>g[1].length);
     return `<section class="sheet dir-ix es-ix"><div class="dir-ix-h"><div><span class="eyebrow">Esami ematici e di laboratorio</span><h3 style="margin:2px 0 0">Indice degli esami</h3></div><span class="small">${all.length} schede · valori indicativi: fanno fede gli intervalli del tuo laboratorio · <span class="es-info">informativo</span> = esami specialistici, non usati negli esercizi</span></div>
@@ -4266,6 +4282,7 @@ function enciclopedia(v){
   <div id="enc-res" hidden></div>
   <div id="enc-main" style="display:flex;flex-direction:column;gap:16px">
     <div class="enc-areas qk-grid">${qkTile("tutte",ENCY.length,area==="tutte","area")}${Object.keys(EAREE).map(k=>qkTile(k,counts[k]||0,area===k,"area")).join("")}</div>
+    ${catUI}
     ${area==="ecg"||area==="tutte"?`<a class="sheet gym-cta" href="#ecg-esercizi"><span class="eyebrow">Novità</span><b>Palestra ECG: esercizi di lettura</b><span class="small">Strisce sempre nuove da leggere con metodo (frequenza, ritmo, P, QRS, diagnosi) con compasso per misurare gli intervalli</span></a><a class="sheet gym-cta" href="#ecg12"><span class="eyebrow">Novità</span><b>ECG a 12 derivazioni</b><span class="small">Tracciati completi su carta e su monitor: 16 quadri commentati (infarti, blocchi di branca, aritmie, elettroliti) ed esercizi di lettura</span></a>`:""}
     ${area==="emerg"||area==="tutte"?`<a class="sheet gym-cta" href="#vent-esercizi"><span class="eyebrow">Novità</span><b>Palestra ventilatore e capnografia</b><span class="small">Il monitor della terapia intensiva: PEEP, picco e plateau, driving pressure, curve, allarmi e capnogrammi</span></a><a class="sheet gym-cta" href="#casi-integrati"><span class="eyebrow">Novità</span><b>Casi integrati</b><span class="small">Emogas, esami del sangue, ECG, ventilatore e capnografia dello stesso paziente, in più parti</span></a>`:""}
     <a class="sheet gym-cta mn-cta" href="#mnemoniche"><b>Per ricordare: acronimi e frasi mnemoniche</b><span class="small">${Object.values(MN).reduce((a,l)=>a+l.length,0)} trucchi per memorizzare (regola delle 7 G, ABCDE, SBAR, regola del 15, del 9…), raccolti in un'unica pagina e dentro ogni voce</span></a>
@@ -4281,10 +4298,13 @@ function enciclopedia(v){
     root.querySelectorAll('a[href^="#voce-"]').forEach(a=>a.onclick=ev=>{const id=a.getAttribute("href").slice(6);if((location.hash||"")==="#voce-"+id){ev.preventDefault();route()}});
   };
   bind(app);
+  const ec=$("#enc-cat"),es=$("#enc-sub");
+  if(ec)ec.onchange=()=>{state.encCat=ec.value;state.encSub="";enciclopedia("enciclopedia");const n=$("#enc-cat");if(n)n.focus()};
+  if(es)es.onchange=()=>{state.encSub=es.value;enciclopedia("enciclopedia");const n=$("#enc-sub");if(n)n.focus()};
   app.querySelectorAll("[data-dt]").forEach(b=>b.onclick=()=>{state.dirTipo=b.dataset.dt;enciclopedia("enciclopedia")});
   app.querySelectorAll("[data-et]").forEach(b=>b.onclick=()=>{state.esTipo=b.dataset.et;enciclopedia("enciclopedia")});
-  app.querySelectorAll("[data-goarea]").forEach(a=>a.onclick=ev=>{ev.preventDefault();state.encArea=a.dataset.goarea;state.dirTipo="";state.esTipo="";LS.set("encArea",state.encArea);enciclopedia("enciclopedia");decorateHead("enciclopedia");window.scrollTo({top:0})});
-  app.querySelectorAll("[data-area]").forEach(b=>b.onclick=()=>{state.dirTipo="";state.encArea=b.dataset.area;LS.set("encArea",state.encArea);if((location.hash||"")!=="#enciclopedia")location.hash="enciclopedia";else{enciclopedia("enciclopedia");decorateHead("enciclopedia")}});
+  app.querySelectorAll("[data-goarea]").forEach(a=>a.onclick=ev=>{ev.preventDefault();state.encArea=a.dataset.goarea;state.encCat="";state.encSub="";state.dirTipo="";state.esTipo="";LS.set("encArea",state.encArea);enciclopedia("enciclopedia");decorateHead("enciclopedia");window.scrollTo({top:0})});
+  app.querySelectorAll("[data-area]").forEach(b=>b.onclick=()=>{state.dirTipo="";state.encCat="";state.encSub="";state.encArea=b.dataset.area;LS.set("encArea",state.encArea);if((location.hash||"")!=="#enciclopedia")location.hash="enciclopedia";else{enciclopedia("enciclopedia");decorateHead("enciclopedia")}});
   $("#enc-search").oninput=ev=>{
     const q=normTxt(ev.target.value.trim());const res=$("#enc-res"),main=$("#enc-main");
     if(q.length<2){res.hidden=true;main.hidden=false;return}
@@ -4491,6 +4511,8 @@ let a11yT=0;new MutationObserver(()=>{clearTimeout(a11yT);a11yT=setTimeout(a11yL
 const AREA_UI={tutte:["📚","Tutte","#1f63d6"],fond:["📘","Fondamenti","#3b82f6"],rel:["💬","Relazione","#06b6d4"],etica:["🤝","Etica","#f59e0b"],legale:["⚖️","Medicina legale","#8b5cf6"],org:["🏥","Servizi sanitari","#0ea5e9"],igiene:["🧼","Igiene","#14b8a6"],ricerca:["📊","Ricerca ed EBN","#6366f1"],anat:["🦴","Anatomia","#64748b"],farm:["💊","Farmacologia","#ec4899"],ecg:["📈","ECG","#ef4444"],emerg:["🚑","Emergenza","#f43f5e"],med:["🩺","Medicina","#2563eb"],chir:["🩹","Chirurgia","#f97316"],infett:["🦠","Infettivologia","#22c55e"],onco:["🎗️","Oncologia e palliative","#eab308"],mat:["👶","Materno-infantile","#f472b6"],psi:["🧠","Salute mentale","#a855f7"],riab:["♿","Riabilitazione e geriatria","#0891b2"],nutr:["🥗","Nutrizione","#84cc16"],diagn:["🔬","Diagnostica","#0d9488"],codice:["📜","Codice 2025","#b45309"],lavoro:["👷","Medicina del lavoro","#f59e0b"],diritto:["🏛️","Diritto","#7c3aed"],esami:["🩸","Esami di laboratorio","#dc2626"],eco:["📡","Ecografia","#0284c7"]};
 const areaUI=k=>AREA_UI[k]||["📄",(EAREE[k]||{}).n||k,"#64748b"];
 const EMERG_QK=[["bls-acls","❤️‍🩹","Arresto cardiaco","BLS e ALS"],["stemi","🫀","STEMI","Sindrome coronarica",1],["sepsi","🦠","Shock settico","Sepsi e bundle"],["anafilassi","🐝","Anafilassi","Adrenalina IM"],["ictus","🧠","Ictus","Tempo è cervello"],["trauma","🚑","Trauma","ABCDE"],["ipoglicemia","🍬","Ipoglicemia","Regola del 15"],["chetoacidosi","🧪","Chetoacidosi","Liquidi e insulina"]];
+let ENC_LEAF=null;
+function encLeaf(id){if(!ENC_LEAF){ENC_LEAF={};if(typeof ENC_CAT!=="undefined")Object.values(ENC_CAT).forEach(A=>A.cat.forEach(c=>{(c.v||[]).forEach(i=>ENC_LEAF[i]=[c.id,""]);(c.sub||[]).forEach(s=>s.v.forEach(i=>ENC_LEAF[i]=[c.id,s.id]))}))}return ENC_LEAF[id]||null}
 function qkTile(k,n,pressed,attr){const u=areaUI(k);return `<button class="qk-tile${attr==="area"?" enc-area":""}" type="button" ${attr==="area"?`data-area="${k}" aria-pressed="${pressed}"`:`data-qarea="${k}"`} title="${esc(k==="tutte"?"Tutte le aree":(EAREE[k]||{}).n||u[1])}"><span class="qk-ic" style="--tc:${u[2]}" aria-hidden="true">${u[0]}<em class="qk-badge">${n}</em></span><b>${esc(u[1])}</b></button>`}
 function quickHome(){
   const em=EMERG_QK.filter(x=>ENC_BY[x[0]]);

@@ -5,7 +5,7 @@
    Esce con codice 1 se qualcosa va corretto. */
 const fs=require("fs"),vm=require("vm"),path=require("path"),cp=require("child_process");
 const root=path.join(__dirname,"..");
-const FILES=["enciclopedia.js","glossario.js","encquiz.js","figtpl.js","figure.js","simulatori.js"];
+const FILES=["enciclopedia.js","glossario.js","encquiz.js","figtpl.js","figure.js","simulatori.js","categorie.js"];
 const err=[];
 const ctx={console};ctx.globalThis=ctx;vm.createContext(ctx);
 for(const f of FILES){
@@ -21,6 +21,13 @@ if(!err.length){
     if(!e.id||!e.t||!e.d)err.push(`voce senza id, titolo o descrizione: ${e.id||e.t}`);
     if(!AREE[e.a])err.push(`${e.id}: area sconosciuta "${e.a}"`);
     for(const r of e.r||[])if(!ids.has(r))err.push(`${e.id}: collegamento a voce inesistente "${r}"`);
+  }
+  const CAT=get("ENC_CAT")||{};
+  for(const [a,A] of Object.entries(CAT)){
+    if(!AREE[a]){err.push(`categorie: area sconosciuta "${a}"`);continue}
+    const cnt={};const leaf=(v,w)=>{if(!Array.isArray(v)||!v.length)err.push(`categorie ${a}/${w}: nessuna voce`);for(const i of v||[]){if(!ids.has(i))err.push(`categorie ${a}/${w}: voce inesistente "${i}"`);cnt[i]=(cnt[i]||0)+1}};
+    for(const c of A.cat){if(!c.id||!c.n)err.push(`categorie ${a}: categoria senza id o nome`);if(c.sub)for(const s of c.sub)leaf(s.v,c.id+"/"+s.id);else leaf(c.v,c.id)}
+    for(const e of ENC)if(e.a===a&&cnt[e.id]!==1)err.push(`categorie ${a}: la voce "${e.id}" compare ${cnt[e.id]||0} volte (deve essere 1)`);
   }
   QUIZ.forEach((q,i)=>{
     if(!ids.has(q[0]))err.push(`quiz ${i+1}: voce inesistente "${q[0]}"`);

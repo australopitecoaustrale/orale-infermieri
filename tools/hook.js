@@ -9,7 +9,7 @@ let inp="";process.stdin.on("data",d=>inp+=d).on("end",()=>{
   const mode=process.argv[2],args=[path.join(__dirname,"verifica.js")];
   if(mode==="modifica"){
     const f=path.basename((j.tool_input&&j.tool_input.file_path)||"");
-    if(!["enciclopedia.js","glossario.js","encquiz.js","figure.js","simulatori.js","sw.js"].includes(f))process.exit(0);
+    if(!["enciclopedia.js","glossario.js","encquiz.js","figure.js","simulatori.js","categorie.js","sw.js"].includes(f))process.exit(0);
   }else if(mode==="fine"){
     if(j.stop_hook_active)process.exit(0);
     args.push("--cache");
