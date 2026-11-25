@@ -3213,7 +3213,7 @@ svg:FT.svg(440,490,"Catena della sindrome di Takotsubo in quattro passi: stress 
 <text class="ft" x="28" y="254">37</text><text class="ft" x="28" y="354">20</text>
 <path class="lead" d="M60 250 L340 250" style="stroke-width:2"/>
 <text class="ft" x="200" y="242">cervello: 37 °C</text>
-<path class="fv" d="M60 255.88235294117646 L100 255.88235294117646 L130 350 L170 350 L210 255.88235294117646 L340 250" style="stroke-width:2.4;fill:none"/>
+<path d="M60 255.88235294117646 L100 255.88235294117646 L130 350 L170 350 L210 255.88235294117646 L340 250" style="stroke:var(--scrub);stroke-width:2.6;fill:none"/>
 <circle class="fv anm" r="5" cx="0" cy="0"><animateMotion dur="7s" repeatCount="indefinite" begin="-1s" path="M60 255.88235294117646 L100 255.88235294117646 L130 350 L170 350 L210 255.88235294117646 L340 250"/></circle>
 <text class="ft fsm" x="60" y="384">Linea sopra: cervello. Linea che scende: palato.</text>
 <text class="ft" x="18" y="404">Ora 0: palato 36 °C, cervello 37 °C.</text>
