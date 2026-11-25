@@ -898,7 +898,7 @@ GLOSS.push(
 ["Acidi grassi a catena corta","n","Acetato, propionato e butirrato, prodotti dalla fermentazione batterica delle fibre nel colon; il butirrato nutre i colonociti.","Short-chain fatty acids (SCFA)","fibre-microbiota"],
 ["Fibra alimentare","n","Carboidrati vegetali non digeriti nell'intestino tenue, fermentati in parte nel colon; si distinguono in solubili e insolubili.","Dietary fibre","fibre-microbiota"],
 ["NOVA","d","Classificazione degli alimenti in quattro gruppi in base al grado di lavorazione; il gruppo 4 comprende gli ultra-processati.","NOVA food classification","ultraprocessati-zuccheri"],
-["Zuccheri liberi","n","Monosaccaridi e disaccaridi aggiunti agli alimenti, più quelli di miele, sciroppi e succhi di frutta; esclusi quelli di frutta e latte interi.","Free sugars","ultraprocessati-zuccheri"],
+["Zuccheri liberi","n","Monosaccaridi e disaccaridi aggiunti agli alimenti da produttore, cuoco o consumatore, più quelli presenti in miele, sciroppi, succhi di frutta e concentrati; esclusi gli zuccheri naturalmente presenti in frutta e verdura fresche e nel latte.","Free sugars","ultraprocessati-zuccheri"],
 ["Digiuno intermittente","d","Schemi alimentari che alternano periodi di digiuno e di alimentazione (giorni alterni, 5:2, finestra oraria).","Intermittent fasting","digiuno-intermittente"],
 ["Restrizione calorica continua","d","Riduzione costante dell'apporto energetico giornaliero, usata come confronto negli studi sul digiuno intermittente.","Continuous energy restriction","digiuno-intermittente"],
 ["25-idrossivitamina D","t","Forma circolante della vitamina D usata per valutarne lo stato nel sangue.","25-hydroxyvitamin D [25(OH)D]","vitamina-d-calcio-osteoporosi"],
